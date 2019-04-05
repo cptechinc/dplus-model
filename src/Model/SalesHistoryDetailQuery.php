@@ -1,9 +1,9 @@
 <?php
 
-use Base\SoDetHist as BaseSoDetHist;
+use Base\SoDetHistQuery as BaseSoDetHistQuery;
 
 /**
- * Skeleton subclass for representing a row from the 'so_det_hist' table.
+ * Skeleton subclass for performing query and update operations on the 'so_det_hist' table.
  *
  *
  *
@@ -12,7 +12,6 @@ use Base\SoDetHist as BaseSoDetHist;
  * long as it does not already exist in the output directory.
  *
  */
-class SoDetHist extends BaseSoDetHist
-{
+class SalesHistoryDetailQuery extends BaseSoDetHistQuery {
 
 }
