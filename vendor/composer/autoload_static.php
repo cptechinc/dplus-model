@@ -20,14 +20,14 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Map\\SoDetHistTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoDetHistTableMap.php',
         'Map\\SoDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoDetailTableMap.php',
         'Map\\SoHeaderTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoHeaderTableMap.php',
-        'SoDetHist' => __DIR__ . '/../..' . '/src/Model/SoDetHist.php',
-        'SoDetHistQuery' => __DIR__ . '/../..' . '/src/Model/SoDetHistQuery.php',
-        'SoDetail' => __DIR__ . '/../..' . '/src/Model/SoDetail.php',
-        'SoDetailQuery' => __DIR__ . '/../..' . '/src/Model/SoDetailQuery.php',
+        'SalesHistoryDetail' => __DIR__ . '/../..' . '/src/Model/SalesHistoryDetail.php',
+        'SalesHistoryDetailQuery' => __DIR__ . '/../..' . '/src/Model/SalesHistoryDetailQuery.php',
+        'SalesOrder' => __DIR__ . '/../..' . '/src/Model/SalesOrder.php',
+        'SalesOrderDetail' => __DIR__ . '/../..' . '/src/Model/SalesOrderDetail.php',
+        'SalesOrderDetailQuery' => __DIR__ . '/../..' . '/src/Model/SalesOrderDetailQuery.php',
+        'SalesOrderQuery' => __DIR__ . '/../..' . '/src/Model/SalesOrderQuery.php',
         'SoHeadHist' => __DIR__ . '/../..' . '/src/Model/SoHeadHist.php',
         'SoHeadHistQuery' => __DIR__ . '/../..' . '/src/Model/SoHeadHistQuery.php',
-        'SoHeader' => __DIR__ . '/../..' . '/src/Model/SoHeader.php',
-        'SoHeaderQuery' => __DIR__ . '/../..' . '/src/Model/SoHeaderQuery.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -12,7 +12,6 @@ use Base\SoHeader as BaseSoHeader;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeader extends BaseSoHeader
-{
+class SalesOrder extends BaseSoHeader {
 
 }

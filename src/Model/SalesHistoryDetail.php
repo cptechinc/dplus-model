@@ -4,6 +4,7 @@ use Base\SoDetHist as BaseSoDetHist;
 
 use Dplus\Model\MagicMethodTraits;
 use Dplus\Model\ThrowErrorTrait;
+
 /**
  * Skeleton subclass for representing a row from the 'so_det_hist' table.
  *
