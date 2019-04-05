@@ -1,0 +1,11 @@
+
+{
+	"name": "cptechinc/dplus-model",
+    "type": "library",
+    "description": "Classes for Dplus Database Tables",
+    "keywords": ["dplus-model", "quote", "cart", "cartquote", "detail", "qnote"],
+    "homepage": "http://github.com/cptechinc/dplus-model",
+	"autoload": {
+		"classmap": ["src/", "src/Model/"]
+	}
+}
