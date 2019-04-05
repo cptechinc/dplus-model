@@ -2,7 +2,7 @@
 
 namespace Base;
 
-use \SoDetailQuery as ChildSoDetailQuery;
+use \SalesOrderDetail as ChildSoDetailQuery;
 use \Exception;
 use \PDO;
 use Map\SoDetailTableMap;
