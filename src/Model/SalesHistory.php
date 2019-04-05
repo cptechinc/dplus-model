@@ -12,7 +12,7 @@ use Base\SoHeadHist as BaseSoHeadHist;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeadHist extends BaseSoHeadHist
-{
-
+class SalesHistory extends BaseSoHeadHist {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

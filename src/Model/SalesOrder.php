@@ -13,5 +13,6 @@ use Base\SoHeader as BaseSoHeader;
  *
  */
 class SalesOrder extends BaseSoHeader {
-
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
