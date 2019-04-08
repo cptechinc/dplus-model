@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoDetail as BaseSoDetail;
+use Base\SalesOrderDetail as BaseSalesOrderDetail;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for representing a row from the 'so_detail' table.
@@ -12,7 +15,7 @@ use Base\SoDetail as BaseSoDetail;
  * long as it does not already exist in the output directory.
  *
  */
-class SoDetail extends BaseSoDetail
-{
-
+class SalesOrderDetail extends BaseSalesOrderDetail {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

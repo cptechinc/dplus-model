@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoHeaderQuery as BaseSoHeaderQuery;
+use Base\SalesOrderQuery as BaseSalesOrderQuery;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'so_header' table.
@@ -12,7 +15,7 @@ use Base\SoHeaderQuery as BaseSoHeaderQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeaderQuery extends BaseSoHeaderQuery
-{
-
+class SalesOrderQuery extends BaseSalesOrderQuery {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

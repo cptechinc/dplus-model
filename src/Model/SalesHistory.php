@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoHeadHist as BaseSoHeadHist;
+use Base\SalesHistory as BaseSalesHistory;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for representing a row from the 'so_head_hist' table.
@@ -12,7 +15,7 @@ use Base\SoHeadHist as BaseSoHeadHist;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeadHist extends BaseSoHeadHist
-{
-
+class SalesHistory extends BaseSalesHistory {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

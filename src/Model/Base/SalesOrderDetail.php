@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \SoDetailQuery as ChildSoDetailQuery;
+use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
 use \Exception;
 use \PDO;
-use Map\SoDetailTableMap;
+use Map\SalesOrderDetailTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class SoDetail implements ActiveRecordInterface
+abstract class SalesOrderDetail implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\SoDetailTableMap';
+    const TABLE_MAP = '\\Map\\SalesOrderDetailTableMap';
 
 
     /**
@@ -1069,7 +1069,7 @@ abstract class SoDetail implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\SoDetail object.
+     * Initializes internal state of Base\SalesOrderDetail object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -1166,9 +1166,9 @@ abstract class SoDetail implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>SoDetail</code> instance.  If
-     * <code>obj</code> is an instance of <code>SoDetail</code>, delegates to
-     * <code>equals(SoDetail)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>SalesOrderDetail</code> instance.  If
+     * <code>obj</code> is an instance of <code>SalesOrderDetail</code>, delegates to
+     * <code>equals(SalesOrderDetail)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -1234,7 +1234,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|SoDetail The current object, for fluid interface
+     * @return $this|SalesOrderDetail The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -2709,7 +2709,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oehdnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
@@ -2719,7 +2719,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oehdnbr !== $v) {
             $this->oehdnbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEHDNBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEHDNBR] = true;
         }
 
         return $this;
@@ -2729,7 +2729,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtline] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtline($v)
     {
@@ -2739,7 +2739,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtline !== $v) {
             $this->oedtline = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLINE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLINE] = true;
         }
 
         return $this;
@@ -2749,7 +2749,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -2759,7 +2759,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_INITITEMNBR] = true;
         }
 
         return $this;
@@ -2769,7 +2769,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtdesc] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtdesc($v)
     {
@@ -2779,7 +2779,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtdesc !== $v) {
             $this->oedtdesc = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTDESC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTDESC] = true;
         }
 
         return $this;
@@ -2789,7 +2789,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtdesc2] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtdesc2($v)
     {
@@ -2799,7 +2799,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtdesc2 !== $v) {
             $this->oedtdesc2 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTDESC2] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTDESC2] = true;
         }
 
         return $this;
@@ -2809,7 +2809,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [intbwhse] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -2819,7 +2819,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->intbwhse !== $v) {
             $this->intbwhse = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_INTBWHSE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_INTBWHSE] = true;
         }
 
         return $this;
@@ -2829,7 +2829,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtrqstdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtrqstdate($v)
     {
@@ -2839,7 +2839,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtrqstdate !== $v) {
             $this->oedtrqstdate = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTRQSTDATE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTRQSTDATE] = true;
         }
 
         return $this;
@@ -2849,7 +2849,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcancdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcancdate($v)
     {
@@ -2859,7 +2859,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcancdate !== $v) {
             $this->oedtcancdate = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCANCDATE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCANCDATE] = true;
         }
 
         return $this;
@@ -2869,7 +2869,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtshipdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtshipdate($v)
     {
@@ -2879,7 +2879,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtshipdate !== $v) {
             $this->oedtshipdate = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSHIPDATE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSHIPDATE] = true;
         }
 
         return $this;
@@ -2889,7 +2889,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtspecordr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtspecordr($v)
     {
@@ -2899,7 +2899,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtspecordr !== $v) {
             $this->oedtspecordr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSPECORDR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSPECORDR] = true;
         }
 
         return $this;
@@ -2909,7 +2909,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [artbmtaxcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setArtbmtaxcode($v)
     {
@@ -2919,7 +2919,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->artbmtaxcode !== $v) {
             $this->artbmtaxcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_ARTBMTAXCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_ARTBMTAXCODE] = true;
         }
 
         return $this;
@@ -2929,7 +2929,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtqtyord] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtqtyord($v)
     {
@@ -2939,7 +2939,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtqtyord !== $v) {
             $this->oedtqtyord = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQTYORD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQTYORD] = true;
         }
 
         return $this;
@@ -2949,7 +2949,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtqtyship] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtqtyship($v)
     {
@@ -2959,7 +2959,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtqtyship !== $v) {
             $this->oedtqtyship = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQTYSHIP] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQTYSHIP] = true;
         }
 
         return $this;
@@ -2969,7 +2969,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtqtyshiptot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtqtyshiptot($v)
     {
@@ -2979,7 +2979,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtqtyshiptot !== $v) {
             $this->oedtqtyshiptot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQTYSHIPTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT] = true;
         }
 
         return $this;
@@ -2989,7 +2989,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtqtybord] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtqtybord($v)
     {
@@ -2999,7 +2999,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtqtybord !== $v) {
             $this->oedtqtybord = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQTYBORD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQTYBORD] = true;
         }
 
         return $this;
@@ -3009,7 +3009,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpric($v)
     {
@@ -3019,7 +3019,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpric !== $v) {
             $this->oedtpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPRIC] = true;
         }
 
         return $this;
@@ -3029,7 +3029,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcost] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcost($v)
     {
@@ -3039,7 +3039,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcost !== $v) {
             $this->oedtcost = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCOST] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCOST] = true;
         }
 
         return $this;
@@ -3049,7 +3049,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedttaxpcttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedttaxpcttot($v)
     {
@@ -3059,7 +3059,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedttaxpcttot !== $v) {
             $this->oedttaxpcttot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTTAXPCTTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT] = true;
         }
 
         return $this;
@@ -3069,7 +3069,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtprictot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtprictot($v)
     {
@@ -3079,7 +3079,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtprictot !== $v) {
             $this->oedtprictot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPRICTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPRICTOT] = true;
         }
 
         return $this;
@@ -3089,7 +3089,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcosttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcosttot($v)
     {
@@ -3099,7 +3099,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcosttot !== $v) {
             $this->oedtcosttot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCOSTTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCOSTTOT] = true;
         }
 
         return $this;
@@ -3109,7 +3109,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtspcommpct] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtspcommpct($v)
     {
@@ -3119,7 +3119,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtspcommpct !== $v) {
             $this->oedtspcommpct = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSPCOMMPCT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT] = true;
         }
 
         return $this;
@@ -3129,7 +3129,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbrkncaseqty] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbrkncaseqty($v)
     {
@@ -3139,7 +3139,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbrkncaseqty !== $v) {
             $this->oedtbrkncaseqty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBRKNCASEQTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY] = true;
         }
 
         return $this;
@@ -3149,7 +3149,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbin] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbin($v)
     {
@@ -3159,7 +3159,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbin !== $v) {
             $this->oedtbin = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBIN] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBIN] = true;
         }
 
         return $this;
@@ -3169,7 +3169,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpersonalcd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpersonalcd($v)
     {
@@ -3179,7 +3179,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpersonalcd !== $v) {
             $this->oedtpersonalcd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPERSONALCD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPERSONALCD] = true;
         }
 
         return $this;
@@ -3189,7 +3189,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtacdisc1] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtacdisc1($v)
     {
@@ -3199,7 +3199,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtacdisc1 !== $v) {
             $this->oedtacdisc1 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACDISC1] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACDISC1] = true;
         }
 
         return $this;
@@ -3209,7 +3209,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtacdisc2] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtacdisc2($v)
     {
@@ -3219,7 +3219,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtacdisc2 !== $v) {
             $this->oedtacdisc2 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACDISC2] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACDISC2] = true;
         }
 
         return $this;
@@ -3229,7 +3229,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtacdisc3] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtacdisc3($v)
     {
@@ -3239,7 +3239,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtacdisc3 !== $v) {
             $this->oedtacdisc3 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACDISC3] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACDISC3] = true;
         }
 
         return $this;
@@ -3249,7 +3249,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtacdisc4] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtacdisc4($v)
     {
@@ -3259,7 +3259,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtacdisc4 !== $v) {
             $this->oedtacdisc4 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACDISC4] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACDISC4] = true;
         }
 
         return $this;
@@ -3269,7 +3269,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlmwipnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlmwipnbr($v)
     {
@@ -3279,7 +3279,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlmwipnbr !== $v) {
             $this->oedtlmwipnbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLMWIPNBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLMWIPNBR] = true;
         }
 
         return $this;
@@ -3289,7 +3289,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcorepric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcorepric($v)
     {
@@ -3299,7 +3299,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcorepric !== $v) {
             $this->oedtcorepric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCOREPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCOREPRIC] = true;
         }
 
         return $this;
@@ -3309,7 +3309,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtasstcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtasstcode($v)
     {
@@ -3319,7 +3319,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtasstcode !== $v) {
             $this->oedtasstcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTASSTCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTASSTCODE] = true;
         }
 
         return $this;
@@ -3329,7 +3329,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtasstqty] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtasstqty($v)
     {
@@ -3339,7 +3339,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtasstqty !== $v) {
             $this->oedtasstqty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTASSTQTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTASSTQTY] = true;
         }
 
         return $this;
@@ -3349,7 +3349,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlistpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlistpric($v)
     {
@@ -3359,7 +3359,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlistpric !== $v) {
             $this->oedtlistpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLISTPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLISTPRIC] = true;
         }
 
         return $this;
@@ -3369,7 +3369,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtstancost] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtstancost($v)
     {
@@ -3379,7 +3379,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtstancost !== $v) {
             $this->oedtstancost = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSTANCOST] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSTANCOST] = true;
         }
 
         return $this;
@@ -3389,7 +3389,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtvenditemjob] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtvenditemjob($v)
     {
@@ -3399,7 +3399,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtvenditemjob !== $v) {
             $this->oedtvenditemjob = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTVENDITEMJOB] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB] = true;
         }
 
         return $this;
@@ -3409,7 +3409,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtnsvendid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtnsvendid($v)
     {
@@ -3419,7 +3419,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtnsvendid !== $v) {
             $this->oedtnsvendid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTNSVENDID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTNSVENDID] = true;
         }
 
         return $this;
@@ -3429,7 +3429,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtnsitemgrup] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtnsitemgrup($v)
     {
@@ -3439,7 +3439,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtnsitemgrup !== $v) {
             $this->oedtnsitemgrup = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTNSITEMGRUP] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP] = true;
         }
 
         return $this;
@@ -3449,7 +3449,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtusecode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtusecode($v)
     {
@@ -3459,7 +3459,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtusecode !== $v) {
             $this->oedtusecode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTUSECODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTUSECODE] = true;
         }
 
         return $this;
@@ -3469,7 +3469,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtnsshipfromid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtnsshipfromid($v)
     {
@@ -3479,7 +3479,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtnsshipfromid !== $v) {
             $this->oedtnsshipfromid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTNSSHIPFROMID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID] = true;
         }
 
         return $this;
@@ -3489,7 +3489,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtasstovrd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtasstovrd($v)
     {
@@ -3499,7 +3499,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtasstovrd !== $v) {
             $this->oedtasstovrd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTASSTOVRD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTASSTOVRD] = true;
         }
 
         return $this;
@@ -3509,7 +3509,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpricovrd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpricovrd($v)
     {
@@ -3519,7 +3519,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpricovrd !== $v) {
             $this->oedtpricovrd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPRICOVRD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPRICOVRD] = true;
         }
 
         return $this;
@@ -3529,7 +3529,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpickflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpickflag($v)
     {
@@ -3539,7 +3539,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpickflag !== $v) {
             $this->oedtpickflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPICKFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPICKFLAG] = true;
         }
 
         return $this;
@@ -3549,7 +3549,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode1] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode1($v)
     {
@@ -3559,7 +3559,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode1 !== $v) {
             $this->oedtmstrtaxcode1 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE1] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1] = true;
         }
 
         return $this;
@@ -3569,7 +3569,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct1] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct1($v)
     {
@@ -3579,7 +3579,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct1 !== $v) {
             $this->oedtmstrtaxpct1 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT1] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1] = true;
         }
 
         return $this;
@@ -3589,7 +3589,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode2] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode2($v)
     {
@@ -3599,7 +3599,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode2 !== $v) {
             $this->oedtmstrtaxcode2 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE2] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2] = true;
         }
 
         return $this;
@@ -3609,7 +3609,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct2] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct2($v)
     {
@@ -3619,7 +3619,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct2 !== $v) {
             $this->oedtmstrtaxpct2 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT2] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2] = true;
         }
 
         return $this;
@@ -3629,7 +3629,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode3] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode3($v)
     {
@@ -3639,7 +3639,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode3 !== $v) {
             $this->oedtmstrtaxcode3 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE3] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3] = true;
         }
 
         return $this;
@@ -3649,7 +3649,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct3] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct3($v)
     {
@@ -3659,7 +3659,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct3 !== $v) {
             $this->oedtmstrtaxpct3 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT3] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3] = true;
         }
 
         return $this;
@@ -3669,7 +3669,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode4] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode4($v)
     {
@@ -3679,7 +3679,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode4 !== $v) {
             $this->oedtmstrtaxcode4 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE4] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4] = true;
         }
 
         return $this;
@@ -3689,7 +3689,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct4] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct4($v)
     {
@@ -3699,7 +3699,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct4 !== $v) {
             $this->oedtmstrtaxpct4 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT4] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4] = true;
         }
 
         return $this;
@@ -3709,7 +3709,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode5] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode5($v)
     {
@@ -3719,7 +3719,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode5 !== $v) {
             $this->oedtmstrtaxcode5 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE5] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5] = true;
         }
 
         return $this;
@@ -3729,7 +3729,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct5] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct5($v)
     {
@@ -3739,7 +3739,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct5 !== $v) {
             $this->oedtmstrtaxpct5 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT5] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5] = true;
         }
 
         return $this;
@@ -3749,7 +3749,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode6] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode6($v)
     {
@@ -3759,7 +3759,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode6 !== $v) {
             $this->oedtmstrtaxcode6 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE6] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6] = true;
         }
 
         return $this;
@@ -3769,7 +3769,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct6] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct6($v)
     {
@@ -3779,7 +3779,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct6 !== $v) {
             $this->oedtmstrtaxpct6 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT6] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6] = true;
         }
 
         return $this;
@@ -3789,7 +3789,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode7] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode7($v)
     {
@@ -3799,7 +3799,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode7 !== $v) {
             $this->oedtmstrtaxcode7 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE7] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7] = true;
         }
 
         return $this;
@@ -3809,7 +3809,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct7] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct7($v)
     {
@@ -3819,7 +3819,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct7 !== $v) {
             $this->oedtmstrtaxpct7 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT7] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7] = true;
         }
 
         return $this;
@@ -3829,7 +3829,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode8] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode8($v)
     {
@@ -3839,7 +3839,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode8 !== $v) {
             $this->oedtmstrtaxcode8 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE8] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8] = true;
         }
 
         return $this;
@@ -3849,7 +3849,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct8] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct8($v)
     {
@@ -3859,7 +3859,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct8 !== $v) {
             $this->oedtmstrtaxpct8 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT8] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8] = true;
         }
 
         return $this;
@@ -3869,7 +3869,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxcode9] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxcode9($v)
     {
@@ -3879,7 +3879,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxcode9 !== $v) {
             $this->oedtmstrtaxcode9 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXCODE9] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9] = true;
         }
 
         return $this;
@@ -3889,7 +3889,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmstrtaxpct9] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmstrtaxpct9($v)
     {
@@ -3899,7 +3899,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmstrtaxpct9 !== $v) {
             $this->oedtmstrtaxpct9 = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMSTRTAXPCT9] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9] = true;
         }
 
         return $this;
@@ -3909,7 +3909,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbinarea] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbinarea($v)
     {
@@ -3919,7 +3919,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbinarea !== $v) {
             $this->oedtbinarea = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBINAREA] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBINAREA] = true;
         }
 
         return $this;
@@ -3929,7 +3929,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtsplitline] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtsplitline($v)
     {
@@ -3939,7 +3939,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtsplitline !== $v) {
             $this->oedtsplitline = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSPLITLINE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSPLITLINE] = true;
         }
 
         return $this;
@@ -3949,7 +3949,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlostreas] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlostreas($v)
     {
@@ -3959,7 +3959,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlostreas !== $v) {
             $this->oedtlostreas = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLOSTREAS] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLOSTREAS] = true;
         }
 
         return $this;
@@ -3969,7 +3969,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtorigline] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtorigline($v)
     {
@@ -3979,7 +3979,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtorigline !== $v) {
             $this->oedtorigline = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTORIGLINE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORIGLINE] = true;
         }
 
         return $this;
@@ -3989,7 +3989,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcustcrssref] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcustcrssref($v)
     {
@@ -3999,7 +3999,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcustcrssref !== $v) {
             $this->oedtcustcrssref = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCUSTCRSSREF] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF] = true;
         }
 
         return $this;
@@ -4009,7 +4009,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtuom] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtuom($v)
     {
@@ -4019,7 +4019,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtuom !== $v) {
             $this->oedtuom = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTUOM] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTUOM] = true;
         }
 
         return $this;
@@ -4029,7 +4029,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtshipflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtshipflag($v)
     {
@@ -4039,7 +4039,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtshipflag !== $v) {
             $this->oedtshipflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSHIPFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSHIPFLAG] = true;
         }
 
         return $this;
@@ -4049,7 +4049,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtkitflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtkitflag($v)
     {
@@ -4059,7 +4059,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtkitflag !== $v) {
             $this->oedtkitflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTKITFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTKITFLAG] = true;
         }
 
         return $this;
@@ -4069,7 +4069,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtkititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtkititemnbr($v)
     {
@@ -4079,7 +4079,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtkititemnbr !== $v) {
             $this->oedtkititemnbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTKITITEMNBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTKITITEMNBR] = true;
         }
 
         return $this;
@@ -4089,7 +4089,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbfcost] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbfcost($v)
     {
@@ -4099,7 +4099,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbfcost !== $v) {
             $this->oedtbfcost = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBFCOST] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBFCOST] = true;
         }
 
         return $this;
@@ -4109,7 +4109,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbfmsgcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbfmsgcode($v)
     {
@@ -4119,7 +4119,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbfmsgcode !== $v) {
             $this->oedtbfmsgcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBFMSGCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBFMSGCODE] = true;
         }
 
         return $this;
@@ -4129,7 +4129,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbfcosttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbfcosttot($v)
     {
@@ -4139,7 +4139,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbfcosttot !== $v) {
             $this->oedtbfcosttot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBFCOSTTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT] = true;
         }
 
         return $this;
@@ -4149,7 +4149,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlmbulkpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlmbulkpric($v)
     {
@@ -4159,7 +4159,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlmbulkpric !== $v) {
             $this->oedtlmbulkpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLMBULKPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC] = true;
         }
 
         return $this;
@@ -4169,7 +4169,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlmmtrxpkgpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlmmtrxpkgpric($v)
     {
@@ -4179,7 +4179,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlmmtrxpkgpric !== $v) {
             $this->oedtlmmtrxpkgpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC] = true;
         }
 
         return $this;
@@ -4189,7 +4189,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlmmtrxbulkpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlmmtrxbulkpric($v)
     {
@@ -4199,7 +4199,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlmmtrxbulkpric !== $v) {
             $this->oedtlmmtrxbulkpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC] = true;
         }
 
         return $this;
@@ -4209,7 +4209,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlmcontractpric] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlmcontractpric($v)
     {
@@ -4219,7 +4219,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlmcontractpric !== $v) {
             $this->oedtlmcontractpric = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLMCONTRACTPRIC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC] = true;
         }
 
         return $this;
@@ -4229,7 +4229,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwght] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwght($v)
     {
@@ -4239,7 +4239,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwght !== $v) {
             $this->oedtwght = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWGHT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGHT] = true;
         }
 
         return $this;
@@ -4249,7 +4249,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtordras] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtordras($v)
     {
@@ -4259,7 +4259,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtordras !== $v) {
             $this->oedtordras = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTORDRAS] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORDRAS] = true;
         }
 
         return $this;
@@ -4269,7 +4269,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpodetlinenbr] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpodetlinenbr($v)
     {
@@ -4279,7 +4279,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpodetlinenbr !== $v) {
             $this->oedtpodetlinenbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPODETLINENBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPODETLINENBR] = true;
         }
 
         return $this;
@@ -4289,7 +4289,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtqtytoship] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtqtytoship($v)
     {
@@ -4299,7 +4299,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtqtytoship !== $v) {
             $this->oedtqtytoship = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQTYTOSHIP] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP] = true;
         }
 
         return $this;
@@ -4309,7 +4309,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtponbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtponbr($v)
     {
@@ -4319,7 +4319,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtponbr !== $v) {
             $this->oedtponbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPONBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPONBR] = true;
         }
 
         return $this;
@@ -4329,7 +4329,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtporef] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtporef($v)
     {
@@ -4339,7 +4339,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtporef !== $v) {
             $this->oedtporef = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPOREF] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPOREF] = true;
         }
 
         return $this;
@@ -4349,7 +4349,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtfrtin] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtfrtin($v)
     {
@@ -4359,7 +4359,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtfrtin !== $v) {
             $this->oedtfrtin = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTFRTIN] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTFRTIN] = true;
         }
 
         return $this;
@@ -4369,7 +4369,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtfrtinentered] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtfrtinentered($v)
     {
@@ -4379,7 +4379,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtfrtinentered !== $v) {
             $this->oedtfrtinentered = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTFRTINENTERED] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTFRTINENTERED] = true;
         }
 
         return $this;
@@ -4389,7 +4389,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtprodcmplt] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtprodcmplt($v)
     {
@@ -4399,7 +4399,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtprodcmplt !== $v) {
             $this->oedtprodcmplt = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPRODCMPLT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPRODCMPLT] = true;
         }
 
         return $this;
@@ -4409,7 +4409,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedterflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedterflag($v)
     {
@@ -4419,7 +4419,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedterflag !== $v) {
             $this->oedterflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTERFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTERFLAG] = true;
         }
 
         return $this;
@@ -4429,7 +4429,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtorigitem] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtorigitem($v)
     {
@@ -4439,7 +4439,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtorigitem !== $v) {
             $this->oedtorigitem = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTORIGITEM] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORIGITEM] = true;
         }
 
         return $this;
@@ -4449,7 +4449,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtsubflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtsubflag($v)
     {
@@ -4459,7 +4459,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtsubflag !== $v) {
             $this->oedtsubflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSUBFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSUBFLAG] = true;
         }
 
         return $this;
@@ -4469,7 +4469,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtediincomingseq] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtediincomingseq($v)
     {
@@ -4479,7 +4479,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtediincomingseq !== $v) {
             $this->oedtediincomingseq = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ] = true;
         }
 
         return $this;
@@ -4489,7 +4489,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtspordpoline] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtspordpoline($v)
     {
@@ -4499,7 +4499,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtspordpoline !== $v) {
             $this->oedtspordpoline = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSPORDPOLINE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE] = true;
         }
 
         return $this;
@@ -4509,7 +4509,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcatlgid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcatlgid($v)
     {
@@ -4519,7 +4519,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcatlgid !== $v) {
             $this->oedtcatlgid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCATLGID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCATLGID] = true;
         }
 
         return $this;
@@ -4529,7 +4529,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtdesigncd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtdesigncd($v)
     {
@@ -4539,7 +4539,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtdesigncd !== $v) {
             $this->oedtdesigncd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTDESIGNCD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTDESIGNCD] = true;
         }
 
         return $this;
@@ -4549,7 +4549,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtdiscpct] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtdiscpct($v)
     {
@@ -4559,7 +4559,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtdiscpct !== $v) {
             $this->oedtdiscpct = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTDISCPCT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTDISCPCT] = true;
         }
 
         return $this;
@@ -4569,7 +4569,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedttaxamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedttaxamt($v)
     {
@@ -4579,7 +4579,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedttaxamt !== $v) {
             $this->oedttaxamt = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTTAXAMT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTTAXAMT] = true;
         }
 
         return $this;
@@ -4589,7 +4589,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtxusage] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtxusage($v)
     {
@@ -4599,7 +4599,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtxusage !== $v) {
             $this->oedtxusage = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTXUSAGE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTXUSAGE] = true;
         }
 
         return $this;
@@ -4609,7 +4609,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtrqtslock] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtrqtslock($v)
     {
@@ -4619,7 +4619,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtrqtslock !== $v) {
             $this->oedtrqtslock = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTRQTSLOCK] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTRQTSLOCK] = true;
         }
 
         return $this;
@@ -4629,7 +4629,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtfreshfrozen] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtfreshfrozen($v)
     {
@@ -4639,7 +4639,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtfreshfrozen !== $v) {
             $this->oedtfreshfrozen = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTFRESHFROZEN] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN] = true;
         }
 
         return $this;
@@ -4649,7 +4649,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcoreflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcoreflag($v)
     {
@@ -4659,7 +4659,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcoreflag !== $v) {
             $this->oedtcoreflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCOREFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCOREFLAG] = true;
         }
 
         return $this;
@@ -4669,7 +4669,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtnssalesacct] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtnssalesacct($v)
     {
@@ -4679,7 +4679,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtnssalesacct !== $v) {
             $this->oedtnssalesacct = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTNSSALESACCT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTNSSALESACCT] = true;
         }
 
         return $this;
@@ -4689,7 +4689,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcertreqd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcertreqd($v)
     {
@@ -4699,7 +4699,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcertreqd !== $v) {
             $this->oedtcertreqd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCERTREQD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCERTREQD] = true;
         }
 
         return $this;
@@ -4709,7 +4709,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtaddonsales] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtaddonsales($v)
     {
@@ -4719,7 +4719,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtaddonsales !== $v) {
             $this->oedtaddonsales = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTADDONSALES] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTADDONSALES] = true;
         }
 
         return $this;
@@ -4729,7 +4729,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtbordflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtbordflag($v)
     {
@@ -4739,7 +4739,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtbordflag !== $v) {
             $this->oedtbordflag = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTBORDFLAG] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBORDFLAG] = true;
         }
 
         return $this;
@@ -4749,7 +4749,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedttempgrove] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedttempgrove($v)
     {
@@ -4759,7 +4759,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedttempgrove !== $v) {
             $this->oedttempgrove = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTTEMPGROVE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTTEMPGROVE] = true;
         }
 
         return $this;
@@ -4769,7 +4769,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtgrovedisc] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtgrovedisc($v)
     {
@@ -4779,7 +4779,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtgrovedisc !== $v) {
             $this->oedtgrovedisc = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTGROVEDISC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTGROVEDISC] = true;
         }
 
         return $this;
@@ -4789,7 +4789,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtoffinvc] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtoffinvc($v)
     {
@@ -4799,7 +4799,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtoffinvc !== $v) {
             $this->oedtoffinvc = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTOFFINVC] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTOFFINVC] = true;
         }
 
         return $this;
@@ -4809,7 +4809,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [inititemgrup] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setInititemgrup($v)
     {
@@ -4819,7 +4819,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->inititemgrup !== $v) {
             $this->inititemgrup = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_INITITEMGRUP] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_INITITEMGRUP] = true;
         }
 
         return $this;
@@ -4829,7 +4829,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [apvevendid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setApvevendid($v)
     {
@@ -4839,7 +4839,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->apvevendid !== $v) {
             $this->apvevendid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_APVEVENDID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_APVEVENDID] = true;
         }
 
         return $this;
@@ -4849,7 +4849,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtacct] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtacct($v)
     {
@@ -4859,7 +4859,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtacct !== $v) {
             $this->oedtacct = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACCT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACCT] = true;
         }
 
         return $this;
@@ -4869,7 +4869,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtloadtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtloadtot($v)
     {
@@ -4879,7 +4879,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtloadtot !== $v) {
             $this->oedtloadtot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLOADTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLOADTOT] = true;
         }
 
         return $this;
@@ -4889,7 +4889,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpickedqty] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpickedqty($v)
     {
@@ -4899,7 +4899,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpickedqty !== $v) {
             $this->oedtpickedqty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPICKEDQTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPICKEDQTY] = true;
         }
 
         return $this;
@@ -4909,7 +4909,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwiorigqty] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwiorigqty($v)
     {
@@ -4919,7 +4919,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwiorigqty !== $v) {
             $this->oedtwiorigqty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWIORIGQTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWIORIGQTY] = true;
         }
 
         return $this;
@@ -4929,7 +4929,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtmargintot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtmargintot($v)
     {
@@ -4939,7 +4939,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtmargintot !== $v) {
             $this->oedtmargintot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTMARGINTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTMARGINTOT] = true;
         }
 
         return $this;
@@ -4949,7 +4949,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcorecost] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcorecost($v)
     {
@@ -4959,7 +4959,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcorecost !== $v) {
             $this->oedtcorecost = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCORECOST] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCORECOST] = true;
         }
 
         return $this;
@@ -4969,7 +4969,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtitemref] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtitemref($v)
     {
@@ -4979,7 +4979,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtitemref !== $v) {
             $this->oedtitemref = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTITEMREF] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTITEMREF] = true;
         }
 
         return $this;
@@ -4989,7 +4989,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtsac02returncode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtsac02returncode($v)
     {
@@ -4999,7 +4999,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtsac02returncode !== $v) {
             $this->oedtsac02returncode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSAC02RETURNCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE] = true;
         }
 
         return $this;
@@ -5009,7 +5009,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwgtaxcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwgtaxcode($v)
     {
@@ -5019,7 +5019,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwgtaxcode !== $v) {
             $this->oedtwgtaxcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWGTAXCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGTAXCODE] = true;
         }
 
         return $this;
@@ -5029,7 +5029,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwgprice] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwgprice($v)
     {
@@ -5039,7 +5039,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwgprice !== $v) {
             $this->oedtwgprice = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWGPRICE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGPRICE] = true;
         }
 
         return $this;
@@ -5049,7 +5049,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwgtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwgtot($v)
     {
@@ -5059,7 +5059,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwgtot !== $v) {
             $this->oedtwgtot = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWGTOT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGTOT] = true;
         }
 
         return $this;
@@ -5069,7 +5069,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcntrqty] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcntrqty($v)
     {
@@ -5079,7 +5079,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcntrqty !== $v) {
             $this->oedtcntrqty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCNTRQTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCNTRQTY] = true;
         }
 
         return $this;
@@ -5089,7 +5089,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtconfirmcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtconfirmcode($v)
     {
@@ -5099,7 +5099,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtconfirmcode !== $v) {
             $this->oedtconfirmcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCONFIRMCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE] = true;
         }
 
         return $this;
@@ -5109,7 +5109,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtpicked] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtpicked($v)
     {
@@ -5119,7 +5119,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtpicked !== $v) {
             $this->oedtpicked = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTPICKED] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTPICKED] = true;
         }
 
         return $this;
@@ -5129,7 +5129,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtorigrqstdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtorigrqstdate($v)
     {
@@ -5139,7 +5139,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtorigrqstdate !== $v) {
             $this->oedtorigrqstdate = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTORIGRQSTDATE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE] = true;
         }
 
         return $this;
@@ -5149,7 +5149,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtfablock] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtfablock($v)
     {
@@ -5159,7 +5159,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtfablock !== $v) {
             $this->oedtfablock = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTFABLOCK] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTFABLOCK] = true;
         }
 
         return $this;
@@ -5169,7 +5169,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtlabelprinted] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtlabelprinted($v)
     {
@@ -5179,7 +5179,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtlabelprinted !== $v) {
             $this->oedtlabelprinted = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTLABELPRINTED] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTLABELPRINTED] = true;
         }
 
         return $this;
@@ -5189,7 +5189,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtquoteid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtquoteid($v)
     {
@@ -5199,7 +5199,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtquoteid !== $v) {
             $this->oedtquoteid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTQUOTEID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTQUOTEID] = true;
         }
 
         return $this;
@@ -5209,7 +5209,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtinvprinted] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtinvprinted($v)
     {
@@ -5219,7 +5219,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtinvprinted !== $v) {
             $this->oedtinvprinted = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTINVPRINTED] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTINVPRINTED] = true;
         }
 
         return $this;
@@ -5229,7 +5229,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtstockcheck] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtstockcheck($v)
     {
@@ -5239,7 +5239,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtstockcheck !== $v) {
             $this->oedtstockcheck = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSTOCKCHECK] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK] = true;
         }
 
         return $this;
@@ -5249,7 +5249,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtshouldwesplit] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtshouldwesplit($v)
     {
@@ -5259,7 +5259,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtshouldwesplit !== $v) {
             $this->oedtshouldwesplit = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTSHOULDWESPLIT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT] = true;
         }
 
         return $this;
@@ -5269,7 +5269,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcofcreqd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcofcreqd($v)
     {
@@ -5279,7 +5279,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcofcreqd !== $v) {
             $this->oedtcofcreqd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCOFCREQD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCOFCREQD] = true;
         }
 
         return $this;
@@ -5289,7 +5289,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtackcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtackcode($v)
     {
@@ -5299,7 +5299,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtackcode !== $v) {
             $this->oedtackcode = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTACKCODE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACKCODE] = true;
         }
 
         return $this;
@@ -5309,7 +5309,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwibordnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwibordnbr($v)
     {
@@ -5319,7 +5319,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwibordnbr !== $v) {
             $this->oedtwibordnbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWIBORDNBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWIBORDNBR] = true;
         }
 
         return $this;
@@ -5329,7 +5329,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcerthistordr] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcerthistordr($v)
     {
@@ -5339,7 +5339,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcerthistordr !== $v) {
             $this->oedtcerthistordr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCERTHISTORDR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR] = true;
         }
 
         return $this;
@@ -5349,7 +5349,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtcerthistline] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtcerthistline($v)
     {
@@ -5359,7 +5359,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtcerthistline !== $v) {
             $this->oedtcerthistline = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTCERTHISTLINE] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE] = true;
         }
 
         return $this;
@@ -5369,7 +5369,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtordrdasitemid] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtordrdasitemid($v)
     {
@@ -5379,7 +5379,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtordrdasitemid !== $v) {
             $this->oedtordrdasitemid = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTORDRDASITEMID] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID] = true;
         }
 
         return $this;
@@ -5389,7 +5389,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwibatch1nbr] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwibatch1nbr($v)
     {
@@ -5399,7 +5399,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwibatch1nbr !== $v) {
             $this->oedtwibatch1nbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWIBATCH1NBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR] = true;
         }
 
         return $this;
@@ -5409,7 +5409,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwibatch1qty] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwibatch1qty($v)
     {
@@ -5419,7 +5419,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwibatch1qty !== $v) {
             $this->oedtwibatch1qty = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWIBATCH1QTY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY] = true;
         }
 
         return $this;
@@ -5429,7 +5429,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtwibatch1stat] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtwibatch1stat($v)
     {
@@ -5439,7 +5439,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtwibatch1stat !== $v) {
             $this->oedtwibatch1stat = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTWIBATCH1STAT] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT] = true;
         }
 
         return $this;
@@ -5449,7 +5449,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [oedtrganbr] column.
      *
      * @param int $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setOedtrganbr($v)
     {
@@ -5459,7 +5459,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->oedtrganbr !== $v) {
             $this->oedtrganbr = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_OEDTRGANBR] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTRGANBR] = true;
         }
 
         return $this;
@@ -5469,7 +5469,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -5479,7 +5479,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -5489,7 +5489,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -5499,7 +5499,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -5509,7 +5509,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\SoDetail The current object (for fluent API support)
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -5519,7 +5519,7 @@ abstract class SoDetail implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[SoDetailTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -5569,427 +5569,427 @@ abstract class SoDetail implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SoDetailTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SoDetailTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SoDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SoDetailTableMap::translateFieldName('Oedtdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SoDetailTableMap::translateFieldName('Oedtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtdesc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtdesc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SoDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderDetailTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SoDetailTableMap::translateFieldName('Oedtrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SoDetailTableMap::translateFieldName('Oedtcancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SoDetailTableMap::translateFieldName('Oedtshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtshipdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SoDetailTableMap::translateFieldName('Oedtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SoDetailTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderDetailTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SoDetailTableMap::translateFieldName('Oedtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtyord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SoDetailTableMap::translateFieldName('Oedtqtyship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtyship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtyship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SoDetailTableMap::translateFieldName('Oedtqtyshiptot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtyshiptot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtyshiptot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoDetailTableMap::translateFieldName('Oedtqtybord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtybord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtybord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoDetailTableMap::translateFieldName('Oedtpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoDetailTableMap::translateFieldName('Oedtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoDetailTableMap::translateFieldName('Oedttaxpcttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedttaxpcttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedttaxpcttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SoDetailTableMap::translateFieldName('Oedtprictot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtprictot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtprictot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SoDetailTableMap::translateFieldName('Oedtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SoDetailTableMap::translateFieldName('Oedtspcommpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtspcommpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtspcommpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SoDetailTableMap::translateFieldName('Oedtbrkncaseqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbrkncaseqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbrkncaseqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SoDetailTableMap::translateFieldName('Oedtbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SoDetailTableMap::translateFieldName('Oedtpersonalcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpersonalcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpersonalcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SoDetailTableMap::translateFieldName('Oedtacdisc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtacdisc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtacdisc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SoDetailTableMap::translateFieldName('Oedtacdisc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtacdisc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtacdisc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SoDetailTableMap::translateFieldName('Oedtacdisc3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtacdisc3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtacdisc3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SoDetailTableMap::translateFieldName('Oedtacdisc4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtacdisc4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtacdisc4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SoDetailTableMap::translateFieldName('Oedtlmwipnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmwipnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmwipnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SoDetailTableMap::translateFieldName('Oedtcorepric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcorepric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcorepric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SoDetailTableMap::translateFieldName('Oedtasstcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtasstcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtasstcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SoDetailTableMap::translateFieldName('Oedtasstqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtasstqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtasstqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : SoDetailTableMap::translateFieldName('Oedtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlistpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlistpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : SoDetailTableMap::translateFieldName('Oedtstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : SoDetailTableMap::translateFieldName('Oedtvenditemjob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtvenditemjob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtvenditemjob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : SoDetailTableMap::translateFieldName('Oedtnsvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtnsvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtnsvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : SoDetailTableMap::translateFieldName('Oedtnsitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtnsitemgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtnsitemgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : SoDetailTableMap::translateFieldName('Oedtusecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtusecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtusecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : SoDetailTableMap::translateFieldName('Oedtnsshipfromid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtnsshipfromid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtnsshipfromid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : SoDetailTableMap::translateFieldName('Oedtasstovrd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtasstovrd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtasstovrd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : SoDetailTableMap::translateFieldName('Oedtpricovrd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpricovrd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpricovrd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : SoDetailTableMap::translateFieldName('Oedtpickflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpickflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpickflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : SoDetailTableMap::translateFieldName('Oedtmstrtaxpct9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmstrtaxpct9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmstrtaxpct9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : SoDetailTableMap::translateFieldName('Oedtbinarea', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbinarea', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbinarea = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : SoDetailTableMap::translateFieldName('Oedtsplitline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtsplitline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtsplitline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : SoDetailTableMap::translateFieldName('Oedtlostreas', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlostreas', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlostreas = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : SoDetailTableMap::translateFieldName('Oedtorigline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtorigline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtorigline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : SoDetailTableMap::translateFieldName('Oedtcustcrssref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcustcrssref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcustcrssref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : SoDetailTableMap::translateFieldName('Oedtuom', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtuom', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtuom = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : SoDetailTableMap::translateFieldName('Oedtshipflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtshipflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtshipflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : SoDetailTableMap::translateFieldName('Oedtkitflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtkitflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtkitflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : SoDetailTableMap::translateFieldName('Oedtkititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtkititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtkititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : SoDetailTableMap::translateFieldName('Oedtbfcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbfcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbfcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : SoDetailTableMap::translateFieldName('Oedtbfmsgcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbfmsgcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbfmsgcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : SoDetailTableMap::translateFieldName('Oedtbfcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbfcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbfcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : SoDetailTableMap::translateFieldName('Oedtlmbulkpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmbulkpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmbulkpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : SoDetailTableMap::translateFieldName('Oedtlmmtrxpkgpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmmtrxpkgpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmmtrxpkgpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : SoDetailTableMap::translateFieldName('Oedtlmmtrxbulkpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmmtrxbulkpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmmtrxbulkpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SoDetailTableMap::translateFieldName('Oedtlmcontractpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmcontractpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmcontractpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SoDetailTableMap::translateFieldName('Oedtwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SoDetailTableMap::translateFieldName('Oedtordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : SoDetailTableMap::translateFieldName('Oedtpodetlinenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpodetlinenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpodetlinenbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : SoDetailTableMap::translateFieldName('Oedtqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtytoship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtytoship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : SoDetailTableMap::translateFieldName('Oedtponbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtponbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtponbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : SoDetailTableMap::translateFieldName('Oedtporef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtporef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtporef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : SoDetailTableMap::translateFieldName('Oedtfrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtfrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtfrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : SoDetailTableMap::translateFieldName('Oedtfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtfrtinentered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : SoDetailTableMap::translateFieldName('Oedtprodcmplt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtprodcmplt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtprodcmplt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : SoDetailTableMap::translateFieldName('Oedterflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedterflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedterflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : SoDetailTableMap::translateFieldName('Oedtorigitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtorigitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtorigitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : SoDetailTableMap::translateFieldName('Oedtsubflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtsubflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtsubflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : SoDetailTableMap::translateFieldName('Oedtediincomingseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtediincomingseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtediincomingseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : SoDetailTableMap::translateFieldName('Oedtspordpoline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtspordpoline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtspordpoline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : SoDetailTableMap::translateFieldName('Oedtcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcatlgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : SoDetailTableMap::translateFieldName('Oedtdesigncd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtdesigncd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtdesigncd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : SoDetailTableMap::translateFieldName('Oedtdiscpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtdiscpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtdiscpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : SoDetailTableMap::translateFieldName('Oedttaxamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedttaxamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedttaxamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : SoDetailTableMap::translateFieldName('Oedtxusage', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtxusage', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtxusage = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : SoDetailTableMap::translateFieldName('Oedtrqtslock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtrqtslock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtrqtslock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : SoDetailTableMap::translateFieldName('Oedtfreshfrozen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtfreshfrozen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtfreshfrozen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : SoDetailTableMap::translateFieldName('Oedtcoreflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcoreflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcoreflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : SoDetailTableMap::translateFieldName('Oedtnssalesacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtnssalesacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtnssalesacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : SoDetailTableMap::translateFieldName('Oedtcertreqd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcertreqd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcertreqd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : SoDetailTableMap::translateFieldName('Oedtaddonsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtaddonsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtaddonsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : SoDetailTableMap::translateFieldName('Oedtbordflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtbordflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtbordflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : SoDetailTableMap::translateFieldName('Oedttempgrove', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedttempgrove', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedttempgrove = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : SoDetailTableMap::translateFieldName('Oedtgrovedisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtgrovedisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtgrovedisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : SoDetailTableMap::translateFieldName('Oedtoffinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtoffinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtoffinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : SoDetailTableMap::translateFieldName('Inititemgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : SalesOrderDetailTableMap::translateFieldName('Inititemgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : SoDetailTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : SalesOrderDetailTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : SoDetailTableMap::translateFieldName('Oedtacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : SoDetailTableMap::translateFieldName('Oedtloadtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtloadtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtloadtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : SoDetailTableMap::translateFieldName('Oedtpickedqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpickedqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpickedqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : SoDetailTableMap::translateFieldName('Oedtwiorigqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwiorigqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwiorigqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : SoDetailTableMap::translateFieldName('Oedtmargintot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtmargintot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtmargintot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : SoDetailTableMap::translateFieldName('Oedtcorecost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcorecost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcorecost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : SoDetailTableMap::translateFieldName('Oedtitemref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtitemref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtitemref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : SoDetailTableMap::translateFieldName('Oedtsac02returncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtsac02returncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtsac02returncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : SoDetailTableMap::translateFieldName('Oedtwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwgtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : SoDetailTableMap::translateFieldName('Oedtwgprice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwgprice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwgprice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : SoDetailTableMap::translateFieldName('Oedtwgtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwgtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwgtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : SoDetailTableMap::translateFieldName('Oedtcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcntrqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : SoDetailTableMap::translateFieldName('Oedtconfirmcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtconfirmcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtconfirmcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : SoDetailTableMap::translateFieldName('Oedtpicked', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtpicked', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtpicked = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : SoDetailTableMap::translateFieldName('Oedtorigrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtorigrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtorigrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : SoDetailTableMap::translateFieldName('Oedtfablock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtfablock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtfablock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : SoDetailTableMap::translateFieldName('Oedtlabelprinted', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlabelprinted', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlabelprinted = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : SoDetailTableMap::translateFieldName('Oedtquoteid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtquoteid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtquoteid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SoDetailTableMap::translateFieldName('Oedtinvprinted', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtinvprinted', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtinvprinted = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SoDetailTableMap::translateFieldName('Oedtstockcheck', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtstockcheck', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtstockcheck = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SoDetailTableMap::translateFieldName('Oedtshouldwesplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtshouldwesplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtshouldwesplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SoDetailTableMap::translateFieldName('Oedtcofcreqd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcofcreqd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcofcreqd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SoDetailTableMap::translateFieldName('Oedtackcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtackcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtackcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SoDetailTableMap::translateFieldName('Oedtwibordnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwibordnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwibordnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SoDetailTableMap::translateFieldName('Oedtcerthistordr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcerthistordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcerthistordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SoDetailTableMap::translateFieldName('Oedtcerthistline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtcerthistline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtcerthistline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SoDetailTableMap::translateFieldName('Oedtordrdasitemid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtordrdasitemid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtordrdasitemid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SoDetailTableMap::translateFieldName('Oedtwibatch1nbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwibatch1nbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwibatch1nbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SoDetailTableMap::translateFieldName('Oedtwibatch1qty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwibatch1qty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwibatch1qty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SoDetailTableMap::translateFieldName('Oedtwibatch1stat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwibatch1stat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtwibatch1stat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SoDetailTableMap::translateFieldName('Oedtrganbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtrganbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtrganbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SoDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SoDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SoDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -5999,10 +5999,10 @@ abstract class SoDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 141; // 141 = SoDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 141; // 141 = SalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\SoDetail'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\SalesOrderDetail'), 0, $e);
         }
     }
 
@@ -6044,13 +6044,13 @@ abstract class SoDetail implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(SoDetailTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(SalesOrderDetailTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildSoDetailQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildSalesOrderDetailQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -6069,8 +6069,8 @@ abstract class SoDetail implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see SoDetail::setDeleted()
-     * @see SoDetail::isDeleted()
+     * @see SalesOrderDetail::setDeleted()
+     * @see SalesOrderDetail::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -6079,11 +6079,11 @@ abstract class SoDetail implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoDetailTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderDetailTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildSoDetailQuery::create()
+            $deleteQuery = ChildSalesOrderDetailQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -6118,7 +6118,7 @@ abstract class SoDetail implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoDetailTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderDetailTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -6137,7 +6137,7 @@ abstract class SoDetail implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                SoDetailTableMap::addInstanceToPool($this);
+                SalesOrderDetailTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -6196,427 +6196,427 @@ abstract class SoDetail implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEHDNBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEHDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLINE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLine';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtDesc';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESC2)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESC2)) {
             $modifiedColumns[':p' . $index++]  = 'OedtDesc2';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INTBWHSE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INTBWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhse';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRQSTDATE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRQSTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtRqstDate';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCANCDATE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCANCDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCancDate';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHIPDATE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHIPDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtShipDate';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPECORDR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPECORDR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSpecOrdr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_ARTBMTAXCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBMTAXCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYORD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYORD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyOrd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYSHIP)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyShip';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYSHIPTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyShipTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYBORD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYBORD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyBord';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOST)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOST)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCost';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTAXPCTTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtTaxPctTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRICTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRICTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPricTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOSTTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOSTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCostTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPCOMMPCT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSpCommPct';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBRKNCASEQTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBrknCaseQty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBIN)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBIN)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBin';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPERSONALCD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPERSONALCD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPersonalCd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC1)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC1)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAcDisc1';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC2)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC2)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAcDisc2';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC3)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC3)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAcDisc3';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC4)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC4)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAcDisc4';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMWIPNBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMWIPNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmWipNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOREPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOREPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCorePric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAsstCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTQTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAsstQty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLISTPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLISTPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtListPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSTANCOST)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSTANCOST)) {
             $modifiedColumns[':p' . $index++]  = 'OedtStanCost';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTVENDITEMJOB)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB)) {
             $modifiedColumns[':p' . $index++]  = 'OedtVendItemJob';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSVENDID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'OedtNsVendId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSITEMGRUP)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'OedtNsItemGrup';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTUSECODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTUSECODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtUseCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSSHIPFROMID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID)) {
             $modifiedColumns[':p' . $index++]  = 'OedtNsShipFromId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTOVRD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTOVRD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAsstOvrd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRICOVRD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRICOVRD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPricOvrd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPickFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE1)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode1';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT1)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct1';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE2)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode2';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT2)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct2';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE3)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode3';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT3)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct3';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE4)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode4';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT4)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct4';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE5)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode5';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT5)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct5';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE6)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode6';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT6)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct6';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE7)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode7';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT7)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct7';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE8)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode8';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT8)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct8';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE9)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxCode9';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT9)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMstrTaxPct9';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBINAREA)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBINAREA)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBinArea';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPLITLINE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPLITLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSplitLine';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLOSTREAS)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLOSTREAS)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLostReas';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGLINE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrigLine';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCUSTCRSSREF)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCustCrssRef';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTUOM)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTUOM)) {
             $modifiedColumns[':p' . $index++]  = 'OedtUom';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHIPFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHIPFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtShipFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTKITFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTKITFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtKitFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTKITITEMNBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTKITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtKitItemNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFCOST)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFCOST)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBfCost';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFMSGCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFMSGCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBfMsgCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFCOSTTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBfCostTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMBULKPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmBulkPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmMtrxPkgPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmMtrxBulkPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmContractPric';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGHT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWght';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORDRAS)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRAS)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrdrAs';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPODETLINENBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPODETLINENBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPoDetLineNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYTOSHIP)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyToShip';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPONBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPONBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPoNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPOREF)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPOREF)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPoRef';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRTIN)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRTIN)) {
             $modifiedColumns[':p' . $index++]  = 'OedtFrtIn';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRTINENTERED)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRTINENTERED)) {
             $modifiedColumns[':p' . $index++]  = 'OedtFrtInEntered';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRODCMPLT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRODCMPLT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtProdCmplt';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTERFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTERFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtErFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGITEM)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGITEM)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrigItem';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSUBFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSUBFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSubFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'OedtEdiIncomingSeq';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPORDPOLINE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSpordPoLine';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCATLGID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCATLGID)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCatlgId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESIGNCD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESIGNCD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtDesignCd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDISCPCT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDISCPCT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtDiscPct';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTAXAMT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTAXAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtTaxAmt';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTXUSAGE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTXUSAGE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtXUsage';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRQTSLOCK)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRQTSLOCK)) {
             $modifiedColumns[':p' . $index++]  = 'OedtRqtsLock';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRESHFROZEN)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN)) {
             $modifiedColumns[':p' . $index++]  = 'OedtFreshFrozen';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOREFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOREFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCoreFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSSALESACCT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSSALESACCT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtNsSalesAcct';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTREQD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTREQD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCertReqd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTADDONSALES)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTADDONSALES)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAddOnSales';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBORDFLAG)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBORDFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OedtBordFlag';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTEMPGROVE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTEMPGROVE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtTempGrove';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTGROVEDISC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTGROVEDISC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtGroveDisc';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTOFFINVC)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTOFFINVC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOffInvc';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INITITEMGRUP)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INITITEMGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemGrup';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_APVEVENDID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_APVEVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'ApveVendId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACCT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACCT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAcct';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLOADTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLOADTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLoadTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKEDQTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKEDQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPickedQty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIORIGQTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIORIGQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWiOrigQty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMARGINTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMARGINTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtMarginTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCORECOST)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCORECOST)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCoreCost';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTITEMREF)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTITEMREF)) {
             $modifiedColumns[':p' . $index++]  = 'OedtItemRef';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSAC02RETURNCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSac02ReturnCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGTAXCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGTAXCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWgTaxCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGPRICE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGPRICE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWgPrice';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGTOT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWgTot';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCNTRQTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCNTRQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCntrQty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCONFIRMCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtConfirmCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKED)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKED)) {
             $modifiedColumns[':p' . $index++]  = 'OedtPicked';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGRQSTDATE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrigRqstDate';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFABLOCK)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFABLOCK)) {
             $modifiedColumns[':p' . $index++]  = 'OedtFabLock';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLABELPRINTED)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLABELPRINTED)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLabelPrinted';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQUOTEID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQUOTEID)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQuoteId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTINVPRINTED)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTINVPRINTED)) {
             $modifiedColumns[':p' . $index++]  = 'OedtInvPrinted';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSTOCKCHECK)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK)) {
             $modifiedColumns[':p' . $index++]  = 'OedtStockCheck';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHOULDWESPLIT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtShouldWeSplit';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOFCREQD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOFCREQD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCofcReqd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACKCODE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACKCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtAckCode';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBORDNBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBORDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWiBordNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTHISTORDR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCertHistOrdr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTHISTLINE)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtCertHistLine';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORDRDASITEMID)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrdrdAsItemId';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1NBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWiBatch1Nbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1QTY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWiBatch1Qty';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1STAT)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT)) {
             $modifiedColumns[':p' . $index++]  = 'OedtWiBatch1Stat';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRGANBR)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRGANBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtRgaNbr';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -7092,7 +7092,7 @@ abstract class SoDetail implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SoDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SalesOrderDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -7554,11 +7554,11 @@ abstract class SoDetail implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['SoDetail'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['SalesOrderDetail'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['SoDetail'][$this->hashCode()] = true;
-        $keys = SoDetailTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['SalesOrderDetail'][$this->hashCode()] = true;
+        $keys = SalesOrderDetailTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getOehdnbr(),
             $keys[1] => $this->getOedtline(),
@@ -7720,11 +7720,11 @@ abstract class SoDetail implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SoDetail
+     * @return $this|\SalesOrderDetail
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SoDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SalesOrderDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -7735,7 +7735,7 @@ abstract class SoDetail implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\SoDetail
+     * @return $this|\SalesOrderDetail
      */
     public function setByPosition($pos, $value)
     {
@@ -8187,7 +8187,7 @@ abstract class SoDetail implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = SoDetailTableMap::getFieldNames($keyType);
+        $keys = SalesOrderDetailTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setOehdnbr($arr[$keys[0]]);
@@ -8631,7 +8631,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SoDetail The current object, for fluid interface
+     * @return $this|\SalesOrderDetail The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -8651,430 +8651,430 @@ abstract class SoDetail implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(SoDetailTableMap::DATABASE_NAME);
+        $criteria = new Criteria(SalesOrderDetailTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEHDNBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEHDNBR, $this->oehdnbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEHDNBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEHDNBR, $this->oehdnbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLINE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLINE, $this->oedtline);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLINE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLINE, $this->oedtline);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INITITEMNBR)) {
-            $criteria->add(SoDetailTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INITITEMNBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTDESC, $this->oedtdesc);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTDESC, $this->oedtdesc);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESC2)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTDESC2, $this->oedtdesc2);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESC2)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTDESC2, $this->oedtdesc2);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INTBWHSE)) {
-            $criteria->add(SoDetailTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INTBWHSE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_INTBWHSE, $this->intbwhse);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRQSTDATE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTRQSTDATE, $this->oedtrqstdate);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRQSTDATE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTRQSTDATE, $this->oedtrqstdate);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCANCDATE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCANCDATE, $this->oedtcancdate);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCANCDATE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCANCDATE, $this->oedtcancdate);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHIPDATE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSHIPDATE, $this->oedtshipdate);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHIPDATE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSHIPDATE, $this->oedtshipdate);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPECORDR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSPECORDR, $this->oedtspecordr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPECORDR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSPECORDR, $this->oedtspecordr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(SoDetailTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBMTAXCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYORD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQTYORD, $this->oedtqtyord);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYORD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYORD, $this->oedtqtyord);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYSHIP)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQTYSHIP, $this->oedtqtyship);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYSHIP)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYSHIP, $this->oedtqtyship);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYSHIPTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQTYSHIPTOT, $this->oedtqtyshiptot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT, $this->oedtqtyshiptot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYBORD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQTYBORD, $this->oedtqtybord);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYBORD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYBORD, $this->oedtqtybord);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPRIC, $this->oedtpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPRIC, $this->oedtpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOST)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCOST, $this->oedtcost);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOST)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCOST, $this->oedtcost);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTAXPCTTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTTAXPCTTOT, $this->oedttaxpcttot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT, $this->oedttaxpcttot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRICTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPRICTOT, $this->oedtprictot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRICTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPRICTOT, $this->oedtprictot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOSTTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCOSTTOT, $this->oedtcosttot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOSTTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCOSTTOT, $this->oedtcosttot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPCOMMPCT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSPCOMMPCT, $this->oedtspcommpct);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT, $this->oedtspcommpct);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBRKNCASEQTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBRKNCASEQTY, $this->oedtbrkncaseqty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY, $this->oedtbrkncaseqty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBIN)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBIN, $this->oedtbin);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBIN)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBIN, $this->oedtbin);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPERSONALCD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPERSONALCD, $this->oedtpersonalcd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPERSONALCD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPERSONALCD, $this->oedtpersonalcd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC1)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACDISC1, $this->oedtacdisc1);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC1)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACDISC1, $this->oedtacdisc1);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC2)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACDISC2, $this->oedtacdisc2);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC2)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACDISC2, $this->oedtacdisc2);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC3)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACDISC3, $this->oedtacdisc3);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC3)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACDISC3, $this->oedtacdisc3);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACDISC4)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACDISC4, $this->oedtacdisc4);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACDISC4)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACDISC4, $this->oedtacdisc4);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMWIPNBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLMWIPNBR, $this->oedtlmwipnbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMWIPNBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMWIPNBR, $this->oedtlmwipnbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOREPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCOREPRIC, $this->oedtcorepric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOREPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCOREPRIC, $this->oedtcorepric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTASSTCODE, $this->oedtasstcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTASSTCODE, $this->oedtasstcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTQTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTASSTQTY, $this->oedtasstqty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTQTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTASSTQTY, $this->oedtasstqty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLISTPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLISTPRIC, $this->oedtlistpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLISTPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLISTPRIC, $this->oedtlistpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSTANCOST)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSTANCOST, $this->oedtstancost);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSTANCOST)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSTANCOST, $this->oedtstancost);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTVENDITEMJOB)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTVENDITEMJOB, $this->oedtvenditemjob);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB, $this->oedtvenditemjob);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSVENDID)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTNSVENDID, $this->oedtnsvendid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSVENDID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTNSVENDID, $this->oedtnsvendid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSITEMGRUP)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTNSITEMGRUP, $this->oedtnsitemgrup);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP, $this->oedtnsitemgrup);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTUSECODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTUSECODE, $this->oedtusecode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTUSECODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTUSECODE, $this->oedtusecode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSSHIPFROMID)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTNSSHIPFROMID, $this->oedtnsshipfromid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID, $this->oedtnsshipfromid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTASSTOVRD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTASSTOVRD, $this->oedtasstovrd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTASSTOVRD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTASSTOVRD, $this->oedtasstovrd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRICOVRD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPRICOVRD, $this->oedtpricovrd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRICOVRD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPRICOVRD, $this->oedtpricovrd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPICKFLAG, $this->oedtpickflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPICKFLAG, $this->oedtpickflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE1)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE1, $this->oedtmstrtaxcode1);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1, $this->oedtmstrtaxcode1);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT1)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT1, $this->oedtmstrtaxpct1);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1, $this->oedtmstrtaxpct1);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE2)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE2, $this->oedtmstrtaxcode2);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2, $this->oedtmstrtaxcode2);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT2)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT2, $this->oedtmstrtaxpct2);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2, $this->oedtmstrtaxpct2);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE3)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE3, $this->oedtmstrtaxcode3);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3, $this->oedtmstrtaxcode3);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT3)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT3, $this->oedtmstrtaxpct3);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3, $this->oedtmstrtaxpct3);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE4)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE4, $this->oedtmstrtaxcode4);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4, $this->oedtmstrtaxcode4);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT4)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT4, $this->oedtmstrtaxpct4);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4, $this->oedtmstrtaxpct4);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE5)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE5, $this->oedtmstrtaxcode5);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5, $this->oedtmstrtaxcode5);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT5)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT5, $this->oedtmstrtaxpct5);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5, $this->oedtmstrtaxpct5);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE6)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE6, $this->oedtmstrtaxcode6);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6, $this->oedtmstrtaxcode6);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT6)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT6, $this->oedtmstrtaxpct6);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6, $this->oedtmstrtaxpct6);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE7)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE7, $this->oedtmstrtaxcode7);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7, $this->oedtmstrtaxcode7);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT7)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT7, $this->oedtmstrtaxpct7);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7, $this->oedtmstrtaxpct7);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE8)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE8, $this->oedtmstrtaxcode8);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8, $this->oedtmstrtaxcode8);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT8)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT8, $this->oedtmstrtaxpct8);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8, $this->oedtmstrtaxpct8);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXCODE9)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXCODE9, $this->oedtmstrtaxcode9);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9, $this->oedtmstrtaxcode9);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMSTRTAXPCT9)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMSTRTAXPCT9, $this->oedtmstrtaxpct9);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9, $this->oedtmstrtaxpct9);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBINAREA)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBINAREA, $this->oedtbinarea);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBINAREA)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBINAREA, $this->oedtbinarea);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPLITLINE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSPLITLINE, $this->oedtsplitline);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPLITLINE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSPLITLINE, $this->oedtsplitline);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLOSTREAS)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLOSTREAS, $this->oedtlostreas);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLOSTREAS)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLOSTREAS, $this->oedtlostreas);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGLINE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTORIGLINE, $this->oedtorigline);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGLINE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORIGLINE, $this->oedtorigline);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCUSTCRSSREF)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCUSTCRSSREF, $this->oedtcustcrssref);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF, $this->oedtcustcrssref);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTUOM)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTUOM, $this->oedtuom);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTUOM)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTUOM, $this->oedtuom);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHIPFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSHIPFLAG, $this->oedtshipflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHIPFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSHIPFLAG, $this->oedtshipflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTKITFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTKITFLAG, $this->oedtkitflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTKITFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTKITFLAG, $this->oedtkitflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTKITITEMNBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTKITITEMNBR, $this->oedtkititemnbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTKITITEMNBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTKITITEMNBR, $this->oedtkititemnbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFCOST)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBFCOST, $this->oedtbfcost);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFCOST)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBFCOST, $this->oedtbfcost);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFMSGCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBFMSGCODE, $this->oedtbfmsgcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFMSGCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBFMSGCODE, $this->oedtbfmsgcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBFCOSTTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBFCOSTTOT, $this->oedtbfcosttot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT, $this->oedtbfcosttot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMBULKPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLMBULKPRIC, $this->oedtlmbulkpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC, $this->oedtlmbulkpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC, $this->oedtlmmtrxpkgpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC, $this->oedtlmmtrxpkgpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC, $this->oedtlmmtrxbulkpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC, $this->oedtlmmtrxbulkpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLMCONTRACTPRIC, $this->oedtlmcontractpric);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC, $this->oedtlmcontractpric);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGHT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWGHT, $this->oedtwght);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGHT, $this->oedtwght);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORDRAS)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTORDRAS, $this->oedtordras);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRAS)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORDRAS, $this->oedtordras);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPODETLINENBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPODETLINENBR, $this->oedtpodetlinenbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPODETLINENBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPODETLINENBR, $this->oedtpodetlinenbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQTYTOSHIP)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQTYTOSHIP, $this->oedtqtytoship);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP, $this->oedtqtytoship);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPONBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPONBR, $this->oedtponbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPONBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPONBR, $this->oedtponbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPOREF)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPOREF, $this->oedtporef);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPOREF)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPOREF, $this->oedtporef);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRTIN)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTFRTIN, $this->oedtfrtin);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRTIN)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTFRTIN, $this->oedtfrtin);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRTINENTERED)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTFRTINENTERED, $this->oedtfrtinentered);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRTINENTERED)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTFRTINENTERED, $this->oedtfrtinentered);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPRODCMPLT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPRODCMPLT, $this->oedtprodcmplt);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPRODCMPLT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPRODCMPLT, $this->oedtprodcmplt);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTERFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTERFLAG, $this->oedterflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTERFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTERFLAG, $this->oedterflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGITEM)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTORIGITEM, $this->oedtorigitem);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGITEM)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORIGITEM, $this->oedtorigitem);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSUBFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSUBFLAG, $this->oedtsubflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSUBFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSUBFLAG, $this->oedtsubflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ, $this->oedtediincomingseq);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ, $this->oedtediincomingseq);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSPORDPOLINE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSPORDPOLINE, $this->oedtspordpoline);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE, $this->oedtspordpoline);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCATLGID)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCATLGID, $this->oedtcatlgid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCATLGID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCATLGID, $this->oedtcatlgid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDESIGNCD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTDESIGNCD, $this->oedtdesigncd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDESIGNCD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTDESIGNCD, $this->oedtdesigncd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTDISCPCT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTDISCPCT, $this->oedtdiscpct);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTDISCPCT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTDISCPCT, $this->oedtdiscpct);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTAXAMT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTTAXAMT, $this->oedttaxamt);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTAXAMT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTTAXAMT, $this->oedttaxamt);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTXUSAGE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTXUSAGE, $this->oedtxusage);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTXUSAGE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTXUSAGE, $this->oedtxusage);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRQTSLOCK)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTRQTSLOCK, $this->oedtrqtslock);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRQTSLOCK)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTRQTSLOCK, $this->oedtrqtslock);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFRESHFROZEN)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTFRESHFROZEN, $this->oedtfreshfrozen);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN, $this->oedtfreshfrozen);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOREFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCOREFLAG, $this->oedtcoreflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOREFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCOREFLAG, $this->oedtcoreflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTNSSALESACCT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTNSSALESACCT, $this->oedtnssalesacct);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTNSSALESACCT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTNSSALESACCT, $this->oedtnssalesacct);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTREQD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCERTREQD, $this->oedtcertreqd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTREQD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCERTREQD, $this->oedtcertreqd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTADDONSALES)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTADDONSALES, $this->oedtaddonsales);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTADDONSALES)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTADDONSALES, $this->oedtaddonsales);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTBORDFLAG)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTBORDFLAG, $this->oedtbordflag);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBORDFLAG)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBORDFLAG, $this->oedtbordflag);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTTEMPGROVE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTTEMPGROVE, $this->oedttempgrove);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTTEMPGROVE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTTEMPGROVE, $this->oedttempgrove);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTGROVEDISC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTGROVEDISC, $this->oedtgrovedisc);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTGROVEDISC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTGROVEDISC, $this->oedtgrovedisc);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTOFFINVC)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTOFFINVC, $this->oedtoffinvc);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTOFFINVC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTOFFINVC, $this->oedtoffinvc);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_INITITEMGRUP)) {
-            $criteria->add(SoDetailTableMap::COL_INITITEMGRUP, $this->inititemgrup);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_INITITEMGRUP)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_INITITEMGRUP, $this->inititemgrup);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_APVEVENDID)) {
-            $criteria->add(SoDetailTableMap::COL_APVEVENDID, $this->apvevendid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_APVEVENDID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_APVEVENDID, $this->apvevendid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACCT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACCT, $this->oedtacct);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACCT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACCT, $this->oedtacct);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLOADTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLOADTOT, $this->oedtloadtot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLOADTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLOADTOT, $this->oedtloadtot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKEDQTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPICKEDQTY, $this->oedtpickedqty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKEDQTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPICKEDQTY, $this->oedtpickedqty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIORIGQTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWIORIGQTY, $this->oedtwiorigqty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIORIGQTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWIORIGQTY, $this->oedtwiorigqty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTMARGINTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTMARGINTOT, $this->oedtmargintot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTMARGINTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTMARGINTOT, $this->oedtmargintot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCORECOST)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCORECOST, $this->oedtcorecost);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCORECOST)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCORECOST, $this->oedtcorecost);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTITEMREF)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTITEMREF, $this->oedtitemref);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTITEMREF)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTITEMREF, $this->oedtitemref);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSAC02RETURNCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSAC02RETURNCODE, $this->oedtsac02returncode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE, $this->oedtsac02returncode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGTAXCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWGTAXCODE, $this->oedtwgtaxcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGTAXCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGTAXCODE, $this->oedtwgtaxcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGPRICE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWGPRICE, $this->oedtwgprice);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGPRICE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGPRICE, $this->oedtwgprice);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWGTOT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWGTOT, $this->oedtwgtot);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGTOT, $this->oedtwgtot);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCNTRQTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCNTRQTY, $this->oedtcntrqty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCNTRQTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCNTRQTY, $this->oedtcntrqty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCONFIRMCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCONFIRMCODE, $this->oedtconfirmcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE, $this->oedtconfirmcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTPICKED)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTPICKED, $this->oedtpicked);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTPICKED)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTPICKED, $this->oedtpicked);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORIGRQSTDATE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTORIGRQSTDATE, $this->oedtorigrqstdate);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE, $this->oedtorigrqstdate);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTFABLOCK)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTFABLOCK, $this->oedtfablock);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTFABLOCK)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTFABLOCK, $this->oedtfablock);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTLABELPRINTED)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTLABELPRINTED, $this->oedtlabelprinted);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLABELPRINTED)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTLABELPRINTED, $this->oedtlabelprinted);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTQUOTEID)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTQUOTEID, $this->oedtquoteid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQUOTEID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTQUOTEID, $this->oedtquoteid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTINVPRINTED)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTINVPRINTED, $this->oedtinvprinted);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTINVPRINTED)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTINVPRINTED, $this->oedtinvprinted);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSTOCKCHECK)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSTOCKCHECK, $this->oedtstockcheck);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK, $this->oedtstockcheck);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTSHOULDWESPLIT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTSHOULDWESPLIT, $this->oedtshouldwesplit);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT, $this->oedtshouldwesplit);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCOFCREQD)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCOFCREQD, $this->oedtcofcreqd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCOFCREQD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCOFCREQD, $this->oedtcofcreqd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTACKCODE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTACKCODE, $this->oedtackcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACKCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACKCODE, $this->oedtackcode);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBORDNBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWIBORDNBR, $this->oedtwibordnbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBORDNBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWIBORDNBR, $this->oedtwibordnbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTHISTORDR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCERTHISTORDR, $this->oedtcerthistordr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR, $this->oedtcerthistordr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTCERTHISTLINE)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTCERTHISTLINE, $this->oedtcerthistline);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE, $this->oedtcerthistline);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTORDRDASITEMID)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTORDRDASITEMID, $this->oedtordrdasitemid);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID, $this->oedtordrdasitemid);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1NBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWIBATCH1NBR, $this->oedtwibatch1nbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR, $this->oedtwibatch1nbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1QTY)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWIBATCH1QTY, $this->oedtwibatch1qty);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY, $this->oedtwibatch1qty);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTWIBATCH1STAT)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTWIBATCH1STAT, $this->oedtwibatch1stat);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT, $this->oedtwibatch1stat);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_OEDTRGANBR)) {
-            $criteria->add(SoDetailTableMap::COL_OEDTRGANBR, $this->oedtrganbr);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRGANBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTRGANBR, $this->oedtrganbr);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_DATEUPDTD)) {
-            $criteria->add(SoDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DATEUPDTD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(SoDetailTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(SoDetailTableMap::COL_DUMMY)) {
-            $criteria->add(SoDetailTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DUMMY)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -9092,9 +9092,9 @@ abstract class SoDetail implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildSoDetailQuery::create();
-        $criteria->add(SoDetailTableMap::COL_OEHDNBR, $this->oehdnbr);
-        $criteria->add(SoDetailTableMap::COL_OEDTLINE, $this->oedtline);
+        $criteria = ChildSalesOrderDetailQuery::create();
+        $criteria->add(SalesOrderDetailTableMap::COL_OEHDNBR, $this->oehdnbr);
+        $criteria->add(SalesOrderDetailTableMap::COL_OEDTLINE, $this->oedtline);
 
         return $criteria;
     }
@@ -9163,7 +9163,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SoDetail (or compatible) type.
+     * @param      object $copyObj An object of \SalesOrderDetail (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -9325,7 +9325,7 @@ abstract class SoDetail implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \SoDetail Clone of current object.
+     * @return \SalesOrderDetail Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -9516,7 +9516,7 @@ abstract class SoDetail implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SoDetailTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(SalesOrderDetailTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

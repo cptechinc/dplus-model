@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \SoDetail;
-use \SoDetailQuery;
+use \SalesOrderDetail;
+use \SalesOrderDetailQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class SoDetailTableMap extends TableMap
+class SalesOrderDetailTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class SoDetailTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.SoDetailTableMap';
+    const CLASS_NAME = '.Map.SalesOrderDetailTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class SoDetailTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\SoDetail';
+    const OM_CLASS = '\\SalesOrderDetail';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'SoDetail';
+    const CLASS_DEFAULT = 'SalesOrderDetail';
 
     /**
      * The total number of columns
@@ -790,7 +790,7 @@ class SoDetailTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oedtdesc', 'Oedtdesc2', 'Intbwhse', 'Oedtrqstdate', 'Oedtcancdate', 'Oedtshipdate', 'Oedtspecordr', 'Artbmtaxcode', 'Oedtqtyord', 'Oedtqtyship', 'Oedtqtyshiptot', 'Oedtqtybord', 'Oedtpric', 'Oedtcost', 'Oedttaxpcttot', 'Oedtprictot', 'Oedtcosttot', 'Oedtspcommpct', 'Oedtbrkncaseqty', 'Oedtbin', 'Oedtpersonalcd', 'Oedtacdisc1', 'Oedtacdisc2', 'Oedtacdisc3', 'Oedtacdisc4', 'Oedtlmwipnbr', 'Oedtcorepric', 'Oedtasstcode', 'Oedtasstqty', 'Oedtlistpric', 'Oedtstancost', 'Oedtvenditemjob', 'Oedtnsvendid', 'Oedtnsitemgrup', 'Oedtusecode', 'Oedtnsshipfromid', 'Oedtasstovrd', 'Oedtpricovrd', 'Oedtpickflag', 'Oedtmstrtaxcode1', 'Oedtmstrtaxpct1', 'Oedtmstrtaxcode2', 'Oedtmstrtaxpct2', 'Oedtmstrtaxcode3', 'Oedtmstrtaxpct3', 'Oedtmstrtaxcode4', 'Oedtmstrtaxpct4', 'Oedtmstrtaxcode5', 'Oedtmstrtaxpct5', 'Oedtmstrtaxcode6', 'Oedtmstrtaxpct6', 'Oedtmstrtaxcode7', 'Oedtmstrtaxpct7', 'Oedtmstrtaxcode8', 'Oedtmstrtaxpct8', 'Oedtmstrtaxcode9', 'Oedtmstrtaxpct9', 'Oedtbinarea', 'Oedtsplitline', 'Oedtlostreas', 'Oedtorigline', 'Oedtcustcrssref', 'Oedtuom', 'Oedtshipflag', 'Oedtkitflag', 'Oedtkititemnbr', 'Oedtbfcost', 'Oedtbfmsgcode', 'Oedtbfcosttot', 'Oedtlmbulkpric', 'Oedtlmmtrxpkgpric', 'Oedtlmmtrxbulkpric', 'Oedtlmcontractpric', 'Oedtwght', 'Oedtordras', 'Oedtpodetlinenbr', 'Oedtqtytoship', 'Oedtponbr', 'Oedtporef', 'Oedtfrtin', 'Oedtfrtinentered', 'Oedtprodcmplt', 'Oedterflag', 'Oedtorigitem', 'Oedtsubflag', 'Oedtediincomingseq', 'Oedtspordpoline', 'Oedtcatlgid', 'Oedtdesigncd', 'Oedtdiscpct', 'Oedttaxamt', 'Oedtxusage', 'Oedtrqtslock', 'Oedtfreshfrozen', 'Oedtcoreflag', 'Oedtnssalesacct', 'Oedtcertreqd', 'Oedtaddonsales', 'Oedtbordflag', 'Oedttempgrove', 'Oedtgrovedisc', 'Oedtoffinvc', 'Inititemgrup', 'Apvevendid', 'Oedtacct', 'Oedtloadtot', 'Oedtpickedqty', 'Oedtwiorigqty', 'Oedtmargintot', 'Oedtcorecost', 'Oedtitemref', 'Oedtsac02returncode', 'Oedtwgtaxcode', 'Oedtwgprice', 'Oedtwgtot', 'Oedtcntrqty', 'Oedtconfirmcode', 'Oedtpicked', 'Oedtorigrqstdate', 'Oedtfablock', 'Oedtlabelprinted', 'Oedtquoteid', 'Oedtinvprinted', 'Oedtstockcheck', 'Oedtshouldwesplit', 'Oedtcofcreqd', 'Oedtackcode', 'Oedtwibordnbr', 'Oedtcerthistordr', 'Oedtcerthistline', 'Oedtordrdasitemid', 'Oedtwibatch1nbr', 'Oedtwibatch1qty', 'Oedtwibatch1stat', 'Oedtrganbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oedtdesc', 'oedtdesc2', 'intbwhse', 'oedtrqstdate', 'oedtcancdate', 'oedtshipdate', 'oedtspecordr', 'artbmtaxcode', 'oedtqtyord', 'oedtqtyship', 'oedtqtyshiptot', 'oedtqtybord', 'oedtpric', 'oedtcost', 'oedttaxpcttot', 'oedtprictot', 'oedtcosttot', 'oedtspcommpct', 'oedtbrkncaseqty', 'oedtbin', 'oedtpersonalcd', 'oedtacdisc1', 'oedtacdisc2', 'oedtacdisc3', 'oedtacdisc4', 'oedtlmwipnbr', 'oedtcorepric', 'oedtasstcode', 'oedtasstqty', 'oedtlistpric', 'oedtstancost', 'oedtvenditemjob', 'oedtnsvendid', 'oedtnsitemgrup', 'oedtusecode', 'oedtnsshipfromid', 'oedtasstovrd', 'oedtpricovrd', 'oedtpickflag', 'oedtmstrtaxcode1', 'oedtmstrtaxpct1', 'oedtmstrtaxcode2', 'oedtmstrtaxpct2', 'oedtmstrtaxcode3', 'oedtmstrtaxpct3', 'oedtmstrtaxcode4', 'oedtmstrtaxpct4', 'oedtmstrtaxcode5', 'oedtmstrtaxpct5', 'oedtmstrtaxcode6', 'oedtmstrtaxpct6', 'oedtmstrtaxcode7', 'oedtmstrtaxpct7', 'oedtmstrtaxcode8', 'oedtmstrtaxpct8', 'oedtmstrtaxcode9', 'oedtmstrtaxpct9', 'oedtbinarea', 'oedtsplitline', 'oedtlostreas', 'oedtorigline', 'oedtcustcrssref', 'oedtuom', 'oedtshipflag', 'oedtkitflag', 'oedtkititemnbr', 'oedtbfcost', 'oedtbfmsgcode', 'oedtbfcosttot', 'oedtlmbulkpric', 'oedtlmmtrxpkgpric', 'oedtlmmtrxbulkpric', 'oedtlmcontractpric', 'oedtwght', 'oedtordras', 'oedtpodetlinenbr', 'oedtqtytoship', 'oedtponbr', 'oedtporef', 'oedtfrtin', 'oedtfrtinentered', 'oedtprodcmplt', 'oedterflag', 'oedtorigitem', 'oedtsubflag', 'oedtediincomingseq', 'oedtspordpoline', 'oedtcatlgid', 'oedtdesigncd', 'oedtdiscpct', 'oedttaxamt', 'oedtxusage', 'oedtrqtslock', 'oedtfreshfrozen', 'oedtcoreflag', 'oedtnssalesacct', 'oedtcertreqd', 'oedtaddonsales', 'oedtbordflag', 'oedttempgrove', 'oedtgrovedisc', 'oedtoffinvc', 'inititemgrup', 'apvevendid', 'oedtacct', 'oedtloadtot', 'oedtpickedqty', 'oedtwiorigqty', 'oedtmargintot', 'oedtcorecost', 'oedtitemref', 'oedtsac02returncode', 'oedtwgtaxcode', 'oedtwgprice', 'oedtwgtot', 'oedtcntrqty', 'oedtconfirmcode', 'oedtpicked', 'oedtorigrqstdate', 'oedtfablock', 'oedtlabelprinted', 'oedtquoteid', 'oedtinvprinted', 'oedtstockcheck', 'oedtshouldwesplit', 'oedtcofcreqd', 'oedtackcode', 'oedtwibordnbr', 'oedtcerthistordr', 'oedtcerthistline', 'oedtordrdasitemid', 'oedtwibatch1nbr', 'oedtwibatch1qty', 'oedtwibatch1stat', 'oedtrganbr', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoDetailTableMap::COL_OEHDNBR, SoDetailTableMap::COL_OEDTLINE, SoDetailTableMap::COL_INITITEMNBR, SoDetailTableMap::COL_OEDTDESC, SoDetailTableMap::COL_OEDTDESC2, SoDetailTableMap::COL_INTBWHSE, SoDetailTableMap::COL_OEDTRQSTDATE, SoDetailTableMap::COL_OEDTCANCDATE, SoDetailTableMap::COL_OEDTSHIPDATE, SoDetailTableMap::COL_OEDTSPECORDR, SoDetailTableMap::COL_ARTBMTAXCODE, SoDetailTableMap::COL_OEDTQTYORD, SoDetailTableMap::COL_OEDTQTYSHIP, SoDetailTableMap::COL_OEDTQTYSHIPTOT, SoDetailTableMap::COL_OEDTQTYBORD, SoDetailTableMap::COL_OEDTPRIC, SoDetailTableMap::COL_OEDTCOST, SoDetailTableMap::COL_OEDTTAXPCTTOT, SoDetailTableMap::COL_OEDTPRICTOT, SoDetailTableMap::COL_OEDTCOSTTOT, SoDetailTableMap::COL_OEDTSPCOMMPCT, SoDetailTableMap::COL_OEDTBRKNCASEQTY, SoDetailTableMap::COL_OEDTBIN, SoDetailTableMap::COL_OEDTPERSONALCD, SoDetailTableMap::COL_OEDTACDISC1, SoDetailTableMap::COL_OEDTACDISC2, SoDetailTableMap::COL_OEDTACDISC3, SoDetailTableMap::COL_OEDTACDISC4, SoDetailTableMap::COL_OEDTLMWIPNBR, SoDetailTableMap::COL_OEDTCOREPRIC, SoDetailTableMap::COL_OEDTASSTCODE, SoDetailTableMap::COL_OEDTASSTQTY, SoDetailTableMap::COL_OEDTLISTPRIC, SoDetailTableMap::COL_OEDTSTANCOST, SoDetailTableMap::COL_OEDTVENDITEMJOB, SoDetailTableMap::COL_OEDTNSVENDID, SoDetailTableMap::COL_OEDTNSITEMGRUP, SoDetailTableMap::COL_OEDTUSECODE, SoDetailTableMap::COL_OEDTNSSHIPFROMID, SoDetailTableMap::COL_OEDTASSTOVRD, SoDetailTableMap::COL_OEDTPRICOVRD, SoDetailTableMap::COL_OEDTPICKFLAG, SoDetailTableMap::COL_OEDTMSTRTAXCODE1, SoDetailTableMap::COL_OEDTMSTRTAXPCT1, SoDetailTableMap::COL_OEDTMSTRTAXCODE2, SoDetailTableMap::COL_OEDTMSTRTAXPCT2, SoDetailTableMap::COL_OEDTMSTRTAXCODE3, SoDetailTableMap::COL_OEDTMSTRTAXPCT3, SoDetailTableMap::COL_OEDTMSTRTAXCODE4, SoDetailTableMap::COL_OEDTMSTRTAXPCT4, SoDetailTableMap::COL_OEDTMSTRTAXCODE5, SoDetailTableMap::COL_OEDTMSTRTAXPCT5, SoDetailTableMap::COL_OEDTMSTRTAXCODE6, SoDetailTableMap::COL_OEDTMSTRTAXPCT6, SoDetailTableMap::COL_OEDTMSTRTAXCODE7, SoDetailTableMap::COL_OEDTMSTRTAXPCT7, SoDetailTableMap::COL_OEDTMSTRTAXCODE8, SoDetailTableMap::COL_OEDTMSTRTAXPCT8, SoDetailTableMap::COL_OEDTMSTRTAXCODE9, SoDetailTableMap::COL_OEDTMSTRTAXPCT9, SoDetailTableMap::COL_OEDTBINAREA, SoDetailTableMap::COL_OEDTSPLITLINE, SoDetailTableMap::COL_OEDTLOSTREAS, SoDetailTableMap::COL_OEDTORIGLINE, SoDetailTableMap::COL_OEDTCUSTCRSSREF, SoDetailTableMap::COL_OEDTUOM, SoDetailTableMap::COL_OEDTSHIPFLAG, SoDetailTableMap::COL_OEDTKITFLAG, SoDetailTableMap::COL_OEDTKITITEMNBR, SoDetailTableMap::COL_OEDTBFCOST, SoDetailTableMap::COL_OEDTBFMSGCODE, SoDetailTableMap::COL_OEDTBFCOSTTOT, SoDetailTableMap::COL_OEDTLMBULKPRIC, SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC, SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC, SoDetailTableMap::COL_OEDTLMCONTRACTPRIC, SoDetailTableMap::COL_OEDTWGHT, SoDetailTableMap::COL_OEDTORDRAS, SoDetailTableMap::COL_OEDTPODETLINENBR, SoDetailTableMap::COL_OEDTQTYTOSHIP, SoDetailTableMap::COL_OEDTPONBR, SoDetailTableMap::COL_OEDTPOREF, SoDetailTableMap::COL_OEDTFRTIN, SoDetailTableMap::COL_OEDTFRTINENTERED, SoDetailTableMap::COL_OEDTPRODCMPLT, SoDetailTableMap::COL_OEDTERFLAG, SoDetailTableMap::COL_OEDTORIGITEM, SoDetailTableMap::COL_OEDTSUBFLAG, SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ, SoDetailTableMap::COL_OEDTSPORDPOLINE, SoDetailTableMap::COL_OEDTCATLGID, SoDetailTableMap::COL_OEDTDESIGNCD, SoDetailTableMap::COL_OEDTDISCPCT, SoDetailTableMap::COL_OEDTTAXAMT, SoDetailTableMap::COL_OEDTXUSAGE, SoDetailTableMap::COL_OEDTRQTSLOCK, SoDetailTableMap::COL_OEDTFRESHFROZEN, SoDetailTableMap::COL_OEDTCOREFLAG, SoDetailTableMap::COL_OEDTNSSALESACCT, SoDetailTableMap::COL_OEDTCERTREQD, SoDetailTableMap::COL_OEDTADDONSALES, SoDetailTableMap::COL_OEDTBORDFLAG, SoDetailTableMap::COL_OEDTTEMPGROVE, SoDetailTableMap::COL_OEDTGROVEDISC, SoDetailTableMap::COL_OEDTOFFINVC, SoDetailTableMap::COL_INITITEMGRUP, SoDetailTableMap::COL_APVEVENDID, SoDetailTableMap::COL_OEDTACCT, SoDetailTableMap::COL_OEDTLOADTOT, SoDetailTableMap::COL_OEDTPICKEDQTY, SoDetailTableMap::COL_OEDTWIORIGQTY, SoDetailTableMap::COL_OEDTMARGINTOT, SoDetailTableMap::COL_OEDTCORECOST, SoDetailTableMap::COL_OEDTITEMREF, SoDetailTableMap::COL_OEDTSAC02RETURNCODE, SoDetailTableMap::COL_OEDTWGTAXCODE, SoDetailTableMap::COL_OEDTWGPRICE, SoDetailTableMap::COL_OEDTWGTOT, SoDetailTableMap::COL_OEDTCNTRQTY, SoDetailTableMap::COL_OEDTCONFIRMCODE, SoDetailTableMap::COL_OEDTPICKED, SoDetailTableMap::COL_OEDTORIGRQSTDATE, SoDetailTableMap::COL_OEDTFABLOCK, SoDetailTableMap::COL_OEDTLABELPRINTED, SoDetailTableMap::COL_OEDTQUOTEID, SoDetailTableMap::COL_OEDTINVPRINTED, SoDetailTableMap::COL_OEDTSTOCKCHECK, SoDetailTableMap::COL_OEDTSHOULDWESPLIT, SoDetailTableMap::COL_OEDTCOFCREQD, SoDetailTableMap::COL_OEDTACKCODE, SoDetailTableMap::COL_OEDTWIBORDNBR, SoDetailTableMap::COL_OEDTCERTHISTORDR, SoDetailTableMap::COL_OEDTCERTHISTLINE, SoDetailTableMap::COL_OEDTORDRDASITEMID, SoDetailTableMap::COL_OEDTWIBATCH1NBR, SoDetailTableMap::COL_OEDTWIBATCH1QTY, SoDetailTableMap::COL_OEDTWIBATCH1STAT, SoDetailTableMap::COL_OEDTRGANBR, SoDetailTableMap::COL_DATEUPDTD, SoDetailTableMap::COL_TIMEUPDTD, SoDetailTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(SalesOrderDetailTableMap::COL_OEHDNBR, SalesOrderDetailTableMap::COL_OEDTLINE, SalesOrderDetailTableMap::COL_INITITEMNBR, SalesOrderDetailTableMap::COL_OEDTDESC, SalesOrderDetailTableMap::COL_OEDTDESC2, SalesOrderDetailTableMap::COL_INTBWHSE, SalesOrderDetailTableMap::COL_OEDTRQSTDATE, SalesOrderDetailTableMap::COL_OEDTCANCDATE, SalesOrderDetailTableMap::COL_OEDTSHIPDATE, SalesOrderDetailTableMap::COL_OEDTSPECORDR, SalesOrderDetailTableMap::COL_ARTBMTAXCODE, SalesOrderDetailTableMap::COL_OEDTQTYORD, SalesOrderDetailTableMap::COL_OEDTQTYSHIP, SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT, SalesOrderDetailTableMap::COL_OEDTQTYBORD, SalesOrderDetailTableMap::COL_OEDTPRIC, SalesOrderDetailTableMap::COL_OEDTCOST, SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT, SalesOrderDetailTableMap::COL_OEDTPRICTOT, SalesOrderDetailTableMap::COL_OEDTCOSTTOT, SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT, SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY, SalesOrderDetailTableMap::COL_OEDTBIN, SalesOrderDetailTableMap::COL_OEDTPERSONALCD, SalesOrderDetailTableMap::COL_OEDTACDISC1, SalesOrderDetailTableMap::COL_OEDTACDISC2, SalesOrderDetailTableMap::COL_OEDTACDISC3, SalesOrderDetailTableMap::COL_OEDTACDISC4, SalesOrderDetailTableMap::COL_OEDTLMWIPNBR, SalesOrderDetailTableMap::COL_OEDTCOREPRIC, SalesOrderDetailTableMap::COL_OEDTASSTCODE, SalesOrderDetailTableMap::COL_OEDTASSTQTY, SalesOrderDetailTableMap::COL_OEDTLISTPRIC, SalesOrderDetailTableMap::COL_OEDTSTANCOST, SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB, SalesOrderDetailTableMap::COL_OEDTNSVENDID, SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP, SalesOrderDetailTableMap::COL_OEDTUSECODE, SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID, SalesOrderDetailTableMap::COL_OEDTASSTOVRD, SalesOrderDetailTableMap::COL_OEDTPRICOVRD, SalesOrderDetailTableMap::COL_OEDTPICKFLAG, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9, SalesOrderDetailTableMap::COL_OEDTBINAREA, SalesOrderDetailTableMap::COL_OEDTSPLITLINE, SalesOrderDetailTableMap::COL_OEDTLOSTREAS, SalesOrderDetailTableMap::COL_OEDTORIGLINE, SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF, SalesOrderDetailTableMap::COL_OEDTUOM, SalesOrderDetailTableMap::COL_OEDTSHIPFLAG, SalesOrderDetailTableMap::COL_OEDTKITFLAG, SalesOrderDetailTableMap::COL_OEDTKITITEMNBR, SalesOrderDetailTableMap::COL_OEDTBFCOST, SalesOrderDetailTableMap::COL_OEDTBFMSGCODE, SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT, SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC, SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC, SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC, SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC, SalesOrderDetailTableMap::COL_OEDTWGHT, SalesOrderDetailTableMap::COL_OEDTORDRAS, SalesOrderDetailTableMap::COL_OEDTPODETLINENBR, SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP, SalesOrderDetailTableMap::COL_OEDTPONBR, SalesOrderDetailTableMap::COL_OEDTPOREF, SalesOrderDetailTableMap::COL_OEDTFRTIN, SalesOrderDetailTableMap::COL_OEDTFRTINENTERED, SalesOrderDetailTableMap::COL_OEDTPRODCMPLT, SalesOrderDetailTableMap::COL_OEDTERFLAG, SalesOrderDetailTableMap::COL_OEDTORIGITEM, SalesOrderDetailTableMap::COL_OEDTSUBFLAG, SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ, SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE, SalesOrderDetailTableMap::COL_OEDTCATLGID, SalesOrderDetailTableMap::COL_OEDTDESIGNCD, SalesOrderDetailTableMap::COL_OEDTDISCPCT, SalesOrderDetailTableMap::COL_OEDTTAXAMT, SalesOrderDetailTableMap::COL_OEDTXUSAGE, SalesOrderDetailTableMap::COL_OEDTRQTSLOCK, SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN, SalesOrderDetailTableMap::COL_OEDTCOREFLAG, SalesOrderDetailTableMap::COL_OEDTNSSALESACCT, SalesOrderDetailTableMap::COL_OEDTCERTREQD, SalesOrderDetailTableMap::COL_OEDTADDONSALES, SalesOrderDetailTableMap::COL_OEDTBORDFLAG, SalesOrderDetailTableMap::COL_OEDTTEMPGROVE, SalesOrderDetailTableMap::COL_OEDTGROVEDISC, SalesOrderDetailTableMap::COL_OEDTOFFINVC, SalesOrderDetailTableMap::COL_INITITEMGRUP, SalesOrderDetailTableMap::COL_APVEVENDID, SalesOrderDetailTableMap::COL_OEDTACCT, SalesOrderDetailTableMap::COL_OEDTLOADTOT, SalesOrderDetailTableMap::COL_OEDTPICKEDQTY, SalesOrderDetailTableMap::COL_OEDTWIORIGQTY, SalesOrderDetailTableMap::COL_OEDTMARGINTOT, SalesOrderDetailTableMap::COL_OEDTCORECOST, SalesOrderDetailTableMap::COL_OEDTITEMREF, SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE, SalesOrderDetailTableMap::COL_OEDTWGTAXCODE, SalesOrderDetailTableMap::COL_OEDTWGPRICE, SalesOrderDetailTableMap::COL_OEDTWGTOT, SalesOrderDetailTableMap::COL_OEDTCNTRQTY, SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE, SalesOrderDetailTableMap::COL_OEDTPICKED, SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE, SalesOrderDetailTableMap::COL_OEDTFABLOCK, SalesOrderDetailTableMap::COL_OEDTLABELPRINTED, SalesOrderDetailTableMap::COL_OEDTQUOTEID, SalesOrderDetailTableMap::COL_OEDTINVPRINTED, SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK, SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT, SalesOrderDetailTableMap::COL_OEDTCOFCREQD, SalesOrderDetailTableMap::COL_OEDTACKCODE, SalesOrderDetailTableMap::COL_OEDTWIBORDNBR, SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR, SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE, SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID, SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR, SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY, SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT, SalesOrderDetailTableMap::COL_OEDTRGANBR, SalesOrderDetailTableMap::COL_DATEUPDTD, SalesOrderDetailTableMap::COL_TIMEUPDTD, SalesOrderDetailTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OedtDesc', 'OedtDesc2', 'IntbWhse', 'OedtRqstDate', 'OedtCancDate', 'OedtShipDate', 'OedtSpecOrdr', 'ArtbMtaxCode', 'OedtQtyOrd', 'OedtQtyShip', 'OedtQtyShipTot', 'OedtQtyBord', 'OedtPric', 'OedtCost', 'OedtTaxPctTot', 'OedtPricTot', 'OedtCostTot', 'OedtSpCommPct', 'OedtBrknCaseQty', 'OedtBin', 'OedtPersonalCd', 'OedtAcDisc1', 'OedtAcDisc2', 'OedtAcDisc3', 'OedtAcDisc4', 'OedtLmWipNbr', 'OedtCorePric', 'OedtAsstCode', 'OedtAsstQty', 'OedtListPric', 'OedtStanCost', 'OedtVendItemJob', 'OedtNsVendId', 'OedtNsItemGrup', 'OedtUseCode', 'OedtNsShipFromId', 'OedtAsstOvrd', 'OedtPricOvrd', 'OedtPickFlag', 'OedtMstrTaxCode1', 'OedtMstrTaxPct1', 'OedtMstrTaxCode2', 'OedtMstrTaxPct2', 'OedtMstrTaxCode3', 'OedtMstrTaxPct3', 'OedtMstrTaxCode4', 'OedtMstrTaxPct4', 'OedtMstrTaxCode5', 'OedtMstrTaxPct5', 'OedtMstrTaxCode6', 'OedtMstrTaxPct6', 'OedtMstrTaxCode7', 'OedtMstrTaxPct7', 'OedtMstrTaxCode8', 'OedtMstrTaxPct8', 'OedtMstrTaxCode9', 'OedtMstrTaxPct9', 'OedtBinArea', 'OedtSplitLine', 'OedtLostReas', 'OedtOrigLine', 'OedtCustCrssRef', 'OedtUom', 'OedtShipFlag', 'OedtKitFlag', 'OedtKitItemNbr', 'OedtBfCost', 'OedtBfMsgCode', 'OedtBfCostTot', 'OedtLmBulkPric', 'OedtLmMtrxPkgPric', 'OedtLmMtrxBulkPric', 'OedtLmContractPric', 'OedtWght', 'OedtOrdrAs', 'OedtPoDetLineNbr', 'OedtQtyToShip', 'OedtPoNbr', 'OedtPoRef', 'OedtFrtIn', 'OedtFrtInEntered', 'OedtProdCmplt', 'OedtErFlag', 'OedtOrigItem', 'OedtSubFlag', 'OedtEdiIncomingSeq', 'OedtSpordPoLine', 'OedtCatlgId', 'OedtDesignCd', 'OedtDiscPct', 'OedtTaxAmt', 'OedtXUsage', 'OedtRqtsLock', 'OedtFreshFrozen', 'OedtCoreFlag', 'OedtNsSalesAcct', 'OedtCertReqd', 'OedtAddOnSales', 'OedtBordFlag', 'OedtTempGrove', 'OedtGroveDisc', 'OedtOffInvc', 'InitItemGrup', 'ApveVendId', 'OedtAcct', 'OedtLoadTot', 'OedtPickedQty', 'OedtWiOrigQty', 'OedtMarginTot', 'OedtCoreCost', 'OedtItemRef', 'OedtSac02ReturnCode', 'OedtWgTaxCode', 'OedtWgPrice', 'OedtWgTot', 'OedtCntrQty', 'OedtConfirmCode', 'OedtPicked', 'OedtOrigRqstDate', 'OedtFabLock', 'OedtLabelPrinted', 'OedtQuoteId', 'OedtInvPrinted', 'OedtStockCheck', 'OedtShouldWeSplit', 'OedtCofcReqd', 'OedtAckCode', 'OedtWiBordNbr', 'OedtCertHistOrdr', 'OedtCertHistLine', 'OedtOrdrdAsItemId', 'OedtWiBatch1Nbr', 'OedtWiBatch1Qty', 'OedtWiBatch1Stat', 'OedtRgaNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, )
     );
@@ -804,7 +804,7 @@ class SoDetailTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oedtdesc' => 3, 'Oedtdesc2' => 4, 'Intbwhse' => 5, 'Oedtrqstdate' => 6, 'Oedtcancdate' => 7, 'Oedtshipdate' => 8, 'Oedtspecordr' => 9, 'Artbmtaxcode' => 10, 'Oedtqtyord' => 11, 'Oedtqtyship' => 12, 'Oedtqtyshiptot' => 13, 'Oedtqtybord' => 14, 'Oedtpric' => 15, 'Oedtcost' => 16, 'Oedttaxpcttot' => 17, 'Oedtprictot' => 18, 'Oedtcosttot' => 19, 'Oedtspcommpct' => 20, 'Oedtbrkncaseqty' => 21, 'Oedtbin' => 22, 'Oedtpersonalcd' => 23, 'Oedtacdisc1' => 24, 'Oedtacdisc2' => 25, 'Oedtacdisc3' => 26, 'Oedtacdisc4' => 27, 'Oedtlmwipnbr' => 28, 'Oedtcorepric' => 29, 'Oedtasstcode' => 30, 'Oedtasstqty' => 31, 'Oedtlistpric' => 32, 'Oedtstancost' => 33, 'Oedtvenditemjob' => 34, 'Oedtnsvendid' => 35, 'Oedtnsitemgrup' => 36, 'Oedtusecode' => 37, 'Oedtnsshipfromid' => 38, 'Oedtasstovrd' => 39, 'Oedtpricovrd' => 40, 'Oedtpickflag' => 41, 'Oedtmstrtaxcode1' => 42, 'Oedtmstrtaxpct1' => 43, 'Oedtmstrtaxcode2' => 44, 'Oedtmstrtaxpct2' => 45, 'Oedtmstrtaxcode3' => 46, 'Oedtmstrtaxpct3' => 47, 'Oedtmstrtaxcode4' => 48, 'Oedtmstrtaxpct4' => 49, 'Oedtmstrtaxcode5' => 50, 'Oedtmstrtaxpct5' => 51, 'Oedtmstrtaxcode6' => 52, 'Oedtmstrtaxpct6' => 53, 'Oedtmstrtaxcode7' => 54, 'Oedtmstrtaxpct7' => 55, 'Oedtmstrtaxcode8' => 56, 'Oedtmstrtaxpct8' => 57, 'Oedtmstrtaxcode9' => 58, 'Oedtmstrtaxpct9' => 59, 'Oedtbinarea' => 60, 'Oedtsplitline' => 61, 'Oedtlostreas' => 62, 'Oedtorigline' => 63, 'Oedtcustcrssref' => 64, 'Oedtuom' => 65, 'Oedtshipflag' => 66, 'Oedtkitflag' => 67, 'Oedtkititemnbr' => 68, 'Oedtbfcost' => 69, 'Oedtbfmsgcode' => 70, 'Oedtbfcosttot' => 71, 'Oedtlmbulkpric' => 72, 'Oedtlmmtrxpkgpric' => 73, 'Oedtlmmtrxbulkpric' => 74, 'Oedtlmcontractpric' => 75, 'Oedtwght' => 76, 'Oedtordras' => 77, 'Oedtpodetlinenbr' => 78, 'Oedtqtytoship' => 79, 'Oedtponbr' => 80, 'Oedtporef' => 81, 'Oedtfrtin' => 82, 'Oedtfrtinentered' => 83, 'Oedtprodcmplt' => 84, 'Oedterflag' => 85, 'Oedtorigitem' => 86, 'Oedtsubflag' => 87, 'Oedtediincomingseq' => 88, 'Oedtspordpoline' => 89, 'Oedtcatlgid' => 90, 'Oedtdesigncd' => 91, 'Oedtdiscpct' => 92, 'Oedttaxamt' => 93, 'Oedtxusage' => 94, 'Oedtrqtslock' => 95, 'Oedtfreshfrozen' => 96, 'Oedtcoreflag' => 97, 'Oedtnssalesacct' => 98, 'Oedtcertreqd' => 99, 'Oedtaddonsales' => 100, 'Oedtbordflag' => 101, 'Oedttempgrove' => 102, 'Oedtgrovedisc' => 103, 'Oedtoffinvc' => 104, 'Inititemgrup' => 105, 'Apvevendid' => 106, 'Oedtacct' => 107, 'Oedtloadtot' => 108, 'Oedtpickedqty' => 109, 'Oedtwiorigqty' => 110, 'Oedtmargintot' => 111, 'Oedtcorecost' => 112, 'Oedtitemref' => 113, 'Oedtsac02returncode' => 114, 'Oedtwgtaxcode' => 115, 'Oedtwgprice' => 116, 'Oedtwgtot' => 117, 'Oedtcntrqty' => 118, 'Oedtconfirmcode' => 119, 'Oedtpicked' => 120, 'Oedtorigrqstdate' => 121, 'Oedtfablock' => 122, 'Oedtlabelprinted' => 123, 'Oedtquoteid' => 124, 'Oedtinvprinted' => 125, 'Oedtstockcheck' => 126, 'Oedtshouldwesplit' => 127, 'Oedtcofcreqd' => 128, 'Oedtackcode' => 129, 'Oedtwibordnbr' => 130, 'Oedtcerthistordr' => 131, 'Oedtcerthistline' => 132, 'Oedtordrdasitemid' => 133, 'Oedtwibatch1nbr' => 134, 'Oedtwibatch1qty' => 135, 'Oedtwibatch1stat' => 136, 'Oedtrganbr' => 137, 'Dateupdtd' => 138, 'Timeupdtd' => 139, 'Dummy' => 140, ),
         self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oedtdesc' => 3, 'oedtdesc2' => 4, 'intbwhse' => 5, 'oedtrqstdate' => 6, 'oedtcancdate' => 7, 'oedtshipdate' => 8, 'oedtspecordr' => 9, 'artbmtaxcode' => 10, 'oedtqtyord' => 11, 'oedtqtyship' => 12, 'oedtqtyshiptot' => 13, 'oedtqtybord' => 14, 'oedtpric' => 15, 'oedtcost' => 16, 'oedttaxpcttot' => 17, 'oedtprictot' => 18, 'oedtcosttot' => 19, 'oedtspcommpct' => 20, 'oedtbrkncaseqty' => 21, 'oedtbin' => 22, 'oedtpersonalcd' => 23, 'oedtacdisc1' => 24, 'oedtacdisc2' => 25, 'oedtacdisc3' => 26, 'oedtacdisc4' => 27, 'oedtlmwipnbr' => 28, 'oedtcorepric' => 29, 'oedtasstcode' => 30, 'oedtasstqty' => 31, 'oedtlistpric' => 32, 'oedtstancost' => 33, 'oedtvenditemjob' => 34, 'oedtnsvendid' => 35, 'oedtnsitemgrup' => 36, 'oedtusecode' => 37, 'oedtnsshipfromid' => 38, 'oedtasstovrd' => 39, 'oedtpricovrd' => 40, 'oedtpickflag' => 41, 'oedtmstrtaxcode1' => 42, 'oedtmstrtaxpct1' => 43, 'oedtmstrtaxcode2' => 44, 'oedtmstrtaxpct2' => 45, 'oedtmstrtaxcode3' => 46, 'oedtmstrtaxpct3' => 47, 'oedtmstrtaxcode4' => 48, 'oedtmstrtaxpct4' => 49, 'oedtmstrtaxcode5' => 50, 'oedtmstrtaxpct5' => 51, 'oedtmstrtaxcode6' => 52, 'oedtmstrtaxpct6' => 53, 'oedtmstrtaxcode7' => 54, 'oedtmstrtaxpct7' => 55, 'oedtmstrtaxcode8' => 56, 'oedtmstrtaxpct8' => 57, 'oedtmstrtaxcode9' => 58, 'oedtmstrtaxpct9' => 59, 'oedtbinarea' => 60, 'oedtsplitline' => 61, 'oedtlostreas' => 62, 'oedtorigline' => 63, 'oedtcustcrssref' => 64, 'oedtuom' => 65, 'oedtshipflag' => 66, 'oedtkitflag' => 67, 'oedtkititemnbr' => 68, 'oedtbfcost' => 69, 'oedtbfmsgcode' => 70, 'oedtbfcosttot' => 71, 'oedtlmbulkpric' => 72, 'oedtlmmtrxpkgpric' => 73, 'oedtlmmtrxbulkpric' => 74, 'oedtlmcontractpric' => 75, 'oedtwght' => 76, 'oedtordras' => 77, 'oedtpodetlinenbr' => 78, 'oedtqtytoship' => 79, 'oedtponbr' => 80, 'oedtporef' => 81, 'oedtfrtin' => 82, 'oedtfrtinentered' => 83, 'oedtprodcmplt' => 84, 'oedterflag' => 85, 'oedtorigitem' => 86, 'oedtsubflag' => 87, 'oedtediincomingseq' => 88, 'oedtspordpoline' => 89, 'oedtcatlgid' => 90, 'oedtdesigncd' => 91, 'oedtdiscpct' => 92, 'oedttaxamt' => 93, 'oedtxusage' => 94, 'oedtrqtslock' => 95, 'oedtfreshfrozen' => 96, 'oedtcoreflag' => 97, 'oedtnssalesacct' => 98, 'oedtcertreqd' => 99, 'oedtaddonsales' => 100, 'oedtbordflag' => 101, 'oedttempgrove' => 102, 'oedtgrovedisc' => 103, 'oedtoffinvc' => 104, 'inititemgrup' => 105, 'apvevendid' => 106, 'oedtacct' => 107, 'oedtloadtot' => 108, 'oedtpickedqty' => 109, 'oedtwiorigqty' => 110, 'oedtmargintot' => 111, 'oedtcorecost' => 112, 'oedtitemref' => 113, 'oedtsac02returncode' => 114, 'oedtwgtaxcode' => 115, 'oedtwgprice' => 116, 'oedtwgtot' => 117, 'oedtcntrqty' => 118, 'oedtconfirmcode' => 119, 'oedtpicked' => 120, 'oedtorigrqstdate' => 121, 'oedtfablock' => 122, 'oedtlabelprinted' => 123, 'oedtquoteid' => 124, 'oedtinvprinted' => 125, 'oedtstockcheck' => 126, 'oedtshouldwesplit' => 127, 'oedtcofcreqd' => 128, 'oedtackcode' => 129, 'oedtwibordnbr' => 130, 'oedtcerthistordr' => 131, 'oedtcerthistline' => 132, 'oedtordrdasitemid' => 133, 'oedtwibatch1nbr' => 134, 'oedtwibatch1qty' => 135, 'oedtwibatch1stat' => 136, 'oedtrganbr' => 137, 'dateupdtd' => 138, 'timeupdtd' => 139, 'dummy' => 140, ),
-        self::TYPE_COLNAME       => array(SoDetailTableMap::COL_OEHDNBR => 0, SoDetailTableMap::COL_OEDTLINE => 1, SoDetailTableMap::COL_INITITEMNBR => 2, SoDetailTableMap::COL_OEDTDESC => 3, SoDetailTableMap::COL_OEDTDESC2 => 4, SoDetailTableMap::COL_INTBWHSE => 5, SoDetailTableMap::COL_OEDTRQSTDATE => 6, SoDetailTableMap::COL_OEDTCANCDATE => 7, SoDetailTableMap::COL_OEDTSHIPDATE => 8, SoDetailTableMap::COL_OEDTSPECORDR => 9, SoDetailTableMap::COL_ARTBMTAXCODE => 10, SoDetailTableMap::COL_OEDTQTYORD => 11, SoDetailTableMap::COL_OEDTQTYSHIP => 12, SoDetailTableMap::COL_OEDTQTYSHIPTOT => 13, SoDetailTableMap::COL_OEDTQTYBORD => 14, SoDetailTableMap::COL_OEDTPRIC => 15, SoDetailTableMap::COL_OEDTCOST => 16, SoDetailTableMap::COL_OEDTTAXPCTTOT => 17, SoDetailTableMap::COL_OEDTPRICTOT => 18, SoDetailTableMap::COL_OEDTCOSTTOT => 19, SoDetailTableMap::COL_OEDTSPCOMMPCT => 20, SoDetailTableMap::COL_OEDTBRKNCASEQTY => 21, SoDetailTableMap::COL_OEDTBIN => 22, SoDetailTableMap::COL_OEDTPERSONALCD => 23, SoDetailTableMap::COL_OEDTACDISC1 => 24, SoDetailTableMap::COL_OEDTACDISC2 => 25, SoDetailTableMap::COL_OEDTACDISC3 => 26, SoDetailTableMap::COL_OEDTACDISC4 => 27, SoDetailTableMap::COL_OEDTLMWIPNBR => 28, SoDetailTableMap::COL_OEDTCOREPRIC => 29, SoDetailTableMap::COL_OEDTASSTCODE => 30, SoDetailTableMap::COL_OEDTASSTQTY => 31, SoDetailTableMap::COL_OEDTLISTPRIC => 32, SoDetailTableMap::COL_OEDTSTANCOST => 33, SoDetailTableMap::COL_OEDTVENDITEMJOB => 34, SoDetailTableMap::COL_OEDTNSVENDID => 35, SoDetailTableMap::COL_OEDTNSITEMGRUP => 36, SoDetailTableMap::COL_OEDTUSECODE => 37, SoDetailTableMap::COL_OEDTNSSHIPFROMID => 38, SoDetailTableMap::COL_OEDTASSTOVRD => 39, SoDetailTableMap::COL_OEDTPRICOVRD => 40, SoDetailTableMap::COL_OEDTPICKFLAG => 41, SoDetailTableMap::COL_OEDTMSTRTAXCODE1 => 42, SoDetailTableMap::COL_OEDTMSTRTAXPCT1 => 43, SoDetailTableMap::COL_OEDTMSTRTAXCODE2 => 44, SoDetailTableMap::COL_OEDTMSTRTAXPCT2 => 45, SoDetailTableMap::COL_OEDTMSTRTAXCODE3 => 46, SoDetailTableMap::COL_OEDTMSTRTAXPCT3 => 47, SoDetailTableMap::COL_OEDTMSTRTAXCODE4 => 48, SoDetailTableMap::COL_OEDTMSTRTAXPCT4 => 49, SoDetailTableMap::COL_OEDTMSTRTAXCODE5 => 50, SoDetailTableMap::COL_OEDTMSTRTAXPCT5 => 51, SoDetailTableMap::COL_OEDTMSTRTAXCODE6 => 52, SoDetailTableMap::COL_OEDTMSTRTAXPCT6 => 53, SoDetailTableMap::COL_OEDTMSTRTAXCODE7 => 54, SoDetailTableMap::COL_OEDTMSTRTAXPCT7 => 55, SoDetailTableMap::COL_OEDTMSTRTAXCODE8 => 56, SoDetailTableMap::COL_OEDTMSTRTAXPCT8 => 57, SoDetailTableMap::COL_OEDTMSTRTAXCODE9 => 58, SoDetailTableMap::COL_OEDTMSTRTAXPCT9 => 59, SoDetailTableMap::COL_OEDTBINAREA => 60, SoDetailTableMap::COL_OEDTSPLITLINE => 61, SoDetailTableMap::COL_OEDTLOSTREAS => 62, SoDetailTableMap::COL_OEDTORIGLINE => 63, SoDetailTableMap::COL_OEDTCUSTCRSSREF => 64, SoDetailTableMap::COL_OEDTUOM => 65, SoDetailTableMap::COL_OEDTSHIPFLAG => 66, SoDetailTableMap::COL_OEDTKITFLAG => 67, SoDetailTableMap::COL_OEDTKITITEMNBR => 68, SoDetailTableMap::COL_OEDTBFCOST => 69, SoDetailTableMap::COL_OEDTBFMSGCODE => 70, SoDetailTableMap::COL_OEDTBFCOSTTOT => 71, SoDetailTableMap::COL_OEDTLMBULKPRIC => 72, SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC => 73, SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC => 74, SoDetailTableMap::COL_OEDTLMCONTRACTPRIC => 75, SoDetailTableMap::COL_OEDTWGHT => 76, SoDetailTableMap::COL_OEDTORDRAS => 77, SoDetailTableMap::COL_OEDTPODETLINENBR => 78, SoDetailTableMap::COL_OEDTQTYTOSHIP => 79, SoDetailTableMap::COL_OEDTPONBR => 80, SoDetailTableMap::COL_OEDTPOREF => 81, SoDetailTableMap::COL_OEDTFRTIN => 82, SoDetailTableMap::COL_OEDTFRTINENTERED => 83, SoDetailTableMap::COL_OEDTPRODCMPLT => 84, SoDetailTableMap::COL_OEDTERFLAG => 85, SoDetailTableMap::COL_OEDTORIGITEM => 86, SoDetailTableMap::COL_OEDTSUBFLAG => 87, SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ => 88, SoDetailTableMap::COL_OEDTSPORDPOLINE => 89, SoDetailTableMap::COL_OEDTCATLGID => 90, SoDetailTableMap::COL_OEDTDESIGNCD => 91, SoDetailTableMap::COL_OEDTDISCPCT => 92, SoDetailTableMap::COL_OEDTTAXAMT => 93, SoDetailTableMap::COL_OEDTXUSAGE => 94, SoDetailTableMap::COL_OEDTRQTSLOCK => 95, SoDetailTableMap::COL_OEDTFRESHFROZEN => 96, SoDetailTableMap::COL_OEDTCOREFLAG => 97, SoDetailTableMap::COL_OEDTNSSALESACCT => 98, SoDetailTableMap::COL_OEDTCERTREQD => 99, SoDetailTableMap::COL_OEDTADDONSALES => 100, SoDetailTableMap::COL_OEDTBORDFLAG => 101, SoDetailTableMap::COL_OEDTTEMPGROVE => 102, SoDetailTableMap::COL_OEDTGROVEDISC => 103, SoDetailTableMap::COL_OEDTOFFINVC => 104, SoDetailTableMap::COL_INITITEMGRUP => 105, SoDetailTableMap::COL_APVEVENDID => 106, SoDetailTableMap::COL_OEDTACCT => 107, SoDetailTableMap::COL_OEDTLOADTOT => 108, SoDetailTableMap::COL_OEDTPICKEDQTY => 109, SoDetailTableMap::COL_OEDTWIORIGQTY => 110, SoDetailTableMap::COL_OEDTMARGINTOT => 111, SoDetailTableMap::COL_OEDTCORECOST => 112, SoDetailTableMap::COL_OEDTITEMREF => 113, SoDetailTableMap::COL_OEDTSAC02RETURNCODE => 114, SoDetailTableMap::COL_OEDTWGTAXCODE => 115, SoDetailTableMap::COL_OEDTWGPRICE => 116, SoDetailTableMap::COL_OEDTWGTOT => 117, SoDetailTableMap::COL_OEDTCNTRQTY => 118, SoDetailTableMap::COL_OEDTCONFIRMCODE => 119, SoDetailTableMap::COL_OEDTPICKED => 120, SoDetailTableMap::COL_OEDTORIGRQSTDATE => 121, SoDetailTableMap::COL_OEDTFABLOCK => 122, SoDetailTableMap::COL_OEDTLABELPRINTED => 123, SoDetailTableMap::COL_OEDTQUOTEID => 124, SoDetailTableMap::COL_OEDTINVPRINTED => 125, SoDetailTableMap::COL_OEDTSTOCKCHECK => 126, SoDetailTableMap::COL_OEDTSHOULDWESPLIT => 127, SoDetailTableMap::COL_OEDTCOFCREQD => 128, SoDetailTableMap::COL_OEDTACKCODE => 129, SoDetailTableMap::COL_OEDTWIBORDNBR => 130, SoDetailTableMap::COL_OEDTCERTHISTORDR => 131, SoDetailTableMap::COL_OEDTCERTHISTLINE => 132, SoDetailTableMap::COL_OEDTORDRDASITEMID => 133, SoDetailTableMap::COL_OEDTWIBATCH1NBR => 134, SoDetailTableMap::COL_OEDTWIBATCH1QTY => 135, SoDetailTableMap::COL_OEDTWIBATCH1STAT => 136, SoDetailTableMap::COL_OEDTRGANBR => 137, SoDetailTableMap::COL_DATEUPDTD => 138, SoDetailTableMap::COL_TIMEUPDTD => 139, SoDetailTableMap::COL_DUMMY => 140, ),
+        self::TYPE_COLNAME       => array(SalesOrderDetailTableMap::COL_OEHDNBR => 0, SalesOrderDetailTableMap::COL_OEDTLINE => 1, SalesOrderDetailTableMap::COL_INITITEMNBR => 2, SalesOrderDetailTableMap::COL_OEDTDESC => 3, SalesOrderDetailTableMap::COL_OEDTDESC2 => 4, SalesOrderDetailTableMap::COL_INTBWHSE => 5, SalesOrderDetailTableMap::COL_OEDTRQSTDATE => 6, SalesOrderDetailTableMap::COL_OEDTCANCDATE => 7, SalesOrderDetailTableMap::COL_OEDTSHIPDATE => 8, SalesOrderDetailTableMap::COL_OEDTSPECORDR => 9, SalesOrderDetailTableMap::COL_ARTBMTAXCODE => 10, SalesOrderDetailTableMap::COL_OEDTQTYORD => 11, SalesOrderDetailTableMap::COL_OEDTQTYSHIP => 12, SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT => 13, SalesOrderDetailTableMap::COL_OEDTQTYBORD => 14, SalesOrderDetailTableMap::COL_OEDTPRIC => 15, SalesOrderDetailTableMap::COL_OEDTCOST => 16, SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT => 17, SalesOrderDetailTableMap::COL_OEDTPRICTOT => 18, SalesOrderDetailTableMap::COL_OEDTCOSTTOT => 19, SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT => 20, SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY => 21, SalesOrderDetailTableMap::COL_OEDTBIN => 22, SalesOrderDetailTableMap::COL_OEDTPERSONALCD => 23, SalesOrderDetailTableMap::COL_OEDTACDISC1 => 24, SalesOrderDetailTableMap::COL_OEDTACDISC2 => 25, SalesOrderDetailTableMap::COL_OEDTACDISC3 => 26, SalesOrderDetailTableMap::COL_OEDTACDISC4 => 27, SalesOrderDetailTableMap::COL_OEDTLMWIPNBR => 28, SalesOrderDetailTableMap::COL_OEDTCOREPRIC => 29, SalesOrderDetailTableMap::COL_OEDTASSTCODE => 30, SalesOrderDetailTableMap::COL_OEDTASSTQTY => 31, SalesOrderDetailTableMap::COL_OEDTLISTPRIC => 32, SalesOrderDetailTableMap::COL_OEDTSTANCOST => 33, SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB => 34, SalesOrderDetailTableMap::COL_OEDTNSVENDID => 35, SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP => 36, SalesOrderDetailTableMap::COL_OEDTUSECODE => 37, SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID => 38, SalesOrderDetailTableMap::COL_OEDTASSTOVRD => 39, SalesOrderDetailTableMap::COL_OEDTPRICOVRD => 40, SalesOrderDetailTableMap::COL_OEDTPICKFLAG => 41, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1 => 42, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1 => 43, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2 => 44, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2 => 45, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3 => 46, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3 => 47, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4 => 48, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4 => 49, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5 => 50, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5 => 51, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6 => 52, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6 => 53, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7 => 54, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7 => 55, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8 => 56, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8 => 57, SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9 => 58, SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9 => 59, SalesOrderDetailTableMap::COL_OEDTBINAREA => 60, SalesOrderDetailTableMap::COL_OEDTSPLITLINE => 61, SalesOrderDetailTableMap::COL_OEDTLOSTREAS => 62, SalesOrderDetailTableMap::COL_OEDTORIGLINE => 63, SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF => 64, SalesOrderDetailTableMap::COL_OEDTUOM => 65, SalesOrderDetailTableMap::COL_OEDTSHIPFLAG => 66, SalesOrderDetailTableMap::COL_OEDTKITFLAG => 67, SalesOrderDetailTableMap::COL_OEDTKITITEMNBR => 68, SalesOrderDetailTableMap::COL_OEDTBFCOST => 69, SalesOrderDetailTableMap::COL_OEDTBFMSGCODE => 70, SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT => 71, SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC => 72, SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC => 73, SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC => 74, SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC => 75, SalesOrderDetailTableMap::COL_OEDTWGHT => 76, SalesOrderDetailTableMap::COL_OEDTORDRAS => 77, SalesOrderDetailTableMap::COL_OEDTPODETLINENBR => 78, SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP => 79, SalesOrderDetailTableMap::COL_OEDTPONBR => 80, SalesOrderDetailTableMap::COL_OEDTPOREF => 81, SalesOrderDetailTableMap::COL_OEDTFRTIN => 82, SalesOrderDetailTableMap::COL_OEDTFRTINENTERED => 83, SalesOrderDetailTableMap::COL_OEDTPRODCMPLT => 84, SalesOrderDetailTableMap::COL_OEDTERFLAG => 85, SalesOrderDetailTableMap::COL_OEDTORIGITEM => 86, SalesOrderDetailTableMap::COL_OEDTSUBFLAG => 87, SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ => 88, SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE => 89, SalesOrderDetailTableMap::COL_OEDTCATLGID => 90, SalesOrderDetailTableMap::COL_OEDTDESIGNCD => 91, SalesOrderDetailTableMap::COL_OEDTDISCPCT => 92, SalesOrderDetailTableMap::COL_OEDTTAXAMT => 93, SalesOrderDetailTableMap::COL_OEDTXUSAGE => 94, SalesOrderDetailTableMap::COL_OEDTRQTSLOCK => 95, SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN => 96, SalesOrderDetailTableMap::COL_OEDTCOREFLAG => 97, SalesOrderDetailTableMap::COL_OEDTNSSALESACCT => 98, SalesOrderDetailTableMap::COL_OEDTCERTREQD => 99, SalesOrderDetailTableMap::COL_OEDTADDONSALES => 100, SalesOrderDetailTableMap::COL_OEDTBORDFLAG => 101, SalesOrderDetailTableMap::COL_OEDTTEMPGROVE => 102, SalesOrderDetailTableMap::COL_OEDTGROVEDISC => 103, SalesOrderDetailTableMap::COL_OEDTOFFINVC => 104, SalesOrderDetailTableMap::COL_INITITEMGRUP => 105, SalesOrderDetailTableMap::COL_APVEVENDID => 106, SalesOrderDetailTableMap::COL_OEDTACCT => 107, SalesOrderDetailTableMap::COL_OEDTLOADTOT => 108, SalesOrderDetailTableMap::COL_OEDTPICKEDQTY => 109, SalesOrderDetailTableMap::COL_OEDTWIORIGQTY => 110, SalesOrderDetailTableMap::COL_OEDTMARGINTOT => 111, SalesOrderDetailTableMap::COL_OEDTCORECOST => 112, SalesOrderDetailTableMap::COL_OEDTITEMREF => 113, SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE => 114, SalesOrderDetailTableMap::COL_OEDTWGTAXCODE => 115, SalesOrderDetailTableMap::COL_OEDTWGPRICE => 116, SalesOrderDetailTableMap::COL_OEDTWGTOT => 117, SalesOrderDetailTableMap::COL_OEDTCNTRQTY => 118, SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE => 119, SalesOrderDetailTableMap::COL_OEDTPICKED => 120, SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE => 121, SalesOrderDetailTableMap::COL_OEDTFABLOCK => 122, SalesOrderDetailTableMap::COL_OEDTLABELPRINTED => 123, SalesOrderDetailTableMap::COL_OEDTQUOTEID => 124, SalesOrderDetailTableMap::COL_OEDTINVPRINTED => 125, SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK => 126, SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT => 127, SalesOrderDetailTableMap::COL_OEDTCOFCREQD => 128, SalesOrderDetailTableMap::COL_OEDTACKCODE => 129, SalesOrderDetailTableMap::COL_OEDTWIBORDNBR => 130, SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR => 131, SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE => 132, SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID => 133, SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR => 134, SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY => 135, SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT => 136, SalesOrderDetailTableMap::COL_OEDTRGANBR => 137, SalesOrderDetailTableMap::COL_DATEUPDTD => 138, SalesOrderDetailTableMap::COL_TIMEUPDTD => 139, SalesOrderDetailTableMap::COL_DUMMY => 140, ),
         self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OedtDesc' => 3, 'OedtDesc2' => 4, 'IntbWhse' => 5, 'OedtRqstDate' => 6, 'OedtCancDate' => 7, 'OedtShipDate' => 8, 'OedtSpecOrdr' => 9, 'ArtbMtaxCode' => 10, 'OedtQtyOrd' => 11, 'OedtQtyShip' => 12, 'OedtQtyShipTot' => 13, 'OedtQtyBord' => 14, 'OedtPric' => 15, 'OedtCost' => 16, 'OedtTaxPctTot' => 17, 'OedtPricTot' => 18, 'OedtCostTot' => 19, 'OedtSpCommPct' => 20, 'OedtBrknCaseQty' => 21, 'OedtBin' => 22, 'OedtPersonalCd' => 23, 'OedtAcDisc1' => 24, 'OedtAcDisc2' => 25, 'OedtAcDisc3' => 26, 'OedtAcDisc4' => 27, 'OedtLmWipNbr' => 28, 'OedtCorePric' => 29, 'OedtAsstCode' => 30, 'OedtAsstQty' => 31, 'OedtListPric' => 32, 'OedtStanCost' => 33, 'OedtVendItemJob' => 34, 'OedtNsVendId' => 35, 'OedtNsItemGrup' => 36, 'OedtUseCode' => 37, 'OedtNsShipFromId' => 38, 'OedtAsstOvrd' => 39, 'OedtPricOvrd' => 40, 'OedtPickFlag' => 41, 'OedtMstrTaxCode1' => 42, 'OedtMstrTaxPct1' => 43, 'OedtMstrTaxCode2' => 44, 'OedtMstrTaxPct2' => 45, 'OedtMstrTaxCode3' => 46, 'OedtMstrTaxPct3' => 47, 'OedtMstrTaxCode4' => 48, 'OedtMstrTaxPct4' => 49, 'OedtMstrTaxCode5' => 50, 'OedtMstrTaxPct5' => 51, 'OedtMstrTaxCode6' => 52, 'OedtMstrTaxPct6' => 53, 'OedtMstrTaxCode7' => 54, 'OedtMstrTaxPct7' => 55, 'OedtMstrTaxCode8' => 56, 'OedtMstrTaxPct8' => 57, 'OedtMstrTaxCode9' => 58, 'OedtMstrTaxPct9' => 59, 'OedtBinArea' => 60, 'OedtSplitLine' => 61, 'OedtLostReas' => 62, 'OedtOrigLine' => 63, 'OedtCustCrssRef' => 64, 'OedtUom' => 65, 'OedtShipFlag' => 66, 'OedtKitFlag' => 67, 'OedtKitItemNbr' => 68, 'OedtBfCost' => 69, 'OedtBfMsgCode' => 70, 'OedtBfCostTot' => 71, 'OedtLmBulkPric' => 72, 'OedtLmMtrxPkgPric' => 73, 'OedtLmMtrxBulkPric' => 74, 'OedtLmContractPric' => 75, 'OedtWght' => 76, 'OedtOrdrAs' => 77, 'OedtPoDetLineNbr' => 78, 'OedtQtyToShip' => 79, 'OedtPoNbr' => 80, 'OedtPoRef' => 81, 'OedtFrtIn' => 82, 'OedtFrtInEntered' => 83, 'OedtProdCmplt' => 84, 'OedtErFlag' => 85, 'OedtOrigItem' => 86, 'OedtSubFlag' => 87, 'OedtEdiIncomingSeq' => 88, 'OedtSpordPoLine' => 89, 'OedtCatlgId' => 90, 'OedtDesignCd' => 91, 'OedtDiscPct' => 92, 'OedtTaxAmt' => 93, 'OedtXUsage' => 94, 'OedtRqtsLock' => 95, 'OedtFreshFrozen' => 96, 'OedtCoreFlag' => 97, 'OedtNsSalesAcct' => 98, 'OedtCertReqd' => 99, 'OedtAddOnSales' => 100, 'OedtBordFlag' => 101, 'OedtTempGrove' => 102, 'OedtGroveDisc' => 103, 'OedtOffInvc' => 104, 'InitItemGrup' => 105, 'ApveVendId' => 106, 'OedtAcct' => 107, 'OedtLoadTot' => 108, 'OedtPickedQty' => 109, 'OedtWiOrigQty' => 110, 'OedtMarginTot' => 111, 'OedtCoreCost' => 112, 'OedtItemRef' => 113, 'OedtSac02ReturnCode' => 114, 'OedtWgTaxCode' => 115, 'OedtWgPrice' => 116, 'OedtWgTot' => 117, 'OedtCntrQty' => 118, 'OedtConfirmCode' => 119, 'OedtPicked' => 120, 'OedtOrigRqstDate' => 121, 'OedtFabLock' => 122, 'OedtLabelPrinted' => 123, 'OedtQuoteId' => 124, 'OedtInvPrinted' => 125, 'OedtStockCheck' => 126, 'OedtShouldWeSplit' => 127, 'OedtCofcReqd' => 128, 'OedtAckCode' => 129, 'OedtWiBordNbr' => 130, 'OedtCertHistOrdr' => 131, 'OedtCertHistLine' => 132, 'OedtOrdrdAsItemId' => 133, 'OedtWiBatch1Nbr' => 134, 'OedtWiBatch1Qty' => 135, 'OedtWiBatch1Stat' => 136, 'OedtRgaNbr' => 137, 'DateUpdtd' => 138, 'TimeUpdtd' => 139, 'dummy' => 140, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, )
     );
@@ -820,9 +820,9 @@ class SoDetailTableMap extends TableMap
     {
         // attributes
         $this->setName('so_detail');
-        $this->setPhpName('SoDetail');
+        $this->setPhpName('SalesOrderDetail');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\SoDetail');
+        $this->setClassName('\\SalesOrderDetail');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -984,7 +984,7 @@ class SoDetailTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \SoDetail $obj A \SoDetail object.
+     * @param \SalesOrderDetail $obj A \SalesOrderDetail object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -1005,12 +1005,12 @@ class SoDetailTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \SoDetail object or a primary key value.
+     * @param mixed $value A \SalesOrderDetail object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \SoDetail) {
+            if (is_object($value) && $value instanceof \SalesOrderDetail) {
                 $key = serialize([(null === $value->getOehdnbr() || is_scalar($value->getOehdnbr()) || is_callable([$value->getOehdnbr(), '__toString']) ? (string) $value->getOehdnbr() : $value->getOehdnbr()), (null === $value->getOedtline() || is_scalar($value->getOedtline()) || is_callable([$value->getOedtline(), '__toString']) ? (string) $value->getOedtline() : $value->getOedtline())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -1021,7 +1021,7 @@ class SoDetailTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \SoDetail object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \SalesOrderDetail object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -1095,7 +1095,7 @@ class SoDetailTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? SoDetailTableMap::CLASS_DEFAULT : SoDetailTableMap::OM_CLASS;
+        return $withPrefix ? SalesOrderDetailTableMap::CLASS_DEFAULT : SalesOrderDetailTableMap::OM_CLASS;
     }
 
     /**
@@ -1109,22 +1109,22 @@ class SoDetailTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (SoDetail object, last column rank)
+     * @return array           (SalesOrderDetail object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = SoDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = SoDetailTableMap::getInstanceFromPool($key))) {
+        $key = SalesOrderDetailTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = SalesOrderDetailTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + SoDetailTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + SalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = SoDetailTableMap::OM_CLASS;
-            /** @var SoDetail $obj */
+            $cls = SalesOrderDetailTableMap::OM_CLASS;
+            /** @var SalesOrderDetail $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            SoDetailTableMap::addInstanceToPool($obj, $key);
+            SalesOrderDetailTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -1147,18 +1147,18 @@ class SoDetailTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = SoDetailTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = SoDetailTableMap::getInstanceFromPool($key))) {
+            $key = SalesOrderDetailTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = SalesOrderDetailTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var SoDetail $obj */
+                /** @var SalesOrderDetail $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                SoDetailTableMap::addInstanceToPool($obj, $key);
+                SalesOrderDetailTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -1179,147 +1179,147 @@ class SoDetailTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEHDNBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLINE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTDESC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTDESC2);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_INTBWHSE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTRQSTDATE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCANCDATE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSHIPDATE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSPECORDR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_ARTBMTAXCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQTYORD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQTYSHIP);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQTYSHIPTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQTYBORD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCOST);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTTAXPCTTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPRICTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCOSTTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSPCOMMPCT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBRKNCASEQTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBIN);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPERSONALCD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACDISC1);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACDISC2);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACDISC3);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACDISC4);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLMWIPNBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCOREPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTASSTCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTASSTQTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLISTPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSTANCOST);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTVENDITEMJOB);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTNSVENDID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTNSITEMGRUP);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTUSECODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTNSSHIPFROMID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTASSTOVRD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPRICOVRD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPICKFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE1);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT1);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE2);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT2);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE3);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT3);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE4);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT4);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE5);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT5);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE6);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT6);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE7);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT7);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE8);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT8);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXCODE9);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMSTRTAXPCT9);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBINAREA);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSPLITLINE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLOSTREAS);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTORIGLINE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCUSTCRSSREF);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTUOM);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSHIPFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTKITFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTKITITEMNBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBFCOST);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBFMSGCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBFCOSTTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLMBULKPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLMMTRXPKGPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLMMTRXBULKPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLMCONTRACTPRIC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWGHT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTORDRAS);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPODETLINENBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQTYTOSHIP);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPONBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPOREF);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTFRTIN);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTFRTINENTERED);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPRODCMPLT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTERFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTORIGITEM);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSUBFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTEDIINCOMINGSEQ);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSPORDPOLINE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCATLGID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTDESIGNCD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTDISCPCT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTTAXAMT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTXUSAGE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTRQTSLOCK);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTFRESHFROZEN);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCOREFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTNSSALESACCT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCERTREQD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTADDONSALES);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTBORDFLAG);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTTEMPGROVE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTGROVEDISC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTOFFINVC);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_INITITEMGRUP);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_APVEVENDID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACCT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLOADTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPICKEDQTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWIORIGQTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTMARGINTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCORECOST);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTITEMREF);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSAC02RETURNCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWGTAXCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWGPRICE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWGTOT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCNTRQTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCONFIRMCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTPICKED);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTORIGRQSTDATE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTFABLOCK);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTLABELPRINTED);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTQUOTEID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTINVPRINTED);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSTOCKCHECK);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTSHOULDWESPLIT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCOFCREQD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTACKCODE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWIBORDNBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCERTHISTORDR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTCERTHISTLINE);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTORDRDASITEMID);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWIBATCH1NBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWIBATCH1QTY);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTWIBATCH1STAT);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_OEDTRGANBR);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(SoDetailTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEHDNBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLINE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTDESC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTDESC2);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_INTBWHSE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTRQSTDATE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCANCDATE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSHIPDATE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSPECORDR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_ARTBMTAXCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQTYORD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQTYSHIP);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQTYSHIPTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQTYBORD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCOST);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTTAXPCTTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPRICTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCOSTTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSPCOMMPCT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBRKNCASEQTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBIN);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPERSONALCD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACDISC1);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACDISC2);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACDISC3);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACDISC4);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLMWIPNBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCOREPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTASSTCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTASSTQTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLISTPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSTANCOST);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTVENDITEMJOB);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTNSVENDID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTNSITEMGRUP);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTUSECODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTNSSHIPFROMID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTASSTOVRD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPRICOVRD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPICKFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE1);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT1);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE2);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT2);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE3);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT3);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE4);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT4);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE5);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT5);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE6);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT6);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE7);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT7);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE8);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT8);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXCODE9);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMSTRTAXPCT9);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBINAREA);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSPLITLINE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLOSTREAS);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTORIGLINE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCUSTCRSSREF);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTUOM);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSHIPFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTKITFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTKITITEMNBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBFCOST);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBFMSGCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBFCOSTTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLMBULKPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLMMTRXPKGPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLMMTRXBULKPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWGHT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTORDRAS);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPODETLINENBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQTYTOSHIP);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPONBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPOREF);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTFRTIN);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTFRTINENTERED);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPRODCMPLT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTERFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTORIGITEM);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSUBFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTEDIINCOMINGSEQ);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSPORDPOLINE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCATLGID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTDESIGNCD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTDISCPCT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTTAXAMT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTXUSAGE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTRQTSLOCK);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTFRESHFROZEN);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCOREFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTNSSALESACCT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCERTREQD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTADDONSALES);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTBORDFLAG);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTTEMPGROVE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTGROVEDISC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTOFFINVC);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_INITITEMGRUP);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_APVEVENDID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACCT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLOADTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPICKEDQTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWIORIGQTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTMARGINTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCORECOST);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTITEMREF);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSAC02RETURNCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWGTAXCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWGPRICE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWGTOT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCNTRQTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCONFIRMCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTPICKED);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTORIGRQSTDATE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTFABLOCK);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTLABELPRINTED);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTQUOTEID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTINVPRINTED);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSTOCKCHECK);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTSHOULDWESPLIT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCOFCREQD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTACKCODE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWIBORDNBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCERTHISTORDR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTCERTHISTLINE);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTORDRDASITEMID);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWIBATCH1NBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWIBATCH1QTY);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTWIBATCH1STAT);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_OEDTRGANBR);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(SalesOrderDetailTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.OehdNbr');
             $criteria->addSelectColumn($alias . '.OedtLine');
@@ -1474,7 +1474,7 @@ class SoDetailTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(SoDetailTableMap::DATABASE_NAME)->getTable(SoDetailTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(SalesOrderDetailTableMap::DATABASE_NAME)->getTable(SalesOrderDetailTableMap::TABLE_NAME);
     }
 
     /**
@@ -1482,16 +1482,16 @@ class SoDetailTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SoDetailTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(SoDetailTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new SoDetailTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(SalesOrderDetailTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(SalesOrderDetailTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new SalesOrderDetailTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a SoDetail or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a SalesOrderDetail or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or SoDetail object or primary key or array of primary keys
+     * @param mixed               $values Criteria or SalesOrderDetail object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -1502,17 +1502,17 @@ class SoDetailTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoDetailTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderDetailTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \SoDetail) { // it's a model object
+        } elseif ($values instanceof \SalesOrderDetail) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(SoDetailTableMap::DATABASE_NAME);
+            $criteria = new Criteria(SalesOrderDetailTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -1520,19 +1520,19 @@ class SoDetailTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(SoDetailTableMap::COL_OEHDNBR, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(SoDetailTableMap::COL_OEDTLINE, $value[1]));
+                $criterion = $criteria->getNewCriterion(SalesOrderDetailTableMap::COL_OEHDNBR, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(SalesOrderDetailTableMap::COL_OEDTLINE, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = SoDetailQuery::create()->mergeWith($criteria);
+        $query = SalesOrderDetailQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            SoDetailTableMap::clearInstancePool();
+            SalesOrderDetailTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                SoDetailTableMap::removeInstanceFromPool($singleval);
+                SalesOrderDetailTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -1547,13 +1547,13 @@ class SoDetailTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return SoDetailQuery::create()->doDeleteAll($con);
+        return SalesOrderDetailQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a SoDetail or Criteria object.
+     * Performs an INSERT on the database, given a SalesOrderDetail or Criteria object.
      *
-     * @param mixed               $criteria Criteria or SoDetail object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or SalesOrderDetail object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -1562,18 +1562,18 @@ class SoDetailTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoDetailTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderDetailTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from SoDetail object
+            $criteria = $criteria->buildCriteria(); // build Criteria from SalesOrderDetail object
         }
 
 
         // Set the correct dbName
-        $query = SoDetailQuery::create()->mergeWith($criteria);
+        $query = SalesOrderDetailQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -1582,7 +1582,7 @@ class SoDetailTableMap extends TableMap
         });
     }
 
-} // SoDetailTableMap
+} // SalesOrderDetailTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-SoDetailTableMap::buildTableMap();
+SalesOrderDetailTableMap::buildTableMap();

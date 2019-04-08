@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoHeader as BaseSoHeader;
+use Base\SalesOrder as BaseSalesOrder;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for representing a row from the 'so_header' table.
@@ -12,7 +15,7 @@ use Base\SoHeader as BaseSoHeader;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeader extends BaseSoHeader
-{
-
+class SalesOrder extends BaseSalesOrder {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

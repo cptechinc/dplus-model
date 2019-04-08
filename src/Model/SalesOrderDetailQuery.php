@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoDetailQuery as BaseSoDetailQuery;
+use Base\SalesOrderDetailQuery as BaseSalesOrderDetailQuery;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'so_detail' table.
@@ -12,7 +15,7 @@ use Base\SoDetailQuery as BaseSoDetailQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SoDetailQuery extends BaseSoDetailQuery
-{
-
+class SalesOrderDetailQuery extends BaseSalesOrderDetailQuery {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \SoHeaderQuery as ChildSoHeaderQuery;
+use \SalesOrderQuery as ChildSalesOrderQuery;
 use \Exception;
 use \PDO;
-use Map\SoHeaderTableMap;
+use Map\SalesOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class SoHeader implements ActiveRecordInterface
+abstract class SalesOrder implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\SoHeaderTableMap';
+    const TABLE_MAP = '\\Map\\SalesOrderTableMap';
 
 
     /**
@@ -1370,7 +1370,7 @@ abstract class SoHeader implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\SoHeader object.
+     * Initializes internal state of Base\SalesOrder object.
      */
     public function __construct()
     {
@@ -1465,9 +1465,9 @@ abstract class SoHeader implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>SoHeader</code> instance.  If
-     * <code>obj</code> is an instance of <code>SoHeader</code>, delegates to
-     * <code>equals(SoHeader)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>SalesOrder</code> instance.  If
+     * <code>obj</code> is an instance of <code>SalesOrder</code>, delegates to
+     * <code>equals(SalesOrder)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -1533,7 +1533,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|SoHeader The current object, for fluid interface
+     * @return $this|SalesOrder The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -3458,7 +3458,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
@@ -3468,7 +3468,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdnbr !== $v) {
             $this->oehdnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDNBR] = true;
         }
 
         return $this;
@@ -3478,7 +3478,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstat] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstat($v)
     {
@@ -3488,7 +3488,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstat !== $v) {
             $this->oehdstat = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTAT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTAT] = true;
         }
 
         return $this;
@@ -3498,7 +3498,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdhold] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdhold($v)
     {
@@ -3508,7 +3508,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdhold !== $v) {
             $this->oehdhold = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDHOLD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDHOLD] = true;
         }
 
         return $this;
@@ -3518,7 +3518,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arcucustid] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -3528,7 +3528,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arcucustid !== $v) {
             $this->arcucustid = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARCUCUSTID] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARCUCUSTID] = true;
         }
 
         return $this;
@@ -3538,7 +3538,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arstshipid] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -3548,7 +3548,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arstshipid !== $v) {
             $this->arstshipid = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARSTSHIPID] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARSTSHIPID] = true;
         }
 
         return $this;
@@ -3558,7 +3558,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstname] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstname($v)
     {
@@ -3568,7 +3568,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstname !== $v) {
             $this->oehdstname = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTNAME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTNAME] = true;
         }
 
         return $this;
@@ -3578,7 +3578,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstlastname] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstlastname($v)
     {
@@ -3588,7 +3588,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstlastname !== $v) {
             $this->oehdstlastname = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTLASTNAME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTLASTNAME] = true;
         }
 
         return $this;
@@ -3598,7 +3598,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstfirstname] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstfirstname($v)
     {
@@ -3608,7 +3608,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstfirstname !== $v) {
             $this->oehdstfirstname = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTFIRSTNAME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTFIRSTNAME] = true;
         }
 
         return $this;
@@ -3618,7 +3618,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstadr1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstadr1($v)
     {
@@ -3628,7 +3628,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstadr1 !== $v) {
             $this->oehdstadr1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTADR1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTADR1] = true;
         }
 
         return $this;
@@ -3638,7 +3638,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstadr2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstadr2($v)
     {
@@ -3648,7 +3648,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstadr2 !== $v) {
             $this->oehdstadr2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTADR2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTADR2] = true;
         }
 
         return $this;
@@ -3658,7 +3658,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstadr3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstadr3($v)
     {
@@ -3668,7 +3668,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstadr3 !== $v) {
             $this->oehdstadr3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTADR3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTADR3] = true;
         }
 
         return $this;
@@ -3678,7 +3678,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstctry] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstctry($v)
     {
@@ -3688,7 +3688,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstctry !== $v) {
             $this->oehdstctry = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTCTRY] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTCTRY] = true;
         }
 
         return $this;
@@ -3698,7 +3698,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstcity] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstcity($v)
     {
@@ -3708,7 +3708,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstcity !== $v) {
             $this->oehdstcity = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTCITY] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTCITY] = true;
         }
 
         return $this;
@@ -3718,7 +3718,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdststat] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdststat($v)
     {
@@ -3728,7 +3728,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdststat !== $v) {
             $this->oehdststat = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTSTAT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTSTAT] = true;
         }
 
         return $this;
@@ -3738,7 +3738,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstzipcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstzipcode($v)
     {
@@ -3748,7 +3748,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstzipcode !== $v) {
             $this->oehdstzipcode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTZIPCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTZIPCODE] = true;
         }
 
         return $this;
@@ -3758,7 +3758,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcustpo] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcustpo($v)
     {
@@ -3768,7 +3768,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcustpo !== $v) {
             $this->oehdcustpo = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCUSTPO] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCUSTPO] = true;
         }
 
         return $this;
@@ -3778,7 +3778,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdordrdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdordrdate($v)
     {
@@ -3788,7 +3788,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdordrdate !== $v) {
             $this->oehdordrdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDORDRDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDORDRDATE] = true;
         }
 
         return $this;
@@ -3798,7 +3798,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [artmtermcd] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArtmtermcd($v)
     {
@@ -3808,7 +3808,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->artmtermcd !== $v) {
             $this->artmtermcd = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARTMTERMCD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARTMTERMCD] = true;
         }
 
         return $this;
@@ -3818,7 +3818,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [artbshipvia] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArtbshipvia($v)
     {
@@ -3828,7 +3828,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->artbshipvia !== $v) {
             $this->artbshipvia = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARTBSHIPVIA] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARTBSHIPVIA] = true;
         }
 
         return $this;
@@ -3838,7 +3838,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arininvnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArininvnbr($v)
     {
@@ -3848,7 +3848,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arininvnbr !== $v) {
             $this->arininvnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARININVNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARININVNBR] = true;
         }
 
         return $this;
@@ -3858,7 +3858,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdinvdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdinvdate($v)
     {
@@ -3868,7 +3868,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdinvdate !== $v) {
             $this->oehdinvdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINVDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINVDATE] = true;
         }
 
         return $this;
@@ -3878,7 +3878,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdglpd] column.
      *
      * @param int $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdglpd($v)
     {
@@ -3888,7 +3888,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdglpd !== $v) {
             $this->oehdglpd = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDGLPD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDGLPD] = true;
         }
 
         return $this;
@@ -3898,7 +3898,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arspsaleper1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArspsaleper1($v)
     {
@@ -3908,7 +3908,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arspsaleper1 !== $v) {
             $this->arspsaleper1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARSPSALEPER1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARSPSALEPER1] = true;
         }
 
         return $this;
@@ -3918,7 +3918,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdsp1pct] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdsp1pct($v)
     {
@@ -3928,7 +3928,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdsp1pct !== $v) {
             $this->oehdsp1pct = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSP1PCT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSP1PCT] = true;
         }
 
         return $this;
@@ -3938,7 +3938,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arspsaleper2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArspsaleper2($v)
     {
@@ -3948,7 +3948,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arspsaleper2 !== $v) {
             $this->arspsaleper2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARSPSALEPER2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARSPSALEPER2] = true;
         }
 
         return $this;
@@ -3958,7 +3958,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdsp2pct] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdsp2pct($v)
     {
@@ -3968,7 +3968,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdsp2pct !== $v) {
             $this->oehdsp2pct = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSP2PCT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSP2PCT] = true;
         }
 
         return $this;
@@ -3978,7 +3978,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [arspsaleper3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setArspsaleper3($v)
     {
@@ -3988,7 +3988,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->arspsaleper3 !== $v) {
             $this->arspsaleper3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_ARSPSALEPER3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_ARSPSALEPER3] = true;
         }
 
         return $this;
@@ -3998,7 +3998,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdsp3pct] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdsp3pct($v)
     {
@@ -4008,7 +4008,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdsp3pct !== $v) {
             $this->oehdsp3pct = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSP3PCT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSP3PCT] = true;
         }
 
         return $this;
@@ -4018,7 +4018,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcntrnbr] column.
      *
      * @param int $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcntrnbr($v)
     {
@@ -4028,7 +4028,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcntrnbr !== $v) {
             $this->oehdcntrnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCNTRNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCNTRNBR] = true;
         }
 
         return $this;
@@ -4038,7 +4038,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdwibatch] column.
      *
      * @param int $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdwibatch($v)
     {
@@ -4048,7 +4048,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdwibatch !== $v) {
             $this->oehdwibatch = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDWIBATCH] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDWIBATCH] = true;
         }
 
         return $this;
@@ -4058,7 +4058,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddroprelhold] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddroprelhold($v)
     {
@@ -4068,7 +4068,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddroprelhold !== $v) {
             $this->oehddroprelhold = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDROPRELHOLD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDROPRELHOLD] = true;
         }
 
         return $this;
@@ -4078,7 +4078,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtaxsub] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtaxsub($v)
     {
@@ -4088,7 +4088,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtaxsub !== $v) {
             $this->oehdtaxsub = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTAXSUB] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTAXSUB] = true;
         }
 
         return $this;
@@ -4098,7 +4098,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdnontaxsub] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdnontaxsub($v)
     {
@@ -4108,7 +4108,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdnontaxsub !== $v) {
             $this->oehdnontaxsub = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDNONTAXSUB] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDNONTAXSUB] = true;
         }
 
         return $this;
@@ -4118,7 +4118,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtaxtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtaxtot($v)
     {
@@ -4128,7 +4128,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtaxtot !== $v) {
             $this->oehdtaxtot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTAXTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTAXTOT] = true;
         }
 
         return $this;
@@ -4138,7 +4138,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttot($v)
     {
@@ -4148,7 +4148,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttot !== $v) {
             $this->oehdfrttot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTOT] = true;
         }
 
         return $this;
@@ -4158,7 +4158,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdmisctot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdmisctot($v)
     {
@@ -4168,7 +4168,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdmisctot !== $v) {
             $this->oehdmisctot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDMISCTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDMISCTOT] = true;
         }
 
         return $this;
@@ -4178,7 +4178,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdordrtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdordrtot($v)
     {
@@ -4188,7 +4188,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdordrtot !== $v) {
             $this->oehdordrtot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDORDRTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDORDRTOT] = true;
         }
 
         return $this;
@@ -4198,7 +4198,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcosttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcosttot($v)
     {
@@ -4208,7 +4208,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcosttot !== $v) {
             $this->oehdcosttot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCOSTTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCOSTTOT] = true;
         }
 
         return $this;
@@ -4218,7 +4218,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdspcommlock] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdspcommlock($v)
     {
@@ -4228,7 +4228,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdspcommlock !== $v) {
             $this->oehdspcommlock = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSPCOMMLOCK] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSPCOMMLOCK] = true;
         }
 
         return $this;
@@ -4238,7 +4238,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtakendate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtakendate($v)
     {
@@ -4248,7 +4248,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtakendate !== $v) {
             $this->oehdtakendate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTAKENDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTAKENDATE] = true;
         }
 
         return $this;
@@ -4258,7 +4258,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtakentime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtakentime($v)
     {
@@ -4268,7 +4268,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtakentime !== $v) {
             $this->oehdtakentime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTAKENTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTAKENTIME] = true;
         }
 
         return $this;
@@ -4278,7 +4278,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickdate($v)
     {
@@ -4288,7 +4288,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickdate !== $v) {
             $this->oehdpickdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKDATE] = true;
         }
 
         return $this;
@@ -4298,7 +4298,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpicktime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpicktime($v)
     {
@@ -4308,7 +4308,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpicktime !== $v) {
             $this->oehdpicktime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKTIME] = true;
         }
 
         return $this;
@@ -4318,7 +4318,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpackdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpackdate($v)
     {
@@ -4328,7 +4328,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpackdate !== $v) {
             $this->oehdpackdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPACKDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPACKDATE] = true;
         }
 
         return $this;
@@ -4338,7 +4338,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpacktime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpacktime($v)
     {
@@ -4348,7 +4348,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpacktime !== $v) {
             $this->oehdpacktime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPACKTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPACKTIME] = true;
         }
 
         return $this;
@@ -4358,7 +4358,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdverifydate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdverifydate($v)
     {
@@ -4368,7 +4368,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdverifydate !== $v) {
             $this->oehdverifydate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDVERIFYDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDVERIFYDATE] = true;
         }
 
         return $this;
@@ -4378,7 +4378,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdverifytime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdverifytime($v)
     {
@@ -4388,7 +4388,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdverifytime !== $v) {
             $this->oehdverifytime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDVERIFYTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDVERIFYTIME] = true;
         }
 
         return $this;
@@ -4398,7 +4398,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcreditmemo] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcreditmemo($v)
     {
@@ -4408,7 +4408,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcreditmemo !== $v) {
             $this->oehdcreditmemo = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCREDITMEMO] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCREDITMEMO] = true;
         }
 
         return $this;
@@ -4418,7 +4418,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdbookedyn] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdbookedyn($v)
     {
@@ -4428,7 +4428,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdbookedyn !== $v) {
             $this->oehdbookedyn = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDBOOKEDYN] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDBOOKEDYN] = true;
         }
 
         return $this;
@@ -4438,7 +4438,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [intbwhseorig] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setIntbwhseorig($v)
     {
@@ -4448,7 +4448,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->intbwhseorig !== $v) {
             $this->intbwhseorig = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_INTBWHSEORIG] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_INTBWHSEORIG] = true;
         }
 
         return $this;
@@ -4458,7 +4458,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdbtstat] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdbtstat($v)
     {
@@ -4468,7 +4468,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdbtstat !== $v) {
             $this->oehdbtstat = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDBTSTAT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDBTSTAT] = true;
         }
 
         return $this;
@@ -4478,7 +4478,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdshipcomp] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdshipcomp($v)
     {
@@ -4488,7 +4488,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdshipcomp !== $v) {
             $this->oehdshipcomp = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSHIPCOMP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSHIPCOMP] = true;
         }
 
         return $this;
@@ -4498,7 +4498,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcwoflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcwoflag($v)
     {
@@ -4508,7 +4508,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcwoflag !== $v) {
             $this->oehdcwoflag = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCWOFLAG] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCWOFLAG] = true;
         }
 
         return $this;
@@ -4518,7 +4518,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddivision] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddivision($v)
     {
@@ -4528,7 +4528,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddivision !== $v) {
             $this->oehddivision = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDIVISION] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDIVISION] = true;
         }
 
         return $this;
@@ -4538,7 +4538,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtakencode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtakencode($v)
     {
@@ -4548,7 +4548,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtakencode !== $v) {
             $this->oehdtakencode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTAKENCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTAKENCODE] = true;
         }
 
         return $this;
@@ -4558,7 +4558,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickcode($v)
     {
@@ -4568,7 +4568,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickcode !== $v) {
             $this->oehdpickcode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKCODE] = true;
         }
 
         return $this;
@@ -4578,7 +4578,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpackcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpackcode($v)
     {
@@ -4588,7 +4588,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpackcode !== $v) {
             $this->oehdpackcode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPACKCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPACKCODE] = true;
         }
 
         return $this;
@@ -4598,7 +4598,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdverifycode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdverifycode($v)
     {
@@ -4608,7 +4608,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdverifycode !== $v) {
             $this->oehdverifycode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDVERIFYCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDVERIFYCODE] = true;
         }
 
         return $this;
@@ -4618,7 +4618,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtotdisc] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtotdisc($v)
     {
@@ -4628,7 +4628,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtotdisc !== $v) {
             $this->oehdtotdisc = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTOTDISC] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTOTDISC] = true;
         }
 
         return $this;
@@ -4638,7 +4638,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdedirefnbrqual] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdedirefnbrqual($v)
     {
@@ -4648,7 +4648,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdedirefnbrqual !== $v) {
             $this->oehdedirefnbrqual = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDEDIREFNBRQUAL] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL] = true;
         }
 
         return $this;
@@ -4658,7 +4658,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdusercode1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdusercode1($v)
     {
@@ -4668,7 +4668,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdusercode1 !== $v) {
             $this->oehdusercode1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDUSERCODE1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDUSERCODE1] = true;
         }
 
         return $this;
@@ -4678,7 +4678,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdusercode2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdusercode2($v)
     {
@@ -4688,7 +4688,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdusercode2 !== $v) {
             $this->oehdusercode2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDUSERCODE2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDUSERCODE2] = true;
         }
 
         return $this;
@@ -4698,7 +4698,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdusercode3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdusercode3($v)
     {
@@ -4708,7 +4708,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdusercode3 !== $v) {
             $this->oehdusercode3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDUSERCODE3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDUSERCODE3] = true;
         }
 
         return $this;
@@ -4718,7 +4718,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdusercode4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdusercode4($v)
     {
@@ -4728,7 +4728,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdusercode4 !== $v) {
             $this->oehdusercode4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDUSERCODE4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDUSERCODE4] = true;
         }
 
         return $this;
@@ -4738,7 +4738,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdexchctry] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdexchctry($v)
     {
@@ -4748,7 +4748,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdexchctry !== $v) {
             $this->oehdexchctry = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDEXCHCTRY] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDEXCHCTRY] = true;
         }
 
         return $this;
@@ -4758,7 +4758,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdexchrate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdexchrate($v)
     {
@@ -4768,7 +4768,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdexchrate !== $v) {
             $this->oehdexchrate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDEXCHRATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDEXCHRATE] = true;
         }
 
         return $this;
@@ -4778,7 +4778,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdwghttot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdwghttot($v)
     {
@@ -4788,7 +4788,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdwghttot !== $v) {
             $this->oehdwghttot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDWGHTTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDWGHTTOT] = true;
         }
 
         return $this;
@@ -4798,7 +4798,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdwghtoride] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdwghtoride($v)
     {
@@ -4808,7 +4808,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdwghtoride !== $v) {
             $this->oehdwghtoride = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDWGHTORIDE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDWGHTORIDE] = true;
         }
 
         return $this;
@@ -4818,7 +4818,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdccinfo] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdccinfo($v)
     {
@@ -4828,7 +4828,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdccinfo !== $v) {
             $this->oehdccinfo = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCCINFO] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCCINFO] = true;
         }
 
         return $this;
@@ -4838,7 +4838,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdboxcount] column.
      *
      * @param int $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdboxcount($v)
     {
@@ -4848,7 +4848,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdboxcount !== $v) {
             $this->oehdboxcount = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDBOXCOUNT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDBOXCOUNT] = true;
         }
 
         return $this;
@@ -4858,7 +4858,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdrqstdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdrqstdate($v)
     {
@@ -4868,7 +4868,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdrqstdate !== $v) {
             $this->oehdrqstdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDRQSTDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDRQSTDATE] = true;
         }
 
         return $this;
@@ -4878,7 +4878,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcancdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcancdate($v)
     {
@@ -4888,7 +4888,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcancdate !== $v) {
             $this->oehdcancdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCANCDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCANCDATE] = true;
         }
 
         return $this;
@@ -4898,7 +4898,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcrntuser] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcrntuser($v)
     {
@@ -4908,7 +4908,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcrntuser !== $v) {
             $this->oehdcrntuser = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCRNTUSER] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCRNTUSER] = true;
         }
 
         return $this;
@@ -4918,7 +4918,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdreleasenbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdreleasenbr($v)
     {
@@ -4928,7 +4928,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdreleasenbr !== $v) {
             $this->oehdreleasenbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDRELEASENBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDRELEASENBR] = true;
         }
 
         return $this;
@@ -4938,7 +4938,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [intbwhse] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -4948,7 +4948,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->intbwhse !== $v) {
             $this->intbwhse = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_INTBWHSE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_INTBWHSE] = true;
         }
 
         return $this;
@@ -4958,7 +4958,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdbordbuilddate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdbordbuilddate($v)
     {
@@ -4968,7 +4968,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdbordbuilddate !== $v) {
             $this->oehdbordbuilddate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDBORDBUILDDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDBORDBUILDDATE] = true;
         }
 
         return $this;
@@ -4978,7 +4978,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddeptcode] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddeptcode($v)
     {
@@ -4988,7 +4988,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddeptcode !== $v) {
             $this->oehddeptcode = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDEPTCODE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDEPTCODE] = true;
         }
 
         return $this;
@@ -4998,7 +4998,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrtinentered] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrtinentered($v)
     {
@@ -5008,7 +5008,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrtinentered !== $v) {
             $this->oehdfrtinentered = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTINENTERED] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTINENTERED] = true;
         }
 
         return $this;
@@ -5018,7 +5018,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddropshipentered] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddropshipentered($v)
     {
@@ -5028,7 +5028,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddropshipentered !== $v) {
             $this->oehddropshipentered = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDROPSHIPENTERED] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDROPSHIPENTERED] = true;
         }
 
         return $this;
@@ -5038,7 +5038,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehderflag] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehderflag($v)
     {
@@ -5048,7 +5048,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehderflag !== $v) {
             $this->oehderflag = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDERFLAG] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDERFLAG] = true;
         }
 
         return $this;
@@ -5058,7 +5058,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrtin] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrtin($v)
     {
@@ -5068,7 +5068,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrtin !== $v) {
             $this->oehdfrtin = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTIN] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTIN] = true;
         }
 
         return $this;
@@ -5078,7 +5078,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddropship] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddropship($v)
     {
@@ -5088,7 +5088,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddropship !== $v) {
             $this->oehddropship = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDROPSHIP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDROPSHIP] = true;
         }
 
         return $this;
@@ -5098,7 +5098,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdminorder] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdminorder($v)
     {
@@ -5108,7 +5108,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdminorder !== $v) {
             $this->oehdminorder = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDMINORDER] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDMINORDER] = true;
         }
 
         return $this;
@@ -5118,7 +5118,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontractterms] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontractterms($v)
     {
@@ -5128,7 +5128,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontractterms !== $v) {
             $this->oehdcontractterms = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTRACTTERMS] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTRACTTERMS] = true;
         }
 
         return $this;
@@ -5138,7 +5138,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddropshipbilled] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddropshipbilled($v)
     {
@@ -5148,7 +5148,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddropshipbilled !== $v) {
             $this->oehddropshipbilled = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDROPSHIPBILLED] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDROPSHIPBILLED] = true;
         }
 
         return $this;
@@ -5158,7 +5158,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdordtyp] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdordtyp($v)
     {
@@ -5168,7 +5168,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdordtyp !== $v) {
             $this->oehdordtyp = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDORDTYP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDORDTYP] = true;
         }
 
         return $this;
@@ -5178,7 +5178,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdtracknbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdtracknbr($v)
     {
@@ -5188,7 +5188,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdtracknbr !== $v) {
             $this->oehdtracknbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDTRACKNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDTRACKNBR] = true;
         }
 
         return $this;
@@ -5198,7 +5198,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdsource] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdsource($v)
     {
@@ -5208,7 +5208,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdsource !== $v) {
             $this->oehdsource = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSOURCE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSOURCE] = true;
         }
 
         return $this;
@@ -5218,7 +5218,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdccaprv] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdccaprv($v)
     {
@@ -5228,7 +5228,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdccaprv !== $v) {
             $this->oehdccaprv = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCCAPRV] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCCAPRV] = true;
         }
 
         return $this;
@@ -5238,7 +5238,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickfmattype] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickfmattype($v)
     {
@@ -5248,7 +5248,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickfmattype !== $v) {
             $this->oehdpickfmattype = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKFMATTYPE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKFMATTYPE] = true;
         }
 
         return $this;
@@ -5258,7 +5258,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdinvcfmattype] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdinvcfmattype($v)
     {
@@ -5268,7 +5268,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdinvcfmattype !== $v) {
             $this->oehdinvcfmattype = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINVCFMATTYPE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINVCFMATTYPE] = true;
         }
 
         return $this;
@@ -5278,7 +5278,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcashamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcashamt($v)
     {
@@ -5288,7 +5288,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcashamt !== $v) {
             $this->oehdcashamt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCASHAMT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCASHAMT] = true;
         }
 
         return $this;
@@ -5298,7 +5298,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcheckamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcheckamt($v)
     {
@@ -5308,7 +5308,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcheckamt !== $v) {
             $this->oehdcheckamt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCHECKAMT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCHECKAMT] = true;
         }
 
         return $this;
@@ -5318,7 +5318,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdchecknbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdchecknbr($v)
     {
@@ -5328,7 +5328,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdchecknbr !== $v) {
             $this->oehdchecknbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCHECKNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCHECKNBR] = true;
         }
 
         return $this;
@@ -5338,7 +5338,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddepositamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddepositamt($v)
     {
@@ -5348,7 +5348,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddepositamt !== $v) {
             $this->oehddepositamt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDEPOSITAMT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDEPOSITAMT] = true;
         }
 
         return $this;
@@ -5358,7 +5358,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddepositnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddepositnbr($v)
     {
@@ -5368,7 +5368,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddepositnbr !== $v) {
             $this->oehddepositnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDEPOSITNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDEPOSITNBR] = true;
         }
 
         return $this;
@@ -5378,7 +5378,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdccamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdccamt($v)
     {
@@ -5388,7 +5388,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdccamt !== $v) {
             $this->oehdccamt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCCAMT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCCAMT] = true;
         }
 
         return $this;
@@ -5398,7 +5398,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdotaxsub] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdotaxsub($v)
     {
@@ -5408,7 +5408,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdotaxsub !== $v) {
             $this->oehdotaxsub = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDOTAXSUB] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDOTAXSUB] = true;
         }
 
         return $this;
@@ -5418,7 +5418,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdonontaxsub] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdonontaxsub($v)
     {
@@ -5428,7 +5428,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdonontaxsub !== $v) {
             $this->oehdonontaxsub = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDONONTAXSUB] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDONONTAXSUB] = true;
         }
 
         return $this;
@@ -5438,7 +5438,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdotaxtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdotaxtot($v)
     {
@@ -5448,7 +5448,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdotaxtot !== $v) {
             $this->oehdotaxtot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDOTAXTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDOTAXTOT] = true;
         }
 
         return $this;
@@ -5458,7 +5458,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdoordrtot] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdoordrtot($v)
     {
@@ -5468,7 +5468,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdoordrtot !== $v) {
             $this->oehdoordrtot = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDOORDRTOT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDOORDRTOT] = true;
         }
 
         return $this;
@@ -5478,7 +5478,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickprintdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickprintdate($v)
     {
@@ -5488,7 +5488,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickprintdate !== $v) {
             $this->oehdpickprintdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKPRINTDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKPRINTDATE] = true;
         }
 
         return $this;
@@ -5498,7 +5498,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickprinttime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickprinttime($v)
     {
@@ -5508,7 +5508,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickprinttime !== $v) {
             $this->oehdpickprinttime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKPRINTTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKPRINTTIME] = true;
         }
 
         return $this;
@@ -5518,7 +5518,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcont] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcont($v)
     {
@@ -5528,7 +5528,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcont !== $v) {
             $this->oehdcont = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONT] = true;
         }
 
         return $this;
@@ -5538,7 +5538,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontteleintl] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontteleintl($v)
     {
@@ -5548,7 +5548,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontteleintl !== $v) {
             $this->oehdcontteleintl = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTTELEINTL] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTTELEINTL] = true;
         }
 
         return $this;
@@ -5558,7 +5558,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdconttelenbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdconttelenbr($v)
     {
@@ -5568,7 +5568,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdconttelenbr !== $v) {
             $this->oehdconttelenbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTTELENBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTTELENBR] = true;
         }
 
         return $this;
@@ -5578,7 +5578,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontteleext] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontteleext($v)
     {
@@ -5588,7 +5588,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontteleext !== $v) {
             $this->oehdcontteleext = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTTELEEXT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTTELEEXT] = true;
         }
 
         return $this;
@@ -5598,7 +5598,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontfaxintl] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontfaxintl($v)
     {
@@ -5608,7 +5608,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontfaxintl !== $v) {
             $this->oehdcontfaxintl = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTFAXINTL] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTFAXINTL] = true;
         }
 
         return $this;
@@ -5618,7 +5618,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontfaxnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontfaxnbr($v)
     {
@@ -5628,7 +5628,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontfaxnbr !== $v) {
             $this->oehdcontfaxnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTFAXNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTFAXNBR] = true;
         }
 
         return $this;
@@ -5638,7 +5638,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdshipacct] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdshipacct($v)
     {
@@ -5648,7 +5648,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdshipacct !== $v) {
             $this->oehdshipacct = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSHIPACCT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSHIPACCT] = true;
         }
 
         return $this;
@@ -5658,7 +5658,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdchgdue] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdchgdue($v)
     {
@@ -5668,7 +5668,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdchgdue !== $v) {
             $this->oehdchgdue = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCHGDUE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCHGDUE] = true;
         }
 
         return $this;
@@ -5678,7 +5678,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdaddlpricdisc] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdaddlpricdisc($v)
     {
@@ -5688,7 +5688,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdaddlpricdisc !== $v) {
             $this->oehdaddlpricdisc = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDADDLPRICDISC] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDADDLPRICDISC] = true;
         }
 
         return $this;
@@ -5698,7 +5698,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdallship] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdallship($v)
     {
@@ -5708,7 +5708,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdallship !== $v) {
             $this->oehdallship = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDALLSHIP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDALLSHIP] = true;
         }
 
         return $this;
@@ -5718,7 +5718,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdqtyorderamt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdqtyorderamt($v)
     {
@@ -5728,7 +5728,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdqtyorderamt !== $v) {
             $this->oehdqtyorderamt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDQTYORDERAMT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDQTYORDERAMT] = true;
         }
 
         return $this;
@@ -5738,7 +5738,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcreditapplied] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcreditapplied($v)
     {
@@ -5748,7 +5748,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcreditapplied !== $v) {
             $this->oehdcreditapplied = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCREDITAPPLIED] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCREDITAPPLIED] = true;
         }
 
         return $this;
@@ -5758,7 +5758,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdinvcprintdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdinvcprintdate($v)
     {
@@ -5768,7 +5768,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdinvcprintdate !== $v) {
             $this->oehdinvcprintdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINVCPRINTDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINVCPRINTDATE] = true;
         }
 
         return $this;
@@ -5778,7 +5778,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdinvcprinttime] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdinvcprinttime($v)
     {
@@ -5788,7 +5788,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdinvcprinttime !== $v) {
             $this->oehdinvcprinttime = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINVCPRINTTIME] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINVCPRINTTIME] = true;
         }
 
         return $this;
@@ -5798,7 +5798,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscfrt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscfrt($v)
     {
@@ -5808,7 +5808,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscfrt !== $v) {
             $this->oehddiscfrt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCFRT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCFRT] = true;
         }
 
         return $this;
@@ -5818,7 +5818,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdorideshipcomp] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdorideshipcomp($v)
     {
@@ -5828,7 +5828,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdorideshipcomp !== $v) {
             $this->oehdorideshipcomp = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDORIDESHIPCOMP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDORIDESHIPCOMP] = true;
         }
 
         return $this;
@@ -5838,7 +5838,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcontemail] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcontemail($v)
     {
@@ -5848,7 +5848,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcontemail !== $v) {
             $this->oehdcontemail = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONTEMAIL] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONTEMAIL] = true;
         }
 
         return $this;
@@ -5858,7 +5858,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdmanualfrt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdmanualfrt($v)
     {
@@ -5868,7 +5868,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdmanualfrt !== $v) {
             $this->oehdmanualfrt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDMANUALFRT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDMANUALFRT] = true;
         }
 
         return $this;
@@ -5878,7 +5878,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdinternalfrt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdinternalfrt($v)
     {
@@ -5888,7 +5888,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdinternalfrt !== $v) {
             $this->oehdinternalfrt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINTERNALFRT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINTERNALFRT] = true;
         }
 
         return $this;
@@ -5898,7 +5898,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrtcost] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrtcost($v)
     {
@@ -5908,7 +5908,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrtcost !== $v) {
             $this->oehdfrtcost = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTCOST] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTCOST] = true;
         }
 
         return $this;
@@ -5918,7 +5918,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdroute] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdroute($v)
     {
@@ -5928,7 +5928,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdroute !== $v) {
             $this->oehdroute = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDROUTE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDROUTE] = true;
         }
 
         return $this;
@@ -5938,7 +5938,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdrouteseq] column.
      *
      * @param int $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdrouteseq($v)
     {
@@ -5948,7 +5948,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdrouteseq !== $v) {
             $this->oehdrouteseq = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDROUTESEQ] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDROUTESEQ] = true;
         }
 
         return $this;
@@ -5958,7 +5958,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxcode1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxcode1($v)
     {
@@ -5968,7 +5968,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxcode1 !== $v) {
             $this->oehdfrttaxcode1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXCODE1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXCODE1] = true;
         }
 
         return $this;
@@ -5978,7 +5978,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxamt1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxamt1($v)
     {
@@ -5988,7 +5988,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxamt1 !== $v) {
             $this->oehdfrttaxamt1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXAMT1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXAMT1] = true;
         }
 
         return $this;
@@ -5998,7 +5998,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxcode2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxcode2($v)
     {
@@ -6008,7 +6008,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxcode2 !== $v) {
             $this->oehdfrttaxcode2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXCODE2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXCODE2] = true;
         }
 
         return $this;
@@ -6018,7 +6018,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxamt2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxamt2($v)
     {
@@ -6028,7 +6028,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxamt2 !== $v) {
             $this->oehdfrttaxamt2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXAMT2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXAMT2] = true;
         }
 
         return $this;
@@ -6038,7 +6038,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxcode3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxcode3($v)
     {
@@ -6048,7 +6048,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxcode3 !== $v) {
             $this->oehdfrttaxcode3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXCODE3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXCODE3] = true;
         }
 
         return $this;
@@ -6058,7 +6058,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxamt3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxamt3($v)
     {
@@ -6068,7 +6068,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxamt3 !== $v) {
             $this->oehdfrttaxamt3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXAMT3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXAMT3] = true;
         }
 
         return $this;
@@ -6078,7 +6078,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxcode4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxcode4($v)
     {
@@ -6088,7 +6088,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxcode4 !== $v) {
             $this->oehdfrttaxcode4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXCODE4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXCODE4] = true;
         }
 
         return $this;
@@ -6098,7 +6098,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxamt4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxamt4($v)
     {
@@ -6108,7 +6108,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxamt4 !== $v) {
             $this->oehdfrttaxamt4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXAMT4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXAMT4] = true;
         }
 
         return $this;
@@ -6118,7 +6118,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxcode5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxcode5($v)
     {
@@ -6128,7 +6128,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxcode5 !== $v) {
             $this->oehdfrttaxcode5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXCODE5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXCODE5] = true;
         }
 
         return $this;
@@ -6138,7 +6138,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrttaxamt5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrttaxamt5($v)
     {
@@ -6148,7 +6148,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrttaxamt5 !== $v) {
             $this->oehdfrttaxamt5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTTAXAMT5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTTAXAMT5] = true;
         }
 
         return $this;
@@ -6158,7 +6158,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdedi855sent] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdedi855sent($v)
     {
@@ -6168,7 +6168,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdedi855sent !== $v) {
             $this->oehdedi855sent = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDEDI855SENT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDEDI855SENT] = true;
         }
 
         return $this;
@@ -6178,7 +6178,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrt3rdparty] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrt3rdparty($v)
     {
@@ -6188,7 +6188,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrt3rdparty !== $v) {
             $this->oehdfrt3rdparty = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRT3RDPARTY] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRT3RDPARTY] = true;
         }
 
         return $this;
@@ -6198,7 +6198,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfob] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfob($v)
     {
@@ -6208,7 +6208,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfob !== $v) {
             $this->oehdfob = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFOB] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFOB] = true;
         }
 
         return $this;
@@ -6218,7 +6218,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdconfirmimagyn] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdconfirmimagyn($v)
     {
@@ -6228,7 +6228,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdconfirmimagyn !== $v) {
             $this->oehdconfirmimagyn = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCONFIRMIMAGYN] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN] = true;
         }
 
         return $this;
@@ -6238,7 +6238,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdindustconform] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdindustconform($v)
     {
@@ -6248,7 +6248,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdindustconform !== $v) {
             $this->oehdindustconform = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDINDUSTCONFORM] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDINDUSTCONFORM] = true;
         }
 
         return $this;
@@ -6258,7 +6258,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcstkconsign] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcstkconsign($v)
     {
@@ -6268,7 +6268,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcstkconsign !== $v) {
             $this->oehdcstkconsign = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCSTKCONSIGN] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCSTKCONSIGN] = true;
         }
 
         return $this;
@@ -6278,7 +6278,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdlmdelaycapsent] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdlmdelaycapsent($v)
     {
@@ -6288,7 +6288,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdlmdelaycapsent !== $v) {
             $this->oehdlmdelaycapsent = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDLMDELAYCAPSENT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT] = true;
         }
 
         return $this;
@@ -6298,7 +6298,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdmfgid] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdmfgid($v)
     {
@@ -6308,7 +6308,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdmfgid !== $v) {
             $this->oehdmfgid = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDMFGID] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDMFGID] = true;
         }
 
         return $this;
@@ -6318,7 +6318,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdstoreid] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdstoreid($v)
     {
@@ -6328,7 +6328,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdstoreid !== $v) {
             $this->oehdstoreid = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSTOREID] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSTOREID] = true;
         }
 
         return $this;
@@ -6338,7 +6338,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpickqueue] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpickqueue($v)
     {
@@ -6348,7 +6348,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpickqueue !== $v) {
             $this->oehdpickqueue = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPICKQUEUE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPICKQUEUE] = true;
         }
 
         return $this;
@@ -6358,7 +6358,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdarrvdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdarrvdate($v)
     {
@@ -6368,7 +6368,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdarrvdate !== $v) {
             $this->oehdarrvdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDARRVDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDARRVDATE] = true;
         }
 
         return $this;
@@ -6378,7 +6378,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdsurchgstat] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdsurchgstat($v)
     {
@@ -6388,7 +6388,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdsurchgstat !== $v) {
             $this->oehdsurchgstat = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDSURCHGSTAT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDSURCHGSTAT] = true;
         }
 
         return $this;
@@ -6398,7 +6398,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdfrtgrup] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdfrtgrup($v)
     {
@@ -6408,7 +6408,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdfrtgrup !== $v) {
             $this->oehdfrtgrup = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDFRTGRUP] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDFRTGRUP] = true;
         }
 
         return $this;
@@ -6418,7 +6418,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdcommoride] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdcommoride($v)
     {
@@ -6428,7 +6428,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdcommoride !== $v) {
             $this->oehdcommoride = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCOMMORIDE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCOMMORIDE] = true;
         }
 
         return $this;
@@ -6438,7 +6438,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdchrgsplt] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdchrgsplt($v)
     {
@@ -6448,7 +6448,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdchrgsplt !== $v) {
             $this->oehdchrgsplt = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDCHRGSPLT] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDCHRGSPLT] = true;
         }
 
         return $this;
@@ -6458,7 +6458,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdacccaprv] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdacccaprv($v)
     {
@@ -6468,7 +6468,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdacccaprv !== $v) {
             $this->oehdacccaprv = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDACCCAPRV] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDACCCAPRV] = true;
         }
 
         return $this;
@@ -6478,7 +6478,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdorigordrnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdorigordrnbr($v)
     {
@@ -6488,7 +6488,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdorigordrnbr !== $v) {
             $this->oehdorigordrnbr = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDORIGORDRNBR] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDORIGORDRNBR] = true;
         }
 
         return $this;
@@ -6498,7 +6498,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdpostdate] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdpostdate($v)
     {
@@ -6508,7 +6508,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdpostdate !== $v) {
             $this->oehdpostdate = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDPOSTDATE] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDPOSTDATE] = true;
         }
 
         return $this;
@@ -6518,7 +6518,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate1($v)
     {
@@ -6528,7 +6528,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate1 !== $v) {
             $this->oehddiscdate1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE1] = true;
         }
 
         return $this;
@@ -6538,7 +6538,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct1($v)
     {
@@ -6548,7 +6548,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct1 !== $v) {
             $this->oehddiscpct1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT1] = true;
         }
 
         return $this;
@@ -6558,7 +6558,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate1($v)
     {
@@ -6568,7 +6568,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate1 !== $v) {
             $this->oehdduedate1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE1] = true;
         }
 
         return $this;
@@ -6578,7 +6578,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt1($v)
     {
@@ -6588,7 +6588,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt1 !== $v) {
             $this->oehddueamt1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT1] = true;
         }
 
         return $this;
@@ -6598,7 +6598,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct1] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct1($v)
     {
@@ -6608,7 +6608,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct1 !== $v) {
             $this->oehdduepct1 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT1] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT1] = true;
         }
 
         return $this;
@@ -6618,7 +6618,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate2($v)
     {
@@ -6628,7 +6628,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate2 !== $v) {
             $this->oehddiscdate2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE2] = true;
         }
 
         return $this;
@@ -6638,7 +6638,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct2($v)
     {
@@ -6648,7 +6648,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct2 !== $v) {
             $this->oehddiscpct2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT2] = true;
         }
 
         return $this;
@@ -6658,7 +6658,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate2($v)
     {
@@ -6668,7 +6668,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate2 !== $v) {
             $this->oehdduedate2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE2] = true;
         }
 
         return $this;
@@ -6678,7 +6678,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt2($v)
     {
@@ -6688,7 +6688,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt2 !== $v) {
             $this->oehddueamt2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT2] = true;
         }
 
         return $this;
@@ -6698,7 +6698,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct2] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct2($v)
     {
@@ -6708,7 +6708,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct2 !== $v) {
             $this->oehdduepct2 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT2] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT2] = true;
         }
 
         return $this;
@@ -6718,7 +6718,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate3($v)
     {
@@ -6728,7 +6728,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate3 !== $v) {
             $this->oehddiscdate3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE3] = true;
         }
 
         return $this;
@@ -6738,7 +6738,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct3($v)
     {
@@ -6748,7 +6748,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct3 !== $v) {
             $this->oehddiscpct3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT3] = true;
         }
 
         return $this;
@@ -6758,7 +6758,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate3($v)
     {
@@ -6768,7 +6768,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate3 !== $v) {
             $this->oehdduedate3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE3] = true;
         }
 
         return $this;
@@ -6778,7 +6778,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt3($v)
     {
@@ -6788,7 +6788,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt3 !== $v) {
             $this->oehddueamt3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT3] = true;
         }
 
         return $this;
@@ -6798,7 +6798,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct3] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct3($v)
     {
@@ -6808,7 +6808,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct3 !== $v) {
             $this->oehdduepct3 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT3] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT3] = true;
         }
 
         return $this;
@@ -6818,7 +6818,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate4($v)
     {
@@ -6828,7 +6828,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate4 !== $v) {
             $this->oehddiscdate4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE4] = true;
         }
 
         return $this;
@@ -6838,7 +6838,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct4($v)
     {
@@ -6848,7 +6848,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct4 !== $v) {
             $this->oehddiscpct4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT4] = true;
         }
 
         return $this;
@@ -6858,7 +6858,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate4($v)
     {
@@ -6868,7 +6868,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate4 !== $v) {
             $this->oehdduedate4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE4] = true;
         }
 
         return $this;
@@ -6878,7 +6878,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt4($v)
     {
@@ -6888,7 +6888,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt4 !== $v) {
             $this->oehddueamt4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT4] = true;
         }
 
         return $this;
@@ -6898,7 +6898,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct4] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct4($v)
     {
@@ -6908,7 +6908,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct4 !== $v) {
             $this->oehdduepct4 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT4] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT4] = true;
         }
 
         return $this;
@@ -6918,7 +6918,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate5($v)
     {
@@ -6928,7 +6928,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate5 !== $v) {
             $this->oehddiscdate5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE5] = true;
         }
 
         return $this;
@@ -6938,7 +6938,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct5($v)
     {
@@ -6948,7 +6948,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct5 !== $v) {
             $this->oehddiscpct5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT5] = true;
         }
 
         return $this;
@@ -6958,7 +6958,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate5($v)
     {
@@ -6968,7 +6968,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate5 !== $v) {
             $this->oehdduedate5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE5] = true;
         }
 
         return $this;
@@ -6978,7 +6978,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt5($v)
     {
@@ -6988,7 +6988,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt5 !== $v) {
             $this->oehddueamt5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT5] = true;
         }
 
         return $this;
@@ -6998,7 +6998,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct5] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct5($v)
     {
@@ -7008,7 +7008,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct5 !== $v) {
             $this->oehdduepct5 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT5] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT5] = true;
         }
 
         return $this;
@@ -7018,7 +7018,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscdate6] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscdate6($v)
     {
@@ -7028,7 +7028,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscdate6 !== $v) {
             $this->oehddiscdate6 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCDATE6] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCDATE6] = true;
         }
 
         return $this;
@@ -7038,7 +7038,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddiscpct6] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddiscpct6($v)
     {
@@ -7048,7 +7048,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddiscpct6 !== $v) {
             $this->oehddiscpct6 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDISCPCT6] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDISCPCT6] = true;
         }
 
         return $this;
@@ -7058,7 +7058,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduedate6] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduedate6($v)
     {
@@ -7068,7 +7068,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduedate6 !== $v) {
             $this->oehdduedate6 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEDATE6] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEDATE6] = true;
         }
 
         return $this;
@@ -7078,7 +7078,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehddueamt6] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehddueamt6($v)
     {
@@ -7088,7 +7088,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehddueamt6 !== $v) {
             $this->oehddueamt6 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEAMT6] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEAMT6] = true;
         }
 
         return $this;
@@ -7098,7 +7098,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [oehdduepct6] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdduepct6($v)
     {
@@ -7108,7 +7108,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->oehdduepct6 !== $v) {
             $this->oehdduepct6 = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_OEHDDUEPCT6] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDDUEPCT6] = true;
         }
 
         return $this;
@@ -7118,7 +7118,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -7128,7 +7128,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -7138,7 +7138,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -7148,7 +7148,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -7158,7 +7158,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\SoHeader The current object (for fluent API support)
+     * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -7168,7 +7168,7 @@ abstract class SoHeader implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[SoHeaderTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[SalesOrderTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -7210,562 +7210,562 @@ abstract class SoHeader implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SoHeaderTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SoHeaderTableMap::translateFieldName('Oehdhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderTableMap::translateFieldName('Oehdhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SoHeaderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SoHeaderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstlastname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstlastname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstlastname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstfirstname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstfirstname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstfirstname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstcity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstcity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstcity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SoHeaderTableMap::translateFieldName('Oehdststat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderTableMap::translateFieldName('Oehdststat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdststat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcustpo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcustpo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoHeaderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordrdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoHeaderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SoHeaderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesOrderTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SoHeaderTableMap::translateFieldName('Arininvnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesOrderTableMap::translateFieldName('Arininvnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arininvnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SoHeaderTableMap::translateFieldName('Oehdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SoHeaderTableMap::translateFieldName('Oehdglpd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderTableMap::translateFieldName('Oehdglpd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdglpd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SoHeaderTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SoHeaderTableMap::translateFieldName('Oehdsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp1pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp1pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SoHeaderTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SoHeaderTableMap::translateFieldName('Oehdsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp2pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp2pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SoHeaderTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SalesOrderTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SoHeaderTableMap::translateFieldName('Oehdsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsp3pct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsp3pct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcntrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcntrnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SoHeaderTableMap::translateFieldName('Oehdwibatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwibatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwibatch = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SoHeaderTableMap::translateFieldName('Oehddroprelhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SalesOrderTableMap::translateFieldName('Oehddroprelhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddroprelhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : SoHeaderTableMap::translateFieldName('Oehdnontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnontaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtaxtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtaxtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtaxtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : SoHeaderTableMap::translateFieldName('Oehdmisctot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmisctot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmisctot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : SoHeaderTableMap::translateFieldName('Oehdordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcosttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcosttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcosttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : SoHeaderTableMap::translateFieldName('Oehdspcommlock', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : SalesOrderTableMap::translateFieldName('Oehdspcommlock', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdspcommlock = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtakendate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakendate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakendate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtakentime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakentime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakentime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpicktime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpicktime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpackdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpackdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpacktime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpacktime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpacktime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : SoHeaderTableMap::translateFieldName('Oehdverifydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : SoHeaderTableMap::translateFieldName('Oehdverifytime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifytime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifytime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditmemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcreditmemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : SoHeaderTableMap::translateFieldName('Oehdbookedyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbookedyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbookedyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : SoHeaderTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhseorig', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhseorig = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : SoHeaderTableMap::translateFieldName('Oehdbtstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbtstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbtstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : SoHeaderTableMap::translateFieldName('Oehdshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcwoflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcwoflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcwoflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : SoHeaderTableMap::translateFieldName('Oehddivision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : SalesOrderTableMap::translateFieldName('Oehddivision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddivision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtakencode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtakencode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtakencode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpackcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpackcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : SoHeaderTableMap::translateFieldName('Oehdverifycode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : SalesOrderTableMap::translateFieldName('Oehdverifycode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdverifycode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtotdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtotdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtotdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : SoHeaderTableMap::translateFieldName('Oehdedirefnbrqual', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedirefnbrqual', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdedirefnbrqual = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : SoHeaderTableMap::translateFieldName('Oehdusercode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : SoHeaderTableMap::translateFieldName('Oehdusercode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : SoHeaderTableMap::translateFieldName('Oehdusercode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : SoHeaderTableMap::translateFieldName('Oehdusercode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : SalesOrderTableMap::translateFieldName('Oehdusercode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdusercode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : SoHeaderTableMap::translateFieldName('Oehdexchctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdexchctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : SoHeaderTableMap::translateFieldName('Oehdexchrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : SalesOrderTableMap::translateFieldName('Oehdexchrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdexchrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : SoHeaderTableMap::translateFieldName('Oehdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghttot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwghttot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : SoHeaderTableMap::translateFieldName('Oehdwghtoride', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : SalesOrderTableMap::translateFieldName('Oehdwghtoride', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdwghtoride = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : SoHeaderTableMap::translateFieldName('Oehdccinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : SoHeaderTableMap::translateFieldName('Oehdboxcount', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : SalesOrderTableMap::translateFieldName('Oehdboxcount', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdboxcount = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : SoHeaderTableMap::translateFieldName('Oehdrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcancdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcancdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcancdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcrntuser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcrntuser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : SoHeaderTableMap::translateFieldName('Oehdreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : SalesOrderTableMap::translateFieldName('Oehdreleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdreleasenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : SoHeaderTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : SalesOrderTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SoHeaderTableMap::translateFieldName('Oehdbordbuilddate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SalesOrderTableMap::translateFieldName('Oehdbordbuilddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdbordbuilddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SoHeaderTableMap::translateFieldName('Oehddeptcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SalesOrderTableMap::translateFieldName('Oehddeptcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddeptcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtinentered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtinentered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : SoHeaderTableMap::translateFieldName('Oehddropshipentered', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipentered', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropshipentered = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : SoHeaderTableMap::translateFieldName('Oehderflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : SalesOrderTableMap::translateFieldName('Oehderflag', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehderflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : SoHeaderTableMap::translateFieldName('Oehddropship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : SoHeaderTableMap::translateFieldName('Oehdminorder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : SalesOrderTableMap::translateFieldName('Oehdminorder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdminorder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontractterms', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontractterms', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontractterms = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : SoHeaderTableMap::translateFieldName('Oehddropshipbilled', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : SalesOrderTableMap::translateFieldName('Oehddropshipbilled', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddropshipbilled = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : SoHeaderTableMap::translateFieldName('Oehdordtyp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordtyp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdordtyp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : SoHeaderTableMap::translateFieldName('Oehdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : SalesOrderTableMap::translateFieldName('Oehdtracknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdtracknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : SoHeaderTableMap::translateFieldName('Oehdsource', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsource', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsource = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : SoHeaderTableMap::translateFieldName('Oehdccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickfmattype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickfmattype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickfmattype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : SoHeaderTableMap::translateFieldName('Oehdinvcfmattype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcfmattype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcfmattype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcashamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcashamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcashamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcheckamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcheckamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcheckamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : SoHeaderTableMap::translateFieldName('Oehdchecknbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchecknbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchecknbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : SoHeaderTableMap::translateFieldName('Oehddepositamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddepositamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : SoHeaderTableMap::translateFieldName('Oehddepositnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : SalesOrderTableMap::translateFieldName('Oehddepositnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddepositnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : SoHeaderTableMap::translateFieldName('Oehdccamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : SalesOrderTableMap::translateFieldName('Oehdccamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdccamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : SoHeaderTableMap::translateFieldName('Oehdotaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdotaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : SoHeaderTableMap::translateFieldName('Oehdonontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : SalesOrderTableMap::translateFieldName('Oehdonontaxsub', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdonontaxsub = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : SoHeaderTableMap::translateFieldName('Oehdotaxtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : SalesOrderTableMap::translateFieldName('Oehdotaxtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdotaxtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : SoHeaderTableMap::translateFieldName('Oehdoordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : SalesOrderTableMap::translateFieldName('Oehdoordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdoordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickprintdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprintdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickprintdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickprinttime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickprinttime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickprinttime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcont', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcont', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcont = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontteleintl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleintl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontteleintl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : SoHeaderTableMap::translateFieldName('Oehdconttelenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconttelenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdconttelenbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontteleext', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontteleext', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontteleext = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontfaxintl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxintl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontfaxintl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontfaxnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontfaxnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontfaxnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : SoHeaderTableMap::translateFieldName('Oehdshipacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : SalesOrderTableMap::translateFieldName('Oehdshipacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdshipacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : SoHeaderTableMap::translateFieldName('Oehdchgdue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchgdue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchgdue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : SoHeaderTableMap::translateFieldName('Oehdaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : SalesOrderTableMap::translateFieldName('Oehdaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : SoHeaderTableMap::translateFieldName('Oehdallship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : SalesOrderTableMap::translateFieldName('Oehdallship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdallship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : SoHeaderTableMap::translateFieldName('Oehdqtyorderamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : SalesOrderTableMap::translateFieldName('Oehdqtyorderamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdqtyorderamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcreditapplied', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcreditapplied', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcreditapplied = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : SoHeaderTableMap::translateFieldName('Oehdinvcprintdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprintdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcprintdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : SoHeaderTableMap::translateFieldName('Oehdinvcprinttime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinvcprinttime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinvcprinttime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : SoHeaderTableMap::translateFieldName('Oehdorideshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorideshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdorideshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcontemail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcontemail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcontemail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : SoHeaderTableMap::translateFieldName('Oehdmanualfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmanualfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmanualfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : SoHeaderTableMap::translateFieldName('Oehdinternalfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : SalesOrderTableMap::translateFieldName('Oehdinternalfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdinternalfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : SoHeaderTableMap::translateFieldName('Oehdroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : SalesOrderTableMap::translateFieldName('Oehdroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : SoHeaderTableMap::translateFieldName('Oehdrouteseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrouteseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdrouteseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrttaxamt5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrttaxamt5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SoHeaderTableMap::translateFieldName('Oehdedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : SalesOrderTableMap::translateFieldName('Oehdedi855sent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdedi855sent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrt3rdparty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrt3rdparty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SoHeaderTableMap::translateFieldName('Oehdconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesOrderTableMap::translateFieldName('Oehdconfirmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdconfirmimagyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SoHeaderTableMap::translateFieldName('Oehdindustconform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesOrderTableMap::translateFieldName('Oehdindustconform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdindustconform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcstkconsign', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcstkconsign = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SoHeaderTableMap::translateFieldName('Oehdlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesOrderTableMap::translateFieldName('Oehdlmdelaycapsent', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdlmdelaycapsent = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SoHeaderTableMap::translateFieldName('Oehdmfgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesOrderTableMap::translateFieldName('Oehdmfgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdmfgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SoHeaderTableMap::translateFieldName('Oehdstoreid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstoreid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstoreid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpickqueue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpickqueue = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SoHeaderTableMap::translateFieldName('Oehdarrvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SalesOrderTableMap::translateFieldName('Oehdarrvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdarrvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : SoHeaderTableMap::translateFieldName('Oehdsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : SalesOrderTableMap::translateFieldName('Oehdsurchgstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdsurchgstat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : SoHeaderTableMap::translateFieldName('Oehdfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : SalesOrderTableMap::translateFieldName('Oehdfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdfrtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : SoHeaderTableMap::translateFieldName('Oehdcommoride', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : SalesOrderTableMap::translateFieldName('Oehdcommoride', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdcommoride = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : SoHeaderTableMap::translateFieldName('Oehdchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : SalesOrderTableMap::translateFieldName('Oehdchrgsplt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdchrgsplt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : SoHeaderTableMap::translateFieldName('Oehdacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacccaprv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdacccaprv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : SoHeaderTableMap::translateFieldName('Oehdorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : SalesOrderTableMap::translateFieldName('Oehdorigordrnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdorigordrnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : SoHeaderTableMap::translateFieldName('Oehdpostdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : SalesOrderTableMap::translateFieldName('Oehdpostdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdpostdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscdate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscdate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : SoHeaderTableMap::translateFieldName('Oehddiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : SalesOrderTableMap::translateFieldName('Oehddiscpct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddiscpct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduedate6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduedate6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduedate6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : SoHeaderTableMap::translateFieldName('Oehddueamt6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : SalesOrderTableMap::translateFieldName('Oehddueamt6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehddueamt6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SoHeaderTableMap::translateFieldName('Oehdduepct6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SoHeaderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SoHeaderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SoHeaderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -7775,10 +7775,10 @@ abstract class SoHeader implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 186; // 186 = SoHeaderTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 186; // 186 = SalesOrderTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\SoHeader'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\SalesOrder'), 0, $e);
         }
     }
 
@@ -7820,13 +7820,13 @@ abstract class SoHeader implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(SoHeaderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildSoHeaderQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildSalesOrderQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -7845,8 +7845,8 @@ abstract class SoHeader implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see SoHeader::setDeleted()
-     * @see SoHeader::isDeleted()
+     * @see SalesOrder::setDeleted()
+     * @see SalesOrder::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -7855,11 +7855,11 @@ abstract class SoHeader implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoHeaderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildSoHeaderQuery::create()
+            $deleteQuery = ChildSalesOrderQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -7894,7 +7894,7 @@ abstract class SoHeader implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SoHeaderTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -7913,7 +7913,7 @@ abstract class SoHeader implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                SoHeaderTableMap::addInstanceToPool($this);
+                SalesOrderTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -7972,562 +7972,562 @@ abstract class SoHeader implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTAT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTAT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStat';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDHOLD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDHOLD)) {
             $modifiedColumns[':p' . $index++]  = 'OehdHold';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARCUCUSTID)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARCUCUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'ArcuCustId';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSTSHIPID)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSTSHIPID)) {
             $modifiedColumns[':p' . $index++]  = 'ArstShipId';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTNAME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTNAME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStName';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTLASTNAME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTLASTNAME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStLastName';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTFIRSTNAME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTFIRSTNAME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStFirstName';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStAdr1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStAdr2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStAdr3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTCTRY)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTCTRY)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStCtry';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTCITY)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTCITY)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStCity';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTSTAT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTSTAT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStStat';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTZIPCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTZIPCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStZipCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCUSTPO)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCUSTPO)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCustPo';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDRDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDRDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOrdrDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARTMTERMCD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARTMTERMCD)) {
             $modifiedColumns[':p' . $index++]  = 'ArtmTermCd';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARTBSHIPVIA)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARTBSHIPVIA)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbShipVia';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARININVNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARININVNBR)) {
             $modifiedColumns[':p' . $index++]  = 'ArinInvNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdInvDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDGLPD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDGLPD)) {
             $modifiedColumns[':p' . $index++]  = 'OehdGLPd';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER1)) {
             $modifiedColumns[':p' . $index++]  = 'ArspSalePer1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP1PCT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP1PCT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSp1Pct';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER2)) {
             $modifiedColumns[':p' . $index++]  = 'ArspSalePer2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP2PCT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP2PCT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSp2Pct';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER3)) {
             $modifiedColumns[':p' . $index++]  = 'ArspSalePer3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP3PCT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP3PCT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSp3Pct';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCNTRNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCNTRNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCntrNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWIBATCH)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWIBATCH)) {
             $modifiedColumns[':p' . $index++]  = 'OehdWiBatch';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPRELHOLD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPRELHOLD)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDropRelHold';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAXSUB)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAXSUB)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTaxSub';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDNONTAXSUB)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDNONTAXSUB)) {
             $modifiedColumns[':p' . $index++]  = 'OehdNonTaxSub';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAXTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAXTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTaxTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMISCTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMISCTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdMiscTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDRTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDRTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOrdrTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCOSTTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCOSTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCostTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSPCOMMLOCK)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSPCOMMLOCK)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSpCommLock';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTakenDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTakenTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPackDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPackTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdVerifyDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdVerifyTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCREDITMEMO)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCREDITMEMO)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCreditMemo';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBOOKEDYN)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBOOKEDYN)) {
             $modifiedColumns[':p' . $index++]  = 'OehdBookedYn';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_INTBWHSEORIG)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_INTBWHSEORIG)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhseOrig';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBTSTAT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBTSTAT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdBtStat';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSHIPCOMP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSHIPCOMP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdShipComp';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCWOFLAG)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCWOFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCwoFlag';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDIVISION)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDIVISION)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDivision';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTakenCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPackCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdVerifyCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTOTDISC)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTOTDISC)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTotDisc';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEDIREFNBRQUAL)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL)) {
             $modifiedColumns[':p' . $index++]  = 'OehdEdiRefNbrQual';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdUserCode1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdUserCode2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdUserCode3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdUserCode4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEXCHCTRY)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEXCHCTRY)) {
             $modifiedColumns[':p' . $index++]  = 'OehdExchCtry';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEXCHRATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEXCHRATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdExchRate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWGHTTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWGHTTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdWghtTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWGHTORIDE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWGHTORIDE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdWghtOride';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCINFO)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCINFO)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCcInfo';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBOXCOUNT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBOXCOUNT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdBoxCount';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDRQSTDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDRQSTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdRqstDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCANCDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCANCDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCancDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCRNTUSER)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCRNTUSER)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCrntUser';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDRELEASENBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDRELEASENBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdReleaseNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_INTBWHSE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_INTBWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhse';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBORDBUILDDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBORDBUILDDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdBordBuildDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPTCODE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPTCODE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDeptCode';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTINENTERED)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTINENTERED)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtInEntered';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIPENTERED)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIPENTERED)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDropShipEntered';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDERFLAG)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDERFLAG)) {
             $modifiedColumns[':p' . $index++]  = 'OehdErFlag';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTIN)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTIN)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtIn';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDropShip';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMINORDER)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMINORDER)) {
             $modifiedColumns[':p' . $index++]  = 'OehdMinOrder';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTRACTTERMS)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTRACTTERMS)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContractTerms';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIPBILLED)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIPBILLED)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDropShipBilled';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDTYP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDTYP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOrdTyp';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTRACKNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTRACKNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdTrackNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSOURCE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSOURCE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSource';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCAPRV)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCAPRV)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCcAprv';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKFMATTYPE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKFMATTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickFmatType';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCFMATTYPE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCFMATTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdInvcFmatType';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCASHAMT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCASHAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCashAmt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHECKAMT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHECKAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCheckAmt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHECKNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHECKNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCheckNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPOSITAMT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPOSITAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDepositAmt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPOSITNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPOSITNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDepositNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCAMT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCcAmt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOTAXSUB)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOTAXSUB)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOTaxSub';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDONONTAXSUB)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDONONTAXSUB)) {
             $modifiedColumns[':p' . $index++]  = 'OehdONonTaxSub';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOTAXTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOTAXTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOTaxTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOORDRTOT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOORDRTOT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOOrdrTot';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKPRINTDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKPRINTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickPrintDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKPRINTTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKPRINTTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickPrintTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCont';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELEINTL)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELEINTL)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContTeleIntl';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELENBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELENBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContTeleNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELEEXT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELEEXT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContTeleExt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTFAXINTL)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTFAXINTL)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContFaxIntl';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTFAXNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTFAXNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContFaxNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSHIPACCT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSHIPACCT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdShipAcct';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHGDUE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHGDUE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdChgDue';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDADDLPRICDISC)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDADDLPRICDISC)) {
             $modifiedColumns[':p' . $index++]  = 'OehdAddlPricDisc';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDALLSHIP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDALLSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdAllShip';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDQTYORDERAMT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDQTYORDERAMT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdQtyOrderAmt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCREDITAPPLIED)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCREDITAPPLIED)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCreditApplied';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCPRINTDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCPRINTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdInvcPrintDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCPRINTTIME)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCPRINTTIME)) {
             $modifiedColumns[':p' . $index++]  = 'OehdInvcPrintTime';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCFRT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCFRT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscFrt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORIDESHIPCOMP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORIDESHIPCOMP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOrideShipComp';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTEMAIL)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTEMAIL)) {
             $modifiedColumns[':p' . $index++]  = 'OehdContEmail';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMANUALFRT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMANUALFRT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdManualFrt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINTERNALFRT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINTERNALFRT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdInternalFrt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTCOST)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTCOST)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtCost';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDROUTE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDROUTE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdRoute';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDROUTESEQ)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDROUTESEQ)) {
             $modifiedColumns[':p' . $index++]  = 'OehdRouteSeq';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxCode1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxAmt1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxCode2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxAmt2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxCode3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxAmt3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxCode4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxAmt4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxCode5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtTaxAmt5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEDI855SENT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEDI855SENT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdEdi855Sent';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRT3RDPARTY)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRT3RDPARTY)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrt3rdParty';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFOB)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFOB)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFob';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONFIRMIMAGYN)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN)) {
             $modifiedColumns[':p' . $index++]  = 'OehdConfirmImagYn';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINDUSTCONFORM)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINDUSTCONFORM)) {
             $modifiedColumns[':p' . $index++]  = 'OehdIndustConform';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCSTKCONSIGN)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCSTKCONSIGN)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCstkConsign';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDLMDELAYCAPSENT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdLmDelayCapSent';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMFGID)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMFGID)) {
             $modifiedColumns[':p' . $index++]  = 'OehdMfgId';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTOREID)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTOREID)) {
             $modifiedColumns[':p' . $index++]  = 'OehdStoreId';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKQUEUE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKQUEUE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPickQueue';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDARRVDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDARRVDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdArrvDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSURCHGSTAT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSURCHGSTAT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdSurchgStat';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTGRUP)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'OehdFrtGrup';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCOMMORIDE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCOMMORIDE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdCommOride';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHRGSPLT)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHRGSPLT)) {
             $modifiedColumns[':p' . $index++]  = 'OehdChrgSplt';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDACCCAPRV)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACCCAPRV)) {
             $modifiedColumns[':p' . $index++]  = 'OehdAcCcAprv';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORIGORDRNBR)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORIGORDRNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdOrigOrdrNbr';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPOSTDATE)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPOSTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OehdPostDate';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT1)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT1)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct1';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT2)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT2)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct2';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT3)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT3)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct3';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT4)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT4)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct4';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT5)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT5)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct5';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE6)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscDate6';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT6)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDiscPct6';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE6)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueDate6';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT6)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDueAmt6';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT6)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct6';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(SalesOrderTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -9138,7 +9138,7 @@ abstract class SoHeader implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SoHeaderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -9735,11 +9735,11 @@ abstract class SoHeader implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['SoHeader'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['SalesOrder'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['SoHeader'][$this->hashCode()] = true;
-        $keys = SoHeaderTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['SalesOrder'][$this->hashCode()] = true;
+        $keys = SalesOrderTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getOehdnbr(),
             $keys[1] => $this->getOehdstat(),
@@ -9946,11 +9946,11 @@ abstract class SoHeader implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SoHeader
+     * @return $this|\SalesOrder
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SoHeaderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SalesOrderTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -9961,7 +9961,7 @@ abstract class SoHeader implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\SoHeader
+     * @return $this|\SalesOrder
      */
     public function setByPosition($pos, $value)
     {
@@ -10548,7 +10548,7 @@ abstract class SoHeader implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = SoHeaderTableMap::getFieldNames($keyType);
+        $keys = SalesOrderTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setOehdnbr($arr[$keys[0]]);
@@ -11127,7 +11127,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SoHeader The current object, for fluid interface
+     * @return $this|\SalesOrder The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -11147,565 +11147,565 @@ abstract class SoHeader implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(SoHeaderTableMap::DATABASE_NAME);
+        $criteria = new Criteria(SalesOrderTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDNBR, $this->oehdnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDNBR, $this->oehdnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTAT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTAT, $this->oehdstat);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTAT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTAT, $this->oehdstat);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDHOLD)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDHOLD, $this->oehdhold);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDHOLD)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDHOLD, $this->oehdhold);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARCUCUSTID)) {
-            $criteria->add(SoHeaderTableMap::COL_ARCUCUSTID, $this->arcucustid);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARCUCUSTID)) {
+            $criteria->add(SalesOrderTableMap::COL_ARCUCUSTID, $this->arcucustid);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSTSHIPID)) {
-            $criteria->add(SoHeaderTableMap::COL_ARSTSHIPID, $this->arstshipid);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSTSHIPID)) {
+            $criteria->add(SalesOrderTableMap::COL_ARSTSHIPID, $this->arstshipid);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTNAME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTNAME, $this->oehdstname);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTNAME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTNAME, $this->oehdstname);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTLASTNAME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTLASTNAME, $this->oehdstlastname);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTLASTNAME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTLASTNAME, $this->oehdstlastname);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTFIRSTNAME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTFIRSTNAME, $this->oehdstfirstname);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTFIRSTNAME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTFIRSTNAME, $this->oehdstfirstname);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTADR1, $this->oehdstadr1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTADR1, $this->oehdstadr1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTADR2, $this->oehdstadr2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTADR2, $this->oehdstadr2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTADR3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTADR3, $this->oehdstadr3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTADR3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTADR3, $this->oehdstadr3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTCTRY)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTCTRY, $this->oehdstctry);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTCTRY)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTCTRY, $this->oehdstctry);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTCITY)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTCITY, $this->oehdstcity);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTCITY)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTCITY, $this->oehdstcity);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTSTAT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTSTAT, $this->oehdststat);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTSTAT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTSTAT, $this->oehdststat);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTZIPCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTZIPCODE, $this->oehdstzipcode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTZIPCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTZIPCODE, $this->oehdstzipcode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCUSTPO)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCUSTPO, $this->oehdcustpo);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCUSTPO)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCUSTPO, $this->oehdcustpo);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDRDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDORDRDATE, $this->oehdordrdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDRDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDORDRDATE, $this->oehdordrdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARTMTERMCD)) {
-            $criteria->add(SoHeaderTableMap::COL_ARTMTERMCD, $this->artmtermcd);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARTMTERMCD)) {
+            $criteria->add(SalesOrderTableMap::COL_ARTMTERMCD, $this->artmtermcd);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARTBSHIPVIA)) {
-            $criteria->add(SoHeaderTableMap::COL_ARTBSHIPVIA, $this->artbshipvia);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARTBSHIPVIA)) {
+            $criteria->add(SalesOrderTableMap::COL_ARTBSHIPVIA, $this->artbshipvia);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARININVNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_ARININVNBR, $this->arininvnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARININVNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_ARININVNBR, $this->arininvnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINVDATE, $this->oehdinvdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINVDATE, $this->oehdinvdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDGLPD)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDGLPD, $this->oehdglpd);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDGLPD)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDGLPD, $this->oehdglpd);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER1)) {
-            $criteria->add(SoHeaderTableMap::COL_ARSPSALEPER1, $this->arspsaleper1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER1)) {
+            $criteria->add(SalesOrderTableMap::COL_ARSPSALEPER1, $this->arspsaleper1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP1PCT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSP1PCT, $this->oehdsp1pct);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP1PCT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSP1PCT, $this->oehdsp1pct);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER2)) {
-            $criteria->add(SoHeaderTableMap::COL_ARSPSALEPER2, $this->arspsaleper2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER2)) {
+            $criteria->add(SalesOrderTableMap::COL_ARSPSALEPER2, $this->arspsaleper2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP2PCT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSP2PCT, $this->oehdsp2pct);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP2PCT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSP2PCT, $this->oehdsp2pct);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_ARSPSALEPER3)) {
-            $criteria->add(SoHeaderTableMap::COL_ARSPSALEPER3, $this->arspsaleper3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_ARSPSALEPER3)) {
+            $criteria->add(SalesOrderTableMap::COL_ARSPSALEPER3, $this->arspsaleper3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSP3PCT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSP3PCT, $this->oehdsp3pct);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSP3PCT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSP3PCT, $this->oehdsp3pct);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCNTRNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCNTRNBR, $this->oehdcntrnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCNTRNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCNTRNBR, $this->oehdcntrnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWIBATCH)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDWIBATCH, $this->oehdwibatch);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWIBATCH)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDWIBATCH, $this->oehdwibatch);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPRELHOLD)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDROPRELHOLD, $this->oehddroprelhold);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPRELHOLD)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDROPRELHOLD, $this->oehddroprelhold);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAXSUB)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTAXSUB, $this->oehdtaxsub);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAXSUB)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTAXSUB, $this->oehdtaxsub);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDNONTAXSUB)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDNONTAXSUB, $this->oehdnontaxsub);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDNONTAXSUB)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDNONTAXSUB, $this->oehdnontaxsub);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAXTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTAXTOT, $this->oehdtaxtot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAXTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTAXTOT, $this->oehdtaxtot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTOT, $this->oehdfrttot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTOT, $this->oehdfrttot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMISCTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDMISCTOT, $this->oehdmisctot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMISCTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDMISCTOT, $this->oehdmisctot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDRTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDORDRTOT, $this->oehdordrtot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDRTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDORDRTOT, $this->oehdordrtot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCOSTTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCOSTTOT, $this->oehdcosttot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCOSTTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCOSTTOT, $this->oehdcosttot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSPCOMMLOCK)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSPCOMMLOCK, $this->oehdspcommlock);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSPCOMMLOCK)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSPCOMMLOCK, $this->oehdspcommlock);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTAKENDATE, $this->oehdtakendate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTAKENDATE, $this->oehdtakendate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTAKENTIME, $this->oehdtakentime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTAKENTIME, $this->oehdtakentime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKDATE, $this->oehdpickdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKDATE, $this->oehdpickdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKTIME, $this->oehdpicktime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKTIME, $this->oehdpicktime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPACKDATE, $this->oehdpackdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPACKDATE, $this->oehdpackdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPACKTIME, $this->oehdpacktime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPACKTIME, $this->oehdpacktime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDVERIFYDATE, $this->oehdverifydate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDVERIFYDATE, $this->oehdverifydate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDVERIFYTIME, $this->oehdverifytime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDVERIFYTIME, $this->oehdverifytime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCREDITMEMO)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCREDITMEMO, $this->oehdcreditmemo);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCREDITMEMO)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCREDITMEMO, $this->oehdcreditmemo);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBOOKEDYN)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDBOOKEDYN, $this->oehdbookedyn);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBOOKEDYN)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDBOOKEDYN, $this->oehdbookedyn);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_INTBWHSEORIG)) {
-            $criteria->add(SoHeaderTableMap::COL_INTBWHSEORIG, $this->intbwhseorig);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_INTBWHSEORIG)) {
+            $criteria->add(SalesOrderTableMap::COL_INTBWHSEORIG, $this->intbwhseorig);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBTSTAT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDBTSTAT, $this->oehdbtstat);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBTSTAT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDBTSTAT, $this->oehdbtstat);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSHIPCOMP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSHIPCOMP, $this->oehdshipcomp);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSHIPCOMP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSHIPCOMP, $this->oehdshipcomp);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCWOFLAG)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCWOFLAG, $this->oehdcwoflag);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCWOFLAG)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCWOFLAG, $this->oehdcwoflag);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDIVISION)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDIVISION, $this->oehddivision);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDIVISION)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDIVISION, $this->oehddivision);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTAKENCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTAKENCODE, $this->oehdtakencode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTAKENCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTAKENCODE, $this->oehdtakencode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKCODE, $this->oehdpickcode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKCODE, $this->oehdpickcode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPACKCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPACKCODE, $this->oehdpackcode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPACKCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPACKCODE, $this->oehdpackcode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDVERIFYCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDVERIFYCODE, $this->oehdverifycode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDVERIFYCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDVERIFYCODE, $this->oehdverifycode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTOTDISC)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTOTDISC, $this->oehdtotdisc);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTOTDISC)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTOTDISC, $this->oehdtotdisc);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEDIREFNBRQUAL)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDEDIREFNBRQUAL, $this->oehdedirefnbrqual);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDEDIREFNBRQUAL, $this->oehdedirefnbrqual);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDUSERCODE1, $this->oehdusercode1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDUSERCODE1, $this->oehdusercode1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDUSERCODE2, $this->oehdusercode2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDUSERCODE2, $this->oehdusercode2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDUSERCODE3, $this->oehdusercode3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDUSERCODE3, $this->oehdusercode3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDUSERCODE4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDUSERCODE4, $this->oehdusercode4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDUSERCODE4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDUSERCODE4, $this->oehdusercode4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEXCHCTRY)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDEXCHCTRY, $this->oehdexchctry);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEXCHCTRY)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDEXCHCTRY, $this->oehdexchctry);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEXCHRATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDEXCHRATE, $this->oehdexchrate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEXCHRATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDEXCHRATE, $this->oehdexchrate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWGHTTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDWGHTTOT, $this->oehdwghttot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWGHTTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDWGHTTOT, $this->oehdwghttot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDWGHTORIDE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDWGHTORIDE, $this->oehdwghtoride);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDWGHTORIDE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDWGHTORIDE, $this->oehdwghtoride);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCINFO)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCCINFO, $this->oehdccinfo);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCINFO)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCCINFO, $this->oehdccinfo);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBOXCOUNT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDBOXCOUNT, $this->oehdboxcount);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBOXCOUNT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDBOXCOUNT, $this->oehdboxcount);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDRQSTDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDRQSTDATE, $this->oehdrqstdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDRQSTDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDRQSTDATE, $this->oehdrqstdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCANCDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCANCDATE, $this->oehdcancdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCANCDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCANCDATE, $this->oehdcancdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCRNTUSER)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCRNTUSER, $this->oehdcrntuser);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCRNTUSER)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCRNTUSER, $this->oehdcrntuser);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDRELEASENBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDRELEASENBR, $this->oehdreleasenbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDRELEASENBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDRELEASENBR, $this->oehdreleasenbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_INTBWHSE)) {
-            $criteria->add(SoHeaderTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_INTBWHSE)) {
+            $criteria->add(SalesOrderTableMap::COL_INTBWHSE, $this->intbwhse);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDBORDBUILDDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDBORDBUILDDATE, $this->oehdbordbuilddate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDBORDBUILDDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDBORDBUILDDATE, $this->oehdbordbuilddate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPTCODE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDEPTCODE, $this->oehddeptcode);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPTCODE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDEPTCODE, $this->oehddeptcode);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTINENTERED)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTINENTERED, $this->oehdfrtinentered);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTINENTERED)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTINENTERED, $this->oehdfrtinentered);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIPENTERED)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDROPSHIPENTERED, $this->oehddropshipentered);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIPENTERED)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDROPSHIPENTERED, $this->oehddropshipentered);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDERFLAG)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDERFLAG, $this->oehderflag);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDERFLAG)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDERFLAG, $this->oehderflag);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTIN)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTIN, $this->oehdfrtin);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTIN)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTIN, $this->oehdfrtin);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDROPSHIP, $this->oehddropship);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDROPSHIP, $this->oehddropship);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMINORDER)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDMINORDER, $this->oehdminorder);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMINORDER)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDMINORDER, $this->oehdminorder);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTRACTTERMS)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTRACTTERMS, $this->oehdcontractterms);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTRACTTERMS)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTRACTTERMS, $this->oehdcontractterms);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDROPSHIPBILLED)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDROPSHIPBILLED, $this->oehddropshipbilled);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDROPSHIPBILLED)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDROPSHIPBILLED, $this->oehddropshipbilled);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORDTYP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDORDTYP, $this->oehdordtyp);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORDTYP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDORDTYP, $this->oehdordtyp);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDTRACKNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDTRACKNBR, $this->oehdtracknbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDTRACKNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDTRACKNBR, $this->oehdtracknbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSOURCE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSOURCE, $this->oehdsource);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSOURCE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSOURCE, $this->oehdsource);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCAPRV)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCCAPRV, $this->oehdccaprv);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCAPRV)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCCAPRV, $this->oehdccaprv);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKFMATTYPE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKFMATTYPE, $this->oehdpickfmattype);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKFMATTYPE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKFMATTYPE, $this->oehdpickfmattype);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCFMATTYPE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINVCFMATTYPE, $this->oehdinvcfmattype);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCFMATTYPE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINVCFMATTYPE, $this->oehdinvcfmattype);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCASHAMT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCASHAMT, $this->oehdcashamt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCASHAMT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCASHAMT, $this->oehdcashamt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHECKAMT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCHECKAMT, $this->oehdcheckamt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHECKAMT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCHECKAMT, $this->oehdcheckamt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHECKNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCHECKNBR, $this->oehdchecknbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHECKNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCHECKNBR, $this->oehdchecknbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPOSITAMT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDEPOSITAMT, $this->oehddepositamt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPOSITAMT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDEPOSITAMT, $this->oehddepositamt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDEPOSITNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDEPOSITNBR, $this->oehddepositnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDEPOSITNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDEPOSITNBR, $this->oehddepositnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCCAMT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCCAMT, $this->oehdccamt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCCAMT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCCAMT, $this->oehdccamt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOTAXSUB)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDOTAXSUB, $this->oehdotaxsub);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOTAXSUB)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDOTAXSUB, $this->oehdotaxsub);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDONONTAXSUB)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDONONTAXSUB, $this->oehdonontaxsub);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDONONTAXSUB)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDONONTAXSUB, $this->oehdonontaxsub);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOTAXTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDOTAXTOT, $this->oehdotaxtot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOTAXTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDOTAXTOT, $this->oehdotaxtot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDOORDRTOT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDOORDRTOT, $this->oehdoordrtot);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDOORDRTOT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDOORDRTOT, $this->oehdoordrtot);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKPRINTDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKPRINTDATE, $this->oehdpickprintdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKPRINTDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKPRINTDATE, $this->oehdpickprintdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKPRINTTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKPRINTTIME, $this->oehdpickprinttime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKPRINTTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKPRINTTIME, $this->oehdpickprinttime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONT, $this->oehdcont);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONT, $this->oehdcont);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELEINTL)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTTELEINTL, $this->oehdcontteleintl);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELEINTL)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTTELEINTL, $this->oehdcontteleintl);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELENBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTTELENBR, $this->oehdconttelenbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELENBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTTELENBR, $this->oehdconttelenbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTTELEEXT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTTELEEXT, $this->oehdcontteleext);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTTELEEXT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTTELEEXT, $this->oehdcontteleext);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTFAXINTL)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTFAXINTL, $this->oehdcontfaxintl);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTFAXINTL)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTFAXINTL, $this->oehdcontfaxintl);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTFAXNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTFAXNBR, $this->oehdcontfaxnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTFAXNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTFAXNBR, $this->oehdcontfaxnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSHIPACCT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSHIPACCT, $this->oehdshipacct);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSHIPACCT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSHIPACCT, $this->oehdshipacct);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHGDUE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCHGDUE, $this->oehdchgdue);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHGDUE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCHGDUE, $this->oehdchgdue);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDADDLPRICDISC)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDADDLPRICDISC, $this->oehdaddlpricdisc);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDADDLPRICDISC)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDADDLPRICDISC, $this->oehdaddlpricdisc);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDALLSHIP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDALLSHIP, $this->oehdallship);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDALLSHIP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDALLSHIP, $this->oehdallship);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDQTYORDERAMT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDQTYORDERAMT, $this->oehdqtyorderamt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDQTYORDERAMT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDQTYORDERAMT, $this->oehdqtyorderamt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCREDITAPPLIED)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCREDITAPPLIED, $this->oehdcreditapplied);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCREDITAPPLIED)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCREDITAPPLIED, $this->oehdcreditapplied);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCPRINTDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINVCPRINTDATE, $this->oehdinvcprintdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCPRINTDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINVCPRINTDATE, $this->oehdinvcprintdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINVCPRINTTIME)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINVCPRINTTIME, $this->oehdinvcprinttime);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINVCPRINTTIME)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINVCPRINTTIME, $this->oehdinvcprinttime);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCFRT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCFRT, $this->oehddiscfrt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCFRT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCFRT, $this->oehddiscfrt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORIDESHIPCOMP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDORIDESHIPCOMP, $this->oehdorideshipcomp);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORIDESHIPCOMP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDORIDESHIPCOMP, $this->oehdorideshipcomp);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONTEMAIL)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONTEMAIL, $this->oehdcontemail);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONTEMAIL)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONTEMAIL, $this->oehdcontemail);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMANUALFRT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDMANUALFRT, $this->oehdmanualfrt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMANUALFRT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDMANUALFRT, $this->oehdmanualfrt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINTERNALFRT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINTERNALFRT, $this->oehdinternalfrt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINTERNALFRT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINTERNALFRT, $this->oehdinternalfrt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTCOST)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTCOST, $this->oehdfrtcost);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTCOST)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTCOST, $this->oehdfrtcost);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDROUTE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDROUTE, $this->oehdroute);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDROUTE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDROUTE, $this->oehdroute);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDROUTESEQ)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDROUTESEQ, $this->oehdrouteseq);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDROUTESEQ)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDROUTESEQ, $this->oehdrouteseq);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXCODE1, $this->oehdfrttaxcode1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXCODE1, $this->oehdfrttaxcode1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXAMT1, $this->oehdfrttaxamt1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXAMT1, $this->oehdfrttaxamt1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXCODE2, $this->oehdfrttaxcode2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXCODE2, $this->oehdfrttaxcode2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXAMT2, $this->oehdfrttaxamt2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXAMT2, $this->oehdfrttaxamt2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXCODE3, $this->oehdfrttaxcode3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXCODE3, $this->oehdfrttaxcode3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXAMT3, $this->oehdfrttaxamt3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXAMT3, $this->oehdfrttaxamt3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXCODE4, $this->oehdfrttaxcode4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXCODE4, $this->oehdfrttaxcode4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXAMT4, $this->oehdfrttaxamt4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXAMT4, $this->oehdfrttaxamt4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXCODE5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXCODE5, $this->oehdfrttaxcode5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXCODE5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXCODE5, $this->oehdfrttaxcode5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTTAXAMT5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTTAXAMT5, $this->oehdfrttaxamt5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTTAXAMT5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTTAXAMT5, $this->oehdfrttaxamt5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDEDI855SENT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDEDI855SENT, $this->oehdedi855sent);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDEDI855SENT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDEDI855SENT, $this->oehdedi855sent);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRT3RDPARTY)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRT3RDPARTY, $this->oehdfrt3rdparty);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRT3RDPARTY)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRT3RDPARTY, $this->oehdfrt3rdparty);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFOB)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFOB, $this->oehdfob);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFOB)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFOB, $this->oehdfob);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCONFIRMIMAGYN)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCONFIRMIMAGYN, $this->oehdconfirmimagyn);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCONFIRMIMAGYN, $this->oehdconfirmimagyn);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDINDUSTCONFORM)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDINDUSTCONFORM, $this->oehdindustconform);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDINDUSTCONFORM)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDINDUSTCONFORM, $this->oehdindustconform);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCSTKCONSIGN)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCSTKCONSIGN, $this->oehdcstkconsign);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCSTKCONSIGN)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCSTKCONSIGN, $this->oehdcstkconsign);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDLMDELAYCAPSENT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDLMDELAYCAPSENT, $this->oehdlmdelaycapsent);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDLMDELAYCAPSENT, $this->oehdlmdelaycapsent);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDMFGID)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDMFGID, $this->oehdmfgid);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDMFGID)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDMFGID, $this->oehdmfgid);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSTOREID)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSTOREID, $this->oehdstoreid);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSTOREID)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSTOREID, $this->oehdstoreid);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPICKQUEUE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPICKQUEUE, $this->oehdpickqueue);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPICKQUEUE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPICKQUEUE, $this->oehdpickqueue);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDARRVDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDARRVDATE, $this->oehdarrvdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDARRVDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDARRVDATE, $this->oehdarrvdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDSURCHGSTAT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDSURCHGSTAT, $this->oehdsurchgstat);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDSURCHGSTAT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDSURCHGSTAT, $this->oehdsurchgstat);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDFRTGRUP)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDFRTGRUP, $this->oehdfrtgrup);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDFRTGRUP)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDFRTGRUP, $this->oehdfrtgrup);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCOMMORIDE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCOMMORIDE, $this->oehdcommoride);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCOMMORIDE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCOMMORIDE, $this->oehdcommoride);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDCHRGSPLT)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDCHRGSPLT, $this->oehdchrgsplt);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDCHRGSPLT)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDCHRGSPLT, $this->oehdchrgsplt);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDACCCAPRV)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDACCCAPRV, $this->oehdacccaprv);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACCCAPRV)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDACCCAPRV, $this->oehdacccaprv);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDORIGORDRNBR)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDORIGORDRNBR, $this->oehdorigordrnbr);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDORIGORDRNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDORIGORDRNBR, $this->oehdorigordrnbr);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDPOSTDATE)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDPOSTDATE, $this->oehdpostdate);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDPOSTDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDPOSTDATE, $this->oehdpostdate);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE1, $this->oehddiscdate1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE1, $this->oehddiscdate1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT1, $this->oehddiscpct1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT1, $this->oehddiscpct1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE1, $this->oehdduedate1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE1, $this->oehdduedate1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT1, $this->oehddueamt1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT1, $this->oehddueamt1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT1)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT1, $this->oehdduepct1);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT1)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT1, $this->oehdduepct1);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE2, $this->oehddiscdate2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE2, $this->oehddiscdate2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT2, $this->oehddiscpct2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT2, $this->oehddiscpct2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE2, $this->oehdduedate2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE2, $this->oehdduedate2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT2, $this->oehddueamt2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT2, $this->oehddueamt2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT2)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT2, $this->oehdduepct2);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT2)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT2, $this->oehdduepct2);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE3, $this->oehddiscdate3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE3, $this->oehddiscdate3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT3, $this->oehddiscpct3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT3, $this->oehddiscpct3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE3, $this->oehdduedate3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE3, $this->oehdduedate3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT3, $this->oehddueamt3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT3, $this->oehddueamt3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT3)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT3, $this->oehdduepct3);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT3)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT3, $this->oehdduepct3);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE4, $this->oehddiscdate4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE4, $this->oehddiscdate4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT4, $this->oehddiscpct4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT4, $this->oehddiscpct4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE4, $this->oehdduedate4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE4, $this->oehdduedate4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT4, $this->oehddueamt4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT4, $this->oehddueamt4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT4)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT4, $this->oehdduepct4);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT4)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT4, $this->oehdduepct4);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE5, $this->oehddiscdate5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE5, $this->oehddiscdate5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT5, $this->oehddiscpct5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT5, $this->oehddiscpct5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE5, $this->oehdduedate5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE5, $this->oehdduedate5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT5, $this->oehddueamt5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT5, $this->oehddueamt5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT5)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT5, $this->oehdduepct5);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT5)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT5, $this->oehdduepct5);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCDATE6)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCDATE6, $this->oehddiscdate6);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCDATE6)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCDATE6, $this->oehddiscdate6);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDISCPCT6)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDISCPCT6, $this->oehddiscpct6);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDISCPCT6)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDISCPCT6, $this->oehddiscpct6);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEDATE6)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEDATE6, $this->oehdduedate6);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEDATE6)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEDATE6, $this->oehdduedate6);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEAMT6)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEAMT6, $this->oehddueamt6);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEAMT6)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEAMT6, $this->oehddueamt6);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_OEHDDUEPCT6)) {
-            $criteria->add(SoHeaderTableMap::COL_OEHDDUEPCT6, $this->oehdduepct6);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT6)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT6, $this->oehdduepct6);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_DATEUPDTD)) {
-            $criteria->add(SoHeaderTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_DATEUPDTD)) {
+            $criteria->add(SalesOrderTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(SoHeaderTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(SalesOrderTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(SoHeaderTableMap::COL_DUMMY)) {
-            $criteria->add(SoHeaderTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(SalesOrderTableMap::COL_DUMMY)) {
+            $criteria->add(SalesOrderTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -11723,8 +11723,8 @@ abstract class SoHeader implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildSoHeaderQuery::create();
-        $criteria->add(SoHeaderTableMap::COL_OEHDNBR, $this->oehdnbr);
+        $criteria = ChildSalesOrderQuery::create();
+        $criteria->add(SalesOrderTableMap::COL_OEHDNBR, $this->oehdnbr);
 
         return $criteria;
     }
@@ -11786,7 +11786,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SoHeader (or compatible) type.
+     * @param      object $copyObj An object of \SalesOrder (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -11993,7 +11993,7 @@ abstract class SoHeader implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \SoHeader Clone of current object.
+     * @return \SalesOrder Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -12228,7 +12228,7 @@ abstract class SoHeader implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SoHeaderTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(SalesOrderTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

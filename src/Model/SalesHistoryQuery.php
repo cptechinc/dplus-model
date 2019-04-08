@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoHeadHistQuery as BaseSoHeadHistQuery;
+use Base\SalesHistoryQuery as BaseSalesHistoryQuery;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'so_head_hist' table.
@@ -12,7 +15,7 @@ use Base\SoHeadHistQuery as BaseSoHeadHistQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SoHeadHistQuery extends BaseSoHeadHistQuery
-{
-
+class SalesHistoryQuery extends BaseSalesHistoryQuery {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }

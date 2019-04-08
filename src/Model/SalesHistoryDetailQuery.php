@@ -1,6 +1,9 @@
 <?php
 
-use Base\SoDetHistQuery as BaseSoDetHistQuery;
+use Base\SalesHistoryDetailQuery as BaseSalesHistoryDetailQuery;
+
+use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\ThrowErrorTrait;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'so_det_hist' table.
@@ -12,7 +15,7 @@ use Base\SoDetHistQuery as BaseSoDetHistQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SoDetHistQuery extends BaseSoDetHistQuery
-{
-
+class SalesHistoryDetailQuery extends BaseSalesHistoryDetailQuery {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 }
