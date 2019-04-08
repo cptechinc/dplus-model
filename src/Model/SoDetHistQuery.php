@@ -1,9 +1,9 @@
 <?php
 
-use Base\SoHeadHist as BaseSoHeadHist;
+use Base\SoDetHistQuery as BaseSoDetHistQuery;
 
 /**
- * Skeleton subclass for representing a row from the 'so_head_hist' table.
+ * Skeleton subclass for performing query and update operations on the 'so_det_hist' table.
  *
  *
  *
@@ -12,7 +12,7 @@ use Base\SoHeadHist as BaseSoHeadHist;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesHistory extends BaseSoHeadHist {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
+class SoDetHistQuery extends BaseSoDetHistQuery
+{
+
 }

@@ -12,7 +12,7 @@ use Base\SoHeader as BaseSoHeader;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesOrder extends BaseSoHeader {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
+class SoHeader extends BaseSoHeader
+{
+
 }

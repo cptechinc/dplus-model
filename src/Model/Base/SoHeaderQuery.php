@@ -2,8 +2,8 @@
 
 namespace Base;
 
-use \SalesOrder as ChildSoHeader;
-use \SalesOrderQuery as ChildSoHeaderQuery;
+use \SoHeader as ChildSoHeader;
+use \SoHeaderQuery as ChildSoHeaderQuery;
 use \Exception;
 use \PDO;
 use Map\SoHeaderTableMap;

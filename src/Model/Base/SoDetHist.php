@@ -2,7 +2,7 @@
 
 namespace Base;
 
-use \SalesHistoryDetailQuery as ChildSoDetHistQuery;
+use \SoDetHistQuery as ChildSoDetHistQuery;
 use \Exception;
 use \PDO;
 use Map\SoDetHistTableMap;

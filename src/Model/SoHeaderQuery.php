@@ -12,7 +12,7 @@ use Base\SoHeaderQuery as BaseSoHeaderQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesOrderQuery extends BaseSoHeaderQuery
+class SoHeaderQuery extends BaseSoHeaderQuery
 {
 
 }

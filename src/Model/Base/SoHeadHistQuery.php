@@ -2,8 +2,8 @@
 
 namespace Base;
 
-use \SalesHistory as ChildSoHeadHist;
-use \SalesHistoryQuery as ChildSoHeadHistQuery;
+use \SoHeadHist as ChildSoHeadHist;
+use \SoHeadHistQuery as ChildSoHeadHistQuery;
 use \Exception;
 use \PDO;
 use Map\SoHeadHistTableMap;

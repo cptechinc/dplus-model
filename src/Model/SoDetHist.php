@@ -2,9 +2,6 @@
 
 use Base\SoDetHist as BaseSoDetHist;
 
-use Dplus\Model\MagicMethodTraits;
-use Dplus\Model\ThrowErrorTrait;
-
 /**
  * Skeleton subclass for representing a row from the 'so_det_hist' table.
  *
@@ -15,8 +12,7 @@ use Dplus\Model\ThrowErrorTrait;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesHistoryDetail extends BaseSoDetHist {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
+class SoDetHist extends BaseSoDetHist
+{
 
 }

@@ -12,6 +12,7 @@ use Base\SoHeadHistQuery as BaseSoHeadHistQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesHistoryQuery extends BaseSoHeadHistQuery {
+class SoHeadHistQuery extends BaseSoHeadHistQuery
+{
 
 }

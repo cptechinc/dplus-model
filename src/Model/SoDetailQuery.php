@@ -12,6 +12,7 @@ use Base\SoDetailQuery as BaseSoDetailQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesOrderDetailQuery extends BaseSoDetailQuery {
+class SoDetailQuery extends BaseSoDetailQuery
+{
 
 }

@@ -2,9 +2,6 @@
 
 use Base\SoDetail as BaseSoDetail;
 
-use Dplus\Model\MagicMethodTraits;
-use Dplus\Model\ThrowErrorTrait;
-
 /**
  * Skeleton subclass for representing a row from the 'so_detail' table.
  *
@@ -15,8 +12,7 @@ use Dplus\Model\ThrowErrorTrait;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesOrderDetail extends BaseSoDetail {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
-	
+class SoDetail extends BaseSoDetail
+{
+
 }
