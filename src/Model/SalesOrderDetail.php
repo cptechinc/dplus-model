@@ -2,8 +2,8 @@
 
 use Base\SalesOrderDetail as BaseSalesOrderDetail;
 
-use Dplus\Model\MagicMethodTraits;
 use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
 /**
  * Skeleton subclass for representing a row from the 'so_detail' table.
@@ -18,4 +18,14 @@ use Dplus\Model\ThrowErrorTrait;
 class SalesOrderDetail extends BaseSalesOrderDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	protected $column_aliases = array(
+		'ordernumber'  => 'oehdnbr',
+		'qty_ordered'  => 'oedtqtyord',
+		'price'        => 'oedtpric',
+		'total_price'  => 'oedtprictot',
+		'itemid'       => 'inititemnbr',
+		'desc1'        => 'oedtdesc',
+		'desc2'        => 'oedtdesc2'
+	);
 }

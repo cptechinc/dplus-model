@@ -25,11 +25,11 @@
 					$realcolumn = $this->column_aliases[$column];
 					return $this->$realcolumn;
 				} else {
-					$this->error("This $column and alias ($column) does not exist");
+					$this->error("This column and alias ($column) does not exist");
 					return false;
 				 }
 			} else {
-				$this->error("This $column and alias ($column) does not exist");
+				$this->error("This column and alias ($column) does not exist");
 				return false;
 			}
 		}
@@ -41,7 +41,15 @@
 		 * @return bool		       Whether $this->$column is set
 		 */
 		public function __isset($column){
-			return isset($this->$column);
+			if (isset($this->$column)) {
+				return isset($this->$column);
+			} else {
+				if (isset($this->column_aliases)) {
+					return (array_key_exists($column, $this->column_aliases));
+				} else{
+					return false;
+				}
+			}
 		} 
 		
 		

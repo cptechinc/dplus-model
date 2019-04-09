@@ -2,8 +2,8 @@
 
 use Base\SalesHistoryDetail as BaseSalesHistoryDetail;
 
-use Dplus\Model\MagicMethodTraits;
 use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
 /**
  * Skeleton subclass for representing a row from the 'so_det_hist' table.

@@ -2,8 +2,8 @@
 
 use Base\SalesOrderDetailQuery as BaseSalesOrderDetailQuery;
 
-use Dplus\Model\MagicMethodTraits;
 use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'so_detail' table.

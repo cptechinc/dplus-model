@@ -139,7 +139,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     protected $artbmtaxcode;
 
     /**
-     * The value for the oedtqtyord field.
+     * The value for the Qty Ordered field.
      *
      * @var        string
      */
