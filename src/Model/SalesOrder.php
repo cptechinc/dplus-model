@@ -59,4 +59,15 @@ class SalesOrder extends BaseSalesOrder {
 		'shipto_state'    => 'oehdststat',
 		'shipto_zip'      => 'oehdstzipcode'
 	);
+
+	public static $status_descriptions = array(
+		'N' => 'new',
+		'P' => 'picked',
+		'V' => 'verified',
+		'I' => 'invoiced'
+	);
+
+	public function status() {
+		return self::$status_descriptions[$this->oehdstat];
+	}
 }

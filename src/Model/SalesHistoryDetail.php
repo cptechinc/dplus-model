@@ -18,4 +18,14 @@ use Dplus\Model\MagicMethodTraits;
 class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	protected $column_aliases = array(
+		'ordernumber'  => 'oehdnbr',
+		'qty_ordered'  => 'oedhqtyord',
+		'price'        => 'oedhpric',
+		'total_price'  => 'oedhprictot',
+		'itemid'       => 'inititemnbr',
+		'desc1'        => 'oedhdesc',
+		'desc2'        => 'oedhdesc2'
+	);
 }
