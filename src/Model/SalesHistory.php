@@ -29,8 +29,15 @@ class SalesHistory extends BaseSalesHistory {
 		'status'       => 'oehhstat',
 		'subtotal_nontax' => 'OehhNonTaxSub',
 		'total_freight' => 'OehhFrtTot',
-		'total_tax'    => 'OehhTaxTot'
-		
+		'total_tax'    => 'OehhTaxTot',
+		'shipto_name'     => 'oehhstname',
+		'shipto_address1' => 'oehhstadr1',
+		'shipto_address2' => 'oehhstadr2',
+		'shipto_address3' => 'oehhstadr3',
+		'shipto_country'  => 'oehhstctry',
+		'shipto_city'     => 'oehhstcity',
+		'shipto_state'    => 'oehhststat',
+		'shipto_zip'      => 'oehhstzipcode'
 	);
 
 	public static $status_descriptions = array(
