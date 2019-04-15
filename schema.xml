@@ -3171,7 +3171,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_whse_code" idMethod="native" phpName="InvWhseCode">
+  <table name="inv_whse_code" idMethod="native" phpName="Warehouse">
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>
     <column name="IntbWhseAdr1" phpName="Intbwhseadr1" type="VARCHAR" size="30"/>

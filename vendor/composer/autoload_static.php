@@ -15,12 +15,15 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Base\\SalesOrderDetail' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderDetail.php',
         'Base\\SalesOrderDetailQuery' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderDetailQuery.php',
         'Base\\SalesOrderQuery' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderQuery.php',
+        'Base\\Warehouse' => __DIR__ . '/../..' . '/src/Model/Base/Warehouse.php',
+        'Base\\WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseQuery.php',
         'Dplus\\Model\\MagicMethodTraits' => __DIR__ . '/../..' . '/src/MagicMethods.trait.php',
         'Dplus\\Model\\ThrowErrorTrait' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',
         'Map\\SalesHistoryDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesHistoryDetailTableMap.php',
         'Map\\SalesHistoryTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesHistoryTableMap.php',
         'Map\\SalesOrderDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesOrderDetailTableMap.php',
         'Map\\SalesOrderTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesOrderTableMap.php',
+        'Map\\WarehouseTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseTableMap.php',
         'SalesHistory' => __DIR__ . '/../..' . '/src/Model/SalesHistory.php',
         'SalesHistoryDetail' => __DIR__ . '/../..' . '/src/Model/SalesHistoryDetail.php',
         'SalesHistoryDetailQuery' => __DIR__ . '/../..' . '/src/Model/SalesHistoryDetailQuery.php',
@@ -29,6 +32,8 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'SalesOrderDetail' => __DIR__ . '/../..' . '/src/Model/SalesOrderDetail.php',
         'SalesOrderDetailQuery' => __DIR__ . '/../..' . '/src/Model/SalesOrderDetailQuery.php',
         'SalesOrderQuery' => __DIR__ . '/../..' . '/src/Model/SalesOrderQuery.php',
+        'Warehouse' => __DIR__ . '/../..' . '/src/Model/Warehouse.php',
+        'WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/WarehouseQuery.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
