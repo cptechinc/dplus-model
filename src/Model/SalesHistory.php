@@ -19,6 +19,10 @@ class SalesHistory extends BaseSalesHistory {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
 	protected $column_aliases = array(
 		'ordernumber'  => 'oehhnbr',
 		'custid'       => 'arcucustid',
@@ -40,6 +44,11 @@ class SalesHistory extends BaseSalesHistory {
 		'shipto_zip'      => 'oehhstzipcode'
 	);
 
+	/**
+	 * Order Statuses and the values for their description
+	 *
+	 * @var array
+	 */
 	public static $status_descriptions = array(
 		'N' => 'new',
 		'P' => 'picked',
@@ -47,6 +56,11 @@ class SalesHistory extends BaseSalesHistory {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Return the status description based of the order status
+	 *
+	 * @return void
+	 */
 	public function status() {
 		return self::$status_descriptions[$this->oehhstat];
 	}

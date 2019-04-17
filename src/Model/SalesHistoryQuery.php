@@ -39,5 +39,25 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ? ', $salesperson);
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
-	}
+     }
+     
+
+     /**
+      * Return the first SalesHistory filtered by the OehdNbr column
+      * @param  string       $ordn  Sales Order Number
+      * @return SalesHistory
+      */
+     public function findOneByOrderNumber($ordn) {
+          return $this->findOneByOehhnbr($ordn);
+     }
+
+     /**
+      * Return if Sales Order Exists in so_head_hist
+      *
+      * @param  string $ordn Sales Order Number
+      * @return bool         Does Sales Order Exist
+      */
+      public function orderExists($ordn) {
+          return boolval($this->filterByOehhnbr($ordn)->count());
+     }
 }
