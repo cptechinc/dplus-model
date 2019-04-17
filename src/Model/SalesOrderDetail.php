@@ -19,6 +19,10 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
 	protected $column_aliases = array(
 		'ordernumber'  => 'oehdnbr',
 		'qty_ordered'  => 'oedtqtyord',

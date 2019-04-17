@@ -18,4 +18,14 @@ use Dplus\Model\MagicMethodTraits;
 class SalesOrderDetailQuery extends BaseSalesOrderDetailQuery {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Returns if there are records in the table
+	 *
+	 * @param  string $ordn  Sales Order Number
+	 * @return bool
+	 */
+	public function hasDetails($ordn) {
+		return bool($this->filterByOehdnbr($ordn)->count());
+	}
 }
