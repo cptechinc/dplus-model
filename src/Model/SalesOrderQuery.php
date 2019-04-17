@@ -40,5 +40,25 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ? ', $salesperson);
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
-	}
+     }
+     
+     /**
+      * Return the first SalesOrder filtered by the OehdNbr column
+
+      * @param  string     $ordn  Sales Order Number
+      * @return SalesOrder
+      */
+     public function findOneByOrderNumber($ordn) {
+          return $this->findOneByOehdnbr($ordn);
+     }
+
+     /**
+      * Return if Sales Order Exists in so_header
+      *
+      * @param  string $ordn Sales Order Number
+      * @return bool         Does Sales Order Exist
+      */
+     public function orderExists($ordn) {
+          return boolval($this->filterByOehdnbr($ordn)->count());
+     }
 }

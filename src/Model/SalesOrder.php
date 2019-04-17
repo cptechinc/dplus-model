@@ -39,6 +39,10 @@ class SalesOrder extends BaseSalesOrder {
      */
 	protected $oehdstat;
 	
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
 	protected $column_aliases = array(
 		'ordernumber'  => 'oehdnbr',
 		'custid'       => 'arcucustid',
@@ -60,6 +64,11 @@ class SalesOrder extends BaseSalesOrder {
 		'shipto_zip'      => 'oehdstzipcode'
 	);
 
+	/**
+	 * Order Statuses and the values for their description
+	 *
+	 * @var array
+	 */
 	public static $status_descriptions = array(
 		'N' => 'new',
 		'P' => 'picked',
@@ -67,7 +76,21 @@ class SalesOrder extends BaseSalesOrder {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Return the status description based of the order status
+	 *
+	 * @return void
+	 */
 	public function status() {
 		return self::$status_descriptions[$this->oehdstat];
+	}
+
+	/**
+	 * Return if the Sales Order is Invoiced
+	 *
+	 * @return bool
+	 */
+	public function isInvoiced() {
+		return $this->oehdstat == 'I';
 	}
 }
