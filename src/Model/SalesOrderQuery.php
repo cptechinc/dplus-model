@@ -61,4 +61,25 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
      public function orderExists($ordn) {
           return boolval($this->filterByOehdnbr($ordn)->count());
      }
+
+     /**
+	 * Filters for ordernumber
+      * 
+	 * @param  mixed $ordn   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByOrdn($ordn) {
+		if (is_array($ordn)) {
+			if (!empty($ordn[0])) {
+				$this->filterByOehdnbr($ordn[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($ordn[1])) {
+				$this->filterByOehdnbr($ordn[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByOehdnbr($ordn);
+		}
+		return $this;
+	}
 }
