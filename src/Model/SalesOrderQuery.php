@@ -63,12 +63,12 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
      }
 
      /**
-	 * Filters for ordernumber
+	 * Filter the query on the Oehdnbr column
       * 
 	 * @param  mixed $ordn   array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrdn($ordn) {
+	public function filterByOrderNumber($ordn) {
 		if (is_array($ordn)) {
 			if (!empty($ordn[0])) {
 				$this->filterByOehdnbr($ordn[0], Criteria::GREATER_EQUAL);
