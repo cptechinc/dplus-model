@@ -39,7 +39,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ? ', $salesperson);
 		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ? ', $salesperson);
 		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ? ', $salesperson);
-		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
+		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR);                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
      }
 
