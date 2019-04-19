@@ -13,5 +13,14 @@ use Base\WarehouseQuery as BaseWarehouseQuery;
  *
  */
 class WarehouseQuery extends BaseWarehouseQuery {
-
+	/**
+	 * Return the first Warehouse filtered by the IntbWhse column
+	 * @uses self::findOneByIntbwhse(string $IntbWhse)
+	 * 
+	 * @param  string $whseID Warehouse ID to grab Configurations for
+	 * @return Warehouse
+	 */
+	public function findOneByWhseid($whseID) {
+		return $this->findOneByIntbwhse($whseID);
+	}
 }
