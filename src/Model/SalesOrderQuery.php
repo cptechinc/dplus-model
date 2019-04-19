@@ -1,6 +1,7 @@
 <?php
 
 use Base\SalesOrderQuery as BaseSalesOrderQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
