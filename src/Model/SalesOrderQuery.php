@@ -42,7 +42,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
      }
-     
+
      /**
       * Return the first SalesOrder filtered by the OehdNbr column
 
@@ -65,7 +65,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 
      /**
 	 * Filter the query on the Oehdnbr column
-      * 
+      *
 	 * @param  mixed $ordn   array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
@@ -83,4 +83,23 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		}
 		return $this;
 	}
+
+	/**
+	* Filter the query on the Oehdnbr column
+	 *
+	* @param  mixed $ordn   array or string
+	* @return $this|SalesOrderQuery The current query, for fluid interface
+	*/
+   public function filterByCustId($custid) {
+	   if (is_array($custid)) {
+		   if (!empty($custid[0])) {
+			   $this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
+		   }
+
+		   if (!empty($custid[1])) {
+			   $this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
+		   }
+	   }
+	   return $this;
+   }
 }
