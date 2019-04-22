@@ -18,4 +18,32 @@ use Dplus\Model\MagicMethodTraits;
 class Customer extends BaseCustomer {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	 protected $column_aliases = array(
+ 		'custID'       => 'arcucustid',
+ 		'id'           => 'arcucustid',
+ 		'custid'       => 'arcucustid',
+ 		'name'         => 'arcuname',
+ 		'custname'     => 'arcuname',
+ 		'address1'     => 'arcuadr1',
+ 		'address2'     => 'arcuadr2',
+ 		'address3'     => 'arcuadr3',
+ 		'country'      => 'arcuctry',
+ 		'city'         => 'arcucity',
+ 		'state'        => 'arcustat',
+ 		'zip'          => 'arcuzipcode',
+ 		'salesperson1' => 'arspsaleper1',
+ 		'salesperson2' => 'arspsaleper2',
+ 		'salesperson3' => 'arspsaleper3',
+ 	);
+
+
+	protected function get_shiptos() {
+		$query = new CustomerShiptoQuery();
+		return $query->findOneByCustid($this->id);
+	}
 }

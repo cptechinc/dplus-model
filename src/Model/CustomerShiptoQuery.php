@@ -12,7 +12,9 @@ use Base\CustomerShiptoQuery as BaseCustomerShiptoQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class CustomerShiptoQuery extends BaseCustomerShiptoQuery
-{
+class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 
+	public function findOneByCustid() {
+		return $this->findOneByArcucustid();
+	}
 }

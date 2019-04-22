@@ -12,7 +12,8 @@ use Base\CustomerQuery as BaseCustomerQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class CustomerQuery extends BaseCustomerQuery
-{
-
+class CustomerQuery extends BaseCustomerQuery {
+	function findOneByCustid($custID) {
+		return $this->findOneByArcucustid($custID);
+	}
 }
