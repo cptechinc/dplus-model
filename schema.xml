@@ -1481,7 +1481,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_mast" idMethod="native" phpName="ArCustMast">
+  <table name="ar_cust_mast" idMethod="native" phpName="Customer">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcuName" phpName="Arcuname" type="VARCHAR" size="30"/>
     <column name="ArcuAdr1" phpName="Arcuadr1" type="VARCHAR" size="30"/>
@@ -1875,7 +1875,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_ship_to" idMethod="native" phpName="ArShipTo">
+  <table name="ar_ship_to" idMethod="native" phpName="CustomerShipto">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArstName" phpName="Arstname" type="VARCHAR" size="30"/>
