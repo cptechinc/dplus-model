@@ -144,4 +144,15 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
  		}
  		return $this;
  	}
+
+		/**
+	   * Filter the query on the Oehdstat column
+		 *
+	   * @param  mixed $status   array or string
+	   * @return $this|SalesOrderQuery The current query, for fluid interface
+	   */
+	  public function filterByOrderStatus($status) {
+		$this->filterByOehdstat($status);
+		return $this;
+	  }
 }
