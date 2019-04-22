@@ -1,7 +1,7 @@
 <?php
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use Base\SalesOrderQuery as BaseSalesOrderQuery;
-use Propel\Runtime\ActiveQuery\Criteria;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -63,7 +63,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
           return boolval($this->filterByOehdnbr($ordn)->count());
      }
 
-     /**
+	 /**
 	 * Filter the query on the Oehdnbr column
       *
 	 * @param  mixed $ordn   array or string
@@ -84,22 +84,75 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		return $this;
 	}
 
-	/**
-	* Filter the query on the Oehdnbr column
-	 *
-	* @param  mixed $ordn   array or string
-	* @return $this|SalesOrderQuery The current query, for fluid interface
-	*/
-   public function filterByCustId($custid) {
-	   if (is_array($custid)) {
-		   if (!empty($custid[0])) {
-			   $this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
-		   }
+		/**
+		* Filter the query on the Arcucustid column
+		 *
+		* @param  mixed $custid   array or string
+		* @return $this|SalesOrderQuery The current query, for fluid interface
+		*/
+	   public function filterByCustId($custid) {
+		   if (is_array($custid)) {
+			   if (!empty($custid[0])) {
+				   $this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
+			   }
 
-		   if (!empty($custid[1])) {
-			   $this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
+			   if (!empty($custid[1])) {
+				   $this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
+			   }
+		   } else {
+			   $this->filterByArcucustid($custid, Criteria::LIKE);
 		   }
+		   return $this;
 	   }
-	   return $this;
-   }
+
+	   /**
+	   * Filter the query on the Oehdordrdate column
+		*
+	   * @param  mixed $orderdate   array or string
+	   * @return $this|SalesOrderQuery The current query, for fluid interface
+	   */
+	  public function filterByOrderDate($orderdate) {
+		  if (is_array($orderdate)) {
+			  if (!empty($orderdate[0])) {
+				  $this->filterByOehdordrdate($orderdate[0], Criteria::GREATER_EQUAL);
+			  }
+
+			  if (!empty($orderdate[1])) {
+				  $this->filterByOehdordrdate($orderdate[1], Criteria::LESS_EQUAL);
+			  }
+		  } else {
+			  $this->filterByOehdordrdate($orderdate);
+		  }
+		  return $this;
+	  }
+
+	  /**
+ 	 * Filter the query on the Oehdordrtot column
+       *
+ 	 * @param  mixed $ordertotal   array or string
+ 	 * @return $this|SalesOrderQuery The current query, for fluid interface
+ 	 */
+ 	public function filterByOrderTotal($ordertotal) {
+ 		if (is_array($ordertotal)) {
+ 			if (!empty($ordertotal[0])) {
+ 				$this->filterByOehdordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
+ 			}
+
+ 			if (!empty($ordertotal[1])) {
+ 				$this->filterByOehdordrtot($ordertotal[1], Criteria::LESS_EQUAL);
+ 			}
+ 		}
+ 		return $this;
+ 	}
+
+		/**
+	   * Filter the query on the Oehdstat column
+		 *
+	   * @param  mixed $status   array or string
+	   * @return $this|SalesOrderQuery The current query, for fluid interface
+	   */
+	  public function filterByOrderStatus($status) {
+		$this->filterByOehdstat($status);
+		return $this;
+	  }
 }
