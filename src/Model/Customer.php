@@ -69,11 +69,23 @@ class Customer extends BaseCustomer {
 
 	/**
 	 * Returns the Number of CustomerShiptos with this Customer ID
+	 * 
 	 * @return int Number of CustomerShipto
 	 */
 	public function count_shiptos() {
 		$query = new CustomerShiptoQuery();
 		return $query->countByCustid($this->id);
+	}
+
+	/**
+	 * Returns the total Sales Amount of the last specified months
+	 *
+	 * @param  int  $months Number of Months Back
+	 * @return float        Total Sales Amount
+	 */
+	public function get_lastxmonthsamount(int $months = 1) {
+		$query = new CustomerQuery();
+		return $query->get_lastxmonthsamount($this->id, $months);
 	}
 
 	/**
@@ -98,6 +110,11 @@ class Customer extends BaseCustomer {
 		return $this->$property;
 	}
 
+	/**
+	 * Returns if Customer is Tax Exempt
+	 *
+	 * @return bool
+	 */
 	public function is_taxexempt() {
 		return !empty($this->arcutaxexemnbr);
 	}

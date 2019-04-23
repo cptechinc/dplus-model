@@ -25,6 +25,7 @@ return array(
     'CustomerShipto' => $baseDir . '/src/Model/CustomerShipto.php',
     'CustomerShiptoQuery' => $baseDir . '/src/Model/CustomerShiptoQuery.php',
     'Dplus\\Model\\MagicMethodTraits' => $baseDir . '/src/MagicMethods.trait.php',
+    'Dplus\\Model\\QueryDB' => $baseDir . '/src/QueryDB.trait.php',
     'Dplus\\Model\\ThrowErrorTrait' => $baseDir . '/src/ThrowError.trait.php',
     'Map\\CustomerShiptoTableMap' => $baseDir . '/src/Model/Map/CustomerShiptoTableMap.php',
     'Map\\CustomerTableMap' => $baseDir . '/src/Model/Map/CustomerTableMap.php',
