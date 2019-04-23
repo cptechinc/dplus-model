@@ -47,8 +47,14 @@ class Customer extends BaseCustomer {
 		'ytd_sales'    => 'arcusaleytd',
 		'ytd_invoices' => 'arcuinvytd',
 		'highestbalance' => 'arcuhighbal',
-		'creditlimit'  => 'arcucredlmt',
-		'financecharge' => 'arcufinchrg', // Current Finance Charge
+		'creditlimit'    => 'arcucredlmt',
+		'financecharge'  => 'arcufinchrg', // Current Finance Charge
+		'warehouse'      => 'intbwhse',
+		'taxcode'        => 'artbmtaxcode',
+		'type'           => 'artbtypecode',
+		'pricecode'      => 'artbpriccode',
+		'credithold'     => 'arcucredhold',
+		'taxexemptcode'  => 'arcutaxexemnbr'
 	);
 
 	/**
@@ -59,6 +65,15 @@ class Customer extends BaseCustomer {
 	public function get_shiptos() {
 		$query = new CustomerShiptoQuery();
 		return $query->findByCustid($this->id);
+	}
+
+	/**
+	 * Returns the Number of CustomerShiptos with this Customer ID
+	 * @return int Number of CustomerShipto
+	 */
+	public function count_shiptos() {
+		$query = new CustomerShiptoQuery();
+		return $query->countByCustid($this->id);
 	}
 
 	/**
@@ -81,5 +96,9 @@ class Customer extends BaseCustomer {
 	public function get_24monthinvoicecount($monthsback = 1) {
 		$property = "arcuinv24mo$monthsback";
 		return $this->$property;
+	}
+
+	public function is_taxexempt() {
+		return !empty($this->arcutaxexemnbr);
 	}
 }

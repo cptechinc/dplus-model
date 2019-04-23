@@ -1,9 +1,12 @@
 <?php
 
-use Base\CustomerShiptoQuery as BaseCustomerShiptoQuery;
+use Base\Customer as BaseCustomer;
+
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'ar_ship_to' table.
+ * Skeleton subclass for representing a row from the 'ar_cust_mast' table.
  *
  *
  *
@@ -12,14 +15,90 @@ use Base\CustomerShiptoQuery as BaseCustomerShiptoQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
+class Customer extends BaseCustomer {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	protected $column_aliases = array(
+		'custID'       => 'arcucustid',
+		'id'           => 'arcucustid',
+		'custid'       => 'arcucustid',
+		'name'         => 'arcuname',
+		'custname'     => 'arcuname',
+		'address1'     => 'arcuadr1',
+		'address2'     => 'arcuadr2',
+		'address3'     => 'arcuadr3',
+		'country'      => 'arcuctry',
+		'city'         => 'arcucity',
+		'state'        => 'arcustat',
+		'zip'          => 'arcuzipcode',
+		'salesperson1' => 'arspsaleper1',
+		'salesperson2' => 'arspsaleper2',
+		'salesperson3' => 'arspsaleper3',
+		'shipvia'      => 'artbshipvia',
+		'termscode'    => 'artmtermcd',
+		'lastsaledate' => 'arculastsaledate',
+		'mtd_sales'    => 'arcusalemtd',
+		'mtd_invoices' => 'arcuinvmtd',
+		'ytd_sales'    => 'arcusaleytd',
+		'ytd_invoices' => 'arcuinvytd',
+		'highestbalance' => 'arcuhighbal',
+		'creditlimit'    => 'arcucredlmt',
+		'financecharge'  => 'arcufinchrg', // Current Finance Charge
+		'warehouse'      => 'intbwhse',
+		'taxcode'        => 'artbmtaxcode',
+		'type'           => 'artbtypecode',
+		'pricecode'      => 'artbpriccode',
+		'credithold'     => 'arcucredhold',
+		'taxexemptcode'  => 'arcutaxexemnbr'
+	);
 
 	/**
 	 * Returns CustomerShipto objects for Customer
-	 * @param  string             $custID Customer ID           
-	 * @return ObjectCollection[]         CustomerShipto
+	 *
+	 * @return ObjectCollection[] CustomerShipto
 	 */
-	public function findByCustid($custID) {
-		return $this->findByArcucustid($custID);
+	public function get_shiptos() {
+		$query = new CustomerShiptoQuery();
+		return $query->findByCustid($this->id);
+	}
+
+	/**
+	 * Returns the Number of CustomerShiptos with this Customer ID
+	 * @return int Number of CustomerShipto
+	 */
+	public function count_shiptos() {
+		$query = new CustomerShiptoQuery();
+		return $query->countByCustid($this->id);
+	}
+
+	/**
+	 * Return Sales Amount for $months back
+	 *
+	 * @param  int   $monthsback
+	 * @return float             Sales Amount
+	 */
+	public function get_24monthsale($monthsback = 1) {
+		$property = "arcusale24mo$monthsback";
+		return $this->$property;
+	}
+
+	/**
+	 * Return Invoice Countfor $months back
+	 *
+	 * @param  int   $monthsback
+	 * @return float             Sales Amount
+	 */
+	public function get_24monthinvoicecount($monthsback = 1) {
+		$property = "arcuinv24mo$monthsback";
+		return $this->$property;
+	}
+
+	public function is_taxexempt() {
+		return !empty($this->arcutaxexemnbr);
 	}
 }
