@@ -1892,8 +1892,6 @@
     <column name="ArstLindstSp" phpName="Arstlindstsp" type="VARCHAR" size="6"/>
     <column name="ArstLmEcommCustId" phpName="Arstlmecommcustid" type="VARCHAR" size="6"/>
     <column name="ArstCatlgId" phpName="Arstcatlgid" type="VARCHAR" size="8"/>
-    <column name="ArstCont1" phpName="Arstcont1" type="VARCHAR" size="20"/>
-    <column name="ArstCont2" phpName="Arstcont2" type="VARCHAR" size="20"/>
     <column name="Arspsaleper1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
     <column name="Arspsaleper2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
     <column name="Arspsaleper3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>

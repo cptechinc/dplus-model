@@ -35,8 +35,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArstlindstsp($order = Criteria::ASC) Order by the ArstLindstSp column
  * @method     ChildCustomerShiptoQuery orderByArstlmecommcustid($order = Criteria::ASC) Order by the ArstLmEcommCustId column
  * @method     ChildCustomerShiptoQuery orderByArstcatlgid($order = Criteria::ASC) Order by the ArstCatlgId column
- * @method     ChildCustomerShiptoQuery orderByArstcont1($order = Criteria::ASC) Order by the ArstCont1 column
- * @method     ChildCustomerShiptoQuery orderByArstcont2($order = Criteria::ASC) Order by the ArstCont2 column
  * @method     ChildCustomerShiptoQuery orderByArspsaleper1($order = Criteria::ASC) Order by the Arspsaleper1 column
  * @method     ChildCustomerShiptoQuery orderByArspsaleper2($order = Criteria::ASC) Order by the Arspsaleper2 column
  * @method     ChildCustomerShiptoQuery orderByArspsaleper3($order = Criteria::ASC) Order by the Arspsaleper3 column
@@ -136,8 +134,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArstlindstsp() Group by the ArstLindstSp column
  * @method     ChildCustomerShiptoQuery groupByArstlmecommcustid() Group by the ArstLmEcommCustId column
  * @method     ChildCustomerShiptoQuery groupByArstcatlgid() Group by the ArstCatlgId column
- * @method     ChildCustomerShiptoQuery groupByArstcont1() Group by the ArstCont1 column
- * @method     ChildCustomerShiptoQuery groupByArstcont2() Group by the ArstCont2 column
  * @method     ChildCustomerShiptoQuery groupByArspsaleper1() Group by the Arspsaleper1 column
  * @method     ChildCustomerShiptoQuery groupByArspsaleper2() Group by the Arspsaleper2 column
  * @method     ChildCustomerShiptoQuery groupByArspsaleper3() Group by the Arspsaleper3 column
@@ -248,8 +244,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column
  * @method     ChildCustomerShipto findOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column
  * @method     ChildCustomerShipto findOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto findOneByArstcont1(string $ArstCont1) Return the first ChildCustomerShipto filtered by the ArstCont1 column
- * @method     ChildCustomerShipto findOneByArstcont2(string $ArstCont2) Return the first ChildCustomerShipto filtered by the ArstCont2 column
  * @method     ChildCustomerShipto findOneByArspsaleper1(string $Arspsaleper1) Return the first ChildCustomerShipto filtered by the Arspsaleper1 column
  * @method     ChildCustomerShipto findOneByArspsaleper2(string $Arspsaleper2) Return the first ChildCustomerShipto filtered by the Arspsaleper2 column
  * @method     ChildCustomerShipto findOneByArspsaleper3(string $Arspsaleper3) Return the first ChildCustomerShipto filtered by the Arspsaleper3 column
@@ -352,8 +346,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstcont1(string $ArstCont1) Return the first ChildCustomerShipto filtered by the ArstCont1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstcont2(string $ArstCont2) Return the first ChildCustomerShipto filtered by the ArstCont2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArspsaleper1(string $Arspsaleper1) Return the first ChildCustomerShipto filtered by the Arspsaleper1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArspsaleper2(string $Arspsaleper2) Return the first ChildCustomerShipto filtered by the Arspsaleper2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArspsaleper3(string $Arspsaleper3) Return the first ChildCustomerShipto filtered by the Arspsaleper3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -454,8 +446,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstlindstsp(string $ArstLindstSp) Return ChildCustomerShipto objects filtered by the ArstLindstSp column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstlmecommcustid(string $ArstLmEcommCustId) Return ChildCustomerShipto objects filtered by the ArstLmEcommCustId column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstcatlgid(string $ArstCatlgId) Return ChildCustomerShipto objects filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcont1(string $ArstCont1) Return ChildCustomerShipto objects filtered by the ArstCont1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcont2(string $ArstCont2) Return ChildCustomerShipto objects filtered by the ArstCont2 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper1(string $Arspsaleper1) Return ChildCustomerShipto objects filtered by the Arspsaleper1 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper2(string $Arspsaleper2) Return ChildCustomerShipto objects filtered by the Arspsaleper2 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper3(string $Arspsaleper3) Return ChildCustomerShipto objects filtered by the Arspsaleper3 column
@@ -636,7 +626,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArstCont1, ArstCont2, Arspsaleper1, Arspsaleper2, Arspsaleper3, ArtbMtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24MO1, ArstInv24MO1, ArstSale24MO2, ArstInv24MO2, ArstSale24MO3, ArstInv24MO3, ArstSale24MO4, ArstInv24MO4, ArstSale24MO5, ArstInv24MO5, ArstSale24MO6, ArstInv24MO6, ArstSale24MO7, ArstInv24MO7, ArstSale24MO8, ArstInv24MO8, ArstSale24MO9, ArstInv24MO9, ArstSale24MO10, ArstInv24MO10, ArstSale24MO11, ArstInv24MO11, ArstSale24MO12, ArstInv24MO12, ArstSale24MO13, ArstInv24MO13, ArstSale24MO14, ArstInv24MO14, ArstSale24MO15, ArstInv24MO15, ArstSale24MO16, ArstInv24MO16, ArstSale24MO17, ArstInv24MO17, ArstSale24MO18, ArstInv24MO18, ArstSale24MO19, ArstInv24MO19, ArstSale24MO20, ArstInv24MO20, ArstSale24MO21, ArstInv24MO21, ArstSale24MO22, ArstInv24MO22, ArstSale24MO23, ArstInv24MO23, ArstSale24MO24, ArstInv24MO24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYN, ArstFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
+        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, Arspsaleper1, Arspsaleper2, Arspsaleper3, ArtbMtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24MO1, ArstInv24MO1, ArstSale24MO2, ArstInv24MO2, ArstSale24MO3, ArstInv24MO3, ArstSale24MO4, ArstInv24MO4, ArstSale24MO5, ArstInv24MO5, ArstSale24MO6, ArstInv24MO6, ArstSale24MO7, ArstInv24MO7, ArstSale24MO8, ArstInv24MO8, ArstSale24MO9, ArstInv24MO9, ArstSale24MO10, ArstInv24MO10, ArstSale24MO11, ArstInv24MO11, ArstSale24MO12, ArstInv24MO12, ArstSale24MO13, ArstInv24MO13, ArstSale24MO14, ArstInv24MO14, ArstSale24MO15, ArstInv24MO15, ArstSale24MO16, ArstInv24MO16, ArstSale24MO17, ArstInv24MO17, ArstSale24MO18, ArstInv24MO18, ArstSale24MO19, ArstInv24MO19, ArstSale24MO20, ArstInv24MO20, ArstSale24MO21, ArstInv24MO21, ArstSale24MO22, ArstInv24MO22, ArstSale24MO23, ArstInv24MO23, ArstSale24MO24, ArstInv24MO24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYN, ArstFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -1136,56 +1126,6 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCATLGID, $arstcatlgid, $comparison);
-    }
-
-    /**
-     * Filter the query on the ArstCont1 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArstcont1('fooValue');   // WHERE ArstCont1 = 'fooValue'
-     * $query->filterByArstcont1('%fooValue%', Criteria::LIKE); // WHERE ArstCont1 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $arstcont1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
-     */
-    public function filterByArstcont1($arstcont1 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($arstcont1)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCONT1, $arstcont1, $comparison);
-    }
-
-    /**
-     * Filter the query on the ArstCont2 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArstcont2('fooValue');   // WHERE ArstCont2 = 'fooValue'
-     * $query->filterByArstcont2('%fooValue%', Criteria::LIKE); // WHERE ArstCont2 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $arstcont2 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
-     */
-    public function filterByArstcont2($arstcont2 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($arstcont2)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCONT2, $arstcont2, $comparison);
     }
 
     /**
