@@ -45,7 +45,10 @@ class Customer extends BaseCustomer {
 		'mtd_sales'    => 'arcusalemtd',
 		'mtd_invoices' => 'arcuinvmtd',
 		'ytd_sales'    => 'arcusaleytd',
-		'ytd_invoices' => 'arcuinvytd'
+		'ytd_invoices' => 'arcuinvytd',
+		'highestbalance' => 'arcuhighbal',
+		'creditlimit'  => 'arcucredlmt',
+		'financecharge' => 'arcufinchrg', // Current Finance Charge
 	);
 
 	/**
