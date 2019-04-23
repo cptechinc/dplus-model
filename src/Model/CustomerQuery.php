@@ -13,7 +13,12 @@ use Base\CustomerQuery as BaseCustomerQuery;
  *
  */
 class CustomerQuery extends BaseCustomerQuery {
-	function findOneByCustid($custID) {
+	/**
+	 * Returns Customer object for Customer
+	 * @param  string             $custID Customer ID           
+	 * @return Customer                   
+	 */
+	public function findOneByCustid($custID) {
 		return $this->findOneByArcucustid($custID);
 	}
 }

@@ -14,7 +14,12 @@ use Base\CustomerShiptoQuery as BaseCustomerShiptoQuery;
  */
 class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 
-	public function findOneByCustid() {
-		return $this->findOneByArcucustid();
+	/**
+	 * Returns CustomerShipto objects for Customer
+	 * @param  string             $custID Customer ID           
+	 * @return ObjectCollection[]         CustomerShipto
+	 */
+	public function findByCustid($custID) {
+		return $this->findByArcucustid($custID);
 	}
 }

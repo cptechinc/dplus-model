@@ -104,25 +104,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $arstadr3;
 
     /**
-     * The value for the arstadr4 field.
-     *
-     * @var        string
-     */
-    protected $arstadr4;
-
-    /**
      * The value for the arstctry field.
      *
      * @var        string
      */
     protected $arstctry;
-
-    /**
-     * The value for the arstadr5 field.
-     *
-     * @var        string
-     */
-    protected $arstadr5;
 
     /**
      * The value for the arstcity field.
@@ -1083,16 +1069,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * Get the [arstadr4] column value.
-     *
-     * @return string
-     */
-    public function getArstadr4()
-    {
-        return $this->arstadr4;
-    }
-
-    /**
      * Get the [arstctry] column value.
      *
      * @return string
@@ -1100,16 +1076,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getArstctry()
     {
         return $this->arstctry;
-    }
-
-    /**
-     * Get the [arstadr5] column value.
-     *
-     * @return string
-     */
-    public function getArstadr5()
-    {
-        return $this->arstadr5;
     }
 
     /**
@@ -2163,26 +2129,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
     } // setArstadr3()
 
     /**
-     * Set the value of [arstadr4] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
-     */
-    public function setArstadr4($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->arstadr4 !== $v) {
-            $this->arstadr4 = $v;
-            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTADR4] = true;
-        }
-
-        return $this;
-    } // setArstadr4()
-
-    /**
      * Set the value of [arstctry] column.
      *
      * @param string $v new value
@@ -2201,26 +2147,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         return $this;
     } // setArstctry()
-
-    /**
-     * Set the value of [arstadr5] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipto The current object (for fluent API support)
-     */
-    public function setArstadr5($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->arstadr5 !== $v) {
-            $this->arstadr5 = $v;
-            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTADR5] = true;
-        }
-
-        return $this;
-    } // setArstadr5()
 
     /**
      * Set the value of [arstcity] column.
@@ -4144,292 +4070,286 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstadr4 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstadr5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstadr5 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerShiptoTableMap::translateFieldName('Arststat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerShiptoTableMap::translateFieldName('Arststat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arststat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdeliverydays = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstallowsplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlindstsp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlindstsp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlindstsp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlmecommcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcatlgid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcatlgid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcont1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcont1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcont1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcont2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcont2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcont2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsttaxexemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerShiptoTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerShiptoTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstbord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstbord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstbord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcredhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcredhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcredhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstusercode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstusercode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstusercode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpriclvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpriclvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstpriclvl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstshipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttxbl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttxbl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsttxbl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpostal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstpostal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstpostal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsalemtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsalemtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsalemtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinvmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstlastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstlastsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinv24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstprimshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstprimshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstprimshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstmyvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstmyvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstmyvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstediinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstediinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstediinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstchrgfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdistcntr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdistcntr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdistcntr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstdunsnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstrfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstrfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstrfmlvalu = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpopram', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpopram', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcustpopram = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbroutcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbroutcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroutcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstupsacctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstfobinputyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobperlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobperlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstfobperlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -4439,7 +4359,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 102; // 102 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 100; // 100 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\CustomerShipto'), 0, $e);
@@ -4654,14 +4574,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR3)) {
             $modifiedColumns[':p' . $index++]  = 'ArstAdr3';
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR4)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstAdr4';
-        }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCTRY)) {
             $modifiedColumns[':p' . $index++]  = 'ArstCtry';
-        }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR5)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstAdr5';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCITY)) {
             $modifiedColumns[':p' . $index++]  = 'ArstCity';
@@ -4971,14 +4885,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArstAdr3':
                         $stmt->bindValue($identifier, $this->arstadr3, PDO::PARAM_STR);
                         break;
-                    case 'ArstAdr4':
-                        $stmt->bindValue($identifier, $this->arstadr4, PDO::PARAM_STR);
-                        break;
                     case 'ArstCtry':
                         $stmt->bindValue($identifier, $this->arstctry, PDO::PARAM_STR);
-                        break;
-                    case 'ArstAdr5':
-                        $stmt->bindValue($identifier, $this->arstadr5, PDO::PARAM_STR);
                         break;
                     case 'ArstCity':
                         $stmt->bindValue($identifier, $this->arstcity, PDO::PARAM_STR);
@@ -5333,291 +5241,285 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 return $this->getArstadr3();
                 break;
             case 6:
-                return $this->getArstadr4();
-                break;
-            case 7:
                 return $this->getArstctry();
                 break;
-            case 8:
-                return $this->getArstadr5();
-                break;
-            case 9:
+            case 7:
                 return $this->getArstcity();
                 break;
-            case 10:
+            case 8:
                 return $this->getArststat();
                 break;
-            case 11:
+            case 9:
                 return $this->getArstzipcode();
                 break;
-            case 12:
+            case 10:
                 return $this->getArstdeliverydays();
                 break;
-            case 13:
+            case 11:
                 return $this->getArstcommcode();
                 break;
-            case 14:
+            case 12:
                 return $this->getArstallowsplit();
                 break;
-            case 15:
+            case 13:
                 return $this->getArstlindstsp();
                 break;
-            case 16:
+            case 14:
                 return $this->getArstlmecommcustid();
                 break;
-            case 17:
+            case 15:
                 return $this->getArstcatlgid();
                 break;
-            case 18:
+            case 16:
                 return $this->getArstcont1();
                 break;
-            case 19:
+            case 17:
                 return $this->getArstcont2();
                 break;
-            case 20:
+            case 18:
                 return $this->getArspsaleper1();
                 break;
-            case 21:
+            case 19:
                 return $this->getArspsaleper2();
                 break;
-            case 22:
+            case 20:
                 return $this->getArspsaleper3();
                 break;
-            case 23:
+            case 21:
                 return $this->getArtbmtaxcode();
                 break;
-            case 24:
+            case 22:
                 return $this->getArsttaxexemnbr();
                 break;
-            case 25:
+            case 23:
                 return $this->getIntbwhse();
                 break;
-            case 26:
+            case 24:
                 return $this->getArtbshipvia();
                 break;
-            case 27:
+            case 25:
                 return $this->getArstbord();
                 break;
-            case 28:
+            case 26:
                 return $this->getArstcredhold();
                 break;
-            case 29:
+            case 27:
                 return $this->getArstusercode();
                 break;
-            case 30:
+            case 28:
                 return $this->getArstpriclvl();
                 break;
-            case 31:
+            case 29:
                 return $this->getArstshipcomp();
                 break;
-            case 32:
+            case 30:
                 return $this->getArsttxbl();
                 break;
-            case 33:
+            case 31:
                 return $this->getArstpostal();
                 break;
-            case 34:
+            case 32:
                 return $this->getArstsalemtd();
                 break;
-            case 35:
+            case 33:
                 return $this->getArstinvmtd();
                 break;
-            case 36:
+            case 34:
                 return $this->getArstdateopen();
                 break;
-            case 37:
+            case 35:
                 return $this->getArstlastsaledate();
                 break;
-            case 38:
+            case 36:
                 return $this->getArstsale24mo1();
                 break;
-            case 39:
+            case 37:
                 return $this->getArstinv24mo1();
                 break;
-            case 40:
+            case 38:
                 return $this->getArstsale24mo2();
                 break;
-            case 41:
+            case 39:
                 return $this->getArstinv24mo2();
                 break;
-            case 42:
+            case 40:
                 return $this->getArstsale24mo3();
                 break;
-            case 43:
+            case 41:
                 return $this->getArstinv24mo3();
                 break;
-            case 44:
+            case 42:
                 return $this->getArstsale24mo4();
                 break;
-            case 45:
+            case 43:
                 return $this->getArstinv24mo4();
                 break;
-            case 46:
+            case 44:
                 return $this->getArstsale24mo5();
                 break;
-            case 47:
+            case 45:
                 return $this->getArstinv24mo5();
                 break;
-            case 48:
+            case 46:
                 return $this->getArstsale24mo6();
                 break;
-            case 49:
+            case 47:
                 return $this->getArstinv24mo6();
                 break;
-            case 50:
+            case 48:
                 return $this->getArstsale24mo7();
                 break;
-            case 51:
+            case 49:
                 return $this->getArstinv24mo7();
                 break;
-            case 52:
+            case 50:
                 return $this->getArstsale24mo8();
                 break;
-            case 53:
+            case 51:
                 return $this->getArstinv24mo8();
                 break;
-            case 54:
+            case 52:
                 return $this->getArstsale24mo9();
                 break;
-            case 55:
+            case 53:
                 return $this->getArstinv24mo9();
                 break;
-            case 56:
+            case 54:
                 return $this->getArstsale24mo10();
                 break;
-            case 57:
+            case 55:
                 return $this->getArstinv24mo10();
                 break;
-            case 58:
+            case 56:
                 return $this->getArstsale24mo11();
                 break;
-            case 59:
+            case 57:
                 return $this->getArstinv24mo11();
                 break;
-            case 60:
+            case 58:
                 return $this->getArstsale24mo12();
                 break;
-            case 61:
+            case 59:
                 return $this->getArstinv24mo12();
                 break;
-            case 62:
+            case 60:
                 return $this->getArstsale24mo13();
                 break;
-            case 63:
+            case 61:
                 return $this->getArstinv24mo13();
                 break;
-            case 64:
+            case 62:
                 return $this->getArstsale24mo14();
                 break;
-            case 65:
+            case 63:
                 return $this->getArstinv24mo14();
                 break;
-            case 66:
+            case 64:
                 return $this->getArstsale24mo15();
                 break;
-            case 67:
+            case 65:
                 return $this->getArstinv24mo15();
                 break;
-            case 68:
+            case 66:
                 return $this->getArstsale24mo16();
                 break;
-            case 69:
+            case 67:
                 return $this->getArstinv24mo16();
                 break;
-            case 70:
+            case 68:
                 return $this->getArstsale24mo17();
                 break;
-            case 71:
+            case 69:
                 return $this->getArstinv24mo17();
                 break;
-            case 72:
+            case 70:
                 return $this->getArstsale24mo18();
                 break;
-            case 73:
+            case 71:
                 return $this->getArstinv24mo18();
                 break;
-            case 74:
+            case 72:
                 return $this->getArstsale24mo19();
                 break;
-            case 75:
+            case 73:
                 return $this->getArstinv24mo19();
                 break;
-            case 76:
+            case 74:
                 return $this->getArstsale24mo20();
                 break;
-            case 77:
+            case 75:
                 return $this->getArstinv24mo20();
                 break;
-            case 78:
+            case 76:
                 return $this->getArstsale24mo21();
                 break;
-            case 79:
+            case 77:
                 return $this->getArstinv24mo21();
                 break;
-            case 80:
+            case 78:
                 return $this->getArstsale24mo22();
                 break;
-            case 81:
+            case 79:
                 return $this->getArstinv24mo22();
                 break;
-            case 82:
+            case 80:
                 return $this->getArstsale24mo23();
                 break;
-            case 83:
+            case 81:
                 return $this->getArstinv24mo23();
                 break;
-            case 84:
+            case 82:
                 return $this->getArstsale24mo24();
                 break;
-            case 85:
+            case 83:
                 return $this->getArstinv24mo24();
                 break;
-            case 86:
+            case 84:
                 return $this->getArstprimshipid();
                 break;
-            case 87:
+            case 85:
                 return $this->getArstmyvendid();
                 break;
-            case 88:
+            case 86:
                 return $this->getArstaddlpricdisc();
                 break;
-            case 89:
+            case 87:
                 return $this->getArstediinvc();
                 break;
-            case 90:
+            case 88:
                 return $this->getArstchrgfrt();
                 break;
-            case 91:
+            case 89:
                 return $this->getArstdistcntr();
                 break;
-            case 92:
+            case 90:
                 return $this->getArstdunsnbr();
                 break;
-            case 93:
+            case 91:
                 return $this->getArstrfmlvalu();
                 break;
-            case 94:
+            case 92:
                 return $this->getArstcustpopram();
                 break;
-            case 95:
+            case 93:
                 return $this->getArtbroutcode();
                 break;
-            case 96:
+            case 94:
                 return $this->getArstupsacctnbr();
                 break;
-            case 97:
+            case 95:
                 return $this->getArstfobinputyn();
                 break;
-            case 98:
+            case 96:
                 return $this->getArstfobperlb();
                 break;
-            case 99:
+            case 97:
                 return $this->getDateupdtd();
                 break;
-            case 100:
+            case 98:
                 return $this->getTimeupdtd();
                 break;
-            case 101:
+            case 99:
                 return $this->getDummy();
                 break;
             default:
@@ -5655,102 +5557,100 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[3] => $this->getArstadr1(),
             $keys[4] => $this->getArstadr2(),
             $keys[5] => $this->getArstadr3(),
-            $keys[6] => $this->getArstadr4(),
-            $keys[7] => $this->getArstctry(),
-            $keys[8] => $this->getArstadr5(),
-            $keys[9] => $this->getArstcity(),
-            $keys[10] => $this->getArststat(),
-            $keys[11] => $this->getArstzipcode(),
-            $keys[12] => $this->getArstdeliverydays(),
-            $keys[13] => $this->getArstcommcode(),
-            $keys[14] => $this->getArstallowsplit(),
-            $keys[15] => $this->getArstlindstsp(),
-            $keys[16] => $this->getArstlmecommcustid(),
-            $keys[17] => $this->getArstcatlgid(),
-            $keys[18] => $this->getArstcont1(),
-            $keys[19] => $this->getArstcont2(),
-            $keys[20] => $this->getArspsaleper1(),
-            $keys[21] => $this->getArspsaleper2(),
-            $keys[22] => $this->getArspsaleper3(),
-            $keys[23] => $this->getArtbmtaxcode(),
-            $keys[24] => $this->getArsttaxexemnbr(),
-            $keys[25] => $this->getIntbwhse(),
-            $keys[26] => $this->getArtbshipvia(),
-            $keys[27] => $this->getArstbord(),
-            $keys[28] => $this->getArstcredhold(),
-            $keys[29] => $this->getArstusercode(),
-            $keys[30] => $this->getArstpriclvl(),
-            $keys[31] => $this->getArstshipcomp(),
-            $keys[32] => $this->getArsttxbl(),
-            $keys[33] => $this->getArstpostal(),
-            $keys[34] => $this->getArstsalemtd(),
-            $keys[35] => $this->getArstinvmtd(),
-            $keys[36] => $this->getArstdateopen(),
-            $keys[37] => $this->getArstlastsaledate(),
-            $keys[38] => $this->getArstsale24mo1(),
-            $keys[39] => $this->getArstinv24mo1(),
-            $keys[40] => $this->getArstsale24mo2(),
-            $keys[41] => $this->getArstinv24mo2(),
-            $keys[42] => $this->getArstsale24mo3(),
-            $keys[43] => $this->getArstinv24mo3(),
-            $keys[44] => $this->getArstsale24mo4(),
-            $keys[45] => $this->getArstinv24mo4(),
-            $keys[46] => $this->getArstsale24mo5(),
-            $keys[47] => $this->getArstinv24mo5(),
-            $keys[48] => $this->getArstsale24mo6(),
-            $keys[49] => $this->getArstinv24mo6(),
-            $keys[50] => $this->getArstsale24mo7(),
-            $keys[51] => $this->getArstinv24mo7(),
-            $keys[52] => $this->getArstsale24mo8(),
-            $keys[53] => $this->getArstinv24mo8(),
-            $keys[54] => $this->getArstsale24mo9(),
-            $keys[55] => $this->getArstinv24mo9(),
-            $keys[56] => $this->getArstsale24mo10(),
-            $keys[57] => $this->getArstinv24mo10(),
-            $keys[58] => $this->getArstsale24mo11(),
-            $keys[59] => $this->getArstinv24mo11(),
-            $keys[60] => $this->getArstsale24mo12(),
-            $keys[61] => $this->getArstinv24mo12(),
-            $keys[62] => $this->getArstsale24mo13(),
-            $keys[63] => $this->getArstinv24mo13(),
-            $keys[64] => $this->getArstsale24mo14(),
-            $keys[65] => $this->getArstinv24mo14(),
-            $keys[66] => $this->getArstsale24mo15(),
-            $keys[67] => $this->getArstinv24mo15(),
-            $keys[68] => $this->getArstsale24mo16(),
-            $keys[69] => $this->getArstinv24mo16(),
-            $keys[70] => $this->getArstsale24mo17(),
-            $keys[71] => $this->getArstinv24mo17(),
-            $keys[72] => $this->getArstsale24mo18(),
-            $keys[73] => $this->getArstinv24mo18(),
-            $keys[74] => $this->getArstsale24mo19(),
-            $keys[75] => $this->getArstinv24mo19(),
-            $keys[76] => $this->getArstsale24mo20(),
-            $keys[77] => $this->getArstinv24mo20(),
-            $keys[78] => $this->getArstsale24mo21(),
-            $keys[79] => $this->getArstinv24mo21(),
-            $keys[80] => $this->getArstsale24mo22(),
-            $keys[81] => $this->getArstinv24mo22(),
-            $keys[82] => $this->getArstsale24mo23(),
-            $keys[83] => $this->getArstinv24mo23(),
-            $keys[84] => $this->getArstsale24mo24(),
-            $keys[85] => $this->getArstinv24mo24(),
-            $keys[86] => $this->getArstprimshipid(),
-            $keys[87] => $this->getArstmyvendid(),
-            $keys[88] => $this->getArstaddlpricdisc(),
-            $keys[89] => $this->getArstediinvc(),
-            $keys[90] => $this->getArstchrgfrt(),
-            $keys[91] => $this->getArstdistcntr(),
-            $keys[92] => $this->getArstdunsnbr(),
-            $keys[93] => $this->getArstrfmlvalu(),
-            $keys[94] => $this->getArstcustpopram(),
-            $keys[95] => $this->getArtbroutcode(),
-            $keys[96] => $this->getArstupsacctnbr(),
-            $keys[97] => $this->getArstfobinputyn(),
-            $keys[98] => $this->getArstfobperlb(),
-            $keys[99] => $this->getDateupdtd(),
-            $keys[100] => $this->getTimeupdtd(),
-            $keys[101] => $this->getDummy(),
+            $keys[6] => $this->getArstctry(),
+            $keys[7] => $this->getArstcity(),
+            $keys[8] => $this->getArststat(),
+            $keys[9] => $this->getArstzipcode(),
+            $keys[10] => $this->getArstdeliverydays(),
+            $keys[11] => $this->getArstcommcode(),
+            $keys[12] => $this->getArstallowsplit(),
+            $keys[13] => $this->getArstlindstsp(),
+            $keys[14] => $this->getArstlmecommcustid(),
+            $keys[15] => $this->getArstcatlgid(),
+            $keys[16] => $this->getArstcont1(),
+            $keys[17] => $this->getArstcont2(),
+            $keys[18] => $this->getArspsaleper1(),
+            $keys[19] => $this->getArspsaleper2(),
+            $keys[20] => $this->getArspsaleper3(),
+            $keys[21] => $this->getArtbmtaxcode(),
+            $keys[22] => $this->getArsttaxexemnbr(),
+            $keys[23] => $this->getIntbwhse(),
+            $keys[24] => $this->getArtbshipvia(),
+            $keys[25] => $this->getArstbord(),
+            $keys[26] => $this->getArstcredhold(),
+            $keys[27] => $this->getArstusercode(),
+            $keys[28] => $this->getArstpriclvl(),
+            $keys[29] => $this->getArstshipcomp(),
+            $keys[30] => $this->getArsttxbl(),
+            $keys[31] => $this->getArstpostal(),
+            $keys[32] => $this->getArstsalemtd(),
+            $keys[33] => $this->getArstinvmtd(),
+            $keys[34] => $this->getArstdateopen(),
+            $keys[35] => $this->getArstlastsaledate(),
+            $keys[36] => $this->getArstsale24mo1(),
+            $keys[37] => $this->getArstinv24mo1(),
+            $keys[38] => $this->getArstsale24mo2(),
+            $keys[39] => $this->getArstinv24mo2(),
+            $keys[40] => $this->getArstsale24mo3(),
+            $keys[41] => $this->getArstinv24mo3(),
+            $keys[42] => $this->getArstsale24mo4(),
+            $keys[43] => $this->getArstinv24mo4(),
+            $keys[44] => $this->getArstsale24mo5(),
+            $keys[45] => $this->getArstinv24mo5(),
+            $keys[46] => $this->getArstsale24mo6(),
+            $keys[47] => $this->getArstinv24mo6(),
+            $keys[48] => $this->getArstsale24mo7(),
+            $keys[49] => $this->getArstinv24mo7(),
+            $keys[50] => $this->getArstsale24mo8(),
+            $keys[51] => $this->getArstinv24mo8(),
+            $keys[52] => $this->getArstsale24mo9(),
+            $keys[53] => $this->getArstinv24mo9(),
+            $keys[54] => $this->getArstsale24mo10(),
+            $keys[55] => $this->getArstinv24mo10(),
+            $keys[56] => $this->getArstsale24mo11(),
+            $keys[57] => $this->getArstinv24mo11(),
+            $keys[58] => $this->getArstsale24mo12(),
+            $keys[59] => $this->getArstinv24mo12(),
+            $keys[60] => $this->getArstsale24mo13(),
+            $keys[61] => $this->getArstinv24mo13(),
+            $keys[62] => $this->getArstsale24mo14(),
+            $keys[63] => $this->getArstinv24mo14(),
+            $keys[64] => $this->getArstsale24mo15(),
+            $keys[65] => $this->getArstinv24mo15(),
+            $keys[66] => $this->getArstsale24mo16(),
+            $keys[67] => $this->getArstinv24mo16(),
+            $keys[68] => $this->getArstsale24mo17(),
+            $keys[69] => $this->getArstinv24mo17(),
+            $keys[70] => $this->getArstsale24mo18(),
+            $keys[71] => $this->getArstinv24mo18(),
+            $keys[72] => $this->getArstsale24mo19(),
+            $keys[73] => $this->getArstinv24mo19(),
+            $keys[74] => $this->getArstsale24mo20(),
+            $keys[75] => $this->getArstinv24mo20(),
+            $keys[76] => $this->getArstsale24mo21(),
+            $keys[77] => $this->getArstinv24mo21(),
+            $keys[78] => $this->getArstsale24mo22(),
+            $keys[79] => $this->getArstinv24mo22(),
+            $keys[80] => $this->getArstsale24mo23(),
+            $keys[81] => $this->getArstinv24mo23(),
+            $keys[82] => $this->getArstsale24mo24(),
+            $keys[83] => $this->getArstinv24mo24(),
+            $keys[84] => $this->getArstprimshipid(),
+            $keys[85] => $this->getArstmyvendid(),
+            $keys[86] => $this->getArstaddlpricdisc(),
+            $keys[87] => $this->getArstediinvc(),
+            $keys[88] => $this->getArstchrgfrt(),
+            $keys[89] => $this->getArstdistcntr(),
+            $keys[90] => $this->getArstdunsnbr(),
+            $keys[91] => $this->getArstrfmlvalu(),
+            $keys[92] => $this->getArstcustpopram(),
+            $keys[93] => $this->getArtbroutcode(),
+            $keys[94] => $this->getArstupsacctnbr(),
+            $keys[95] => $this->getArstfobinputyn(),
+            $keys[96] => $this->getArstfobperlb(),
+            $keys[97] => $this->getDateupdtd(),
+            $keys[98] => $this->getTimeupdtd(),
+            $keys[99] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -5809,291 +5709,285 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->setArstadr3($value);
                 break;
             case 6:
-                $this->setArstadr4($value);
-                break;
-            case 7:
                 $this->setArstctry($value);
                 break;
-            case 8:
-                $this->setArstadr5($value);
-                break;
-            case 9:
+            case 7:
                 $this->setArstcity($value);
                 break;
-            case 10:
+            case 8:
                 $this->setArststat($value);
                 break;
-            case 11:
+            case 9:
                 $this->setArstzipcode($value);
                 break;
-            case 12:
+            case 10:
                 $this->setArstdeliverydays($value);
                 break;
-            case 13:
+            case 11:
                 $this->setArstcommcode($value);
                 break;
-            case 14:
+            case 12:
                 $this->setArstallowsplit($value);
                 break;
-            case 15:
+            case 13:
                 $this->setArstlindstsp($value);
                 break;
-            case 16:
+            case 14:
                 $this->setArstlmecommcustid($value);
                 break;
-            case 17:
+            case 15:
                 $this->setArstcatlgid($value);
                 break;
-            case 18:
+            case 16:
                 $this->setArstcont1($value);
                 break;
-            case 19:
+            case 17:
                 $this->setArstcont2($value);
                 break;
-            case 20:
+            case 18:
                 $this->setArspsaleper1($value);
                 break;
-            case 21:
+            case 19:
                 $this->setArspsaleper2($value);
                 break;
-            case 22:
+            case 20:
                 $this->setArspsaleper3($value);
                 break;
-            case 23:
+            case 21:
                 $this->setArtbmtaxcode($value);
                 break;
-            case 24:
+            case 22:
                 $this->setArsttaxexemnbr($value);
                 break;
-            case 25:
+            case 23:
                 $this->setIntbwhse($value);
                 break;
-            case 26:
+            case 24:
                 $this->setArtbshipvia($value);
                 break;
-            case 27:
+            case 25:
                 $this->setArstbord($value);
                 break;
-            case 28:
+            case 26:
                 $this->setArstcredhold($value);
                 break;
-            case 29:
+            case 27:
                 $this->setArstusercode($value);
                 break;
-            case 30:
+            case 28:
                 $this->setArstpriclvl($value);
                 break;
-            case 31:
+            case 29:
                 $this->setArstshipcomp($value);
                 break;
-            case 32:
+            case 30:
                 $this->setArsttxbl($value);
                 break;
-            case 33:
+            case 31:
                 $this->setArstpostal($value);
                 break;
-            case 34:
+            case 32:
                 $this->setArstsalemtd($value);
                 break;
-            case 35:
+            case 33:
                 $this->setArstinvmtd($value);
                 break;
-            case 36:
+            case 34:
                 $this->setArstdateopen($value);
                 break;
-            case 37:
+            case 35:
                 $this->setArstlastsaledate($value);
                 break;
-            case 38:
+            case 36:
                 $this->setArstsale24mo1($value);
                 break;
-            case 39:
+            case 37:
                 $this->setArstinv24mo1($value);
                 break;
-            case 40:
+            case 38:
                 $this->setArstsale24mo2($value);
                 break;
-            case 41:
+            case 39:
                 $this->setArstinv24mo2($value);
                 break;
-            case 42:
+            case 40:
                 $this->setArstsale24mo3($value);
                 break;
-            case 43:
+            case 41:
                 $this->setArstinv24mo3($value);
                 break;
-            case 44:
+            case 42:
                 $this->setArstsale24mo4($value);
                 break;
-            case 45:
+            case 43:
                 $this->setArstinv24mo4($value);
                 break;
-            case 46:
+            case 44:
                 $this->setArstsale24mo5($value);
                 break;
-            case 47:
+            case 45:
                 $this->setArstinv24mo5($value);
                 break;
-            case 48:
+            case 46:
                 $this->setArstsale24mo6($value);
                 break;
-            case 49:
+            case 47:
                 $this->setArstinv24mo6($value);
                 break;
-            case 50:
+            case 48:
                 $this->setArstsale24mo7($value);
                 break;
-            case 51:
+            case 49:
                 $this->setArstinv24mo7($value);
                 break;
-            case 52:
+            case 50:
                 $this->setArstsale24mo8($value);
                 break;
-            case 53:
+            case 51:
                 $this->setArstinv24mo8($value);
                 break;
-            case 54:
+            case 52:
                 $this->setArstsale24mo9($value);
                 break;
-            case 55:
+            case 53:
                 $this->setArstinv24mo9($value);
                 break;
-            case 56:
+            case 54:
                 $this->setArstsale24mo10($value);
                 break;
-            case 57:
+            case 55:
                 $this->setArstinv24mo10($value);
                 break;
-            case 58:
+            case 56:
                 $this->setArstsale24mo11($value);
                 break;
-            case 59:
+            case 57:
                 $this->setArstinv24mo11($value);
                 break;
-            case 60:
+            case 58:
                 $this->setArstsale24mo12($value);
                 break;
-            case 61:
+            case 59:
                 $this->setArstinv24mo12($value);
                 break;
-            case 62:
+            case 60:
                 $this->setArstsale24mo13($value);
                 break;
-            case 63:
+            case 61:
                 $this->setArstinv24mo13($value);
                 break;
-            case 64:
+            case 62:
                 $this->setArstsale24mo14($value);
                 break;
-            case 65:
+            case 63:
                 $this->setArstinv24mo14($value);
                 break;
-            case 66:
+            case 64:
                 $this->setArstsale24mo15($value);
                 break;
-            case 67:
+            case 65:
                 $this->setArstinv24mo15($value);
                 break;
-            case 68:
+            case 66:
                 $this->setArstsale24mo16($value);
                 break;
-            case 69:
+            case 67:
                 $this->setArstinv24mo16($value);
                 break;
-            case 70:
+            case 68:
                 $this->setArstsale24mo17($value);
                 break;
-            case 71:
+            case 69:
                 $this->setArstinv24mo17($value);
                 break;
-            case 72:
+            case 70:
                 $this->setArstsale24mo18($value);
                 break;
-            case 73:
+            case 71:
                 $this->setArstinv24mo18($value);
                 break;
-            case 74:
+            case 72:
                 $this->setArstsale24mo19($value);
                 break;
-            case 75:
+            case 73:
                 $this->setArstinv24mo19($value);
                 break;
-            case 76:
+            case 74:
                 $this->setArstsale24mo20($value);
                 break;
-            case 77:
+            case 75:
                 $this->setArstinv24mo20($value);
                 break;
-            case 78:
+            case 76:
                 $this->setArstsale24mo21($value);
                 break;
-            case 79:
+            case 77:
                 $this->setArstinv24mo21($value);
                 break;
-            case 80:
+            case 78:
                 $this->setArstsale24mo22($value);
                 break;
-            case 81:
+            case 79:
                 $this->setArstinv24mo22($value);
                 break;
-            case 82:
+            case 80:
                 $this->setArstsale24mo23($value);
                 break;
-            case 83:
+            case 81:
                 $this->setArstinv24mo23($value);
                 break;
-            case 84:
+            case 82:
                 $this->setArstsale24mo24($value);
                 break;
-            case 85:
+            case 83:
                 $this->setArstinv24mo24($value);
                 break;
-            case 86:
+            case 84:
                 $this->setArstprimshipid($value);
                 break;
-            case 87:
+            case 85:
                 $this->setArstmyvendid($value);
                 break;
-            case 88:
+            case 86:
                 $this->setArstaddlpricdisc($value);
                 break;
-            case 89:
+            case 87:
                 $this->setArstediinvc($value);
                 break;
-            case 90:
+            case 88:
                 $this->setArstchrgfrt($value);
                 break;
-            case 91:
+            case 89:
                 $this->setArstdistcntr($value);
                 break;
-            case 92:
+            case 90:
                 $this->setArstdunsnbr($value);
                 break;
-            case 93:
+            case 91:
                 $this->setArstrfmlvalu($value);
                 break;
-            case 94:
+            case 92:
                 $this->setArstcustpopram($value);
                 break;
-            case 95:
+            case 93:
                 $this->setArtbroutcode($value);
                 break;
-            case 96:
+            case 94:
                 $this->setArstupsacctnbr($value);
                 break;
-            case 97:
+            case 95:
                 $this->setArstfobinputyn($value);
                 break;
-            case 98:
+            case 96:
                 $this->setArstfobperlb($value);
                 break;
-            case 99:
+            case 97:
                 $this->setDateupdtd($value);
                 break;
-            case 100:
+            case 98:
                 $this->setTimeupdtd($value);
                 break;
-            case 101:
+            case 99:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -6141,292 +6035,286 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->setArstadr3($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setArstadr4($arr[$keys[6]]);
+            $this->setArstctry($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setArstctry($arr[$keys[7]]);
+            $this->setArstcity($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setArstadr5($arr[$keys[8]]);
+            $this->setArststat($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setArstcity($arr[$keys[9]]);
+            $this->setArstzipcode($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setArststat($arr[$keys[10]]);
+            $this->setArstdeliverydays($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setArstzipcode($arr[$keys[11]]);
+            $this->setArstcommcode($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setArstdeliverydays($arr[$keys[12]]);
+            $this->setArstallowsplit($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setArstcommcode($arr[$keys[13]]);
+            $this->setArstlindstsp($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setArstallowsplit($arr[$keys[14]]);
+            $this->setArstlmecommcustid($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setArstlindstsp($arr[$keys[15]]);
+            $this->setArstcatlgid($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setArstlmecommcustid($arr[$keys[16]]);
+            $this->setArstcont1($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setArstcatlgid($arr[$keys[17]]);
+            $this->setArstcont2($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setArstcont1($arr[$keys[18]]);
+            $this->setArspsaleper1($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setArstcont2($arr[$keys[19]]);
+            $this->setArspsaleper2($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setArspsaleper1($arr[$keys[20]]);
+            $this->setArspsaleper3($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setArspsaleper2($arr[$keys[21]]);
+            $this->setArtbmtaxcode($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setArspsaleper3($arr[$keys[22]]);
+            $this->setArsttaxexemnbr($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[23]]);
+            $this->setIntbwhse($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setArsttaxexemnbr($arr[$keys[24]]);
+            $this->setArtbshipvia($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setIntbwhse($arr[$keys[25]]);
+            $this->setArstbord($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setArtbshipvia($arr[$keys[26]]);
+            $this->setArstcredhold($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setArstbord($arr[$keys[27]]);
+            $this->setArstusercode($arr[$keys[27]]);
         }
         if (array_key_exists($keys[28], $arr)) {
-            $this->setArstcredhold($arr[$keys[28]]);
+            $this->setArstpriclvl($arr[$keys[28]]);
         }
         if (array_key_exists($keys[29], $arr)) {
-            $this->setArstusercode($arr[$keys[29]]);
+            $this->setArstshipcomp($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setArstpriclvl($arr[$keys[30]]);
+            $this->setArsttxbl($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setArstshipcomp($arr[$keys[31]]);
+            $this->setArstpostal($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setArsttxbl($arr[$keys[32]]);
+            $this->setArstsalemtd($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setArstpostal($arr[$keys[33]]);
+            $this->setArstinvmtd($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setArstsalemtd($arr[$keys[34]]);
+            $this->setArstdateopen($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setArstinvmtd($arr[$keys[35]]);
+            $this->setArstlastsaledate($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setArstdateopen($arr[$keys[36]]);
+            $this->setArstsale24mo1($arr[$keys[36]]);
         }
         if (array_key_exists($keys[37], $arr)) {
-            $this->setArstlastsaledate($arr[$keys[37]]);
+            $this->setArstinv24mo1($arr[$keys[37]]);
         }
         if (array_key_exists($keys[38], $arr)) {
-            $this->setArstsale24mo1($arr[$keys[38]]);
+            $this->setArstsale24mo2($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setArstinv24mo1($arr[$keys[39]]);
+            $this->setArstinv24mo2($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setArstsale24mo2($arr[$keys[40]]);
+            $this->setArstsale24mo3($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setArstinv24mo2($arr[$keys[41]]);
+            $this->setArstinv24mo3($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setArstsale24mo3($arr[$keys[42]]);
+            $this->setArstsale24mo4($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setArstinv24mo3($arr[$keys[43]]);
+            $this->setArstinv24mo4($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setArstsale24mo4($arr[$keys[44]]);
+            $this->setArstsale24mo5($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setArstinv24mo4($arr[$keys[45]]);
+            $this->setArstinv24mo5($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setArstsale24mo5($arr[$keys[46]]);
+            $this->setArstsale24mo6($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setArstinv24mo5($arr[$keys[47]]);
+            $this->setArstinv24mo6($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setArstsale24mo6($arr[$keys[48]]);
+            $this->setArstsale24mo7($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setArstinv24mo6($arr[$keys[49]]);
+            $this->setArstinv24mo7($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setArstsale24mo7($arr[$keys[50]]);
+            $this->setArstsale24mo8($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setArstinv24mo7($arr[$keys[51]]);
+            $this->setArstinv24mo8($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setArstsale24mo8($arr[$keys[52]]);
+            $this->setArstsale24mo9($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setArstinv24mo8($arr[$keys[53]]);
+            $this->setArstinv24mo9($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setArstsale24mo9($arr[$keys[54]]);
+            $this->setArstsale24mo10($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setArstinv24mo9($arr[$keys[55]]);
+            $this->setArstinv24mo10($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setArstsale24mo10($arr[$keys[56]]);
+            $this->setArstsale24mo11($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setArstinv24mo10($arr[$keys[57]]);
+            $this->setArstinv24mo11($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setArstsale24mo11($arr[$keys[58]]);
+            $this->setArstsale24mo12($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setArstinv24mo11($arr[$keys[59]]);
+            $this->setArstinv24mo12($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setArstsale24mo12($arr[$keys[60]]);
+            $this->setArstsale24mo13($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setArstinv24mo12($arr[$keys[61]]);
+            $this->setArstinv24mo13($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setArstsale24mo13($arr[$keys[62]]);
+            $this->setArstsale24mo14($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setArstinv24mo13($arr[$keys[63]]);
+            $this->setArstinv24mo14($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setArstsale24mo14($arr[$keys[64]]);
+            $this->setArstsale24mo15($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setArstinv24mo14($arr[$keys[65]]);
+            $this->setArstinv24mo15($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setArstsale24mo15($arr[$keys[66]]);
+            $this->setArstsale24mo16($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setArstinv24mo15($arr[$keys[67]]);
+            $this->setArstinv24mo16($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setArstsale24mo16($arr[$keys[68]]);
+            $this->setArstsale24mo17($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setArstinv24mo16($arr[$keys[69]]);
+            $this->setArstinv24mo17($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setArstsale24mo17($arr[$keys[70]]);
+            $this->setArstsale24mo18($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setArstinv24mo17($arr[$keys[71]]);
+            $this->setArstinv24mo18($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setArstsale24mo18($arr[$keys[72]]);
+            $this->setArstsale24mo19($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setArstinv24mo18($arr[$keys[73]]);
+            $this->setArstinv24mo19($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setArstsale24mo19($arr[$keys[74]]);
+            $this->setArstsale24mo20($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setArstinv24mo19($arr[$keys[75]]);
+            $this->setArstinv24mo20($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setArstsale24mo20($arr[$keys[76]]);
+            $this->setArstsale24mo21($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setArstinv24mo20($arr[$keys[77]]);
+            $this->setArstinv24mo21($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setArstsale24mo21($arr[$keys[78]]);
+            $this->setArstsale24mo22($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setArstinv24mo21($arr[$keys[79]]);
+            $this->setArstinv24mo22($arr[$keys[79]]);
         }
         if (array_key_exists($keys[80], $arr)) {
-            $this->setArstsale24mo22($arr[$keys[80]]);
+            $this->setArstsale24mo23($arr[$keys[80]]);
         }
         if (array_key_exists($keys[81], $arr)) {
-            $this->setArstinv24mo22($arr[$keys[81]]);
+            $this->setArstinv24mo23($arr[$keys[81]]);
         }
         if (array_key_exists($keys[82], $arr)) {
-            $this->setArstsale24mo23($arr[$keys[82]]);
+            $this->setArstsale24mo24($arr[$keys[82]]);
         }
         if (array_key_exists($keys[83], $arr)) {
-            $this->setArstinv24mo23($arr[$keys[83]]);
+            $this->setArstinv24mo24($arr[$keys[83]]);
         }
         if (array_key_exists($keys[84], $arr)) {
-            $this->setArstsale24mo24($arr[$keys[84]]);
+            $this->setArstprimshipid($arr[$keys[84]]);
         }
         if (array_key_exists($keys[85], $arr)) {
-            $this->setArstinv24mo24($arr[$keys[85]]);
+            $this->setArstmyvendid($arr[$keys[85]]);
         }
         if (array_key_exists($keys[86], $arr)) {
-            $this->setArstprimshipid($arr[$keys[86]]);
+            $this->setArstaddlpricdisc($arr[$keys[86]]);
         }
         if (array_key_exists($keys[87], $arr)) {
-            $this->setArstmyvendid($arr[$keys[87]]);
+            $this->setArstediinvc($arr[$keys[87]]);
         }
         if (array_key_exists($keys[88], $arr)) {
-            $this->setArstaddlpricdisc($arr[$keys[88]]);
+            $this->setArstchrgfrt($arr[$keys[88]]);
         }
         if (array_key_exists($keys[89], $arr)) {
-            $this->setArstediinvc($arr[$keys[89]]);
+            $this->setArstdistcntr($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setArstchrgfrt($arr[$keys[90]]);
+            $this->setArstdunsnbr($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
-            $this->setArstdistcntr($arr[$keys[91]]);
+            $this->setArstrfmlvalu($arr[$keys[91]]);
         }
         if (array_key_exists($keys[92], $arr)) {
-            $this->setArstdunsnbr($arr[$keys[92]]);
+            $this->setArstcustpopram($arr[$keys[92]]);
         }
         if (array_key_exists($keys[93], $arr)) {
-            $this->setArstrfmlvalu($arr[$keys[93]]);
+            $this->setArtbroutcode($arr[$keys[93]]);
         }
         if (array_key_exists($keys[94], $arr)) {
-            $this->setArstcustpopram($arr[$keys[94]]);
+            $this->setArstupsacctnbr($arr[$keys[94]]);
         }
         if (array_key_exists($keys[95], $arr)) {
-            $this->setArtbroutcode($arr[$keys[95]]);
+            $this->setArstfobinputyn($arr[$keys[95]]);
         }
         if (array_key_exists($keys[96], $arr)) {
-            $this->setArstupsacctnbr($arr[$keys[96]]);
+            $this->setArstfobperlb($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setArstfobinputyn($arr[$keys[97]]);
+            $this->setDateupdtd($arr[$keys[97]]);
         }
         if (array_key_exists($keys[98], $arr)) {
-            $this->setArstfobperlb($arr[$keys[98]]);
+            $this->setTimeupdtd($arr[$keys[98]]);
         }
         if (array_key_exists($keys[99], $arr)) {
-            $this->setDateupdtd($arr[$keys[99]]);
-        }
-        if (array_key_exists($keys[100], $arr)) {
-            $this->setTimeupdtd($arr[$keys[100]]);
-        }
-        if (array_key_exists($keys[101], $arr)) {
-            $this->setDummy($arr[$keys[101]]);
+            $this->setDummy($arr[$keys[99]]);
         }
     }
 
@@ -6487,14 +6375,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR3)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTADR3, $this->arstadr3);
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR4)) {
-            $criteria->add(CustomerShiptoTableMap::COL_ARSTADR4, $this->arstadr4);
-        }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCTRY)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTCTRY, $this->arstctry);
-        }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTADR5)) {
-            $criteria->add(CustomerShiptoTableMap::COL_ARSTADR5, $this->arstadr5);
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCITY)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTCITY, $this->arstcity);
@@ -6875,9 +6757,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setArstadr1($this->getArstadr1());
         $copyObj->setArstadr2($this->getArstadr2());
         $copyObj->setArstadr3($this->getArstadr3());
-        $copyObj->setArstadr4($this->getArstadr4());
         $copyObj->setArstctry($this->getArstctry());
-        $copyObj->setArstadr5($this->getArstadr5());
         $copyObj->setArstcity($this->getArstcity());
         $copyObj->setArststat($this->getArststat());
         $copyObj->setArstzipcode($this->getArstzipcode());
@@ -7011,9 +6891,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arstadr1 = null;
         $this->arstadr2 = null;
         $this->arstadr3 = null;
-        $this->arstadr4 = null;
         $this->arstctry = null;
-        $this->arstadr5 = null;
         $this->arstcity = null;
         $this->arststat = null;
         $this->arstzipcode = null;

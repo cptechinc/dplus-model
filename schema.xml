@@ -1882,9 +1882,7 @@
     <column name="ArstAdr1" phpName="Arstadr1" type="VARCHAR" size="30"/>
     <column name="ArstAdr2" phpName="Arstadr2" type="VARCHAR" size="30"/>
     <column name="ArstAdr3" phpName="Arstadr3" type="VARCHAR" size="30"/>
-    <column name="ArstAdr4" phpName="Arstadr4" type="VARCHAR" size="30"/>
     <column name="ArstCtry" phpName="Arstctry" type="VARCHAR" size="4"/>
-    <column name="ArstAdr5" phpName="Arstadr5" type="VARCHAR" size="30"/>
     <column name="ArstCity" phpName="Arstcity" type="VARCHAR" size="16"/>
     <column name="ArstStat" phpName="Arststat" type="VARCHAR" size="2"/>
     <column name="ArstZipCode" phpName="Arstzipcode" type="VARCHAR" size="10"/>
