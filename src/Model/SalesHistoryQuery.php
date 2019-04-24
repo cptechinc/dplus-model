@@ -60,4 +60,119 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
       public function orderExists($ordn) {
           return boolval($this->filterByOehhnbr($ordn)->count());
      }
+
+     /**
+	 * Filter the query on the oehhnbr column
+	 *
+	 * @param  mixed $ordn   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByOrderNumber($ordn) {
+		if (is_array($ordn)) {
+			if (!empty($ordn[0])) {
+				$this->filterByOehhnbr($ordn[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($ordn[1])) {
+				$this->filterByOehhnbr($ordn[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByOehhnbr($ordn);
+		}
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the Arcucustid column
+	 *
+	 * @param  mixed $custid   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByCustId($custid) {
+		if (is_array($custid)) {
+			if (!empty($custid[0])) {
+				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($custid[1])) {
+				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByArcucustid($custid, Criteria::LIKE);
+		}
+		return $this;
+	}
+
+	/**
+	* Filter the query on the Oehhordrtot column
+	*
+	* @param  mixed $ordertotal   array or string
+	* @return $this|SalesOrderQuery The current query, for fluid interface
+	*/
+	public function filterByOrderTotal($ordertotal) {
+		if (is_array($ordertotal)) {
+			if (!empty($ordertotal[0])) {
+				$this->filterByOehhordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($ordertotal[1])) {
+				$this->filterByOehhordrtot($ordertotal[1], Criteria::LESS_EQUAL);
+			}
+		}
+		return $this;
+	}
+
+
+     /**
+      * Filter the query on the Oehhordrdate column
+      *
+      * @param  mixed $orderdate   array or string
+      * @return $this|SalesOrderQuery The current query, for fluid interface
+      */
+     public function filterByInvoiceDate($invoicedate) {
+          if (is_array($invoicedate)) {
+               if (!empty($invoicedate[0])) {
+                    $this->filterByOehhinvdate($invoicedate[0], Criteria::GREATER_EQUAL);
+               }
+
+               if (!empty($invoicedate[1])) {
+                    $this->filterByOehhinvdate($invoicedate[1], Criteria::LESS_EQUAL);
+               }
+          } else {
+               $this->filterByOehhinvdate($invoicedate);
+          }
+          return $this;
+     }
+
+	/**
+	 * Filter the query on the Oehhordrdate column
+	 *
+	 * @param  mixed $orderdate   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	 public function filterByOrderDate($orderdate) {
+		 if (is_array($orderdate)) {
+			if (!empty($orderdate[0])) {
+				$this->filterByOehhordrdate($orderdate[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($orderdate[1])) {
+				$this->filterByOehhordrdate($orderdate[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			 $this->filterByOehhordrdate($orderdate);
+		}
+		return $this;
+	 }
+
+	/**
+	 * Filter the query on the Oehhstat column
+	 *
+	 * @param  mixed $status   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByOrderStatus($status) {
+		$this->filterByOehhstat($status);
+		return $this;
+	}
 }
