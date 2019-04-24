@@ -1,4 +1,5 @@
 <?php
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use Base\SalesHistoryQuery as BaseSalesHistoryQuery;
 
@@ -40,7 +41,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
      }
-     
+
 
      /**
       * Return the first SalesHistory filtered by the OehdNbr column
