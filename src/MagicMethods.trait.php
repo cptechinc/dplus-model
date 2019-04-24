@@ -1,6 +1,6 @@
-<?php 
+<?php
 	namespace Dplus\Model;
-	
+
 	/**
 	 * Traits that provide Magic Methods
 	 * Functions include __get(), __isset()
@@ -33,7 +33,7 @@
 				return false;
 			}
 		}
-		 
+
 		 /**
 		 * Is used to PHP functions like isset() and empty() get access and see
 		 * if property is set
@@ -50,9 +50,8 @@
 					return false;
 				}
 			}
-		} 
-		
-		
+		}
+
 		/**
 		 * We don't want to allow direct modification of properties so we have this function
 		 * look for if $column exists then if it does it will set the value for the $column
@@ -63,22 +62,39 @@
 			if (property_exists($this, $column)) {
 				$method = "set".ucfirst($column);
 				$this->$method($value);
-			} elseif (isset($this->column_aliases)) { 
+			} elseif (isset($this->column_aliases)) {
 				if (array_key_exists($column, $this->column_aliases)) {
 					$realcolumn = $this->column_aliases[$column];
 					$method = "set".ucfirst($realcolumn);
 					$this->$method($value);
 				} else {
 					$this->error("This column or alias ($column) does not exist");
-	                 return false;
+					 return false;
 				}
 			} else {
 				$this->error("This column or alias ($column) does not exist");
-                 return false;
+				 return false;
 			}
- 		}
+		}
+
+		/**
+		 * Returns the Property Name the alias is aliasing
+		 * @param  string $alias Alias or Property Name
+		 * @return string        The Real Property
+		 */
+		public function get_propertynamefromalias($alias) {
+			if (property_exists($this, $alias)) {
+				return $alias;
+			} elseif (isset($this->column_aliases)) {
+				if (array_key_exists($alias, $this->column_aliases)) {
+					return $this->column_aliases[$alias];
+				} else {
+					$this->error("This alias ($alias) does not exist");
+					return false;
+				 }
+			} else {
+				$this->error("This column or alias ($alias) does not exist");
+				return false;
+			}
+		}
 	}
-	
-	
-	
-	

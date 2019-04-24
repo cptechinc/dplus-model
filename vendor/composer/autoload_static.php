@@ -26,7 +26,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'CustomerShipto' => __DIR__ . '/../..' . '/src/Model/CustomerShipto.php',
         'CustomerShiptoQuery' => __DIR__ . '/../..' . '/src/Model/CustomerShiptoQuery.php',
         'Dplus\\Model\\MagicMethodTraits' => __DIR__ . '/../..' . '/src/MagicMethods.trait.php',
-        'Dplus\\Model\\QueryDB' => __DIR__ . '/../..' . '/src/QueryDB.trait.php',
+        'Dplus\\Model\\QueryTraits' => __DIR__ . '/../..' . '/src/Query.trait.php',
         'Dplus\\Model\\ThrowErrorTrait' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',
         'Map\\CustomerShiptoTableMap' => __DIR__ . '/../..' . '/src/Model/Map/CustomerShiptoTableMap.php',
         'Map\\CustomerTableMap' => __DIR__ . '/../..' . '/src/Model/Map/CustomerTableMap.php',

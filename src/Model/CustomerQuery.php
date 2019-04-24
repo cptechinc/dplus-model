@@ -3,6 +3,8 @@
 use Base\CustomerQuery as BaseCustomerQuery;
 use Propel\Runtime\Propel;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Skeleton subclass for performing query and update operations on the 'ar_cust_mast' table.
  *
@@ -14,6 +16,8 @@ use Propel\Runtime\Propel;
  *
  */
 class CustomerQuery extends BaseCustomerQuery {
+	use QueryTraits;
+
 	/**
 	 * Returns Customer object for Customer
 	 * @param  string             $custID Customer ID
@@ -38,10 +42,9 @@ class CustomerQuery extends BaseCustomerQuery {
 			$array[] = "$basecolumn$i";
 		}
 		$columns = implode(" + ", $array);
-		$con = Propel::getWriteConnection(\Map\CustomerTableMap::DATABASE_NAME);
 		$sql = "SELECT ($columns) as amount FROM ar_cust_mast WHERE ArcuCustId = :custid";
-		$stmt = $con->prepare($sql);
-		$stmt->execute(array(':custid' => $custID));
-		return $stmt->fetchColumn();
+		$params = array(':custid' => $custID);
+		$result = $this->execute_query($sql, $params);
+		return $result->fetchColumn();
 	}
 }
