@@ -26,7 +26,7 @@ class Warehouse extends BaseWarehouse {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'id'       => 'IntbWhse',
 		'whseid'   => 'IntbWhse',
 		'whseID'   => 'IntbWhse',

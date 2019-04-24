@@ -23,7 +23,7 @@ class CustomerShipto extends BaseCustomerShipto {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'id'           => 'arstshipid',
 		'custID'       => 'arcucustid',
 		'custid'       => 'arcucustid',

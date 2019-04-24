@@ -23,7 +23,7 @@ class Customer extends BaseCustomer {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'custID'       => 'arcucustid',
 		'id'           => 'arcucustid',
 		'custid'       => 'arcucustid',
@@ -69,7 +69,7 @@ class Customer extends BaseCustomer {
 
 	/**
 	 * Returns the Number of CustomerShiptos with this Customer ID
-	 * 
+	 *
 	 * @return int Number of CustomerShipto
 	 */
 	public function count_shiptos() {
