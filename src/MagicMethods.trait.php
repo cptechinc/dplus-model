@@ -28,6 +28,14 @@
 					$this->error("This column and alias ($column) does not exist");
 					return false;
 				 }
+			} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
+				if (array_key_exists($column, self::COLUMN_ALIASES)) {
+					$realcolumn = self::COLUMN_ALIASES[$column];
+					return $this->$realcolumn;
+				} else {
+					$this->error("This column and alias ($column) does not exist");
+					return false;
+				 }
 			} else {
 				$this->error("This column and alias ($column) does not exist");
 				return false;
@@ -46,7 +54,9 @@
 			} else {
 				if (isset($this->column_aliases)) {
 					return (array_key_exists($column, $this->column_aliases));
-				} else{
+				} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
+					return array_key_exists($column, self::COLUMN_ALIASES);
+				} else {
 					return false;
 				}
 			}
@@ -69,11 +79,20 @@
 					$this->$method($value);
 				} else {
 					$this->error("This column or alias ($column) does not exist");
-					 return false;
+					return false;
 				}
+			} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
+				if (array_key_exists($column, self::COLUMN_ALIASES)) {
+					$realcolumn = self::COLUMN_ALIASES[$column];
+					$method = "set".ucfirst($realcolumn);
+					$this->$method($value);
+				} else {
+					$this->error("This column and alias ($column) does not exist");
+					return false;
+				 }
 			} else {
 				$this->error("This column or alias ($column) does not exist");
-				 return false;
+				return false;
 			}
 		}
 
@@ -82,19 +101,17 @@
 		 * @param  string $alias Alias or Property Name
 		 * @return string        The Real Property
 		 */
-		public function get_propertynamefromalias($alias) {
-			if (property_exists($this, $alias)) {
+		public static function get_aliasproperty($alias) {
+			if (property_exists(__CLASS__, $alias)) {
 				return $alias;
-			} elseif (isset($this->column_aliases)) {
-				if (array_key_exists($alias, $this->column_aliases)) {
-					return $this->column_aliases[$alias];
-				} else {
-					$this->error("This alias ($alias) does not exist");
-					return false;
-				 }
-			} else {
-				$this->error("This column or alias ($alias) does not exist");
-				return false;
+			} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
+				if (array_key_exists($alias, self::COLUMN_ALIASES)) {
+					return self::COLUMN_ALIASES[$alias];
+				}
 			}
+			
+			$throwerror = new ThrowError();
+			$throwerror->error(__CLASS__, "This column or alias ($alias) does not exist", debug_backtrace());
+			return false;
 		}
 	}
