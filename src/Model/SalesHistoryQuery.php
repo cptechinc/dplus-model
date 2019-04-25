@@ -2,6 +2,8 @@
 
 use Base\SalesHistoryQuery as BaseSalesHistoryQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
@@ -34,9 +36,9 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
 	public function filterbySalesPerson($salesperson = null,  $comparison = null) {
-		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ? ', $salesperson);
-		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ? ', $salesperson);
-		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ? ', $salesperson);
+		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ?', $salesperson);
+		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ?', $salesperson);
+		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ?', $salesperson);
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
      }
