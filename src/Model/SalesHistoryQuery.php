@@ -126,7 +126,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 
 
      /**
-      * Filter the query on the Oehhordrdate column
+      * Filter the query on the Oehhinvdate column
       *
       * @param  mixed $orderdate   array or string
       * @return $this|SalesOrderQuery The current query, for fluid interface
