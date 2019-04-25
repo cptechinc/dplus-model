@@ -47,4 +47,25 @@ class CustomerQuery extends BaseCustomerQuery {
 		$result = $this->execute_query($sql, $params);
 		return $result->fetchColumn();
 	}
+
+	/**
+	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
+	 *
+	 * @param  string  $custID Customer ID to filter on
+	 * @param  int     $months Number of Months to go back
+	 * @return float           Total Sales Amount
+	 */
+	public function get_lastxmonthscount($custID, int $months = 1) {
+		$basecolumn = 'ArcuInv24mo';
+		$array = array();
+
+		for ($i = 1; $i < $months + 1; $i++) {
+			$array[] = "$basecolumn$i";
+		}
+		$columns = implode(" + ", $array);
+		$sql = "SELECT ($columns) as amount FROM ar_cust_mast WHERE ArcuCustId = :custid";
+		$params = array(':custid' => $custID);
+		$result = $this->execute_query($sql, $params);
+		return $result->fetchColumn();
+	}
 }

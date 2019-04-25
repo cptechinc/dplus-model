@@ -89,6 +89,17 @@ class Customer extends BaseCustomer {
 	}
 
 	/**
+	 * Returns the total Number of Invoices in the last #months
+	 *
+	 * @param  int  $months Number of Months Back
+	 * @return int          Number of Invoices
+	 */
+	public function get_lastxmonthscount(int $months = 1) {
+		$query = new CustomerQuery();
+		return $query->get_lastxmonthscount($this->id, $months);
+	}
+
+	/**
 	 * Return Sales Amount for $months back
 	 *
 	 * @param  int   $monthsback
@@ -100,7 +111,7 @@ class Customer extends BaseCustomer {
 	}
 
 	/**
-	 * Return Invoice Countfor $months back
+	 * Return Invoice Count for $months back
 	 *
 	 * @param  int   $monthsback
 	 * @return float             Sales Amount
@@ -117,5 +128,26 @@ class Customer extends BaseCustomer {
 	 */
 	public function is_taxexempt() {
 		return !empty($this->arcutaxexemnbr);
+	}
+
+	/**
+	 * Returns the Number of open orders this customer has
+	 * @return int Number of Customer Open Orders
+	 */
+	public function get_orders_count() {
+		$query = new SalesOrderQuery();
+		$query->filterbyCustId($this->id);
+		return $query->count();
+	}
+
+	/**
+	 * Returns the Sum of the Sales Orders totals for this Customer ID
+	 * @return float SUM(salesordertotal)
+	 */
+	public function get_orders_amount() {
+		$query = new SalesOrderQuery();
+		$query->filterbyCustId($this->id);
+		$query->select_sum_ordertotal();
+		return $query->findOne();
 	}
 }
