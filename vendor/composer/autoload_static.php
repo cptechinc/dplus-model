@@ -7,6 +7,12 @@ namespace Composer\Autoload;
 class ComposerStaticInit3f927a38659065c5352eea03f725feb9
 {
     public static $classMap = array (
+        'ArInvoice' => __DIR__ . '/../..' . '/src/Model/ArInvoice.php',
+        'ArInvoiceQuery' => __DIR__ . '/../..' . '/src/Model/ArInvoiceQuery.php',
+        'Base\\ArInvoice' => __DIR__ . '/../..' . '/src/Model/Base/ArInvoice.php',
+        'Base\\ArInvoiceQuery' => __DIR__ . '/../..' . '/src/Model/Base/ArInvoiceQuery.php',
+        'Base\\Contact' => __DIR__ . '/../..' . '/src/Model/Base/Contact.php',
+        'Base\\ContactQuery' => __DIR__ . '/../..' . '/src/Model/Base/ContactQuery.php',
         'Base\\Customer' => __DIR__ . '/../..' . '/src/Model/Base/Customer.php',
         'Base\\CustomerQuery' => __DIR__ . '/../..' . '/src/Model/Base/CustomerQuery.php',
         'Base\\CustomerShipto' => __DIR__ . '/../..' . '/src/Model/Base/CustomerShipto.php',
@@ -21,6 +27,8 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Base\\SalesOrderQuery' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderQuery.php',
         'Base\\Warehouse' => __DIR__ . '/../..' . '/src/Model/Base/Warehouse.php',
         'Base\\WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseQuery.php',
+        'Contact' => __DIR__ . '/../..' . '/src/Model/Contact.php',
+        'ContactQuery' => __DIR__ . '/../..' . '/src/Model/ContactQuery.php',
         'Customer' => __DIR__ . '/../..' . '/src/Model/Customer.php',
         'CustomerQuery' => __DIR__ . '/../..' . '/src/Model/CustomerQuery.php',
         'CustomerShipto' => __DIR__ . '/../..' . '/src/Model/CustomerShipto.php',
@@ -29,6 +37,8 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Dplus\\Model\\QueryTraits' => __DIR__ . '/../..' . '/src/Query.trait.php',
         'Dplus\\Model\\ThrowError' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',
         'Dplus\\Model\\ThrowErrorTrait' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',
+        'Map\\ArInvoiceTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArInvoiceTableMap.php',
+        'Map\\ContactTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ContactTableMap.php',
         'Map\\CustomerShiptoTableMap' => __DIR__ . '/../..' . '/src/Model/Map/CustomerShiptoTableMap.php',
         'Map\\CustomerTableMap' => __DIR__ . '/../..' . '/src/Model/Map/CustomerTableMap.php',
         'Map\\SalesHistoryDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesHistoryDetailTableMap.php',

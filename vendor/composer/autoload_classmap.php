@@ -6,6 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'ArInvoice' => $baseDir . '/src/Model/ArInvoice.php',
+    'ArInvoiceQuery' => $baseDir . '/src/Model/ArInvoiceQuery.php',
+    'Base\\ArInvoice' => $baseDir . '/src/Model/Base/ArInvoice.php',
+    'Base\\ArInvoiceQuery' => $baseDir . '/src/Model/Base/ArInvoiceQuery.php',
+    'Base\\Contact' => $baseDir . '/src/Model/Base/Contact.php',
+    'Base\\ContactQuery' => $baseDir . '/src/Model/Base/ContactQuery.php',
     'Base\\Customer' => $baseDir . '/src/Model/Base/Customer.php',
     'Base\\CustomerQuery' => $baseDir . '/src/Model/Base/CustomerQuery.php',
     'Base\\CustomerShipto' => $baseDir . '/src/Model/Base/CustomerShipto.php',
@@ -20,6 +26,8 @@ return array(
     'Base\\SalesOrderQuery' => $baseDir . '/src/Model/Base/SalesOrderQuery.php',
     'Base\\Warehouse' => $baseDir . '/src/Model/Base/Warehouse.php',
     'Base\\WarehouseQuery' => $baseDir . '/src/Model/Base/WarehouseQuery.php',
+    'Contact' => $baseDir . '/src/Model/Contact.php',
+    'ContactQuery' => $baseDir . '/src/Model/ContactQuery.php',
     'Customer' => $baseDir . '/src/Model/Customer.php',
     'CustomerQuery' => $baseDir . '/src/Model/CustomerQuery.php',
     'CustomerShipto' => $baseDir . '/src/Model/CustomerShipto.php',
@@ -28,6 +36,8 @@ return array(
     'Dplus\\Model\\QueryTraits' => $baseDir . '/src/Query.trait.php',
     'Dplus\\Model\\ThrowError' => $baseDir . '/src/ThrowError.trait.php',
     'Dplus\\Model\\ThrowErrorTrait' => $baseDir . '/src/ThrowError.trait.php',
+    'Map\\ArInvoiceTableMap' => $baseDir . '/src/Model/Map/ArInvoiceTableMap.php',
+    'Map\\ContactTableMap' => $baseDir . '/src/Model/Map/ContactTableMap.php',
     'Map\\CustomerShiptoTableMap' => $baseDir . '/src/Model/Map/CustomerShiptoTableMap.php',
     'Map\\CustomerTableMap' => $baseDir . '/src/Model/Map/CustomerTableMap.php',
     'Map\\SalesHistoryDetailTableMap' => $baseDir . '/src/Model/Map/SalesHistoryDetailTableMap.php',
