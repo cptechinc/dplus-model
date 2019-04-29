@@ -23,7 +23,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehdnbr',
 		'qty_ordered'  => 'oedhqtyord',
 		'price'        => 'oedhpric',

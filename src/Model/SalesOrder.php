@@ -43,7 +43,7 @@ class SalesOrder extends BaseSalesOrder {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehdnbr',
 		'custid'       => 'arcucustid',
 		'shiptoid'     => 'arstshipid',

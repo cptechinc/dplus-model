@@ -19,7 +19,7 @@ class SalesHistory extends BaseSalesHistory {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	protected $column_aliases = array(
+	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehhnbr',
 		'custid'       => 'arcucustid',
 		'shiptoid'     => 'arstshipid',
