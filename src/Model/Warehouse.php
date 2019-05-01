@@ -57,7 +57,20 @@ class Warehouse extends BaseWarehouse {
 		return BincntlQuery::create()->validate_bin($this->IntbWhse, $binID);
 	}
 
+	/**
+	 * Return Bincntl objects filtered by warehouse
+	 * @return Bincntl[]|ObjectCollection
+	 */
 	public function get_bins() {
 		return BincntlQuery::create()->findByWarehouse($this->IntbWhse);
+	}
+
+	/**
+	 * Returns description of bin arrangement
+	 *
+	 * @return string list | range
+	 */
+	public function get_binarrangementdescription() {
+		return $this->are_binslisted() ? 'list' : 'range';
 	}
 }
