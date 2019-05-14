@@ -4766,7 +4766,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="so_hist_ship" idMethod="native" phpName="SoHistShip">
+  <table name="so_hist_ship" idMethod="native" phpName="SalesOrderShipment">
     <column name="OehshNbr" phpName="Oehshnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="OehshSeq" phpName="Oehshseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
     <column name="OehshShipRefNbr" phpName="Oehshshiprefnbr" type="INTEGER" size="8"/>
