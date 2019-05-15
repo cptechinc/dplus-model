@@ -2182,6 +2182,44 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="doc_control" idMethod="native" phpName="DocumentFolders">
+    <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DoccFolderDesc" phpName="Doccfolderdesc" type="VARCHAR" size="40"/>
+    <column name="DoccDir" phpName="Doccdir" type="VARCHAR" size="50"/>
+    <column name="DoccTag" phpName="Docctag" type="VARCHAR" size="2"/>
+    <column name="DoccMultCopy" phpName="Doccmultcopy" type="VARCHAR" size="1"/>
+    <column name="DoccOverWrt" phpName="Doccoverwrt" type="VARCHAR" size="1"/>
+    <column name="DoccFileCnt" phpName="Doccfilecnt" type="INTEGER" size="8"/>
+    <column name="DoccAutoScanId" phpName="Doccautoscanid" type="VARCHAR" size="4"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="doc_index" idMethod="native" phpName="Documents">
+    <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DociFld1Cd" phpName="Docifld1cd" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DociFld1" phpName="Docifld1" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DociFld2Cd" phpName="Docifld2cd" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DociFld2" phpName="Docifld2" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DociSeq" phpName="Dociseq" type="INTEGER" size="3" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="DociTag" phpName="Docitag" type="VARCHAR" size="2"/>
+    <column name="DociFileName" phpName="Docifilename" type="VARCHAR" size="50"/>
+    <column name="DociUser" phpName="Dociuser" type="VARCHAR" size="8"/>
+    <column name="DociDate" phpName="Docidate" type="VARCHAR" size="8"/>
+    <column name="DociTime" phpName="Docitime" type="VARCHAR" size="8"/>
+    <column name="DociOrigDir" phpName="Dociorigdir" type="VARCHAR" size="50"/>
+    <column name="DociOrigFile" phpName="Dociorigfile" type="VARCHAR" size="50"/>
+    <column name="DociRef" phpName="Dociref" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="gl_budget_det" idMethod="native" phpName="GlBudgetDet">
     <column name="GlbdCode" phpName="Glbdcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="GlbdAcct" phpName="Glbdacct" type="VARCHAR" size="9" primaryKey="true" required="true" defaultValue=""/>
