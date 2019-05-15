@@ -2,6 +2,9 @@
 
 use Base\DocumentFolders as BaseDocumentFolders;
 
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'doc_control' table.
  *
@@ -12,7 +15,18 @@ use Base\DocumentFolders as BaseDocumentFolders;
  * long as it does not already exist in the output directory.
  *
  */
-class DocumentFolders extends BaseDocumentFolders
-{
+class DocumentFolders extends BaseDocumentFolders {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'folder'      => 'doccfolder',
+		'description' => 'doccfolderdesc',
+		'directory'   => 'doccdir',
+		'tag'         => 'docctag'
+	);
 }

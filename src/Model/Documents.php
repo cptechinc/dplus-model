@@ -2,6 +2,9 @@
 
 use Base\Documents as BaseDocuments;
 
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
+
 /**
  * Skeleton subclass for representing a row from the 'doc_index' table.
  *
@@ -12,7 +15,21 @@ use Base\Documents as BaseDocuments;
  * long as it does not already exist in the output directory.
  *
  */
-class Documents extends BaseDocuments
-{
+class Documents extends BaseDocuments {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'folder'      => 'doccfolder',
+		'tag'         => 'docitag',
+		'filename'    => 'docifilename',
+		'date'        => 'docidate',
+		'time'        => 'docitime',
+		'reference'   => 'dociref',
+		'user'        => 'dociuser'
+	);
 }
