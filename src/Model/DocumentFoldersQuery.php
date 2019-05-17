@@ -12,7 +12,13 @@ use Base\DocumentFoldersQuery as BaseDocumentFoldersQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class DocumentFoldersQuery extends BaseDocumentFoldersQuery
-{
-
+class DocumentFoldersQuery extends BaseDocumentFoldersQuery {
+	/**
+	 * Return the first DocumentFolders filtered by the DoccFolder column
+	 * @param  string $folder Document Folder
+	 * @return DocumentFolders
+	 */
+	public function findOneByFolder($folder) {
+		return $this->findOneByDoccfolder($folder);
+	}
 }

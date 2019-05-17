@@ -29,7 +29,8 @@ class Documents extends BaseDocuments {
 		'filename'    => 'docifilename',
 		'date'        => 'docidate',
 		'time'        => 'docitime',
-		'reference'   => 'dociref',
-		'user'        => 'dociuser'
+		'title'       => 'dociref',
+		'user'        => 'dociuser',
+		'reference1'  => 'docifld1'
 	);
 }
