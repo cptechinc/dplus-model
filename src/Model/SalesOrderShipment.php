@@ -25,11 +25,8 @@ class SalesOrderShipment extends BaseSalesOrderShipment {
 	 */
 	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehshnbr',
-		'qty_ordered'  => 'oedtqtyord',
-		'price'        => 'oedtpric',
-		'total_price'  => 'oedtprictot',
-		'itemid'       => 'inititemnbr',
-		'desc1'        => 'oedtdesc',
-		'desc2'        => 'oedtdesc2'
+		'shipdate'     => 'oehshshipdate',
+		'deliveredby'  => 'oehshservtype',
+		'trackingnbr'  => 'oehshtracknbr'
 	);
 }

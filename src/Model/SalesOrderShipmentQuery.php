@@ -14,4 +14,25 @@ use Base\SalesOrderShipmentQuery as BaseSalesOrderShipmentQuery;
  */
 class SalesOrderShipmentQuery extends BaseSalesOrderShipmentQuery {
 
+	/**
+	 * Return SalesOrderShipment objects filtered by the OehshNbr column
+	 * @param  string $ordn Order Number
+	 * @return ChildSalesOrderShipment[]|ObjectCollection
+	 */
+	public function findByOrderNumber($ordn) {
+		$this->clear();
+		$this->filterByOrderNumber($ordn);
+		return $this->find();
+	}
+
+	/**
+	 * Filter the query by the Sales Order Number
+	 *
+	 * @param  string $ordn Sales Order Number
+	 * @return void
+	 */
+	public function filterByOrderNumber($ordn)  {
+		$this->filterByOehshnbr($ordn);
+		return $this;
+	}
 }
