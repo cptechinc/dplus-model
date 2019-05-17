@@ -38,7 +38,7 @@ class SalesOrder extends BaseSalesOrder {
      * @var string
      */
 	protected $oehdstat;
-	
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -64,6 +64,7 @@ class SalesOrder extends BaseSalesOrder {
 		'shipto_zip'      => 'oehdstzipcode'
 	);
 
+	const LENGTH = 10;
 	/**
 	 * Order Statuses and the values for their description
 	 *
@@ -92,5 +93,33 @@ class SalesOrder extends BaseSalesOrder {
 	 */
 	public function isInvoiced() {
 		return $this->oehdstat == 'I';
+	}
+
+	/**
+	 * Adds Leading Zeroes to Sales Order Number
+	 *
+	 * @param  string $ordn Sales Order Number ex.    4290100
+	 * @return string       Sales Order Number ex. 0004290100
+	 */
+	public static function get_paddedordernumber($ordn) {
+		 return str_pad($ordn , self::LENGTH , "0", STR_PAD_LEFT);
+	}
+
+	/**
+	 * Returns if there is tracking data available in Sales Order Numbers
+	 *
+	 * @return bool
+	 */
+	public function has_tracking() {
+		return boolval(SalesOrderShipmentQuery::create()->filterByOrderNumber($this->oehdnbr)->count());
+	}
+
+	/**
+	 * Returns the Number of Details Lines this Sales Order has
+	 *
+	 * @return bool
+	 */
+	public function count_items() {
+		return SalesOrderDetailQuery::create()->filterByOehdnbr($this->oehdnbr)->count();
 	}
 }
