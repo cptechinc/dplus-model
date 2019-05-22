@@ -32,6 +32,8 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Base\\SalesOrderShipment' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderShipment.php',
         'Base\\SalesOrderShipmentQuery' => __DIR__ . '/../..' . '/src/Model/Base/SalesOrderShipmentQuery.php',
         'Base\\Warehouse' => __DIR__ . '/../..' . '/src/Model/Base/Warehouse.php',
+        'Base\\WarehouseInventory' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseInventory.php',
+        'Base\\WarehouseInventoryQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseInventoryQuery.php',
         'Base\\WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseQuery.php',
         'Contact' => __DIR__ . '/../..' . '/src/Model/Contact.php',
         'ContactQuery' => __DIR__ . '/../..' . '/src/Model/ContactQuery.php',
@@ -58,6 +60,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Map\\SalesOrderDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesOrderDetailTableMap.php',
         'Map\\SalesOrderShipmentTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesOrderShipmentTableMap.php',
         'Map\\SalesOrderTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesOrderTableMap.php',
+        'Map\\WarehouseInventoryTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseInventoryTableMap.php',
         'Map\\WarehouseTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseTableMap.php',
         'SalesHistory' => __DIR__ . '/../..' . '/src/Model/SalesHistory.php',
         'SalesHistoryDetail' => __DIR__ . '/../..' . '/src/Model/SalesHistoryDetail.php',
@@ -70,6 +73,8 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'SalesOrderShipment' => __DIR__ . '/../..' . '/src/Model/SalesOrderShipment.php',
         'SalesOrderShipmentQuery' => __DIR__ . '/../..' . '/src/Model/SalesOrderShipmentQuery.php',
         'Warehouse' => __DIR__ . '/../..' . '/src/Model/Warehouse.php',
+        'WarehouseInventory' => __DIR__ . '/../..' . '/src/Model/WarehouseInventory.php',
+        'WarehouseInventoryQuery' => __DIR__ . '/../..' . '/src/Model/WarehouseInventoryQuery.php',
         'WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/WarehouseQuery.php',
     );
 
