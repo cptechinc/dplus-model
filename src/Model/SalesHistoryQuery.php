@@ -42,7 +42,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
      }
-     
+
 
      /**
       * Return the first SalesHistory filtered by the OehdNbr column
@@ -124,7 +124,6 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		return $this;
 	}
 
-
      /**
       * Filter the query on the Oehhinvdate column
       *
@@ -176,5 +175,18 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	public function filterByOrderStatus($status) {
 		$this->filterByOehhstat($status);
 		return $this;
+	}
+
+	/**
+	 * Returns the Customer ID for Sales Order 
+	 *
+	 * @param  string $ordn Sales Order Number
+	 * @return string       Sales Order Customer ID
+	 */
+	public function get_custid($ordn) {
+		$this->clear();
+		$this->select($this->get_tablecolumn(SalesOrder::get_aliasproperty('custid')));
+		$this->filterByOrderNumber($ordn);
+		return $this->findOne();
 	}
 }

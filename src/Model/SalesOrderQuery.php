@@ -169,4 +169,17 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		$this->select('amount');
 		return $this;
 	}
+
+	/**
+	 * Returns the Customer ID for Sales Order 
+	 *
+	 * @param  string $ordn Sales Order Number
+	 * @return string       Sales Order Customer ID
+	 */
+	public function get_custid($ordn) {
+		$this->clear();
+		$this->select($this->get_tablecolumn(SalesOrder::get_aliasproperty('custid')));
+		$this->filterByOrderNumber($ordn);
+		return $this->findOne();
+	}
 }
