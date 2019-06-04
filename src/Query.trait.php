@@ -9,6 +9,18 @@
 	 */
 	trait QueryTraits {
 		/**
+		 * Adds Sort to Query
+		 * @param  string $column Table column Name, must be actual column name
+		 * @param  string $sort   ASC, DESC, ETC
+		 * @return void
+		 */
+		public function sortBy($column, $sort) {
+			$col = ucfirst($column);
+			$function = "orderBy$col";
+			return $this->$function($sort);
+		}
+
+		/**
 		 * Executes Query for Query Class
 		 * @uses  self::$dbName
 		 *

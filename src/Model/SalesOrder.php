@@ -61,7 +61,8 @@ class SalesOrder extends BaseSalesOrder {
 		'shipto_country'  => 'oehdstctry',
 		'shipto_city'     => 'oehdstcity',
 		'shipto_state'    => 'oehdststat',
-		'shipto_zip'      => 'oehdstzipcode'
+		'shipto_zip'      => 'oehdstzipcode',
+		'heldby'          => 'oehdcrntuser'
 	);
 
 	const LENGTH = 10;
@@ -112,6 +113,24 @@ class SalesOrder extends BaseSalesOrder {
 	 */
 	public function has_tracking() {
 		return boolval(SalesOrderShipmentQuery::create()->filterByOrderNumber($this->oehdnbr)->count());
+	}
+
+	/**
+	 * Returns if Sales Order is being edited via the heldby alias
+	 *
+	 * @return bool
+	 */
+	public function is_beingedited() {
+		return boolval(strlen($this->heldby));
+	}
+
+	/**
+	 * Returns if Sales Order is able to edited via the heldby alias
+	 *
+	 * @return bool
+	 */
+	public function is_editable() {
+		return strlen($this->heldby) == 0;
 	}
 
 	/**
