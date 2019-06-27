@@ -31,14 +31,28 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'itemid'      => 'intitemnbr',
-		'desc'        => 'intdesc1',
-		'desc2'       => 'intdesc2',
+		'itemid'      => 'inititemnbr',
+		'desc'        => 'initdesc1',
+		'desc2'       => 'initdesc2',
 		'groupcode'   => 'intbgrup',
 		'pricegroup'  => 'intbpricegrup',
 		'itemtype'    => 'initype',
-		'user'        => 'dociuser',
-		'reference1'  => 'docifld1'
+		'taxable'     => 'inittax',
+		'supercede'   => 'initsupritemnbr',
+		'weight'      => 'initweight',
+		'liters'      => 'initliters',
+		'qtypercase'  => 'initqtypercase',
+		'specialitemcode' => 'initspecitemcd',
+		'assortmentcode'  => 'initasstcode',
+		'vendor_primary'  => 'initvendid',
+		'uom_purchase'    => 'intbuompur'
+	);
+
+	const ITEMTYPE_DESCRIPTIONS = array(
+		'N' => 'normal',
+		'L' => 'lotted',
+		'S' => 'serialized',
+		'P' => 'price only'
 	);
 
 	/**
