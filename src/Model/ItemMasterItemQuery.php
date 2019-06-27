@@ -12,7 +12,14 @@ use Base\ItemMasterItemQuery as BaseItemMasterItemQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class ItemMasterItemQuery extends BaseItemMasterItemQuery
-{
-
+class ItemMasterItemQuery extends BaseItemMasterItemQuery {
+	/**
+	 * Return the first ItemMasterItem filtered by the InitItemNbr column
+	 *
+	 * @param  string $itemID Item ID
+	 * @return ItemMasterItem
+	 */
+	public function findOneByItemid($itemID) {
+		return $this->findOneByInititemnbr($itemID);
+	}
 }
