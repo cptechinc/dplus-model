@@ -30,7 +30,8 @@ class Warehouse extends BaseWarehouse {
 		'id'       => 'IntbWhse',
 		'whseid'   => 'IntbWhse',
 		'whseID'   => 'IntbWhse',
-		'arranged' => 'IntbWhseBinRangeList'
+		'arranged' => 'IntbWhseBinRangeList',
+		'name'     => 'IntbWhseName'
 	);
 
 	/**

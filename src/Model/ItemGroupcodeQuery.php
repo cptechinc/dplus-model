@@ -29,7 +29,7 @@ class ItemGroupcodeQuery extends BaseItemGroupcodeQuery {
 	 * @param  string $itemgroup
 	 * @return $this|ItemGroupcodeQuery The current query, for fluid interface
 	 */
-	public function filterByIntbgrup($itemgroup) {
+	public function filterByItemgroup($itemgroup) {
 		return $this->filterByIntbgrup($itemgroup);
 	}
 }

@@ -12,7 +12,13 @@ use Base\ItemPricingQuery as BaseItemPricingQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class ItemPricingQuery extends BaseItemPricingQuery
-{
-
+class ItemPricingQuery extends BaseItemPricingQuery {
+	/**
+	 * Return ItemPricing objects filtered by the InitItemNbr column
+	 * @param  string $itemID Item ID
+	 * @return ItemPricing
+	 */
+	public function findOneByItemid($itemID) {
+		return $this->findOneByInititemnbr($itemID);
+	}
 }

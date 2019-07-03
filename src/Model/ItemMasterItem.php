@@ -23,7 +23,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	const ITEMTYPE_LOTTED     = 'L';
 	const ITEMTYPE_NORMAL     = 'N';
 	const ITEMTYPE_PRICEONLY  = 'P';
-	
+
 	const ITEMID_NONSTOCK     = 'N';
 
 	/**
@@ -34,9 +34,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'itemid'      => 'inititemnbr',
 		'desc'        => 'initdesc1',
 		'desc2'       => 'initdesc2',
-		'groupcode'   => 'intbgrup',
+		'itemgroup'   => 'intbgrup',
 		'pricegroup'  => 'intbpricegrup',
-		'itemtype'    => 'initype',
+		'itemtype'    => 'inittype',
 		'taxable'     => 'inittax',
 		'supercede'   => 'initsupritemnbr',
 		'weight'      => 'initweight',

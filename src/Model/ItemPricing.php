@@ -25,7 +25,7 @@ class ItemPricing extends BaseItemPricing {
 	 */
 	const COLUMN_ALIASES = array(
 		'itemid'      => 'intitemnbr',
-		'base'        => 'inprpricbase',
+		'baseprice'   => 'inprpricbase',
 		'qty'         => 'inprpricunit',
 		'price'       => 'inprpricpric',
 		'updated'     => 'inprpriclastdate',
@@ -41,15 +41,15 @@ class ItemPricing extends BaseItemPricing {
 	public function get_qtybreaks() {
 		$pricebreaks = array();
 
-		$colbase_qty = self::get_aliasproperty('qty');
-		$colbase_price =self::get_aliasproperty('price');
+		$colbase_qty = 'inprpricunit';
+		$colbase_price = 'inprpricpric';
 
 		for ($i = 1; $i < self::QTY_BREAKS; $i++) {
 			$col_price = $colbase_price.$i;
 
 			if ($this->$col_price > 0) {
 				$col_qty = $colbase_qty.$i;
-				$pricebreaks[$this->$colbase_qty] = $this->$col_price;
+				$pricebreaks[$this->$col_qty] = $this->$col_price;
 			}
 		}
 		return $pricebreaks;
