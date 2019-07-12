@@ -42,7 +42,7 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	 */
 	public function is_item_serialized($itemID) {
 		$itemtype = $this->get_itemtype($itemID);
-		return $itemtype == ItemMasterItem::ITEMTYPE_SERIALIZED;
+		return ItemMasterItem::is_itemtype_serialized($itemtype);
 	}
 
 	/**
@@ -52,7 +52,7 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	 */
 	public function is_item_lotted($itemID) {
 		$itemtype = $this->get_itemtype($itemID);
-		return $itemtype == ItemMasterItem::ITEMTYPE_LOTTED;
+		return ItemMasterItem::is_itemtype_lotted($itemtype);
 	}
 
 	/**
@@ -62,7 +62,7 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	 */
 	public function is_item_normal($itemID) {
 		$itemtype = $this->get_itemtype($itemID);
-		return $itemtype == ItemMasterItem::ITEMTYPE_NORMAL;
+		return ItemMasterItem::is_itemtype_normal($itemtype);
 	}
 
 	/**
@@ -72,6 +72,6 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	 */
 	public function is_item_priceonly($itemID) {
 		$itemtype = $this->get_itemtype($itemID);
-		return $itemtype == ItemMasterItem::ITEMTYPE_PRICEONLY;
+		return ItemMasterItem::is_itemtype_priceonly($itemtype);
 	}
 }

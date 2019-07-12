@@ -56,14 +56,12 @@ class ItemMasterItem extends BaseItemMasterItem {
 	);
 
 	/**
-	 * Return if the Item ID provided is a NON-STOCK Item ID
-	 *
-	 * @param  string $itemID
-	 * @return bool
+	 * ===================================================================
+	 * 
+	 * CLASS OBJECT FUNCTIONS
+	 * 
+	 * ===================================================================
 	 */
-	public static function is_itemid_nonstock($itemID) {
-		return $itemID == self::ITEMID_NONSTOCK;
-	}
 
 	/**
 	 * Return Item Group Code Description
@@ -74,5 +72,63 @@ class ItemMasterItem extends BaseItemMasterItem {
 		$query = ItemGroupcodeQuery::create();
 		$query->select(ItemGroupcode::get_aliasproperty('description'));
 		return $query->findOneByItemgroup($this->intbgrup);
+	}
+
+	/**
+	 * ===================================================================
+	 * 
+	 * STATIC LOOKUP FUNCTIONS
+	 * 
+	 * ===================================================================
+	 */
+
+	/**
+	 * Return if the Item ID provided is a NON-STOCK Item ID
+	 *
+	 * @param  string $itemID
+	 * @return bool
+	 */
+	public static function is_itemid_nonstock($itemID) {
+		return $itemID == self::ITEMID_NONSTOCK;
+	}
+
+	/**
+	 * Returns if provided Item Type is Serialized
+	 *
+	 * @param  string $itemtype Item Type S
+	 * @return bool             Is Item Type Serialized
+	 */
+	public static function is_itemtype_serialized($itemtype) {
+		return strtoupper($itemtype) == self::ITEMTYPE_SERIALIZED;
+	}
+
+	/**
+	 * Returns if provided Item Type is Lotted
+	 *
+	 * @param  string $itemtype Item Type L
+	 * @return bool             Is Item Type Lotted
+	 */
+	public static function is_itemtype_lotted($itemtype) {
+		return strtoupper($itemtype) == self::ITEMTYPE_LOTTED;
+	}
+
+	/**
+	 * Returns if provided Item Type is Normal
+	 *
+	 * @param  string $itemtype Item Type N
+	 * @return bool             Is Item Type Normal
+	 */
+	public static function is_itemtype_normal($itemtype) {
+		return strtoupper($itemtype) == self::ITEMTYPE_NORMAL;
+	}
+
+	/**
+	 * Returns if provided Item Type is Price Only
+	 *
+	 * @param  string $itemtype Item Type P
+	 * @return bool             Is Item Type Price Only
+	 */
+	public static function is_itemtype_priceonly($itemtype) {
+		return strtoupper($itemtype) == self::ITEMTYPE_PRICEONLY;
 	}
 }
