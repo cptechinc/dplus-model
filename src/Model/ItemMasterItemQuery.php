@@ -24,6 +24,16 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	}
 
 	/**
+	 * Filter the query on the InitItemNbr column
+	 *
+	 * @param     string $itemID The value to use as filter.
+	 * @return $this|ItemMasterItemQuery The current query, for fluid interface
+	 */
+	public function filterByItemid($itemID) {
+		return $this->filterByInititemnbr($itemID);
+	}
+
+	/**
 	 * Returns Item Type for Item Id
 	 *
 	 * @param  string $itemID
