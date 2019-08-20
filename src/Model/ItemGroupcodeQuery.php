@@ -2,17 +2,19 @@
 
 use Base\ItemGroupcodeQuery as BaseItemGroupcodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_grup_code' table.
+ * Class for performing query and update operations on the 'inv_grup_code' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByItemgroup()
  *
  */
 class ItemGroupcodeQuery extends BaseItemGroupcodeQuery {
+	use QueryTraits;
+	
 	/**
 	 * Return the first ItemGroupcode filtered by the IntbGrupDesc column
 	 *

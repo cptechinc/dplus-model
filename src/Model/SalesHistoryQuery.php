@@ -4,69 +4,67 @@ use Base\SalesHistoryQuery as BaseSalesHistoryQuery;
 
 use Propel\Runtime\ActiveQuery\Criteria;
 
-use Dplus\Model\ThrowErrorTrait;
-use Dplus\Model\MagicMethodTraits;
+use Dplus\Model\QueryTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'so_head_hist' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'so_head_hist' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByOrdernumber()
  *
  */
 class SalesHistoryQuery extends BaseSalesHistoryQuery {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
+	use QueryTraits;
 
 	/**
-     * Filter the query on the ArspSalePer1 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
-     * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $arspsaleper1 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
-     */
+	 * Filter the query on the ArspSalePer1 column
+	 * 
+	 * fix name
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
+	 * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param	  string $arspsaleper1 The value to use as filter.
+	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+	 */
 	public function filterbySalesPerson($salesperson = null,  $comparison = null) {
 		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ?', $salesperson);
 		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ?', $salesperson);
 		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ?', $salesperson);
-		$this->where(array('sp1', 'sp2', 'sp3'), 'or');                  // combine 'cond1' and 'cond2' with a logical OR
+		$this->where(array('sp1', 'sp2', 'sp3'), 'or'); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
-     }
+	 }
 
 
-     /**
-      * Return the first SalesHistory filtered by the OehdNbr column
-      * @param  string       $ordn  Sales Order Number
-      * @return SalesHistory
-      */
-     public function findOneByOrderNumber($ordn) {
-          return $this->findOneByOehhnbr($ordn);
-     }
+	 /**
+	  * Return the first SalesHistory filtered by the OehdNbr column
+	  * @param	string		 $ordn	Sales Order Number
+	  * @return SalesHistory
+	  */
+	 public function findOneByOrderNumber($ordn) {
+		  return $this->findOneByOehhnbr($ordn);
+	 }
 
-     /**
-      * Return if Sales Order Exists in so_head_hist
-      *
-      * @param  string $ordn Sales Order Number
-      * @return bool         Does Sales Order Exist
-      */
-      public function orderExists($ordn) {
-          return boolval($this->filterByOehhnbr($ordn)->count());
-     }
+	 /**
+	  * Return if Sales Order Exists in so_head_hist
+	  *
+	  * @param	string $ordn Sales Order Number
+	  * @return bool		 Does Sales Order Exist
+	  */
+	  public function orderExists($ordn) {
+		  return boolval($this->filterByOehhnbr($ordn)->count());
+	 }
 
-     /**
+	 /**
 	 * Filter the query on the oehhnbr column
 	 *
-	 * @param  mixed $ordn   array or string
+	 * @param  mixed $ordn	 array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
 	public function filterByOrderNumber($ordn) {
@@ -124,26 +122,26 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		return $this;
 	}
 
-     /**
-      * Filter the query on the Oehhinvdate column
-      *
-      * @param  mixed $orderdate   array or string
-      * @return $this|SalesOrderQuery The current query, for fluid interface
-      */
-     public function filterByInvoiceDate($invoicedate) {
-          if (is_array($invoicedate)) {
-               if (!empty($invoicedate[0])) {
-                    $this->filterByOehhinvdate($invoicedate[0], Criteria::GREATER_EQUAL);
-               }
+	 /**
+	  * Filter the query on the Oehhinvdate column
+	  *
+	  * @param	mixed $orderdate   array or string
+	  * @return $this|SalesOrderQuery The current query, for fluid interface
+	  */
+	 public function filterByInvoiceDate($invoicedate) {
+		  if (is_array($invoicedate)) {
+			   if (!empty($invoicedate[0])) {
+					$this->filterByOehhinvdate($invoicedate[0], Criteria::GREATER_EQUAL);
+			   }
 
-               if (!empty($invoicedate[1])) {
-                    $this->filterByOehhinvdate($invoicedate[1], Criteria::LESS_EQUAL);
-               }
-          } else {
-               $this->filterByOehhinvdate($invoicedate);
-          }
-          return $this;
-     }
+			   if (!empty($invoicedate[1])) {
+					$this->filterByOehhinvdate($invoicedate[1], Criteria::LESS_EQUAL);
+			   }
+		  } else {
+			   $this->filterByOehhinvdate($invoicedate);
+		  }
+		  return $this;
+	 }
 
 	/**
 	 * Filter the query on the Oehhordrdate column
@@ -181,7 +179,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 * Returns the Customer ID for Sales Order 
 	 *
 	 * @param  string $ordn Sales Order Number
-	 * @return string       Sales Order Customer ID
+	 * @return string		Sales Order Customer ID
 	 */
 	public function get_custid($ordn) {
 		$this->clear();

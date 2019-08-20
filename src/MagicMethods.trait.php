@@ -48,7 +48,7 @@
 		 * @param  string  $column Column Name
 		 * @return bool		       Whether $this->$column is set
 		 */
-		public function __isset($column){
+		public function __isset($column) {
 			if (isset($this->$column)) {
 				return isset($this->$column);
 			} else {

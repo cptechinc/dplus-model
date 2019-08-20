@@ -2,26 +2,18 @@
 
 use Base\CustomerShiptoQuery as BaseCustomerShiptoQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'ar_ship_to' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'ar_ship_to' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByFolder()
  *
  */
 class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
-
-	/**
-	 * Returns CustomerShipto objects for Customer
-	 * @param  string             $custID Customer ID
-	 * @return ObjectCollection[]         CustomerShipto
-	 */
-	public function findByCustid($custID) {
-		return $this->findByArcucustid($custID);
-	}
+	use QueryTraits;
 
 	/**
 	 * Returns the Number of CustomerShipto objects for Customer

@@ -1,18 +1,19 @@
 <?php
 
 use Base\WarehouseQuery as BaseWarehouseQuery;
+use Dplus\Model\QueryTraits;
+
 
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_whse_code' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for performing query and update operations on the 'inv_whse_code' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByWhseid()
  */
 class WarehouseQuery extends BaseWarehouseQuery {
+	use QueryTraits;
+	
 	/**
 	 * Return the first Warehouse filtered by the IntbWhse column
 	 * @uses self::findOneByIntbwhse(string $IntbWhse)

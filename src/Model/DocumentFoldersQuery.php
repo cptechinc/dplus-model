@@ -2,17 +2,19 @@
 
 use Base\DocumentFoldersQuery as BaseDocumentFoldersQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'doc_control' table.
+ * Class for performing query and update operations on the 'doc_control' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByFolder()
  *
  */
 class DocumentFoldersQuery extends BaseDocumentFoldersQuery {
+	use QueryTraits;
+
 	/**
 	 * Return the first DocumentFolders filtered by the DoccFolder column
 	 * @param  string $folder Document Folder

@@ -2,17 +2,18 @@
 
 use Base\DocumentsQuery as BaseDocumentsQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'doc_index' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'doc_index' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByFolder()
  *
  */
 class DocumentsQuery extends BaseDocumentsQuery {
+	use QueryTraits;
 
 	/**
 	 * Filter by the DociTag column

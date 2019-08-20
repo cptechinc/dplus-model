@@ -3,28 +3,23 @@ use Propel\Runtime\ActiveQuery\Criteria;
 
 use Base\SalesOrderQuery as BaseSalesOrderQuery;
 
-use Dplus\Model\ThrowErrorTrait;
-use Dplus\Model\MagicMethodTraits;
 use Dplus\Model\QueryTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'so_header' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'so_header' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findByOrdernumber()
  *
  */
 class SalesOrderQuery extends BaseSalesOrderQuery {
-	use ThrowErrorTrait;
-	use MagicMethodTraits;
 	use QueryTraits;
-
 
 	/**
 	 * Filter the query on the ArspSalePer1 column
+	 * 
+	 * FIX name
 	 *
 	 * Example usage:
 	 * <code>
@@ -32,8 +27,8 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
 	 * </code>
 	 *
-	 * @param     string $arspsaleper1 The value to use as filter.
-	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @param	  string $arspsaleper1 The value to use as filter.
+	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
 	 * @return $this|ChildSalesOrderQuery The current query, for fluid interface
 	 */
@@ -41,25 +36,15 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ? ', $salesperson);
 		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ? ', $salesperson);
 		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ? ', $salesperson);
-		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR);                  // combine 'cond1' and 'cond2' with a logical OR
+		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
 	 }
-
-	/**
-	 * Return the first SalesOrder filtered by the OehdNbr column
-	 *
-	 * @param  string     $ordn  Sales Order Number
-	 * @return SalesOrder
-	 */
-	public function findOneByOrderNumber($ordn) {
-		return $this->findOneByOehdnbr($ordn);
-	}
 
 	/**
 	 * Return if Sales Order Exists in so_header
 	 *
 	 * @param  string $ordn Sales Order Number
-	 * @return bool         Does Sales Order Exist
+	 * @return bool 		Does Sales Order Exist
 	 */
 	public function orderExists($ordn) {
 		return boolval($this->filterByOehdnbr($ordn)->count());
@@ -68,7 +53,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Oehdnbr column
 	 *
-	 * @param  mixed $ordn   array or string
+	 * @param  mixed $ordn	 array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
 	public function filterByOrderNumber($ordn) {
@@ -148,17 +133,6 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	}
 
 	/**
-	 * Filter the query on the Oehdstat column
-	 *
-	 * @param  mixed $status   array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
-	 */
-	public function filterByOrderStatus($status) {
-		$this->filterByOehdstat($status);
-		return $this;
-	}
-
-	/**
 	 * Selects SUM of ordertotal
 	 *
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
@@ -174,7 +148,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * Returns the Customer ID for Sales Order 
 	 *
 	 * @param  string $ordn Sales Order Number
-	 * @return string       Sales Order Customer ID
+	 * @return string		Sales Order Customer ID
 	 */
 	public function get_custid($ordn) {
 		$this->clear();

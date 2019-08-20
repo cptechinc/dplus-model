@@ -2,17 +2,18 @@
 
 use Base\WarehouseInventoryQuery as BaseWarehouseInventoryQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_whse_mast' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'inv_whse_mast' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: filterByWarehouseid()
  *
  */
 class WarehouseInventoryQuery extends BaseWarehouseInventoryQuery {
+	use QueryTraits;
 
 	/**
 	 * Returns the default Warehouse Bin for the Item ID

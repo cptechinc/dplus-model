@@ -2,17 +2,19 @@
 
 use Base\ItemMasterItemQuery as BaseItemMasterItemQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_item_mast' table.
+ * Class for performing query and update operations on the 'inv_item_mast' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByItemid()
  *
  */
 class ItemMasterItemQuery extends BaseItemMasterItemQuery {
+	use QueryTraits;
+
 	/**
 	 * Return the first ItemMasterItem filtered by the InitItemNbr column
 	 *
@@ -26,7 +28,7 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	/**
 	 * Filter the query on the InitItemNbr column
 	 *
-	 * @param     string $itemID The value to use as filter.
+	 * @param  string                    $itemID The value to use as filter.
 	 * @return $this|ItemMasterItemQuery The current query, for fluid interface
 	 */
 	public function filterByItemid($itemID) {

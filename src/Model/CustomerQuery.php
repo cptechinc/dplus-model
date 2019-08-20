@@ -1,31 +1,19 @@
 <?php
 
 use Base\CustomerQuery as BaseCustomerQuery;
-use Propel\Runtime\Propel;
 
 use Dplus\Model\QueryTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'ar_cust_mast' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for performing query and update operations on the 'ar_cust_mast' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByCustid()
  *
  */
 class CustomerQuery extends BaseCustomerQuery {
 	use QueryTraits;
-
-	/**
-	 * Returns Customer object for Customer
-	 * @param  string             $custID Customer ID
-	 * @return Customer
-	 */
-	public function findOneByCustid($custID) {
-		return $this->findOneByArcucustid($custID);
-	}
 
 	/**
 	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
