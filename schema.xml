@@ -3370,7 +3370,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_kit_detail" idMethod="native" phpName="InvKitDetail">
+  <table name="inv_kit_detail" idMethod="native" phpName="KitItems">
     <column name="KtdtKey1" phpName="Ktdtkey1" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="KtdtUom" phpName="Ktdtuom" type="VARCHAR" size="4"/>
@@ -3385,7 +3385,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_kit_head" idMethod="native" phpName="InvKitHead">
+  <table name="inv_kit_head" idMethod="native" phpName="Kits">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
