@@ -75,6 +75,27 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Returns if this item is a Kit
+	 *
+	 * @param  string $itemID
+	 * @return bool
+	 */
+	public function is_kit() {
+		$query = KitItemsQuery::create();
+		return $query->is_kit($this->inititemnbr);
+	}
+
+	/**
+	 * Return KitItems objects for this Kit
+	 *
+	 * @return ChildKitItems[]|ObjectCollection
+	 */
+	public function get_kititems() {
+		$query = KitItemsQuery::create();
+		return $query->findByKititemid($this->inititemnbr);
+	}
+
+	/**
 	 * ===================================================================
 	 * 
 	 * STATIC LOOKUP FUNCTIONS
