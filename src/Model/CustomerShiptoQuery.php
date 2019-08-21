@@ -9,7 +9,17 @@ use Dplus\Model\QueryTraits;
  * 
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
- * EXAMPLE: findOneByFolder()
+ * EXAMPLE: findByCustid()
+ * 
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ *
+ * FindOne
+ * 
+ * Find
+ * @method     CustomerShipto[]|ObjectCollection findByCustid(string $custID)     Return the first CustomerShipto objects filtered by the Arcucustid column
+ *
  *
  */
 class CustomerShiptoQuery extends BaseCustomerShiptoQuery {

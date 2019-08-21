@@ -20,23 +20,23 @@ class SalesOrder extends BaseSalesOrder {
 	use MagicMethodTraits;
 
 	/**
-     * Hold Status Code
-     * NOTE: The code is Case Sensitive
-     * A = Customer is on Credit Hold
-     * B = A detail line did not meet minimum margin requirements, Was an A, C, or H before
-     * C = Over Credit Limit
-     * H = This order is on Hold
-     * M = A detail line did not meet minimum margin requirements, line quantity, or order amount.
-     *     Same as B but was not on hold for other reasons
-     * N = Not on Hold
-     * R = Review by Sales Rep
-     * r = reviewed by Sales Rep
-     * n = Not on hold, released by user
-     * S = On hold, waiting for transfer
-     * T = On hold because of Terms or Rejected Credit Card
-     * W = On hold because this a a new Web Order
-     * @var string
-     */
+	 * Hold Status Code
+	 * NOTE: The code is Case Sensitive
+	 * A = Customer is on Credit Hold
+	 * B = A detail line did not meet minimum margin requirements, Was an A, C, or H before
+	 * C = Over Credit Limit
+	 * H = This order is on Hold
+	 * M = A detail line did not meet minimum margin requirements, line quantity, or order amount.
+	 *     Same as B but was not on hold for other reasons
+	 * N = Not on Hold
+	 * R = Review by Sales Rep
+	 * r = reviewed by Sales Rep
+	 * n = Not on hold, released by user
+	 * S = On hold, waiting for transfer
+	 * T = On hold because of Terms or Rejected Credit Card
+	 * W = On hold because this a a new Web Order
+	 * @var string
+	 */
 	protected $oehdstat;
 
 	/**
@@ -51,6 +51,7 @@ class SalesOrder extends BaseSalesOrder {
 		'total_total'  => 'oehdoordrtot',
 		'date_ordered' => 'oehdordrdate',
 		'status'       => 'oehdstat',
+		'orderstatus'     => 'oehdstat',
 		'subtotal_nontax' => 'OehdNonTaxSub',
 		'total_freight'   => 'OehdFrtTot',
 		'total_tax'       => 'OehdTaxTot',
@@ -112,7 +113,7 @@ class SalesOrder extends BaseSalesOrder {
 	 * @return bool
 	 */
 	public function has_tracking() {
-		return boolval(SalesOrderShipmentQuery::create()->filterByOrderNumber($this->oehdnbr)->count());
+		return boolval(SalesOrderShipmentQuery::create()->filterByOrdernumber($this->oehdnbr)->count());
 	}
 
 	/**
@@ -139,6 +140,6 @@ class SalesOrder extends BaseSalesOrder {
 	 * @return bool
 	 */
 	public function count_items() {
-		return SalesOrderDetailQuery::create()->filterByOehdnbr($this->oehdnbr)->count();
+		return SalesOrderDetailQuery::create()->filterByOrdernumber($this->oehdnbr)->count();
 	}
 }

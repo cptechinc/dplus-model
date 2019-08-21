@@ -7,10 +7,24 @@ use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'so_header' table.
- * 
+ *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
  * EXAMPLE: findByOrdernumber()
+ *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method  SalesOrderQuery filterByCustid(string $custID)        Filter the query on the ArcuCustid column
+ * @method  SalesOrderQuery filterByCustpo(string $custpo)        Filter the query on the Oehdcustpo column
+ * @method  SalesOrderQuery filterByTotal_total(string $total)    Filter the query on the Oehdordrtot column
+ * @method  SalesHistoryQuery filterByOrderstatus(string $status) Filter the query on the Oehdstat column
+ *
+ *
+ * FindOne
+ * @method  SalesOrder findOneByOrdernumber(string $ordn)     Return the first SalesOrder filtered by the OehdNbr column
+ *
+ * Find
  *
  */
 class SalesOrderQuery extends BaseSalesOrderQuery {
@@ -18,7 +32,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 
 	/**
 	 * Filter the query on the ArspSalePer1 column
-	 * 
+	 *
 	 * FIX name
 	 *
 	 * Example usage:
@@ -56,7 +70,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * @param  mixed $ordn	 array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrderNumber($ordn) {
+	public function filterByOrdernumber($ordn) {
 		if (is_array($ordn)) {
 			if (!empty($ordn[0])) {
 				$this->filterByOehdnbr($ordn[0], Criteria::GREATER_EQUAL);
@@ -77,7 +91,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * @param  mixed $custid   array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByCustId($custid) {
+	public function filterByCustid($custid) {
 		if (is_array($custid)) {
 			if (!empty($custid[0])) {
 				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
@@ -98,7 +112,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * @param  mixed $orderdate	array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrderDate($orderdate) {
+	public function filterByOrderdate($orderdate) {
 		if (is_array($orderdate)) {
 			if (!empty($orderdate[0])) {
 				$this->filterByOehdordrdate($orderdate[0], Criteria::GREATER_EQUAL);
@@ -119,7 +133,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * @param  mixed $ordertotal   array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrderTotal($ordertotal) {
+	public function filterByOrdertotal($ordertotal) {
 		if (is_array($ordertotal)) {
 			if (!empty($ordertotal[0])) {
 				$this->filterByOehdordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
@@ -145,7 +159,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	}
 
 	/**
-	 * Returns the Customer ID for Sales Order 
+	 * Returns the Customer ID for Sales Order
 	 *
 	 * @param  string $ordn Sales Order Number
 	 * @return string		Sales Order Customer ID
@@ -153,7 +167,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	public function get_custid($ordn) {
 		$this->clear();
 		$this->select($this->get_tablecolumn(SalesOrder::get_aliasproperty('custid')));
-		$this->filterByOrderNumber($ordn);
+		$this->filterByOrdernumber($ordn);
 		return $this->findOne();
 	}
 }

@@ -11,16 +11,17 @@ use Dplus\Model\QueryTraits;
  * methods with an alias
  * EXAMPLE: findOneByFolder()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ *
+ * FindOne
+ * @method  DocumentFolders findOneByFolder($folder) Filter Return the first DocumentFolders filtered by the DoccFolder column
+ * 
+ * Find
+ *
+ *
  */
 class DocumentFoldersQuery extends BaseDocumentFoldersQuery {
 	use QueryTraits;
-
-	/**
-	 * Return the first DocumentFolders filtered by the DoccFolder column
-	 * @param  string $folder Document Folder
-	 * @return DocumentFolders
-	 */
-	public function findOneByFolder($folder) {
-		return $this->findOneByDoccfolder($folder);
-	}
 }

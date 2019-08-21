@@ -20,16 +20,17 @@ class SalesHistory extends BaseSalesHistory {
 	use MagicMethodTraits;
 
 	const COLUMN_ALIASES = array(
-		'ordernumber'  => 'oehhnbr',
-		'custid'       => 'arcucustid',
-		'shiptoid'     => 'arstshipid',
-		'custpo'       => 'oehhcustpo',
-		'total_total'  => 'oehhoordrtot',
-		'date_ordered' => 'oehhordrdate',
-		'status'       => 'oehhstat',
+		'ordernumber'     => 'oehhnbr',
+		'custid'          => 'arcucustid',
+		'shiptoid'        => 'arstshipid',
+		'custpo'          => 'oehhcustpo',
+		'total_total'     => 'oehhoordrtot',
+		'date_ordered'    => 'oehhordrdate',
+		'status'          => 'oehhstat',
+		'orderstatus'     => 'oehhstat',
 		'subtotal_nontax' => 'OehhNonTaxSub',
-		'total_freight' => 'OehhFrtTot',
-		'total_tax'    => 'OehhTaxTot',
+		'total_freight'   => 'OehhFrtTot',
+		'total_tax'       => 'OehhTaxTot',
 		'shipto_name'     => 'oehhstname',
 		'shipto_address1' => 'oehhstadr1',
 		'shipto_address2' => 'oehhstadr2',
@@ -48,6 +49,11 @@ class SalesHistory extends BaseSalesHistory {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Return Status Description for Sales History Order
+	 *
+	 * @return string
+	 */
 	public function status() {
 		return self::$status_descriptions[$this->oehhstat];
 	}

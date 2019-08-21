@@ -11,19 +11,24 @@ use Dplus\Model\QueryTraits;
  * methods with an alias
  * EXAMPLE: findOneByItemid()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method     ItemMasterItemQuery filterByItemid(string $itemID) Filter the query on the InitItemNbr column
+ *
+ * FindOne
+ * @method     ItemMasterItem findOneByItemid(string $itemID)     Return the first ItemMasterItem filtered by the InitItemNbr column
+ *
  */
+
 class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	use QueryTraits;
 
-	/**
-	 * Return the first ItemMasterItem filtered by the InitItemNbr column
-	 *
-	 * @param  string $itemID Item ID
-	 * @return ItemMasterItem
-	 */
-	public function findOneByItemid($itemID) {
+	public function get_itemdescription($itemID) {
+		$this->select('initdesc1');
 		return $this->findOneByInititemnbr($itemID);
 	}
+
 
 	/**
 	 * Filter the query on the InitItemNbr column

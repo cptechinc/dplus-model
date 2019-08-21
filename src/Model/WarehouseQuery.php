@@ -6,24 +6,23 @@ use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'inv_whse_code' table.
- * 
+ *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
  * EXAMPLE: findOneByWhseid()
+ *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ *
+ * FindOne
+ * @method  Warehouse findOneByWhseid(string $whseID)     Return the first Warehouse filtered by the Intbwhse column
+ *
+ * Find
+ *
  */
 class WarehouseQuery extends BaseWarehouseQuery {
 	use QueryTraits;
-	
-	/**
-	 * Return the first Warehouse filtered by the IntbWhse column
-	 * @uses self::findOneByIntbwhse(string $IntbWhse)
-	 *
-	 * @param  string $whseID Warehouse ID to grab Configurations for
-	 * @return Warehouse
-	 */
-	public function findOneByWhseid($whseID) {
-		return $this->findOneByIntbwhse($whseID);
-	}
 
 	/**
 	 * Returns if Bins are ranged for Warehouse ID

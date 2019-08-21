@@ -25,6 +25,7 @@ class ItemGroupcode extends BaseItemGroupcode {
 	 */
 	const COLUMN_ALIASES = array(
 		'groupcode'   => 'intbgrup',
+		'itemgroup'   => 'intbgrup',
 		'description' => 'intbgrupdesc',
 	);
 }

@@ -75,13 +75,22 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Return Description for Item Type
+	 *
+	 * @return string
+	 */
+	public function get_itemtypedescription() {
+		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
+	}
+
+	/**
 	 * Returns if this item is a Kit
 	 *
 	 * @param  string $itemID
 	 * @return bool
 	 */
 	public function is_kit() {
-		$query = KitItemsQuery::create();
+		$query = KitQuery::create();
 		return $query->is_kit($this->inititemnbr);
 	}
 

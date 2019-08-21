@@ -13,4 +13,14 @@ use Dplus\Model\QueryTraits;
  */
 class KitsQuery extends BaseKitsQuery {
 	use QueryTraits;
+	
+	/**
+	 * Returns if the Item ID exists in the Kits table
+	 *
+	 * @param  string $itemID
+	 * @return bool
+	 */
+	public function is_kit($itemID) {
+		return boolval($this->filterByInititemnbr($itemID)->count());
+	}
 }

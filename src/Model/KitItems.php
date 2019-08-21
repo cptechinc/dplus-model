@@ -22,8 +22,8 @@ class KitItems extends BaseKitItems {
 		'kititem'     => 'ktdtkey1',
 		'kititemID'   => 'ktdtkey1',
 		'kit'         => 'ktdtkey1',
-		'itemid'      => 'intitemnbr',
-		'itemID'      => 'intitemnbr',
+		'itemid'      => 'inititemnbr',
+		'itemID'      => 'inititemnbr',
 		'uom'         => 'kitdtUom',
 		'usage'       => 'ktdtusagrate',
 		'is_free'     => 'ktdtfreegoods',
@@ -36,5 +36,15 @@ class KitItems extends BaseKitItems {
 	 */
 	public function has_usage() {
 		return $this->ktdtusagrate > 0;
+	}
+
+	/**
+	 * Return Item Description
+	 *
+	 * @return string
+	 */
+	public function get_description() {
+		$q = ItemMasterItemQuery::create();
+		return $q->get_itemdescription($this->inititemnbr);
 	}
 }

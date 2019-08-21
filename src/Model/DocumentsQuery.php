@@ -9,45 +9,22 @@ use Dplus\Model\QueryTraits;
  * 
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
- * EXAMPLE: findOneByFolder()
+ * EXAMPLE: filterByFolder()
+ * 
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method  DocumentsQuery filterByFolder($folder)       Filter the query by the DoccFolder column
+ * @method  DocumentsQuery filterByTag($folder)          Filter the query by the DociTag column
+ * @method  DocumentsQuery filterByReference1($folder)   Filter the query by the Docifld column
+ * @method  DocumentsQuery filterByFilename($folder)     Filter the query by the DociFilename column
+ * 
+ * FindOne
+ * 
+ * 
+ * Find
  *
  */
 class DocumentsQuery extends BaseDocumentsQuery {
 	use QueryTraits;
-
-	/**
-	 * Filter by the DociTag column
-	 * @param  string $tag Tag to filter on
-	 * @return DocumentsQuery
-	 */
-	public function filterByTag($tag) {
-		return $this->filterByDocitag($tag);
-	}
-
-	/**
-	 * Filter by the DociFld1 column
-	 * @param  string $ref Tag to filter on
-	 * @return DocumentsQuery
-	 */
-	public function filterByReference1($ref) {
-		return $this->filterByDocifld1($ref);
-	}
-
-	/**
-	 * Filter by the DociFilename column
-	 * @param  string $filename filename to filter on
-	 * @return DocumentsQuery
-	 */
-	public function filterByFilename($filename) {
-		return $this->filterByDocifilename($filename);
-	}
-
-	/**
-	 * Filter by the DoccFolder column
-	 * @param  string $folder folder to filter on
-	 * @return DocumentsQuery
-	 */
-	public function filterByFolder($folder) {
-		return $this->filterByDoccfolder($folder);
-	}
 }

@@ -17,7 +17,7 @@ class Kits extends BaseKits {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'itemid'      => 'intitemnbr',
+		'itemid'      => 'inititemnbr',
 		'dateupdated' => 'dateupdtd',
 		'timeupdated' => 'timeupdtd',
 	);
