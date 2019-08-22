@@ -92,7 +92,6 @@
 					}
 				}
 			}
-
 			return parent::__call($name, $arguments);
 		}
 	}
