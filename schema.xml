@@ -4151,7 +4151,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="phoneadr" idMethod="native" phpName="Phoneadr">
+  <table name="phoneadr" idMethod="native" phpName="PhoneBook">
     <column name="PhadType" phpName="Phadtype" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="PhadId" phpName="Phadid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="PhadSubId" phpName="Phadsubid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
