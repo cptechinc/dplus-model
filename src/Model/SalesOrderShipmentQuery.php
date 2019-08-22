@@ -11,6 +11,14 @@ use Dplus\Model\QueryTraits;
  * methods with an alias
  * EXAMPLE: findByOrdernumber()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ *
+ * FindOne
+ * 
+ * Find
+ * @method  SalesOrderShipment[]|ObjectCollection findByOrdernumber(string $ordn)  Filter the query on the Oehshnbr column
  */
 class SalesOrderShipmentQuery extends BaseSalesOrderShipmentQuery {
 	use QueryTraits;
