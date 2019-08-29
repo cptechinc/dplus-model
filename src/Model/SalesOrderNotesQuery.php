@@ -2,6 +2,8 @@
 
 use Base\SalesOrderNotesQuery as BaseSalesOrderNotesQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Skeleton subclass for performing query and update operations on the 'notes_sh_head_det' table.
  *
@@ -12,7 +14,6 @@ use Base\SalesOrderNotesQuery as BaseSalesOrderNotesQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class SalesOrderNotesQuery extends BaseSalesOrderNotesQuery
-{
-
+class SalesOrderNotesQuery extends BaseSalesOrderNotesQuery {
+	use QueryTraits;
 }
