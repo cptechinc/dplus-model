@@ -18,4 +18,26 @@ use Dplus\Model\MagicMethodTraits;
 class Contact extends BaseContact {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'custID'                  => 'arcucustid',
+		'custid'                  => 'arcucustid',
+		'shiptoid'                => 'arstshipid',
+		'shiptoID'                => 'arstshipid',
+		'contactid'               => 'arcpcontid',
+		'contact'                 => 'arcpcontid',
+		'id'                      => 'arcpcontid',
+		'contactID'               => 'arcpcontid',
+		'name'                    => 'arcpcontid',
+		'title'                   => 'arcptitl',
+		'contact_ar'              => 'arcparcont',
+		'contact_dunning'         => 'arcpduncont',
+		'contact_buyer'           => 'arcpbuycont',
+		'contact_acknowledgement' => 'arcpacknow',
+		'contact_certificate'     => 'arcpcertcontact'
+	);
 }
