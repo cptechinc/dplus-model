@@ -2,17 +2,36 @@
 
 use Base\PhoneBookQuery as BasePhoneBookQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'phoneadr' table.
+ * Class for performing query and update operations on the 'phoneadr' table.
  *
  *
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByItemid()
+ *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method     KitItemsQuery filterByKititemid(string $itemID) Filter the query on the ktdtkey1 column
+ *
  *
  */
-class PhoneBookQuery extends BasePhoneBookQuery
-{
+class PhoneBookQuery extends BasePhoneBookQuery {
+	use QueryTraits;
+	
+	public function filterTypeCustomer() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_CUSTOMER);
+	}
 
+	public function filterTypeCustomerShipto() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_CUSTOMERSHIPTO);
+	}
+
+	public function filterTypeCustomerContact() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_CUSTOMERCONTACT);
+	}
 }
