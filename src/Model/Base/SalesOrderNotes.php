@@ -19,7 +19,7 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'notes_sh_head_det' table.
+ * Base class that represents a row from the 'notes_so_head_det' table.
  *
  *
  *
@@ -60,106 +60,99 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the shnttype field.
+     * The value for the qntype field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $shnttype;
+    protected $qntype;
 
     /**
-     * The value for the shnttypedesc field.
+     * The value for the qntypedesc field.
      *
      * @var        string
      */
-    protected $shnttypedesc;
+    protected $qntypedesc;
 
     /**
-     * The value for the oehhnbr field.
+     * The value for the oehdnbr field.
      *
      * @var        string
      */
-    protected $oehhnbr;
+    protected $oehdnbr;
 
     /**
-     * The value for the shntyear field.
-     *
-     * @var        string
-     */
-    protected $shntyear;
-
-    /**
-     * The value for the oedhline field.
+     * The value for the oedtline field.
      *
      * @var        int
      */
-    protected $oedhline;
+    protected $oedtline;
 
     /**
-     * The value for the shntlotser field.
+     * The value for the qnordrlotser field.
      *
      * @var        string
      */
-    protected $shntlotser;
+    protected $qnordrlotser;
 
     /**
-     * The value for the shntpickticket field.
+     * The value for the qnordrpickticket field.
      *
      * @var        string
      */
-    protected $shntpickticket;
+    protected $qnordrpickticket;
 
     /**
-     * The value for the shntpackticket field.
+     * The value for the qnordrpackticket field.
      *
      * @var        string
      */
-    protected $shntpackticket;
+    protected $qnordrpackticket;
 
     /**
-     * The value for the shntinvoice field.
+     * The value for the qnordrinvoice field.
      *
      * @var        string
      */
-    protected $shntinvoice;
+    protected $qnordrinvoice;
 
     /**
-     * The value for the shntacknow field.
+     * The value for the qnordracknow field.
      *
      * @var        string
      */
-    protected $shntacknow;
+    protected $qnordracknow;
 
     /**
-     * The value for the shntseq field.
+     * The value for the qnseq field.
      *
      * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $shntseq;
+    protected $qnseq;
 
     /**
-     * The value for the shntnote field.
+     * The value for the qnnote field.
      *
      * @var        string
      */
-    protected $shntnote;
+    protected $qnnote;
 
     /**
-     * The value for the shntkey2 field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $shntkey2;
-
-    /**
-     * The value for the shntform field.
+     * The value for the qnkey2 field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $shntform;
+    protected $qnkey2;
+
+    /**
+     * The value for the qnform field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $qnform;
 
     /**
      * The value for the dateupdtd field.
@@ -198,10 +191,10 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->shnttype = '';
-        $this->shntseq = 0;
-        $this->shntkey2 = '';
-        $this->shntform = '';
+        $this->qntype = '';
+        $this->qnseq = 0;
+        $this->qnkey2 = '';
+        $this->qnform = '';
     }
 
     /**
@@ -432,143 +425,133 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Get the [shnttype] column value.
+     * Get the [qntype] column value.
      *
      * @return string
      */
-    public function getShnttype()
+    public function getQntype()
     {
-        return $this->shnttype;
+        return $this->qntype;
     }
 
     /**
-     * Get the [shnttypedesc] column value.
+     * Get the [qntypedesc] column value.
      *
      * @return string
      */
-    public function getShnttypedesc()
+    public function getQntypedesc()
     {
-        return $this->shnttypedesc;
+        return $this->qntypedesc;
     }
 
     /**
-     * Get the [oehhnbr] column value.
+     * Get the [oehdnbr] column value.
      *
      * @return string
      */
-    public function getOehhnbr()
+    public function getOehdnbr()
     {
-        return $this->oehhnbr;
+        return $this->oehdnbr;
     }
 
     /**
-     * Get the [shntyear] column value.
-     *
-     * @return string
-     */
-    public function getShntyear()
-    {
-        return $this->shntyear;
-    }
-
-    /**
-     * Get the [oedhline] column value.
+     * Get the [oedtline] column value.
      *
      * @return int
      */
-    public function getOedhline()
+    public function getOedtline()
     {
-        return $this->oedhline;
+        return $this->oedtline;
     }
 
     /**
-     * Get the [shntlotser] column value.
+     * Get the [qnordrlotser] column value.
      *
      * @return string
      */
-    public function getShntlotser()
+    public function getQnordrlotser()
     {
-        return $this->shntlotser;
+        return $this->qnordrlotser;
     }
 
     /**
-     * Get the [shntpickticket] column value.
+     * Get the [qnordrpickticket] column value.
      *
      * @return string
      */
-    public function getShntpickticket()
+    public function getQnordrpickticket()
     {
-        return $this->shntpickticket;
+        return $this->qnordrpickticket;
     }
 
     /**
-     * Get the [shntpackticket] column value.
+     * Get the [qnordrpackticket] column value.
      *
      * @return string
      */
-    public function getShntpackticket()
+    public function getQnordrpackticket()
     {
-        return $this->shntpackticket;
+        return $this->qnordrpackticket;
     }
 
     /**
-     * Get the [shntinvoice] column value.
+     * Get the [qnordrinvoice] column value.
      *
      * @return string
      */
-    public function getShntinvoice()
+    public function getQnordrinvoice()
     {
-        return $this->shntinvoice;
+        return $this->qnordrinvoice;
     }
 
     /**
-     * Get the [shntacknow] column value.
+     * Get the [qnordracknow] column value.
      *
      * @return string
      */
-    public function getShntacknow()
+    public function getQnordracknow()
     {
-        return $this->shntacknow;
+        return $this->qnordracknow;
     }
 
     /**
-     * Get the [shntseq] column value.
+     * Get the [qnseq] column value.
      *
      * @return int
      */
-    public function getShntseq()
+    public function getQnseq()
     {
-        return $this->shntseq;
+        return $this->qnseq;
     }
 
     /**
-     * Get the [shntnote] column value.
+     * Get the [qnnote] column value.
      *
      * @return string
      */
-    public function getShntnote()
+    public function getQnnote()
     {
-        return $this->shntnote;
+        return $this->qnnote;
     }
 
     /**
-     * Get the [shntkey2] column value.
+     * Get the [qnkey2] column value.
      *
      * @return string
      */
-    public function getShntkey2()
+    public function getQnkey2()
     {
-        return $this->shntkey2;
+        return $this->qnkey2;
     }
 
     /**
-     * Get the [shntform] column value.
+     * Get the [qnform] column value.
      *
      * @return string
      */
-    public function getShntform()
+    public function getQnform()
     {
-        return $this->shntform;
+        return $this->qnform;
     }
 
     /**
@@ -602,284 +585,264 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [shnttype] column.
+     * Set the value of [qntype] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShnttype($v)
+    public function setQntype($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shnttype !== $v) {
-            $this->shnttype = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTTYPE] = true;
+        if ($this->qntype !== $v) {
+            $this->qntype = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNTYPE] = true;
         }
 
         return $this;
-    } // setShnttype()
+    } // setQntype()
 
     /**
-     * Set the value of [shnttypedesc] column.
+     * Set the value of [qntypedesc] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShnttypedesc($v)
+    public function setQntypedesc($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shnttypedesc !== $v) {
-            $this->shnttypedesc = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTTYPEDESC] = true;
+        if ($this->qntypedesc !== $v) {
+            $this->qntypedesc = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNTYPEDESC] = true;
         }
 
         return $this;
-    } // setShnttypedesc()
+    } // setQntypedesc()
 
     /**
-     * Set the value of [oehhnbr] column.
+     * Set the value of [oehdnbr] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setOehhnbr($v)
+    public function setOehdnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oehhnbr !== $v) {
-            $this->oehhnbr = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_OEHHNBR] = true;
+        if ($this->oehdnbr !== $v) {
+            $this->oehdnbr = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_OEHDNBR] = true;
         }
 
         return $this;
-    } // setOehhnbr()
+    } // setOehdnbr()
 
     /**
-     * Set the value of [shntyear] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderNotes The current object (for fluent API support)
-     */
-    public function setShntyear($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->shntyear !== $v) {
-            $this->shntyear = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTYEAR] = true;
-        }
-
-        return $this;
-    } // setShntyear()
-
-    /**
-     * Set the value of [oedhline] column.
+     * Set the value of [oedtline] column.
      *
      * @param int $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setOedhline($v)
+    public function setOedtline($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->oedhline !== $v) {
-            $this->oedhline = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_OEDHLINE] = true;
+        if ($this->oedtline !== $v) {
+            $this->oedtline = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_OEDTLINE] = true;
         }
 
         return $this;
-    } // setOedhline()
+    } // setOedtline()
 
     /**
-     * Set the value of [shntlotser] column.
+     * Set the value of [qnordrlotser] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntlotser($v)
+    public function setQnordrlotser($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntlotser !== $v) {
-            $this->shntlotser = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTLOTSER] = true;
+        if ($this->qnordrlotser !== $v) {
+            $this->qnordrlotser = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNORDRLOTSER] = true;
         }
 
         return $this;
-    } // setShntlotser()
+    } // setQnordrlotser()
 
     /**
-     * Set the value of [shntpickticket] column.
+     * Set the value of [qnordrpickticket] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntpickticket($v)
+    public function setQnordrpickticket($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntpickticket !== $v) {
-            $this->shntpickticket = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTPICKTICKET] = true;
+        if ($this->qnordrpickticket !== $v) {
+            $this->qnordrpickticket = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNORDRPICKTICKET] = true;
         }
 
         return $this;
-    } // setShntpickticket()
+    } // setQnordrpickticket()
 
     /**
-     * Set the value of [shntpackticket] column.
+     * Set the value of [qnordrpackticket] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntpackticket($v)
+    public function setQnordrpackticket($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntpackticket !== $v) {
-            $this->shntpackticket = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTPACKTICKET] = true;
+        if ($this->qnordrpackticket !== $v) {
+            $this->qnordrpackticket = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNORDRPACKTICKET] = true;
         }
 
         return $this;
-    } // setShntpackticket()
+    } // setQnordrpackticket()
 
     /**
-     * Set the value of [shntinvoice] column.
+     * Set the value of [qnordrinvoice] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntinvoice($v)
+    public function setQnordrinvoice($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntinvoice !== $v) {
-            $this->shntinvoice = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTINVOICE] = true;
+        if ($this->qnordrinvoice !== $v) {
+            $this->qnordrinvoice = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNORDRINVOICE] = true;
         }
 
         return $this;
-    } // setShntinvoice()
+    } // setQnordrinvoice()
 
     /**
-     * Set the value of [shntacknow] column.
+     * Set the value of [qnordracknow] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntacknow($v)
+    public function setQnordracknow($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntacknow !== $v) {
-            $this->shntacknow = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTACKNOW] = true;
+        if ($this->qnordracknow !== $v) {
+            $this->qnordracknow = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNORDRACKNOW] = true;
         }
 
         return $this;
-    } // setShntacknow()
+    } // setQnordracknow()
 
     /**
-     * Set the value of [shntseq] column.
+     * Set the value of [qnseq] column.
      *
      * @param int $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntseq($v)
+    public function setQnseq($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->shntseq !== $v) {
-            $this->shntseq = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTSEQ] = true;
+        if ($this->qnseq !== $v) {
+            $this->qnseq = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNSEQ] = true;
         }
 
         return $this;
-    } // setShntseq()
+    } // setQnseq()
 
     /**
-     * Set the value of [shntnote] column.
+     * Set the value of [qnnote] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntnote($v)
+    public function setQnnote($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntnote !== $v) {
-            $this->shntnote = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTNOTE] = true;
+        if ($this->qnnote !== $v) {
+            $this->qnnote = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNNOTE] = true;
         }
 
         return $this;
-    } // setShntnote()
+    } // setQnnote()
 
     /**
-     * Set the value of [shntkey2] column.
+     * Set the value of [qnkey2] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntkey2($v)
+    public function setQnkey2($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntkey2 !== $v) {
-            $this->shntkey2 = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTKEY2] = true;
+        if ($this->qnkey2 !== $v) {
+            $this->qnkey2 = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNKEY2] = true;
         }
 
         return $this;
-    } // setShntkey2()
+    } // setQnkey2()
 
     /**
-     * Set the value of [shntform] column.
+     * Set the value of [qnform] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderNotes The current object (for fluent API support)
      */
-    public function setShntform($v)
+    public function setQnform($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->shntform !== $v) {
-            $this->shntform = $v;
-            $this->modifiedColumns[SalesOrderNotesTableMap::COL_SHNTFORM] = true;
+        if ($this->qnform !== $v) {
+            $this->qnform = $v;
+            $this->modifiedColumns[SalesOrderNotesTableMap::COL_QNFORM] = true;
         }
 
         return $this;
-    } // setShntform()
+    } // setQnform()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -951,19 +914,19 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->shnttype !== '') {
+            if ($this->qntype !== '') {
                 return false;
             }
 
-            if ($this->shntseq !== 0) {
+            if ($this->qnseq !== 0) {
                 return false;
             }
 
-            if ($this->shntkey2 !== '') {
+            if ($this->qnkey2 !== '') {
                 return false;
             }
 
-            if ($this->shntform !== '') {
+            if ($this->qnform !== '') {
                 return false;
             }
 
@@ -993,55 +956,52 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shnttype = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qntype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shnttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shnttypedesc = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qntypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderNotesTableMap::translateFieldName('Oehhnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhnbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderNotesTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehdnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntyear', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntyear = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderNotesTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderNotesTableMap::translateFieldName('Oedhline', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oedhline = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnordrlotser', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnordrlotser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntlotser', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntlotser = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnordrpickticket', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnordrpickticket = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntpickticket', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntpickticket = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnordrpackticket', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnordrpackticket = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntpackticket', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntpackticket = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnordrinvoice', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnordrinvoice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntinvoice', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntinvoice = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnordracknow', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnordracknow = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntacknow', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntacknow = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntseq = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntnote', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntnote = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntkey2 = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderNotesTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->qnform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderNotesTableMap::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->shntform = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1051,7 +1011,7 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 17; // 17 = SalesOrderNotesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 16; // 16 = SalesOrderNotesTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesOrderNotes'), 0, $e);
@@ -1248,47 +1208,44 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTTYPE)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntType';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNTYPE)) {
+            $modifiedColumns[':p' . $index++]  = 'QnType';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTTYPEDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntTypeDesc';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNTYPEDESC)) {
+            $modifiedColumns[':p' . $index++]  = 'QnTypeDesc';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEHHNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'OehhNbr';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEHDNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OehdNbr';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTYEAR)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntYear';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEDTLINE)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtLine';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEDHLINE)) {
-            $modifiedColumns[':p' . $index++]  = 'OedhLine';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRLOTSER)) {
+            $modifiedColumns[':p' . $index++]  = 'QnOrdrLotSer';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTLOTSER)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntLotSer';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRPICKTICKET)) {
+            $modifiedColumns[':p' . $index++]  = 'QnOrdrPickTicket';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTPICKTICKET)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntPickTicket';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRPACKTICKET)) {
+            $modifiedColumns[':p' . $index++]  = 'QnOrdrPackTicket';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTPACKTICKET)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntPackTicket';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRINVOICE)) {
+            $modifiedColumns[':p' . $index++]  = 'QnOrdrInvoice';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTINVOICE)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntInvoice';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRACKNOW)) {
+            $modifiedColumns[':p' . $index++]  = 'QnOrdrAcknow';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTACKNOW)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntAcknow';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNSEQ)) {
+            $modifiedColumns[':p' . $index++]  = 'QnSeq';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTSEQ)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntSeq';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNNOTE)) {
+            $modifiedColumns[':p' . $index++]  = 'QnNote';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTNOTE)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntNote';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNKEY2)) {
+            $modifiedColumns[':p' . $index++]  = 'QnKey2';
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTKEY2)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntKey2';
-        }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTFORM)) {
-            $modifiedColumns[':p' . $index++]  = 'ShntForm';
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNFORM)) {
+            $modifiedColumns[':p' . $index++]  = 'QnForm';
         }
         if ($this->isColumnModified(SalesOrderNotesTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
@@ -1301,7 +1258,7 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
         }
 
         $sql = sprintf(
-            'INSERT INTO notes_sh_head_det (%s) VALUES (%s)',
+            'INSERT INTO notes_so_head_det (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1310,47 +1267,44 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'ShntType':
-                        $stmt->bindValue($identifier, $this->shnttype, PDO::PARAM_STR);
+                    case 'QnType':
+                        $stmt->bindValue($identifier, $this->qntype, PDO::PARAM_STR);
                         break;
-                    case 'ShntTypeDesc':
-                        $stmt->bindValue($identifier, $this->shnttypedesc, PDO::PARAM_STR);
+                    case 'QnTypeDesc':
+                        $stmt->bindValue($identifier, $this->qntypedesc, PDO::PARAM_STR);
                         break;
-                    case 'OehhNbr':
-                        $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_STR);
+                    case 'OehdNbr':
+                        $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_STR);
                         break;
-                    case 'ShntYear':
-                        $stmt->bindValue($identifier, $this->shntyear, PDO::PARAM_STR);
+                    case 'OedtLine':
+                        $stmt->bindValue($identifier, $this->oedtline, PDO::PARAM_INT);
                         break;
-                    case 'OedhLine':
-                        $stmt->bindValue($identifier, $this->oedhline, PDO::PARAM_INT);
+                    case 'QnOrdrLotSer':
+                        $stmt->bindValue($identifier, $this->qnordrlotser, PDO::PARAM_STR);
                         break;
-                    case 'ShntLotSer':
-                        $stmt->bindValue($identifier, $this->shntlotser, PDO::PARAM_STR);
+                    case 'QnOrdrPickTicket':
+                        $stmt->bindValue($identifier, $this->qnordrpickticket, PDO::PARAM_STR);
                         break;
-                    case 'ShntPickTicket':
-                        $stmt->bindValue($identifier, $this->shntpickticket, PDO::PARAM_STR);
+                    case 'QnOrdrPackTicket':
+                        $stmt->bindValue($identifier, $this->qnordrpackticket, PDO::PARAM_STR);
                         break;
-                    case 'ShntPackTicket':
-                        $stmt->bindValue($identifier, $this->shntpackticket, PDO::PARAM_STR);
+                    case 'QnOrdrInvoice':
+                        $stmt->bindValue($identifier, $this->qnordrinvoice, PDO::PARAM_STR);
                         break;
-                    case 'ShntInvoice':
-                        $stmt->bindValue($identifier, $this->shntinvoice, PDO::PARAM_STR);
+                    case 'QnOrdrAcknow':
+                        $stmt->bindValue($identifier, $this->qnordracknow, PDO::PARAM_STR);
                         break;
-                    case 'ShntAcknow':
-                        $stmt->bindValue($identifier, $this->shntacknow, PDO::PARAM_STR);
+                    case 'QnSeq':
+                        $stmt->bindValue($identifier, $this->qnseq, PDO::PARAM_INT);
                         break;
-                    case 'ShntSeq':
-                        $stmt->bindValue($identifier, $this->shntseq, PDO::PARAM_INT);
+                    case 'QnNote':
+                        $stmt->bindValue($identifier, $this->qnnote, PDO::PARAM_STR);
                         break;
-                    case 'ShntNote':
-                        $stmt->bindValue($identifier, $this->shntnote, PDO::PARAM_STR);
+                    case 'QnKey2':
+                        $stmt->bindValue($identifier, $this->qnkey2, PDO::PARAM_STR);
                         break;
-                    case 'ShntKey2':
-                        $stmt->bindValue($identifier, $this->shntkey2, PDO::PARAM_STR);
-                        break;
-                    case 'ShntForm':
-                        $stmt->bindValue($identifier, $this->shntform, PDO::PARAM_STR);
+                    case 'QnForm':
+                        $stmt->bindValue($identifier, $this->qnform, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1417,54 +1371,51 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getShnttype();
+                return $this->getQntype();
                 break;
             case 1:
-                return $this->getShnttypedesc();
+                return $this->getQntypedesc();
                 break;
             case 2:
-                return $this->getOehhnbr();
+                return $this->getOehdnbr();
                 break;
             case 3:
-                return $this->getShntyear();
+                return $this->getOedtline();
                 break;
             case 4:
-                return $this->getOedhline();
+                return $this->getQnordrlotser();
                 break;
             case 5:
-                return $this->getShntlotser();
+                return $this->getQnordrpickticket();
                 break;
             case 6:
-                return $this->getShntpickticket();
+                return $this->getQnordrpackticket();
                 break;
             case 7:
-                return $this->getShntpackticket();
+                return $this->getQnordrinvoice();
                 break;
             case 8:
-                return $this->getShntinvoice();
+                return $this->getQnordracknow();
                 break;
             case 9:
-                return $this->getShntacknow();
+                return $this->getQnseq();
                 break;
             case 10:
-                return $this->getShntseq();
+                return $this->getQnnote();
                 break;
             case 11:
-                return $this->getShntnote();
+                return $this->getQnkey2();
                 break;
             case 12:
-                return $this->getShntkey2();
+                return $this->getQnform();
                 break;
             case 13:
-                return $this->getShntform();
-                break;
-            case 14:
                 return $this->getDateupdtd();
                 break;
-            case 15:
+            case 14:
                 return $this->getTimeupdtd();
                 break;
-            case 16:
+            case 15:
                 return $this->getDummy();
                 break;
             default:
@@ -1496,23 +1447,22 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
         $alreadyDumpedObjects['SalesOrderNotes'][$this->hashCode()] = true;
         $keys = SalesOrderNotesTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getShnttype(),
-            $keys[1] => $this->getShnttypedesc(),
-            $keys[2] => $this->getOehhnbr(),
-            $keys[3] => $this->getShntyear(),
-            $keys[4] => $this->getOedhline(),
-            $keys[5] => $this->getShntlotser(),
-            $keys[6] => $this->getShntpickticket(),
-            $keys[7] => $this->getShntpackticket(),
-            $keys[8] => $this->getShntinvoice(),
-            $keys[9] => $this->getShntacknow(),
-            $keys[10] => $this->getShntseq(),
-            $keys[11] => $this->getShntnote(),
-            $keys[12] => $this->getShntkey2(),
-            $keys[13] => $this->getShntform(),
-            $keys[14] => $this->getDateupdtd(),
-            $keys[15] => $this->getTimeupdtd(),
-            $keys[16] => $this->getDummy(),
+            $keys[0] => $this->getQntype(),
+            $keys[1] => $this->getQntypedesc(),
+            $keys[2] => $this->getOehdnbr(),
+            $keys[3] => $this->getOedtline(),
+            $keys[4] => $this->getQnordrlotser(),
+            $keys[5] => $this->getQnordrpickticket(),
+            $keys[6] => $this->getQnordrpackticket(),
+            $keys[7] => $this->getQnordrinvoice(),
+            $keys[8] => $this->getQnordracknow(),
+            $keys[9] => $this->getQnseq(),
+            $keys[10] => $this->getQnnote(),
+            $keys[11] => $this->getQnkey2(),
+            $keys[12] => $this->getQnform(),
+            $keys[13] => $this->getDateupdtd(),
+            $keys[14] => $this->getTimeupdtd(),
+            $keys[15] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1553,54 +1503,51 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setShnttype($value);
+                $this->setQntype($value);
                 break;
             case 1:
-                $this->setShnttypedesc($value);
+                $this->setQntypedesc($value);
                 break;
             case 2:
-                $this->setOehhnbr($value);
+                $this->setOehdnbr($value);
                 break;
             case 3:
-                $this->setShntyear($value);
+                $this->setOedtline($value);
                 break;
             case 4:
-                $this->setOedhline($value);
+                $this->setQnordrlotser($value);
                 break;
             case 5:
-                $this->setShntlotser($value);
+                $this->setQnordrpickticket($value);
                 break;
             case 6:
-                $this->setShntpickticket($value);
+                $this->setQnordrpackticket($value);
                 break;
             case 7:
-                $this->setShntpackticket($value);
+                $this->setQnordrinvoice($value);
                 break;
             case 8:
-                $this->setShntinvoice($value);
+                $this->setQnordracknow($value);
                 break;
             case 9:
-                $this->setShntacknow($value);
+                $this->setQnseq($value);
                 break;
             case 10:
-                $this->setShntseq($value);
+                $this->setQnnote($value);
                 break;
             case 11:
-                $this->setShntnote($value);
+                $this->setQnkey2($value);
                 break;
             case 12:
-                $this->setShntkey2($value);
+                $this->setQnform($value);
                 break;
             case 13:
-                $this->setShntform($value);
-                break;
-            case 14:
                 $this->setDateupdtd($value);
                 break;
-            case 15:
+            case 14:
                 $this->setTimeupdtd($value);
                 break;
-            case 16:
+            case 15:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1630,55 +1577,52 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
         $keys = SalesOrderNotesTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setShnttype($arr[$keys[0]]);
+            $this->setQntype($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setShnttypedesc($arr[$keys[1]]);
+            $this->setQntypedesc($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setOehhnbr($arr[$keys[2]]);
+            $this->setOehdnbr($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setShntyear($arr[$keys[3]]);
+            $this->setOedtline($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setOedhline($arr[$keys[4]]);
+            $this->setQnordrlotser($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setShntlotser($arr[$keys[5]]);
+            $this->setQnordrpickticket($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setShntpickticket($arr[$keys[6]]);
+            $this->setQnordrpackticket($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setShntpackticket($arr[$keys[7]]);
+            $this->setQnordrinvoice($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setShntinvoice($arr[$keys[8]]);
+            $this->setQnordracknow($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setShntacknow($arr[$keys[9]]);
+            $this->setQnseq($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setShntseq($arr[$keys[10]]);
+            $this->setQnnote($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setShntnote($arr[$keys[11]]);
+            $this->setQnkey2($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setShntkey2($arr[$keys[12]]);
+            $this->setQnform($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setShntform($arr[$keys[13]]);
+            $this->setDateupdtd($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setDateupdtd($arr[$keys[14]]);
+            $this->setTimeupdtd($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setTimeupdtd($arr[$keys[15]]);
-        }
-        if (array_key_exists($keys[16], $arr)) {
-            $this->setDummy($arr[$keys[16]]);
+            $this->setDummy($arr[$keys[15]]);
         }
     }
 
@@ -1721,47 +1665,44 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     {
         $criteria = new Criteria(SalesOrderNotesTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTTYPE)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTTYPE, $this->shnttype);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNTYPE)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNTYPE, $this->qntype);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTTYPEDESC)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTTYPEDESC, $this->shnttypedesc);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNTYPEDESC)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNTYPEDESC, $this->qntypedesc);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEHHNBR)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_OEHHNBR, $this->oehhnbr);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEHDNBR)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_OEHDNBR, $this->oehdnbr);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTYEAR)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTYEAR, $this->shntyear);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEDTLINE)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_OEDTLINE, $this->oedtline);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_OEDHLINE)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_OEDHLINE, $this->oedhline);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRLOTSER)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNORDRLOTSER, $this->qnordrlotser);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTLOTSER)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTLOTSER, $this->shntlotser);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRPICKTICKET)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNORDRPICKTICKET, $this->qnordrpickticket);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTPICKTICKET)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTPICKTICKET, $this->shntpickticket);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRPACKTICKET)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNORDRPACKTICKET, $this->qnordrpackticket);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTPACKTICKET)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTPACKTICKET, $this->shntpackticket);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRINVOICE)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNORDRINVOICE, $this->qnordrinvoice);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTINVOICE)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTINVOICE, $this->shntinvoice);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNORDRACKNOW)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNORDRACKNOW, $this->qnordracknow);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTACKNOW)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTACKNOW, $this->shntacknow);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNSEQ)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTSEQ)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTSEQ, $this->shntseq);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNNOTE)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNNOTE, $this->qnnote);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTNOTE)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTNOTE, $this->shntnote);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNKEY2)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
         }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTKEY2)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTKEY2, $this->shntkey2);
-        }
-        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_SHNTFORM)) {
-            $criteria->add(SalesOrderNotesTableMap::COL_SHNTFORM, $this->shntform);
+        if ($this->isColumnModified(SalesOrderNotesTableMap::COL_QNFORM)) {
+            $criteria->add(SalesOrderNotesTableMap::COL_QNFORM, $this->qnform);
         }
         if ($this->isColumnModified(SalesOrderNotesTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesOrderNotesTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1789,10 +1730,10 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildSalesOrderNotesQuery::create();
-        $criteria->add(SalesOrderNotesTableMap::COL_SHNTTYPE, $this->shnttype);
-        $criteria->add(SalesOrderNotesTableMap::COL_SHNTSEQ, $this->shntseq);
-        $criteria->add(SalesOrderNotesTableMap::COL_SHNTKEY2, $this->shntkey2);
-        $criteria->add(SalesOrderNotesTableMap::COL_SHNTFORM, $this->shntform);
+        $criteria->add(SalesOrderNotesTableMap::COL_QNTYPE, $this->qntype);
+        $criteria->add(SalesOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
+        $criteria->add(SalesOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
+        $criteria->add(SalesOrderNotesTableMap::COL_QNFORM, $this->qnform);
 
         return $criteria;
     }
@@ -1805,10 +1746,10 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getShnttype() &&
-            null !== $this->getShntseq() &&
-            null !== $this->getShntkey2() &&
-            null !== $this->getShntform();
+        $validPk = null !== $this->getQntype() &&
+            null !== $this->getQnseq() &&
+            null !== $this->getQnkey2() &&
+            null !== $this->getQnform();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1830,10 +1771,10 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getShnttype();
-        $pks[1] = $this->getShntseq();
-        $pks[2] = $this->getShntkey2();
-        $pks[3] = $this->getShntform();
+        $pks[0] = $this->getQntype();
+        $pks[1] = $this->getQnseq();
+        $pks[2] = $this->getQnkey2();
+        $pks[3] = $this->getQnform();
 
         return $pks;
     }
@@ -1846,10 +1787,10 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setShnttype($keys[0]);
-        $this->setShntseq($keys[1]);
-        $this->setShntkey2($keys[2]);
-        $this->setShntform($keys[3]);
+        $this->setQntype($keys[0]);
+        $this->setQnseq($keys[1]);
+        $this->setQnkey2($keys[2]);
+        $this->setQnform($keys[3]);
     }
 
     /**
@@ -1858,7 +1799,7 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getShnttype()) && (null === $this->getShntseq()) && (null === $this->getShntkey2()) && (null === $this->getShntform());
+        return (null === $this->getQntype()) && (null === $this->getQnseq()) && (null === $this->getQnkey2()) && (null === $this->getQnform());
     }
 
     /**
@@ -1874,20 +1815,19 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setShnttype($this->getShnttype());
-        $copyObj->setShnttypedesc($this->getShnttypedesc());
-        $copyObj->setOehhnbr($this->getOehhnbr());
-        $copyObj->setShntyear($this->getShntyear());
-        $copyObj->setOedhline($this->getOedhline());
-        $copyObj->setShntlotser($this->getShntlotser());
-        $copyObj->setShntpickticket($this->getShntpickticket());
-        $copyObj->setShntpackticket($this->getShntpackticket());
-        $copyObj->setShntinvoice($this->getShntinvoice());
-        $copyObj->setShntacknow($this->getShntacknow());
-        $copyObj->setShntseq($this->getShntseq());
-        $copyObj->setShntnote($this->getShntnote());
-        $copyObj->setShntkey2($this->getShntkey2());
-        $copyObj->setShntform($this->getShntform());
+        $copyObj->setQntype($this->getQntype());
+        $copyObj->setQntypedesc($this->getQntypedesc());
+        $copyObj->setOehdnbr($this->getOehdnbr());
+        $copyObj->setOedtline($this->getOedtline());
+        $copyObj->setQnordrlotser($this->getQnordrlotser());
+        $copyObj->setQnordrpickticket($this->getQnordrpickticket());
+        $copyObj->setQnordrpackticket($this->getQnordrpackticket());
+        $copyObj->setQnordrinvoice($this->getQnordrinvoice());
+        $copyObj->setQnordracknow($this->getQnordracknow());
+        $copyObj->setQnseq($this->getQnseq());
+        $copyObj->setQnnote($this->getQnnote());
+        $copyObj->setQnkey2($this->getQnkey2());
+        $copyObj->setQnform($this->getQnform());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1925,20 +1865,19 @@ abstract class SalesOrderNotes implements ActiveRecordInterface
      */
     public function clear()
     {
-        $this->shnttype = null;
-        $this->shnttypedesc = null;
-        $this->oehhnbr = null;
-        $this->shntyear = null;
-        $this->oedhline = null;
-        $this->shntlotser = null;
-        $this->shntpickticket = null;
-        $this->shntpackticket = null;
-        $this->shntinvoice = null;
-        $this->shntacknow = null;
-        $this->shntseq = null;
-        $this->shntnote = null;
-        $this->shntkey2 = null;
-        $this->shntform = null;
+        $this->qntype = null;
+        $this->qntypedesc = null;
+        $this->oehdnbr = null;
+        $this->oedtline = null;
+        $this->qnordrlotser = null;
+        $this->qnordrpickticket = null;
+        $this->qnordrpackticket = null;
+        $this->qnordrinvoice = null;
+        $this->qnordracknow = null;
+        $this->qnseq = null;
+        $this->qnnote = null;
+        $this->qnkey2 = null;
+        $this->qnform = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

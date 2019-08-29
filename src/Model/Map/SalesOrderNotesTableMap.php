@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'notes_sh_head_det' table.
+ * This class defines the structure of the 'notes_so_head_det' table.
  *
  *
  *
@@ -44,7 +44,7 @@ class SalesOrderNotesTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_sh_head_det';
+    const TABLE_NAME = 'notes_so_head_det';
 
     /**
      * The related Propel class for this table
@@ -59,7 +59,7 @@ class SalesOrderNotesTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    const NUM_COLUMNS = 16;
 
     /**
      * The number of lazy-loaded columns
@@ -69,92 +69,87 @@ class SalesOrderNotesTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    const NUM_HYDRATE_COLUMNS = 16;
 
     /**
-     * the column name for the ShntType field
+     * the column name for the QnType field
      */
-    const COL_SHNTTYPE = 'notes_sh_head_det.ShntType';
+    const COL_QNTYPE = 'notes_so_head_det.QnType';
 
     /**
-     * the column name for the ShntTypeDesc field
+     * the column name for the QnTypeDesc field
      */
-    const COL_SHNTTYPEDESC = 'notes_sh_head_det.ShntTypeDesc';
+    const COL_QNTYPEDESC = 'notes_so_head_det.QnTypeDesc';
 
     /**
-     * the column name for the OehhNbr field
+     * the column name for the OehdNbr field
      */
-    const COL_OEHHNBR = 'notes_sh_head_det.OehhNbr';
+    const COL_OEHDNBR = 'notes_so_head_det.OehdNbr';
 
     /**
-     * the column name for the ShntYear field
+     * the column name for the OedtLine field
      */
-    const COL_SHNTYEAR = 'notes_sh_head_det.ShntYear';
+    const COL_OEDTLINE = 'notes_so_head_det.OedtLine';
 
     /**
-     * the column name for the OedhLine field
+     * the column name for the QnOrdrLotSer field
      */
-    const COL_OEDHLINE = 'notes_sh_head_det.OedhLine';
+    const COL_QNORDRLOTSER = 'notes_so_head_det.QnOrdrLotSer';
 
     /**
-     * the column name for the ShntLotSer field
+     * the column name for the QnOrdrPickTicket field
      */
-    const COL_SHNTLOTSER = 'notes_sh_head_det.ShntLotSer';
+    const COL_QNORDRPICKTICKET = 'notes_so_head_det.QnOrdrPickTicket';
 
     /**
-     * the column name for the ShntPickTicket field
+     * the column name for the QnOrdrPackTicket field
      */
-    const COL_SHNTPICKTICKET = 'notes_sh_head_det.ShntPickTicket';
+    const COL_QNORDRPACKTICKET = 'notes_so_head_det.QnOrdrPackTicket';
 
     /**
-     * the column name for the ShntPackTicket field
+     * the column name for the QnOrdrInvoice field
      */
-    const COL_SHNTPACKTICKET = 'notes_sh_head_det.ShntPackTicket';
+    const COL_QNORDRINVOICE = 'notes_so_head_det.QnOrdrInvoice';
 
     /**
-     * the column name for the ShntInvoice field
+     * the column name for the QnOrdrAcknow field
      */
-    const COL_SHNTINVOICE = 'notes_sh_head_det.ShntInvoice';
+    const COL_QNORDRACKNOW = 'notes_so_head_det.QnOrdrAcknow';
 
     /**
-     * the column name for the ShntAcknow field
+     * the column name for the QnSeq field
      */
-    const COL_SHNTACKNOW = 'notes_sh_head_det.ShntAcknow';
+    const COL_QNSEQ = 'notes_so_head_det.QnSeq';
 
     /**
-     * the column name for the ShntSeq field
+     * the column name for the QnNote field
      */
-    const COL_SHNTSEQ = 'notes_sh_head_det.ShntSeq';
+    const COL_QNNOTE = 'notes_so_head_det.QnNote';
 
     /**
-     * the column name for the ShntNote field
+     * the column name for the QnKey2 field
      */
-    const COL_SHNTNOTE = 'notes_sh_head_det.ShntNote';
+    const COL_QNKEY2 = 'notes_so_head_det.QnKey2';
 
     /**
-     * the column name for the ShntKey2 field
+     * the column name for the QnForm field
      */
-    const COL_SHNTKEY2 = 'notes_sh_head_det.ShntKey2';
-
-    /**
-     * the column name for the ShntForm field
-     */
-    const COL_SHNTFORM = 'notes_sh_head_det.ShntForm';
+    const COL_QNFORM = 'notes_so_head_det.QnForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_sh_head_det.DateUpdtd';
+    const COL_DATEUPDTD = 'notes_so_head_det.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_sh_head_det.TimeUpdtd';
+    const COL_TIMEUPDTD = 'notes_so_head_det.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_sh_head_det.dummy';
+    const COL_DUMMY = 'notes_so_head_det.dummy';
 
     /**
      * The default string format for model objects of the related table
@@ -168,11 +163,11 @@ class SalesOrderNotesTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Shnttype', 'Shnttypedesc', 'Oehhnbr', 'Shntyear', 'Oedhline', 'Shntlotser', 'Shntpickticket', 'Shntpackticket', 'Shntinvoice', 'Shntacknow', 'Shntseq', 'Shntnote', 'Shntkey2', 'Shntform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('shnttype', 'shnttypedesc', 'oehhnbr', 'shntyear', 'oedhline', 'shntlotser', 'shntpickticket', 'shntpackticket', 'shntinvoice', 'shntacknow', 'shntseq', 'shntnote', 'shntkey2', 'shntform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesOrderNotesTableMap::COL_SHNTTYPE, SalesOrderNotesTableMap::COL_SHNTTYPEDESC, SalesOrderNotesTableMap::COL_OEHHNBR, SalesOrderNotesTableMap::COL_SHNTYEAR, SalesOrderNotesTableMap::COL_OEDHLINE, SalesOrderNotesTableMap::COL_SHNTLOTSER, SalesOrderNotesTableMap::COL_SHNTPICKTICKET, SalesOrderNotesTableMap::COL_SHNTPACKTICKET, SalesOrderNotesTableMap::COL_SHNTINVOICE, SalesOrderNotesTableMap::COL_SHNTACKNOW, SalesOrderNotesTableMap::COL_SHNTSEQ, SalesOrderNotesTableMap::COL_SHNTNOTE, SalesOrderNotesTableMap::COL_SHNTKEY2, SalesOrderNotesTableMap::COL_SHNTFORM, SalesOrderNotesTableMap::COL_DATEUPDTD, SalesOrderNotesTableMap::COL_TIMEUPDTD, SalesOrderNotesTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ShntType', 'ShntTypeDesc', 'OehhNbr', 'ShntYear', 'OedhLine', 'ShntLotSer', 'ShntPickTicket', 'ShntPackTicket', 'ShntInvoice', 'ShntAcknow', 'ShntSeq', 'ShntNote', 'ShntKey2', 'ShntForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Oehdnbr', 'Oedtline', 'Qnordrlotser', 'Qnordrpickticket', 'Qnordrpackticket', 'Qnordrinvoice', 'Qnordracknow', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'oehdnbr', 'oedtline', 'qnordrlotser', 'qnordrpickticket', 'qnordrpackticket', 'qnordrinvoice', 'qnordracknow', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(SalesOrderNotesTableMap::COL_QNTYPE, SalesOrderNotesTableMap::COL_QNTYPEDESC, SalesOrderNotesTableMap::COL_OEHDNBR, SalesOrderNotesTableMap::COL_OEDTLINE, SalesOrderNotesTableMap::COL_QNORDRLOTSER, SalesOrderNotesTableMap::COL_QNORDRPICKTICKET, SalesOrderNotesTableMap::COL_QNORDRPACKTICKET, SalesOrderNotesTableMap::COL_QNORDRINVOICE, SalesOrderNotesTableMap::COL_QNORDRACKNOW, SalesOrderNotesTableMap::COL_QNSEQ, SalesOrderNotesTableMap::COL_QNNOTE, SalesOrderNotesTableMap::COL_QNKEY2, SalesOrderNotesTableMap::COL_QNFORM, SalesOrderNotesTableMap::COL_DATEUPDTD, SalesOrderNotesTableMap::COL_TIMEUPDTD, SalesOrderNotesTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'OehdNbr', 'OedtLine', 'QnOrdrLotSer', 'QnOrdrPickTicket', 'QnOrdrPackTicket', 'QnOrdrInvoice', 'QnOrdrAcknow', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -182,11 +177,11 @@ class SalesOrderNotesTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Shnttype' => 0, 'Shnttypedesc' => 1, 'Oehhnbr' => 2, 'Shntyear' => 3, 'Oedhline' => 4, 'Shntlotser' => 5, 'Shntpickticket' => 6, 'Shntpackticket' => 7, 'Shntinvoice' => 8, 'Shntacknow' => 9, 'Shntseq' => 10, 'Shntnote' => 11, 'Shntkey2' => 12, 'Shntform' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ),
-        self::TYPE_CAMELNAME     => array('shnttype' => 0, 'shnttypedesc' => 1, 'oehhnbr' => 2, 'shntyear' => 3, 'oedhline' => 4, 'shntlotser' => 5, 'shntpickticket' => 6, 'shntpackticket' => 7, 'shntinvoice' => 8, 'shntacknow' => 9, 'shntseq' => 10, 'shntnote' => 11, 'shntkey2' => 12, 'shntform' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(SalesOrderNotesTableMap::COL_SHNTTYPE => 0, SalesOrderNotesTableMap::COL_SHNTTYPEDESC => 1, SalesOrderNotesTableMap::COL_OEHHNBR => 2, SalesOrderNotesTableMap::COL_SHNTYEAR => 3, SalesOrderNotesTableMap::COL_OEDHLINE => 4, SalesOrderNotesTableMap::COL_SHNTLOTSER => 5, SalesOrderNotesTableMap::COL_SHNTPICKTICKET => 6, SalesOrderNotesTableMap::COL_SHNTPACKTICKET => 7, SalesOrderNotesTableMap::COL_SHNTINVOICE => 8, SalesOrderNotesTableMap::COL_SHNTACKNOW => 9, SalesOrderNotesTableMap::COL_SHNTSEQ => 10, SalesOrderNotesTableMap::COL_SHNTNOTE => 11, SalesOrderNotesTableMap::COL_SHNTKEY2 => 12, SalesOrderNotesTableMap::COL_SHNTFORM => 13, SalesOrderNotesTableMap::COL_DATEUPDTD => 14, SalesOrderNotesTableMap::COL_TIMEUPDTD => 15, SalesOrderNotesTableMap::COL_DUMMY => 16, ),
-        self::TYPE_FIELDNAME     => array('ShntType' => 0, 'ShntTypeDesc' => 1, 'OehhNbr' => 2, 'ShntYear' => 3, 'OedhLine' => 4, 'ShntLotSer' => 5, 'ShntPickTicket' => 6, 'ShntPackTicket' => 7, 'ShntInvoice' => 8, 'ShntAcknow' => 9, 'ShntSeq' => 10, 'ShntNote' => 11, 'ShntKey2' => 12, 'ShntForm' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Oehdnbr' => 2, 'Oedtline' => 3, 'Qnordrlotser' => 4, 'Qnordrpickticket' => 5, 'Qnordrpackticket' => 6, 'Qnordrinvoice' => 7, 'Qnordracknow' => 8, 'Qnseq' => 9, 'Qnnote' => 10, 'Qnkey2' => 11, 'Qnform' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
+        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'oehdnbr' => 2, 'oedtline' => 3, 'qnordrlotser' => 4, 'qnordrpickticket' => 5, 'qnordrpackticket' => 6, 'qnordrinvoice' => 7, 'qnordracknow' => 8, 'qnseq' => 9, 'qnnote' => 10, 'qnkey2' => 11, 'qnform' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_COLNAME       => array(SalesOrderNotesTableMap::COL_QNTYPE => 0, SalesOrderNotesTableMap::COL_QNTYPEDESC => 1, SalesOrderNotesTableMap::COL_OEHDNBR => 2, SalesOrderNotesTableMap::COL_OEDTLINE => 3, SalesOrderNotesTableMap::COL_QNORDRLOTSER => 4, SalesOrderNotesTableMap::COL_QNORDRPICKTICKET => 5, SalesOrderNotesTableMap::COL_QNORDRPACKTICKET => 6, SalesOrderNotesTableMap::COL_QNORDRINVOICE => 7, SalesOrderNotesTableMap::COL_QNORDRACKNOW => 8, SalesOrderNotesTableMap::COL_QNSEQ => 9, SalesOrderNotesTableMap::COL_QNNOTE => 10, SalesOrderNotesTableMap::COL_QNKEY2 => 11, SalesOrderNotesTableMap::COL_QNFORM => 12, SalesOrderNotesTableMap::COL_DATEUPDTD => 13, SalesOrderNotesTableMap::COL_TIMEUPDTD => 14, SalesOrderNotesTableMap::COL_DUMMY => 15, ),
+        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'OehdNbr' => 2, 'OedtLine' => 3, 'QnOrdrLotSer' => 4, 'QnOrdrPickTicket' => 5, 'QnOrdrPackTicket' => 6, 'QnOrdrInvoice' => 7, 'QnOrdrAcknow' => 8, 'QnSeq' => 9, 'QnNote' => 10, 'QnKey2' => 11, 'QnForm' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -199,27 +194,26 @@ class SalesOrderNotesTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('notes_sh_head_det');
+        $this->setName('notes_so_head_det');
         $this->setPhpName('SalesOrderNotes');
         $this->setIdentifierQuoting(false);
         $this->setClassName('\\SalesOrderNotes');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ShntType', 'Shnttype', 'VARCHAR', true, 4, '');
-        $this->addColumn('ShntTypeDesc', 'Shnttypedesc', 'VARCHAR', false, 40, null);
-        $this->addColumn('OehhNbr', 'Oehhnbr', 'VARCHAR', false, 10, null);
-        $this->addColumn('ShntYear', 'Shntyear', 'VARCHAR', false, 4, null);
-        $this->addColumn('OedhLine', 'Oedhline', 'INTEGER', false, 4, null);
-        $this->addColumn('ShntLotSer', 'Shntlotser', 'VARCHAR', false, 20, null);
-        $this->addColumn('ShntPickTicket', 'Shntpickticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('ShntPackTicket', 'Shntpackticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('ShntInvoice', 'Shntinvoice', 'VARCHAR', false, 1, null);
-        $this->addColumn('ShntAcknow', 'Shntacknow', 'VARCHAR', false, 1, null);
-        $this->addPrimaryKey('ShntSeq', 'Shntseq', 'INTEGER', true, 8, 0);
-        $this->addColumn('ShntNote', 'Shntnote', 'VARCHAR', false, 150, null);
-        $this->addPrimaryKey('ShntKey2', 'Shntkey2', 'VARCHAR', true, 50, '');
-        $this->addPrimaryKey('ShntForm', 'Shntform', 'VARCHAR', true, 8, '');
+        $this->addPrimaryKey('QnType', 'Qntype', 'VARCHAR', true, 4, '');
+        $this->addColumn('QnTypeDesc', 'Qntypedesc', 'VARCHAR', false, 40, null);
+        $this->addColumn('OehdNbr', 'Oehdnbr', 'VARCHAR', false, 10, null);
+        $this->addColumn('OedtLine', 'Oedtline', 'INTEGER', false, 4, null);
+        $this->addColumn('QnOrdrLotSer', 'Qnordrlotser', 'VARCHAR', false, 20, null);
+        $this->addColumn('QnOrdrPickTicket', 'Qnordrpickticket', 'VARCHAR', false, 1, null);
+        $this->addColumn('QnOrdrPackTicket', 'Qnordrpackticket', 'VARCHAR', false, 1, null);
+        $this->addColumn('QnOrdrInvoice', 'Qnordrinvoice', 'VARCHAR', false, 1, null);
+        $this->addColumn('QnOrdrAcknow', 'Qnordracknow', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('QnSeq', 'Qnseq', 'INTEGER', true, 8, 0);
+        $this->addColumn('QnNote', 'Qnnote', 'VARCHAR', false, 150, null);
+        $this->addPrimaryKey('QnKey2', 'Qnkey2', 'VARCHAR', true, 50, '');
+        $this->addPrimaryKey('QnForm', 'Qnform', 'VARCHAR', true, 8, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -247,7 +241,7 @@ class SalesOrderNotesTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getShnttype() || is_scalar($obj->getShnttype()) || is_callable([$obj->getShnttype(), '__toString']) ? (string) $obj->getShnttype() : $obj->getShnttype()), (null === $obj->getShntseq() || is_scalar($obj->getShntseq()) || is_callable([$obj->getShntseq(), '__toString']) ? (string) $obj->getShntseq() : $obj->getShntseq()), (null === $obj->getShntkey2() || is_scalar($obj->getShntkey2()) || is_callable([$obj->getShntkey2(), '__toString']) ? (string) $obj->getShntkey2() : $obj->getShntkey2()), (null === $obj->getShntform() || is_scalar($obj->getShntform()) || is_callable([$obj->getShntform(), '__toString']) ? (string) $obj->getShntform() : $obj->getShntform())]);
+                $key = serialize([(null === $obj->getQntype() || is_scalar($obj->getQntype()) || is_callable([$obj->getQntype(), '__toString']) ? (string) $obj->getQntype() : $obj->getQntype()), (null === $obj->getQnseq() || is_scalar($obj->getQnseq()) || is_callable([$obj->getQnseq(), '__toString']) ? (string) $obj->getQnseq() : $obj->getQnseq()), (null === $obj->getQnkey2() || is_scalar($obj->getQnkey2()) || is_callable([$obj->getQnkey2(), '__toString']) ? (string) $obj->getQnkey2() : $obj->getQnkey2()), (null === $obj->getQnform() || is_scalar($obj->getQnform()) || is_callable([$obj->getQnform(), '__toString']) ? (string) $obj->getQnform() : $obj->getQnform())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -267,7 +261,7 @@ class SalesOrderNotesTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \SalesOrderNotes) {
-                $key = serialize([(null === $value->getShnttype() || is_scalar($value->getShnttype()) || is_callable([$value->getShnttype(), '__toString']) ? (string) $value->getShnttype() : $value->getShnttype()), (null === $value->getShntseq() || is_scalar($value->getShntseq()) || is_callable([$value->getShntseq(), '__toString']) ? (string) $value->getShntseq() : $value->getShntseq()), (null === $value->getShntkey2() || is_scalar($value->getShntkey2()) || is_callable([$value->getShntkey2(), '__toString']) ? (string) $value->getShntkey2() : $value->getShntkey2()), (null === $value->getShntform() || is_scalar($value->getShntform()) || is_callable([$value->getShntform(), '__toString']) ? (string) $value->getShntform() : $value->getShntform())]);
+                $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
                 // assume we've been passed a primary key";
@@ -301,11 +295,11 @@ class SalesOrderNotesTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 13 + $offset : static::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 9 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 12 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -327,22 +321,22 @@ class SalesOrderNotesTableMap extends TableMap
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
-                : self::translateFieldName('Shnttype', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 10 + $offset
-                : self::translateFieldName('Shntseq', TableMap::TYPE_PHPNAME, $indexType)
+                ? 9 + $offset
+                : self::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)
+        ];
+        $pks[] = (string) $row[
+            $indexType == TableMap::TYPE_NUM
+                ? 11 + $offset
+                : self::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 12 + $offset
-                : self::translateFieldName('Shntkey2', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 13 + $offset
-                : self::translateFieldName('Shntform', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
         return $pks;
@@ -445,38 +439,36 @@ class SalesOrderNotesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTTYPE);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTTYPEDESC);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_OEHHNBR);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTYEAR);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_OEDHLINE);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTLOTSER);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTPICKTICKET);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTPACKTICKET);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTINVOICE);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTACKNOW);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTSEQ);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTNOTE);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTKEY2);
-            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_SHNTFORM);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_OEHDNBR);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_OEDTLINE);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNORDRLOTSER);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNORDRPICKTICKET);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNORDRPACKTICKET);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNORDRINVOICE);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNORDRACKNOW);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_QNFORM);
             $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(SalesOrderNotesTableMap::COL_DUMMY);
         } else {
-            $criteria->addSelectColumn($alias . '.ShntType');
-            $criteria->addSelectColumn($alias . '.ShntTypeDesc');
-            $criteria->addSelectColumn($alias . '.OehhNbr');
-            $criteria->addSelectColumn($alias . '.ShntYear');
-            $criteria->addSelectColumn($alias . '.OedhLine');
-            $criteria->addSelectColumn($alias . '.ShntLotSer');
-            $criteria->addSelectColumn($alias . '.ShntPickTicket');
-            $criteria->addSelectColumn($alias . '.ShntPackTicket');
-            $criteria->addSelectColumn($alias . '.ShntInvoice');
-            $criteria->addSelectColumn($alias . '.ShntAcknow');
-            $criteria->addSelectColumn($alias . '.ShntSeq');
-            $criteria->addSelectColumn($alias . '.ShntNote');
-            $criteria->addSelectColumn($alias . '.ShntKey2');
-            $criteria->addSelectColumn($alias . '.ShntForm');
+            $criteria->addSelectColumn($alias . '.QnType');
+            $criteria->addSelectColumn($alias . '.QnTypeDesc');
+            $criteria->addSelectColumn($alias . '.OehdNbr');
+            $criteria->addSelectColumn($alias . '.OedtLine');
+            $criteria->addSelectColumn($alias . '.QnOrdrLotSer');
+            $criteria->addSelectColumn($alias . '.QnOrdrPickTicket');
+            $criteria->addSelectColumn($alias . '.QnOrdrPackTicket');
+            $criteria->addSelectColumn($alias . '.QnOrdrInvoice');
+            $criteria->addSelectColumn($alias . '.QnOrdrAcknow');
+            $criteria->addSelectColumn($alias . '.QnSeq');
+            $criteria->addSelectColumn($alias . '.QnNote');
+            $criteria->addSelectColumn($alias . '.QnKey2');
+            $criteria->addSelectColumn($alias . '.QnForm');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
@@ -538,10 +530,10 @@ class SalesOrderNotesTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(SalesOrderNotesTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(SalesOrderNotesTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
@@ -560,7 +552,7 @@ class SalesOrderNotesTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the notes_sh_head_det table.
+     * Deletes all rows from the notes_so_head_det table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).

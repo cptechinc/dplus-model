@@ -1,6 +1,7 @@
 <?php
 
 use Base\SalesOrderNotes as BaseSalesOrderNotes;
+
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 

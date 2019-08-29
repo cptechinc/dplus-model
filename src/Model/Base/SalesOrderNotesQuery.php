@@ -15,42 +15,40 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'notes_sh_head_det' table.
+ * Base class that represents a query for the 'notes_so_head_det' table.
  *
  *
  *
- * @method     ChildSalesOrderNotesQuery orderByShnttype($order = Criteria::ASC) Order by the ShntType column
- * @method     ChildSalesOrderNotesQuery orderByShnttypedesc($order = Criteria::ASC) Order by the ShntTypeDesc column
- * @method     ChildSalesOrderNotesQuery orderByOehhnbr($order = Criteria::ASC) Order by the OehhNbr column
- * @method     ChildSalesOrderNotesQuery orderByShntyear($order = Criteria::ASC) Order by the ShntYear column
- * @method     ChildSalesOrderNotesQuery orderByOedhline($order = Criteria::ASC) Order by the OedhLine column
- * @method     ChildSalesOrderNotesQuery orderByShntlotser($order = Criteria::ASC) Order by the ShntLotSer column
- * @method     ChildSalesOrderNotesQuery orderByShntpickticket($order = Criteria::ASC) Order by the ShntPickTicket column
- * @method     ChildSalesOrderNotesQuery orderByShntpackticket($order = Criteria::ASC) Order by the ShntPackTicket column
- * @method     ChildSalesOrderNotesQuery orderByShntinvoice($order = Criteria::ASC) Order by the ShntInvoice column
- * @method     ChildSalesOrderNotesQuery orderByShntacknow($order = Criteria::ASC) Order by the ShntAcknow column
- * @method     ChildSalesOrderNotesQuery orderByShntseq($order = Criteria::ASC) Order by the ShntSeq column
- * @method     ChildSalesOrderNotesQuery orderByShntnote($order = Criteria::ASC) Order by the ShntNote column
- * @method     ChildSalesOrderNotesQuery orderByShntkey2($order = Criteria::ASC) Order by the ShntKey2 column
- * @method     ChildSalesOrderNotesQuery orderByShntform($order = Criteria::ASC) Order by the ShntForm column
+ * @method     ChildSalesOrderNotesQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
+ * @method     ChildSalesOrderNotesQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
+ * @method     ChildSalesOrderNotesQuery orderByOehdnbr($order = Criteria::ASC) Order by the OehdNbr column
+ * @method     ChildSalesOrderNotesQuery orderByOedtline($order = Criteria::ASC) Order by the OedtLine column
+ * @method     ChildSalesOrderNotesQuery orderByQnordrlotser($order = Criteria::ASC) Order by the QnOrdrLotSer column
+ * @method     ChildSalesOrderNotesQuery orderByQnordrpickticket($order = Criteria::ASC) Order by the QnOrdrPickTicket column
+ * @method     ChildSalesOrderNotesQuery orderByQnordrpackticket($order = Criteria::ASC) Order by the QnOrdrPackTicket column
+ * @method     ChildSalesOrderNotesQuery orderByQnordrinvoice($order = Criteria::ASC) Order by the QnOrdrInvoice column
+ * @method     ChildSalesOrderNotesQuery orderByQnordracknow($order = Criteria::ASC) Order by the QnOrdrAcknow column
+ * @method     ChildSalesOrderNotesQuery orderByQnseq($order = Criteria::ASC) Order by the QnSeq column
+ * @method     ChildSalesOrderNotesQuery orderByQnnote($order = Criteria::ASC) Order by the QnNote column
+ * @method     ChildSalesOrderNotesQuery orderByQnkey2($order = Criteria::ASC) Order by the QnKey2 column
+ * @method     ChildSalesOrderNotesQuery orderByQnform($order = Criteria::ASC) Order by the QnForm column
  * @method     ChildSalesOrderNotesQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildSalesOrderNotesQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildSalesOrderNotesQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildSalesOrderNotesQuery groupByShnttype() Group by the ShntType column
- * @method     ChildSalesOrderNotesQuery groupByShnttypedesc() Group by the ShntTypeDesc column
- * @method     ChildSalesOrderNotesQuery groupByOehhnbr() Group by the OehhNbr column
- * @method     ChildSalesOrderNotesQuery groupByShntyear() Group by the ShntYear column
- * @method     ChildSalesOrderNotesQuery groupByOedhline() Group by the OedhLine column
- * @method     ChildSalesOrderNotesQuery groupByShntlotser() Group by the ShntLotSer column
- * @method     ChildSalesOrderNotesQuery groupByShntpickticket() Group by the ShntPickTicket column
- * @method     ChildSalesOrderNotesQuery groupByShntpackticket() Group by the ShntPackTicket column
- * @method     ChildSalesOrderNotesQuery groupByShntinvoice() Group by the ShntInvoice column
- * @method     ChildSalesOrderNotesQuery groupByShntacknow() Group by the ShntAcknow column
- * @method     ChildSalesOrderNotesQuery groupByShntseq() Group by the ShntSeq column
- * @method     ChildSalesOrderNotesQuery groupByShntnote() Group by the ShntNote column
- * @method     ChildSalesOrderNotesQuery groupByShntkey2() Group by the ShntKey2 column
- * @method     ChildSalesOrderNotesQuery groupByShntform() Group by the ShntForm column
+ * @method     ChildSalesOrderNotesQuery groupByQntype() Group by the QnType column
+ * @method     ChildSalesOrderNotesQuery groupByQntypedesc() Group by the QnTypeDesc column
+ * @method     ChildSalesOrderNotesQuery groupByOehdnbr() Group by the OehdNbr column
+ * @method     ChildSalesOrderNotesQuery groupByOedtline() Group by the OedtLine column
+ * @method     ChildSalesOrderNotesQuery groupByQnordrlotser() Group by the QnOrdrLotSer column
+ * @method     ChildSalesOrderNotesQuery groupByQnordrpickticket() Group by the QnOrdrPickTicket column
+ * @method     ChildSalesOrderNotesQuery groupByQnordrpackticket() Group by the QnOrdrPackTicket column
+ * @method     ChildSalesOrderNotesQuery groupByQnordrinvoice() Group by the QnOrdrInvoice column
+ * @method     ChildSalesOrderNotesQuery groupByQnordracknow() Group by the QnOrdrAcknow column
+ * @method     ChildSalesOrderNotesQuery groupByQnseq() Group by the QnSeq column
+ * @method     ChildSalesOrderNotesQuery groupByQnnote() Group by the QnNote column
+ * @method     ChildSalesOrderNotesQuery groupByQnkey2() Group by the QnKey2 column
+ * @method     ChildSalesOrderNotesQuery groupByQnform() Group by the QnForm column
  * @method     ChildSalesOrderNotesQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildSalesOrderNotesQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildSalesOrderNotesQuery groupByDummy() Group by the dummy column
@@ -66,20 +64,19 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderNotes findOne(ConnectionInterface $con = null) Return the first ChildSalesOrderNotes matching the query
  * @method     ChildSalesOrderNotes findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrderNotes matching the query, or a new ChildSalesOrderNotes object populated from the query conditions when no match is found
  *
- * @method     ChildSalesOrderNotes findOneByShnttype(string $ShntType) Return the first ChildSalesOrderNotes filtered by the ShntType column
- * @method     ChildSalesOrderNotes findOneByShnttypedesc(string $ShntTypeDesc) Return the first ChildSalesOrderNotes filtered by the ShntTypeDesc column
- * @method     ChildSalesOrderNotes findOneByOehhnbr(string $OehhNbr) Return the first ChildSalesOrderNotes filtered by the OehhNbr column
- * @method     ChildSalesOrderNotes findOneByShntyear(string $ShntYear) Return the first ChildSalesOrderNotes filtered by the ShntYear column
- * @method     ChildSalesOrderNotes findOneByOedhline(int $OedhLine) Return the first ChildSalesOrderNotes filtered by the OedhLine column
- * @method     ChildSalesOrderNotes findOneByShntlotser(string $ShntLotSer) Return the first ChildSalesOrderNotes filtered by the ShntLotSer column
- * @method     ChildSalesOrderNotes findOneByShntpickticket(string $ShntPickTicket) Return the first ChildSalesOrderNotes filtered by the ShntPickTicket column
- * @method     ChildSalesOrderNotes findOneByShntpackticket(string $ShntPackTicket) Return the first ChildSalesOrderNotes filtered by the ShntPackTicket column
- * @method     ChildSalesOrderNotes findOneByShntinvoice(string $ShntInvoice) Return the first ChildSalesOrderNotes filtered by the ShntInvoice column
- * @method     ChildSalesOrderNotes findOneByShntacknow(string $ShntAcknow) Return the first ChildSalesOrderNotes filtered by the ShntAcknow column
- * @method     ChildSalesOrderNotes findOneByShntseq(int $ShntSeq) Return the first ChildSalesOrderNotes filtered by the ShntSeq column
- * @method     ChildSalesOrderNotes findOneByShntnote(string $ShntNote) Return the first ChildSalesOrderNotes filtered by the ShntNote column
- * @method     ChildSalesOrderNotes findOneByShntkey2(string $ShntKey2) Return the first ChildSalesOrderNotes filtered by the ShntKey2 column
- * @method     ChildSalesOrderNotes findOneByShntform(string $ShntForm) Return the first ChildSalesOrderNotes filtered by the ShntForm column
+ * @method     ChildSalesOrderNotes findOneByQntype(string $QnType) Return the first ChildSalesOrderNotes filtered by the QnType column
+ * @method     ChildSalesOrderNotes findOneByQntypedesc(string $QnTypeDesc) Return the first ChildSalesOrderNotes filtered by the QnTypeDesc column
+ * @method     ChildSalesOrderNotes findOneByOehdnbr(string $OehdNbr) Return the first ChildSalesOrderNotes filtered by the OehdNbr column
+ * @method     ChildSalesOrderNotes findOneByOedtline(int $OedtLine) Return the first ChildSalesOrderNotes filtered by the OedtLine column
+ * @method     ChildSalesOrderNotes findOneByQnordrlotser(string $QnOrdrLotSer) Return the first ChildSalesOrderNotes filtered by the QnOrdrLotSer column
+ * @method     ChildSalesOrderNotes findOneByQnordrpickticket(string $QnOrdrPickTicket) Return the first ChildSalesOrderNotes filtered by the QnOrdrPickTicket column
+ * @method     ChildSalesOrderNotes findOneByQnordrpackticket(string $QnOrdrPackTicket) Return the first ChildSalesOrderNotes filtered by the QnOrdrPackTicket column
+ * @method     ChildSalesOrderNotes findOneByQnordrinvoice(string $QnOrdrInvoice) Return the first ChildSalesOrderNotes filtered by the QnOrdrInvoice column
+ * @method     ChildSalesOrderNotes findOneByQnordracknow(string $QnOrdrAcknow) Return the first ChildSalesOrderNotes filtered by the QnOrdrAcknow column
+ * @method     ChildSalesOrderNotes findOneByQnseq(int $QnSeq) Return the first ChildSalesOrderNotes filtered by the QnSeq column
+ * @method     ChildSalesOrderNotes findOneByQnnote(string $QnNote) Return the first ChildSalesOrderNotes filtered by the QnNote column
+ * @method     ChildSalesOrderNotes findOneByQnkey2(string $QnKey2) Return the first ChildSalesOrderNotes filtered by the QnKey2 column
+ * @method     ChildSalesOrderNotes findOneByQnform(string $QnForm) Return the first ChildSalesOrderNotes filtered by the QnForm column
  * @method     ChildSalesOrderNotes findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrderNotes filtered by the DateUpdtd column
  * @method     ChildSalesOrderNotes findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrderNotes filtered by the TimeUpdtd column
  * @method     ChildSalesOrderNotes findOneByDummy(string $dummy) Return the first ChildSalesOrderNotes filtered by the dummy column *
@@ -87,39 +84,37 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderNotes requirePk($key, ConnectionInterface $con = null) Return the ChildSalesOrderNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderNotes requireOne(ConnectionInterface $con = null) Return the first ChildSalesOrderNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesOrderNotes requireOneByShnttype(string $ShntType) Return the first ChildSalesOrderNotes filtered by the ShntType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShnttypedesc(string $ShntTypeDesc) Return the first ChildSalesOrderNotes filtered by the ShntTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByOehhnbr(string $OehhNbr) Return the first ChildSalesOrderNotes filtered by the OehhNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntyear(string $ShntYear) Return the first ChildSalesOrderNotes filtered by the ShntYear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByOedhline(int $OedhLine) Return the first ChildSalesOrderNotes filtered by the OedhLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntlotser(string $ShntLotSer) Return the first ChildSalesOrderNotes filtered by the ShntLotSer column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntpickticket(string $ShntPickTicket) Return the first ChildSalesOrderNotes filtered by the ShntPickTicket column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntpackticket(string $ShntPackTicket) Return the first ChildSalesOrderNotes filtered by the ShntPackTicket column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntinvoice(string $ShntInvoice) Return the first ChildSalesOrderNotes filtered by the ShntInvoice column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntacknow(string $ShntAcknow) Return the first ChildSalesOrderNotes filtered by the ShntAcknow column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntseq(int $ShntSeq) Return the first ChildSalesOrderNotes filtered by the ShntSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntnote(string $ShntNote) Return the first ChildSalesOrderNotes filtered by the ShntNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntkey2(string $ShntKey2) Return the first ChildSalesOrderNotes filtered by the ShntKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderNotes requireOneByShntform(string $ShntForm) Return the first ChildSalesOrderNotes filtered by the ShntForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQntype(string $QnType) Return the first ChildSalesOrderNotes filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildSalesOrderNotes filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByOehdnbr(string $OehdNbr) Return the first ChildSalesOrderNotes filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByOedtline(int $OedtLine) Return the first ChildSalesOrderNotes filtered by the OedtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnordrlotser(string $QnOrdrLotSer) Return the first ChildSalesOrderNotes filtered by the QnOrdrLotSer column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnordrpickticket(string $QnOrdrPickTicket) Return the first ChildSalesOrderNotes filtered by the QnOrdrPickTicket column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnordrpackticket(string $QnOrdrPackTicket) Return the first ChildSalesOrderNotes filtered by the QnOrdrPackTicket column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnordrinvoice(string $QnOrdrInvoice) Return the first ChildSalesOrderNotes filtered by the QnOrdrInvoice column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnordracknow(string $QnOrdrAcknow) Return the first ChildSalesOrderNotes filtered by the QnOrdrAcknow column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnseq(int $QnSeq) Return the first ChildSalesOrderNotes filtered by the QnSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnnote(string $QnNote) Return the first ChildSalesOrderNotes filtered by the QnNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnkey2(string $QnKey2) Return the first ChildSalesOrderNotes filtered by the QnKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderNotes requireOneByQnform(string $QnForm) Return the first ChildSalesOrderNotes filtered by the QnForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderNotes requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrderNotes filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderNotes requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrderNotes filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderNotes requireOneByDummy(string $dummy) Return the first ChildSalesOrderNotes filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesOrderNotes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesOrderNotes objects based on current ModelCriteria
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShnttype(string $ShntType) Return ChildSalesOrderNotes objects filtered by the ShntType column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShnttypedesc(string $ShntTypeDesc) Return ChildSalesOrderNotes objects filtered by the ShntTypeDesc column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByOehhnbr(string $OehhNbr) Return ChildSalesOrderNotes objects filtered by the OehhNbr column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntyear(string $ShntYear) Return ChildSalesOrderNotes objects filtered by the ShntYear column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByOedhline(int $OedhLine) Return ChildSalesOrderNotes objects filtered by the OedhLine column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntlotser(string $ShntLotSer) Return ChildSalesOrderNotes objects filtered by the ShntLotSer column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntpickticket(string $ShntPickTicket) Return ChildSalesOrderNotes objects filtered by the ShntPickTicket column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntpackticket(string $ShntPackTicket) Return ChildSalesOrderNotes objects filtered by the ShntPackTicket column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntinvoice(string $ShntInvoice) Return ChildSalesOrderNotes objects filtered by the ShntInvoice column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntacknow(string $ShntAcknow) Return ChildSalesOrderNotes objects filtered by the ShntAcknow column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntseq(int $ShntSeq) Return ChildSalesOrderNotes objects filtered by the ShntSeq column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntnote(string $ShntNote) Return ChildSalesOrderNotes objects filtered by the ShntNote column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntkey2(string $ShntKey2) Return ChildSalesOrderNotes objects filtered by the ShntKey2 column
- * @method     ChildSalesOrderNotes[]|ObjectCollection findByShntform(string $ShntForm) Return ChildSalesOrderNotes objects filtered by the ShntForm column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQntype(string $QnType) Return ChildSalesOrderNotes objects filtered by the QnType column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildSalesOrderNotes objects filtered by the QnTypeDesc column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByOehdnbr(string $OehdNbr) Return ChildSalesOrderNotes objects filtered by the OehdNbr column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByOedtline(int $OedtLine) Return ChildSalesOrderNotes objects filtered by the OedtLine column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnordrlotser(string $QnOrdrLotSer) Return ChildSalesOrderNotes objects filtered by the QnOrdrLotSer column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnordrpickticket(string $QnOrdrPickTicket) Return ChildSalesOrderNotes objects filtered by the QnOrdrPickTicket column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnordrpackticket(string $QnOrdrPackTicket) Return ChildSalesOrderNotes objects filtered by the QnOrdrPackTicket column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnordrinvoice(string $QnOrdrInvoice) Return ChildSalesOrderNotes objects filtered by the QnOrdrInvoice column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnordracknow(string $QnOrdrAcknow) Return ChildSalesOrderNotes objects filtered by the QnOrdrAcknow column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildSalesOrderNotes objects filtered by the QnSeq column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnnote(string $QnNote) Return ChildSalesOrderNotes objects filtered by the QnNote column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildSalesOrderNotes objects filtered by the QnKey2 column
+ * @method     ChildSalesOrderNotes[]|ObjectCollection findByQnform(string $QnForm) Return ChildSalesOrderNotes objects filtered by the QnForm column
  * @method     ChildSalesOrderNotes[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesOrderNotes objects filtered by the DateUpdtd column
  * @method     ChildSalesOrderNotes[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesOrderNotes objects filtered by the TimeUpdtd column
  * @method     ChildSalesOrderNotes[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesOrderNotes objects filtered by the dummy column
@@ -175,7 +170,7 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
      * $obj = $c->findPk(array(12, 34, 56, 78), $con);
      * </code>
      *
-     * @param array[$ShntType, $ShntSeq, $ShntKey2, $ShntForm] $key Primary key to use for the query
+     * @param array[$QnType, $QnSeq, $QnKey2, $QnForm] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildSalesOrderNotes|array|mixed the result, formatted by the current formatter
@@ -221,7 +216,7 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ShntType, ShntTypeDesc, OehhNbr, ShntYear, OedhLine, ShntLotSer, ShntPickTicket, ShntPackTicket, ShntInvoice, ShntAcknow, ShntSeq, ShntNote, ShntKey2, ShntForm, DateUpdtd, TimeUpdtd, dummy FROM notes_sh_head_det WHERE ShntType = :p0 AND ShntSeq = :p1 AND ShntKey2 = :p2 AND ShntForm = :p3';
+        $sql = 'SELECT QnType, QnTypeDesc, OehdNbr, OedtLine, QnOrdrLotSer, QnOrdrPickTicket, QnOrdrPackTicket, QnOrdrInvoice, QnOrdrAcknow, QnSeq, QnNote, QnKey2, QnForm, DateUpdtd, TimeUpdtd, dummy FROM notes_so_head_det WHERE QnType = :p0 AND QnSeq = :p1 AND QnKey2 = :p2 AND QnForm = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -297,10 +292,10 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTTYPE, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTSEQ, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTKEY2, $key[2], Criteria::EQUAL);
-        $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTFORM, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
 
         return $this;
     }
@@ -318,12 +313,12 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTTYPE, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTSEQ, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTKEY2, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
-            $cton3 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_SHNTFORM, $key[3], Criteria::EQUAL);
+            $cton3 = $this->getNewCriterion(SalesOrderNotesTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
             $cton0->addAnd($cton3);
             $this->addOr($cton0);
         }
@@ -332,116 +327,91 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ShntType column
+     * Filter the query on the QnType column
      *
      * Example usage:
      * <code>
-     * $query->filterByShnttype('fooValue');   // WHERE ShntType = 'fooValue'
-     * $query->filterByShnttype('%fooValue%', Criteria::LIKE); // WHERE ShntType LIKE '%fooValue%'
+     * $query->filterByQntype('fooValue');   // WHERE QnType = 'fooValue'
+     * $query->filterByQntype('%fooValue%', Criteria::LIKE); // WHERE QnType LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shnttype The value to use as filter.
+     * @param     string $qntype The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShnttype($shnttype = null, $comparison = null)
+    public function filterByQntype($qntype = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shnttype)) {
+            if (is_array($qntype)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTTYPE, $shnttype, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNTYPE, $qntype, $comparison);
     }
 
     /**
-     * Filter the query on the ShntTypeDesc column
+     * Filter the query on the QnTypeDesc column
      *
      * Example usage:
      * <code>
-     * $query->filterByShnttypedesc('fooValue');   // WHERE ShntTypeDesc = 'fooValue'
-     * $query->filterByShnttypedesc('%fooValue%', Criteria::LIKE); // WHERE ShntTypeDesc LIKE '%fooValue%'
+     * $query->filterByQntypedesc('fooValue');   // WHERE QnTypeDesc = 'fooValue'
+     * $query->filterByQntypedesc('%fooValue%', Criteria::LIKE); // WHERE QnTypeDesc LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shnttypedesc The value to use as filter.
+     * @param     string $qntypedesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShnttypedesc($shnttypedesc = null, $comparison = null)
+    public function filterByQntypedesc($qntypedesc = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shnttypedesc)) {
+            if (is_array($qntypedesc)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTTYPEDESC, $shnttypedesc, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
     }
 
     /**
-     * Filter the query on the OehhNbr column
+     * Filter the query on the OehdNbr column
      *
      * Example usage:
      * <code>
-     * $query->filterByOehhnbr('fooValue');   // WHERE OehhNbr = 'fooValue'
-     * $query->filterByOehhnbr('%fooValue%', Criteria::LIKE); // WHERE OehhNbr LIKE '%fooValue%'
+     * $query->filterByOehdnbr('fooValue');   // WHERE OehdNbr = 'fooValue'
+     * $query->filterByOehdnbr('%fooValue%', Criteria::LIKE); // WHERE OehdNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $oehhnbr The value to use as filter.
+     * @param     string $oehdnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByOehhnbr($oehhnbr = null, $comparison = null)
+    public function filterByOehdnbr($oehdnbr = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($oehhnbr)) {
+            if (is_array($oehdnbr)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEHHNBR, $oehhnbr, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEHDNBR, $oehdnbr, $comparison);
     }
 
     /**
-     * Filter the query on the ShntYear column
+     * Filter the query on the OedtLine column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntyear('fooValue');   // WHERE ShntYear = 'fooValue'
-     * $query->filterByShntyear('%fooValue%', Criteria::LIKE); // WHERE ShntYear LIKE '%fooValue%'
+     * $query->filterByOedtline(1234); // WHERE OedtLine = 1234
+     * $query->filterByOedtline(array(12, 34)); // WHERE OedtLine IN (12, 34)
+     * $query->filterByOedtline(array('min' => 12)); // WHERE OedtLine > 12
      * </code>
      *
-     * @param     string $shntyear The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
-     */
-    public function filterByShntyear($shntyear = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($shntyear)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTYEAR, $shntyear, $comparison);
-    }
-
-    /**
-     * Filter the query on the OedhLine column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByOedhline(1234); // WHERE OedhLine = 1234
-     * $query->filterByOedhline(array(12, 34)); // WHERE OedhLine IN (12, 34)
-     * $query->filterByOedhline(array('min' => 12)); // WHERE OedhLine > 12
-     * </code>
-     *
-     * @param     mixed $oedhline The value to use as filter.
+     * @param     mixed $oedtline The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -449,16 +419,16 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByOedhline($oedhline = null, $comparison = null)
+    public function filterByOedtline($oedtline = null, $comparison = null)
     {
-        if (is_array($oedhline)) {
+        if (is_array($oedtline)) {
             $useMinMax = false;
-            if (isset($oedhline['min'])) {
-                $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDHLINE, $oedhline['min'], Criteria::GREATER_EQUAL);
+            if (isset($oedtline['min'])) {
+                $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDTLINE, $oedtline['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($oedhline['max'])) {
-                $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDHLINE, $oedhline['max'], Criteria::LESS_EQUAL);
+            if (isset($oedtline['max'])) {
+                $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDTLINE, $oedtline['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -469,145 +439,145 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDHLINE, $oedhline, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_OEDTLINE, $oedtline, $comparison);
     }
 
     /**
-     * Filter the query on the ShntLotSer column
+     * Filter the query on the QnOrdrLotSer column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntlotser('fooValue');   // WHERE ShntLotSer = 'fooValue'
-     * $query->filterByShntlotser('%fooValue%', Criteria::LIKE); // WHERE ShntLotSer LIKE '%fooValue%'
+     * $query->filterByQnordrlotser('fooValue');   // WHERE QnOrdrLotSer = 'fooValue'
+     * $query->filterByQnordrlotser('%fooValue%', Criteria::LIKE); // WHERE QnOrdrLotSer LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntlotser The value to use as filter.
+     * @param     string $qnordrlotser The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntlotser($shntlotser = null, $comparison = null)
+    public function filterByQnordrlotser($qnordrlotser = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntlotser)) {
+            if (is_array($qnordrlotser)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTLOTSER, $shntlotser, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNORDRLOTSER, $qnordrlotser, $comparison);
     }
 
     /**
-     * Filter the query on the ShntPickTicket column
+     * Filter the query on the QnOrdrPickTicket column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntpickticket('fooValue');   // WHERE ShntPickTicket = 'fooValue'
-     * $query->filterByShntpickticket('%fooValue%', Criteria::LIKE); // WHERE ShntPickTicket LIKE '%fooValue%'
+     * $query->filterByQnordrpickticket('fooValue');   // WHERE QnOrdrPickTicket = 'fooValue'
+     * $query->filterByQnordrpickticket('%fooValue%', Criteria::LIKE); // WHERE QnOrdrPickTicket LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntpickticket The value to use as filter.
+     * @param     string $qnordrpickticket The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntpickticket($shntpickticket = null, $comparison = null)
+    public function filterByQnordrpickticket($qnordrpickticket = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntpickticket)) {
+            if (is_array($qnordrpickticket)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTPICKTICKET, $shntpickticket, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNORDRPICKTICKET, $qnordrpickticket, $comparison);
     }
 
     /**
-     * Filter the query on the ShntPackTicket column
+     * Filter the query on the QnOrdrPackTicket column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntpackticket('fooValue');   // WHERE ShntPackTicket = 'fooValue'
-     * $query->filterByShntpackticket('%fooValue%', Criteria::LIKE); // WHERE ShntPackTicket LIKE '%fooValue%'
+     * $query->filterByQnordrpackticket('fooValue');   // WHERE QnOrdrPackTicket = 'fooValue'
+     * $query->filterByQnordrpackticket('%fooValue%', Criteria::LIKE); // WHERE QnOrdrPackTicket LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntpackticket The value to use as filter.
+     * @param     string $qnordrpackticket The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntpackticket($shntpackticket = null, $comparison = null)
+    public function filterByQnordrpackticket($qnordrpackticket = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntpackticket)) {
+            if (is_array($qnordrpackticket)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTPACKTICKET, $shntpackticket, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNORDRPACKTICKET, $qnordrpackticket, $comparison);
     }
 
     /**
-     * Filter the query on the ShntInvoice column
+     * Filter the query on the QnOrdrInvoice column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntinvoice('fooValue');   // WHERE ShntInvoice = 'fooValue'
-     * $query->filterByShntinvoice('%fooValue%', Criteria::LIKE); // WHERE ShntInvoice LIKE '%fooValue%'
+     * $query->filterByQnordrinvoice('fooValue');   // WHERE QnOrdrInvoice = 'fooValue'
+     * $query->filterByQnordrinvoice('%fooValue%', Criteria::LIKE); // WHERE QnOrdrInvoice LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntinvoice The value to use as filter.
+     * @param     string $qnordrinvoice The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntinvoice($shntinvoice = null, $comparison = null)
+    public function filterByQnordrinvoice($qnordrinvoice = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntinvoice)) {
+            if (is_array($qnordrinvoice)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTINVOICE, $shntinvoice, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNORDRINVOICE, $qnordrinvoice, $comparison);
     }
 
     /**
-     * Filter the query on the ShntAcknow column
+     * Filter the query on the QnOrdrAcknow column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntacknow('fooValue');   // WHERE ShntAcknow = 'fooValue'
-     * $query->filterByShntacknow('%fooValue%', Criteria::LIKE); // WHERE ShntAcknow LIKE '%fooValue%'
+     * $query->filterByQnordracknow('fooValue');   // WHERE QnOrdrAcknow = 'fooValue'
+     * $query->filterByQnordracknow('%fooValue%', Criteria::LIKE); // WHERE QnOrdrAcknow LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntacknow The value to use as filter.
+     * @param     string $qnordracknow The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntacknow($shntacknow = null, $comparison = null)
+    public function filterByQnordracknow($qnordracknow = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntacknow)) {
+            if (is_array($qnordracknow)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTACKNOW, $shntacknow, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNORDRACKNOW, $qnordracknow, $comparison);
     }
 
     /**
-     * Filter the query on the ShntSeq column
+     * Filter the query on the QnSeq column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntseq(1234); // WHERE ShntSeq = 1234
-     * $query->filterByShntseq(array(12, 34)); // WHERE ShntSeq IN (12, 34)
-     * $query->filterByShntseq(array('min' => 12)); // WHERE ShntSeq > 12
+     * $query->filterByQnseq(1234); // WHERE QnSeq = 1234
+     * $query->filterByQnseq(array(12, 34)); // WHERE QnSeq IN (12, 34)
+     * $query->filterByQnseq(array('min' => 12)); // WHERE QnSeq > 12
      * </code>
      *
-     * @param     mixed $shntseq The value to use as filter.
+     * @param     mixed $qnseq The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -615,16 +585,16 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntseq($shntseq = null, $comparison = null)
+    public function filterByQnseq($qnseq = null, $comparison = null)
     {
-        if (is_array($shntseq)) {
+        if (is_array($qnseq)) {
             $useMinMax = false;
-            if (isset($shntseq['min'])) {
-                $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTSEQ, $shntseq['min'], Criteria::GREATER_EQUAL);
+            if (isset($qnseq['min'])) {
+                $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNSEQ, $qnseq['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($shntseq['max'])) {
-                $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTSEQ, $shntseq['max'], Criteria::LESS_EQUAL);
+            if (isset($qnseq['max'])) {
+                $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNSEQ, $qnseq['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -635,82 +605,82 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTSEQ, $shntseq, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNSEQ, $qnseq, $comparison);
     }
 
     /**
-     * Filter the query on the ShntNote column
+     * Filter the query on the QnNote column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntnote('fooValue');   // WHERE ShntNote = 'fooValue'
-     * $query->filterByShntnote('%fooValue%', Criteria::LIKE); // WHERE ShntNote LIKE '%fooValue%'
+     * $query->filterByQnnote('fooValue');   // WHERE QnNote = 'fooValue'
+     * $query->filterByQnnote('%fooValue%', Criteria::LIKE); // WHERE QnNote LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntnote The value to use as filter.
+     * @param     string $qnnote The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntnote($shntnote = null, $comparison = null)
+    public function filterByQnnote($qnnote = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntnote)) {
+            if (is_array($qnnote)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTNOTE, $shntnote, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNNOTE, $qnnote, $comparison);
     }
 
     /**
-     * Filter the query on the ShntKey2 column
+     * Filter the query on the QnKey2 column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntkey2('fooValue');   // WHERE ShntKey2 = 'fooValue'
-     * $query->filterByShntkey2('%fooValue%', Criteria::LIKE); // WHERE ShntKey2 LIKE '%fooValue%'
+     * $query->filterByQnkey2('fooValue');   // WHERE QnKey2 = 'fooValue'
+     * $query->filterByQnkey2('%fooValue%', Criteria::LIKE); // WHERE QnKey2 LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntkey2 The value to use as filter.
+     * @param     string $qnkey2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntkey2($shntkey2 = null, $comparison = null)
+    public function filterByQnkey2($qnkey2 = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntkey2)) {
+            if (is_array($qnkey2)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTKEY2, $shntkey2, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNKEY2, $qnkey2, $comparison);
     }
 
     /**
-     * Filter the query on the ShntForm column
+     * Filter the query on the QnForm column
      *
      * Example usage:
      * <code>
-     * $query->filterByShntform('fooValue');   // WHERE ShntForm = 'fooValue'
-     * $query->filterByShntform('%fooValue%', Criteria::LIKE); // WHERE ShntForm LIKE '%fooValue%'
+     * $query->filterByQnform('fooValue');   // WHERE QnForm = 'fooValue'
+     * $query->filterByQnform('%fooValue%', Criteria::LIKE); // WHERE QnForm LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $shntform The value to use as filter.
+     * @param     string $qnform The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderNotesQuery The current query, for fluid interface
      */
-    public function filterByShntform($shntform = null, $comparison = null)
+    public function filterByQnform($qnform = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($shntform)) {
+            if (is_array($qnform)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_SHNTFORM, $shntform, $comparison);
+        return $this->addUsingAlias(SalesOrderNotesTableMap::COL_QNFORM, $qnform, $comparison);
     }
 
     /**
@@ -798,10 +768,10 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
     public function prune($salesOrderNotes = null)
     {
         if ($salesOrderNotes) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(SalesOrderNotesTableMap::COL_SHNTTYPE), $salesOrderNotes->getShnttype(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(SalesOrderNotesTableMap::COL_SHNTSEQ), $salesOrderNotes->getShntseq(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(SalesOrderNotesTableMap::COL_SHNTKEY2), $salesOrderNotes->getShntkey2(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(SalesOrderNotesTableMap::COL_SHNTFORM), $salesOrderNotes->getShntform(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond0', $this->getAliasedColName(SalesOrderNotesTableMap::COL_QNTYPE), $salesOrderNotes->getQntype(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(SalesOrderNotesTableMap::COL_QNSEQ), $salesOrderNotes->getQnseq(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(SalesOrderNotesTableMap::COL_QNKEY2), $salesOrderNotes->getQnkey2(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(SalesOrderNotesTableMap::COL_QNFORM), $salesOrderNotes->getQnform(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
         }
 
@@ -809,7 +779,7 @@ abstract class SalesOrderNotesQuery extends ModelCriteria
     }
 
     /**
-     * Deletes all rows from the notes_sh_head_det table.
+     * Deletes all rows from the notes_so_head_det table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
