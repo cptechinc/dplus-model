@@ -6,17 +6,17 @@ use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'ar_ship_to' table.
- * 
+ *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
  * EXAMPLE: findByCustid()
- * 
+ *
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * Filters
  *
  * FindOne
- * 
+ *
  * Find
  * @method     CustomerShipto[]|ObjectCollection findByCustid(string $custID)     Return the first CustomerShipto objects filtered by the Arcucustid column
  *
@@ -32,5 +32,31 @@ class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 	 */
 	public function countByCustid($custID) {
 		return $this->filterByArcucustid($custID)->count();
+	}
+
+
+	/**
+	 * Filters the Query on the arcustid, arstshipid columns
+	 *
+	 * @param  string $custID   Customer ID
+	 * @param  string $shiptoID Shipto ID
+	 * @return CustomerShiptoQuery
+	 */
+	public function filterByCustidShiptoid($custID, $shiptoID) {
+		$this->filterByArcucustid($custID);
+		$this->filterByArstshipid($shiptoID);
+		return $this;
+	}
+
+	/**
+	 * Filters the Query on the arcustid, arstshipid columns and returns one
+	 *
+	 * @param  string $custID   Customer ID
+	 * @param  string $shiptoID Shipto ID
+	 * @return CustomerShipto
+	 */
+	public function findOneByCustidShiptoid($custID, $shiptoID) {
+		$this->filterByCustidShiptoid($custID, $shiptoID);
+		return $this->findOne();
 	}
 }
