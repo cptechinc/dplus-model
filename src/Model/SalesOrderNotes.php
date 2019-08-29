@@ -23,13 +23,13 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'ordernumber'      => 'oehhnbr',
-		'line'             => 'oedhline',
-		'pickticket'       => 'shntpickticket',
-		'packticket'       => 'shntpackticket',
-		'invoice'          => 'shntinvoice',
-		'acknowledgement'  => 'shntacknow',
-		'sequence'         => 'shntseq',
-		'note'             => 'shntnote',
+		'ordernumber'      => 'oehdnbr',
+		'line'             => 'oedtline',
+		'pickticket'       => 'qnordrpickticket',
+		'packticket'       => 'qnordrpackticket',
+		'invoice'          => 'qnordrinvoice',
+		'acknowledgement'  => 'qnordracknow',
+		'sequence'         => 'qnordrseq',
+		'note'             => 'qnordrnote',
 	);
 }
