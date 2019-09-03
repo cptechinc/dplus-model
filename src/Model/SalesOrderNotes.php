@@ -31,6 +31,6 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 		'invoice'          => 'qnordrinvoice',
 		'acknowledgement'  => 'qnordracknow',
 		'sequence'         => 'qnordrseq',
-		'note'             => 'qnordrnote',
+		'note'             => 'qnnote',
 	);
 }

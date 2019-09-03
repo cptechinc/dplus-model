@@ -57,4 +57,31 @@ class SalesHistory extends BaseSalesHistory {
 	public function status() {
 		return self::$status_descriptions[$this->oehhstat];
 	}
+
+	/**
+	 * Returns the Number of Details Lines this Sales Order has
+	 *
+	 * @return bool
+	 */
+	public function count_items() {
+		return SalesHistoryDetailQuery::create()->filterByOrdernumber($this->oehhnbr)->count();
+	}
+
+	/**
+	 * Returns Notes for the Sales Order
+	 *
+	 * @return SalesOrderNotes[]|ObjectCollection [description]
+	 */
+	public function get_notes() {
+		return SalesHistoryNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine(0)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the Sales Order
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return SalesHistoryNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine(0)->count();
+	}
 }

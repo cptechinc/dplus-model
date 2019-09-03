@@ -30,6 +30,26 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'total_price'  => 'oedhprictot',
 		'itemid'       => 'inititemnbr',
 		'desc1'        => 'oedhdesc',
-		'desc2'        => 'oedhdesc2'
+		'desc2'        => 'oedhdesc2',
+		'line'         => 'oedhline',
+		'linenbr'      => 'oedhline'
 	);
+
+	/**
+	 * Returns Notes for the SalesHistoryDetail
+	 *
+	 * @return SalesOrderNotes[]|ObjectCollection [description]
+	 */
+	public function get_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine($this->oedhline)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the SalesHistoryDetail
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine($this->oedhline)->count();
+	}
 }
