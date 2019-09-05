@@ -90,6 +90,7 @@ return array(
     'Map\\KitItemsTableMap' => $baseDir . '/src/Model/Map/KitItemsTableMap.php',
     'Map\\KitsTableMap' => $baseDir . '/src/Model/Map/KitsTableMap.php',
     'Map\\PhoneBookTableMap' => $baseDir . '/src/Model/Map/PhoneBookTableMap.php',
+    'Map\\QuoteDetailTableMap' => $baseDir . '/src/Model/Map/QuoteDetailTableMap.php',
     'Map\\QuoteTableMap' => $baseDir . '/src/Model/Map/QuoteTableMap.php',
     'Map\\SalesHistoryDetailTableMap' => $baseDir . '/src/Model/Map/SalesHistoryDetailTableMap.php',
     'Map\\SalesHistoryNotesTableMap' => $baseDir . '/src/Model/Map/SalesHistoryNotesTableMap.php',

@@ -91,6 +91,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Map\\KitItemsTableMap' => __DIR__ . '/../..' . '/src/Model/Map/KitItemsTableMap.php',
         'Map\\KitsTableMap' => __DIR__ . '/../..' . '/src/Model/Map/KitsTableMap.php',
         'Map\\PhoneBookTableMap' => __DIR__ . '/../..' . '/src/Model/Map/PhoneBookTableMap.php',
+        'Map\\QuoteDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/QuoteDetailTableMap.php',
         'Map\\QuoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/QuoteTableMap.php',
         'Map\\SalesHistoryDetailTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesHistoryDetailTableMap.php',
         'Map\\SalesHistoryNotesTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SalesHistoryNotesTableMap.php',
