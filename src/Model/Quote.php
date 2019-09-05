@@ -72,4 +72,18 @@ class Quote extends BaseQuote {
 		'entered_date'    => 'qthdentereddate',
 		'entered_time'    => 'qthdenteredtime',
 	);
+
+	/**
+	 * Filter the query on the ArspSalePer1, ArspSalePer2, ArspSalePer3  column
+	 *
+	 * @param  string $salesperson The value to use as filter.
+	 * @return $this|QuoteQuery    The current query, for fluid interface
+	 */
+	public function filterbySalesPerson($salesperson) {
+		$this->condition('sp1', 'Quote.ArspSaleper1 = ? ', $salesperson);
+		$this->condition('sp2', 'Quote.ArspSaleper2 = ? ', $salesperson);
+		$this->condition('sp3', 'Quote.ArspSaleper3 = ? ', $salesperson);
+		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR); 				 // combine 'cond1' and 'cond2' with a logical OR
+		return $this;
+	 }
 }

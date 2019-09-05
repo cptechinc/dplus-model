@@ -2,6 +2,8 @@
 
 use Base\QuoteQuery as BaseQuoteQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Skeleton subclass for performing query and update operations on the 'quote_header' table.
  *
@@ -12,7 +14,6 @@ use Base\QuoteQuery as BaseQuoteQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class QuoteQuery extends BaseQuoteQuery
-{
-
+class QuoteQuery extends BaseQuoteQuery {
+	use QueryTraits;
 }
