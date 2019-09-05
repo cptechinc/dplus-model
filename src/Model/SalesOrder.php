@@ -142,4 +142,22 @@ class SalesOrder extends BaseSalesOrder {
 	public function count_items() {
 		return SalesOrderDetailQuery::create()->filterByOrdernumber($this->oehdnbr)->count();
 	}
+
+	/**
+	 * Returns Notes for the SalesOrderDetail
+	 *
+	 * @return SalesOrderNotes[]|ObjectCollection [description]
+	 */
+	public function get_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine(0)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the SalesOrderDetail
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine(0)->count();
+	}
 }

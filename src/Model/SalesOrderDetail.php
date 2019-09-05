@@ -30,6 +30,26 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'total_price'  => 'oedtprictot',
 		'itemid'       => 'inititemnbr',
 		'desc1'        => 'oedtdesc',
-		'desc2'        => 'oedtdesc2'
+		'desc2'        => 'oedtdesc2',
+		'line'         => 'oedtline',
+		'linenbr'      => 'oedtline'
 	);
+
+	/**
+	 * Returns Notes for the SalesOrderDetail
+	 *
+	 * @return SalesOrderNotes[]|ObjectCollection [description]
+	 */
+	public function get_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine($this->oedtline)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the SalesOrderDetail
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine($this->oedtline)->count();
+	}
 }
