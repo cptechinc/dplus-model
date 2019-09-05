@@ -591,6 +591,180 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="quote_detail" idMethod="native" phpName="QuoteDetail">
+    <column name="QthdId" phpName="Qthdid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="QtdtLine" phpName="Qtdtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="QtdtDesc" phpName="Qtdtdesc" type="VARCHAR" size="35"/>
+    <column name="QtdtDesc2" phpName="Qtdtdesc2" type="VARCHAR" size="35"/>
+    <column name="QtdtCustCrssRef" phpName="Qtdtcustcrssref" type="VARCHAR" size="30"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="QtdtRqstDate" phpName="Qtdtrqstdate" type="VARCHAR" size="8"/>
+    <column name="QtdtSpecOrdr" phpName="Qtdtspecordr" type="VARCHAR" size="1"/>
+    <column name="ArtbMTaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="QtdtQtyOrd" phpName="Qtdtqtyord" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtPric" phpName="Qtdtpric" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtCost" phpName="Qtdtcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtTaxPctTot" phpName="Qtdttaxpcttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtPricTot" phpName="Qtdtprictot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtCostTot" phpName="Qtdtcosttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtWghtTot" phpName="Qtdtwghttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtMstrTaxCode1" phpName="Qtdtmstrtaxcode1" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct1" phpName="Qtdtmstrtaxpct1" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode2" phpName="Qtdtmstrtaxcode2" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct2" phpName="Qtdtmstrtaxpct2" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode3" phpName="Qtdtmstrtaxcode3" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct3" phpName="Qtdtmstrtaxpct3" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode4" phpName="Qtdtmstrtaxcode4" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct4" phpName="Qtdtmstrtaxpct4" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode5" phpName="Qtdtmstrtaxcode5" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct5" phpName="Qtdtmstrtaxpct5" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode6" phpName="Qtdtmstrtaxcode6" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct6" phpName="Qtdtmstrtaxpct6" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode7" phpName="Qtdtmstrtaxcode7" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct7" phpName="Qtdtmstrtaxpct7" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode8" phpName="Qtdtmstrtaxcode8" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct8" phpName="Qtdtmstrtaxpct8" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMstrTaxCode9" phpName="Qtdtmstrtaxcode9" type="VARCHAR" size="6"/>
+    <column name="QtdtMstrTaxPct9" phpName="Qtdtmstrtaxpct9" type="DECIMAL" size="20" scale="3"/>
+    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4"/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
+    <column name="QtdtQuotInd1" phpName="Qtdtquotind1" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit1" phpName="Qtdtquotunit1" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric1" phpName="Qtdtquotpric1" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost1" phpName="Qtdtquotcost1" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg1" phpName="Qtdtquotmkupmarg1" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotInd2" phpName="Qtdtquotind2" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit2" phpName="Qtdtquotunit2" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric2" phpName="Qtdtquotpric2" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost2" phpName="Qtdtquotcost2" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg2" phpName="Qtdtquotmkupmarg2" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotInd3" phpName="Qtdtquotind3" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit3" phpName="Qtdtquotunit3" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric3" phpName="Qtdtquotpric3" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost3" phpName="Qtdtquotcost3" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg3" phpName="Qtdtquotmkupmarg3" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotInd4" phpName="Qtdtquotind4" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit4" phpName="Qtdtquotunit4" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric4" phpName="Qtdtquotpric4" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost4" phpName="Qtdtquotcost4" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg4" phpName="Qtdtquotmkupmarg4" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotInd5" phpName="Qtdtquotind5" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit5" phpName="Qtdtquotunit5" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric5" phpName="Qtdtquotpric5" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost5" phpName="Qtdtquotcost5" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg5" phpName="Qtdtquotmkupmarg5" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotInd6" phpName="Qtdtquotind6" type="VARCHAR" size="1"/>
+    <column name="QtdtQuotUnit6" phpName="Qtdtquotunit6" type="INTEGER" size="9"/>
+    <column name="QtdtQuotPric6" phpName="Qtdtquotpric6" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotCost6" phpName="Qtdtquotcost6" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtQuotMkupMarg6" phpName="Qtdtquotmkupmarg6" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtAsstCode" phpName="Qtdtasstcode" type="VARCHAR" size="3"/>
+    <column name="QtdtAsstQty" phpName="Qtdtasstqty" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtListPric" phpName="Qtdtlistpric" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtStanCost" phpName="Qtdtstancost" type="DECIMAL" size="20" scale="7"/>
+    <column name="QtdtVendItemJob" phpName="Qtdtvenditemjob" type="VARCHAR" size="30"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6"/>
+    <column name="QtdtNsItemGrup" phpName="Qtdtnsitemgrup" type="VARCHAR" size="4"/>
+    <column name="QtdtUseCode" phpName="Qtdtusecode" type="VARCHAR" size="1"/>
+    <column name="QtdtPickFlag" phpName="Qtdtpickflag" type="VARCHAR" size="1"/>
+    <column name="QtdtStatus" phpName="Qtdtstatus" type="VARCHAR" size="1"/>
+    <column name="OetbLsslCode" phpName="Oetblsslcode" type="VARCHAR" size="4"/>
+    <column name="QtdtLostDate" phpName="Qtdtlostdate" type="VARCHAR" size="8"/>
+    <column name="QtdtLostPosted" phpName="Qtdtlostposted" type="VARCHAR" size="1"/>
+    <column name="QtdtLeadDays" phpName="Qtdtleaddays" type="INTEGER" size="4"/>
+    <column name="QtdtOrdrDiscPct" phpName="Qtdtordrdiscpct" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtQuotDiscPct1" phpName="Qtdtquotdiscpct1" type="DECIMAL" size="20" scale="3"/>
+    <column name="QtdtMtrcReqd" phpName="Qtdtmtrcreqd" type="VARCHAR" size="1"/>
+    <column name="QtdtCofcReqd" phpName="Qtdtcofcreqd" type="VARCHAR" size="1"/>
+    <column name="QtdtMnfrId" phpName="Qtdtmnfrid" type="VARCHAR" size="6"/>
+    <column name="QtdtMnfrItemId" phpName="Qtdtmnfritemid" type="VARCHAR" size="30"/>
+    <column name="QtdtLmOrdrNbr" phpName="Qtdtlmordrnbr" type="VARCHAR" size="10"/>
+    <column name="QtdtLmOrdrDate" phpName="Qtdtlmordrdate" type="VARCHAR" size="8"/>
+    <column name="QtdtSpecItemCode" phpName="Qtdtspecitemcode" type="VARCHAR" size="8"/>
+    <column name="QtdtAcSalePgm" phpName="Qtdtacsalepgm" type="VARCHAR" size="8"/>
+    <column name="QtdtNsVendShipfr" phpName="Qtdtnsvendshipfr" type="VARCHAR" size="6"/>
+    <column name="QtdtPrntMnfrNote" phpName="Qtdtprntmnfrnote" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="quote_header" idMethod="native" phpName="Quote">
+    <column name="QthdId" phpName="Qthdid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="QthdStat" phpName="Qthdstat" type="VARCHAR" size="1"/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
+    <column name="QthdBtName" phpName="Qthdbtname" type="VARCHAR" size="30"/>
+    <column name="QthdBtAdr1" phpName="Qthdbtadr1" type="VARCHAR" size="30"/>
+    <column name="QthdBtAdr2" phpName="Qthdbtadr2" type="VARCHAR" size="30"/>
+    <column name="QthdBtAdr3" phpName="Qthdbtadr3" type="VARCHAR" size="30"/>
+    <column name="QthdBtCtry" phpName="Qthdbtctry" type="VARCHAR" size="4"/>
+    <column name="QthdBtCity" phpName="Qthdbtcity" type="VARCHAR" size="16"/>
+    <column name="QthdBtStat" phpName="Qthdbtstat" type="VARCHAR" size="2"/>
+    <column name="QthdBtZipCode" phpName="Qthdbtzipcode" type="VARCHAR" size="10"/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6"/>
+    <column name="QthdStName" phpName="Qthdstname" type="VARCHAR" size="30"/>
+    <column name="QthdStAdr1" phpName="Qthdstadr1" type="VARCHAR" size="30"/>
+    <column name="QthdStAdr2" phpName="Qthdstadr2" type="VARCHAR" size="30"/>
+    <column name="QthdStAdr3" phpName="Qthdstadr3" type="VARCHAR" size="30"/>
+    <column name="QthdStCtry" phpName="Qthdstctry" type="VARCHAR" size="4"/>
+    <column name="QthdStCity" phpName="Qthdstcity" type="VARCHAR" size="16"/>
+    <column name="QthdStStat" phpName="Qthdststat" type="VARCHAR" size="2"/>
+    <column name="QthdStZipCode" phpName="Qthdstzipcode" type="VARCHAR" size="10"/>
+    <column name="QthdCont" phpName="Qthdcont" type="VARCHAR" size="20"/>
+    <column name="QthdTeleIntl" phpName="Qthdteleintl" type="VARCHAR" size="1"/>
+    <column name="QthdTeleNbr" phpName="Qthdtelenbr" type="VARCHAR" size="22"/>
+    <column name="QthdTeleExt" phpName="Qthdteleext" type="VARCHAR" size="7"/>
+    <column name="QthdFaxIntl" phpName="Qthdfaxintl" type="VARCHAR" size="1"/>
+    <column name="QthdFaxNbr" phpName="Qthdfaxnbr" type="VARCHAR" size="22"/>
+    <column name="QthdQuotDate" phpName="Qthdquotdate" type="VARCHAR" size="8"/>
+    <column name="QthdRevDate" phpName="Qthdrevdate" type="VARCHAR" size="8"/>
+    <column name="QthdExpDate" phpName="Qthdexpdate" type="VARCHAR" size="8"/>
+    <column name="ArtbPricCode" phpName="Artbpriccode" type="VARCHAR" size="4"/>
+    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
+    <column name="QthdSp1Pct" phpName="Qthdsp1pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
+    <column name="QthdSp2Pct" phpName="Qthdsp2pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
+    <column name="QthdSp3Pct" phpName="Qthdsp3pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="QthdExchCtry" phpName="Qthdexchctry" type="VARCHAR" size="4"/>
+    <column name="QthdExchRate" phpName="Qthdexchrate" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdTaxSub" phpName="Qthdtaxsub" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdNonTaxSub" phpName="Qthdnontaxsub" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdTaxTot" phpName="Qthdtaxtot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdFrtTot" phpName="Qthdfrttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdMiscTot" phpName="Qthdmisctot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdOrdrTot" phpName="Qthdordrtot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdCostTot" phpName="Qthdcosttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdWghtTot" phpName="Qthdwghttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="QthdOldSysQtNbr" phpName="Qthdoldsysqtnbr" type="VARCHAR" size="8"/>
+    <column name="QthdFob" phpName="Qthdfob" type="VARCHAR" size="1"/>
+    <column name="QthdDeliveryDesc" phpName="Qthddeliverydesc" type="VARCHAR" size="20"/>
+    <column name="QthdOrderCnt" phpName="Qthdordercnt" type="INTEGER" size="4"/>
+    <column name="QthdLastOrder" phpName="Qthdlastorder" type="VARCHAR" size="8"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="QthdCustPo" phpName="Qthdcustpo" type="VARCHAR" size="20"/>
+    <column name="QthdEmailAddr" phpName="Qthdemailaddr" type="VARCHAR" size="50"/>
+    <column name="QthdEnteredBy" phpName="Qthdenteredby" type="VARCHAR" size="8"/>
+    <column name="QthdEnteredDate" phpName="Qthdentereddate" type="VARCHAR" size="8"/>
+    <column name="QthdEnteredTime" phpName="Qthdenteredtime" type="VARCHAR" size="4"/>
+    <column name="QthdPrintFormat" phpName="Qthdprintformat" type="VARCHAR" size="1"/>
+    <column name="QthdProjectId" phpName="Qthdprojectid" type="VARCHAR" size="20"/>
+    <column name="QthdRevTime" phpName="Qthdrevtime" type="VARCHAR" size="4"/>
+    <column name="QthdRef" phpName="Qthdref" type="VARCHAR" size="20"/>
+    <column name="QthdCareOf" phpName="Qthdcareof" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_det_hist" idMethod="native" phpName="SalesHistoryDetail">
     <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="OedhLine" phpName="Oedhline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
