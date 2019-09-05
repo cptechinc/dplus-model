@@ -2,6 +2,8 @@
 
 use Base\QuoteDetailQuery as BaseQuoteDetailQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Skeleton subclass for performing query and update operations on the 'quote_detail' table.
  *
@@ -12,7 +14,6 @@ use Base\QuoteDetailQuery as BaseQuoteDetailQuery;
  * long as it does not already exist in the output directory.
  *
  */
-class QuoteDetailQuery extends BaseQuoteDetailQuery
-{
-
+class QuoteDetailQuery extends BaseQuoteDetailQuery {
+	use QueryTraits;
 }
