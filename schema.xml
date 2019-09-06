@@ -287,6 +287,111 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_term_code" idMethod="native" phpName="TermsCode">
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtmTermDesc" phpName="Artmtermdesc" type="VARCHAR" size="20"/>
+    <column name="ArtmMethod" phpName="Artmmethod" type="VARCHAR" size="1"/>
+    <column name="ArtmType" phpName="Artmtype" type="VARCHAR" size="3"/>
+    <column name="ArtmHold" phpName="Artmhold" type="VARCHAR" size="1"/>
+    <column name="ArtmExpireDate" phpName="Artmexpiredate" type="VARCHAR" size="8"/>
+    <column name="ArtmFrtAllow" phpName="Artmfrtallow" type="VARCHAR" size="1"/>
+    <column name="ArtmCcPrefix" phpName="Artmccprefix" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit1" phpName="Artmsplit1" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct1" phpName="Artmorderpct1" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct1" phpName="Artmdiscpct1" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays1" phpName="Artmdiscdays1" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay1" phpName="Artmdiscday1" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate1" phpName="Artmdiscdate1" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays1" phpName="Artmduedays1" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay1" phpName="Artmdueday1" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths1" phpName="Artmplusmonths1" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate1" phpName="Artmduedate1" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear1" phpName="Artmplusyear1" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit2" phpName="Artmsplit2" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct2" phpName="Artmorderpct2" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct2" phpName="Artmdiscpct2" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays2" phpName="Artmdiscdays2" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay2" phpName="Artmdiscday2" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate2" phpName="Artmdiscdate2" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays2" phpName="Artmduedays2" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay2" phpName="Artmdueday2" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths2" phpName="Artmplusmonths2" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate2" phpName="Artmduedate2" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear2" phpName="Artmplusyear2" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit3" phpName="Artmsplit3" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct3" phpName="Artmorderpct3" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct3" phpName="Artmdiscpct3" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays3" phpName="Artmdiscdays3" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay3" phpName="Artmdiscday3" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate3" phpName="Artmdiscdate3" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays3" phpName="Artmduedays3" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay3" phpName="Artmdueday3" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths3" phpName="Artmplusmonths3" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate3" phpName="Artmduedate3" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear3" phpName="Artmplusyear3" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit4" phpName="Artmsplit4" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct4" phpName="Artmorderpct4" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct4" phpName="Artmdiscpct4" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays4" phpName="Artmdiscdays4" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay4" phpName="Artmdiscday4" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate4" phpName="Artmdiscdate4" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays4" phpName="Artmduedays4" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay4" phpName="Artmdueday4" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths4" phpName="Artmplusmonths4" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate4" phpName="Artmduedate4" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear4" phpName="Artmplusyear4" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit5" phpName="Artmsplit5" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct5" phpName="Artmorderpct5" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct5" phpName="Artmdiscpct5" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays5" phpName="Artmdiscdays5" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay5" phpName="Artmdiscday5" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate5" phpName="Artmdiscdate5" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays5" phpName="Artmduedays5" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay5" phpName="Artmdueday5" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths5" phpName="Artmplusmonths5" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate5" phpName="Artmduedate5" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear5" phpName="Artmplusyear5" type="VARCHAR" size="1"/>
+    <column name="ArtmSplit6" phpName="Artmsplit6" type="VARCHAR" size="1"/>
+    <column name="ArtmOrderPct6" phpName="Artmorderpct6" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscPct6" phpName="Artmdiscpct6" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmDiscDays6" phpName="Artmdiscdays6" type="INTEGER" size="3"/>
+    <column name="ArtmDiscDay6" phpName="Artmdiscday6" type="VARCHAR" size="2"/>
+    <column name="ArtmDiscDate6" phpName="Artmdiscdate6" type="VARCHAR" size="4"/>
+    <column name="ArtmDueDays6" phpName="Artmduedays6" type="INTEGER" size="3"/>
+    <column name="ArtmDueDay6" phpName="Artmdueday6" type="VARCHAR" size="2"/>
+    <column name="ArtmPlusMonths6" phpName="Artmplusmonths6" type="INTEGER" size="2"/>
+    <column name="ArtmDueDate6" phpName="Artmduedate6" type="VARCHAR" size="4"/>
+    <column name="ArtmPlusYear6" phpName="Artmplusyear6" type="VARCHAR" size="1"/>
+    <column name="ArtmDayFrom1" phpName="Artmdayfrom1" type="INTEGER" size="2"/>
+    <column name="ArtmDayThru1" phpName="Artmdaythru1" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscPct1" phpName="Artmeomdiscpct1" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmEomDiscDay1" phpName="Artmeomdiscday1" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscMonths1" phpName="Artmeomdiscmonths1" type="INTEGER" size="2"/>
+    <column name="ArtmEomDueDay1" phpName="Artmeomdueday1" type="INTEGER" size="2"/>
+    <column name="ArtmEomPlusMonths1" phpName="Artmeomplusmonths1" type="INTEGER" size="2"/>
+    <column name="ArtmDayFrom2" phpName="Artmdayfrom2" type="INTEGER" size="2"/>
+    <column name="ArtmDayThru2" phpName="Artmdaythru2" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscPct2" phpName="Artmeomdiscpct2" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmEomDiscDay2" phpName="Artmeomdiscday2" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscMonths2" phpName="Artmeomdiscmonths2" type="INTEGER" size="2"/>
+    <column name="ArtmEomDueDay2" phpName="Artmeomdueday2" type="INTEGER" size="2"/>
+    <column name="ArtmEomPlusMonths2" phpName="Artmeomplusmonths2" type="INTEGER" size="2"/>
+    <column name="ArtmDayFrom3" phpName="Artmdayfrom3" type="INTEGER" size="2"/>
+    <column name="ArtmDayThru3" phpName="Artmdaythru3" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscPct3" phpName="Artmeomdiscpct3" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmEomDiscDay3" phpName="Artmeomdiscday3" type="INTEGER" size="2"/>
+    <column name="ArtmEomDiscMonths3" phpName="Artmeomdiscmonths3" type="INTEGER" size="2"/>
+    <column name="ArtmEomDueDay3" phpName="Artmeomdueday3" type="INTEGER" size="2"/>
+    <column name="ArtmEomPlusMonths3" phpName="Artmeomplusmonths3" type="INTEGER" size="2"/>
+    <column name="ArtmCtry" phpName="Artmctry" type="VARCHAR" size="4"/>
+    <column name="ArtmTermGrup" phpName="Artmtermgrup" type="VARCHAR" size="4"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="doc_control" idMethod="native" phpName="DocumentFolders">
     <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="DoccFolderDesc" phpName="Doccfolderdesc" type="VARCHAR" size="40"/>
