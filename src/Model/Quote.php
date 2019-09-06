@@ -6,14 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'quote_header' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'quote_header' table.
  */
 class Quote extends BaseQuote {
 	use ThrowErrorTrait;
@@ -45,6 +38,7 @@ class Quote extends BaseQuote {
 		'shipto_city'     => 'qthdstcity',
 		'shipto_state'    => 'qthdststat',
 		'shipto_zip'      => 'qthdstzipcode',
+		'contact'         => 'qthdcont',
 		'phone_intl'      => 'qthdteleintl',
 		'phone'           => 'qthdtelenbr',
 		'phone_extension' => 'qthdteleext',
@@ -60,7 +54,6 @@ class Quote extends BaseQuote {
 		'salesperson_1'   => 'arspsaleper1',
 		'salesperson_2'   => 'arspsaleper2',
 		'salesperson_3'   => 'arspsaleper3',
-		'salesperson_1'   => 'arspsaleper1',
 		'subtotal_nontax' => 'qthdnontaxsub',
 		'subtotal_tax'    => 'qthdtaxsub',
 		'total_total'     => 'qthdordrtot',
@@ -71,7 +64,24 @@ class Quote extends BaseQuote {
 		'entered_by'      => 'qthdenteredby',
 		'entered_date'    => 'qthdentereddate',
 		'entered_time'    => 'qthdenteredtime',
+		'whse'            => 'intbwhse',
+		'fob'             => 'qthdfob',
+		'careof'          => 'qthdcareof',
+		'custpo'          => 'qthdcustpo',
+		'printformat'     => 'qthdprintformat',
+		'deliverto'       => 'qthddeliverydesc'
 	);
+
+	const FOB_OPTIONS = array('O', 'D');
+	const FOB_OPTIONS_DESC = array(
+		'O' => 'origin',
+		'D' => 'destination'
+	);
+
+	public function fob() {
+		return self::FOB_OPTIONS_DESC[$this->fob];
+	}
+
 
 	/**
 	 * Filter the query on the ArspSalePer1, ArspSalePer2, ArspSalePer3  column
@@ -86,4 +96,38 @@ class Quote extends BaseQuote {
 		$this->where(array('sp1', 'sp2', 'sp3'), Criteria::LOGICAL_OR); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
 	 }
+
+	 /**
+	 * Returns Notes for the Quote
+	 *
+	 * @return QuoteNotes[]|ObjectCollection
+	 */
+	public function get_notes() {
+		return QuoteNotesQuery::create()->filterByQuotenumber($this->qthdid)->filterByLine(0)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the Quote
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return QuoteNotesQuery::create()->filterByQuotenumber($this->qthdid)->filterByLine(0)->count();
+	}
+
+	/**
+	 * Return the number of Items on the Quote
+	 * @return int
+	 */
+	public function count_items() {
+		return QuoteDetailQuery::create()->filterByQuoteid($this->qthdid)->count();
+	}
+
+	/**
+	 * Return QuoteDetails for Quote
+	 * @return QuoteDetail[]|ObjectCollection
+	 */
+	public function get_items() {
+		return QuoteDetailQuery::create()->filterByQuoteid($this->qthdid)->find();
+	}
 }

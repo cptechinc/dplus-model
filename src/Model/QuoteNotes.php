@@ -2,17 +2,30 @@
 
 use Base\QuoteNotes as BaseQuoteNotes;
 
-/**
- * Skeleton subclass for representing a row from the 'notes_qt_head_det' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class QuoteNotes extends BaseQuoteNotes
-{
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
+ /**
+ * Class for representing a row from the 'notes_qt_head_det' table.
+ */
+class QuoteNotes extends BaseQuoteNotes {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
+	const COLUMN_ALIASES = array(
+		'quotenbr'        => 'qthdid',
+		'quoteid'         => 'qthdid',
+		'quoteID'         => 'qthdid',
+		'id'              => 'qthdid',
+		'quotenumber'     => 'qthdid',
+		'linenbr'         => 'qtdtline',
+		'line'            => 'qtdtline',
+		'quote'           => 'qnquotquote',
+		'pickticket'      => 'qnquotpickticket',
+		'packticket'      => 'qnquotpackticket',
+		'invoice'         => 'qnquotinvoice',
+		'acknowledgement' => 'qnquotacknow',
+		'sequence'        => 'qnseq',
+		'note'            => 'qnnote',
+	);
 }

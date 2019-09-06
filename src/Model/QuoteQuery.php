@@ -5,13 +5,21 @@ use Base\QuoteQuery as BaseQuoteQuery;
 use Dplus\Model\QueryTraits;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'quote_header' table.
+ * Class for performing query and update operations on the 'quote_header' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByQuotenumber()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * Filters
+ * @method  QuoteQuery filterByCustid(string $custID)      Filter the query on the ArcuCustid column
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindOne
+ * @method  Quote findOneByQuotenumber(string $qnbr)      Return the first Quote filtered by the Qthdid column
+ *
+ * Find
  *
  */
 class QuoteQuery extends BaseQuoteQuery {

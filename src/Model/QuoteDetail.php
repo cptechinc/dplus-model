@@ -6,14 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'quote_detail' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'quote_detail' table.
  */
 class QuoteDetail extends BaseQuoteDetail {
 	use ThrowErrorTrait;
@@ -47,4 +40,22 @@ class QuoteDetail extends BaseQuoteDetail {
 		'quoted_cost'     => 'qtdtquotcost1',
 		'quoted_margin'   => 'qtdtquotmkupmarg1',
 	);
+
+	/**
+	 * Returns Notes for the QuoteDetail
+	 *
+	 * @return QuoteNotes[]|ObjectCollection
+	 */
+	public function get_notes() {
+		return QuoteNotesQuery::create()->filterByQuotenumber($this->qthdid)->filterByLine($this->qtdtline)->find();
+	}
+
+	/**
+	 * Returns the number of Notes for the QuoteDetail
+	 *
+	 * @return int
+	 */
+	public function count_notes() {
+		return QuoteNotesQuery::create()->filterByQuotenumber($this->qthdid)->filterByLine($this->qtdtline)->count();
+	}
 }
