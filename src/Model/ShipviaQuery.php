@@ -2,17 +2,24 @@
 
 use Base\ShipviaQuery as BaseShipviaQuery;
 
-/**
- * Skeleton subclass for performing query and update operations on the 'ar_cust_svia' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class ShipviaQuery extends BaseShipviaQuery
-{
+use Dplus\Model\QueryTraits;
 
+/**
+* Class for performing query and update operations on the 'ar_cust_svia' table.
+*
+* NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+* methods with an alias
+* EXAMPLE: findByQuotenumber()
+*
+* Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+* -----------------------------------------------------------------------------------------
+* Filters
+*
+* FindOne
+* 
+* Find
+*
+*/
+class ShipviaQuery extends BaseShipviaQuery {
+	use Dplus\Model\QueryTraits;
 }
