@@ -155,6 +155,32 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_svia" idMethod="native" phpName="Shipvia">
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbSviaDesc" phpName="Artbsviadesc" type="VARCHAR" size="20"/>
+    <column name="ArtbSviaPrio" phpName="Artbsviaprio" type="VARCHAR" size="3"/>
+    <column name="ArtbSviaWeb" phpName="Artbsviaweb" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaAir" phpName="Artbsviaair" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaUpsServ" phpName="Artbsviaupsserv" type="VARCHAR" size="25"/>
+    <column name="ArtbSviaUpsBilling" phpName="Artbsviaupsbilling" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaScacCd" phpName="Artbsviascaccd" type="VARCHAR" size="4"/>
+    <column name="ArtbSviaEdiMethCd" phpName="Artbsviaedimethcd" type="VARCHAR" size="2"/>
+    <column name="ArtbSviaUpsResidential" phpName="Artbsviaupsresidential" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaChrgFrt" phpName="Artbsviachrgfrt" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaUseRoute" phpName="Artbsviauseroute" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaCommFrght" phpName="Artbsviacommfrght" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaShipArea" phpName="Artbsviashiparea" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaUseSurchg" phpName="Artbsviausesurchg" type="VARCHAR" size="1"/>
+    <column name="ArtbSviaSurchgPct" phpName="Artbsviasurchgpct" type="DECIMAL" size="20" scale="3"/>
+    <column name="ArtbSviaTaxCode" phpName="Artbsviataxcode" type="VARCHAR" size="6"/>
+    <column name="ArtbSviaShipComplt" phpName="Artbsviashipcomplt" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_inv" idMethod="native" phpName="ArInvoice">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
@@ -1376,7 +1402,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="so_header" idMethod="native" phpName="SoHeader">
+  <table name="so_header" idMethod="native" phpName="SalesOrder">
     <column name="OehdNbr" phpName="Oehdnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="OehdStat" phpName="Oehdstat" type="VARCHAR" size="1"/>
     <column name="OehdHold" phpName="Oehdhold" type="VARCHAR" size="1"/>
