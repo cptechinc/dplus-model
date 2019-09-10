@@ -29,6 +29,7 @@ class SalesHistory extends BaseSalesHistory {
 		'status'          => 'oehhstat',
 		'orderstatus'     => 'oehhstat',
 		'subtotal_nontax' => 'OehhNonTaxSub',
+		'subtotal_tax'    => 'OehhTaxSub',
 		'total_freight'   => 'OehhFrtTot',
 		'total_tax'       => 'OehhTaxTot',
 		'shipto_name'     => 'oehhstname',
@@ -39,10 +40,32 @@ class SalesHistory extends BaseSalesHistory {
 		'shipto_city'     => 'oehhstcity',
 		'shipto_state'    => 'oehhststat',
 		'shipto_zip'      => 'oehhstzipcode',
-		'date_invoiced'   => 'oehhinvdate'
+		'date_invoiced'   => 'oehhinvdate',
+		'contact'         => 'oehhcont',
+		'phone_intl'      => 'oehhcontteleintl',
+		'phone'           => 'oehhconttelenbr',
+		'phone_ext'       => 'oehhcontteleext',
+		'fax_intl'        => 'oehhcontfaxintl',
+		'fax'             => 'oehhcontfaxnbr',
+		'email'           => 'oehhcontemail',
+		'heldby'          => 'oehhcrntuser',
+		'takenby'         => 'oehhtakencode',
+		'pickedby'        => 'oehhpickcode',
+		'packedby'        => 'oehhpackcode',
+		'verifiedby'      => 'oehhverifycode',
+		'whse'            => 'intbwhse',
+		'pricecode'       => 'artbpriccode',
+		'taxcode'         => 'artbmtaxcode',
+		'termscode'       => 'artmtermcd',
+		'shipvia'         => 'artbshipvia',
+		'salesperson_1'   => 'arspsaleper1',
+		'salesperson_2'   => 'arspsaleper2',
+		'salesperson_3'   => 'arspsaleper3',
+		'shipcomplete'    => 'oehhshipcomp',
+		'releasenumber'   => 'oehhreleasenbr',
 	);
 
-	public static $status_descriptions = array(
+	const STATUS_DESCRIPTIONS = array(
 		'N' => 'new',
 		'P' => 'picked',
 		'V' => 'verified',
@@ -55,7 +78,7 @@ class SalesHistory extends BaseSalesHistory {
 	 * @return string
 	 */
 	public function status() {
-		return self::$status_descriptions[$this->oehhstat];
+		return self::STATUS_DESCRIPTIONS[$this->oehhstat];
 	}
 
 	/**

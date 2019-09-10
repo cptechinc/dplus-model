@@ -20,6 +20,7 @@ class QuoteDetail extends BaseQuoteDetail {
 		'quotenumber'     => 'qthdid',
 		'linenbr'         => 'qtdtline',
 		'line'            => 'qtdtline',
+		'linenumber'      => 'qtdtline',
 		'itemid'          => 'inititemnbr',
 		'description'     => 'qtdtdesc',
 		'description2'    => 'qtdtdesc2',

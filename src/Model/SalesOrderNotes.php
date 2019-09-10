@@ -6,7 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'notes_sh_head_det' table.
+ * Skeleton subclass for representing a row from the 'notes_so_head_det' table.
  *
  *
  *
@@ -30,7 +30,7 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 		'packticket'       => 'qnordrpackticket',
 		'invoice'          => 'qnordrinvoice',
 		'acknowledgement'  => 'qnordracknow',
-		'sequence'         => 'qnordrseq',
+		'sequence'         => 'qnseq',
 		'note'             => 'qnnote',
 	);
 }

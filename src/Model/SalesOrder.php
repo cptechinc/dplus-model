@@ -50,6 +50,10 @@ class SalesOrder extends BaseSalesOrder {
 		'custpo'       => 'oehdcustpo',
 		'total_total'  => 'oehdoordrtot',
 		'date_ordered' => 'oehdordrdate',
+		'date_requested' => 'oehrqstdate',
+		'date_canceled' => 'oehdcancdate',
+		'date_taken' => 'oehdtakendate',
+		'releasenumber' => 'oehdreleasenbr',
 		'status'       => 'oehdstat',
 		'orderstatus'     => 'oehdstat',
 		'subtotal_nontax' => 'OehdNonTaxSub',
@@ -63,21 +67,46 @@ class SalesOrder extends BaseSalesOrder {
 		'shipto_city'     => 'oehdstcity',
 		'shipto_state'    => 'oehdststat',
 		'shipto_zip'      => 'oehdstzipcode',
-		'heldby'          => 'oehdcrntuser'
+		'contact'         => 'oehdcont',
+		'phone_intl'      => 'oehdcontteleintl',
+		'phone'           => 'oehdconttelenbr',
+		'phone_ext'       => 'oehdcontteleext',
+		'fax_intl'        => 'oehdcontfaxintl',
+		'fax'             => 'oehdcontfaxnbr',
+		'email'           => 'oehdcontemail',
+		'heldby'          => 'oehdcrntuser',
+		'takenby'         => 'oehdtakencode',
+		'pickedby'        => 'oehdpickcode',
+		'packedby'        => 'oehdpackcode',
+		'verifiedby'      => 'oehdverifycode',
+		'whse'            => 'intbwhse',
+		'pricecode'       => 'artbpriccode',
+		'taxcode'         => 'artbmtaxcode',
+		'termscode'       => 'artmtermcd',
+		'shipvia'         => 'artbshipvia',
+		'salesperson_1'   => 'arspsaleper1',
+		'salesperson_2'   => 'arspsaleper2',
+		'salesperson_3'   => 'arspsaleper3',
+		'shipcomplete'    => 'oehdshipcomp'
 	);
 
 	const LENGTH = 10;
+
 	/**
 	 * Order Statuses and the values for their description
 	 *
 	 * @var array
 	 */
-	public static $status_descriptions = array(
+	const STATUS_DESCRIPTIONS = array(
 		'N' => 'new',
 		'P' => 'picked',
 		'V' => 'verified',
 		'I' => 'invoiced'
 	);
+
+	public function is_shipcomplete() {
+		return $this->shipcomplete == 'Y';
+	}
 
 	/**
 	 * Return the status description based of the order status
@@ -85,7 +114,7 @@ class SalesOrder extends BaseSalesOrder {
 	 * @return void
 	 */
 	public function status() {
-		return self::$status_descriptions[$this->oehdstat];
+		return self::STATUS_DESCRIPTIONS[$this->oehdstat];
 	}
 
 	/**
@@ -93,7 +122,7 @@ class SalesOrder extends BaseSalesOrder {
 	 *
 	 * @return bool
 	 */
-	public function isInvoiced() {
+	public function is_invoiced() {
 		return $this->oehdstat == 'I';
 	}
 
