@@ -6,14 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'ar_ship_to' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'ar_ship_to' table.
  */
 class CustomerShipto extends BaseCustomerShipto {
 	use ThrowErrorTrait;
@@ -25,11 +18,13 @@ class CustomerShipto extends BaseCustomerShipto {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'           => 'arstshipid',
+		'shiptoid'     => 'arstshipid',
 		'custID'       => 'arcucustid',
 		'custid'       => 'arcucustid',
 		'name'         => 'arstname',
 		'custname'     => 'arstname',
 		'address1'     => 'arstadr1',
+		'address'      => 'arstadr1',
 		'address2'     => 'arstadr2',
 		'address3'     => 'arstadr3',
 		'country'      => 'arstctry',
