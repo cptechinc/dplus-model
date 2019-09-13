@@ -456,6 +456,20 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_bin_cntrl" idMethod="native" phpName="WarehouseBin">
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BnctBinFrom" phpName="Bnctbinfrom" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BnctBinThru" phpName="Bnctbinthru" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BnctTypeDesc" phpName="Bncttypedesc" type="VARCHAR" size="1"/>
+    <column name="BnctBinArea" phpName="Bnctbinarea" type="VARCHAR" size="2"/>
+    <column name="BnctBinDesc" phpName="Bnctbindesc" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_grup_code" idMethod="native" phpName="ItemGroupcode">
     <column name="IntbGrup" phpName="Intbgrup" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbGrupDesc" phpName="Intbgrupdesc" type="VARCHAR" size="20"/>

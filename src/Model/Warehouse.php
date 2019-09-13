@@ -55,15 +55,15 @@ class Warehouse extends BaseWarehouse {
 	 * @return bool
 	 */
 	public function validate_bin($binID) {
-		return BincntlQuery::create()->validate_bin($this->IntbWhse, $binID);
+		return WarehouseBinQuery::create()->validate_bin($this->IntbWhse, $binID);
 	}
 
 	/**
-	 * Return Bincntl objects filtered by warehouse
-	 * @return Bincntl[]|ObjectCollection
+	 * Return WarehouseBin objects filtered by warehouse
+	 * @return WarehouseBin[]|ObjectCollection
 	 */
 	public function get_bins() {
-		return BincntlQuery::create()->findByWarehouse($this->IntbWhse);
+		return WarehouseBinQuery::create()->findByWarehouse($this->IntbWhse);
 	}
 
 	/**
