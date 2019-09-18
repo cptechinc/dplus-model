@@ -6,14 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'so_det_hist' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'so_det_hist' table.
  */
 class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	use ThrowErrorTrait;
@@ -32,7 +25,8 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'desc1'        => 'oedhdesc',
 		'desc2'        => 'oedhdesc2',
 		'line'         => 'oedhline',
-		'linenbr'      => 'oedhline'
+		'linenbr'      => 'oedhline',
+		'vendorpo'     => 'oedhponbr'
 	);
 
 	/**
