@@ -6,14 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'doc_index' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'doc_index' table.
  */
 class Documents extends BaseDocuments {
 	use ThrowErrorTrait;
@@ -33,4 +26,14 @@ class Documents extends BaseDocuments {
 		'user'        => 'dociuser',
 		'reference1'  => 'docifld1'
 	);
+
+	/**
+	 * Returns Folder Description
+	 * 
+	 * @uses DocumentFoldersQuery
+	 * @return string
+	 */
+	public function get_folderdescription() {
+		return DocumentFoldersQuery::create()->select(DocumentFolders::get_aliasproperty('description'))->findOneByTag($this->tag);
+	}
 }
