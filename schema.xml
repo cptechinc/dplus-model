@@ -306,6 +306,8 @@
     <column name="ArstUpsAcctNbr" phpName="Arstupsacctnbr" type="VARCHAR" size="10"/>
     <column name="ArstFobInputYn" phpName="Arstfobinputyn" type="VARCHAR" size="1"/>
     <column name="ArstFobPerLb" phpName="Arstfobperlb" type="DECIMAL" size="20" scale="3"/>
+    <column name="ArstSaleYtd" phpName="Arstsaleytd" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArstInvYtd" phpName="Arstinvytd" type="INTEGER" size="4"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

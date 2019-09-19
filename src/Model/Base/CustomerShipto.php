@@ -134,7 +134,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstdeliverydays field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstdeliverydays;
 
@@ -309,7 +309,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo1 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo1;
 
@@ -323,7 +323,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo2 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo2;
 
@@ -337,7 +337,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo3 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo3;
 
@@ -351,7 +351,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo4 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo4;
 
@@ -365,7 +365,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo5 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo5;
 
@@ -379,7 +379,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo6 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo6;
 
@@ -393,7 +393,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo7 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo7;
 
@@ -407,7 +407,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo8 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo8;
 
@@ -421,7 +421,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo9 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo9;
 
@@ -435,7 +435,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo10 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo10;
 
@@ -449,7 +449,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo11 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo11;
 
@@ -463,7 +463,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo12 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo12;
 
@@ -477,7 +477,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo13 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo13;
 
@@ -491,7 +491,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo14 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo14;
 
@@ -505,7 +505,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo15 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo15;
 
@@ -519,7 +519,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo16 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo16;
 
@@ -533,7 +533,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo17 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo17;
 
@@ -547,7 +547,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo18 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo18;
 
@@ -561,7 +561,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo19 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo19;
 
@@ -575,7 +575,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo20 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo20;
 
@@ -589,7 +589,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo21 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo21;
 
@@ -603,7 +603,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo22 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo22;
 
@@ -617,7 +617,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo23 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo23;
 
@@ -631,7 +631,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * The value for the arstinv24mo24 field.
      *
-     * @var        string
+     * @var        int
      */
     protected $arstinv24mo24;
 
@@ -727,16 +727,30 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $arstfobperlb;
 
     /**
-     * The value for the dateupdtd field.
+     * The value for the arstsaleytd field.
+     *
+     * @var        string
+     */
+    protected $arstsaleytd;
+
+    /**
+     * The value for the arstinvytd field.
      *
      * @var        int
+     */
+    protected $arstinvytd;
+
+    /**
+     * The value for the dateupdtd field.
+     *
+     * @var        string
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        int
+     * @var        string
      */
     protected $timeupdtd;
 
@@ -1097,7 +1111,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstdeliverydays] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstdeliverydays()
     {
@@ -1347,7 +1361,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo1] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo1()
     {
@@ -1367,7 +1381,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo2] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo2()
     {
@@ -1387,7 +1401,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo3] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo3()
     {
@@ -1407,7 +1421,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo4] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo4()
     {
@@ -1427,7 +1441,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo5] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo5()
     {
@@ -1447,7 +1461,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo6] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo6()
     {
@@ -1467,7 +1481,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo7] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo7()
     {
@@ -1487,7 +1501,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo8] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo8()
     {
@@ -1507,7 +1521,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo9] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo9()
     {
@@ -1527,7 +1541,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo10] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo10()
     {
@@ -1547,7 +1561,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo11] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo11()
     {
@@ -1567,7 +1581,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo12] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo12()
     {
@@ -1587,7 +1601,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo13] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo13()
     {
@@ -1607,7 +1621,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo14] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo14()
     {
@@ -1627,7 +1641,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo15] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo15()
     {
@@ -1647,7 +1661,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo16] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo16()
     {
@@ -1667,7 +1681,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo17] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo17()
     {
@@ -1687,7 +1701,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo18] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo18()
     {
@@ -1707,7 +1721,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo19] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo19()
     {
@@ -1727,7 +1741,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo20] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo20()
     {
@@ -1747,7 +1761,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo21] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo21()
     {
@@ -1767,7 +1781,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo22] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo22()
     {
@@ -1787,7 +1801,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo23] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo23()
     {
@@ -1807,7 +1821,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [arstinv24mo24] column value.
      *
-     * @return string
+     * @return int
      */
     public function getArstinv24mo24()
     {
@@ -1945,9 +1959,29 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * Get the [dateupdtd] column value.
+     * Get the [arstsaleytd] column value.
+     *
+     * @return string
+     */
+    public function getArstsaleytd()
+    {
+        return $this->arstsaleytd;
+    }
+
+    /**
+     * Get the [arstinvytd] column value.
      *
      * @return int
+     */
+    public function getArstinvytd()
+    {
+        return $this->arstinvytd;
+    }
+
+    /**
+     * Get the [dateupdtd] column value.
+     *
+     * @return string
      */
     public function getDateupdtd()
     {
@@ -1957,7 +1991,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return int
+     * @return string
      */
     public function getTimeupdtd()
     {
@@ -2177,13 +2211,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstdeliverydays] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstdeliverydays($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstdeliverydays !== $v) {
@@ -2677,13 +2711,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo1] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo1($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo1 !== $v) {
@@ -2717,13 +2751,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo2] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo2($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo2 !== $v) {
@@ -2757,13 +2791,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo3] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo3($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo3 !== $v) {
@@ -2797,13 +2831,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo4] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo4($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo4 !== $v) {
@@ -2837,13 +2871,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo5] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo5($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo5 !== $v) {
@@ -2877,13 +2911,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo6] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo6($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo6 !== $v) {
@@ -2917,13 +2951,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo7] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo7($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo7 !== $v) {
@@ -2957,13 +2991,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo8] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo8($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo8 !== $v) {
@@ -2997,13 +3031,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo9] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo9($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo9 !== $v) {
@@ -3037,13 +3071,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo10] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo10($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo10 !== $v) {
@@ -3077,13 +3111,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo11] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo11($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo11 !== $v) {
@@ -3117,13 +3151,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo12] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo12($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo12 !== $v) {
@@ -3157,13 +3191,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo13] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo13($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo13 !== $v) {
@@ -3197,13 +3231,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo14] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo14($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo14 !== $v) {
@@ -3237,13 +3271,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo15] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo15($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo15 !== $v) {
@@ -3277,13 +3311,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo16] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo16($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo16 !== $v) {
@@ -3317,13 +3351,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo17] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo17($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo17 !== $v) {
@@ -3357,13 +3391,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo18] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo18($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo18 !== $v) {
@@ -3397,13 +3431,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo19] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo19($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo19 !== $v) {
@@ -3437,13 +3471,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo20] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo20($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo20 !== $v) {
@@ -3477,13 +3511,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo21] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo21($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo21 !== $v) {
@@ -3517,13 +3551,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo22] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo22($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo22 !== $v) {
@@ -3557,13 +3591,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo23] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo23($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo23 !== $v) {
@@ -3597,13 +3631,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [arstinv24mo24] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setArstinv24mo24($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->arstinv24mo24 !== $v) {
@@ -3875,15 +3909,55 @@ abstract class CustomerShipto implements ActiveRecordInterface
     } // setArstfobperlb()
 
     /**
-     * Set the value of [dateupdtd] column.
+     * Set the value of [arstsaleytd] column.
+     *
+     * @param string $v new value
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function setArstsaleytd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->arstsaleytd !== $v) {
+            $this->arstsaleytd = $v;
+            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTSALEYTD] = true;
+        }
+
+        return $this;
+    } // setArstsaleytd()
+
+    /**
+     * Set the value of [arstinvytd] column.
      *
      * @param int $v new value
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function setArstinvytd($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->arstinvytd !== $v) {
+            $this->arstinvytd = $v;
+            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTINVYTD] = true;
+        }
+
+        return $this;
+    } // setArstinvytd()
+
+    /**
+     * Set the value of [dateupdtd] column.
+     *
+     * @param string $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->dateupdtd !== $v) {
@@ -3897,13 +3971,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->timeupdtd !== $v) {
@@ -4009,7 +4083,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->arstzipcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstdeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstdeliverydays = (null !== $col) ? (string) $col : null;
+            $this->arstdeliverydays = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstcommcode = (null !== $col) ? (string) $col : null;
@@ -4084,145 +4158,145 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->arstsale24mo1 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo1 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo1 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo2 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo2 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo2 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo3 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo3 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo3 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo4 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo4 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo4 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo5 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo5 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo5 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo6 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo6 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo6 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo7 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo7 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo7 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo8 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo8 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo8 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo9 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo9 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo9 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo10 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo10 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo10 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo11 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo11 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo11 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo12 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo12 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo12 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo13 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo13 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo13 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo14 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo14 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo14 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo15 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo15 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo15 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo16 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo16 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo16 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo17 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo17 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo17 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo18 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo18 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo18 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo19 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo19 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo19 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo20 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo20 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo20 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo21 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo21 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo21 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo22 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo22 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo22 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo23 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo23 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo23 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstsale24mo24 = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstinv24mo24 = (null !== $col) ? (string) $col : null;
+            $this->arstinv24mo24 = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstprimshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstprimshipid = (null !== $col) ? (string) $col : null;
@@ -4263,13 +4337,19 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstfobperlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstfobperlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->dateupdtd = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstsaleytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->arstsaleytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->timeupdtd = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->arstinvytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dateupdtd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->timeupdtd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -4279,7 +4359,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 98; // 98 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 100; // 100 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\CustomerShipto'), 0, $e);
@@ -4525,13 +4605,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $modifiedColumns[':p' . $index++]  = 'ArstCatlgId';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSPSALEPER1)) {
-            $modifiedColumns[':p' . $index++]  = 'Arspsaleper1';
+            $modifiedColumns[':p' . $index++]  = 'ArspSalePer1';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSPSALEPER2)) {
-            $modifiedColumns[':p' . $index++]  = 'Arspsaleper2';
+            $modifiedColumns[':p' . $index++]  = 'ArspSalePer2';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSPSALEPER3)) {
-            $modifiedColumns[':p' . $index++]  = 'Arspsaleper3';
+            $modifiedColumns[':p' . $index++]  = 'ArspSalePer3';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBMTAXCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
@@ -4579,148 +4659,148 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $modifiedColumns[':p' . $index++]  = 'ArstLastSaleDate';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO1)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO1';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo1';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO1)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO1';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo1';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO2)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO2';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo2';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO2)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO2';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo2';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO3)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO3';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo3';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO3)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO3';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo3';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO4)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO4';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo4';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO4)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO4';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo4';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO5)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO5';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo5';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO5)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO5';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo5';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO6)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO6';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo6';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO6)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO6';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo6';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO7)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO7';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo7';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO7)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO7';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo7';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO8)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO8';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo8';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO8)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO8';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo8';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO9)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO9';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo9';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO9)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO9';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo9';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO10)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO10';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo10';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO10)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO10';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo10';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO11)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO11';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo11';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO11)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO11';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo11';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO12)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO12';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo12';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO12)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO12';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo12';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO13)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO13';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo13';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO13)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO13';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo13';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO14)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO14';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo14';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO14)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO14';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo14';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO15)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO15';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo15';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO15)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO15';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo15';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO16)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO16';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo16';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO16)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO16';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo16';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO17)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO17';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo17';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO17)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO17';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo17';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO18)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO18';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo18';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO18)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO18';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo18';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO19)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO19';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo19';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO19)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO19';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo19';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO20)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO20';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo20';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO20)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO20';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo20';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO21)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO21';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo21';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO21)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO21';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo21';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO22)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO22';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo22';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO22)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO22';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo22';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO23)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO23';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo23';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO23)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO23';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo23';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALE24MO24)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstSale24MO24';
+            $modifiedColumns[':p' . $index++]  = 'ArstSale24mo24';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINV24MO24)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstInv24MO24';
+            $modifiedColumns[':p' . $index++]  = 'ArstInv24mo24';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTPRIMSHIPID)) {
             $modifiedColumns[':p' . $index++]  = 'ArstPrimShipId';
@@ -4756,10 +4836,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $modifiedColumns[':p' . $index++]  = 'ArstUpsAcctNbr';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTFOBINPUTYN)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstFobInputYN';
+            $modifiedColumns[':p' . $index++]  = 'ArstFobInputYn';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTFOBPERLB)) {
             $modifiedColumns[':p' . $index++]  = 'ArstFobPerLb';
+        }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALEYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ArstSaleYtd';
+        }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINVYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ArstInvYtd';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
@@ -4812,7 +4898,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->arstzipcode, PDO::PARAM_STR);
                         break;
                     case 'ArstDeliveryDays':
-                        $stmt->bindValue($identifier, $this->arstdeliverydays, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->arstdeliverydays, PDO::PARAM_INT);
                         break;
                     case 'ArstCommCode':
                         $stmt->bindValue($identifier, $this->arstcommcode, PDO::PARAM_STR);
@@ -4829,13 +4915,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArstCatlgId':
                         $stmt->bindValue($identifier, $this->arstcatlgid, PDO::PARAM_STR);
                         break;
-                    case 'Arspsaleper1':
+                    case 'ArspSalePer1':
                         $stmt->bindValue($identifier, $this->arspsaleper1, PDO::PARAM_STR);
                         break;
-                    case 'Arspsaleper2':
+                    case 'ArspSalePer2':
                         $stmt->bindValue($identifier, $this->arspsaleper2, PDO::PARAM_STR);
                         break;
-                    case 'Arspsaleper3':
+                    case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
                         break;
                     case 'ArtbMtaxCode':
@@ -4883,149 +4969,149 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArstLastSaleDate':
                         $stmt->bindValue($identifier, $this->arstlastsaledate, PDO::PARAM_STR);
                         break;
-                    case 'ArstSale24MO1':
+                    case 'ArstSale24mo1':
                         $stmt->bindValue($identifier, $this->arstsale24mo1, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO1':
-                        $stmt->bindValue($identifier, $this->arstinv24mo1, PDO::PARAM_STR);
+                    case 'ArstInv24mo1':
+                        $stmt->bindValue($identifier, $this->arstinv24mo1, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO2':
+                    case 'ArstSale24mo2':
                         $stmt->bindValue($identifier, $this->arstsale24mo2, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO2':
-                        $stmt->bindValue($identifier, $this->arstinv24mo2, PDO::PARAM_STR);
+                    case 'ArstInv24mo2':
+                        $stmt->bindValue($identifier, $this->arstinv24mo2, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO3':
+                    case 'ArstSale24mo3':
                         $stmt->bindValue($identifier, $this->arstsale24mo3, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO3':
-                        $stmt->bindValue($identifier, $this->arstinv24mo3, PDO::PARAM_STR);
+                    case 'ArstInv24mo3':
+                        $stmt->bindValue($identifier, $this->arstinv24mo3, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO4':
+                    case 'ArstSale24mo4':
                         $stmt->bindValue($identifier, $this->arstsale24mo4, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO4':
-                        $stmt->bindValue($identifier, $this->arstinv24mo4, PDO::PARAM_STR);
+                    case 'ArstInv24mo4':
+                        $stmt->bindValue($identifier, $this->arstinv24mo4, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO5':
+                    case 'ArstSale24mo5':
                         $stmt->bindValue($identifier, $this->arstsale24mo5, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO5':
-                        $stmt->bindValue($identifier, $this->arstinv24mo5, PDO::PARAM_STR);
+                    case 'ArstInv24mo5':
+                        $stmt->bindValue($identifier, $this->arstinv24mo5, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO6':
+                    case 'ArstSale24mo6':
                         $stmt->bindValue($identifier, $this->arstsale24mo6, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO6':
-                        $stmt->bindValue($identifier, $this->arstinv24mo6, PDO::PARAM_STR);
+                    case 'ArstInv24mo6':
+                        $stmt->bindValue($identifier, $this->arstinv24mo6, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO7':
+                    case 'ArstSale24mo7':
                         $stmt->bindValue($identifier, $this->arstsale24mo7, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO7':
-                        $stmt->bindValue($identifier, $this->arstinv24mo7, PDO::PARAM_STR);
+                    case 'ArstInv24mo7':
+                        $stmt->bindValue($identifier, $this->arstinv24mo7, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO8':
+                    case 'ArstSale24mo8':
                         $stmt->bindValue($identifier, $this->arstsale24mo8, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO8':
-                        $stmt->bindValue($identifier, $this->arstinv24mo8, PDO::PARAM_STR);
+                    case 'ArstInv24mo8':
+                        $stmt->bindValue($identifier, $this->arstinv24mo8, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO9':
+                    case 'ArstSale24mo9':
                         $stmt->bindValue($identifier, $this->arstsale24mo9, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO9':
-                        $stmt->bindValue($identifier, $this->arstinv24mo9, PDO::PARAM_STR);
+                    case 'ArstInv24mo9':
+                        $stmt->bindValue($identifier, $this->arstinv24mo9, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO10':
+                    case 'ArstSale24mo10':
                         $stmt->bindValue($identifier, $this->arstsale24mo10, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO10':
-                        $stmt->bindValue($identifier, $this->arstinv24mo10, PDO::PARAM_STR);
+                    case 'ArstInv24mo10':
+                        $stmt->bindValue($identifier, $this->arstinv24mo10, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO11':
+                    case 'ArstSale24mo11':
                         $stmt->bindValue($identifier, $this->arstsale24mo11, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO11':
-                        $stmt->bindValue($identifier, $this->arstinv24mo11, PDO::PARAM_STR);
+                    case 'ArstInv24mo11':
+                        $stmt->bindValue($identifier, $this->arstinv24mo11, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO12':
+                    case 'ArstSale24mo12':
                         $stmt->bindValue($identifier, $this->arstsale24mo12, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO12':
-                        $stmt->bindValue($identifier, $this->arstinv24mo12, PDO::PARAM_STR);
+                    case 'ArstInv24mo12':
+                        $stmt->bindValue($identifier, $this->arstinv24mo12, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO13':
+                    case 'ArstSale24mo13':
                         $stmt->bindValue($identifier, $this->arstsale24mo13, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO13':
-                        $stmt->bindValue($identifier, $this->arstinv24mo13, PDO::PARAM_STR);
+                    case 'ArstInv24mo13':
+                        $stmt->bindValue($identifier, $this->arstinv24mo13, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO14':
+                    case 'ArstSale24mo14':
                         $stmt->bindValue($identifier, $this->arstsale24mo14, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO14':
-                        $stmt->bindValue($identifier, $this->arstinv24mo14, PDO::PARAM_STR);
+                    case 'ArstInv24mo14':
+                        $stmt->bindValue($identifier, $this->arstinv24mo14, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO15':
+                    case 'ArstSale24mo15':
                         $stmt->bindValue($identifier, $this->arstsale24mo15, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO15':
-                        $stmt->bindValue($identifier, $this->arstinv24mo15, PDO::PARAM_STR);
+                    case 'ArstInv24mo15':
+                        $stmt->bindValue($identifier, $this->arstinv24mo15, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO16':
+                    case 'ArstSale24mo16':
                         $stmt->bindValue($identifier, $this->arstsale24mo16, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO16':
-                        $stmt->bindValue($identifier, $this->arstinv24mo16, PDO::PARAM_STR);
+                    case 'ArstInv24mo16':
+                        $stmt->bindValue($identifier, $this->arstinv24mo16, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO17':
+                    case 'ArstSale24mo17':
                         $stmt->bindValue($identifier, $this->arstsale24mo17, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO17':
-                        $stmt->bindValue($identifier, $this->arstinv24mo17, PDO::PARAM_STR);
+                    case 'ArstInv24mo17':
+                        $stmt->bindValue($identifier, $this->arstinv24mo17, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO18':
+                    case 'ArstSale24mo18':
                         $stmt->bindValue($identifier, $this->arstsale24mo18, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO18':
-                        $stmt->bindValue($identifier, $this->arstinv24mo18, PDO::PARAM_STR);
+                    case 'ArstInv24mo18':
+                        $stmt->bindValue($identifier, $this->arstinv24mo18, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO19':
+                    case 'ArstSale24mo19':
                         $stmt->bindValue($identifier, $this->arstsale24mo19, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO19':
-                        $stmt->bindValue($identifier, $this->arstinv24mo19, PDO::PARAM_STR);
+                    case 'ArstInv24mo19':
+                        $stmt->bindValue($identifier, $this->arstinv24mo19, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO20':
+                    case 'ArstSale24mo20':
                         $stmt->bindValue($identifier, $this->arstsale24mo20, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO20':
-                        $stmt->bindValue($identifier, $this->arstinv24mo20, PDO::PARAM_STR);
+                    case 'ArstInv24mo20':
+                        $stmt->bindValue($identifier, $this->arstinv24mo20, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO21':
+                    case 'ArstSale24mo21':
                         $stmt->bindValue($identifier, $this->arstsale24mo21, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO21':
-                        $stmt->bindValue($identifier, $this->arstinv24mo21, PDO::PARAM_STR);
+                    case 'ArstInv24mo21':
+                        $stmt->bindValue($identifier, $this->arstinv24mo21, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO22':
+                    case 'ArstSale24mo22':
                         $stmt->bindValue($identifier, $this->arstsale24mo22, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO22':
-                        $stmt->bindValue($identifier, $this->arstinv24mo22, PDO::PARAM_STR);
+                    case 'ArstInv24mo22':
+                        $stmt->bindValue($identifier, $this->arstinv24mo22, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO23':
+                    case 'ArstSale24mo23':
                         $stmt->bindValue($identifier, $this->arstsale24mo23, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO23':
-                        $stmt->bindValue($identifier, $this->arstinv24mo23, PDO::PARAM_STR);
+                    case 'ArstInv24mo23':
+                        $stmt->bindValue($identifier, $this->arstinv24mo23, PDO::PARAM_INT);
                         break;
-                    case 'ArstSale24MO24':
+                    case 'ArstSale24mo24':
                         $stmt->bindValue($identifier, $this->arstsale24mo24, PDO::PARAM_STR);
                         break;
-                    case 'ArstInv24MO24':
-                        $stmt->bindValue($identifier, $this->arstinv24mo24, PDO::PARAM_STR);
+                    case 'ArstInv24mo24':
+                        $stmt->bindValue($identifier, $this->arstinv24mo24, PDO::PARAM_INT);
                         break;
                     case 'ArstPrimShipId':
                         $stmt->bindValue($identifier, $this->arstprimshipid, PDO::PARAM_STR);
@@ -5060,17 +5146,23 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArstUpsAcctNbr':
                         $stmt->bindValue($identifier, $this->arstupsacctnbr, PDO::PARAM_STR);
                         break;
-                    case 'ArstFobInputYN':
+                    case 'ArstFobInputYn':
                         $stmt->bindValue($identifier, $this->arstfobinputyn, PDO::PARAM_STR);
                         break;
                     case 'ArstFobPerLb':
                         $stmt->bindValue($identifier, $this->arstfobperlb, PDO::PARAM_STR);
                         break;
+                    case 'ArstSaleYtd':
+                        $stmt->bindValue($identifier, $this->arstsaleytd, PDO::PARAM_STR);
+                        break;
+                    case 'ArstInvYtd':
+                        $stmt->bindValue($identifier, $this->arstinvytd, PDO::PARAM_INT);
+                        break;
                     case 'DateUpdtd':
-                        $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
                         break;
                     case 'TimeUpdtd':
-                        $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
@@ -5416,12 +5508,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 return $this->getArstfobperlb();
                 break;
             case 95:
-                return $this->getDateupdtd();
+                return $this->getArstsaleytd();
                 break;
             case 96:
-                return $this->getTimeupdtd();
+                return $this->getArstinvytd();
                 break;
             case 97:
+                return $this->getDateupdtd();
+                break;
+            case 98:
+                return $this->getTimeupdtd();
+                break;
+            case 99:
                 return $this->getDummy();
                 break;
             default:
@@ -5548,9 +5646,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[92] => $this->getArstupsacctnbr(),
             $keys[93] => $this->getArstfobinputyn(),
             $keys[94] => $this->getArstfobperlb(),
-            $keys[95] => $this->getDateupdtd(),
-            $keys[96] => $this->getTimeupdtd(),
-            $keys[97] => $this->getDummy(),
+            $keys[95] => $this->getArstsaleytd(),
+            $keys[96] => $this->getArstinvytd(),
+            $keys[97] => $this->getDateupdtd(),
+            $keys[98] => $this->getTimeupdtd(),
+            $keys[99] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -5876,12 +5976,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->setArstfobperlb($value);
                 break;
             case 95:
-                $this->setDateupdtd($value);
+                $this->setArstsaleytd($value);
                 break;
             case 96:
-                $this->setTimeupdtd($value);
+                $this->setArstinvytd($value);
                 break;
             case 97:
+                $this->setDateupdtd($value);
+                break;
+            case 98:
+                $this->setTimeupdtd($value);
+                break;
+            case 99:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -6196,13 +6302,19 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->setArstfobperlb($arr[$keys[94]]);
         }
         if (array_key_exists($keys[95], $arr)) {
-            $this->setDateupdtd($arr[$keys[95]]);
+            $this->setArstsaleytd($arr[$keys[95]]);
         }
         if (array_key_exists($keys[96], $arr)) {
-            $this->setTimeupdtd($arr[$keys[96]]);
+            $this->setArstinvytd($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setDummy($arr[$keys[97]]);
+            $this->setDateupdtd($arr[$keys[97]]);
+        }
+        if (array_key_exists($keys[98], $arr)) {
+            $this->setTimeupdtd($arr[$keys[98]]);
+        }
+        if (array_key_exists($keys[99], $arr)) {
+            $this->setDummy($arr[$keys[99]]);
         }
     }
 
@@ -6530,6 +6642,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTFOBPERLB)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTFOBPERLB, $this->arstfobperlb);
         }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTSALEYTD)) {
+            $criteria->add(CustomerShiptoTableMap::COL_ARSTSALEYTD, $this->arstsaleytd);
+        }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINVYTD)) {
+            $criteria->add(CustomerShiptoTableMap::COL_ARSTINVYTD, $this->arstinvytd);
+        }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_DATEUPDTD)) {
             $criteria->add(CustomerShiptoTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -6728,6 +6846,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setArstupsacctnbr($this->getArstupsacctnbr());
         $copyObj->setArstfobinputyn($this->getArstfobinputyn());
         $copyObj->setArstfobperlb($this->getArstfobperlb());
+        $copyObj->setArstsaleytd($this->getArstsaleytd());
+        $copyObj->setArstinvytd($this->getArstinvytd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -6860,6 +6980,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arstupsacctnbr = null;
         $this->arstfobinputyn = null;
         $this->arstfobperlb = null;
+        $this->arstsaleytd = null;
+        $this->arstinvytd = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

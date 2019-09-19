@@ -35,9 +35,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArstlindstsp($order = Criteria::ASC) Order by the ArstLindstSp column
  * @method     ChildCustomerShiptoQuery orderByArstlmecommcustid($order = Criteria::ASC) Order by the ArstLmEcommCustId column
  * @method     ChildCustomerShiptoQuery orderByArstcatlgid($order = Criteria::ASC) Order by the ArstCatlgId column
- * @method     ChildCustomerShiptoQuery orderByArspsaleper1($order = Criteria::ASC) Order by the Arspsaleper1 column
- * @method     ChildCustomerShiptoQuery orderByArspsaleper2($order = Criteria::ASC) Order by the Arspsaleper2 column
- * @method     ChildCustomerShiptoQuery orderByArspsaleper3($order = Criteria::ASC) Order by the Arspsaleper3 column
+ * @method     ChildCustomerShiptoQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
+ * @method     ChildCustomerShiptoQuery orderByArspsaleper2($order = Criteria::ASC) Order by the ArspSalePer2 column
+ * @method     ChildCustomerShiptoQuery orderByArspsaleper3($order = Criteria::ASC) Order by the ArspSalePer3 column
  * @method     ChildCustomerShiptoQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
  * @method     ChildCustomerShiptoQuery orderByArsttaxexemnbr($order = Criteria::ASC) Order by the ArstTaxExemNbr column
  * @method     ChildCustomerShiptoQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
@@ -53,54 +53,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArstinvmtd($order = Criteria::ASC) Order by the ArstInvMtd column
  * @method     ChildCustomerShiptoQuery orderByArstdateopen($order = Criteria::ASC) Order by the ArstDateOpen column
  * @method     ChildCustomerShiptoQuery orderByArstlastsaledate($order = Criteria::ASC) Order by the ArstLastSaleDate column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo1($order = Criteria::ASC) Order by the ArstSale24MO1 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo1($order = Criteria::ASC) Order by the ArstInv24MO1 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo2($order = Criteria::ASC) Order by the ArstSale24MO2 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo2($order = Criteria::ASC) Order by the ArstInv24MO2 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo3($order = Criteria::ASC) Order by the ArstSale24MO3 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo3($order = Criteria::ASC) Order by the ArstInv24MO3 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo4($order = Criteria::ASC) Order by the ArstSale24MO4 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo4($order = Criteria::ASC) Order by the ArstInv24MO4 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo5($order = Criteria::ASC) Order by the ArstSale24MO5 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo5($order = Criteria::ASC) Order by the ArstInv24MO5 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo6($order = Criteria::ASC) Order by the ArstSale24MO6 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo6($order = Criteria::ASC) Order by the ArstInv24MO6 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo7($order = Criteria::ASC) Order by the ArstSale24MO7 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo7($order = Criteria::ASC) Order by the ArstInv24MO7 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo8($order = Criteria::ASC) Order by the ArstSale24MO8 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo8($order = Criteria::ASC) Order by the ArstInv24MO8 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo9($order = Criteria::ASC) Order by the ArstSale24MO9 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo9($order = Criteria::ASC) Order by the ArstInv24MO9 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo10($order = Criteria::ASC) Order by the ArstSale24MO10 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo10($order = Criteria::ASC) Order by the ArstInv24MO10 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo11($order = Criteria::ASC) Order by the ArstSale24MO11 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo11($order = Criteria::ASC) Order by the ArstInv24MO11 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo12($order = Criteria::ASC) Order by the ArstSale24MO12 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo12($order = Criteria::ASC) Order by the ArstInv24MO12 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo13($order = Criteria::ASC) Order by the ArstSale24MO13 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo13($order = Criteria::ASC) Order by the ArstInv24MO13 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo14($order = Criteria::ASC) Order by the ArstSale24MO14 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo14($order = Criteria::ASC) Order by the ArstInv24MO14 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo15($order = Criteria::ASC) Order by the ArstSale24MO15 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo15($order = Criteria::ASC) Order by the ArstInv24MO15 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo16($order = Criteria::ASC) Order by the ArstSale24MO16 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo16($order = Criteria::ASC) Order by the ArstInv24MO16 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo17($order = Criteria::ASC) Order by the ArstSale24MO17 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo17($order = Criteria::ASC) Order by the ArstInv24MO17 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo18($order = Criteria::ASC) Order by the ArstSale24MO18 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo18($order = Criteria::ASC) Order by the ArstInv24MO18 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo19($order = Criteria::ASC) Order by the ArstSale24MO19 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo19($order = Criteria::ASC) Order by the ArstInv24MO19 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo20($order = Criteria::ASC) Order by the ArstSale24MO20 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo20($order = Criteria::ASC) Order by the ArstInv24MO20 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo21($order = Criteria::ASC) Order by the ArstSale24MO21 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo21($order = Criteria::ASC) Order by the ArstInv24MO21 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo22($order = Criteria::ASC) Order by the ArstSale24MO22 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo22($order = Criteria::ASC) Order by the ArstInv24MO22 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo23($order = Criteria::ASC) Order by the ArstSale24MO23 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo23($order = Criteria::ASC) Order by the ArstInv24MO23 column
- * @method     ChildCustomerShiptoQuery orderByArstsale24mo24($order = Criteria::ASC) Order by the ArstSale24MO24 column
- * @method     ChildCustomerShiptoQuery orderByArstinv24mo24($order = Criteria::ASC) Order by the ArstInv24MO24 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo1($order = Criteria::ASC) Order by the ArstSale24mo1 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo1($order = Criteria::ASC) Order by the ArstInv24mo1 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo2($order = Criteria::ASC) Order by the ArstSale24mo2 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo2($order = Criteria::ASC) Order by the ArstInv24mo2 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo3($order = Criteria::ASC) Order by the ArstSale24mo3 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo3($order = Criteria::ASC) Order by the ArstInv24mo3 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo4($order = Criteria::ASC) Order by the ArstSale24mo4 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo4($order = Criteria::ASC) Order by the ArstInv24mo4 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo5($order = Criteria::ASC) Order by the ArstSale24mo5 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo5($order = Criteria::ASC) Order by the ArstInv24mo5 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo6($order = Criteria::ASC) Order by the ArstSale24mo6 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo6($order = Criteria::ASC) Order by the ArstInv24mo6 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo7($order = Criteria::ASC) Order by the ArstSale24mo7 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo7($order = Criteria::ASC) Order by the ArstInv24mo7 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo8($order = Criteria::ASC) Order by the ArstSale24mo8 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo8($order = Criteria::ASC) Order by the ArstInv24mo8 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo9($order = Criteria::ASC) Order by the ArstSale24mo9 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo9($order = Criteria::ASC) Order by the ArstInv24mo9 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo10($order = Criteria::ASC) Order by the ArstSale24mo10 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo10($order = Criteria::ASC) Order by the ArstInv24mo10 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo11($order = Criteria::ASC) Order by the ArstSale24mo11 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo11($order = Criteria::ASC) Order by the ArstInv24mo11 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo12($order = Criteria::ASC) Order by the ArstSale24mo12 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo12($order = Criteria::ASC) Order by the ArstInv24mo12 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo13($order = Criteria::ASC) Order by the ArstSale24mo13 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo13($order = Criteria::ASC) Order by the ArstInv24mo13 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo14($order = Criteria::ASC) Order by the ArstSale24mo14 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo14($order = Criteria::ASC) Order by the ArstInv24mo14 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo15($order = Criteria::ASC) Order by the ArstSale24mo15 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo15($order = Criteria::ASC) Order by the ArstInv24mo15 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo16($order = Criteria::ASC) Order by the ArstSale24mo16 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo16($order = Criteria::ASC) Order by the ArstInv24mo16 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo17($order = Criteria::ASC) Order by the ArstSale24mo17 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo17($order = Criteria::ASC) Order by the ArstInv24mo17 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo18($order = Criteria::ASC) Order by the ArstSale24mo18 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo18($order = Criteria::ASC) Order by the ArstInv24mo18 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo19($order = Criteria::ASC) Order by the ArstSale24mo19 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo19($order = Criteria::ASC) Order by the ArstInv24mo19 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo20($order = Criteria::ASC) Order by the ArstSale24mo20 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo20($order = Criteria::ASC) Order by the ArstInv24mo20 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo21($order = Criteria::ASC) Order by the ArstSale24mo21 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo21($order = Criteria::ASC) Order by the ArstInv24mo21 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo22($order = Criteria::ASC) Order by the ArstSale24mo22 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo22($order = Criteria::ASC) Order by the ArstInv24mo22 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo23($order = Criteria::ASC) Order by the ArstSale24mo23 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo23($order = Criteria::ASC) Order by the ArstInv24mo23 column
+ * @method     ChildCustomerShiptoQuery orderByArstsale24mo24($order = Criteria::ASC) Order by the ArstSale24mo24 column
+ * @method     ChildCustomerShiptoQuery orderByArstinv24mo24($order = Criteria::ASC) Order by the ArstInv24mo24 column
  * @method     ChildCustomerShiptoQuery orderByArstprimshipid($order = Criteria::ASC) Order by the ArstPrimShipId column
  * @method     ChildCustomerShiptoQuery orderByArstmyvendid($order = Criteria::ASC) Order by the ArstMyVendId column
  * @method     ChildCustomerShiptoQuery orderByArstaddlpricdisc($order = Criteria::ASC) Order by the ArstAddlPricDisc column
@@ -112,8 +112,10 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArstcustpopram($order = Criteria::ASC) Order by the ArstCustPOPram column
  * @method     ChildCustomerShiptoQuery orderByArtbroutcode($order = Criteria::ASC) Order by the ArtbRoutCode column
  * @method     ChildCustomerShiptoQuery orderByArstupsacctnbr($order = Criteria::ASC) Order by the ArstUpsAcctNbr column
- * @method     ChildCustomerShiptoQuery orderByArstfobinputyn($order = Criteria::ASC) Order by the ArstFobInputYN column
+ * @method     ChildCustomerShiptoQuery orderByArstfobinputyn($order = Criteria::ASC) Order by the ArstFobInputYn column
  * @method     ChildCustomerShiptoQuery orderByArstfobperlb($order = Criteria::ASC) Order by the ArstFobPerLb column
+ * @method     ChildCustomerShiptoQuery orderByArstsaleytd($order = Criteria::ASC) Order by the ArstSaleYtd column
+ * @method     ChildCustomerShiptoQuery orderByArstinvytd($order = Criteria::ASC) Order by the ArstInvYtd column
  * @method     ChildCustomerShiptoQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildCustomerShiptoQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildCustomerShiptoQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -134,9 +136,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArstlindstsp() Group by the ArstLindstSp column
  * @method     ChildCustomerShiptoQuery groupByArstlmecommcustid() Group by the ArstLmEcommCustId column
  * @method     ChildCustomerShiptoQuery groupByArstcatlgid() Group by the ArstCatlgId column
- * @method     ChildCustomerShiptoQuery groupByArspsaleper1() Group by the Arspsaleper1 column
- * @method     ChildCustomerShiptoQuery groupByArspsaleper2() Group by the Arspsaleper2 column
- * @method     ChildCustomerShiptoQuery groupByArspsaleper3() Group by the Arspsaleper3 column
+ * @method     ChildCustomerShiptoQuery groupByArspsaleper1() Group by the ArspSalePer1 column
+ * @method     ChildCustomerShiptoQuery groupByArspsaleper2() Group by the ArspSalePer2 column
+ * @method     ChildCustomerShiptoQuery groupByArspsaleper3() Group by the ArspSalePer3 column
  * @method     ChildCustomerShiptoQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
  * @method     ChildCustomerShiptoQuery groupByArsttaxexemnbr() Group by the ArstTaxExemNbr column
  * @method     ChildCustomerShiptoQuery groupByIntbwhse() Group by the IntbWhse column
@@ -152,54 +154,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArstinvmtd() Group by the ArstInvMtd column
  * @method     ChildCustomerShiptoQuery groupByArstdateopen() Group by the ArstDateOpen column
  * @method     ChildCustomerShiptoQuery groupByArstlastsaledate() Group by the ArstLastSaleDate column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo1() Group by the ArstSale24MO1 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo1() Group by the ArstInv24MO1 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo2() Group by the ArstSale24MO2 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo2() Group by the ArstInv24MO2 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo3() Group by the ArstSale24MO3 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo3() Group by the ArstInv24MO3 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo4() Group by the ArstSale24MO4 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo4() Group by the ArstInv24MO4 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo5() Group by the ArstSale24MO5 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo5() Group by the ArstInv24MO5 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo6() Group by the ArstSale24MO6 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo6() Group by the ArstInv24MO6 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo7() Group by the ArstSale24MO7 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo7() Group by the ArstInv24MO7 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo8() Group by the ArstSale24MO8 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo8() Group by the ArstInv24MO8 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo9() Group by the ArstSale24MO9 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo9() Group by the ArstInv24MO9 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo10() Group by the ArstSale24MO10 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo10() Group by the ArstInv24MO10 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo11() Group by the ArstSale24MO11 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo11() Group by the ArstInv24MO11 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo12() Group by the ArstSale24MO12 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo12() Group by the ArstInv24MO12 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo13() Group by the ArstSale24MO13 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo13() Group by the ArstInv24MO13 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo14() Group by the ArstSale24MO14 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo14() Group by the ArstInv24MO14 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo15() Group by the ArstSale24MO15 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo15() Group by the ArstInv24MO15 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo16() Group by the ArstSale24MO16 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo16() Group by the ArstInv24MO16 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo17() Group by the ArstSale24MO17 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo17() Group by the ArstInv24MO17 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo18() Group by the ArstSale24MO18 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo18() Group by the ArstInv24MO18 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo19() Group by the ArstSale24MO19 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo19() Group by the ArstInv24MO19 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo20() Group by the ArstSale24MO20 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo20() Group by the ArstInv24MO20 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo21() Group by the ArstSale24MO21 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo21() Group by the ArstInv24MO21 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo22() Group by the ArstSale24MO22 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo22() Group by the ArstInv24MO22 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo23() Group by the ArstSale24MO23 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo23() Group by the ArstInv24MO23 column
- * @method     ChildCustomerShiptoQuery groupByArstsale24mo24() Group by the ArstSale24MO24 column
- * @method     ChildCustomerShiptoQuery groupByArstinv24mo24() Group by the ArstInv24MO24 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo1() Group by the ArstSale24mo1 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo1() Group by the ArstInv24mo1 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo2() Group by the ArstSale24mo2 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo2() Group by the ArstInv24mo2 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo3() Group by the ArstSale24mo3 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo3() Group by the ArstInv24mo3 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo4() Group by the ArstSale24mo4 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo4() Group by the ArstInv24mo4 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo5() Group by the ArstSale24mo5 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo5() Group by the ArstInv24mo5 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo6() Group by the ArstSale24mo6 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo6() Group by the ArstInv24mo6 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo7() Group by the ArstSale24mo7 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo7() Group by the ArstInv24mo7 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo8() Group by the ArstSale24mo8 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo8() Group by the ArstInv24mo8 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo9() Group by the ArstSale24mo9 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo9() Group by the ArstInv24mo9 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo10() Group by the ArstSale24mo10 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo10() Group by the ArstInv24mo10 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo11() Group by the ArstSale24mo11 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo11() Group by the ArstInv24mo11 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo12() Group by the ArstSale24mo12 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo12() Group by the ArstInv24mo12 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo13() Group by the ArstSale24mo13 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo13() Group by the ArstInv24mo13 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo14() Group by the ArstSale24mo14 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo14() Group by the ArstInv24mo14 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo15() Group by the ArstSale24mo15 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo15() Group by the ArstInv24mo15 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo16() Group by the ArstSale24mo16 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo16() Group by the ArstInv24mo16 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo17() Group by the ArstSale24mo17 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo17() Group by the ArstInv24mo17 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo18() Group by the ArstSale24mo18 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo18() Group by the ArstInv24mo18 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo19() Group by the ArstSale24mo19 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo19() Group by the ArstInv24mo19 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo20() Group by the ArstSale24mo20 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo20() Group by the ArstInv24mo20 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo21() Group by the ArstSale24mo21 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo21() Group by the ArstInv24mo21 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo22() Group by the ArstSale24mo22 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo22() Group by the ArstInv24mo22 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo23() Group by the ArstSale24mo23 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo23() Group by the ArstInv24mo23 column
+ * @method     ChildCustomerShiptoQuery groupByArstsale24mo24() Group by the ArstSale24mo24 column
+ * @method     ChildCustomerShiptoQuery groupByArstinv24mo24() Group by the ArstInv24mo24 column
  * @method     ChildCustomerShiptoQuery groupByArstprimshipid() Group by the ArstPrimShipId column
  * @method     ChildCustomerShiptoQuery groupByArstmyvendid() Group by the ArstMyVendId column
  * @method     ChildCustomerShiptoQuery groupByArstaddlpricdisc() Group by the ArstAddlPricDisc column
@@ -211,8 +213,10 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArstcustpopram() Group by the ArstCustPOPram column
  * @method     ChildCustomerShiptoQuery groupByArtbroutcode() Group by the ArtbRoutCode column
  * @method     ChildCustomerShiptoQuery groupByArstupsacctnbr() Group by the ArstUpsAcctNbr column
- * @method     ChildCustomerShiptoQuery groupByArstfobinputyn() Group by the ArstFobInputYN column
+ * @method     ChildCustomerShiptoQuery groupByArstfobinputyn() Group by the ArstFobInputYn column
  * @method     ChildCustomerShiptoQuery groupByArstfobperlb() Group by the ArstFobPerLb column
+ * @method     ChildCustomerShiptoQuery groupByArstsaleytd() Group by the ArstSaleYtd column
+ * @method     ChildCustomerShiptoQuery groupByArstinvytd() Group by the ArstInvYtd column
  * @method     ChildCustomerShiptoQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildCustomerShiptoQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildCustomerShiptoQuery groupByDummy() Group by the dummy column
@@ -238,15 +242,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArstcity(string $ArstCity) Return the first ChildCustomerShipto filtered by the ArstCity column
  * @method     ChildCustomerShipto findOneByArststat(string $ArstStat) Return the first ChildCustomerShipto filtered by the ArstStat column
  * @method     ChildCustomerShipto findOneByArstzipcode(string $ArstZipCode) Return the first ChildCustomerShipto filtered by the ArstZipCode column
- * @method     ChildCustomerShipto findOneByArstdeliverydays(string $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column
+ * @method     ChildCustomerShipto findOneByArstdeliverydays(int $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column
  * @method     ChildCustomerShipto findOneByArstcommcode(string $ArstCommCode) Return the first ChildCustomerShipto filtered by the ArstCommCode column
  * @method     ChildCustomerShipto findOneByArstallowsplit(string $ArstAllowSplit) Return the first ChildCustomerShipto filtered by the ArstAllowSplit column
  * @method     ChildCustomerShipto findOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column
  * @method     ChildCustomerShipto findOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column
  * @method     ChildCustomerShipto findOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto findOneByArspsaleper1(string $Arspsaleper1) Return the first ChildCustomerShipto filtered by the Arspsaleper1 column
- * @method     ChildCustomerShipto findOneByArspsaleper2(string $Arspsaleper2) Return the first ChildCustomerShipto filtered by the Arspsaleper2 column
- * @method     ChildCustomerShipto findOneByArspsaleper3(string $Arspsaleper3) Return the first ChildCustomerShipto filtered by the Arspsaleper3 column
+ * @method     ChildCustomerShipto findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column
+ * @method     ChildCustomerShipto findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column
+ * @method     ChildCustomerShipto findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column
  * @method     ChildCustomerShipto findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomerShipto filtered by the ArtbMtaxCode column
  * @method     ChildCustomerShipto findOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column
  * @method     ChildCustomerShipto findOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column
@@ -262,54 +266,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArstinvmtd(int $ArstInvMtd) Return the first ChildCustomerShipto filtered by the ArstInvMtd column
  * @method     ChildCustomerShipto findOneByArstdateopen(string $ArstDateOpen) Return the first ChildCustomerShipto filtered by the ArstDateOpen column
  * @method     ChildCustomerShipto findOneByArstlastsaledate(string $ArstLastSaleDate) Return the first ChildCustomerShipto filtered by the ArstLastSaleDate column
- * @method     ChildCustomerShipto findOneByArstsale24mo1(string $ArstSale24MO1) Return the first ChildCustomerShipto filtered by the ArstSale24MO1 column
- * @method     ChildCustomerShipto findOneByArstinv24mo1(string $ArstInv24MO1) Return the first ChildCustomerShipto filtered by the ArstInv24MO1 column
- * @method     ChildCustomerShipto findOneByArstsale24mo2(string $ArstSale24MO2) Return the first ChildCustomerShipto filtered by the ArstSale24MO2 column
- * @method     ChildCustomerShipto findOneByArstinv24mo2(string $ArstInv24MO2) Return the first ChildCustomerShipto filtered by the ArstInv24MO2 column
- * @method     ChildCustomerShipto findOneByArstsale24mo3(string $ArstSale24MO3) Return the first ChildCustomerShipto filtered by the ArstSale24MO3 column
- * @method     ChildCustomerShipto findOneByArstinv24mo3(string $ArstInv24MO3) Return the first ChildCustomerShipto filtered by the ArstInv24MO3 column
- * @method     ChildCustomerShipto findOneByArstsale24mo4(string $ArstSale24MO4) Return the first ChildCustomerShipto filtered by the ArstSale24MO4 column
- * @method     ChildCustomerShipto findOneByArstinv24mo4(string $ArstInv24MO4) Return the first ChildCustomerShipto filtered by the ArstInv24MO4 column
- * @method     ChildCustomerShipto findOneByArstsale24mo5(string $ArstSale24MO5) Return the first ChildCustomerShipto filtered by the ArstSale24MO5 column
- * @method     ChildCustomerShipto findOneByArstinv24mo5(string $ArstInv24MO5) Return the first ChildCustomerShipto filtered by the ArstInv24MO5 column
- * @method     ChildCustomerShipto findOneByArstsale24mo6(string $ArstSale24MO6) Return the first ChildCustomerShipto filtered by the ArstSale24MO6 column
- * @method     ChildCustomerShipto findOneByArstinv24mo6(string $ArstInv24MO6) Return the first ChildCustomerShipto filtered by the ArstInv24MO6 column
- * @method     ChildCustomerShipto findOneByArstsale24mo7(string $ArstSale24MO7) Return the first ChildCustomerShipto filtered by the ArstSale24MO7 column
- * @method     ChildCustomerShipto findOneByArstinv24mo7(string $ArstInv24MO7) Return the first ChildCustomerShipto filtered by the ArstInv24MO7 column
- * @method     ChildCustomerShipto findOneByArstsale24mo8(string $ArstSale24MO8) Return the first ChildCustomerShipto filtered by the ArstSale24MO8 column
- * @method     ChildCustomerShipto findOneByArstinv24mo8(string $ArstInv24MO8) Return the first ChildCustomerShipto filtered by the ArstInv24MO8 column
- * @method     ChildCustomerShipto findOneByArstsale24mo9(string $ArstSale24MO9) Return the first ChildCustomerShipto filtered by the ArstSale24MO9 column
- * @method     ChildCustomerShipto findOneByArstinv24mo9(string $ArstInv24MO9) Return the first ChildCustomerShipto filtered by the ArstInv24MO9 column
- * @method     ChildCustomerShipto findOneByArstsale24mo10(string $ArstSale24MO10) Return the first ChildCustomerShipto filtered by the ArstSale24MO10 column
- * @method     ChildCustomerShipto findOneByArstinv24mo10(string $ArstInv24MO10) Return the first ChildCustomerShipto filtered by the ArstInv24MO10 column
- * @method     ChildCustomerShipto findOneByArstsale24mo11(string $ArstSale24MO11) Return the first ChildCustomerShipto filtered by the ArstSale24MO11 column
- * @method     ChildCustomerShipto findOneByArstinv24mo11(string $ArstInv24MO11) Return the first ChildCustomerShipto filtered by the ArstInv24MO11 column
- * @method     ChildCustomerShipto findOneByArstsale24mo12(string $ArstSale24MO12) Return the first ChildCustomerShipto filtered by the ArstSale24MO12 column
- * @method     ChildCustomerShipto findOneByArstinv24mo12(string $ArstInv24MO12) Return the first ChildCustomerShipto filtered by the ArstInv24MO12 column
- * @method     ChildCustomerShipto findOneByArstsale24mo13(string $ArstSale24MO13) Return the first ChildCustomerShipto filtered by the ArstSale24MO13 column
- * @method     ChildCustomerShipto findOneByArstinv24mo13(string $ArstInv24MO13) Return the first ChildCustomerShipto filtered by the ArstInv24MO13 column
- * @method     ChildCustomerShipto findOneByArstsale24mo14(string $ArstSale24MO14) Return the first ChildCustomerShipto filtered by the ArstSale24MO14 column
- * @method     ChildCustomerShipto findOneByArstinv24mo14(string $ArstInv24MO14) Return the first ChildCustomerShipto filtered by the ArstInv24MO14 column
- * @method     ChildCustomerShipto findOneByArstsale24mo15(string $ArstSale24MO15) Return the first ChildCustomerShipto filtered by the ArstSale24MO15 column
- * @method     ChildCustomerShipto findOneByArstinv24mo15(string $ArstInv24MO15) Return the first ChildCustomerShipto filtered by the ArstInv24MO15 column
- * @method     ChildCustomerShipto findOneByArstsale24mo16(string $ArstSale24MO16) Return the first ChildCustomerShipto filtered by the ArstSale24MO16 column
- * @method     ChildCustomerShipto findOneByArstinv24mo16(string $ArstInv24MO16) Return the first ChildCustomerShipto filtered by the ArstInv24MO16 column
- * @method     ChildCustomerShipto findOneByArstsale24mo17(string $ArstSale24MO17) Return the first ChildCustomerShipto filtered by the ArstSale24MO17 column
- * @method     ChildCustomerShipto findOneByArstinv24mo17(string $ArstInv24MO17) Return the first ChildCustomerShipto filtered by the ArstInv24MO17 column
- * @method     ChildCustomerShipto findOneByArstsale24mo18(string $ArstSale24MO18) Return the first ChildCustomerShipto filtered by the ArstSale24MO18 column
- * @method     ChildCustomerShipto findOneByArstinv24mo18(string $ArstInv24MO18) Return the first ChildCustomerShipto filtered by the ArstInv24MO18 column
- * @method     ChildCustomerShipto findOneByArstsale24mo19(string $ArstSale24MO19) Return the first ChildCustomerShipto filtered by the ArstSale24MO19 column
- * @method     ChildCustomerShipto findOneByArstinv24mo19(string $ArstInv24MO19) Return the first ChildCustomerShipto filtered by the ArstInv24MO19 column
- * @method     ChildCustomerShipto findOneByArstsale24mo20(string $ArstSale24MO20) Return the first ChildCustomerShipto filtered by the ArstSale24MO20 column
- * @method     ChildCustomerShipto findOneByArstinv24mo20(string $ArstInv24MO20) Return the first ChildCustomerShipto filtered by the ArstInv24MO20 column
- * @method     ChildCustomerShipto findOneByArstsale24mo21(string $ArstSale24MO21) Return the first ChildCustomerShipto filtered by the ArstSale24MO21 column
- * @method     ChildCustomerShipto findOneByArstinv24mo21(string $ArstInv24MO21) Return the first ChildCustomerShipto filtered by the ArstInv24MO21 column
- * @method     ChildCustomerShipto findOneByArstsale24mo22(string $ArstSale24MO22) Return the first ChildCustomerShipto filtered by the ArstSale24MO22 column
- * @method     ChildCustomerShipto findOneByArstinv24mo22(string $ArstInv24MO22) Return the first ChildCustomerShipto filtered by the ArstInv24MO22 column
- * @method     ChildCustomerShipto findOneByArstsale24mo23(string $ArstSale24MO23) Return the first ChildCustomerShipto filtered by the ArstSale24MO23 column
- * @method     ChildCustomerShipto findOneByArstinv24mo23(string $ArstInv24MO23) Return the first ChildCustomerShipto filtered by the ArstInv24MO23 column
- * @method     ChildCustomerShipto findOneByArstsale24mo24(string $ArstSale24MO24) Return the first ChildCustomerShipto filtered by the ArstSale24MO24 column
- * @method     ChildCustomerShipto findOneByArstinv24mo24(string $ArstInv24MO24) Return the first ChildCustomerShipto filtered by the ArstInv24MO24 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo1(string $ArstSale24mo1) Return the first ChildCustomerShipto filtered by the ArstSale24mo1 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo1(int $ArstInv24mo1) Return the first ChildCustomerShipto filtered by the ArstInv24mo1 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo2(string $ArstSale24mo2) Return the first ChildCustomerShipto filtered by the ArstSale24mo2 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo2(int $ArstInv24mo2) Return the first ChildCustomerShipto filtered by the ArstInv24mo2 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo3(string $ArstSale24mo3) Return the first ChildCustomerShipto filtered by the ArstSale24mo3 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo3(int $ArstInv24mo3) Return the first ChildCustomerShipto filtered by the ArstInv24mo3 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo4(string $ArstSale24mo4) Return the first ChildCustomerShipto filtered by the ArstSale24mo4 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo4(int $ArstInv24mo4) Return the first ChildCustomerShipto filtered by the ArstInv24mo4 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo5(string $ArstSale24mo5) Return the first ChildCustomerShipto filtered by the ArstSale24mo5 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo5(int $ArstInv24mo5) Return the first ChildCustomerShipto filtered by the ArstInv24mo5 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo6(string $ArstSale24mo6) Return the first ChildCustomerShipto filtered by the ArstSale24mo6 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo6(int $ArstInv24mo6) Return the first ChildCustomerShipto filtered by the ArstInv24mo6 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo7(string $ArstSale24mo7) Return the first ChildCustomerShipto filtered by the ArstSale24mo7 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo7(int $ArstInv24mo7) Return the first ChildCustomerShipto filtered by the ArstInv24mo7 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo8(string $ArstSale24mo8) Return the first ChildCustomerShipto filtered by the ArstSale24mo8 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo8(int $ArstInv24mo8) Return the first ChildCustomerShipto filtered by the ArstInv24mo8 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo9(string $ArstSale24mo9) Return the first ChildCustomerShipto filtered by the ArstSale24mo9 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo9(int $ArstInv24mo9) Return the first ChildCustomerShipto filtered by the ArstInv24mo9 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo10(string $ArstSale24mo10) Return the first ChildCustomerShipto filtered by the ArstSale24mo10 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo10(int $ArstInv24mo10) Return the first ChildCustomerShipto filtered by the ArstInv24mo10 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo11(string $ArstSale24mo11) Return the first ChildCustomerShipto filtered by the ArstSale24mo11 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo11(int $ArstInv24mo11) Return the first ChildCustomerShipto filtered by the ArstInv24mo11 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo12(string $ArstSale24mo12) Return the first ChildCustomerShipto filtered by the ArstSale24mo12 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo12(int $ArstInv24mo12) Return the first ChildCustomerShipto filtered by the ArstInv24mo12 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo13(string $ArstSale24mo13) Return the first ChildCustomerShipto filtered by the ArstSale24mo13 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo13(int $ArstInv24mo13) Return the first ChildCustomerShipto filtered by the ArstInv24mo13 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo14(string $ArstSale24mo14) Return the first ChildCustomerShipto filtered by the ArstSale24mo14 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo14(int $ArstInv24mo14) Return the first ChildCustomerShipto filtered by the ArstInv24mo14 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo15(string $ArstSale24mo15) Return the first ChildCustomerShipto filtered by the ArstSale24mo15 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo15(int $ArstInv24mo15) Return the first ChildCustomerShipto filtered by the ArstInv24mo15 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo16(string $ArstSale24mo16) Return the first ChildCustomerShipto filtered by the ArstSale24mo16 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo16(int $ArstInv24mo16) Return the first ChildCustomerShipto filtered by the ArstInv24mo16 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo17(string $ArstSale24mo17) Return the first ChildCustomerShipto filtered by the ArstSale24mo17 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo17(int $ArstInv24mo17) Return the first ChildCustomerShipto filtered by the ArstInv24mo17 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo18(string $ArstSale24mo18) Return the first ChildCustomerShipto filtered by the ArstSale24mo18 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo18(int $ArstInv24mo18) Return the first ChildCustomerShipto filtered by the ArstInv24mo18 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo19(string $ArstSale24mo19) Return the first ChildCustomerShipto filtered by the ArstSale24mo19 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo19(int $ArstInv24mo19) Return the first ChildCustomerShipto filtered by the ArstInv24mo19 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo20(string $ArstSale24mo20) Return the first ChildCustomerShipto filtered by the ArstSale24mo20 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo20(int $ArstInv24mo20) Return the first ChildCustomerShipto filtered by the ArstInv24mo20 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo21(string $ArstSale24mo21) Return the first ChildCustomerShipto filtered by the ArstSale24mo21 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo21(int $ArstInv24mo21) Return the first ChildCustomerShipto filtered by the ArstInv24mo21 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo22(string $ArstSale24mo22) Return the first ChildCustomerShipto filtered by the ArstSale24mo22 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo22(int $ArstInv24mo22) Return the first ChildCustomerShipto filtered by the ArstInv24mo22 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo23(string $ArstSale24mo23) Return the first ChildCustomerShipto filtered by the ArstSale24mo23 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo23(int $ArstInv24mo23) Return the first ChildCustomerShipto filtered by the ArstInv24mo23 column
+ * @method     ChildCustomerShipto findOneByArstsale24mo24(string $ArstSale24mo24) Return the first ChildCustomerShipto filtered by the ArstSale24mo24 column
+ * @method     ChildCustomerShipto findOneByArstinv24mo24(int $ArstInv24mo24) Return the first ChildCustomerShipto filtered by the ArstInv24mo24 column
  * @method     ChildCustomerShipto findOneByArstprimshipid(string $ArstPrimShipId) Return the first ChildCustomerShipto filtered by the ArstPrimShipId column
  * @method     ChildCustomerShipto findOneByArstmyvendid(string $ArstMyVendId) Return the first ChildCustomerShipto filtered by the ArstMyVendId column
  * @method     ChildCustomerShipto findOneByArstaddlpricdisc(string $ArstAddlPricDisc) Return the first ChildCustomerShipto filtered by the ArstAddlPricDisc column
@@ -321,10 +325,12 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArstcustpopram(string $ArstCustPOPram) Return the first ChildCustomerShipto filtered by the ArstCustPOPram column
  * @method     ChildCustomerShipto findOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column
  * @method     ChildCustomerShipto findOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column
- * @method     ChildCustomerShipto findOneByArstfobinputyn(string $ArstFobInputYN) Return the first ChildCustomerShipto filtered by the ArstFobInputYN column
+ * @method     ChildCustomerShipto findOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column
  * @method     ChildCustomerShipto findOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column
- * @method     ChildCustomerShipto findOneByDateupdtd(int $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column
- * @method     ChildCustomerShipto findOneByTimeupdtd(int $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipto findOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column
+ * @method     ChildCustomerShipto findOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column
+ * @method     ChildCustomerShipto findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column
  * @method     ChildCustomerShipto findOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column *
 
  * @method     ChildCustomerShipto requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerShipto by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -340,15 +346,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArstcity(string $ArstCity) Return the first ChildCustomerShipto filtered by the ArstCity column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArststat(string $ArstStat) Return the first ChildCustomerShipto filtered by the ArstStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstzipcode(string $ArstZipCode) Return the first ChildCustomerShipto filtered by the ArstZipCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstdeliverydays(string $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstdeliverydays(int $ArstDeliveryDays) Return the first ChildCustomerShipto filtered by the ArstDeliveryDays column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstcommcode(string $ArstCommCode) Return the first ChildCustomerShipto filtered by the ArstCommCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstallowsplit(string $ArstAllowSplit) Return the first ChildCustomerShipto filtered by the ArstAllowSplit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstlindstsp(string $ArstLindstSp) Return the first ChildCustomerShipto filtered by the ArstLindstSp column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstlmecommcustid(string $ArstLmEcommCustId) Return the first ChildCustomerShipto filtered by the ArstLmEcommCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstcatlgid(string $ArstCatlgId) Return the first ChildCustomerShipto filtered by the ArstCatlgId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArspsaleper1(string $Arspsaleper1) Return the first ChildCustomerShipto filtered by the Arspsaleper1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArspsaleper2(string $Arspsaleper2) Return the first ChildCustomerShipto filtered by the Arspsaleper2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArspsaleper3(string $Arspsaleper3) Return the first ChildCustomerShipto filtered by the Arspsaleper3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomerShipto filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -364,54 +370,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArstinvmtd(int $ArstInvMtd) Return the first ChildCustomerShipto filtered by the ArstInvMtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstdateopen(string $ArstDateOpen) Return the first ChildCustomerShipto filtered by the ArstDateOpen column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstlastsaledate(string $ArstLastSaleDate) Return the first ChildCustomerShipto filtered by the ArstLastSaleDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo1(string $ArstSale24MO1) Return the first ChildCustomerShipto filtered by the ArstSale24MO1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo1(string $ArstInv24MO1) Return the first ChildCustomerShipto filtered by the ArstInv24MO1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo2(string $ArstSale24MO2) Return the first ChildCustomerShipto filtered by the ArstSale24MO2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo2(string $ArstInv24MO2) Return the first ChildCustomerShipto filtered by the ArstInv24MO2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo3(string $ArstSale24MO3) Return the first ChildCustomerShipto filtered by the ArstSale24MO3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo3(string $ArstInv24MO3) Return the first ChildCustomerShipto filtered by the ArstInv24MO3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo4(string $ArstSale24MO4) Return the first ChildCustomerShipto filtered by the ArstSale24MO4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo4(string $ArstInv24MO4) Return the first ChildCustomerShipto filtered by the ArstInv24MO4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo5(string $ArstSale24MO5) Return the first ChildCustomerShipto filtered by the ArstSale24MO5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo5(string $ArstInv24MO5) Return the first ChildCustomerShipto filtered by the ArstInv24MO5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo6(string $ArstSale24MO6) Return the first ChildCustomerShipto filtered by the ArstSale24MO6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo6(string $ArstInv24MO6) Return the first ChildCustomerShipto filtered by the ArstInv24MO6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo7(string $ArstSale24MO7) Return the first ChildCustomerShipto filtered by the ArstSale24MO7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo7(string $ArstInv24MO7) Return the first ChildCustomerShipto filtered by the ArstInv24MO7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo8(string $ArstSale24MO8) Return the first ChildCustomerShipto filtered by the ArstSale24MO8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo8(string $ArstInv24MO8) Return the first ChildCustomerShipto filtered by the ArstInv24MO8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo9(string $ArstSale24MO9) Return the first ChildCustomerShipto filtered by the ArstSale24MO9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo9(string $ArstInv24MO9) Return the first ChildCustomerShipto filtered by the ArstInv24MO9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo10(string $ArstSale24MO10) Return the first ChildCustomerShipto filtered by the ArstSale24MO10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo10(string $ArstInv24MO10) Return the first ChildCustomerShipto filtered by the ArstInv24MO10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo11(string $ArstSale24MO11) Return the first ChildCustomerShipto filtered by the ArstSale24MO11 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo11(string $ArstInv24MO11) Return the first ChildCustomerShipto filtered by the ArstInv24MO11 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo12(string $ArstSale24MO12) Return the first ChildCustomerShipto filtered by the ArstSale24MO12 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo12(string $ArstInv24MO12) Return the first ChildCustomerShipto filtered by the ArstInv24MO12 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo13(string $ArstSale24MO13) Return the first ChildCustomerShipto filtered by the ArstSale24MO13 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo13(string $ArstInv24MO13) Return the first ChildCustomerShipto filtered by the ArstInv24MO13 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo14(string $ArstSale24MO14) Return the first ChildCustomerShipto filtered by the ArstSale24MO14 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo14(string $ArstInv24MO14) Return the first ChildCustomerShipto filtered by the ArstInv24MO14 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo15(string $ArstSale24MO15) Return the first ChildCustomerShipto filtered by the ArstSale24MO15 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo15(string $ArstInv24MO15) Return the first ChildCustomerShipto filtered by the ArstInv24MO15 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo16(string $ArstSale24MO16) Return the first ChildCustomerShipto filtered by the ArstSale24MO16 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo16(string $ArstInv24MO16) Return the first ChildCustomerShipto filtered by the ArstInv24MO16 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo17(string $ArstSale24MO17) Return the first ChildCustomerShipto filtered by the ArstSale24MO17 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo17(string $ArstInv24MO17) Return the first ChildCustomerShipto filtered by the ArstInv24MO17 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo18(string $ArstSale24MO18) Return the first ChildCustomerShipto filtered by the ArstSale24MO18 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo18(string $ArstInv24MO18) Return the first ChildCustomerShipto filtered by the ArstInv24MO18 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo19(string $ArstSale24MO19) Return the first ChildCustomerShipto filtered by the ArstSale24MO19 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo19(string $ArstInv24MO19) Return the first ChildCustomerShipto filtered by the ArstInv24MO19 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo20(string $ArstSale24MO20) Return the first ChildCustomerShipto filtered by the ArstSale24MO20 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo20(string $ArstInv24MO20) Return the first ChildCustomerShipto filtered by the ArstInv24MO20 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo21(string $ArstSale24MO21) Return the first ChildCustomerShipto filtered by the ArstSale24MO21 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo21(string $ArstInv24MO21) Return the first ChildCustomerShipto filtered by the ArstInv24MO21 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo22(string $ArstSale24MO22) Return the first ChildCustomerShipto filtered by the ArstSale24MO22 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo22(string $ArstInv24MO22) Return the first ChildCustomerShipto filtered by the ArstInv24MO22 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo23(string $ArstSale24MO23) Return the first ChildCustomerShipto filtered by the ArstSale24MO23 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo23(string $ArstInv24MO23) Return the first ChildCustomerShipto filtered by the ArstInv24MO23 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstsale24mo24(string $ArstSale24MO24) Return the first ChildCustomerShipto filtered by the ArstSale24MO24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstinv24mo24(string $ArstInv24MO24) Return the first ChildCustomerShipto filtered by the ArstInv24MO24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo1(string $ArstSale24mo1) Return the first ChildCustomerShipto filtered by the ArstSale24mo1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo1(int $ArstInv24mo1) Return the first ChildCustomerShipto filtered by the ArstInv24mo1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo2(string $ArstSale24mo2) Return the first ChildCustomerShipto filtered by the ArstSale24mo2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo2(int $ArstInv24mo2) Return the first ChildCustomerShipto filtered by the ArstInv24mo2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo3(string $ArstSale24mo3) Return the first ChildCustomerShipto filtered by the ArstSale24mo3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo3(int $ArstInv24mo3) Return the first ChildCustomerShipto filtered by the ArstInv24mo3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo4(string $ArstSale24mo4) Return the first ChildCustomerShipto filtered by the ArstSale24mo4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo4(int $ArstInv24mo4) Return the first ChildCustomerShipto filtered by the ArstInv24mo4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo5(string $ArstSale24mo5) Return the first ChildCustomerShipto filtered by the ArstSale24mo5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo5(int $ArstInv24mo5) Return the first ChildCustomerShipto filtered by the ArstInv24mo5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo6(string $ArstSale24mo6) Return the first ChildCustomerShipto filtered by the ArstSale24mo6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo6(int $ArstInv24mo6) Return the first ChildCustomerShipto filtered by the ArstInv24mo6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo7(string $ArstSale24mo7) Return the first ChildCustomerShipto filtered by the ArstSale24mo7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo7(int $ArstInv24mo7) Return the first ChildCustomerShipto filtered by the ArstInv24mo7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo8(string $ArstSale24mo8) Return the first ChildCustomerShipto filtered by the ArstSale24mo8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo8(int $ArstInv24mo8) Return the first ChildCustomerShipto filtered by the ArstInv24mo8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo9(string $ArstSale24mo9) Return the first ChildCustomerShipto filtered by the ArstSale24mo9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo9(int $ArstInv24mo9) Return the first ChildCustomerShipto filtered by the ArstInv24mo9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo10(string $ArstSale24mo10) Return the first ChildCustomerShipto filtered by the ArstSale24mo10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo10(int $ArstInv24mo10) Return the first ChildCustomerShipto filtered by the ArstInv24mo10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo11(string $ArstSale24mo11) Return the first ChildCustomerShipto filtered by the ArstSale24mo11 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo11(int $ArstInv24mo11) Return the first ChildCustomerShipto filtered by the ArstInv24mo11 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo12(string $ArstSale24mo12) Return the first ChildCustomerShipto filtered by the ArstSale24mo12 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo12(int $ArstInv24mo12) Return the first ChildCustomerShipto filtered by the ArstInv24mo12 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo13(string $ArstSale24mo13) Return the first ChildCustomerShipto filtered by the ArstSale24mo13 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo13(int $ArstInv24mo13) Return the first ChildCustomerShipto filtered by the ArstInv24mo13 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo14(string $ArstSale24mo14) Return the first ChildCustomerShipto filtered by the ArstSale24mo14 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo14(int $ArstInv24mo14) Return the first ChildCustomerShipto filtered by the ArstInv24mo14 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo15(string $ArstSale24mo15) Return the first ChildCustomerShipto filtered by the ArstSale24mo15 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo15(int $ArstInv24mo15) Return the first ChildCustomerShipto filtered by the ArstInv24mo15 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo16(string $ArstSale24mo16) Return the first ChildCustomerShipto filtered by the ArstSale24mo16 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo16(int $ArstInv24mo16) Return the first ChildCustomerShipto filtered by the ArstInv24mo16 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo17(string $ArstSale24mo17) Return the first ChildCustomerShipto filtered by the ArstSale24mo17 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo17(int $ArstInv24mo17) Return the first ChildCustomerShipto filtered by the ArstInv24mo17 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo18(string $ArstSale24mo18) Return the first ChildCustomerShipto filtered by the ArstSale24mo18 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo18(int $ArstInv24mo18) Return the first ChildCustomerShipto filtered by the ArstInv24mo18 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo19(string $ArstSale24mo19) Return the first ChildCustomerShipto filtered by the ArstSale24mo19 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo19(int $ArstInv24mo19) Return the first ChildCustomerShipto filtered by the ArstInv24mo19 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo20(string $ArstSale24mo20) Return the first ChildCustomerShipto filtered by the ArstSale24mo20 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo20(int $ArstInv24mo20) Return the first ChildCustomerShipto filtered by the ArstInv24mo20 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo21(string $ArstSale24mo21) Return the first ChildCustomerShipto filtered by the ArstSale24mo21 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo21(int $ArstInv24mo21) Return the first ChildCustomerShipto filtered by the ArstInv24mo21 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo22(string $ArstSale24mo22) Return the first ChildCustomerShipto filtered by the ArstSale24mo22 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo22(int $ArstInv24mo22) Return the first ChildCustomerShipto filtered by the ArstInv24mo22 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo23(string $ArstSale24mo23) Return the first ChildCustomerShipto filtered by the ArstSale24mo23 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo23(int $ArstInv24mo23) Return the first ChildCustomerShipto filtered by the ArstInv24mo23 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsale24mo24(string $ArstSale24mo24) Return the first ChildCustomerShipto filtered by the ArstSale24mo24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinv24mo24(int $ArstInv24mo24) Return the first ChildCustomerShipto filtered by the ArstInv24mo24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstprimshipid(string $ArstPrimShipId) Return the first ChildCustomerShipto filtered by the ArstPrimShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstmyvendid(string $ArstMyVendId) Return the first ChildCustomerShipto filtered by the ArstMyVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstaddlpricdisc(string $ArstAddlPricDisc) Return the first ChildCustomerShipto filtered by the ArstAddlPricDisc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -423,10 +429,12 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArstcustpopram(string $ArstCustPOPram) Return the first ChildCustomerShipto filtered by the ArstCustPOPram column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstfobinputyn(string $ArstFobInputYN) Return the first ChildCustomerShipto filtered by the ArstFobInputYN column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByDateupdtd(int $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByTimeupdtd(int $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerShipto[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerShipto objects based on current ModelCriteria
@@ -440,15 +448,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstcity(string $ArstCity) Return ChildCustomerShipto objects filtered by the ArstCity column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArststat(string $ArstStat) Return ChildCustomerShipto objects filtered by the ArstStat column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstzipcode(string $ArstZipCode) Return ChildCustomerShipto objects filtered by the ArstZipCode column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstdeliverydays(string $ArstDeliveryDays) Return ChildCustomerShipto objects filtered by the ArstDeliveryDays column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstdeliverydays(int $ArstDeliveryDays) Return ChildCustomerShipto objects filtered by the ArstDeliveryDays column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstcommcode(string $ArstCommCode) Return ChildCustomerShipto objects filtered by the ArstCommCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstallowsplit(string $ArstAllowSplit) Return ChildCustomerShipto objects filtered by the ArstAllowSplit column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstlindstsp(string $ArstLindstSp) Return ChildCustomerShipto objects filtered by the ArstLindstSp column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstlmecommcustid(string $ArstLmEcommCustId) Return ChildCustomerShipto objects filtered by the ArstLmEcommCustId column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstcatlgid(string $ArstCatlgId) Return ChildCustomerShipto objects filtered by the ArstCatlgId column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper1(string $Arspsaleper1) Return ChildCustomerShipto objects filtered by the Arspsaleper1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper2(string $Arspsaleper2) Return ChildCustomerShipto objects filtered by the Arspsaleper2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper3(string $Arspsaleper3) Return ChildCustomerShipto objects filtered by the Arspsaleper3 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildCustomerShipto objects filtered by the ArspSalePer1 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildCustomerShipto objects filtered by the ArspSalePer2 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildCustomerShipto objects filtered by the ArspSalePer3 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildCustomerShipto objects filtered by the ArtbMtaxCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArsttaxexemnbr(string $ArstTaxExemNbr) Return ChildCustomerShipto objects filtered by the ArstTaxExemNbr column
  * @method     ChildCustomerShipto[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildCustomerShipto objects filtered by the IntbWhse column
@@ -464,54 +472,54 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstinvmtd(int $ArstInvMtd) Return ChildCustomerShipto objects filtered by the ArstInvMtd column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstdateopen(string $ArstDateOpen) Return ChildCustomerShipto objects filtered by the ArstDateOpen column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstlastsaledate(string $ArstLastSaleDate) Return ChildCustomerShipto objects filtered by the ArstLastSaleDate column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo1(string $ArstSale24MO1) Return ChildCustomerShipto objects filtered by the ArstSale24MO1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo1(string $ArstInv24MO1) Return ChildCustomerShipto objects filtered by the ArstInv24MO1 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo2(string $ArstSale24MO2) Return ChildCustomerShipto objects filtered by the ArstSale24MO2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo2(string $ArstInv24MO2) Return ChildCustomerShipto objects filtered by the ArstInv24MO2 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo3(string $ArstSale24MO3) Return ChildCustomerShipto objects filtered by the ArstSale24MO3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo3(string $ArstInv24MO3) Return ChildCustomerShipto objects filtered by the ArstInv24MO3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo4(string $ArstSale24MO4) Return ChildCustomerShipto objects filtered by the ArstSale24MO4 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo4(string $ArstInv24MO4) Return ChildCustomerShipto objects filtered by the ArstInv24MO4 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo5(string $ArstSale24MO5) Return ChildCustomerShipto objects filtered by the ArstSale24MO5 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo5(string $ArstInv24MO5) Return ChildCustomerShipto objects filtered by the ArstInv24MO5 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo6(string $ArstSale24MO6) Return ChildCustomerShipto objects filtered by the ArstSale24MO6 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo6(string $ArstInv24MO6) Return ChildCustomerShipto objects filtered by the ArstInv24MO6 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo7(string $ArstSale24MO7) Return ChildCustomerShipto objects filtered by the ArstSale24MO7 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo7(string $ArstInv24MO7) Return ChildCustomerShipto objects filtered by the ArstInv24MO7 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo8(string $ArstSale24MO8) Return ChildCustomerShipto objects filtered by the ArstSale24MO8 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo8(string $ArstInv24MO8) Return ChildCustomerShipto objects filtered by the ArstInv24MO8 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo9(string $ArstSale24MO9) Return ChildCustomerShipto objects filtered by the ArstSale24MO9 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo9(string $ArstInv24MO9) Return ChildCustomerShipto objects filtered by the ArstInv24MO9 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo10(string $ArstSale24MO10) Return ChildCustomerShipto objects filtered by the ArstSale24MO10 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo10(string $ArstInv24MO10) Return ChildCustomerShipto objects filtered by the ArstInv24MO10 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo11(string $ArstSale24MO11) Return ChildCustomerShipto objects filtered by the ArstSale24MO11 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo11(string $ArstInv24MO11) Return ChildCustomerShipto objects filtered by the ArstInv24MO11 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo12(string $ArstSale24MO12) Return ChildCustomerShipto objects filtered by the ArstSale24MO12 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo12(string $ArstInv24MO12) Return ChildCustomerShipto objects filtered by the ArstInv24MO12 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo13(string $ArstSale24MO13) Return ChildCustomerShipto objects filtered by the ArstSale24MO13 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo13(string $ArstInv24MO13) Return ChildCustomerShipto objects filtered by the ArstInv24MO13 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo14(string $ArstSale24MO14) Return ChildCustomerShipto objects filtered by the ArstSale24MO14 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo14(string $ArstInv24MO14) Return ChildCustomerShipto objects filtered by the ArstInv24MO14 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo15(string $ArstSale24MO15) Return ChildCustomerShipto objects filtered by the ArstSale24MO15 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo15(string $ArstInv24MO15) Return ChildCustomerShipto objects filtered by the ArstInv24MO15 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo16(string $ArstSale24MO16) Return ChildCustomerShipto objects filtered by the ArstSale24MO16 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo16(string $ArstInv24MO16) Return ChildCustomerShipto objects filtered by the ArstInv24MO16 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo17(string $ArstSale24MO17) Return ChildCustomerShipto objects filtered by the ArstSale24MO17 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo17(string $ArstInv24MO17) Return ChildCustomerShipto objects filtered by the ArstInv24MO17 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo18(string $ArstSale24MO18) Return ChildCustomerShipto objects filtered by the ArstSale24MO18 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo18(string $ArstInv24MO18) Return ChildCustomerShipto objects filtered by the ArstInv24MO18 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo19(string $ArstSale24MO19) Return ChildCustomerShipto objects filtered by the ArstSale24MO19 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo19(string $ArstInv24MO19) Return ChildCustomerShipto objects filtered by the ArstInv24MO19 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo20(string $ArstSale24MO20) Return ChildCustomerShipto objects filtered by the ArstSale24MO20 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo20(string $ArstInv24MO20) Return ChildCustomerShipto objects filtered by the ArstInv24MO20 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo21(string $ArstSale24MO21) Return ChildCustomerShipto objects filtered by the ArstSale24MO21 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo21(string $ArstInv24MO21) Return ChildCustomerShipto objects filtered by the ArstInv24MO21 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo22(string $ArstSale24MO22) Return ChildCustomerShipto objects filtered by the ArstSale24MO22 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo22(string $ArstInv24MO22) Return ChildCustomerShipto objects filtered by the ArstInv24MO22 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo23(string $ArstSale24MO23) Return ChildCustomerShipto objects filtered by the ArstSale24MO23 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo23(string $ArstInv24MO23) Return ChildCustomerShipto objects filtered by the ArstInv24MO23 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo24(string $ArstSale24MO24) Return ChildCustomerShipto objects filtered by the ArstSale24MO24 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo24(string $ArstInv24MO24) Return ChildCustomerShipto objects filtered by the ArstInv24MO24 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo1(string $ArstSale24mo1) Return ChildCustomerShipto objects filtered by the ArstSale24mo1 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo1(int $ArstInv24mo1) Return ChildCustomerShipto objects filtered by the ArstInv24mo1 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo2(string $ArstSale24mo2) Return ChildCustomerShipto objects filtered by the ArstSale24mo2 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo2(int $ArstInv24mo2) Return ChildCustomerShipto objects filtered by the ArstInv24mo2 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo3(string $ArstSale24mo3) Return ChildCustomerShipto objects filtered by the ArstSale24mo3 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo3(int $ArstInv24mo3) Return ChildCustomerShipto objects filtered by the ArstInv24mo3 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo4(string $ArstSale24mo4) Return ChildCustomerShipto objects filtered by the ArstSale24mo4 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo4(int $ArstInv24mo4) Return ChildCustomerShipto objects filtered by the ArstInv24mo4 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo5(string $ArstSale24mo5) Return ChildCustomerShipto objects filtered by the ArstSale24mo5 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo5(int $ArstInv24mo5) Return ChildCustomerShipto objects filtered by the ArstInv24mo5 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo6(string $ArstSale24mo6) Return ChildCustomerShipto objects filtered by the ArstSale24mo6 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo6(int $ArstInv24mo6) Return ChildCustomerShipto objects filtered by the ArstInv24mo6 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo7(string $ArstSale24mo7) Return ChildCustomerShipto objects filtered by the ArstSale24mo7 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo7(int $ArstInv24mo7) Return ChildCustomerShipto objects filtered by the ArstInv24mo7 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo8(string $ArstSale24mo8) Return ChildCustomerShipto objects filtered by the ArstSale24mo8 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo8(int $ArstInv24mo8) Return ChildCustomerShipto objects filtered by the ArstInv24mo8 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo9(string $ArstSale24mo9) Return ChildCustomerShipto objects filtered by the ArstSale24mo9 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo9(int $ArstInv24mo9) Return ChildCustomerShipto objects filtered by the ArstInv24mo9 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo10(string $ArstSale24mo10) Return ChildCustomerShipto objects filtered by the ArstSale24mo10 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo10(int $ArstInv24mo10) Return ChildCustomerShipto objects filtered by the ArstInv24mo10 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo11(string $ArstSale24mo11) Return ChildCustomerShipto objects filtered by the ArstSale24mo11 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo11(int $ArstInv24mo11) Return ChildCustomerShipto objects filtered by the ArstInv24mo11 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo12(string $ArstSale24mo12) Return ChildCustomerShipto objects filtered by the ArstSale24mo12 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo12(int $ArstInv24mo12) Return ChildCustomerShipto objects filtered by the ArstInv24mo12 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo13(string $ArstSale24mo13) Return ChildCustomerShipto objects filtered by the ArstSale24mo13 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo13(int $ArstInv24mo13) Return ChildCustomerShipto objects filtered by the ArstInv24mo13 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo14(string $ArstSale24mo14) Return ChildCustomerShipto objects filtered by the ArstSale24mo14 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo14(int $ArstInv24mo14) Return ChildCustomerShipto objects filtered by the ArstInv24mo14 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo15(string $ArstSale24mo15) Return ChildCustomerShipto objects filtered by the ArstSale24mo15 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo15(int $ArstInv24mo15) Return ChildCustomerShipto objects filtered by the ArstInv24mo15 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo16(string $ArstSale24mo16) Return ChildCustomerShipto objects filtered by the ArstSale24mo16 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo16(int $ArstInv24mo16) Return ChildCustomerShipto objects filtered by the ArstInv24mo16 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo17(string $ArstSale24mo17) Return ChildCustomerShipto objects filtered by the ArstSale24mo17 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo17(int $ArstInv24mo17) Return ChildCustomerShipto objects filtered by the ArstInv24mo17 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo18(string $ArstSale24mo18) Return ChildCustomerShipto objects filtered by the ArstSale24mo18 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo18(int $ArstInv24mo18) Return ChildCustomerShipto objects filtered by the ArstInv24mo18 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo19(string $ArstSale24mo19) Return ChildCustomerShipto objects filtered by the ArstSale24mo19 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo19(int $ArstInv24mo19) Return ChildCustomerShipto objects filtered by the ArstInv24mo19 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo20(string $ArstSale24mo20) Return ChildCustomerShipto objects filtered by the ArstSale24mo20 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo20(int $ArstInv24mo20) Return ChildCustomerShipto objects filtered by the ArstInv24mo20 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo21(string $ArstSale24mo21) Return ChildCustomerShipto objects filtered by the ArstSale24mo21 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo21(int $ArstInv24mo21) Return ChildCustomerShipto objects filtered by the ArstInv24mo21 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo22(string $ArstSale24mo22) Return ChildCustomerShipto objects filtered by the ArstSale24mo22 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo22(int $ArstInv24mo22) Return ChildCustomerShipto objects filtered by the ArstInv24mo22 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo23(string $ArstSale24mo23) Return ChildCustomerShipto objects filtered by the ArstSale24mo23 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo23(int $ArstInv24mo23) Return ChildCustomerShipto objects filtered by the ArstInv24mo23 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsale24mo24(string $ArstSale24mo24) Return ChildCustomerShipto objects filtered by the ArstSale24mo24 column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinv24mo24(int $ArstInv24mo24) Return ChildCustomerShipto objects filtered by the ArstInv24mo24 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstprimshipid(string $ArstPrimShipId) Return ChildCustomerShipto objects filtered by the ArstPrimShipId column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstmyvendid(string $ArstMyVendId) Return ChildCustomerShipto objects filtered by the ArstMyVendId column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstaddlpricdisc(string $ArstAddlPricDisc) Return ChildCustomerShipto objects filtered by the ArstAddlPricDisc column
@@ -523,10 +531,12 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstcustpopram(string $ArstCustPOPram) Return ChildCustomerShipto objects filtered by the ArstCustPOPram column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArtbroutcode(string $ArtbRoutCode) Return ChildCustomerShipto objects filtered by the ArtbRoutCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstupsacctnbr(string $ArstUpsAcctNbr) Return ChildCustomerShipto objects filtered by the ArstUpsAcctNbr column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobinputyn(string $ArstFobInputYN) Return ChildCustomerShipto objects filtered by the ArstFobInputYN column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobinputyn(string $ArstFobInputYn) Return ChildCustomerShipto objects filtered by the ArstFobInputYn column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobperlb(string $ArstFobPerLb) Return ChildCustomerShipto objects filtered by the ArstFobPerLb column
- * @method     ChildCustomerShipto[]|ObjectCollection findByDateupdtd(int $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
- * @method     ChildCustomerShipto[]|ObjectCollection findByTimeupdtd(int $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstsaleytd(string $ArstSaleYtd) Return ChildCustomerShipto objects filtered by the ArstSaleYtd column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstinvytd(int $ArstInvYtd) Return ChildCustomerShipto objects filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
  * @method     ChildCustomerShipto[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerShipto objects filtered by the dummy column
  * @method     ChildCustomerShipto[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -626,7 +636,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, Arspsaleper1, Arspsaleper2, Arspsaleper3, ArtbMtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24MO1, ArstInv24MO1, ArstSale24MO2, ArstInv24MO2, ArstSale24MO3, ArstInv24MO3, ArstSale24MO4, ArstInv24MO4, ArstSale24MO5, ArstInv24MO5, ArstSale24MO6, ArstInv24MO6, ArstSale24MO7, ArstInv24MO7, ArstSale24MO8, ArstInv24MO8, ArstSale24MO9, ArstInv24MO9, ArstSale24MO10, ArstInv24MO10, ArstSale24MO11, ArstInv24MO11, ArstSale24MO12, ArstInv24MO12, ArstSale24MO13, ArstInv24MO13, ArstSale24MO14, ArstInv24MO14, ArstSale24MO15, ArstInv24MO15, ArstSale24MO16, ArstInv24MO16, ArstSale24MO17, ArstInv24MO17, ArstSale24MO18, ArstInv24MO18, ArstSale24MO19, ArstInv24MO19, ArstSale24MO20, ArstInv24MO20, ArstSale24MO21, ArstInv24MO21, ArstSale24MO22, ArstInv24MO22, ArstSale24MO23, ArstInv24MO23, ArstSale24MO24, ArstInv24MO24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYN, ArstFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
+        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbMtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24mo1, ArstInv24mo1, ArstSale24mo2, ArstInv24mo2, ArstSale24mo3, ArstInv24mo3, ArstSale24mo4, ArstInv24mo4, ArstSale24mo5, ArstInv24mo5, ArstSale24mo6, ArstInv24mo6, ArstSale24mo7, ArstInv24mo7, ArstSale24mo8, ArstInv24mo8, ArstSale24mo9, ArstInv24mo9, ArstSale24mo10, ArstInv24mo10, ArstSale24mo11, ArstInv24mo11, ArstSale24mo12, ArstInv24mo12, ArstSale24mo13, ArstInv24mo13, ArstSale24mo14, ArstInv24mo14, ArstSale24mo15, ArstInv24mo15, ArstSale24mo16, ArstInv24mo16, ArstSale24mo17, ArstInv24mo17, ArstSale24mo18, ArstInv24mo18, ArstSale24mo19, ArstInv24mo19, ArstSale24mo20, ArstInv24mo20, ArstSale24mo21, ArstInv24mo21, ArstSale24mo22, ArstInv24mo22, ArstSale24mo23, ArstInv24mo23, ArstSale24mo24, ArstInv24mo24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYn, ArstFobPerLb, ArstSaleYtd, ArstInvYtd, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -983,19 +993,35 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByArstdeliverydays('fooValue');   // WHERE ArstDeliveryDays = 'fooValue'
-     * $query->filterByArstdeliverydays('%fooValue%', Criteria::LIKE); // WHERE ArstDeliveryDays LIKE '%fooValue%'
+     * $query->filterByArstdeliverydays(1234); // WHERE ArstDeliveryDays = 1234
+     * $query->filterByArstdeliverydays(array(12, 34)); // WHERE ArstDeliveryDays IN (12, 34)
+     * $query->filterByArstdeliverydays(array('min' => 12)); // WHERE ArstDeliveryDays > 12
      * </code>
      *
-     * @param     string $arstdeliverydays The value to use as filter.
+     * @param     mixed $arstdeliverydays The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstdeliverydays($arstdeliverydays = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstdeliverydays)) {
+        if (is_array($arstdeliverydays)) {
+            $useMinMax = false;
+            if (isset($arstdeliverydays['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDELIVERYDAYS, $arstdeliverydays['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstdeliverydays['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTDELIVERYDAYS, $arstdeliverydays['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1129,12 +1155,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the Arspsaleper1 column
+     * Filter the query on the ArspSalePer1 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArspsaleper1('fooValue');   // WHERE Arspsaleper1 = 'fooValue'
-     * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE Arspsaleper1 LIKE '%fooValue%'
+     * $query->filterByArspsaleper1('fooValue');   // WHERE ArspSalePer1 = 'fooValue'
+     * $query->filterByArspsaleper1('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer1 LIKE '%fooValue%'
      * </code>
      *
      * @param     string $arspsaleper1 The value to use as filter.
@@ -1154,12 +1180,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the Arspsaleper2 column
+     * Filter the query on the ArspSalePer2 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArspsaleper2('fooValue');   // WHERE Arspsaleper2 = 'fooValue'
-     * $query->filterByArspsaleper2('%fooValue%', Criteria::LIKE); // WHERE Arspsaleper2 LIKE '%fooValue%'
+     * $query->filterByArspsaleper2('fooValue');   // WHERE ArspSalePer2 = 'fooValue'
+     * $query->filterByArspsaleper2('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer2 LIKE '%fooValue%'
      * </code>
      *
      * @param     string $arspsaleper2 The value to use as filter.
@@ -1179,12 +1205,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the Arspsaleper3 column
+     * Filter the query on the ArspSalePer3 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArspsaleper3('fooValue');   // WHERE Arspsaleper3 = 'fooValue'
-     * $query->filterByArspsaleper3('%fooValue%', Criteria::LIKE); // WHERE Arspsaleper3 LIKE '%fooValue%'
+     * $query->filterByArspsaleper3('fooValue');   // WHERE ArspSalePer3 = 'fooValue'
+     * $query->filterByArspsaleper3('%fooValue%', Criteria::LIKE); // WHERE ArspSalePer3 LIKE '%fooValue%'
      * </code>
      *
      * @param     string $arspsaleper3 The value to use as filter.
@@ -1611,13 +1637,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO1 column
+     * Filter the query on the ArstSale24mo1 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo1(1234); // WHERE ArstSale24MO1 = 1234
-     * $query->filterByArstsale24mo1(array(12, 34)); // WHERE ArstSale24MO1 IN (12, 34)
-     * $query->filterByArstsale24mo1(array('min' => 12)); // WHERE ArstSale24MO1 > 12
+     * $query->filterByArstsale24mo1(1234); // WHERE ArstSale24mo1 = 1234
+     * $query->filterByArstsale24mo1(array(12, 34)); // WHERE ArstSale24mo1 IN (12, 34)
+     * $query->filterByArstsale24mo1(array('min' => 12)); // WHERE ArstSale24mo1 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo1 The value to use as filter.
@@ -1652,23 +1678,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO1 column
+     * Filter the query on the ArstInv24mo1 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo1('fooValue');   // WHERE ArstInv24MO1 = 'fooValue'
-     * $query->filterByArstinv24mo1('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO1 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo1(1234); // WHERE ArstInv24mo1 = 1234
+     * $query->filterByArstinv24mo1(array(12, 34)); // WHERE ArstInv24mo1 IN (12, 34)
+     * $query->filterByArstinv24mo1(array('min' => 12)); // WHERE ArstInv24mo1 > 12
      * </code>
      *
-     * @param     string $arstinv24mo1 The value to use as filter.
+     * @param     mixed $arstinv24mo1 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo1($arstinv24mo1 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo1)) {
+        if (is_array($arstinv24mo1)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo1['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO1, $arstinv24mo1['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo1['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO1, $arstinv24mo1['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1677,13 +1719,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO2 column
+     * Filter the query on the ArstSale24mo2 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo2(1234); // WHERE ArstSale24MO2 = 1234
-     * $query->filterByArstsale24mo2(array(12, 34)); // WHERE ArstSale24MO2 IN (12, 34)
-     * $query->filterByArstsale24mo2(array('min' => 12)); // WHERE ArstSale24MO2 > 12
+     * $query->filterByArstsale24mo2(1234); // WHERE ArstSale24mo2 = 1234
+     * $query->filterByArstsale24mo2(array(12, 34)); // WHERE ArstSale24mo2 IN (12, 34)
+     * $query->filterByArstsale24mo2(array('min' => 12)); // WHERE ArstSale24mo2 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo2 The value to use as filter.
@@ -1718,23 +1760,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO2 column
+     * Filter the query on the ArstInv24mo2 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo2('fooValue');   // WHERE ArstInv24MO2 = 'fooValue'
-     * $query->filterByArstinv24mo2('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO2 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo2(1234); // WHERE ArstInv24mo2 = 1234
+     * $query->filterByArstinv24mo2(array(12, 34)); // WHERE ArstInv24mo2 IN (12, 34)
+     * $query->filterByArstinv24mo2(array('min' => 12)); // WHERE ArstInv24mo2 > 12
      * </code>
      *
-     * @param     string $arstinv24mo2 The value to use as filter.
+     * @param     mixed $arstinv24mo2 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo2($arstinv24mo2 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo2)) {
+        if (is_array($arstinv24mo2)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo2['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO2, $arstinv24mo2['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo2['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO2, $arstinv24mo2['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1743,13 +1801,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO3 column
+     * Filter the query on the ArstSale24mo3 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo3(1234); // WHERE ArstSale24MO3 = 1234
-     * $query->filterByArstsale24mo3(array(12, 34)); // WHERE ArstSale24MO3 IN (12, 34)
-     * $query->filterByArstsale24mo3(array('min' => 12)); // WHERE ArstSale24MO3 > 12
+     * $query->filterByArstsale24mo3(1234); // WHERE ArstSale24mo3 = 1234
+     * $query->filterByArstsale24mo3(array(12, 34)); // WHERE ArstSale24mo3 IN (12, 34)
+     * $query->filterByArstsale24mo3(array('min' => 12)); // WHERE ArstSale24mo3 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo3 The value to use as filter.
@@ -1784,23 +1842,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO3 column
+     * Filter the query on the ArstInv24mo3 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo3('fooValue');   // WHERE ArstInv24MO3 = 'fooValue'
-     * $query->filterByArstinv24mo3('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO3 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo3(1234); // WHERE ArstInv24mo3 = 1234
+     * $query->filterByArstinv24mo3(array(12, 34)); // WHERE ArstInv24mo3 IN (12, 34)
+     * $query->filterByArstinv24mo3(array('min' => 12)); // WHERE ArstInv24mo3 > 12
      * </code>
      *
-     * @param     string $arstinv24mo3 The value to use as filter.
+     * @param     mixed $arstinv24mo3 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo3($arstinv24mo3 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo3)) {
+        if (is_array($arstinv24mo3)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo3['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO3, $arstinv24mo3['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo3['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO3, $arstinv24mo3['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1809,13 +1883,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO4 column
+     * Filter the query on the ArstSale24mo4 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo4(1234); // WHERE ArstSale24MO4 = 1234
-     * $query->filterByArstsale24mo4(array(12, 34)); // WHERE ArstSale24MO4 IN (12, 34)
-     * $query->filterByArstsale24mo4(array('min' => 12)); // WHERE ArstSale24MO4 > 12
+     * $query->filterByArstsale24mo4(1234); // WHERE ArstSale24mo4 = 1234
+     * $query->filterByArstsale24mo4(array(12, 34)); // WHERE ArstSale24mo4 IN (12, 34)
+     * $query->filterByArstsale24mo4(array('min' => 12)); // WHERE ArstSale24mo4 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo4 The value to use as filter.
@@ -1850,23 +1924,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO4 column
+     * Filter the query on the ArstInv24mo4 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo4('fooValue');   // WHERE ArstInv24MO4 = 'fooValue'
-     * $query->filterByArstinv24mo4('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO4 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo4(1234); // WHERE ArstInv24mo4 = 1234
+     * $query->filterByArstinv24mo4(array(12, 34)); // WHERE ArstInv24mo4 IN (12, 34)
+     * $query->filterByArstinv24mo4(array('min' => 12)); // WHERE ArstInv24mo4 > 12
      * </code>
      *
-     * @param     string $arstinv24mo4 The value to use as filter.
+     * @param     mixed $arstinv24mo4 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo4($arstinv24mo4 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo4)) {
+        if (is_array($arstinv24mo4)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo4['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO4, $arstinv24mo4['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo4['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO4, $arstinv24mo4['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1875,13 +1965,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO5 column
+     * Filter the query on the ArstSale24mo5 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo5(1234); // WHERE ArstSale24MO5 = 1234
-     * $query->filterByArstsale24mo5(array(12, 34)); // WHERE ArstSale24MO5 IN (12, 34)
-     * $query->filterByArstsale24mo5(array('min' => 12)); // WHERE ArstSale24MO5 > 12
+     * $query->filterByArstsale24mo5(1234); // WHERE ArstSale24mo5 = 1234
+     * $query->filterByArstsale24mo5(array(12, 34)); // WHERE ArstSale24mo5 IN (12, 34)
+     * $query->filterByArstsale24mo5(array('min' => 12)); // WHERE ArstSale24mo5 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo5 The value to use as filter.
@@ -1916,23 +2006,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO5 column
+     * Filter the query on the ArstInv24mo5 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo5('fooValue');   // WHERE ArstInv24MO5 = 'fooValue'
-     * $query->filterByArstinv24mo5('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO5 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo5(1234); // WHERE ArstInv24mo5 = 1234
+     * $query->filterByArstinv24mo5(array(12, 34)); // WHERE ArstInv24mo5 IN (12, 34)
+     * $query->filterByArstinv24mo5(array('min' => 12)); // WHERE ArstInv24mo5 > 12
      * </code>
      *
-     * @param     string $arstinv24mo5 The value to use as filter.
+     * @param     mixed $arstinv24mo5 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo5($arstinv24mo5 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo5)) {
+        if (is_array($arstinv24mo5)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo5['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO5, $arstinv24mo5['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo5['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO5, $arstinv24mo5['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1941,13 +2047,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO6 column
+     * Filter the query on the ArstSale24mo6 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo6(1234); // WHERE ArstSale24MO6 = 1234
-     * $query->filterByArstsale24mo6(array(12, 34)); // WHERE ArstSale24MO6 IN (12, 34)
-     * $query->filterByArstsale24mo6(array('min' => 12)); // WHERE ArstSale24MO6 > 12
+     * $query->filterByArstsale24mo6(1234); // WHERE ArstSale24mo6 = 1234
+     * $query->filterByArstsale24mo6(array(12, 34)); // WHERE ArstSale24mo6 IN (12, 34)
+     * $query->filterByArstsale24mo6(array('min' => 12)); // WHERE ArstSale24mo6 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo6 The value to use as filter.
@@ -1982,23 +2088,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO6 column
+     * Filter the query on the ArstInv24mo6 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo6('fooValue');   // WHERE ArstInv24MO6 = 'fooValue'
-     * $query->filterByArstinv24mo6('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO6 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo6(1234); // WHERE ArstInv24mo6 = 1234
+     * $query->filterByArstinv24mo6(array(12, 34)); // WHERE ArstInv24mo6 IN (12, 34)
+     * $query->filterByArstinv24mo6(array('min' => 12)); // WHERE ArstInv24mo6 > 12
      * </code>
      *
-     * @param     string $arstinv24mo6 The value to use as filter.
+     * @param     mixed $arstinv24mo6 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo6($arstinv24mo6 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo6)) {
+        if (is_array($arstinv24mo6)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo6['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO6, $arstinv24mo6['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo6['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO6, $arstinv24mo6['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2007,13 +2129,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO7 column
+     * Filter the query on the ArstSale24mo7 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo7(1234); // WHERE ArstSale24MO7 = 1234
-     * $query->filterByArstsale24mo7(array(12, 34)); // WHERE ArstSale24MO7 IN (12, 34)
-     * $query->filterByArstsale24mo7(array('min' => 12)); // WHERE ArstSale24MO7 > 12
+     * $query->filterByArstsale24mo7(1234); // WHERE ArstSale24mo7 = 1234
+     * $query->filterByArstsale24mo7(array(12, 34)); // WHERE ArstSale24mo7 IN (12, 34)
+     * $query->filterByArstsale24mo7(array('min' => 12)); // WHERE ArstSale24mo7 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo7 The value to use as filter.
@@ -2048,23 +2170,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO7 column
+     * Filter the query on the ArstInv24mo7 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo7('fooValue');   // WHERE ArstInv24MO7 = 'fooValue'
-     * $query->filterByArstinv24mo7('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO7 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo7(1234); // WHERE ArstInv24mo7 = 1234
+     * $query->filterByArstinv24mo7(array(12, 34)); // WHERE ArstInv24mo7 IN (12, 34)
+     * $query->filterByArstinv24mo7(array('min' => 12)); // WHERE ArstInv24mo7 > 12
      * </code>
      *
-     * @param     string $arstinv24mo7 The value to use as filter.
+     * @param     mixed $arstinv24mo7 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo7($arstinv24mo7 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo7)) {
+        if (is_array($arstinv24mo7)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo7['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO7, $arstinv24mo7['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo7['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO7, $arstinv24mo7['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2073,13 +2211,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO8 column
+     * Filter the query on the ArstSale24mo8 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo8(1234); // WHERE ArstSale24MO8 = 1234
-     * $query->filterByArstsale24mo8(array(12, 34)); // WHERE ArstSale24MO8 IN (12, 34)
-     * $query->filterByArstsale24mo8(array('min' => 12)); // WHERE ArstSale24MO8 > 12
+     * $query->filterByArstsale24mo8(1234); // WHERE ArstSale24mo8 = 1234
+     * $query->filterByArstsale24mo8(array(12, 34)); // WHERE ArstSale24mo8 IN (12, 34)
+     * $query->filterByArstsale24mo8(array('min' => 12)); // WHERE ArstSale24mo8 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo8 The value to use as filter.
@@ -2114,23 +2252,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO8 column
+     * Filter the query on the ArstInv24mo8 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo8('fooValue');   // WHERE ArstInv24MO8 = 'fooValue'
-     * $query->filterByArstinv24mo8('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO8 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo8(1234); // WHERE ArstInv24mo8 = 1234
+     * $query->filterByArstinv24mo8(array(12, 34)); // WHERE ArstInv24mo8 IN (12, 34)
+     * $query->filterByArstinv24mo8(array('min' => 12)); // WHERE ArstInv24mo8 > 12
      * </code>
      *
-     * @param     string $arstinv24mo8 The value to use as filter.
+     * @param     mixed $arstinv24mo8 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo8($arstinv24mo8 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo8)) {
+        if (is_array($arstinv24mo8)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo8['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO8, $arstinv24mo8['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo8['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO8, $arstinv24mo8['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2139,13 +2293,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO9 column
+     * Filter the query on the ArstSale24mo9 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo9(1234); // WHERE ArstSale24MO9 = 1234
-     * $query->filterByArstsale24mo9(array(12, 34)); // WHERE ArstSale24MO9 IN (12, 34)
-     * $query->filterByArstsale24mo9(array('min' => 12)); // WHERE ArstSale24MO9 > 12
+     * $query->filterByArstsale24mo9(1234); // WHERE ArstSale24mo9 = 1234
+     * $query->filterByArstsale24mo9(array(12, 34)); // WHERE ArstSale24mo9 IN (12, 34)
+     * $query->filterByArstsale24mo9(array('min' => 12)); // WHERE ArstSale24mo9 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo9 The value to use as filter.
@@ -2180,23 +2334,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO9 column
+     * Filter the query on the ArstInv24mo9 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo9('fooValue');   // WHERE ArstInv24MO9 = 'fooValue'
-     * $query->filterByArstinv24mo9('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO9 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo9(1234); // WHERE ArstInv24mo9 = 1234
+     * $query->filterByArstinv24mo9(array(12, 34)); // WHERE ArstInv24mo9 IN (12, 34)
+     * $query->filterByArstinv24mo9(array('min' => 12)); // WHERE ArstInv24mo9 > 12
      * </code>
      *
-     * @param     string $arstinv24mo9 The value to use as filter.
+     * @param     mixed $arstinv24mo9 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo9($arstinv24mo9 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo9)) {
+        if (is_array($arstinv24mo9)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo9['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO9, $arstinv24mo9['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo9['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO9, $arstinv24mo9['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2205,13 +2375,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO10 column
+     * Filter the query on the ArstSale24mo10 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo10(1234); // WHERE ArstSale24MO10 = 1234
-     * $query->filterByArstsale24mo10(array(12, 34)); // WHERE ArstSale24MO10 IN (12, 34)
-     * $query->filterByArstsale24mo10(array('min' => 12)); // WHERE ArstSale24MO10 > 12
+     * $query->filterByArstsale24mo10(1234); // WHERE ArstSale24mo10 = 1234
+     * $query->filterByArstsale24mo10(array(12, 34)); // WHERE ArstSale24mo10 IN (12, 34)
+     * $query->filterByArstsale24mo10(array('min' => 12)); // WHERE ArstSale24mo10 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo10 The value to use as filter.
@@ -2246,23 +2416,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO10 column
+     * Filter the query on the ArstInv24mo10 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo10('fooValue');   // WHERE ArstInv24MO10 = 'fooValue'
-     * $query->filterByArstinv24mo10('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO10 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo10(1234); // WHERE ArstInv24mo10 = 1234
+     * $query->filterByArstinv24mo10(array(12, 34)); // WHERE ArstInv24mo10 IN (12, 34)
+     * $query->filterByArstinv24mo10(array('min' => 12)); // WHERE ArstInv24mo10 > 12
      * </code>
      *
-     * @param     string $arstinv24mo10 The value to use as filter.
+     * @param     mixed $arstinv24mo10 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo10($arstinv24mo10 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo10)) {
+        if (is_array($arstinv24mo10)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo10['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO10, $arstinv24mo10['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo10['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO10, $arstinv24mo10['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2271,13 +2457,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO11 column
+     * Filter the query on the ArstSale24mo11 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo11(1234); // WHERE ArstSale24MO11 = 1234
-     * $query->filterByArstsale24mo11(array(12, 34)); // WHERE ArstSale24MO11 IN (12, 34)
-     * $query->filterByArstsale24mo11(array('min' => 12)); // WHERE ArstSale24MO11 > 12
+     * $query->filterByArstsale24mo11(1234); // WHERE ArstSale24mo11 = 1234
+     * $query->filterByArstsale24mo11(array(12, 34)); // WHERE ArstSale24mo11 IN (12, 34)
+     * $query->filterByArstsale24mo11(array('min' => 12)); // WHERE ArstSale24mo11 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo11 The value to use as filter.
@@ -2312,23 +2498,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO11 column
+     * Filter the query on the ArstInv24mo11 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo11('fooValue');   // WHERE ArstInv24MO11 = 'fooValue'
-     * $query->filterByArstinv24mo11('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO11 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo11(1234); // WHERE ArstInv24mo11 = 1234
+     * $query->filterByArstinv24mo11(array(12, 34)); // WHERE ArstInv24mo11 IN (12, 34)
+     * $query->filterByArstinv24mo11(array('min' => 12)); // WHERE ArstInv24mo11 > 12
      * </code>
      *
-     * @param     string $arstinv24mo11 The value to use as filter.
+     * @param     mixed $arstinv24mo11 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo11($arstinv24mo11 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo11)) {
+        if (is_array($arstinv24mo11)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo11['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO11, $arstinv24mo11['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo11['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO11, $arstinv24mo11['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2337,13 +2539,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO12 column
+     * Filter the query on the ArstSale24mo12 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo12(1234); // WHERE ArstSale24MO12 = 1234
-     * $query->filterByArstsale24mo12(array(12, 34)); // WHERE ArstSale24MO12 IN (12, 34)
-     * $query->filterByArstsale24mo12(array('min' => 12)); // WHERE ArstSale24MO12 > 12
+     * $query->filterByArstsale24mo12(1234); // WHERE ArstSale24mo12 = 1234
+     * $query->filterByArstsale24mo12(array(12, 34)); // WHERE ArstSale24mo12 IN (12, 34)
+     * $query->filterByArstsale24mo12(array('min' => 12)); // WHERE ArstSale24mo12 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo12 The value to use as filter.
@@ -2378,23 +2580,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO12 column
+     * Filter the query on the ArstInv24mo12 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo12('fooValue');   // WHERE ArstInv24MO12 = 'fooValue'
-     * $query->filterByArstinv24mo12('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO12 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo12(1234); // WHERE ArstInv24mo12 = 1234
+     * $query->filterByArstinv24mo12(array(12, 34)); // WHERE ArstInv24mo12 IN (12, 34)
+     * $query->filterByArstinv24mo12(array('min' => 12)); // WHERE ArstInv24mo12 > 12
      * </code>
      *
-     * @param     string $arstinv24mo12 The value to use as filter.
+     * @param     mixed $arstinv24mo12 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo12($arstinv24mo12 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo12)) {
+        if (is_array($arstinv24mo12)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo12['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO12, $arstinv24mo12['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo12['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO12, $arstinv24mo12['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2403,13 +2621,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO13 column
+     * Filter the query on the ArstSale24mo13 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo13(1234); // WHERE ArstSale24MO13 = 1234
-     * $query->filterByArstsale24mo13(array(12, 34)); // WHERE ArstSale24MO13 IN (12, 34)
-     * $query->filterByArstsale24mo13(array('min' => 12)); // WHERE ArstSale24MO13 > 12
+     * $query->filterByArstsale24mo13(1234); // WHERE ArstSale24mo13 = 1234
+     * $query->filterByArstsale24mo13(array(12, 34)); // WHERE ArstSale24mo13 IN (12, 34)
+     * $query->filterByArstsale24mo13(array('min' => 12)); // WHERE ArstSale24mo13 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo13 The value to use as filter.
@@ -2444,23 +2662,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO13 column
+     * Filter the query on the ArstInv24mo13 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo13('fooValue');   // WHERE ArstInv24MO13 = 'fooValue'
-     * $query->filterByArstinv24mo13('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO13 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo13(1234); // WHERE ArstInv24mo13 = 1234
+     * $query->filterByArstinv24mo13(array(12, 34)); // WHERE ArstInv24mo13 IN (12, 34)
+     * $query->filterByArstinv24mo13(array('min' => 12)); // WHERE ArstInv24mo13 > 12
      * </code>
      *
-     * @param     string $arstinv24mo13 The value to use as filter.
+     * @param     mixed $arstinv24mo13 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo13($arstinv24mo13 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo13)) {
+        if (is_array($arstinv24mo13)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo13['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO13, $arstinv24mo13['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo13['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO13, $arstinv24mo13['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2469,13 +2703,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO14 column
+     * Filter the query on the ArstSale24mo14 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo14(1234); // WHERE ArstSale24MO14 = 1234
-     * $query->filterByArstsale24mo14(array(12, 34)); // WHERE ArstSale24MO14 IN (12, 34)
-     * $query->filterByArstsale24mo14(array('min' => 12)); // WHERE ArstSale24MO14 > 12
+     * $query->filterByArstsale24mo14(1234); // WHERE ArstSale24mo14 = 1234
+     * $query->filterByArstsale24mo14(array(12, 34)); // WHERE ArstSale24mo14 IN (12, 34)
+     * $query->filterByArstsale24mo14(array('min' => 12)); // WHERE ArstSale24mo14 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo14 The value to use as filter.
@@ -2510,23 +2744,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO14 column
+     * Filter the query on the ArstInv24mo14 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo14('fooValue');   // WHERE ArstInv24MO14 = 'fooValue'
-     * $query->filterByArstinv24mo14('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO14 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo14(1234); // WHERE ArstInv24mo14 = 1234
+     * $query->filterByArstinv24mo14(array(12, 34)); // WHERE ArstInv24mo14 IN (12, 34)
+     * $query->filterByArstinv24mo14(array('min' => 12)); // WHERE ArstInv24mo14 > 12
      * </code>
      *
-     * @param     string $arstinv24mo14 The value to use as filter.
+     * @param     mixed $arstinv24mo14 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo14($arstinv24mo14 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo14)) {
+        if (is_array($arstinv24mo14)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo14['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO14, $arstinv24mo14['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo14['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO14, $arstinv24mo14['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2535,13 +2785,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO15 column
+     * Filter the query on the ArstSale24mo15 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo15(1234); // WHERE ArstSale24MO15 = 1234
-     * $query->filterByArstsale24mo15(array(12, 34)); // WHERE ArstSale24MO15 IN (12, 34)
-     * $query->filterByArstsale24mo15(array('min' => 12)); // WHERE ArstSale24MO15 > 12
+     * $query->filterByArstsale24mo15(1234); // WHERE ArstSale24mo15 = 1234
+     * $query->filterByArstsale24mo15(array(12, 34)); // WHERE ArstSale24mo15 IN (12, 34)
+     * $query->filterByArstsale24mo15(array('min' => 12)); // WHERE ArstSale24mo15 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo15 The value to use as filter.
@@ -2576,23 +2826,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO15 column
+     * Filter the query on the ArstInv24mo15 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo15('fooValue');   // WHERE ArstInv24MO15 = 'fooValue'
-     * $query->filterByArstinv24mo15('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO15 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo15(1234); // WHERE ArstInv24mo15 = 1234
+     * $query->filterByArstinv24mo15(array(12, 34)); // WHERE ArstInv24mo15 IN (12, 34)
+     * $query->filterByArstinv24mo15(array('min' => 12)); // WHERE ArstInv24mo15 > 12
      * </code>
      *
-     * @param     string $arstinv24mo15 The value to use as filter.
+     * @param     mixed $arstinv24mo15 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo15($arstinv24mo15 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo15)) {
+        if (is_array($arstinv24mo15)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo15['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO15, $arstinv24mo15['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo15['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO15, $arstinv24mo15['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2601,13 +2867,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO16 column
+     * Filter the query on the ArstSale24mo16 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo16(1234); // WHERE ArstSale24MO16 = 1234
-     * $query->filterByArstsale24mo16(array(12, 34)); // WHERE ArstSale24MO16 IN (12, 34)
-     * $query->filterByArstsale24mo16(array('min' => 12)); // WHERE ArstSale24MO16 > 12
+     * $query->filterByArstsale24mo16(1234); // WHERE ArstSale24mo16 = 1234
+     * $query->filterByArstsale24mo16(array(12, 34)); // WHERE ArstSale24mo16 IN (12, 34)
+     * $query->filterByArstsale24mo16(array('min' => 12)); // WHERE ArstSale24mo16 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo16 The value to use as filter.
@@ -2642,23 +2908,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO16 column
+     * Filter the query on the ArstInv24mo16 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo16('fooValue');   // WHERE ArstInv24MO16 = 'fooValue'
-     * $query->filterByArstinv24mo16('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO16 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo16(1234); // WHERE ArstInv24mo16 = 1234
+     * $query->filterByArstinv24mo16(array(12, 34)); // WHERE ArstInv24mo16 IN (12, 34)
+     * $query->filterByArstinv24mo16(array('min' => 12)); // WHERE ArstInv24mo16 > 12
      * </code>
      *
-     * @param     string $arstinv24mo16 The value to use as filter.
+     * @param     mixed $arstinv24mo16 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo16($arstinv24mo16 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo16)) {
+        if (is_array($arstinv24mo16)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo16['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO16, $arstinv24mo16['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo16['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO16, $arstinv24mo16['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2667,13 +2949,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO17 column
+     * Filter the query on the ArstSale24mo17 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo17(1234); // WHERE ArstSale24MO17 = 1234
-     * $query->filterByArstsale24mo17(array(12, 34)); // WHERE ArstSale24MO17 IN (12, 34)
-     * $query->filterByArstsale24mo17(array('min' => 12)); // WHERE ArstSale24MO17 > 12
+     * $query->filterByArstsale24mo17(1234); // WHERE ArstSale24mo17 = 1234
+     * $query->filterByArstsale24mo17(array(12, 34)); // WHERE ArstSale24mo17 IN (12, 34)
+     * $query->filterByArstsale24mo17(array('min' => 12)); // WHERE ArstSale24mo17 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo17 The value to use as filter.
@@ -2708,23 +2990,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO17 column
+     * Filter the query on the ArstInv24mo17 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo17('fooValue');   // WHERE ArstInv24MO17 = 'fooValue'
-     * $query->filterByArstinv24mo17('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO17 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo17(1234); // WHERE ArstInv24mo17 = 1234
+     * $query->filterByArstinv24mo17(array(12, 34)); // WHERE ArstInv24mo17 IN (12, 34)
+     * $query->filterByArstinv24mo17(array('min' => 12)); // WHERE ArstInv24mo17 > 12
      * </code>
      *
-     * @param     string $arstinv24mo17 The value to use as filter.
+     * @param     mixed $arstinv24mo17 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo17($arstinv24mo17 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo17)) {
+        if (is_array($arstinv24mo17)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo17['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO17, $arstinv24mo17['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo17['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO17, $arstinv24mo17['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2733,13 +3031,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO18 column
+     * Filter the query on the ArstSale24mo18 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo18(1234); // WHERE ArstSale24MO18 = 1234
-     * $query->filterByArstsale24mo18(array(12, 34)); // WHERE ArstSale24MO18 IN (12, 34)
-     * $query->filterByArstsale24mo18(array('min' => 12)); // WHERE ArstSale24MO18 > 12
+     * $query->filterByArstsale24mo18(1234); // WHERE ArstSale24mo18 = 1234
+     * $query->filterByArstsale24mo18(array(12, 34)); // WHERE ArstSale24mo18 IN (12, 34)
+     * $query->filterByArstsale24mo18(array('min' => 12)); // WHERE ArstSale24mo18 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo18 The value to use as filter.
@@ -2774,23 +3072,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO18 column
+     * Filter the query on the ArstInv24mo18 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo18('fooValue');   // WHERE ArstInv24MO18 = 'fooValue'
-     * $query->filterByArstinv24mo18('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO18 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo18(1234); // WHERE ArstInv24mo18 = 1234
+     * $query->filterByArstinv24mo18(array(12, 34)); // WHERE ArstInv24mo18 IN (12, 34)
+     * $query->filterByArstinv24mo18(array('min' => 12)); // WHERE ArstInv24mo18 > 12
      * </code>
      *
-     * @param     string $arstinv24mo18 The value to use as filter.
+     * @param     mixed $arstinv24mo18 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo18($arstinv24mo18 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo18)) {
+        if (is_array($arstinv24mo18)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo18['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO18, $arstinv24mo18['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo18['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO18, $arstinv24mo18['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2799,13 +3113,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO19 column
+     * Filter the query on the ArstSale24mo19 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo19(1234); // WHERE ArstSale24MO19 = 1234
-     * $query->filterByArstsale24mo19(array(12, 34)); // WHERE ArstSale24MO19 IN (12, 34)
-     * $query->filterByArstsale24mo19(array('min' => 12)); // WHERE ArstSale24MO19 > 12
+     * $query->filterByArstsale24mo19(1234); // WHERE ArstSale24mo19 = 1234
+     * $query->filterByArstsale24mo19(array(12, 34)); // WHERE ArstSale24mo19 IN (12, 34)
+     * $query->filterByArstsale24mo19(array('min' => 12)); // WHERE ArstSale24mo19 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo19 The value to use as filter.
@@ -2840,23 +3154,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO19 column
+     * Filter the query on the ArstInv24mo19 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo19('fooValue');   // WHERE ArstInv24MO19 = 'fooValue'
-     * $query->filterByArstinv24mo19('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO19 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo19(1234); // WHERE ArstInv24mo19 = 1234
+     * $query->filterByArstinv24mo19(array(12, 34)); // WHERE ArstInv24mo19 IN (12, 34)
+     * $query->filterByArstinv24mo19(array('min' => 12)); // WHERE ArstInv24mo19 > 12
      * </code>
      *
-     * @param     string $arstinv24mo19 The value to use as filter.
+     * @param     mixed $arstinv24mo19 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo19($arstinv24mo19 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo19)) {
+        if (is_array($arstinv24mo19)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo19['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO19, $arstinv24mo19['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo19['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO19, $arstinv24mo19['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2865,13 +3195,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO20 column
+     * Filter the query on the ArstSale24mo20 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo20(1234); // WHERE ArstSale24MO20 = 1234
-     * $query->filterByArstsale24mo20(array(12, 34)); // WHERE ArstSale24MO20 IN (12, 34)
-     * $query->filterByArstsale24mo20(array('min' => 12)); // WHERE ArstSale24MO20 > 12
+     * $query->filterByArstsale24mo20(1234); // WHERE ArstSale24mo20 = 1234
+     * $query->filterByArstsale24mo20(array(12, 34)); // WHERE ArstSale24mo20 IN (12, 34)
+     * $query->filterByArstsale24mo20(array('min' => 12)); // WHERE ArstSale24mo20 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo20 The value to use as filter.
@@ -2906,23 +3236,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO20 column
+     * Filter the query on the ArstInv24mo20 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo20('fooValue');   // WHERE ArstInv24MO20 = 'fooValue'
-     * $query->filterByArstinv24mo20('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO20 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo20(1234); // WHERE ArstInv24mo20 = 1234
+     * $query->filterByArstinv24mo20(array(12, 34)); // WHERE ArstInv24mo20 IN (12, 34)
+     * $query->filterByArstinv24mo20(array('min' => 12)); // WHERE ArstInv24mo20 > 12
      * </code>
      *
-     * @param     string $arstinv24mo20 The value to use as filter.
+     * @param     mixed $arstinv24mo20 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo20($arstinv24mo20 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo20)) {
+        if (is_array($arstinv24mo20)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo20['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO20, $arstinv24mo20['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo20['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO20, $arstinv24mo20['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2931,13 +3277,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO21 column
+     * Filter the query on the ArstSale24mo21 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo21(1234); // WHERE ArstSale24MO21 = 1234
-     * $query->filterByArstsale24mo21(array(12, 34)); // WHERE ArstSale24MO21 IN (12, 34)
-     * $query->filterByArstsale24mo21(array('min' => 12)); // WHERE ArstSale24MO21 > 12
+     * $query->filterByArstsale24mo21(1234); // WHERE ArstSale24mo21 = 1234
+     * $query->filterByArstsale24mo21(array(12, 34)); // WHERE ArstSale24mo21 IN (12, 34)
+     * $query->filterByArstsale24mo21(array('min' => 12)); // WHERE ArstSale24mo21 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo21 The value to use as filter.
@@ -2972,23 +3318,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO21 column
+     * Filter the query on the ArstInv24mo21 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo21('fooValue');   // WHERE ArstInv24MO21 = 'fooValue'
-     * $query->filterByArstinv24mo21('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO21 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo21(1234); // WHERE ArstInv24mo21 = 1234
+     * $query->filterByArstinv24mo21(array(12, 34)); // WHERE ArstInv24mo21 IN (12, 34)
+     * $query->filterByArstinv24mo21(array('min' => 12)); // WHERE ArstInv24mo21 > 12
      * </code>
      *
-     * @param     string $arstinv24mo21 The value to use as filter.
+     * @param     mixed $arstinv24mo21 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo21($arstinv24mo21 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo21)) {
+        if (is_array($arstinv24mo21)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo21['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO21, $arstinv24mo21['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo21['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO21, $arstinv24mo21['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -2997,13 +3359,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO22 column
+     * Filter the query on the ArstSale24mo22 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo22(1234); // WHERE ArstSale24MO22 = 1234
-     * $query->filterByArstsale24mo22(array(12, 34)); // WHERE ArstSale24MO22 IN (12, 34)
-     * $query->filterByArstsale24mo22(array('min' => 12)); // WHERE ArstSale24MO22 > 12
+     * $query->filterByArstsale24mo22(1234); // WHERE ArstSale24mo22 = 1234
+     * $query->filterByArstsale24mo22(array(12, 34)); // WHERE ArstSale24mo22 IN (12, 34)
+     * $query->filterByArstsale24mo22(array('min' => 12)); // WHERE ArstSale24mo22 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo22 The value to use as filter.
@@ -3038,23 +3400,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO22 column
+     * Filter the query on the ArstInv24mo22 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo22('fooValue');   // WHERE ArstInv24MO22 = 'fooValue'
-     * $query->filterByArstinv24mo22('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO22 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo22(1234); // WHERE ArstInv24mo22 = 1234
+     * $query->filterByArstinv24mo22(array(12, 34)); // WHERE ArstInv24mo22 IN (12, 34)
+     * $query->filterByArstinv24mo22(array('min' => 12)); // WHERE ArstInv24mo22 > 12
      * </code>
      *
-     * @param     string $arstinv24mo22 The value to use as filter.
+     * @param     mixed $arstinv24mo22 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo22($arstinv24mo22 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo22)) {
+        if (is_array($arstinv24mo22)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo22['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO22, $arstinv24mo22['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo22['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO22, $arstinv24mo22['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -3063,13 +3441,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO23 column
+     * Filter the query on the ArstSale24mo23 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo23(1234); // WHERE ArstSale24MO23 = 1234
-     * $query->filterByArstsale24mo23(array(12, 34)); // WHERE ArstSale24MO23 IN (12, 34)
-     * $query->filterByArstsale24mo23(array('min' => 12)); // WHERE ArstSale24MO23 > 12
+     * $query->filterByArstsale24mo23(1234); // WHERE ArstSale24mo23 = 1234
+     * $query->filterByArstsale24mo23(array(12, 34)); // WHERE ArstSale24mo23 IN (12, 34)
+     * $query->filterByArstsale24mo23(array('min' => 12)); // WHERE ArstSale24mo23 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo23 The value to use as filter.
@@ -3104,23 +3482,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO23 column
+     * Filter the query on the ArstInv24mo23 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo23('fooValue');   // WHERE ArstInv24MO23 = 'fooValue'
-     * $query->filterByArstinv24mo23('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO23 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo23(1234); // WHERE ArstInv24mo23 = 1234
+     * $query->filterByArstinv24mo23(array(12, 34)); // WHERE ArstInv24mo23 IN (12, 34)
+     * $query->filterByArstinv24mo23(array('min' => 12)); // WHERE ArstInv24mo23 > 12
      * </code>
      *
-     * @param     string $arstinv24mo23 The value to use as filter.
+     * @param     mixed $arstinv24mo23 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo23($arstinv24mo23 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo23)) {
+        if (is_array($arstinv24mo23)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo23['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO23, $arstinv24mo23['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo23['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO23, $arstinv24mo23['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -3129,13 +3523,13 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstSale24MO24 column
+     * Filter the query on the ArstSale24mo24 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstsale24mo24(1234); // WHERE ArstSale24MO24 = 1234
-     * $query->filterByArstsale24mo24(array(12, 34)); // WHERE ArstSale24MO24 IN (12, 34)
-     * $query->filterByArstsale24mo24(array('min' => 12)); // WHERE ArstSale24MO24 > 12
+     * $query->filterByArstsale24mo24(1234); // WHERE ArstSale24mo24 = 1234
+     * $query->filterByArstsale24mo24(array(12, 34)); // WHERE ArstSale24mo24 IN (12, 34)
+     * $query->filterByArstsale24mo24(array('min' => 12)); // WHERE ArstSale24mo24 > 12
      * </code>
      *
      * @param     mixed $arstsale24mo24 The value to use as filter.
@@ -3170,23 +3564,39 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstInv24MO24 column
+     * Filter the query on the ArstInv24mo24 column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstinv24mo24('fooValue');   // WHERE ArstInv24MO24 = 'fooValue'
-     * $query->filterByArstinv24mo24('%fooValue%', Criteria::LIKE); // WHERE ArstInv24MO24 LIKE '%fooValue%'
+     * $query->filterByArstinv24mo24(1234); // WHERE ArstInv24mo24 = 1234
+     * $query->filterByArstinv24mo24(array(12, 34)); // WHERE ArstInv24mo24 IN (12, 34)
+     * $query->filterByArstinv24mo24(array('min' => 12)); // WHERE ArstInv24mo24 > 12
      * </code>
      *
-     * @param     string $arstinv24mo24 The value to use as filter.
+     * @param     mixed $arstinv24mo24 The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByArstinv24mo24($arstinv24mo24 = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($arstinv24mo24)) {
+        if (is_array($arstinv24mo24)) {
+            $useMinMax = false;
+            if (isset($arstinv24mo24['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO24, $arstinv24mo24['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinv24mo24['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINV24MO24, $arstinv24mo24['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -3502,12 +3912,12 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstFobInputYN column
+     * Filter the query on the ArstFobInputYn column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstfobinputyn('fooValue');   // WHERE ArstFobInputYN = 'fooValue'
-     * $query->filterByArstfobinputyn('%fooValue%', Criteria::LIKE); // WHERE ArstFobInputYN LIKE '%fooValue%'
+     * $query->filterByArstfobinputyn('fooValue');   // WHERE ArstFobInputYn = 'fooValue'
+     * $query->filterByArstfobinputyn('%fooValue%', Criteria::LIKE); // WHERE ArstFobInputYn LIKE '%fooValue%'
      * </code>
      *
      * @param     string $arstfobinputyn The value to use as filter.
@@ -3568,16 +3978,16 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the DateUpdtd column
+     * Filter the query on the ArstSaleYtd column
      *
      * Example usage:
      * <code>
-     * $query->filterByDateupdtd(1234); // WHERE DateUpdtd = 1234
-     * $query->filterByDateupdtd(array(12, 34)); // WHERE DateUpdtd IN (12, 34)
-     * $query->filterByDateupdtd(array('min' => 12)); // WHERE DateUpdtd > 12
+     * $query->filterByArstsaleytd(1234); // WHERE ArstSaleYtd = 1234
+     * $query->filterByArstsaleytd(array(12, 34)); // WHERE ArstSaleYtd IN (12, 34)
+     * $query->filterByArstsaleytd(array('min' => 12)); // WHERE ArstSaleYtd > 12
      * </code>
      *
-     * @param     mixed $dateupdtd The value to use as filter.
+     * @param     mixed $arstsaleytd The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -3585,22 +3995,88 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    public function filterByArstsaleytd($arstsaleytd = null, $comparison = null)
     {
-        if (is_array($dateupdtd)) {
+        if (is_array($arstsaleytd)) {
             $useMinMax = false;
-            if (isset($dateupdtd['min'])) {
-                $this->addUsingAlias(CustomerShiptoTableMap::COL_DATEUPDTD, $dateupdtd['min'], Criteria::GREATER_EQUAL);
+            if (isset($arstsaleytd['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEYTD, $arstsaleytd['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($dateupdtd['max'])) {
-                $this->addUsingAlias(CustomerShiptoTableMap::COL_DATEUPDTD, $dateupdtd['max'], Criteria::LESS_EQUAL);
+            if (isset($arstsaleytd['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEYTD, $arstsaleytd['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
                 return $this;
             }
             if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSALEYTD, $arstsaleytd, $comparison);
+    }
+
+    /**
+     * Filter the query on the ArstInvYtd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByArstinvytd(1234); // WHERE ArstInvYtd = 1234
+     * $query->filterByArstinvytd(array(12, 34)); // WHERE ArstInvYtd IN (12, 34)
+     * $query->filterByArstinvytd(array('min' => 12)); // WHERE ArstInvYtd > 12
+     * </code>
+     *
+     * @param     mixed $arstinvytd The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByArstinvytd($arstinvytd = null, $comparison = null)
+    {
+        if (is_array($arstinvytd)) {
+            $useMinMax = false;
+            if (isset($arstinvytd['min'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($arstinvytd['max'])) {
+                $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd, $comparison);
+    }
+
+    /**
+     * Filter the query on the DateUpdtd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
+     * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $dateupdtd The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByDateupdtd($dateupdtd = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($dateupdtd)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -3613,35 +4089,19 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByTimeupdtd(1234); // WHERE TimeUpdtd = 1234
-     * $query->filterByTimeupdtd(array(12, 34)); // WHERE TimeUpdtd IN (12, 34)
-     * $query->filterByTimeupdtd(array('min' => 12)); // WHERE TimeUpdtd > 12
+     * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
+     * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $timeupdtd The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
-        if (is_array($timeupdtd)) {
-            $useMinMax = false;
-            if (isset($timeupdtd['min'])) {
-                $this->addUsingAlias(CustomerShiptoTableMap::COL_TIMEUPDTD, $timeupdtd['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($timeupdtd['max'])) {
-                $this->addUsingAlias(CustomerShiptoTableMap::COL_TIMEUPDTD, $timeupdtd['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($timeupdtd)) {
                 $comparison = Criteria::IN;
             }
         }
