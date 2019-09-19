@@ -59,4 +59,48 @@ class CustomerShiptoQuery extends BaseCustomerShiptoQuery {
 		$this->filterByCustidShiptoid($custID, $shiptoID);
 		return $this->findOne();
 	}
+
+	/**
+	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
+	 *
+	 * @param  string  $custID Customer ID to filter on
+	 * @param  string  $custID Shipto ID to filter on
+	 * @param  int     $months Number of Months to go back
+	 * @return float           Total Sales Amount
+	 */
+	public function get_lastxmonthsamount($custID, $shiptoID, int $months = 1) {
+		$basecolumn = 'ArstSale24mo';
+		$array = array();
+
+		for ($i = 1; $i < $months + 1; $i++) {
+			$array[] = "$basecolumn$i";
+		}
+		$columns = implode(" + ", $array);
+		$sql = "SELECT ($columns) as amount FROM ar_ship_to WHERE ArcuCustId = :custid AND ArstShipid = :shipid";
+		$params = array(':custid' => $custID, ':shipid' => $shiptoID);
+		$result = $this->execute_query($sql, $params);
+		return $result->fetchColumn();
+	}
+
+	/**
+	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
+	 *
+	 * @param  string  $custID Customer ID to filter on
+	 * @param  string  $custID Shipto ID to filter on
+	 * @param  int     $months Number of Months to go back
+	 * @return float           Total Sales Amount
+	 */
+	public function get_lastxmonthscount($custID, $shiptoID, int $months = 1) {
+		$basecolumn = 'ArstInv24mo';
+		$array = array();
+
+		for ($i = 1; $i < $months + 1; $i++) {
+			$array[] = "$basecolumn$i";
+		}
+		$columns = implode(" + ", $array);
+		$sql = "SELECT ($columns) as amount FROM ar_ship_to WHERE ArcuCustId = :custid AND ArstShipid = :shipid";
+		$params = array(':custid' => $custID, ':shipid' => $shiptoID);
+		$result = $this->execute_query($sql, $params);
+		return $result->fetchColumn();
+	}
 }
