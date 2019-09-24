@@ -78,8 +78,18 @@ class Quote extends BaseQuote {
 		'D' => 'destination'
 	);
 
+	const STATUSES = array('N', 'P');
+	const STATUS_DESCRIPTIONS = array(
+		'N' => 'new',
+		'P' => 'printed'
+	);
+
 	public function fob() {
 		return self::FOB_OPTIONS_DESC[$this->fob];
+	}
+
+	public function status() {
+		return self::STATUS_DESCRIPTIONS[$this->status];
 	}
 
 
