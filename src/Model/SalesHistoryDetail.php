@@ -26,6 +26,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehhnbr',
 		'qty_ordered'  => 'oedhqtyord',
+		'qty_shipped'  => 'oedhqtyship',
 		'price'        => 'oedhpric',
 		'total_price'  => 'oedhprictot',
 		'itemid'       => 'inititemnbr',
