@@ -23,7 +23,7 @@ use Dplus\Model\QueryTraits;
  *
  *
  * FindOne
- * @method  SalesHistory findOneByOrdernumber(string $ordn)      Return the first SalesOrder filtered by the OehhNbr column
+ * @method  SalesHistory findOneByOrdernumber(string $ordn)      Return the first SalesHistory filtered by the OehhNbr column
  *
  * Find
  *
@@ -45,12 +45,12 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 * @param	  string $arspsaleper1 The value to use as filter.
 	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
-	 * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	public function filterbySalesPerson($salesperson = null,  $comparison = null) {
-		$this->condition('sp1', 'SalesOrder.ArspSaleper1 = ?', $salesperson);
-		$this->condition('sp2', 'SalesOrder.ArspSaleper2 = ?', $salesperson);
-		$this->condition('sp3', 'SalesOrder.ArspSaleper3 = ?', $salesperson);
+		$this->condition('sp1', 'SalesHistory.ArspSaleper1 = ?', $salesperson);
+		$this->condition('sp2', 'SalesHistory.ArspSaleper2 = ?', $salesperson);
+		$this->condition('sp3', 'SalesHistory.ArspSaleper3 = ?', $salesperson);
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or'); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
 	 }
@@ -59,8 +59,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	  * Return if Sales Order Exists in so_head_hist
 	 *
-	 * @param	string $ordn Sales Order Number
-	 * @return bool		 Does Sales Order Exist
+	 * @param  string $ordn Sales Order Number
+	 * @return bool		    Does Sales Order Exist
 	 */
 	public function orderExists($ordn) {
 		return boolval($this->filterByOehhnbr($ordn)->count());
@@ -69,8 +69,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	 * Filter the query on the oehhnbr column
 	 *
-	 * @param  mixed $ordn	 array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $ordn	           array or string
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	public function filterByOrdernumber($ordn) {
 		if (is_array($ordn)) {
@@ -90,8 +90,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid   array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $custid           array or string
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	public function filterByCustid($custid) {
 		if (is_array($custid)) {
@@ -111,8 +111,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	* Filter the query on the Oehhordrtot column
 	*
-	* @param  mixed $ordertotal   array or string
-	* @return $this|SalesOrderQuery The current query, for fluid interface
+	* @param  mixed $ordertotal       array or string
+	* @return $this|SalesHistoryQuery The current query, for fluid interface
 	*/
 	public function filterByOrdertotal($ordertotal) {
 		if (is_array($ordertotal)) {
@@ -130,8 +130,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	  * Filter the query on the Oehhinvdate column
 	  *
-	  * @param	mixed $orderdate   array or string
-	  * @return $this|SalesOrderQuery The current query, for fluid interface
+	  * @param	mixed $orderdate        array or string
+	  * @return $this|SalesHistoryQuery The current query, for fluid interface
 	  */
 	 public function filterByInvoicedate($invoicedate) {
 		  if (is_array($invoicedate)) {
@@ -151,8 +151,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	 * Filter the query on the Oehhordrdate column
 	 *
-	 * @param  mixed $orderdate   array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $orderdate        array or string
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	 public function filterByOrderdate($orderdate) {
 		 if (is_array($orderdate)) {
@@ -177,7 +177,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 */
 	public function get_custid($ordn) {
 		$this->clear();
-		$this->select($this->get_tablecolumn(SalesOrder::get_aliasproperty('custid')));
+		$this->select($this->get_tablecolumn(SalesHistory::get_aliasproperty('custid')));
 		$this->filterByOrdernumber($ordn);
 		return $this->findOne();
 	}
