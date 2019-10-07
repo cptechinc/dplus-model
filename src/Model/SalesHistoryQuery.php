@@ -43,11 +43,9 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 * </code>
 	 *
 	 * @param	  string $arspsaleper1 The value to use as filter.
-	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 *
-	 * @return $this|SalesHistoryQuery The current query, for fluid interface
+	 * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
 	 */
-	public function filterbySalesPerson($salesperson = null,  $comparison = null) {
+	public function filterbySalesPerson($salesperson = null) {
 		$this->condition('sp1', 'SalesHistory.ArspSaleper1 = ?', $salesperson);
 		$this->condition('sp2', 'SalesHistory.ArspSaleper2 = ?', $salesperson);
 		$this->condition('sp3', 'SalesHistory.ArspSaleper3 = ?', $salesperson);
@@ -59,8 +57,8 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	  * Return if Sales Order Exists in so_head_hist
 	 *
-	 * @param  string $ordn Sales Order Number
-	 * @return bool		    Does Sales Order Exist
+	 * @param	string $ordn Sales Order Number
+	 * @return bool		 Does Sales Order Exist
 	 */
 	public function orderExists($ordn) {
 		return boolval($this->filterByOehhnbr($ordn)->count());
@@ -69,7 +67,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	 * Filter the query on the oehhnbr column
 	 *
-	 * @param  mixed $ordn	           array or string
+	 * @param  mixed $ordn	 array or string
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	public function filterByOrdernumber($ordn) {
@@ -90,7 +88,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid           array or string
+	 * @param  mixed $custid   array or string
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	public function filterByCustid($custid) {
@@ -111,7 +109,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	* Filter the query on the Oehhordrtot column
 	*
-	* @param  mixed $ordertotal       array or string
+	* @param  mixed $ordertotal   array or string
 	* @return $this|SalesHistoryQuery The current query, for fluid interface
 	*/
 	public function filterByOrdertotal($ordertotal) {
@@ -130,7 +128,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	  * Filter the query on the Oehhinvdate column
 	  *
-	  * @param	mixed $orderdate        array or string
+	  * @param	mixed $orderdate   array or string
 	  * @return $this|SalesHistoryQuery The current query, for fluid interface
 	  */
 	 public function filterByInvoicedate($invoicedate) {
@@ -151,7 +149,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	 * Filter the query on the Oehhordrdate column
 	 *
-	 * @param  mixed $orderdate        array or string
+	 * @param  mixed $orderdate   array or string
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	 public function filterByOrderdate($orderdate) {

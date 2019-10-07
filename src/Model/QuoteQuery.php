@@ -38,8 +38,7 @@ class QuoteQuery extends BaseQuoteQuery {
 	 * </code>
 	 *
 	 * @param	  string $arspsaleper1 The value to use as filter.
-	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 *
+	 * 
 	 * @return $this|QuoteQuery The current query, for fluid interface
 	 */
 	public function filterbySalesPerson($salesperson = null) {
