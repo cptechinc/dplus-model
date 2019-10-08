@@ -18,27 +18,44 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'ponbr'                  => 'pohdnbr',
-		'status'                 => 'pohdstat',
-		'poref'                  => 'pohdref',
-		'vendorID'               => 'apvevendid',
-		'vendorid'               => 'apvevendid',
-		'to_name'                => 'pohdtoname',
-		'to_address'             => 'pohdtoadr1',
-		'to_address2'            => 'pohdtoadr2',
-		'to_address3'            => 'pohdtoadr3',
-		'to_country'             => 'pohdtoctry',
-		'to_city'                => 'pohdtocity',
-		'to_state'               => 'pohdtostate',
-		'to_zip'                 => 'pohdtozip',
-		'contact'                => 'pohdcont',
-		'email'                  => 'pohdemailaddr',
-		'date_ordered'           => 'pohdordrdate',
-		'shipvia'                => 'artbsviacode',
-		'phone'                  => 'pohdtelenbr',
-		'phone_intl'             => 'pohdteleintl',
-		'phone_extension'        => 'pohdteleext',
-		'fax'                    => 'pohdfaxnbr',
-		'fax_intl'               => 'pohdfaxintl',
+		'ponbr'              => 'pohdnbr',
+		'status'             => 'pohdstat',
+		'poref'              => 'pohdref',
+		'vendorID'           => 'apvevendid',
+		'vendorid'           => 'apvevendid',
+		'shipto_name'        => 'pohdtoname',
+		'shipto_address'     => 'pohdtoadr1',
+		'shipto_address2'    => 'pohdtoadr2',
+		'shipto_address3'    => 'pohdtoadr3',
+		'shipto_country'     => 'pohdtoctry',
+		'shipto_city'        => 'pohdtocity',
+		'shipto_state'       => 'pohdtostate',
+		'shipto_zip'         => 'pohdtozip',
+		'contact'            => 'pohdcont',
+		'email'              => 'pohdemailaddr',
+		'date_ordered'       => 'pohdordrdate',
+		'shipvia'            => 'artbsviacode',
+		'phone'              => 'pohdtelenbr',
+		'phone_intl'         => 'pohdteleintl',
+		'phone_extension'    => 'pohdteleext',
+		'fax'                => 'pohdfaxnbr',
+		'fax_intl'           => 'pohdfaxintl',
+		'shipfrom_name'      => 'pohdptname',
+		'shipfrom_address'   => 'pohdptadr1',
+		'shipfrom_address2'  => 'pohdptadr2',
+		'shipfrom_address3'  => 'pohdptadr3',
+		'shipfrom_country'   => 'pohdptctry',
+		'shipfrom_city'      => 'pohdptcity',
+		'shipfrom_state'     => 'pohdptstate',
+		'shipfrom_zip'       => 'pohdptzip',
 	);
+
+	/**
+	 * Return PurchaseOrderDetail objects for this PO Number
+	 *
+	 * @return PurchaseOrderDetail[]|ObjectCollection
+	 */
+	public function get_items() {
+		return PurchaseOrderDetailQuery::create()->findByPonbr($this->pohdnbr);
+	}
 }
