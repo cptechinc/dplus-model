@@ -2,17 +2,24 @@
 
 use Base\VendorShipfromQuery as BaseVendorShipfromQuery;
 
-/**
- * Skeleton subclass for performing query and update operations on the 'ap_ship_from' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class VendorShipfromQuery extends BaseVendorShipfromQuery
-{
+use Dplus\Model\QueryTraits;
 
+/**
+ * Class for performing query and update operations on the 'ap_ship_from' table.
+ *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findByVendorid(string $vendorID)
+ *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
+ * 
+ * FindOne()
+ * 
+ * FindByXXX()
+ * @method  VendorShipfrom[]|Objectcollection findByVendorid(string $vendorID)     Return the VendorShipfrom Objects filtered by the ApveVendId column
+ */
+class VendorShipfromQuery extends BaseVendorShipfromQuery {
+	use QueryTraits;
 }

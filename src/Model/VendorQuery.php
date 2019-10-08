@@ -2,17 +2,25 @@
 
 use Base\VendorQuery as BaseVendorQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'ap_vend_mast' table.
+ * Class for performing query and update operations on the 'ap_vend_mast' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByVendorid(string $vendorID)
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
+ * 
+ * FindOne()
+ * @method  Vendor findOneByVendorid(string $vendorID)     Return the first Vendor filtered by the ApveVendId column
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindByXXX()
  *
  */
-class VendorQuery extends BaseVendorQuery
-{
-
+class VendorQuery extends BaseVendorQuery {
+	use QueryTraits;
 }
