@@ -1148,6 +1148,13 @@ class VendorTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'VendorShipfroms', false);
     } // buildRelations()
 
     /**

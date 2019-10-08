@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
+use \VendorShipfrom as ChildVendorShipfrom;
+use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
+use Map\VendorShipfromTableMap;
 use Map\VendorTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -1251,12 +1256,24 @@ abstract class Vendor implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildVendorShipfrom[] Collection to store aggregation of ChildVendorShipfrom objects.
+     */
+    protected $collVendorShipfroms;
+    protected $collVendorShipfromsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildVendorShipfrom[]
+     */
+    protected $vendorShipfromsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -7214,6 +7231,8 @@ abstract class Vendor implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collVendorShipfroms = null;
+
         } // if (deep)
     }
 
@@ -7326,6 +7345,23 @@ abstract class Vendor implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->vendorShipfromsScheduledForDeletion !== null) {
+                if (!$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
+                    \VendorShipfromQuery::create()
+                        ->filterByPrimaryKeys($this->vendorShipfromsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->vendorShipfromsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collVendorShipfroms !== null) {
+                foreach ($this->collVendorShipfroms as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -8963,10 +8999,11 @@ abstract class Vendor implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['Vendor'][$this->hashCode()])) {
@@ -9151,6 +9188,23 @@ abstract class Vendor implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collVendorShipfroms) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendorShipfroms';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_ship_froms';
+                        break;
+                    default:
+                        $key = 'VendorShipfroms';
+                }
+
+                $result[$key] = $this->collVendorShipfroms->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -11037,6 +11091,20 @@ abstract class Vendor implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getVendorShipfroms() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addVendorShipfrom($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -11062,6 +11130,251 @@ abstract class Vendor implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('VendorShipfrom' == $relationName) {
+            $this->initVendorShipfroms();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collVendorShipfroms collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addVendorShipfroms()
+     */
+    public function clearVendorShipfroms()
+    {
+        $this->collVendorShipfroms = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collVendorShipfroms collection loaded partially.
+     */
+    public function resetPartialVendorShipfroms($v = true)
+    {
+        $this->collVendorShipfromsPartial = $v;
+    }
+
+    /**
+     * Initializes the collVendorShipfroms collection.
+     *
+     * By default this just sets the collVendorShipfroms collection to an empty array (like clearcollVendorShipfroms());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initVendorShipfroms($overrideExisting = true)
+    {
+        if (null !== $this->collVendorShipfroms && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = VendorShipfromTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collVendorShipfroms = new $collectionClassName;
+        $this->collVendorShipfroms->setModel('\VendorShipfrom');
+    }
+
+    /**
+     * Gets an array of ChildVendorShipfrom objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildVendor is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
+     * @throws PropelException
+     */
+    public function getVendorShipfroms(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorShipfromsPartial && !$this->isNew();
+        if (null === $this->collVendorShipfroms || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collVendorShipfroms) {
+                // return empty collection
+                $this->initVendorShipfroms();
+            } else {
+                $collVendorShipfroms = ChildVendorShipfromQuery::create(null, $criteria)
+                    ->filterByVendor($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collVendorShipfromsPartial && count($collVendorShipfroms)) {
+                        $this->initVendorShipfroms(false);
+
+                        foreach ($collVendorShipfroms as $obj) {
+                            if (false == $this->collVendorShipfroms->contains($obj)) {
+                                $this->collVendorShipfroms->append($obj);
+                            }
+                        }
+
+                        $this->collVendorShipfromsPartial = true;
+                    }
+
+                    return $collVendorShipfroms;
+                }
+
+                if ($partial && $this->collVendorShipfroms) {
+                    foreach ($this->collVendorShipfroms as $obj) {
+                        if ($obj->isNew()) {
+                            $collVendorShipfroms[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collVendorShipfroms = $collVendorShipfroms;
+                $this->collVendorShipfromsPartial = false;
+            }
+        }
+
+        return $this->collVendorShipfroms;
+    }
+
+    /**
+     * Sets a collection of ChildVendorShipfrom objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $vendorShipfroms A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function setVendorShipfroms(Collection $vendorShipfroms, ConnectionInterface $con = null)
+    {
+        /** @var ChildVendorShipfrom[] $vendorShipfromsToDelete */
+        $vendorShipfromsToDelete = $this->getVendorShipfroms(new Criteria(), $con)->diff($vendorShipfroms);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->vendorShipfromsScheduledForDeletion = clone $vendorShipfromsToDelete;
+
+        foreach ($vendorShipfromsToDelete as $vendorShipfromRemoved) {
+            $vendorShipfromRemoved->setVendor(null);
+        }
+
+        $this->collVendorShipfroms = null;
+        foreach ($vendorShipfroms as $vendorShipfrom) {
+            $this->addVendorShipfrom($vendorShipfrom);
+        }
+
+        $this->collVendorShipfroms = $vendorShipfroms;
+        $this->collVendorShipfromsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related VendorShipfrom objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related VendorShipfrom objects.
+     * @throws PropelException
+     */
+    public function countVendorShipfroms(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorShipfromsPartial && !$this->isNew();
+        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collVendorShipfroms) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getVendorShipfroms());
+            }
+
+            $query = ChildVendorShipfromQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByVendor($this)
+                ->count($con);
+        }
+
+        return count($this->collVendorShipfroms);
+    }
+
+    /**
+     * Method called to associate a ChildVendorShipfrom object to this object
+     * through the ChildVendorShipfrom foreign key attribute.
+     *
+     * @param  ChildVendorShipfrom $l ChildVendorShipfrom
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function addVendorShipfrom(ChildVendorShipfrom $l)
+    {
+        if ($this->collVendorShipfroms === null) {
+            $this->initVendorShipfroms();
+            $this->collVendorShipfromsPartial = true;
+        }
+
+        if (!$this->collVendorShipfroms->contains($l)) {
+            $this->doAddVendorShipfrom($l);
+
+            if ($this->vendorShipfromsScheduledForDeletion and $this->vendorShipfromsScheduledForDeletion->contains($l)) {
+                $this->vendorShipfromsScheduledForDeletion->remove($this->vendorShipfromsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to add.
+     */
+    protected function doAddVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
+    {
+        $this->collVendorShipfroms[]= $vendorShipfrom;
+        $vendorShipfrom->setVendor($this);
+    }
+
+    /**
+     * @param  ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to remove.
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function removeVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
+    {
+        if ($this->getVendorShipfroms()->contains($vendorShipfrom)) {
+            $pos = $this->collVendorShipfroms->search($vendorShipfrom);
+            $this->collVendorShipfroms->remove($pos);
+            if (null === $this->vendorShipfromsScheduledForDeletion) {
+                $this->vendorShipfromsScheduledForDeletion = clone $this->collVendorShipfroms;
+                $this->vendorShipfromsScheduledForDeletion->clear();
+            }
+            $this->vendorShipfromsScheduledForDeletion[]= clone $vendorShipfrom;
+            $vendorShipfrom->setVendor(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -11260,8 +11573,14 @@ abstract class Vendor implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collVendorShipfroms) {
+                foreach ($this->collVendorShipfroms as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collVendorShipfroms = null;
     }
 
     /**

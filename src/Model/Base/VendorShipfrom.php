@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \Vendor as ChildVendor;
+use \VendorQuery as ChildVendorQuery;
 use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
@@ -550,6 +552,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildVendor
+     */
+    protected $aVendor;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1513,6 +1520,10 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if ($this->apvevendid !== $v) {
             $this->apvevendid = $v;
             $this->modifiedColumns[VendorShipfromTableMap::COL_APVEVENDID] = true;
+        }
+
+        if ($this->aVendor !== null && $this->aVendor->getApvevendid() !== $v) {
+            $this->aVendor = null;
         }
 
         return $this;
@@ -3181,6 +3192,9 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
+            $this->aVendor = null;
+        }
     } // ensureConsistency
 
     /**
@@ -3220,6 +3234,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aVendor = null;
         } // if (deep)
     }
 
@@ -3322,6 +3337,18 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aVendor !== null) {
+                if ($this->aVendor->isModified() || $this->aVendor->isNew()) {
+                    $affectedRows += $this->aVendor->save($con);
+                }
+                $this->setVendor($this->aVendor);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -4069,10 +4096,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['VendorShipfrom'][$this->hashCode()])) {
@@ -4157,6 +4185,23 @@ abstract class VendorShipfrom implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aVendor) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendor';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_vend_mast';
+                        break;
+                    default:
+                        $key = 'Vendor';
+                }
+
+                $result[$key] = $this->aVendor->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -4921,8 +4966,15 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $validPk = null !== $this->getApvevendid() &&
             null !== $this->getApfmshipid();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation vendor to table ap_vend_mast
+        if ($this->aVendor && $hash = spl_object_hash($this->aVendor)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -5079,12 +5131,66 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildVendor object.
+     *
+     * @param  ChildVendor $v
+     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setVendor(ChildVendor $v = null)
+    {
+        if ($v === null) {
+            $this->setApvevendid('');
+        } else {
+            $this->setApvevendid($v->getApvevendid());
+        }
+
+        $this->aVendor = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildVendor object, it will not be re-added.
+        if ($v !== null) {
+            $v->addVendorShipfrom($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildVendor object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildVendor The associated ChildVendor object.
+     * @throws PropelException
+     */
+    public function getVendor(ConnectionInterface $con = null)
+    {
+        if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
+            $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aVendor->addVendorShipfroms($this);
+             */
+        }
+
+        return $this->aVendor;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aVendor) {
+            $this->aVendor->removeVendorShipfrom($this);
+        }
         $this->apvevendid = null;
         $this->apfmshipid = null;
         $this->apfmname = null;
@@ -5176,6 +5282,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aVendor = null;
     }
 
     /**

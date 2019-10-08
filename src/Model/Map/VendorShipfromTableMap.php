@@ -471,7 +471,7 @@ class VendorShipfromTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR', true, 6, '');
+        $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addPrimaryKey('ApfmShipId', 'Apfmshipid', 'VARCHAR', true, 6, '');
         $this->addColumn('ApfmName', 'Apfmname', 'VARCHAR', false, 30, null);
         $this->addColumn('ApfmAdr1', 'Apfmadr1', 'VARCHAR', false, 30, null);
@@ -548,6 +548,13 @@ class VendorShipfromTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

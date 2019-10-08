@@ -10,6 +10,7 @@ use Map\VendorShipfromTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -168,6 +169,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfromQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildVendorShipfromQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildVendorShipfromQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildVendorShipfromQuery leftJoinVendor($relationAlias = null) Adds a LEFT JOIN clause to the query using the Vendor relation
+ * @method     ChildVendorShipfromQuery rightJoinVendor($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Vendor relation
+ * @method     ChildVendorShipfromQuery innerJoinVendor($relationAlias = null) Adds a INNER JOIN clause to the query using the Vendor relation
+ *
+ * @method     ChildVendorShipfromQuery joinWithVendor($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Vendor relation
+ *
+ * @method     ChildVendorShipfromQuery leftJoinWithVendor() Adds a LEFT JOIN clause and with to the query using the Vendor relation
+ * @method     ChildVendorShipfromQuery rightJoinWithVendor() Adds a RIGHT JOIN clause and with to the query using the Vendor relation
+ * @method     ChildVendorShipfromQuery innerJoinWithVendor() Adds a INNER JOIN clause and with to the query using the Vendor relation
+ *
+ * @method     \VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildVendorShipfrom findOne(ConnectionInterface $con = null) Return the first ChildVendorShipfrom matching the query
  * @method     ChildVendorShipfrom findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendorShipfrom matching the query, or a new ChildVendorShipfrom object populated from the query conditions when no match is found
@@ -3136,6 +3149,83 @@ abstract class VendorShipfromQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(VendorShipfromTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \Vendor object
+     *
+     * @param \Vendor|ObjectCollection $vendor The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildVendorShipfromQuery The current query, for fluid interface
+     */
+    public function filterByVendor($vendor, $comparison = null)
+    {
+        if ($vendor instanceof \Vendor) {
+            return $this
+                ->addUsingAlias(VendorShipfromTableMap::COL_APVEVENDID, $vendor->getApvevendid(), $comparison);
+        } elseif ($vendor instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(VendorShipfromTableMap::COL_APVEVENDID, $vendor->toKeyValue('PrimaryKey', 'Apvevendid'), $comparison);
+        } else {
+            throw new PropelException('filterByVendor() only accepts arguments of type \Vendor or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Vendor relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorShipfromQuery The current query, for fluid interface
+     */
+    public function joinVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Vendor');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Vendor');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Vendor relation Vendor object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \VendorQuery A secondary query class using the current class as primary query
+     */
+    public function useVendorQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinVendor($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
     }
 
     /**
