@@ -46,8 +46,8 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'shipfrom_address3'  => 'pohdptadr3',
 		'shipfrom_country'   => 'pohdptctry',
 		'shipfrom_city'      => 'pohdptcity',
-		'shipfrom_state'     => 'pohdptstate',
-		'shipfrom_zip'       => 'pohdptzip',
+		'shipfrom_state'     => 'pohdptstat',
+		'shipfrom_zip'       => 'pohdptzipcode',
 	);
 
 	/**
@@ -57,5 +57,14 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 */
 	public function get_items() {
 		return PurchaseOrderDetailQuery::create()->findByPonbr($this->pohdnbr);
+	}
+
+	/**
+	 * Return Vendor Name
+	 *
+	 * @return string
+	 */
+	public function get_vendorname() {
+		return VendorQuery::create()->select(Vendor::get_aliasproperty('name'))->findOneByVendorid($this->apvevendid);
 	}
 }
