@@ -867,6 +867,25 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="po_receipt_det" idMethod="native" phpName="PurchaseOrderDetailReceived">
+    <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PordSeq" phpName="Pordseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PordRef" phpName="Pordref" type="VARCHAR" size="15"/>
+    <column name="PordTranDate" phpName="Pordtrandate" type="VARCHAR" size="8"/>
+    <column name="PordGlPd" phpName="Pordglpd" type="INTEGER" size="2"/>
+    <column name="PordQtyRec" phpName="Pordqtyrec" type="DECIMAL" size="20" scale="7"/>
+    <column name="PordCostTot" phpName="Pordcosttot" type="DECIMAL" size="20" scale="7"/>
+    <column name="PordLandUnitCost" phpName="Pordlandunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PordTariffCost" phpName="Pordtariffcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="quote_detail" idMethod="native" phpName="QuoteDetail">
     <column name="QthdId" phpName="Qthdid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="QtdtLine" phpName="Qtdtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
