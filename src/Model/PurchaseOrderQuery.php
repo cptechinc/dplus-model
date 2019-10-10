@@ -9,21 +9,16 @@ use Dplus\Model\QueryTraits;
  * 
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
- * EXAMPLE: findOneByOrdernumber()
+ * EXAMPLE: findOneByPonbr()
  *
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
- * Filters
- * @method  SalesHistoryQuery filterByCustid(string $custID)      Filter the query on the ArcuCustid column
- * @method  SalesHistoryQuery filterByCustpo(string $custpo)      Filter the query on the Oehhcustpo column
- * @method  SalesHistoryQuery filterByTotal_total(string $total)  Filter the query on the Oehhordrtot column
- * @method  SalesHistoryQuery filterByOrderstatus(string $status) Filter the query on the Oehhstat column
+ * FilterBy
  *
+ * FindOneBy
+ * @method  PurchaseOrder findOneByPonbr(string $ponbr)      Return the first PurchaseOrder filtered by the PohdNbr column
  *
- * FindOne
- * @method  SalesHistory findOneByOrdernumber(string $ordn)      Return the first SalesHistory filtered by the OehhNbr column
- *
- * Find
+ * FindBy
  */
 class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	use QueryTraits;
