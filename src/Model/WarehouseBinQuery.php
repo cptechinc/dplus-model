@@ -25,7 +25,7 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 			$this->condition('thru', 'WarehouseBin.BnctBinThru >= ?', $binID);
 			$this->where(array('from', 'thru'), Criteria::LOGICAL_AND);
 		} else {
-			$this->filterbyFrom($binID);
+			$this->filterbyBnctBinFrom($binID);
 		}
 
 		$this->filterByWarehouse($whseID);
