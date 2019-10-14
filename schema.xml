@@ -867,7 +867,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="po_receipt_det" idMethod="native" phpName="PurchaseOrderDetailReceived">
+  <table name="po_receipt_det" idMethod="native" phpName="PurchaseOrderDetailReceipt">
     <column name="PohdNbr" phpName="Pohdnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="PodtLine" phpName="Podtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
@@ -879,6 +879,72 @@
     <column name="PordCostTot" phpName="Pordcosttot" type="DECIMAL" size="20" scale="7"/>
     <column name="PordLandUnitCost" phpName="Pordlandunitcost" type="DECIMAL" size="20" scale="7"/>
     <column name="PordTariffCost" phpName="Pordtariffcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="po_tran_det" idMethod="native" phpName="PurchaseOrderDetailReceiving">
+    <column name="PothNbr" phpName="Pothnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PotdLine" phpName="Potdline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PotdSeq" phpName="Potdseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="PotdDesc1" phpName="Potddesc1" type="VARCHAR" size="35"/>
+    <column name="PotdDesc2" phpName="Potddesc2" type="VARCHAR" size="35"/>
+    <column name="PotdVendItemNbr" phpName="Potdvenditemnbr" type="VARCHAR" size="30"/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
+    <column name="PotdRef" phpName="Potdref" type="VARCHAR" size="15"/>
+    <column name="PotdQtyOrd" phpName="Potdqtyord" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdQtyRec" phpName="Potdqtyrec" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdPurchUnitCost" phpName="Potdpurchunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdPurchTotCost" phpName="Potdpurchtotcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdGlAcct" phpName="Potdglacct" type="VARCHAR" size="9"/>
+    <column name="PotdClos" phpName="Potdclos" type="VARCHAR" size="1"/>
+    <column name="PotdShopMinutes" phpName="Potdshopminutes" type="INTEGER" size="6"/>
+    <column name="PotdType" phpName="Potdtype" type="VARCHAR" size="1"/>
+    <column name="PotdForeignCost" phpName="Potdforeigncost" type="DECIMAL" size="20" scale="4"/>
+    <column name="PotdForeignCostTot" phpName="Potdforeigncosttot" type="DECIMAL" size="20" scale="4"/>
+    <column name="PotdSpecOrdr" phpName="Potdspecordr" type="VARCHAR" size="1"/>
+    <column name="PotdProdUnitCost" phpName="Potdprodunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdBaseUnitCost" phpName="Potdbaseunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdBin" phpName="Potdbin" type="VARCHAR" size="8"/>
+    <column name="PotdFabReturnScrap" phpName="Potdfabreturnscrap" type="VARCHAR" size="1"/>
+    <column name="PotdRfBatch" phpName="Potdrfbatch" type="VARCHAR" size="8"/>
+    <column name="PotdRevision" phpName="Potdrevision" type="VARCHAR" size="10"/>
+    <column name="PotdLandUnitCost" phpName="Potdlandunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdNbrOfCases" phpName="Potdnbrofcases" type="DECIMAL" size="20" scale="2"/>
+    <column name="PotdTariffCost" phpName="Potdtariffcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotdShopCost" phpName="Potdshopcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="po_tran_lot_det" idMethod="native" phpName="PurchaseOrderDetailLotReceiving">
+    <column name="PothNbr" phpName="Pothnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PotdLine" phpName="Potdline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PotdSeq" phpName="Potdseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PotsLotSer" phpName="Potslotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PotsBin" phpName="Potsbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PotsQtyRec" phpName="Potsqtyrec" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotsQtyAllo" phpName="Potsqtyallo" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotsCases" phpName="Potscases" type="INTEGER" size="5"/>
+    <column name="PotsTag" phpName="Potstag" type="INTEGER" size="5"/>
+    <column name="PotsInspctLvl" phpName="Potsinspctlvl" type="VARCHAR" size="1"/>
+    <column name="PotsLotRef" phpName="Potslotref" type="VARCHAR" size="20"/>
+    <column name="PotsPutTake" phpName="Potsputtake" type="VARCHAR" size="1"/>
+    <column name="PotsLandUnitCost" phpName="Potslandunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotsFabCostVari" phpName="Potsfabcostvari" type="DECIMAL" size="20" scale="7"/>
+    <column name="PotsErBatch" phpName="Potserbatch" type="VARCHAR" size="8"/>
+    <column name="PotsErBatchTime" phpName="Potserbatchtime" type="VARCHAR" size="8"/>
+    <column name="PotsExpireDateCd" phpName="Potsexpiredatecd" type="VARCHAR" size="1"/>
+    <column name="PotsExpireDate" phpName="Potsexpiredate" type="VARCHAR" size="8"/>
+    <column name="PotsTariffCost" phpName="Potstariffcost" type="DECIMAL" size="20" scale="7"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
