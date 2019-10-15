@@ -50,6 +50,18 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'shipfrom_zip'       => 'pohdptzipcode',
 	);
 
+	const LENGTH = 8;
+
+	/**
+	 * Adds Leading Zeroes to Sales Order Number
+	 *
+	 * @param  string $ordn Sales Order Number ex.    4290100
+	 * @return string       Sales Order Number ex. 0004290100
+	 */
+	public static function get_paddedponumber($ordn) {
+		 return str_pad($ordn , self::LENGTH , "0", STR_PAD_LEFT);
+	}
+
 	/**
 	 * Return PurchaseOrderDetail objects for this PO Number
 	 *
