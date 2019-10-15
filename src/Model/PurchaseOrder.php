@@ -60,6 +60,15 @@ class PurchaseOrder extends BasePurchaseOrder {
 	}
 
 	/**
+	 * Return PurchaseOrderDetailReceiving objects for this PO Number
+	 *
+	 * @return PurchaseOrderDetailReceiving[]|ObjectCollection
+	 */
+	public function get_receivingitems() {
+		return PurchaseOrderDetailReceivingQuery::create()->findByPonbr($this->pohdnbr);
+	}
+
+	/**
 	 * Return Vendor Name
 	 *
 	 * @return string

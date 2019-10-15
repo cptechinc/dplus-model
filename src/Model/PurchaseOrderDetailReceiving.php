@@ -21,8 +21,15 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'ponbr'           => 'pohdnbr',
 		'linenbr'         => 'podtline',
 		'itemid'          => 'inititemnbr',
+		'description'     => 'potddesc1',
+		'uom'             => 'intbuompur',
 		'poref'           => 'pordref',
+		'qty_ordered'     => 'pordqtyord',
 		'qty_received'    => 'pordqtyrec',
 		'date_transfered' => 'pordtrandate'
 	);
+
+	public function qty_remaining() {
+		return $this->pordqtyord - $this->pordqtyrec;
+	}
 }
