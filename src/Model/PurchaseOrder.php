@@ -81,6 +81,25 @@ class PurchaseOrder extends BasePurchaseOrder {
 	}
 
 	/**
+	 * Return the number of PurchaseOrderDetailReceiving records
+	 *
+	 * @return int
+	 */
+	public function count_receivingitems() {
+		return PurchaseOrderDetailReceivingQuery::create()->filterByPonbr($this->pohdnbr)->count();
+	}
+
+	/**
+	 * Return PurchaseOrderDetailReceiving objects for this PO Number & Line Number
+	 *
+	 * @param  int                          $linenbr Line Number
+	 * @return PurchaseOrderDetailReceiving
+	 */
+	public function get_receivingitem(int $linenbr) {
+		return PurchaseOrderDetailReceivingQuery::create()->filterByPonbr($this->pohdnbr)->findOneByLinenbr($linenbr);
+	}
+
+	/**
 	 * Return Vendor Name
 	 *
 	 * @return string
