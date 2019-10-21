@@ -18,6 +18,7 @@ class Vendor extends BaseVendor {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'id'               => 'apvevendid',
 		'vendorid'         => 'apvevendid',
 		'vendorID'         => 'apvevendid',
 		'name'             => 'apvename',
