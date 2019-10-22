@@ -29,7 +29,6 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
  		'date_expected' => 'podtexptdate',
  		'uom'           => 'inbuompur',
  		'qty_ordered'   => 'podtqtyord',
- 		'qty_remaining' => 'podtqtyduein',
  		'cost'          => 'podtcost',
  		'cost_total'    => 'podtcosttot',
  		'specialorder'  => 'podtspecordr',
@@ -37,4 +36,17 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
  		'weight'        => 'podtwghttot',
  		'whse_destination' => 'podtdestwhse',
  	);
+
+	public function qty_received() {
+		$q = PurchaseOrderDetailReceivedQuery::create();
+		$q->withColumn('SUM(pordqtyrec)', 'qtyreceived');
+		$q->select('qtyreceived');
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterByLinenbr($this->podtline);
+		return $q->findOne();
+	}
+
+	public function qty_remaining() {
+		return $this->qty_ordered - $this->qty_received();
+	}
 }
