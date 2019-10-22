@@ -42,7 +42,8 @@ class Vendor extends BaseVendor {
 		'shipvia'            => 'apvesviacode',
 		'vendor_account'     => 'apveouracctnbr',
 		'termscode'          => 'aptmtermcode',
-		'typecode'           => 'aptbtypecode'
+		'typecode'           => 'aptbtypecode',
+		'buyer_1'            => 'apvebuyrcode1'
 	);
 
 	/**
@@ -72,5 +73,40 @@ class Vendor extends BaseVendor {
 	public function terms_description() {
 		$q = TermsCodeQuery::create()->select(TermsCode::get_aliasproperty('description'));
 		return $q->findOneByCode($this->termscode);
+	}
+
+	/**
+	 * Get Vendor Phone Number
+	 *
+	 * @return string
+	 */
+	public function getPhone() {
+		$q = $this->get_phonebookquery();
+		$q->select(PhoneBook::get_aliasproperty('phone'));
+		$q->findOne();
+	}
+
+	/**
+	 * Get Vendor Fax Number
+	 *
+	 * @return string
+	 */
+	public function getFax() {
+		$q = $this->get_phonebookquery();
+		$q->select(PhoneBook::get_aliasproperty('fax'));
+		$q->findOne();
+	}
+
+	/**
+	 * Return Phonebook Query with Vendor Filters applied
+	 *
+	 * @return PhoneBookQuery
+	 */
+	public function get_phonebookquery() {
+		$q = PhoneBookQuery::create();
+		$q->filterTypeVendor();
+		$q->filterByVendorid($this->id);
+		$q->filterByShipfromid('');
+		return $q;
 	}
 }
