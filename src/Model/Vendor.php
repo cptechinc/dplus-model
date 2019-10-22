@@ -37,7 +37,12 @@ class Vendor extends BaseVendor {
 		'billto_city'      => 'apvepaycity',
 		'billto_state'     => 'apvepaystat',
 		'billto_zip'       => 'apvepayzipcode',
-		'gl_account'       => 'apvemglacct'
+		'gl_account'       => 'apvemglacct',
+		'date_lastpurchased' => 'apvelastpurdate',
+		'shipvia'            => 'apvesviacode',
+		'vendor_account'     => 'apveouracctnbr',
+		'termscode'          => 'aptmtermcode',
+		'typecode'           => 'aptbtypecode'
 	);
 
 	/**
@@ -47,5 +52,25 @@ class Vendor extends BaseVendor {
 	 */
 	public function get_shipfroms() {
 		return VendorShipfromQuery::create()->findByApvevendid($this->apvevendid);
+	}
+
+	/**
+	 * Return the Shipvia Description
+	 *
+	 * @return string
+	 */
+	public function shipvia_description() {
+		$q = ShipviaQuery::create()->select(Shipvia::get_aliasproperty('description'));
+		return $q->findOneByCode($this->shipvia);
+	}
+
+	/**
+	 * Return the Terms Code Description
+	 *
+	 * @return string
+	 */
+	public function terms_description() {
+		$q = TermsCodeQuery::create()->select(TermsCode::get_aliasproperty('description'));
+		return $q->findOneByCode($this->termscode);
 	}
 }
