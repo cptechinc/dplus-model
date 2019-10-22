@@ -21,5 +21,5 @@ use Dplus\Model\QueryTraits;
  *
  */
 class TermsCodeQuery extends BaseTermsCodeQuery {
-	use Dplus\Model\QueryTraits;
+	use QueryTraits;
 }
