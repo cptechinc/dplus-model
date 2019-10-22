@@ -34,4 +34,8 @@ class PhoneBookQuery extends BasePhoneBookQuery {
 	public function filterTypeCustomerContact() {
 		return $this->filterByPhadtype(PhoneBook::TYPE_CUSTOMERCONTACT);
 	}
+
+	public function filterTypeVendor() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_VENDOR);
+	}
 }

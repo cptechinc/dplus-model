@@ -45,9 +45,10 @@ class PhoneBook extends BasePhoneBook {
 		'email'                   => 'phademailaddr',
 		'name'                    => 'phadname',
 		'contactname'             => 'phadcontname',
-
 		'custid'                  => 'phadid',
 		'shiptoid'                => 'phadsubid',
+		'vendorid'                => 'phadid',
+		'shipfromid'              => 'phadsubid',
 	);
 
 }
