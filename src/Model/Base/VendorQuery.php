@@ -370,6 +370,46 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildVendorQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
+ * @method     ChildVendorQuery leftJoinApTypeCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApTypeCode relation
+ * @method     ChildVendorQuery rightJoinApTypeCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApTypeCode relation
+ * @method     ChildVendorQuery innerJoinApTypeCode($relationAlias = null) Adds a INNER JOIN clause to the query using the ApTypeCode relation
+ *
+ * @method     ChildVendorQuery joinWithApTypeCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApTypeCode relation
+ *
+ * @method     ChildVendorQuery leftJoinWithApTypeCode() Adds a LEFT JOIN clause and with to the query using the ApTypeCode relation
+ * @method     ChildVendorQuery rightJoinWithApTypeCode() Adds a RIGHT JOIN clause and with to the query using the ApTypeCode relation
+ * @method     ChildVendorQuery innerJoinWithApTypeCode() Adds a INNER JOIN clause and with to the query using the ApTypeCode relation
+ *
+ * @method     ChildVendorQuery leftJoinApTermsCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApTermsCode relation
+ * @method     ChildVendorQuery rightJoinApTermsCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApTermsCode relation
+ * @method     ChildVendorQuery innerJoinApTermsCode($relationAlias = null) Adds a INNER JOIN clause to the query using the ApTermsCode relation
+ *
+ * @method     ChildVendorQuery joinWithApTermsCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApTermsCode relation
+ *
+ * @method     ChildVendorQuery leftJoinWithApTermsCode() Adds a LEFT JOIN clause and with to the query using the ApTermsCode relation
+ * @method     ChildVendorQuery rightJoinWithApTermsCode() Adds a RIGHT JOIN clause and with to the query using the ApTermsCode relation
+ * @method     ChildVendorQuery innerJoinWithApTermsCode() Adds a INNER JOIN clause and with to the query using the ApTermsCode relation
+ *
+ * @method     ChildVendorQuery leftJoinShipvia($relationAlias = null) Adds a LEFT JOIN clause to the query using the Shipvia relation
+ * @method     ChildVendorQuery rightJoinShipvia($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Shipvia relation
+ * @method     ChildVendorQuery innerJoinShipvia($relationAlias = null) Adds a INNER JOIN clause to the query using the Shipvia relation
+ *
+ * @method     ChildVendorQuery joinWithShipvia($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Shipvia relation
+ *
+ * @method     ChildVendorQuery leftJoinWithShipvia() Adds a LEFT JOIN clause and with to the query using the Shipvia relation
+ * @method     ChildVendorQuery rightJoinWithShipvia() Adds a RIGHT JOIN clause and with to the query using the Shipvia relation
+ * @method     ChildVendorQuery innerJoinWithShipvia() Adds a INNER JOIN clause and with to the query using the Shipvia relation
+ *
+ * @method     ChildVendorQuery leftJoinApBuyer($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApBuyer relation
+ * @method     ChildVendorQuery rightJoinApBuyer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApBuyer relation
+ * @method     ChildVendorQuery innerJoinApBuyer($relationAlias = null) Adds a INNER JOIN clause to the query using the ApBuyer relation
+ *
+ * @method     ChildVendorQuery joinWithApBuyer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApBuyer relation
+ *
+ * @method     ChildVendorQuery leftJoinWithApBuyer() Adds a LEFT JOIN clause and with to the query using the ApBuyer relation
+ * @method     ChildVendorQuery rightJoinWithApBuyer() Adds a RIGHT JOIN clause and with to the query using the ApBuyer relation
+ * @method     ChildVendorQuery innerJoinWithApBuyer() Adds a INNER JOIN clause and with to the query using the ApBuyer relation
+ *
  * @method     ChildVendorQuery leftJoinVendorShipfrom($relationAlias = null) Adds a LEFT JOIN clause to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery rightJoinVendorShipfrom($relationAlias = null) Adds a RIGHT JOIN clause to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery innerJoinVendorShipfrom($relationAlias = null) Adds a INNER JOIN clause to the query using the VendorShipfrom relation
@@ -380,7 +420,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWithVendorShipfrom() Adds a RIGHT JOIN clause and with to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery innerJoinWithVendorShipfrom() Adds a INNER JOIN clause and with to the query using the VendorShipfrom relation
  *
- * @method     \VendorShipfromQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\VendorShipfromQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildVendor findOne(ConnectionInterface $con = null) Return the first ChildVendor matching the query
  * @method     ChildVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendor matching the query, or a new ChildVendor object populated from the query conditions when no match is found
@@ -7097,6 +7137,314 @@ abstract class VendorQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(VendorTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \ApTypeCode object
+     *
+     * @param \ApTypeCode|ObjectCollection $apTypeCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByApTypeCode($apTypeCode, $comparison = null)
+    {
+        if ($apTypeCode instanceof \ApTypeCode) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APTBTYPECODE, $apTypeCode->getAptbtypecode(), $comparison);
+        } elseif ($apTypeCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APTBTYPECODE, $apTypeCode->toKeyValue('PrimaryKey', 'Aptbtypecode'), $comparison);
+        } else {
+            throw new PropelException('filterByApTypeCode() only accepts arguments of type \ApTypeCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApTypeCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinApTypeCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApTypeCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApTypeCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApTypeCode relation ApTypeCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApTypeCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useApTypeCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinApTypeCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApTypeCode', '\ApTypeCodeQuery');
+    }
+
+    /**
+     * Filter the query by a related \ApTermsCode object
+     *
+     * @param \ApTermsCode|ObjectCollection $apTermsCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByApTermsCode($apTermsCode, $comparison = null)
+    {
+        if ($apTermsCode instanceof \ApTermsCode) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APTMTERMCODE, $apTermsCode->getAptmtermcode(), $comparison);
+        } elseif ($apTermsCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APTMTERMCODE, $apTermsCode->toKeyValue('PrimaryKey', 'Aptmtermcode'), $comparison);
+        } else {
+            throw new PropelException('filterByApTermsCode() only accepts arguments of type \ApTermsCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApTermsCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinApTermsCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApTermsCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApTermsCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApTermsCode relation ApTermsCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApTermsCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useApTermsCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinApTermsCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApTermsCode', '\ApTermsCodeQuery');
+    }
+
+    /**
+     * Filter the query by a related \Shipvia object
+     *
+     * @param \Shipvia|ObjectCollection $shipvia The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByShipvia($shipvia, $comparison = null)
+    {
+        if ($shipvia instanceof \Shipvia) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVESVIACODE, $shipvia->getArtbshipvia(), $comparison);
+        } elseif ($shipvia instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVESVIACODE, $shipvia->toKeyValue('PrimaryKey', 'Artbshipvia'), $comparison);
+        } else {
+            throw new PropelException('filterByShipvia() only accepts arguments of type \Shipvia or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Shipvia relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinShipvia($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Shipvia');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Shipvia');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Shipvia relation Shipvia object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ShipviaQuery A secondary query class using the current class as primary query
+     */
+    public function useShipviaQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinShipvia($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Shipvia', '\ShipviaQuery');
+    }
+
+    /**
+     * Filter the query by a related \ApBuyer object
+     *
+     * @param \ApBuyer|ObjectCollection $apBuyer The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByApBuyer($apBuyer, $comparison = null)
+    {
+        if ($apBuyer instanceof \ApBuyer) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE1, $apBuyer->getAptbbuyrcode(), $comparison);
+        } elseif ($apBuyer instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVEBUYRCODE1, $apBuyer->toKeyValue('PrimaryKey', 'Aptbbuyrcode'), $comparison);
+        } else {
+            throw new PropelException('filterByApBuyer() only accepts arguments of type \ApBuyer or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApBuyer relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinApBuyer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApBuyer');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApBuyer');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApBuyer relation ApBuyer object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApBuyerQuery A secondary query class using the current class as primary query
+     */
+    public function useApBuyerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinApBuyer($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApBuyer', '\ApBuyerQuery');
     }
 
     /**

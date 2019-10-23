@@ -361,16 +361,16 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
-    <foreign-key foreignTable="ap_type_code" name="typecode">
+    <foreign-key foreignTable="ap_type_code" name="typecode" skipSql="true">
       <reference local="AptbTypeCode" foreign="AptbTypeCode"/>
     </foreign-key>
-    <foreign-key foreignTable="ap_term_code" name="termscode">
+    <foreign-key foreignTable="ap_term_code" name="termscode" skipSql="true">
       <reference local="AptmTermCode" foreign="AptmTermCode"/>
     </foreign-key>
-    <foreign-key foreignTable="ar_cust_svia" name="shipvia">
+    <foreign-key foreignTable="ar_cust_svia" name="shipvia" skipSql="true">
       <reference local="ApveSviaCode" foreign="ArtbShipVia"/>
     </foreign-key>
-    <foreign-key foreignTable="ap_buyr_code" name="buyer1">
+    <foreign-key foreignTable="ap_buyr_code" name="buyer1" skipSql="true">
       <reference local="ApveBuyrCode1" foreign="AptbBuyrCode"/>
     </foreign-key>
     <vendor type="mysql">

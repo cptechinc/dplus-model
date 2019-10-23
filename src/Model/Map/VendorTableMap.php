@@ -994,9 +994,9 @@ class VendorTableMap extends TableMap
         $this->addColumn('ApveFabBin', 'Apvefabbin', 'VARCHAR', false, 8, null);
         $this->addColumn('ApveLmPrntBulk', 'Apvelmprntbulk', 'VARCHAR', false, 1, null);
         $this->addColumn('ApveAllowDropShip', 'Apveallowdropship', 'VARCHAR', false, 1, null);
-        $this->addColumn('AptbTypeCode', 'Aptbtypecode', 'VARCHAR', false, 4, null);
-        $this->addColumn('AptmTermCode', 'Aptmtermcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ApveSviaCode', 'Apvesviacode', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('AptbTypeCode', 'Aptbtypecode', 'VARCHAR', 'ap_type_code', 'AptbTypeCode', false, 4, null);
+        $this->addForeignKey('AptmTermCode', 'Aptmtermcode', 'VARCHAR', 'ap_term_code', 'AptmTermCode', false, 4, null);
+        $this->addForeignKey('ApveSviaCode', 'Apvesviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
         $this->addColumn('ApveOldFob', 'Apveoldfob', 'VARCHAR', false, 1, null);
         $this->addColumn('ApveLeadDays', 'Apveleaddays', 'INTEGER', false, 4, null);
         $this->addColumn('ApveGlAcct', 'Apveglacct', 'VARCHAR', false, 16, null);
@@ -1115,7 +1115,7 @@ class VendorTableMap extends TableMap
         $this->addColumn('ApveComRate', 'Apvecomrate', 'DECIMAL', false, 20, null);
         $this->addColumn('ApveUseLandOnRcpt', 'Apveuselandonrcpt', 'VARCHAR', false, 1, null);
         $this->addColumn('ApveBuyrWhse1', 'Apvebuyrwhse1', 'VARCHAR', false, 2, null);
-        $this->addColumn('ApveBuyrCode1', 'Apvebuyrcode1', 'VARCHAR', false, 6, null);
+        $this->addForeignKey('ApveBuyrCode1', 'Apvebuyrcode1', 'VARCHAR', 'ap_buyr_code', 'AptbBuyrCode', false, 6, null);
         $this->addColumn('ApveBuyrWhse2', 'Apvebuyrwhse2', 'VARCHAR', false, 2, null);
         $this->addColumn('ApveBuyrCode2', 'Apvebuyrcode2', 'VARCHAR', false, 6, null);
         $this->addColumn('ApveBuyrWhse3', 'Apvebuyrwhse3', 'VARCHAR', false, 2, null);
@@ -1148,6 +1148,34 @@ class VendorTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ApTypeCode', '\\ApTypeCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':AptbTypeCode',
+    1 => ':AptbTypeCode',
+  ),
+), null, null, null, false);
+        $this->addRelation('ApTermsCode', '\\ApTermsCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':AptmTermCode',
+    1 => ':AptmTermCode',
+  ),
+), null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveSviaCode',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, null, false);
+        $this->addRelation('ApBuyer', '\\ApBuyer', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveBuyrCode1',
+    1 => ':AptbBuyrCode',
+  ),
+), null, null, null, false);
         $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

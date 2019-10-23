@@ -2,6 +2,14 @@
 
 namespace Base;
 
+use \ApBuyer as ChildApBuyer;
+use \ApBuyerQuery as ChildApBuyerQuery;
+use \ApTermsCode as ChildApTermsCode;
+use \ApTermsCodeQuery as ChildApTermsCodeQuery;
+use \ApTypeCode as ChildApTypeCode;
+use \ApTypeCodeQuery as ChildApTypeCodeQuery;
+use \Shipvia as ChildShipvia;
+use \ShipviaQuery as ChildShipviaQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
 use \VendorShipfrom as ChildVendorShipfrom;
@@ -1254,6 +1262,26 @@ abstract class Vendor implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildApTypeCode
+     */
+    protected $aApTypeCode;
+
+    /**
+     * @var        ChildApTermsCode
+     */
+    protected $aApTermsCode;
+
+    /**
+     * @var        ChildShipvia
+     */
+    protected $aShipvia;
+
+    /**
+     * @var        ChildApBuyer
+     */
+    protected $aApBuyer;
 
     /**
      * @var        ObjectCollection|ChildVendorShipfrom[] Collection to store aggregation of ChildVendorShipfrom objects.
@@ -3690,6 +3718,10 @@ abstract class Vendor implements ActiveRecordInterface
             $this->modifiedColumns[VendorTableMap::COL_APTBTYPECODE] = true;
         }
 
+        if ($this->aApTypeCode !== null && $this->aApTypeCode->getAptbtypecode() !== $v) {
+            $this->aApTypeCode = null;
+        }
+
         return $this;
     } // setAptbtypecode()
 
@@ -3710,6 +3742,10 @@ abstract class Vendor implements ActiveRecordInterface
             $this->modifiedColumns[VendorTableMap::COL_APTMTERMCODE] = true;
         }
 
+        if ($this->aApTermsCode !== null && $this->aApTermsCode->getAptmtermcode() !== $v) {
+            $this->aApTermsCode = null;
+        }
+
         return $this;
     } // setAptmtermcode()
 
@@ -3728,6 +3764,10 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->apvesviacode !== $v) {
             $this->apvesviacode = $v;
             $this->modifiedColumns[VendorTableMap::COL_APVESVIACODE] = true;
+        }
+
+        if ($this->aShipvia !== null && $this->aShipvia->getArtbshipvia() !== $v) {
+            $this->aShipvia = null;
         }
 
         return $this;
@@ -6110,6 +6150,10 @@ abstract class Vendor implements ActiveRecordInterface
             $this->modifiedColumns[VendorTableMap::COL_APVEBUYRCODE1] = true;
         }
 
+        if ($this->aApBuyer !== null && $this->aApBuyer->getAptbbuyrcode() !== $v) {
+            $this->aApBuyer = null;
+        }
+
         return $this;
     } // setApvebuyrcode1()
 
@@ -7192,6 +7236,18 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aApTypeCode !== null && $this->aptbtypecode !== $this->aApTypeCode->getAptbtypecode()) {
+            $this->aApTypeCode = null;
+        }
+        if ($this->aApTermsCode !== null && $this->aptmtermcode !== $this->aApTermsCode->getAptmtermcode()) {
+            $this->aApTermsCode = null;
+        }
+        if ($this->aShipvia !== null && $this->apvesviacode !== $this->aShipvia->getArtbshipvia()) {
+            $this->aShipvia = null;
+        }
+        if ($this->aApBuyer !== null && $this->apvebuyrcode1 !== $this->aApBuyer->getAptbbuyrcode()) {
+            $this->aApBuyer = null;
+        }
     } // ensureConsistency
 
     /**
@@ -7231,6 +7287,10 @@ abstract class Vendor implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aApTypeCode = null;
+            $this->aApTermsCode = null;
+            $this->aShipvia = null;
+            $this->aApBuyer = null;
             $this->collVendorShipfroms = null;
 
         } // if (deep)
@@ -7335,6 +7395,39 @@ abstract class Vendor implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aApTypeCode !== null) {
+                if ($this->aApTypeCode->isModified() || $this->aApTypeCode->isNew()) {
+                    $affectedRows += $this->aApTypeCode->save($con);
+                }
+                $this->setApTypeCode($this->aApTypeCode);
+            }
+
+            if ($this->aApTermsCode !== null) {
+                if ($this->aApTermsCode->isModified() || $this->aApTermsCode->isNew()) {
+                    $affectedRows += $this->aApTermsCode->save($con);
+                }
+                $this->setApTermsCode($this->aApTermsCode);
+            }
+
+            if ($this->aShipvia !== null) {
+                if ($this->aShipvia->isModified() || $this->aShipvia->isNew()) {
+                    $affectedRows += $this->aShipvia->save($con);
+                }
+                $this->setShipvia($this->aShipvia);
+            }
+
+            if ($this->aApBuyer !== null) {
+                if ($this->aApBuyer->isModified() || $this->aApBuyer->isNew()) {
+                    $affectedRows += $this->aApBuyer->save($con);
+                }
+                $this->setApBuyer($this->aApBuyer);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -9189,6 +9282,66 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aApTypeCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apTypeCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_type_code';
+                        break;
+                    default:
+                        $key = 'ApTypeCode';
+                }
+
+                $result[$key] = $this->aApTypeCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aApTermsCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apTermsCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_term_code';
+                        break;
+                    default:
+                        $key = 'ApTermsCode';
+                }
+
+                $result[$key] = $this->aApTermsCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aShipvia) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'shipvia';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_svia';
+                        break;
+                    default:
+                        $key = 'Shipvia';
+                }
+
+                $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aApBuyer) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apBuyer';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_buyr_code';
+                        break;
+                    default:
+                        $key = 'ApBuyer';
+                }
+
+                $result[$key] = $this->aApBuyer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collVendorShipfroms) {
 
                 switch ($keyType) {
@@ -11132,6 +11285,210 @@ abstract class Vendor implements ActiveRecordInterface
         return $copyObj;
     }
 
+    /**
+     * Declares an association between this object and a ChildApTypeCode object.
+     *
+     * @param  ChildApTypeCode $v
+     * @return $this|\Vendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setApTypeCode(ChildApTypeCode $v = null)
+    {
+        if ($v === null) {
+            $this->setAptbtypecode(NULL);
+        } else {
+            $this->setAptbtypecode($v->getAptbtypecode());
+        }
+
+        $this->aApTypeCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildApTypeCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildApTypeCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildApTypeCode The associated ChildApTypeCode object.
+     * @throws PropelException
+     */
+    public function getApTypeCode(ConnectionInterface $con = null)
+    {
+        if ($this->aApTypeCode === null && (($this->aptbtypecode !== "" && $this->aptbtypecode !== null))) {
+            $this->aApTypeCode = ChildApTypeCodeQuery::create()->findPk($this->aptbtypecode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aApTypeCode->addVendors($this);
+             */
+        }
+
+        return $this->aApTypeCode;
+    }
+
+    /**
+     * Declares an association between this object and a ChildApTermsCode object.
+     *
+     * @param  ChildApTermsCode $v
+     * @return $this|\Vendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setApTermsCode(ChildApTermsCode $v = null)
+    {
+        if ($v === null) {
+            $this->setAptmtermcode(NULL);
+        } else {
+            $this->setAptmtermcode($v->getAptmtermcode());
+        }
+
+        $this->aApTermsCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildApTermsCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildApTermsCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildApTermsCode The associated ChildApTermsCode object.
+     * @throws PropelException
+     */
+    public function getApTermsCode(ConnectionInterface $con = null)
+    {
+        if ($this->aApTermsCode === null && (($this->aptmtermcode !== "" && $this->aptmtermcode !== null))) {
+            $this->aApTermsCode = ChildApTermsCodeQuery::create()->findPk($this->aptmtermcode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aApTermsCode->addVendors($this);
+             */
+        }
+
+        return $this->aApTermsCode;
+    }
+
+    /**
+     * Declares an association between this object and a ChildShipvia object.
+     *
+     * @param  ChildShipvia $v
+     * @return $this|\Vendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setShipvia(ChildShipvia $v = null)
+    {
+        if ($v === null) {
+            $this->setApvesviacode(NULL);
+        } else {
+            $this->setApvesviacode($v->getArtbshipvia());
+        }
+
+        $this->aShipvia = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildShipvia object, it will not be re-added.
+        if ($v !== null) {
+            $v->addVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildShipvia object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildShipvia The associated ChildShipvia object.
+     * @throws PropelException
+     */
+    public function getShipvia(ConnectionInterface $con = null)
+    {
+        if ($this->aShipvia === null && (($this->apvesviacode !== "" && $this->apvesviacode !== null))) {
+            $this->aShipvia = ChildShipviaQuery::create()->findPk($this->apvesviacode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aShipvia->addVendors($this);
+             */
+        }
+
+        return $this->aShipvia;
+    }
+
+    /**
+     * Declares an association between this object and a ChildApBuyer object.
+     *
+     * @param  ChildApBuyer $v
+     * @return $this|\Vendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setApBuyer(ChildApBuyer $v = null)
+    {
+        if ($v === null) {
+            $this->setApvebuyrcode1(NULL);
+        } else {
+            $this->setApvebuyrcode1($v->getAptbbuyrcode());
+        }
+
+        $this->aApBuyer = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildApBuyer object, it will not be re-added.
+        if ($v !== null) {
+            $v->addVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildApBuyer object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildApBuyer The associated ChildApBuyer object.
+     * @throws PropelException
+     */
+    public function getApBuyer(ConnectionInterface $con = null)
+    {
+        if ($this->aApBuyer === null && (($this->apvebuyrcode1 !== "" && $this->apvebuyrcode1 !== null))) {
+            $this->aApBuyer = ChildApBuyerQuery::create()->findPk($this->apvebuyrcode1, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aApBuyer->addVendors($this);
+             */
+        }
+
+        return $this->aApBuyer;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -11384,6 +11741,18 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aApTypeCode) {
+            $this->aApTypeCode->removeVendor($this);
+        }
+        if (null !== $this->aApTermsCode) {
+            $this->aApTermsCode->removeVendor($this);
+        }
+        if (null !== $this->aShipvia) {
+            $this->aShipvia->removeVendor($this);
+        }
+        if (null !== $this->aApBuyer) {
+            $this->aApBuyer->removeVendor($this);
+        }
         $this->apvevendid = null;
         $this->apvename = null;
         $this->apveadr1 = null;
@@ -11581,6 +11950,10 @@ abstract class Vendor implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collVendorShipfroms = null;
+        $this->aApTypeCode = null;
+        $this->aApTermsCode = null;
+        $this->aShipvia = null;
+        $this->aApBuyer = null;
     }
 
     /**
