@@ -404,7 +404,7 @@ class PurchaseOrderTableMap extends TableMap
         $this->addPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR', true, 8, '');
         $this->addColumn('PohdStat', 'Pohdstat', 'VARCHAR', false, 1, null);
         $this->addColumn('PohdRef', 'Pohdref', 'VARCHAR', false, 15, null);
-        $this->addColumn('ApveVendId', 'Apvevendid', 'VARCHAR', false, 6, null);
+        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6, null);
         $this->addColumn('ApfmShipId', 'Apfmshipid', 'VARCHAR', false, 6, null);
         $this->addColumn('PohdToName', 'Pohdtoname', 'VARCHAR', false, 30, null);
         $this->addColumn('PohdToAdr1', 'Pohdtoadr1', 'VARCHAR', false, 30, null);
@@ -464,6 +464,13 @@ class PurchaseOrderTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
