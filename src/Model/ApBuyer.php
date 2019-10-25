@@ -17,10 +17,10 @@ class ApBuyer extends BaseApBuyer {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'aptbuyrcode',
-		'code'         => 'aptbuyrcode',
-		'description'  => 'aptbuyrdesc',
-		'name'         => 'aptbuyrdesc',
-		'email'        => 'aptbuyremail'
+		'id'           => 'aptbbuyrcode',
+		'code'         => 'aptbbuyrcode',
+		'description'  => 'aptbbuyrdesc',
+		'name'         => 'aptbbuyrdesc',
+		'email'        => 'aptbbuyremail'
 	);
 }
