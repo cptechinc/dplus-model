@@ -1,7 +1,7 @@
 <?php
 
 use Base\Vendor as BaseVendor;
-use Base\VendorShipfromQuery;
+
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
@@ -49,6 +49,18 @@ class Vendor extends BaseVendor {
 	);
 
 	/**
+	 * Get Buyer X name
+	 *
+	 * @return string
+	 */
+	public function get_buyer_x_name(int $buyernumber) {
+		$property = "apvebuyrcode$buyernumber";
+		$q = ApBuyerQuery::create();
+		$q->select(ApBuyer::get_aliasproperty('name'));
+		return $q->findOneByCode($this->$property);
+	}
+
+	/**
 	 * Get Vendor Phone Number
 	 *
 	 * @return string
@@ -81,5 +93,36 @@ class Vendor extends BaseVendor {
 		$q->filterByVendorid($this->id);
 		$q->filterByShipfromid('');
 		return $q;
+	}
+
+	/**
+	 * Returns the Amount Left the Current Purchase Orders
+	 * NOTE: Checks for detail status is not closed and that It is not released
+	 * @return float
+	 */
+	public function get_purchaseorders_amt() {
+		$ponbrs = $this->get_ponumbers();
+		$q = PurchaseOrderDetailQuery::create();
+		$sql = "SELECT (PodtQtyOrd - ifnull(PordQtyRec, 0)) * PodtCost as amt
+				FROM data3.po_detail
+				LEFT JOIN data3.po_receipt_det
+				ON data3.po_receipt_det.PohdNbr = data3.po_detail.PohdNbr AND data3.po_receipt_det.PodtLine = data3.po_detail.PodtLine
+				WHERE data3.po_detail.PohdNbr IN (:ponbrs)
+				AND PodtStat != 'C' AND PodtRel != 'N'";
+		$params = array(':ponbrs' => implode(',', $ponbrs));
+		$results = $q->execute_query($sql, $params);
+		return $results->fetchColumn();
+	}
+
+	/**
+	 * Returns all the PO Numbers associated with this Vendor
+	 *
+	 * @return array
+	 */
+	public function get_ponumbers() {
+		$q = PurchaseOrderQuery::create();
+		$q->select(PurchaseOrder::get_aliasproperty('ponbr'));
+		$q->filterByVendorid($this->vendorID);
+		return $q->find()->toArray();
 	}
 }
