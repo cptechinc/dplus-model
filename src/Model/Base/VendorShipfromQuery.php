@@ -87,6 +87,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfromQuery orderByApfmpur24mo24($order = Criteria::ASC) Order by the ApfmPur24mo24 column
  * @method     ChildVendorShipfromQuery orderByApfmpo24mo24($order = Criteria::ASC) Order by the ApfmPo24mo24 column
  * @method     ChildVendorShipfromQuery orderByApfmouracctnbr($order = Criteria::ASC) Order by the ApfmOurAcctNbr column
+ * @method     ChildVendorShipfromQuery orderByApfmPurYtd($order = Criteria::ASC) Order by the ApfmPurYtd column
+ * @method     ChildVendorShipfromQuery orderByApfmPoYtd($order = Criteria::ASC) Order by the ApfmPoYtd column
  * @method     ChildVendorShipfromQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildVendorShipfromQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildVendorShipfromQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -158,6 +160,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfromQuery groupByApfmpur24mo24() Group by the ApfmPur24mo24 column
  * @method     ChildVendorShipfromQuery groupByApfmpo24mo24() Group by the ApfmPo24mo24 column
  * @method     ChildVendorShipfromQuery groupByApfmouracctnbr() Group by the ApfmOurAcctNbr column
+ * @method     ChildVendorShipfromQuery groupByApfmPurYtd() Group by the ApfmPurYtd column
+ * @method     ChildVendorShipfromQuery groupByApfmPoYtd() Group by the ApfmPoYtd column
  * @method     ChildVendorShipfromQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildVendorShipfromQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildVendorShipfromQuery groupByDummy() Group by the dummy column
@@ -252,6 +256,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfrom findOneByApfmpur24mo24(string $ApfmPur24mo24) Return the first ChildVendorShipfrom filtered by the ApfmPur24mo24 column
  * @method     ChildVendorShipfrom findOneByApfmpo24mo24(int $ApfmPo24mo24) Return the first ChildVendorShipfrom filtered by the ApfmPo24mo24 column
  * @method     ChildVendorShipfrom findOneByApfmouracctnbr(string $ApfmOurAcctNbr) Return the first ChildVendorShipfrom filtered by the ApfmOurAcctNbr column
+ * @method     ChildVendorShipfrom findOneByApfmPurYtd(string $ApfmPurYtd) Return the first ChildVendorShipfrom filtered by the ApfmPurYtd column
+ * @method     ChildVendorShipfrom findOneByApfmPoYtd(int $ApfmPoYtd) Return the first ChildVendorShipfrom filtered by the ApfmPoYtd column
  * @method     ChildVendorShipfrom findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorShipfrom filtered by the DateUpdtd column
  * @method     ChildVendorShipfrom findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorShipfrom filtered by the TimeUpdtd column
  * @method     ChildVendorShipfrom findOneByDummy(string $dummy) Return the first ChildVendorShipfrom filtered by the dummy column *
@@ -326,6 +332,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfrom requireOneByApfmpur24mo24(string $ApfmPur24mo24) Return the first ChildVendorShipfrom filtered by the ApfmPur24mo24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorShipfrom requireOneByApfmpo24mo24(int $ApfmPo24mo24) Return the first ChildVendorShipfrom filtered by the ApfmPo24mo24 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorShipfrom requireOneByApfmouracctnbr(string $ApfmOurAcctNbr) Return the first ChildVendorShipfrom filtered by the ApfmOurAcctNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorShipfrom requireOneByApfmPurYtd(string $ApfmPurYtd) Return the first ChildVendorShipfrom filtered by the ApfmPurYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorShipfrom requireOneByApfmPoYtd(int $ApfmPoYtd) Return the first ChildVendorShipfrom filtered by the ApfmPoYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorShipfrom requireOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorShipfrom filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorShipfrom requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorShipfrom filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildVendorShipfrom requireOneByDummy(string $dummy) Return the first ChildVendorShipfrom filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -398,6 +406,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorShipfrom[]|ObjectCollection findByApfmpur24mo24(string $ApfmPur24mo24) Return ChildVendorShipfrom objects filtered by the ApfmPur24mo24 column
  * @method     ChildVendorShipfrom[]|ObjectCollection findByApfmpo24mo24(int $ApfmPo24mo24) Return ChildVendorShipfrom objects filtered by the ApfmPo24mo24 column
  * @method     ChildVendorShipfrom[]|ObjectCollection findByApfmouracctnbr(string $ApfmOurAcctNbr) Return ChildVendorShipfrom objects filtered by the ApfmOurAcctNbr column
+ * @method     ChildVendorShipfrom[]|ObjectCollection findByApfmPurYtd(string $ApfmPurYtd) Return ChildVendorShipfrom objects filtered by the ApfmPurYtd column
+ * @method     ChildVendorShipfrom[]|ObjectCollection findByApfmPoYtd(int $ApfmPoYtd) Return ChildVendorShipfrom objects filtered by the ApfmPoYtd column
  * @method     ChildVendorShipfrom[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildVendorShipfrom objects filtered by the DateUpdtd column
  * @method     ChildVendorShipfrom[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildVendorShipfrom objects filtered by the TimeUpdtd column
  * @method     ChildVendorShipfrom[]|ObjectCollection findByDummy(string $dummy) Return ChildVendorShipfrom objects filtered by the dummy column
@@ -499,7 +509,7 @@ abstract class VendorShipfromQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ApveVendId, ApfmShipId, ApfmName, ApfmAdr1, ApfmAdr2, ApfmAdr3, ApfmCtry, ApfmCity, ApfmStat, ApfmZipCode, ApfmCont1, ApfmCont2, ArtbSviaCode, ApfmGlAcct, ApfmPurMtd, ApfmPoMtd, ApfmDateOpen, ApfmLastPurDate, ApfmPur24mo01, ApfmPo24mo01, ApfmPur24mo02, ApfmPo24mo02, ApfmPur24mo03, ApfmPo24mo03, ApfmPur24mo04, ApfmPo24mo04, ApfmPur24mo05, ApfmPo24mo05, ApfmPur24mo06, ApfmPo24mo06, ApfmPur24mo07, ApfmPo24mo07, ApfmPur24mo08, ApfmPo24mo08, ApfmPur24mo09, ApfmPo24mo09, ApfmPur24mo10, ApfmPo24mo10, ApfmPur24mo11, ApfmPo24mo11, ApfmPur24mo12, ApfmPo24mo12, ApfmPur24mo13, ApfmPo24mo13, ApfmPur24mo14, ApfmPo24mo14, ApfmPur24mo15, ApfmPo24mo15, ApfmPur24mo16, ApfmPo24mo16, ApfmPur24mo17, ApfmPo24mo17, ApfmPur24mo18, ApfmPo24mo18, ApfmPur24mo19, ApfmPo24mo19, ApfmPur24mo20, ApfmPo24mo20, ApfmPur24mo21, ApfmPo24mo21, ApfmPur24mo22, ApfmPo24mo22, ApfmPur24mo23, ApfmPo24mo23, ApfmPur24mo24, ApfmPo24mo24, ApfmOurAcctNbr, DateUpdtd, TimeUpdtd, dummy FROM ap_ship_from WHERE ApveVendId = :p0 AND ApfmShipId = :p1';
+        $sql = 'SELECT ApveVendId, ApfmShipId, ApfmName, ApfmAdr1, ApfmAdr2, ApfmAdr3, ApfmCtry, ApfmCity, ApfmStat, ApfmZipCode, ApfmCont1, ApfmCont2, ArtbSviaCode, ApfmGlAcct, ApfmPurMtd, ApfmPoMtd, ApfmDateOpen, ApfmLastPurDate, ApfmPur24mo01, ApfmPo24mo01, ApfmPur24mo02, ApfmPo24mo02, ApfmPur24mo03, ApfmPo24mo03, ApfmPur24mo04, ApfmPo24mo04, ApfmPur24mo05, ApfmPo24mo05, ApfmPur24mo06, ApfmPo24mo06, ApfmPur24mo07, ApfmPo24mo07, ApfmPur24mo08, ApfmPo24mo08, ApfmPur24mo09, ApfmPo24mo09, ApfmPur24mo10, ApfmPo24mo10, ApfmPur24mo11, ApfmPo24mo11, ApfmPur24mo12, ApfmPo24mo12, ApfmPur24mo13, ApfmPo24mo13, ApfmPur24mo14, ApfmPo24mo14, ApfmPur24mo15, ApfmPo24mo15, ApfmPur24mo16, ApfmPo24mo16, ApfmPur24mo17, ApfmPo24mo17, ApfmPur24mo18, ApfmPo24mo18, ApfmPur24mo19, ApfmPo24mo19, ApfmPur24mo20, ApfmPo24mo20, ApfmPur24mo21, ApfmPo24mo21, ApfmPur24mo22, ApfmPo24mo22, ApfmPur24mo23, ApfmPo24mo23, ApfmPur24mo24, ApfmPo24mo24, ApfmOurAcctNbr, ApfmPurYtd, ApfmPoYtd, DateUpdtd, TimeUpdtd, dummy FROM ap_ship_from WHERE ApveVendId = :p0 AND ApfmShipId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -3074,6 +3084,88 @@ abstract class VendorShipfromQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(VendorShipfromTableMap::COL_APFMOURACCTNBR, $apfmouracctnbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the ApfmPurYtd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByApfmPurYtd(1234); // WHERE ApfmPurYtd = 1234
+     * $query->filterByApfmPurYtd(array(12, 34)); // WHERE ApfmPurYtd IN (12, 34)
+     * $query->filterByApfmPurYtd(array('min' => 12)); // WHERE ApfmPurYtd > 12
+     * </code>
+     *
+     * @param     mixed $apfmPurYtd The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildVendorShipfromQuery The current query, for fluid interface
+     */
+    public function filterByApfmPurYtd($apfmPurYtd = null, $comparison = null)
+    {
+        if (is_array($apfmPurYtd)) {
+            $useMinMax = false;
+            if (isset($apfmPurYtd['min'])) {
+                $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPURYTD, $apfmPurYtd['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($apfmPurYtd['max'])) {
+                $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPURYTD, $apfmPurYtd['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPURYTD, $apfmPurYtd, $comparison);
+    }
+
+    /**
+     * Filter the query on the ApfmPoYtd column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByApfmPoYtd(1234); // WHERE ApfmPoYtd = 1234
+     * $query->filterByApfmPoYtd(array(12, 34)); // WHERE ApfmPoYtd IN (12, 34)
+     * $query->filterByApfmPoYtd(array('min' => 12)); // WHERE ApfmPoYtd > 12
+     * </code>
+     *
+     * @param     mixed $apfmPoYtd The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildVendorShipfromQuery The current query, for fluid interface
+     */
+    public function filterByApfmPoYtd($apfmPoYtd = null, $comparison = null)
+    {
+        if (is_array($apfmPoYtd)) {
+            $useMinMax = false;
+            if (isset($apfmPoYtd['min'])) {
+                $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPOYTD, $apfmPoYtd['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($apfmPoYtd['max'])) {
+                $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPOYTD, $apfmPoYtd['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(VendorShipfromTableMap::COL_APFMPOYTD, $apfmPoYtd, $comparison);
     }
 
     /**

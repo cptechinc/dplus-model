@@ -1246,6 +1246,34 @@ abstract class Vendor implements ActiveRecordInterface
     protected $apvescanlength;
 
     /**
+     * The value for the apvepurytd field.
+     *
+     * @var        string
+     */
+    protected $apvepurytd;
+
+    /**
+     * The value for the apvepoytd field.
+     *
+     * @var        int
+     */
+    protected $apvepoytd;
+
+    /**
+     * The value for the apveinvcytd field.
+     *
+     * @var        string
+     */
+    protected $apveinvcytd;
+
+    /**
+     * The value for the apveicntytd field.
+     *
+     * @var        int
+     */
+    protected $apveicntytd;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -3224,6 +3252,46 @@ abstract class Vendor implements ActiveRecordInterface
     public function getApvescanlength()
     {
         return $this->apvescanlength;
+    }
+
+    /**
+     * Get the [apvepurytd] column value.
+     *
+     * @return string
+     */
+    public function getApvePurYtd()
+    {
+        return $this->apvepurytd;
+    }
+
+    /**
+     * Get the [apvepoytd] column value.
+     *
+     * @return int
+     */
+    public function getApvePoYtd()
+    {
+        return $this->apvepoytd;
+    }
+
+    /**
+     * Get the [apveinvcytd] column value.
+     *
+     * @return string
+     */
+    public function getApveInvcYtd()
+    {
+        return $this->apveinvcytd;
+    }
+
+    /**
+     * Get the [apveicntytd] column value.
+     *
+     * @return int
+     */
+    public function getApveIcntYtd()
+    {
+        return $this->apveicntytd;
     }
 
     /**
@@ -6613,6 +6681,86 @@ abstract class Vendor implements ActiveRecordInterface
     } // setApvescanlength()
 
     /**
+     * Set the value of [apvepurytd] column.
+     *
+     * @param string $v new value
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function setApvePurYtd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->apvepurytd !== $v) {
+            $this->apvepurytd = $v;
+            $this->modifiedColumns[VendorTableMap::COL_APVEPURYTD] = true;
+        }
+
+        return $this;
+    } // setApvePurYtd()
+
+    /**
+     * Set the value of [apvepoytd] column.
+     *
+     * @param int $v new value
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function setApvePoYtd($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->apvepoytd !== $v) {
+            $this->apvepoytd = $v;
+            $this->modifiedColumns[VendorTableMap::COL_APVEPOYTD] = true;
+        }
+
+        return $this;
+    } // setApvePoYtd()
+
+    /**
+     * Set the value of [apveinvcytd] column.
+     *
+     * @param string $v new value
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function setApveInvcYtd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->apveinvcytd !== $v) {
+            $this->apveinvcytd = $v;
+            $this->modifiedColumns[VendorTableMap::COL_APVEINVCYTD] = true;
+        }
+
+        return $this;
+    } // setApveInvcYtd()
+
+    /**
+     * Set the value of [apveicntytd] column.
+     *
+     * @param int $v new value
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function setApveIcntYtd($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->apveicntytd !== $v) {
+            $this->apveicntytd = $v;
+            $this->modifiedColumns[VendorTableMap::COL_APVEICNTYTD] = true;
+        }
+
+        return $this;
+    } // setApveIcntYtd()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -7213,13 +7361,25 @@ abstract class Vendor implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : VendorTableMap::translateFieldName('Apvescanlength', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvescanlength = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('ApvePurYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apvepurytd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('ApvePoYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apvepoytd = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('ApveInvcYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apveinvcytd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : VendorTableMap::translateFieldName('ApveIcntYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apveicntytd = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -7229,7 +7389,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 170; // 170 = VendorTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 174; // 174 = VendorTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Vendor'), 0, $e);
@@ -8015,6 +8175,18 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->isColumnModified(VendorTableMap::COL_APVESCANLENGTH)) {
             $modifiedColumns[':p' . $index++]  = 'ApveScanLength';
         }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEPURYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApvePurYtd';
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEPOYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApvePoYtd';
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEINVCYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApveInvcYtd';
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEICNTYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApveIcntYtd';
+        }
         if ($this->isColumnModified(VendorTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -8535,6 +8707,18 @@ abstract class Vendor implements ActiveRecordInterface
                         break;
                     case 'ApveScanLength':
                         $stmt->bindValue($identifier, $this->apvescanlength, PDO::PARAM_INT);
+                        break;
+                    case 'ApvePurYtd':
+                        $stmt->bindValue($identifier, $this->apvepurytd, PDO::PARAM_STR);
+                        break;
+                    case 'ApvePoYtd':
+                        $stmt->bindValue($identifier, $this->apvepoytd, PDO::PARAM_INT);
+                        break;
+                    case 'ApveInvcYtd':
+                        $stmt->bindValue($identifier, $this->apveinvcytd, PDO::PARAM_STR);
+                        break;
+                    case 'ApveIcntYtd':
+                        $stmt->bindValue($identifier, $this->apveicntytd, PDO::PARAM_INT);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -9102,12 +9286,24 @@ abstract class Vendor implements ActiveRecordInterface
                 return $this->getApvescanlength();
                 break;
             case 167:
-                return $this->getDateupdtd();
+                return $this->getApvePurYtd();
                 break;
             case 168:
-                return $this->getTimeupdtd();
+                return $this->getApvePoYtd();
                 break;
             case 169:
+                return $this->getApveInvcYtd();
+                break;
+            case 170:
+                return $this->getApveIcntYtd();
+                break;
+            case 171:
+                return $this->getDateupdtd();
+                break;
+            case 172:
+                return $this->getTimeupdtd();
+                break;
+            case 173:
                 return $this->getDummy();
                 break;
             default:
@@ -9307,9 +9503,13 @@ abstract class Vendor implements ActiveRecordInterface
             $keys[164] => $this->getApvereleasenbr(),
             $keys[165] => $this->getApvescanstartpos(),
             $keys[166] => $this->getApvescanlength(),
-            $keys[167] => $this->getDateupdtd(),
-            $keys[168] => $this->getTimeupdtd(),
-            $keys[169] => $this->getDummy(),
+            $keys[167] => $this->getApvePurYtd(),
+            $keys[168] => $this->getApvePoYtd(),
+            $keys[169] => $this->getApveInvcYtd(),
+            $keys[170] => $this->getApveIcntYtd(),
+            $keys[171] => $this->getDateupdtd(),
+            $keys[172] => $this->getTimeupdtd(),
+            $keys[173] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -9943,12 +10143,24 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->setApvescanlength($value);
                 break;
             case 167:
-                $this->setDateupdtd($value);
+                $this->setApvePurYtd($value);
                 break;
             case 168:
-                $this->setTimeupdtd($value);
+                $this->setApvePoYtd($value);
                 break;
             case 169:
+                $this->setApveInvcYtd($value);
+                break;
+            case 170:
+                $this->setApveIcntYtd($value);
+                break;
+            case 171:
+                $this->setDateupdtd($value);
+                break;
+            case 172:
+                $this->setTimeupdtd($value);
+                break;
+            case 173:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -10479,13 +10691,25 @@ abstract class Vendor implements ActiveRecordInterface
             $this->setApvescanlength($arr[$keys[166]]);
         }
         if (array_key_exists($keys[167], $arr)) {
-            $this->setDateupdtd($arr[$keys[167]]);
+            $this->setApvePurYtd($arr[$keys[167]]);
         }
         if (array_key_exists($keys[168], $arr)) {
-            $this->setTimeupdtd($arr[$keys[168]]);
+            $this->setApvePoYtd($arr[$keys[168]]);
         }
         if (array_key_exists($keys[169], $arr)) {
-            $this->setDummy($arr[$keys[169]]);
+            $this->setApveInvcYtd($arr[$keys[169]]);
+        }
+        if (array_key_exists($keys[170], $arr)) {
+            $this->setApveIcntYtd($arr[$keys[170]]);
+        }
+        if (array_key_exists($keys[171], $arr)) {
+            $this->setDateupdtd($arr[$keys[171]]);
+        }
+        if (array_key_exists($keys[172], $arr)) {
+            $this->setTimeupdtd($arr[$keys[172]]);
+        }
+        if (array_key_exists($keys[173], $arr)) {
+            $this->setDummy($arr[$keys[173]]);
         }
     }
 
@@ -11029,6 +11253,18 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->isColumnModified(VendorTableMap::COL_APVESCANLENGTH)) {
             $criteria->add(VendorTableMap::COL_APVESCANLENGTH, $this->apvescanlength);
         }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEPURYTD)) {
+            $criteria->add(VendorTableMap::COL_APVEPURYTD, $this->apvepurytd);
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEPOYTD)) {
+            $criteria->add(VendorTableMap::COL_APVEPOYTD, $this->apvepoytd);
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEINVCYTD)) {
+            $criteria->add(VendorTableMap::COL_APVEINVCYTD, $this->apveinvcytd);
+        }
+        if ($this->isColumnModified(VendorTableMap::COL_APVEICNTYTD)) {
+            $criteria->add(VendorTableMap::COL_APVEICNTYTD, $this->apveicntytd);
+        }
         if ($this->isColumnModified(VendorTableMap::COL_DATEUPDTD)) {
             $criteria->add(VendorTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -11291,6 +11527,10 @@ abstract class Vendor implements ActiveRecordInterface
         $copyObj->setApvereleasenbr($this->getApvereleasenbr());
         $copyObj->setApvescanstartpos($this->getApvescanstartpos());
         $copyObj->setApvescanlength($this->getApvescanlength());
+        $copyObj->setApvePurYtd($this->getApvePurYtd());
+        $copyObj->setApvePoYtd($this->getApvePoYtd());
+        $copyObj->setApveInvcYtd($this->getApveInvcYtd());
+        $copyObj->setApveIcntYtd($this->getApveIcntYtd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -12205,6 +12445,10 @@ abstract class Vendor implements ActiveRecordInterface
         $this->apvereleasenbr = null;
         $this->apvescanstartpos = null;
         $this->apvescanlength = null;
+        $this->apvepurytd = null;
+        $this->apvepoytd = null;
+        $this->apveinvcytd = null;
+        $this->apveicntytd = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

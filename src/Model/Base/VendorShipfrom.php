@@ -533,6 +533,20 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     protected $apfmouracctnbr;
 
     /**
+     * The value for the apfmpurytd field.
+     *
+     * @var        string
+     */
+    protected $apfmpurytd;
+
+    /**
+     * The value for the apfmpoytd field.
+     *
+     * @var        int
+     */
+    protected $apfmpoytd;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -1473,6 +1487,26 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     public function getApfmouracctnbr()
     {
         return $this->apfmouracctnbr;
+    }
+
+    /**
+     * Get the [apfmpurytd] column value.
+     *
+     * @return string
+     */
+    public function getApfmPurYtd()
+    {
+        return $this->apfmpurytd;
+    }
+
+    /**
+     * Get the [apfmpoytd] column value.
+     *
+     * @return int
+     */
+    public function getApfmPoYtd()
+    {
+        return $this->apfmpoytd;
     }
 
     /**
@@ -2850,6 +2884,46 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     } // setApfmouracctnbr()
 
     /**
+     * Set the value of [apfmpurytd] column.
+     *
+     * @param string $v new value
+     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     */
+    public function setApfmPurYtd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->apfmpurytd !== $v) {
+            $this->apfmpurytd = $v;
+            $this->modifiedColumns[VendorShipfromTableMap::COL_APFMPURYTD] = true;
+        }
+
+        return $this;
+    } // setApfmPurYtd()
+
+    /**
+     * Set the value of [apfmpoytd] column.
+     *
+     * @param int $v new value
+     * @return $this|\VendorShipfrom The current object (for fluent API support)
+     */
+    public function setApfmPoYtd($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->apfmpoytd !== $v) {
+            $this->apfmpoytd = $v;
+            $this->modifiedColumns[VendorShipfromTableMap::COL_APFMPOYTD] = true;
+        }
+
+        return $this;
+    } // setApfmPoYtd()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -3154,13 +3228,19 @@ abstract class VendorShipfrom implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : VendorShipfromTableMap::translateFieldName('Apfmouracctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apfmouracctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : VendorShipfromTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : VendorShipfromTableMap::translateFieldName('ApfmPurYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apfmpurytd = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : VendorShipfromTableMap::translateFieldName('ApfmPoYtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apfmpoytd = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : VendorShipfromTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : VendorShipfromTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : VendorShipfromTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : VendorShipfromTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : VendorShipfromTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -3170,7 +3250,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 70; // 70 = VendorShipfromTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 72; // 72 = VendorShipfromTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\VendorShipfrom'), 0, $e);
@@ -3584,6 +3664,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMOURACCTNBR)) {
             $modifiedColumns[':p' . $index++]  = 'ApfmOurAcctNbr';
         }
+        if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMPURYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApfmPurYtd';
+        }
+        if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMPOYTD)) {
+            $modifiedColumns[':p' . $index++]  = 'ApfmPoYtd';
+        }
         if ($this->isColumnModified(VendorShipfromTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -3804,6 +3890,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
                         break;
                     case 'ApfmOurAcctNbr':
                         $stmt->bindValue($identifier, $this->apfmouracctnbr, PDO::PARAM_STR);
+                        break;
+                    case 'ApfmPurYtd':
+                        $stmt->bindValue($identifier, $this->apfmpurytd, PDO::PARAM_STR);
+                        break;
+                    case 'ApfmPoYtd':
+                        $stmt->bindValue($identifier, $this->apfmpoytd, PDO::PARAM_INT);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -4071,12 +4163,18 @@ abstract class VendorShipfrom implements ActiveRecordInterface
                 return $this->getApfmouracctnbr();
                 break;
             case 67:
-                return $this->getDateupdtd();
+                return $this->getApfmPurYtd();
                 break;
             case 68:
-                return $this->getTimeupdtd();
+                return $this->getApfmPoYtd();
                 break;
             case 69:
+                return $this->getDateupdtd();
+                break;
+            case 70:
+                return $this->getTimeupdtd();
+                break;
+            case 71:
                 return $this->getDummy();
                 break;
             default:
@@ -4176,9 +4274,11 @@ abstract class VendorShipfrom implements ActiveRecordInterface
             $keys[64] => $this->getApfmpur24mo24(),
             $keys[65] => $this->getApfmpo24mo24(),
             $keys[66] => $this->getApfmouracctnbr(),
-            $keys[67] => $this->getDateupdtd(),
-            $keys[68] => $this->getTimeupdtd(),
-            $keys[69] => $this->getDummy(),
+            $keys[67] => $this->getApfmPurYtd(),
+            $keys[68] => $this->getApfmPoYtd(),
+            $keys[69] => $this->getDateupdtd(),
+            $keys[70] => $this->getTimeupdtd(),
+            $keys[71] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -4437,12 +4537,18 @@ abstract class VendorShipfrom implements ActiveRecordInterface
                 $this->setApfmouracctnbr($value);
                 break;
             case 67:
-                $this->setDateupdtd($value);
+                $this->setApfmPurYtd($value);
                 break;
             case 68:
-                $this->setTimeupdtd($value);
+                $this->setApfmPoYtd($value);
                 break;
             case 69:
+                $this->setDateupdtd($value);
+                break;
+            case 70:
+                $this->setTimeupdtd($value);
+                break;
+            case 71:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -4673,13 +4779,19 @@ abstract class VendorShipfrom implements ActiveRecordInterface
             $this->setApfmouracctnbr($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setDateupdtd($arr[$keys[67]]);
+            $this->setApfmPurYtd($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setTimeupdtd($arr[$keys[68]]);
+            $this->setApfmPoYtd($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setDummy($arr[$keys[69]]);
+            $this->setDateupdtd($arr[$keys[69]]);
+        }
+        if (array_key_exists($keys[70], $arr)) {
+            $this->setTimeupdtd($arr[$keys[70]]);
+        }
+        if (array_key_exists($keys[71], $arr)) {
+            $this->setDummy($arr[$keys[71]]);
         }
     }
 
@@ -4923,6 +5035,12 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMOURACCTNBR)) {
             $criteria->add(VendorShipfromTableMap::COL_APFMOURACCTNBR, $this->apfmouracctnbr);
         }
+        if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMPURYTD)) {
+            $criteria->add(VendorShipfromTableMap::COL_APFMPURYTD, $this->apfmpurytd);
+        }
+        if ($this->isColumnModified(VendorShipfromTableMap::COL_APFMPOYTD)) {
+            $criteria->add(VendorShipfromTableMap::COL_APFMPOYTD, $this->apfmpoytd);
+        }
         if ($this->isColumnModified(VendorShipfromTableMap::COL_DATEUPDTD)) {
             $criteria->add(VendorShipfromTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -5100,6 +5218,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $copyObj->setApfmpur24mo24($this->getApfmpur24mo24());
         $copyObj->setApfmpo24mo24($this->getApfmpo24mo24());
         $copyObj->setApfmouracctnbr($this->getApfmouracctnbr());
+        $copyObj->setApfmPurYtd($this->getApfmPurYtd());
+        $copyObj->setApfmPoYtd($this->getApfmPoYtd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -5258,6 +5378,8 @@ abstract class VendorShipfrom implements ActiveRecordInterface
         $this->apfmpur24mo24 = null;
         $this->apfmpo24mo24 = null;
         $this->apfmouracctnbr = null;
+        $this->apfmpurytd = null;
+        $this->apfmpoytd = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

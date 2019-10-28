@@ -79,6 +79,8 @@
     <column name="ApfmPur24mo24" phpName="Apfmpur24mo24" type="DECIMAL" size="20" scale="2"/>
     <column name="ApfmPo24mo24" phpName="Apfmpo24mo24" type="INTEGER" size="7"/>
     <column name="ApfmOurAcctNbr" phpName="Apfmouracctnbr" type="VARCHAR" size="10"/>
+    <column name="ApfmPurYtd" phpName="ApfmPurYtd" type="DECIMAL" size="20" scale="2" />
+    <column name="ApfmPoYtd" phpName="ApfmPoYtd" type="INTEGER" size="7"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
@@ -358,6 +360,10 @@
     <column name="ApveReleaseNbr" phpName="Apvereleasenbr" type="INTEGER" size="4"/>
     <column name="ApveScanStartPos" phpName="Apvescanstartpos" type="INTEGER" size="4"/>
     <column name="ApveScanLength" phpName="Apvescanlength" type="INTEGER" size="4"/>
+    <column name="ApvePurYtd" phpName="ApvePurYtd" type="DECIMAL" size="20" scale="2" />
+    <column name="ApvePoYtd" phpName="ApvePoYtd" type="INTEGER" size="7"/>
+    <column name="ApveInvcYtd" phpName="ApveInvcYtd" type="DECIMAL" size="20" scale="2" />
+    <column name="ApveIcntYtd" phpName="ApveIcntYtd" type="INTEGER" size="7"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
