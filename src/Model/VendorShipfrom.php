@@ -8,18 +8,6 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ap_ship_from' table.
  *
- * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
- * methods with an alias
- * EXAMPLE: findByVendorid(string $vendorID)
- *
- * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
- * -----------------------------------------------------------------------------------------
- * FilterByXXX()
- * 
- * FindOne()
- *
- * FindByXXX()
- * @method  VendorShipfrom[]|ObjectCollection findByVendorid(string $vendorID)     Return VendorShipfrom Objects filtered by the ApveVendId column
  */
 class VendorShipfrom extends BaseVendorShipfrom {
 	use ThrowErrorTrait;
@@ -33,6 +21,7 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'vendorid'    => 'apvevendid',
 		'vendorID'    => 'apvevendid',
 		'shipfromid'  => 'apfmshipid',
+		'id'          => 'apfmshipid',
 		'name'        => 'apfmname',
 		'address'     => 'apfmadr1',
 		'address2'    => 'apfmadr2',
@@ -46,4 +35,36 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'shipvia'     => 'artbsviacode',
 		'gl_account'  => 'apfmglacct'
 	);
+
+	/**
+	 * Returns the Amount Left the Current Purchase Orders
+	 * NOTE: Checks for detail status is not closed and that It is not released
+	 * @return float
+	 */
+	public function get_purchaseorders_amt() {
+		$ponbrs = $this->get_ponumbers();
+		$q = PurchaseOrderDetailQuery::create();
+		$sql = "SELECT (PodtQtyOrd - ifnull(PordQtyRec, 0)) * PodtCost as amt
+				FROM data3.po_detail
+				LEFT JOIN data3.po_receipt_det
+				ON data3.po_receipt_det.PohdNbr = data3.po_detail.PohdNbr AND data3.po_receipt_det.PodtLine = data3.po_detail.PodtLine
+				WHERE data3.po_detail.PohdNbr IN (:ponbrs)
+				AND PodtStat != 'C' AND PodtRel != 'N'";
+		$params = array(':ponbrs' => implode(',', $ponbrs));
+		$results = $q->execute_query($sql, $params);
+		return $results->fetchColumn();
+	}
+
+	/**
+	 * Returns all the PO Numbers associated with this Vendor and Shipfrom
+	 *
+	 * @return array
+	 */
+	public function get_ponumbers() {
+		$q = PurchaseOrderQuery::create();
+		$q->select(PurchaseOrder::get_aliasproperty('ponbr'));
+		$q->filterByVendorid($this->vendorID);
+		$q->filterByShipfromid($this->shipfromid);
+		return $q->find()->toArray();
+	}
 }
