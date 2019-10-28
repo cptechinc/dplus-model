@@ -33,7 +33,9 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'contact'     => 'apfmcont1',
 		'contact2'    => 'apfmcont2',
 		'shipvia'     => 'artbsviacode',
-		'gl_account'  => 'apfmglacct'
+		'gl_account'  => 'apfmglacct',
+		'ytd_purchases_amt'    => 'apfmpurytd',
+		'ytd_purchases_count'  => 'apfmpoytd'
 	);
 
 	/**

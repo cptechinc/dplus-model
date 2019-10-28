@@ -46,6 +46,10 @@ class Vendor extends BaseVendor {
 		'buyer_1'            => 'apvebuyrcode1',
 		'terms'              => 'aptermscode',
 		'type'               => 'aptypecode',
+		'ytd_purchases_amt'    => 'apvepurytd',
+		'ytd_purchases_count'  => 'apvepoytd',
+		'ytd_invoices_amt'     => 'apveinvcytd',
+		'ytd_invoices_count'   => 'apveicntytd'
 	);
 
 	/**
