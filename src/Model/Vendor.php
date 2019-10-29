@@ -39,6 +39,7 @@ class Vendor extends BaseVendor {
 		'billto_zip'       => 'apvepayzipcode',
 		'gl_account'       => 'apvemglacct',
 		'date_lastpurchased' => 'apvelastpurdate',
+		'date_opened'        => 'apvedateopen',
 		'shipviacode'        => 'apvesviacode',
 		'vendor_account'     => 'apveouracctnbr',
 		'termscode'          => 'aptmtermcode',
@@ -46,6 +47,10 @@ class Vendor extends BaseVendor {
 		'buyer_1'            => 'apvebuyrcode1',
 		'terms'              => 'aptermscode',
 		'type'               => 'aptypecode',
+		'mtd_purchases_amt'    => 'apvepurmtd',
+		'mtd_purchases_count'  => 'apvepomtd',
+		'mtd_invoices_amt'     => 'apveinvcmtd',
+		'mtd_invoices_count'   => 'apveicntmtd',
 		'ytd_purchases_amt'    => 'apvepurytd',
 		'ytd_purchases_count'  => 'apvepoytd',
 		'ytd_invoices_amt'     => 'apveinvcytd',
@@ -128,5 +133,49 @@ class Vendor extends BaseVendor {
 		$q->select(PurchaseOrder::get_aliasproperty('ponbr'));
 		$q->filterByVendorid($this->vendorID);
 		return $q->find()->toArray();
+	}
+
+	/**
+	 * Return the number of Purchases in the last X Months
+	 *
+	 * @param  int    $monthsback Number of Months to go back
+	 * @return int
+	 */
+	public function count_last_x_months_purchases(int $monthsback = 1) {
+		$q = VendorQuery::create();
+		return $q->count_last_x_months_purchases($this->vendorid, $monthsback);
+	}
+
+	/**
+	 * Return the total of Purchases Made in the last X Months
+	 *
+	 * @param  int    $monthsback Number of Months to go back
+	 * @return float
+	 */
+	public function get_last_x_months_purchases_amt(int $monthsback = 1) {
+		$q = VendorQuery::create();
+		return $q->get_last_x_months_purchases_amt($this->vendorid, $monthsback);
+	}
+
+	/**
+	 * Return the number of Invoices in the last X Months
+	 *
+	 * @param  int    $monthsback Number of Months to go back
+	 * @return int
+	 */
+	public function count_last_x_months_invoices(int $monthsback = 1) {
+		$q = VendorQuery::create();
+		return $q->count_last_x_months_invoices($this->vendorid, $monthsback);
+	}
+
+	/**
+	 * Return the total of Invoices in the last X Months
+	 *
+	 * @param  int    $monthsback Number of Months to go back
+	 * @return float
+	 */
+	public function get_last_x_months_invoices_amt(int $monthsback = 1) {
+		$q = VendorQuery::create();
+		return $q->get_last_x_months_invoices_amt($this->vendorid, $monthsback);
 	}
 }
