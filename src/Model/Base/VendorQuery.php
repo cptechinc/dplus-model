@@ -418,6 +418,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWithApBuyer() Adds a RIGHT JOIN clause and with to the query using the ApBuyer relation
  * @method     ChildVendorQuery innerJoinWithApBuyer() Adds a INNER JOIN clause and with to the query using the ApBuyer relation
  *
+ * @method     ChildVendorQuery leftJoinApInvoice($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApInvoice relation
+ * @method     ChildVendorQuery rightJoinApInvoice($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApInvoice relation
+ * @method     ChildVendorQuery innerJoinApInvoice($relationAlias = null) Adds a INNER JOIN clause to the query using the ApInvoice relation
+ *
+ * @method     ChildVendorQuery joinWithApInvoice($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApInvoice relation
+ *
+ * @method     ChildVendorQuery leftJoinWithApInvoice() Adds a LEFT JOIN clause and with to the query using the ApInvoice relation
+ * @method     ChildVendorQuery rightJoinWithApInvoice() Adds a RIGHT JOIN clause and with to the query using the ApInvoice relation
+ * @method     ChildVendorQuery innerJoinWithApInvoice() Adds a INNER JOIN clause and with to the query using the ApInvoice relation
+ *
  * @method     ChildVendorQuery leftJoinVendorShipfrom($relationAlias = null) Adds a LEFT JOIN clause to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery rightJoinVendorShipfrom($relationAlias = null) Adds a RIGHT JOIN clause to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery innerJoinVendorShipfrom($relationAlias = null) Adds a INNER JOIN clause to the query using the VendorShipfrom relation
@@ -438,7 +448,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWithPurchaseOrder() Adds a RIGHT JOIN clause and with to the query using the PurchaseOrder relation
  * @method     ChildVendorQuery innerJoinWithPurchaseOrder() Adds a INNER JOIN clause and with to the query using the PurchaseOrder relation
  *
- * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\VendorShipfromQuery|\PurchaseOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\ApInvoiceQuery|\VendorShipfromQuery|\PurchaseOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildVendor findOne(ConnectionInterface $con = null) Return the first ChildVendor matching the query
  * @method     ChildVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendor matching the query, or a new ChildVendor object populated from the query conditions when no match is found
@@ -7639,6 +7649,79 @@ abstract class VendorQuery extends ModelCriteria
         return $this
             ->joinApBuyer($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ApBuyer', '\ApBuyerQuery');
+    }
+
+    /**
+     * Filter the query by a related \ApInvoice object
+     *
+     * @param \ApInvoice|ObjectCollection $apInvoice the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByApInvoice($apInvoice, $comparison = null)
+    {
+        if ($apInvoice instanceof \ApInvoice) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apInvoice->getApvevendid(), $comparison);
+        } elseif ($apInvoice instanceof ObjectCollection) {
+            return $this
+                ->useApInvoiceQuery()
+                ->filterByPrimaryKeys($apInvoice->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByApInvoice() only accepts arguments of type \ApInvoice or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApInvoice relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinApInvoice($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApInvoice');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApInvoice');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApInvoice relation ApInvoice object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApInvoiceQuery A secondary query class using the current class as primary query
+     */
+    public function useApInvoiceQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinApInvoice($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApInvoice', '\ApInvoiceQuery');
     }
 
     /**

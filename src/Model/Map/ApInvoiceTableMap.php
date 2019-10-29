@@ -311,7 +311,7 @@ class ApInvoiceTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR', true, 6, '');
+        $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addPrimaryKey('ApihPayToKey', 'Apihpaytokey', 'VARCHAR', true, 180, '');
         $this->addColumn('ApihPtName', 'Apihptname', 'VARCHAR', false, 30, null);
         $this->addColumn('ApihPtAdr1', 'Apihptadr1', 'VARCHAR', false, 30, null);
@@ -356,6 +356,13 @@ class ApInvoiceTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

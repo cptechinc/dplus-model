@@ -50,6 +50,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -1262,6 +1265,8 @@
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
       <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+      <reference local="ApfmShipId" foreign="ApfmShipId"/>
     </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>

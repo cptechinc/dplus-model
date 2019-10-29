@@ -1200,6 +1200,13 @@ class VendorTableMap extends TableMap
     1 => ':AptbBuyrCode',
   ),
 ), null, null, null, false);
+        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ApInvoices', false);
         $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
