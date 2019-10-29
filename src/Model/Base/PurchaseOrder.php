@@ -2,6 +2,9 @@
 
 namespace Base;
 
+use \ApInvoice as ChildApInvoice;
+use \ApInvoiceQuery as ChildApInvoiceQuery;
+use \PurchaseOrder as ChildPurchaseOrder;
 use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
@@ -9,12 +12,14 @@ use \VendorShipfrom as ChildVendorShipfrom;
 use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
+use Map\ApInvoiceTableMap;
 use Map\PurchaseOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -467,12 +472,24 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     protected $aVendorShipfrom;
 
     /**
+     * @var        ObjectCollection|ChildApInvoice[] Collection to store aggregation of ChildApInvoice objects.
+     */
+    protected $collApInvoices;
+    protected $collApInvoicesPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildApInvoice[]
+     */
+    protected $apInvoicesScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -2691,6 +2708,8 @@ abstract class PurchaseOrder implements ActiveRecordInterface
 
             $this->aVendor = null;
             $this->aVendorShipfrom = null;
+            $this->collApInvoices = null;
+
         } // if (deep)
     }
 
@@ -2822,6 +2841,23 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->apInvoicesScheduledForDeletion !== null) {
+                if (!$this->apInvoicesScheduledForDeletion->isEmpty()) {
+                    \ApInvoiceQuery::create()
+                        ->filterByPrimaryKeys($this->apInvoicesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->apInvoicesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collApInvoices !== null) {
+                foreach ($this->collApInvoices as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -3538,6 +3574,21 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aVendorShipfrom->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collApInvoices) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apInvoices';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_invoice_heads';
+                        break;
+                    default:
+                        $key = 'ApInvoices';
+                }
+
+                $result[$key] = $this->collApInvoices->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -4286,6 +4337,20 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getApInvoices() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addApInvoice($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -4421,6 +4486,276 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         return $this->aVendorShipfrom;
     }
 
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('ApInvoice' == $relationName) {
+            $this->initApInvoices();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collApInvoices collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addApInvoices()
+     */
+    public function clearApInvoices()
+    {
+        $this->collApInvoices = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collApInvoices collection loaded partially.
+     */
+    public function resetPartialApInvoices($v = true)
+    {
+        $this->collApInvoicesPartial = $v;
+    }
+
+    /**
+     * Initializes the collApInvoices collection.
+     *
+     * By default this just sets the collApInvoices collection to an empty array (like clearcollApInvoices());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initApInvoices($overrideExisting = true)
+    {
+        if (null !== $this->collApInvoices && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ApInvoiceTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collApInvoices = new $collectionClassName;
+        $this->collApInvoices->setModel('\ApInvoice');
+    }
+
+    /**
+     * Gets an array of ChildApInvoice objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildPurchaseOrder is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildApInvoice[] List of ChildApInvoice objects
+     * @throws PropelException
+     */
+    public function getApInvoices(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApInvoicesPartial && !$this->isNew();
+        if (null === $this->collApInvoices || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collApInvoices) {
+                // return empty collection
+                $this->initApInvoices();
+            } else {
+                $collApInvoices = ChildApInvoiceQuery::create(null, $criteria)
+                    ->filterByPurchaseOrder($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collApInvoicesPartial && count($collApInvoices)) {
+                        $this->initApInvoices(false);
+
+                        foreach ($collApInvoices as $obj) {
+                            if (false == $this->collApInvoices->contains($obj)) {
+                                $this->collApInvoices->append($obj);
+                            }
+                        }
+
+                        $this->collApInvoicesPartial = true;
+                    }
+
+                    return $collApInvoices;
+                }
+
+                if ($partial && $this->collApInvoices) {
+                    foreach ($this->collApInvoices as $obj) {
+                        if ($obj->isNew()) {
+                            $collApInvoices[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collApInvoices = $collApInvoices;
+                $this->collApInvoicesPartial = false;
+            }
+        }
+
+        return $this->collApInvoices;
+    }
+
+    /**
+     * Sets a collection of ChildApInvoice objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $apInvoices A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildPurchaseOrder The current object (for fluent API support)
+     */
+    public function setApInvoices(Collection $apInvoices, ConnectionInterface $con = null)
+    {
+        /** @var ChildApInvoice[] $apInvoicesToDelete */
+        $apInvoicesToDelete = $this->getApInvoices(new Criteria(), $con)->diff($apInvoices);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->apInvoicesScheduledForDeletion = clone $apInvoicesToDelete;
+
+        foreach ($apInvoicesToDelete as $apInvoiceRemoved) {
+            $apInvoiceRemoved->setPurchaseOrder(null);
+        }
+
+        $this->collApInvoices = null;
+        foreach ($apInvoices as $apInvoice) {
+            $this->addApInvoice($apInvoice);
+        }
+
+        $this->collApInvoices = $apInvoices;
+        $this->collApInvoicesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ApInvoice objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ApInvoice objects.
+     * @throws PropelException
+     */
+    public function countApInvoices(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApInvoicesPartial && !$this->isNew();
+        if (null === $this->collApInvoices || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collApInvoices) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getApInvoices());
+            }
+
+            $query = ChildApInvoiceQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByPurchaseOrder($this)
+                ->count($con);
+        }
+
+        return count($this->collApInvoices);
+    }
+
+    /**
+     * Method called to associate a ChildApInvoice object to this object
+     * through the ChildApInvoice foreign key attribute.
+     *
+     * @param  ChildApInvoice $l ChildApInvoice
+     * @return $this|\PurchaseOrder The current object (for fluent API support)
+     */
+    public function addApInvoice(ChildApInvoice $l)
+    {
+        if ($this->collApInvoices === null) {
+            $this->initApInvoices();
+            $this->collApInvoicesPartial = true;
+        }
+
+        if (!$this->collApInvoices->contains($l)) {
+            $this->doAddApInvoice($l);
+
+            if ($this->apInvoicesScheduledForDeletion and $this->apInvoicesScheduledForDeletion->contains($l)) {
+                $this->apInvoicesScheduledForDeletion->remove($this->apInvoicesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildApInvoice $apInvoice The ChildApInvoice object to add.
+     */
+    protected function doAddApInvoice(ChildApInvoice $apInvoice)
+    {
+        $this->collApInvoices[]= $apInvoice;
+        $apInvoice->setPurchaseOrder($this);
+    }
+
+    /**
+     * @param  ChildApInvoice $apInvoice The ChildApInvoice object to remove.
+     * @return $this|ChildPurchaseOrder The current object (for fluent API support)
+     */
+    public function removeApInvoice(ChildApInvoice $apInvoice)
+    {
+        if ($this->getApInvoices()->contains($apInvoice)) {
+            $pos = $this->collApInvoices->search($apInvoice);
+            $this->collApInvoices->remove($pos);
+            if (null === $this->apInvoicesScheduledForDeletion) {
+                $this->apInvoicesScheduledForDeletion = clone $this->collApInvoices;
+                $this->apInvoicesScheduledForDeletion->clear();
+            }
+            $this->apInvoicesScheduledForDeletion[]= clone $apInvoice;
+            $apInvoice->setPurchaseOrder(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrder is new, it will return
+     * an empty collection; or if this PurchaseOrder has previously
+     * been saved, it will retrieve related ApInvoices from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrder.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildApInvoice[] List of ChildApInvoice objects
+     */
+    public function getApInvoicesJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildApInvoiceQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getApInvoices($query, $con);
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -4509,8 +4844,14 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collApInvoices) {
+                foreach ($this->collApInvoices as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collApInvoices = null;
         $this->aVendor = null;
         $this->aVendorShipfrom = null;
     }

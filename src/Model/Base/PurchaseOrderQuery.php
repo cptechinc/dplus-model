@@ -162,7 +162,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderQuery rightJoinWithVendorShipfrom() Adds a RIGHT JOIN clause and with to the query using the VendorShipfrom relation
  * @method     ChildPurchaseOrderQuery innerJoinWithVendorShipfrom() Adds a INNER JOIN clause and with to the query using the VendorShipfrom relation
  *
- * @method     \VendorQuery|\VendorShipfromQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildPurchaseOrderQuery leftJoinApInvoice($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApInvoice relation
+ * @method     ChildPurchaseOrderQuery rightJoinApInvoice($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApInvoice relation
+ * @method     ChildPurchaseOrderQuery innerJoinApInvoice($relationAlias = null) Adds a INNER JOIN clause to the query using the ApInvoice relation
+ *
+ * @method     ChildPurchaseOrderQuery joinWithApInvoice($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApInvoice relation
+ *
+ * @method     ChildPurchaseOrderQuery leftJoinWithApInvoice() Adds a LEFT JOIN clause and with to the query using the ApInvoice relation
+ * @method     ChildPurchaseOrderQuery rightJoinWithApInvoice() Adds a RIGHT JOIN clause and with to the query using the ApInvoice relation
+ * @method     ChildPurchaseOrderQuery innerJoinWithApInvoice() Adds a INNER JOIN clause and with to the query using the ApInvoice relation
+ *
+ * @method     \VendorQuery|\VendorShipfromQuery|\ApInvoiceQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildPurchaseOrder findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrder matching the query
  * @method     ChildPurchaseOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrder matching the query, or a new ChildPurchaseOrder object populated from the query conditions when no match is found
@@ -2123,6 +2133,79 @@ abstract class PurchaseOrderQuery extends ModelCriteria
         return $this
             ->joinVendorShipfrom($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'VendorShipfrom', '\VendorShipfromQuery');
+    }
+
+    /**
+     * Filter the query by a related \ApInvoice object
+     *
+     * @param \ApInvoice|ObjectCollection $apInvoice the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildPurchaseOrderQuery The current query, for fluid interface
+     */
+    public function filterByApInvoice($apInvoice, $comparison = null)
+    {
+        if ($apInvoice instanceof \ApInvoice) {
+            return $this
+                ->addUsingAlias(PurchaseOrderTableMap::COL_POHDNBR, $apInvoice->getApihponbr(), $comparison);
+        } elseif ($apInvoice instanceof ObjectCollection) {
+            return $this
+                ->useApInvoiceQuery()
+                ->filterByPrimaryKeys($apInvoice->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByApInvoice() only accepts arguments of type \ApInvoice or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApInvoice relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildPurchaseOrderQuery The current query, for fluid interface
+     */
+    public function joinApInvoice($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApInvoice');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApInvoice');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApInvoice relation ApInvoice object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApInvoiceQuery A secondary query class using the current class as primary query
+     */
+    public function useApInvoiceQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinApInvoice($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApInvoice', '\ApInvoiceQuery');
     }
 
     /**

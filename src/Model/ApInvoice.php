@@ -10,7 +10,7 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class ApInvoice extends BaseApInvoice {
-    use ThrowErrorTrait;
+	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	/**
@@ -18,10 +18,14 @@ class ApInvoice extends BaseApInvoice {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'aptbbuyrcode',
-		'code'         => 'aptbbuyrcode',
-		'description'  => 'aptbbuyrdesc',
-		'name'         => 'aptbbuyrdesc',
-		'email'        => 'aptbbuyremail'
+		'vendorid' => 'apvevendid',
+		'vendorID' => 'apvevendid',
+		'ponbr'    => 'apihponbr',
+		'invoicenumber'         => 'apihinvnbr',
+		'checknumber_prepaid'   => 'apihppchknbr',
+		'checknumber'           => 'apihchknbr',
+		'total'                 => 'apihtotamt',
+		'whse'                  => 'intbwhse',
+		'date_invoiced'         => 'apihinvdate'
 	);
 }

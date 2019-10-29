@@ -321,7 +321,7 @@ class ApInvoiceTableMap extends TableMap
         $this->addColumn('ApihPtCity', 'Apihptcity', 'VARCHAR', false, 16, null);
         $this->addColumn('ApihPtStat', 'Apihptstat', 'VARCHAR', false, 2, null);
         $this->addColumn('ApihPtZipCode', 'Apihptzipcode', 'VARCHAR', false, 10, null);
-        $this->addPrimaryKey('ApihPoNbr', 'Apihponbr', 'VARCHAR', true, 8, '');
+        $this->addForeignPrimaryKey('ApihPoNbr', 'Apihponbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
         $this->addPrimaryKey('ApihCtrlNbr', 'Apihctrlnbr', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('ApihInvNbr', 'Apihinvnbr', 'VARCHAR', true, 15, '');
         $this->addPrimaryKey('ApihSeq', 'Apihseq', 'INTEGER', true, 4, 0);
@@ -361,6 +361,13 @@ class ApInvoiceTableMap extends TableMap
   array (
     0 => ':ApveVendId',
     1 => ':ApveVendId',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApihPoNbr',
+    1 => ':PohdNbr',
   ),
 ), null, null, null, false);
     } // buildRelations()

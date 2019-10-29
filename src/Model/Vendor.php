@@ -124,6 +124,22 @@ class Vendor extends BaseVendor {
 	}
 
 	/**
+	 * Return the Total Invoices amount for this Vendor
+	 *
+	 * @return float
+	 */
+	public function get_invoices_amt() {
+		$q = ApInvoiceQuery::create();
+		$q->filterByVendorid($this->vendorid);
+		$column = APInvoice::get_aliasproperty('total');
+		$q->withColumn("SUM($column)", 'total');
+		$q->select('total');
+		$q->filterByChecknumber(0);
+		$q->filterByChecknumber_prepaid(0);
+		return $q->findOne();
+	}
+
+	/**
 	 * Returns all the PO Numbers associated with this Vendor
 	 *
 	 * @return array

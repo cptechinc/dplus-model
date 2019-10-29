@@ -3,6 +3,8 @@
 namespace Base;
 
 use \ApInvoiceQuery as ChildApInvoiceQuery;
+use \PurchaseOrder as ChildPurchaseOrder;
+use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
 use \Exception;
@@ -337,6 +339,11 @@ abstract class ApInvoice implements ActiveRecordInterface
      * @var        ChildVendor
      */
     protected $aVendor;
+
+    /**
+     * @var        ChildPurchaseOrder
+     */
+    protected $aPurchaseOrder;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1190,6 +1197,10 @@ abstract class ApInvoice implements ActiveRecordInterface
             $this->modifiedColumns[ApInvoiceTableMap::COL_APIHPONBR] = true;
         }
 
+        if ($this->aPurchaseOrder !== null && $this->aPurchaseOrder->getPohdnbr() !== $v) {
+            $this->aPurchaseOrder = null;
+        }
+
         return $this;
     } // setApihponbr()
 
@@ -1939,6 +1950,9 @@ abstract class ApInvoice implements ActiveRecordInterface
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
         }
+        if ($this->aPurchaseOrder !== null && $this->apihponbr !== $this->aPurchaseOrder->getPohdnbr()) {
+            $this->aPurchaseOrder = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1979,6 +1993,7 @@ abstract class ApInvoice implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aVendor = null;
+            $this->aPurchaseOrder = null;
         } // if (deep)
     }
 
@@ -2092,6 +2107,13 @@ abstract class ApInvoice implements ActiveRecordInterface
                     $affectedRows += $this->aVendor->save($con);
                 }
                 $this->setVendor($this->aVendor);
+            }
+
+            if ($this->aPurchaseOrder !== null) {
+                if ($this->aPurchaseOrder->isModified() || $this->aPurchaseOrder->isNew()) {
+                    $affectedRows += $this->aPurchaseOrder->save($con);
+                }
+                $this->setPurchaseOrder($this->aPurchaseOrder);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -2625,6 +2647,21 @@ abstract class ApInvoice implements ActiveRecordInterface
 
                 $result[$key] = $this->aVendor->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aPurchaseOrder) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrder';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_head';
+                        break;
+                    default:
+                        $key = 'PurchaseOrder';
+                }
+
+                $result[$key] = $this->aPurchaseOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -3110,11 +3147,18 @@ abstract class ApInvoice implements ActiveRecordInterface
             null !== $this->getApihinvnbr() &&
             null !== $this->getApihseq();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
 
         //relation vendor to table ap_vend_mast
         if ($this->aVendor && $hash = spl_object_hash($this->aVendor)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation purchaseorder to table po_head
+        if ($this->aPurchaseOrder && $hash = spl_object_hash($this->aPurchaseOrder)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -3302,6 +3346,57 @@ abstract class ApInvoice implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildPurchaseOrder object.
+     *
+     * @param  ChildPurchaseOrder $v
+     * @return $this|\ApInvoice The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setPurchaseOrder(ChildPurchaseOrder $v = null)
+    {
+        if ($v === null) {
+            $this->setApihponbr('');
+        } else {
+            $this->setApihponbr($v->getPohdnbr());
+        }
+
+        $this->aPurchaseOrder = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildPurchaseOrder object, it will not be re-added.
+        if ($v !== null) {
+            $v->addApInvoice($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildPurchaseOrder object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildPurchaseOrder The associated ChildPurchaseOrder object.
+     * @throws PropelException
+     */
+    public function getPurchaseOrder(ConnectionInterface $con = null)
+    {
+        if ($this->aPurchaseOrder === null && (($this->apihponbr !== "" && $this->apihponbr !== null))) {
+            $this->aPurchaseOrder = ChildPurchaseOrderQuery::create()->findPk($this->apihponbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aPurchaseOrder->addApInvoices($this);
+             */
+        }
+
+        return $this->aPurchaseOrder;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3310,6 +3405,9 @@ abstract class ApInvoice implements ActiveRecordInterface
     {
         if (null !== $this->aVendor) {
             $this->aVendor->removeApInvoice($this);
+        }
+        if (null !== $this->aPurchaseOrder) {
+            $this->aPurchaseOrder->removeApInvoice($this);
         }
         $this->apvevendid = null;
         $this->apihpaytokey = null;
@@ -3371,6 +3469,7 @@ abstract class ApInvoice implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aVendor = null;
+        $this->aPurchaseOrder = null;
     }
 
     /**

@@ -53,6 +53,9 @@
     <foreign-key foreignTable="ap_vend_mast" name="vendor">
       <reference local="ApveVendId" foreign="ApveVendId"/>
     </foreign-key>
+    <foreign-key foreignTable="po_head" name="purchaseorder">
+      <reference local="ApihPoNbr" foreign="PohdNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
