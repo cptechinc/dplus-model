@@ -567,6 +567,18 @@ class VendorShipfromTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, null, false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+  1 =>
+  array (
+    0 => ':ApfmShipId',
+    1 => ':ApfmShipId',
+  ),
+), null, null, 'PurchaseOrders', false);
     } // buildRelations()
 
     /**

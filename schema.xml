@@ -1266,6 +1266,8 @@
     <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
       <reference local="ApveVendId" foreign="ApveVendId"/>
     </foreign-key>
+    <foreign-key foreignTable="ap_ship_from" name="shipfrom" skipSql="true">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
       <reference local="ApfmShipId" foreign="ApfmShipId"/>
     </foreign-key>
     <vendor type="mysql">

@@ -405,7 +405,8 @@ class PurchaseOrderTableMap extends TableMap
         $this->addColumn('PohdStat', 'Pohdstat', 'VARCHAR', false, 1, null);
         $this->addColumn('PohdRef', 'Pohdref', 'VARCHAR', false, 15, null);
         $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6, null);
-        $this->addColumn('ApfmShipId', 'Apfmshipid', 'VARCHAR', false, 6, null);
+        $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_ship_from', 'ApveVendId', false, 6, null);
+        $this->addForeignKey('ApfmShipId', 'Apfmshipid', 'VARCHAR', 'ap_ship_from', 'ApfmShipId', false, 6, null);
         $this->addColumn('PohdToName', 'Pohdtoname', 'VARCHAR', false, 30, null);
         $this->addColumn('PohdToAdr1', 'Pohdtoadr1', 'VARCHAR', false, 30, null);
         $this->addColumn('PohdToAdr2', 'Pohdtoadr2', 'VARCHAR', false, 30, null);
@@ -469,6 +470,18 @@ class PurchaseOrderTableMap extends TableMap
   array (
     0 => ':ApveVendId',
     1 => ':ApveVendId',
+  ),
+), null, null, null, false);
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+  1 =>
+  array (
+    0 => ':ApfmShipId',
+    1 => ':ApfmShipId',
   ),
 ), null, null, null, false);
     } // buildRelations()

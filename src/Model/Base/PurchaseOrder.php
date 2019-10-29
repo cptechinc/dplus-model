@@ -5,6 +5,8 @@ namespace Base;
 use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
+use \VendorShipfrom as ChildVendorShipfrom;
+use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
 use Map\PurchaseOrderTableMap;
@@ -458,6 +460,11 @@ abstract class PurchaseOrder implements ActiveRecordInterface
      * @var        ChildVendor
      */
     protected $aVendor;
+
+    /**
+     * @var        ChildVendorShipfrom
+     */
+    protected $aVendorShipfrom;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1346,6 +1353,10 @@ abstract class PurchaseOrder implements ActiveRecordInterface
             $this->aVendor = null;
         }
 
+        if ($this->aVendorShipfrom !== null && $this->aVendorShipfrom->getApvevendid() !== $v) {
+            $this->aVendorShipfrom = null;
+        }
+
         return $this;
     } // setApvevendid()
 
@@ -1364,6 +1375,10 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         if ($this->apfmshipid !== $v) {
             $this->apfmshipid = $v;
             $this->modifiedColumns[PurchaseOrderTableMap::COL_APFMSHIPID] = true;
+        }
+
+        if ($this->aVendorShipfrom !== null && $this->aVendorShipfrom->getApfmshipid() !== $v) {
+            $this->aVendorShipfrom = null;
         }
 
         return $this;
@@ -2629,6 +2644,12 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
         }
+        if ($this->aVendorShipfrom !== null && $this->apvevendid !== $this->aVendorShipfrom->getApvevendid()) {
+            $this->aVendorShipfrom = null;
+        }
+        if ($this->aVendorShipfrom !== null && $this->apfmshipid !== $this->aVendorShipfrom->getApfmshipid()) {
+            $this->aVendorShipfrom = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2669,6 +2690,7 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aVendor = null;
+            $this->aVendorShipfrom = null;
         } // if (deep)
     }
 
@@ -2782,6 +2804,13 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                     $affectedRows += $this->aVendor->save($con);
                 }
                 $this->setVendor($this->aVendor);
+            }
+
+            if ($this->aVendorShipfrom !== null) {
+                if ($this->aVendorShipfrom->isModified() || $this->aVendorShipfrom->isNew()) {
+                    $affectedRows += $this->aVendorShipfrom->save($con);
+                }
+                $this->setVendorShipfrom($this->aVendorShipfrom);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -3494,6 +3523,21 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aVendor->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aVendorShipfrom) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendorShipfrom';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_ship_from';
+                        break;
+                    default:
+                        $key = 'VendorShipfrom';
+                }
+
+                $result[$key] = $this->aVendorShipfrom->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
         }
 
@@ -4321,6 +4365,63 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildVendorShipfrom object.
+     *
+     * @param  ChildVendorShipfrom $v
+     * @return $this|\PurchaseOrder The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setVendorShipfrom(ChildVendorShipfrom $v = null)
+    {
+        if ($v === null) {
+            $this->setApvevendid(NULL);
+        } else {
+            $this->setApvevendid($v->getApvevendid());
+        }
+
+        if ($v === null) {
+            $this->setApfmshipid(NULL);
+        } else {
+            $this->setApfmshipid($v->getApfmshipid());
+        }
+
+        $this->aVendorShipfrom = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildVendorShipfrom object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrder($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildVendorShipfrom object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildVendorShipfrom The associated ChildVendorShipfrom object.
+     * @throws PropelException
+     */
+    public function getVendorShipfrom(ConnectionInterface $con = null)
+    {
+        if ($this->aVendorShipfrom === null && (($this->apvevendid !== "" && $this->apvevendid !== null) && ($this->apfmshipid !== "" && $this->apfmshipid !== null))) {
+            $this->aVendorShipfrom = ChildVendorShipfromQuery::create()->findPk(array($this->apvevendid, $this->apfmshipid), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aVendorShipfrom->addPurchaseOrders($this);
+             */
+        }
+
+        return $this->aVendorShipfrom;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -4329,6 +4430,9 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     {
         if (null !== $this->aVendor) {
             $this->aVendor->removePurchaseOrder($this);
+        }
+        if (null !== $this->aVendorShipfrom) {
+            $this->aVendorShipfrom->removePurchaseOrder($this);
         }
         $this->pohdnbr = null;
         $this->pohdstat = null;
@@ -4408,6 +4512,7 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aVendor = null;
+        $this->aVendorShipfrom = null;
     }
 
     /**

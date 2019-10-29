@@ -152,7 +152,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderQuery rightJoinWithVendor() Adds a RIGHT JOIN clause and with to the query using the Vendor relation
  * @method     ChildPurchaseOrderQuery innerJoinWithVendor() Adds a INNER JOIN clause and with to the query using the Vendor relation
  *
- * @method     \VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildPurchaseOrderQuery leftJoinVendorShipfrom($relationAlias = null) Adds a LEFT JOIN clause to the query using the VendorShipfrom relation
+ * @method     ChildPurchaseOrderQuery rightJoinVendorShipfrom($relationAlias = null) Adds a RIGHT JOIN clause to the query using the VendorShipfrom relation
+ * @method     ChildPurchaseOrderQuery innerJoinVendorShipfrom($relationAlias = null) Adds a INNER JOIN clause to the query using the VendorShipfrom relation
+ *
+ * @method     ChildPurchaseOrderQuery joinWithVendorShipfrom($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the VendorShipfrom relation
+ *
+ * @method     ChildPurchaseOrderQuery leftJoinWithVendorShipfrom() Adds a LEFT JOIN clause and with to the query using the VendorShipfrom relation
+ * @method     ChildPurchaseOrderQuery rightJoinWithVendorShipfrom() Adds a RIGHT JOIN clause and with to the query using the VendorShipfrom relation
+ * @method     ChildPurchaseOrderQuery innerJoinWithVendorShipfrom() Adds a INNER JOIN clause and with to the query using the VendorShipfrom relation
+ *
+ * @method     \VendorQuery|\VendorShipfromQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildPurchaseOrder findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrder matching the query
  * @method     ChildPurchaseOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrder matching the query, or a new ChildPurchaseOrder object populated from the query conditions when no match is found
@@ -2042,6 +2052,77 @@ abstract class PurchaseOrderQuery extends ModelCriteria
         return $this
             ->joinVendor($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+    }
+
+    /**
+     * Filter the query by a related \VendorShipfrom object
+     *
+     * @param \VendorShipfrom $vendorShipfrom The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildPurchaseOrderQuery The current query, for fluid interface
+     */
+    public function filterByVendorShipfrom($vendorShipfrom, $comparison = null)
+    {
+        if ($vendorShipfrom instanceof \VendorShipfrom) {
+            return $this
+                ->addUsingAlias(PurchaseOrderTableMap::COL_APVEVENDID, $vendorShipfrom->getApvevendid(), $comparison)
+                ->addUsingAlias(PurchaseOrderTableMap::COL_APFMSHIPID, $vendorShipfrom->getApfmshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByVendorShipfrom() only accepts arguments of type \VendorShipfrom');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the VendorShipfrom relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildPurchaseOrderQuery The current query, for fluid interface
+     */
+    public function joinVendorShipfrom($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('VendorShipfrom');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'VendorShipfrom');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the VendorShipfrom relation VendorShipfrom object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \VendorShipfromQuery A secondary query class using the current class as primary query
+     */
+    public function useVendorShipfromQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinVendorShipfrom($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'VendorShipfrom', '\VendorShipfromQuery');
     }
 
     /**
