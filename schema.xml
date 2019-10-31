@@ -175,6 +175,9 @@
     <foreign-key foreignTable="ap_vend_mast" name="vendor">
       <reference local="ApveVendId" foreign="ApveVendId"/>
     </foreign-key>
+    <foreign-key foreignTable="ar_cust_svia" name="shipvia" skipSql="true">
+      <reference local="ArtbSviaCode" foreign="ArtbShipVia"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

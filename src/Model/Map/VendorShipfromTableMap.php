@@ -493,7 +493,7 @@ class VendorShipfromTableMap extends TableMap
         $this->addColumn('ApfmZipCode', 'Apfmzipcode', 'VARCHAR', false, 10, null);
         $this->addColumn('ApfmCont1', 'Apfmcont1', 'VARCHAR', false, 20, null);
         $this->addColumn('ApfmCont2', 'Apfmcont2', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
         $this->addColumn('ApfmGlAcct', 'Apfmglacct', 'VARCHAR', false, 16, null);
         $this->addColumn('ApfmPurMtd', 'Apfmpurmtd', 'DECIMAL', false, 20, null);
         $this->addColumn('ApfmPoMtd', 'Apfmpomtd', 'INTEGER', false, 7, null);
@@ -565,6 +565,13 @@ class VendorShipfromTableMap extends TableMap
   array (
     0 => ':ApveVendId',
     1 => ':ApveVendId',
+  ),
+), null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArtbSviaCode',
+    1 => ':ArtbShipVia',
   ),
 ), null, null, null, false);
         $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
