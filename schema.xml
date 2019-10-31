@@ -11,6 +11,34 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ap_invoice_det" idMethod="native" phpName="ApInvoiceDetail">
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApidPayToKey" phpName="Apidpaytokey" type="VARCHAR" size="180" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApidPtName" phpName="Apidptname" type="VARCHAR" size="30"/>
+    <column name="ApidPtAdr1" phpName="Apidptadr1" type="VARCHAR" size="30"/>
+    <column name="ApidPtAdr2" phpName="Apidptadr2" type="VARCHAR" size="30"/>
+    <column name="ApidPtAdr3" phpName="Apidptadr3" type="VARCHAR" size="30"/>
+    <column name="ApidPtCtry" phpName="Apidptctry" type="VARCHAR" size="4"/>
+    <column name="ApidPtCity" phpName="Apidptcity" type="VARCHAR" size="16"/>
+    <column name="ApidPtStat" phpName="Apidptstat" type="VARCHAR" size="2"/>
+    <column name="ApidPtZipCode" phpName="Apidptzipcode" type="VARCHAR" size="10"/>
+    <column name="ApidPoNbr" phpName="Apidponbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApidCtrlNbr" phpName="Apidctrlnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApidInvNbr" phpName="Apidinvnbr" type="VARCHAR" size="15" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApidSeq" phpName="Apidseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ApidLine" phpName="Apidline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ApidAmt" phpName="Apidamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApidGlAcct" phpName="Apidglacct" type="VARCHAR" size="12"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="ApidQtyRec" phpName="Apidqtyrec" type="DECIMAL" size="20" scale="7"/>
+    <column name="ApidDesc" phpName="Apiddesc" type="VARCHAR" size="35"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ap_invoice_head" idMethod="native" phpName="ApInvoice">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ApihPayToKey" phpName="Apihpaytokey" type="VARCHAR" size="180" primaryKey="true" required="true" defaultValue=""/>
