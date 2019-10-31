@@ -236,8 +236,9 @@ class ApInvoiceDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR', true, 6, '');
-        $this->addPrimaryKey('ApidPayToKey', 'Apidpaytokey', 'VARCHAR', true, 180, '');
+        $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_invoice_head', 'ApveVendId', true, 6, '');
+        $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
+        $this->addForeignPrimaryKey('ApidPayToKey', 'Apidpaytokey', 'VARCHAR' , 'ap_invoice_head', 'ApihPayToKey', true, 180, '');
         $this->addColumn('ApidPtName', 'Apidptname', 'VARCHAR', false, 30, null);
         $this->addColumn('ApidPtAdr1', 'Apidptadr1', 'VARCHAR', false, 30, null);
         $this->addColumn('ApidPtAdr2', 'Apidptadr2', 'VARCHAR', false, 30, null);
@@ -246,10 +247,10 @@ class ApInvoiceDetailTableMap extends TableMap
         $this->addColumn('ApidPtCity', 'Apidptcity', 'VARCHAR', false, 16, null);
         $this->addColumn('ApidPtStat', 'Apidptstat', 'VARCHAR', false, 2, null);
         $this->addColumn('ApidPtZipCode', 'Apidptzipcode', 'VARCHAR', false, 10, null);
-        $this->addPrimaryKey('ApidPoNbr', 'Apidponbr', 'VARCHAR', true, 8, '');
-        $this->addPrimaryKey('ApidCtrlNbr', 'Apidctrlnbr', 'VARCHAR', true, 8, '');
-        $this->addPrimaryKey('ApidInvNbr', 'Apidinvnbr', 'VARCHAR', true, 15, '');
-        $this->addPrimaryKey('ApidSeq', 'Apidseq', 'INTEGER', true, 4, 0);
+        $this->addForeignPrimaryKey('ApidPoNbr', 'Apidponbr', 'VARCHAR' , 'ap_invoice_head', 'ApihPoNbr', true, 8, '');
+        $this->addForeignPrimaryKey('ApidCtrlNbr', 'Apidctrlnbr', 'VARCHAR' , 'ap_invoice_head', 'ApihCtrlNbr', true, 8, '');
+        $this->addForeignPrimaryKey('ApidInvNbr', 'Apidinvnbr', 'VARCHAR' , 'ap_invoice_head', 'ApihInvNbr', true, 15, '');
+        $this->addForeignPrimaryKey('ApidSeq', 'Apidseq', 'INTEGER' , 'ap_invoice_head', 'ApihSeq', true, 4, 0);
         $this->addPrimaryKey('ApidLine', 'Apidline', 'INTEGER', true, 4, 0);
         $this->addColumn('ApidAmt', 'Apidamt', 'DECIMAL', false, 20, null);
         $this->addColumn('ApidGlAcct', 'Apidglacct', 'VARCHAR', false, 12, null);
@@ -266,6 +267,45 @@ class ApInvoiceDetailTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApidInvNbr',
+    1 => ':ApihInvNbr',
+  ),
+  1 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+  2 =>
+  array (
+    0 => ':ApidPayToKey',
+    1 => ':ApihPayToKey',
+  ),
+  3 =>
+  array (
+    0 => ':ApidPoNbr',
+    1 => ':ApihPoNbr',
+  ),
+  4 =>
+  array (
+    0 => ':ApidCtrlNbr',
+    1 => ':ApihCtrlNbr',
+  ),
+  5 =>
+  array (
+    0 => ':ApidSeq',
+    1 => ':ApihSeq',
+  ),
+), null, null, null, false);
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

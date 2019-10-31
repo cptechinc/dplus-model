@@ -5,6 +5,8 @@ namespace Base;
 use \ApBuyer as ChildApBuyer;
 use \ApBuyerQuery as ChildApBuyerQuery;
 use \ApInvoice as ChildApInvoice;
+use \ApInvoiceDetail as ChildApInvoiceDetail;
+use \ApInvoiceDetailQuery as ChildApInvoiceDetailQuery;
 use \ApInvoiceQuery as ChildApInvoiceQuery;
 use \ApTermsCode as ChildApTermsCode;
 use \ApTermsCodeQuery as ChildApTermsCodeQuery;
@@ -20,6 +22,7 @@ use \VendorShipfrom as ChildVendorShipfrom;
 use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
+use Map\ApInvoiceDetailTableMap;
 use Map\ApInvoiceTableMap;
 use Map\PurchaseOrderTableMap;
 use Map\VendorShipfromTableMap;
@@ -1318,6 +1321,12 @@ abstract class Vendor implements ActiveRecordInterface
     protected $aApBuyer;
 
     /**
+     * @var        ObjectCollection|ChildApInvoiceDetail[] Collection to store aggregation of ChildApInvoiceDetail objects.
+     */
+    protected $collApInvoiceDetails;
+    protected $collApInvoiceDetailsPartial;
+
+    /**
      * @var        ObjectCollection|ChildApInvoice[] Collection to store aggregation of ChildApInvoice objects.
      */
     protected $collApInvoices;
@@ -1342,6 +1351,12 @@ abstract class Vendor implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildApInvoiceDetail[]
+     */
+    protected $apInvoiceDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -7481,6 +7496,8 @@ abstract class Vendor implements ActiveRecordInterface
             $this->aApTermsCode = null;
             $this->aShipvia = null;
             $this->aApBuyer = null;
+            $this->collApInvoiceDetails = null;
+
             $this->collApInvoices = null;
 
             $this->collVendorShipfroms = null;
@@ -7632,6 +7649,23 @@ abstract class Vendor implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->apInvoiceDetailsScheduledForDeletion !== null) {
+                if (!$this->apInvoiceDetailsScheduledForDeletion->isEmpty()) {
+                    \ApInvoiceDetailQuery::create()
+                        ->filterByPrimaryKeys($this->apInvoiceDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->apInvoiceDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collApInvoiceDetails !== null) {
+                foreach ($this->collApInvoiceDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->apInvoicesScheduledForDeletion !== null) {
@@ -9611,6 +9645,21 @@ abstract class Vendor implements ActiveRecordInterface
 
                 $result[$key] = $this->aApBuyer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->collApInvoiceDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apInvoiceDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_invoice_dets';
+                        break;
+                    default:
+                        $key = 'ApInvoiceDetails';
+                }
+
+                $result[$key] = $this->collApInvoiceDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collApInvoices) {
 
                 switch ($keyType) {
@@ -11589,6 +11638,12 @@ abstract class Vendor implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getApInvoiceDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addApInvoiceDetail($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getApInvoices() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addApInvoice($relObj->copy($deepCopy));
@@ -11851,6 +11906,10 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ApInvoiceDetail' == $relationName) {
+            $this->initApInvoiceDetails();
+            return;
+        }
         if ('ApInvoice' == $relationName) {
             $this->initApInvoices();
             return;
@@ -11863,6 +11922,259 @@ abstract class Vendor implements ActiveRecordInterface
             $this->initPurchaseOrders();
             return;
         }
+    }
+
+    /**
+     * Clears out the collApInvoiceDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addApInvoiceDetails()
+     */
+    public function clearApInvoiceDetails()
+    {
+        $this->collApInvoiceDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collApInvoiceDetails collection loaded partially.
+     */
+    public function resetPartialApInvoiceDetails($v = true)
+    {
+        $this->collApInvoiceDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collApInvoiceDetails collection.
+     *
+     * By default this just sets the collApInvoiceDetails collection to an empty array (like clearcollApInvoiceDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initApInvoiceDetails($overrideExisting = true)
+    {
+        if (null !== $this->collApInvoiceDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ApInvoiceDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collApInvoiceDetails = new $collectionClassName;
+        $this->collApInvoiceDetails->setModel('\ApInvoiceDetail');
+    }
+
+    /**
+     * Gets an array of ChildApInvoiceDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildVendor is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildApInvoiceDetail[] List of ChildApInvoiceDetail objects
+     * @throws PropelException
+     */
+    public function getApInvoiceDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
+        if (null === $this->collApInvoiceDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collApInvoiceDetails) {
+                // return empty collection
+                $this->initApInvoiceDetails();
+            } else {
+                $collApInvoiceDetails = ChildApInvoiceDetailQuery::create(null, $criteria)
+                    ->filterByVendor($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collApInvoiceDetailsPartial && count($collApInvoiceDetails)) {
+                        $this->initApInvoiceDetails(false);
+
+                        foreach ($collApInvoiceDetails as $obj) {
+                            if (false == $this->collApInvoiceDetails->contains($obj)) {
+                                $this->collApInvoiceDetails->append($obj);
+                            }
+                        }
+
+                        $this->collApInvoiceDetailsPartial = true;
+                    }
+
+                    return $collApInvoiceDetails;
+                }
+
+                if ($partial && $this->collApInvoiceDetails) {
+                    foreach ($this->collApInvoiceDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collApInvoiceDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collApInvoiceDetails = $collApInvoiceDetails;
+                $this->collApInvoiceDetailsPartial = false;
+            }
+        }
+
+        return $this->collApInvoiceDetails;
+    }
+
+    /**
+     * Sets a collection of ChildApInvoiceDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $apInvoiceDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function setApInvoiceDetails(Collection $apInvoiceDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildApInvoiceDetail[] $apInvoiceDetailsToDelete */
+        $apInvoiceDetailsToDelete = $this->getApInvoiceDetails(new Criteria(), $con)->diff($apInvoiceDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->apInvoiceDetailsScheduledForDeletion = clone $apInvoiceDetailsToDelete;
+
+        foreach ($apInvoiceDetailsToDelete as $apInvoiceDetailRemoved) {
+            $apInvoiceDetailRemoved->setVendor(null);
+        }
+
+        $this->collApInvoiceDetails = null;
+        foreach ($apInvoiceDetails as $apInvoiceDetail) {
+            $this->addApInvoiceDetail($apInvoiceDetail);
+        }
+
+        $this->collApInvoiceDetails = $apInvoiceDetails;
+        $this->collApInvoiceDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ApInvoiceDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ApInvoiceDetail objects.
+     * @throws PropelException
+     */
+    public function countApInvoiceDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApInvoiceDetailsPartial && !$this->isNew();
+        if (null === $this->collApInvoiceDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collApInvoiceDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getApInvoiceDetails());
+            }
+
+            $query = ChildApInvoiceDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByVendor($this)
+                ->count($con);
+        }
+
+        return count($this->collApInvoiceDetails);
+    }
+
+    /**
+     * Method called to associate a ChildApInvoiceDetail object to this object
+     * through the ChildApInvoiceDetail foreign key attribute.
+     *
+     * @param  ChildApInvoiceDetail $l ChildApInvoiceDetail
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function addApInvoiceDetail(ChildApInvoiceDetail $l)
+    {
+        if ($this->collApInvoiceDetails === null) {
+            $this->initApInvoiceDetails();
+            $this->collApInvoiceDetailsPartial = true;
+        }
+
+        if (!$this->collApInvoiceDetails->contains($l)) {
+            $this->doAddApInvoiceDetail($l);
+
+            if ($this->apInvoiceDetailsScheduledForDeletion and $this->apInvoiceDetailsScheduledForDeletion->contains($l)) {
+                $this->apInvoiceDetailsScheduledForDeletion->remove($this->apInvoiceDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildApInvoiceDetail $apInvoiceDetail The ChildApInvoiceDetail object to add.
+     */
+    protected function doAddApInvoiceDetail(ChildApInvoiceDetail $apInvoiceDetail)
+    {
+        $this->collApInvoiceDetails[]= $apInvoiceDetail;
+        $apInvoiceDetail->setVendor($this);
+    }
+
+    /**
+     * @param  ChildApInvoiceDetail $apInvoiceDetail The ChildApInvoiceDetail object to remove.
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function removeApInvoiceDetail(ChildApInvoiceDetail $apInvoiceDetail)
+    {
+        if ($this->getApInvoiceDetails()->contains($apInvoiceDetail)) {
+            $pos = $this->collApInvoiceDetails->search($apInvoiceDetail);
+            $this->collApInvoiceDetails->remove($pos);
+            if (null === $this->apInvoiceDetailsScheduledForDeletion) {
+                $this->apInvoiceDetailsScheduledForDeletion = clone $this->collApInvoiceDetails;
+                $this->apInvoiceDetailsScheduledForDeletion->clear();
+            }
+            $this->apInvoiceDetailsScheduledForDeletion[]= clone $apInvoiceDetail;
+            $apInvoiceDetail->setVendor(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Vendor is new, it will return
+     * an empty collection; or if this Vendor has previously
+     * been saved, it will retrieve related ApInvoiceDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Vendor.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildApInvoiceDetail[] List of ChildApInvoiceDetail objects
+     */
+    public function getApInvoiceDetailsJoinApInvoice(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildApInvoiceDetailQuery::create(null, $criteria);
+        $query->joinWith('ApInvoice', $joinBehavior);
+
+        return $this->getApInvoiceDetails($query, $con);
     }
 
     /**
@@ -12093,6 +12405,31 @@ abstract class Vendor implements ActiveRecordInterface
         return $this;
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Vendor is new, it will return
+     * an empty collection; or if this Vendor has previously
+     * been saved, it will retrieve related ApInvoices from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Vendor.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildApInvoice[] List of ChildApInvoice objects
+     */
+    public function getApInvoicesJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildApInvoiceQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getApInvoices($query, $con);
+    }
+
     /**
      * Clears out the collVendorShipfroms collection
      *
@@ -12321,6 +12658,31 @@ abstract class Vendor implements ActiveRecordInterface
         return $this;
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Vendor is new, it will return
+     * an empty collection; or if this Vendor has previously
+     * been saved, it will retrieve related VendorShipfroms from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Vendor.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
+     */
+    public function getVendorShipfromsJoinShipvia(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildVendorShipfromQuery::create(null, $criteria);
+        $query->joinWith('Shipvia', $joinBehavior);
+
+        return $this->getVendorShipfroms($query, $con);
+    }
+
     /**
      * Clears out the collPurchaseOrders collection
      *
@@ -12546,6 +12908,31 @@ abstract class Vendor implements ActiveRecordInterface
         return $this;
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Vendor is new, it will return
+     * an empty collection; or if this Vendor has previously
+     * been saved, it will retrieve related PurchaseOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Vendor.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
+     */
+    public function getPurchaseOrdersJoinVendorShipfrom(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderQuery::create(null, $criteria);
+        $query->joinWith('VendorShipfrom', $joinBehavior);
+
+        return $this->getPurchaseOrders($query, $con);
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -12758,6 +13145,11 @@ abstract class Vendor implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collApInvoiceDetails) {
+                foreach ($this->collApInvoiceDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collApInvoices) {
                 foreach ($this->collApInvoices as $o) {
                     $o->clearAllReferences($deep);
@@ -12775,6 +13167,7 @@ abstract class Vendor implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collApInvoiceDetails = null;
         $this->collApInvoices = null;
         $this->collVendorShipfroms = null;
         $this->collPurchaseOrders = null;

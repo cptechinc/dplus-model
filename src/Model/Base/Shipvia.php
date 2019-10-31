@@ -2,15 +2,23 @@
 
 namespace Base;
 
+use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
+use \Vendor as ChildVendor;
+use \VendorQuery as ChildVendorQuery;
+use \VendorShipfrom as ChildVendorShipfrom;
+use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
 use Map\ShipviaTableMap;
+use Map\VendorShipfromTableMap;
+use Map\VendorTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -208,12 +216,36 @@ abstract class Shipvia implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildVendorShipfrom[] Collection to store aggregation of ChildVendorShipfrom objects.
+     */
+    protected $collVendorShipfroms;
+    protected $collVendorShipfromsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildVendor[] Collection to store aggregation of ChildVendor objects.
+     */
+    protected $collVendors;
+    protected $collVendorsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildVendorShipfrom[]
+     */
+    protected $vendorShipfromsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildVendor[]
+     */
+    protected $vendorsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -1254,6 +1286,10 @@ abstract class Shipvia implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collVendorShipfroms = null;
+
+            $this->collVendors = null;
+
         } // if (deep)
     }
 
@@ -1366,6 +1402,42 @@ abstract class Shipvia implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->vendorShipfromsScheduledForDeletion !== null) {
+                if (!$this->vendorShipfromsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->vendorShipfromsScheduledForDeletion as $vendorShipfrom) {
+                        // need to save related object because we set the relation to null
+                        $vendorShipfrom->save($con);
+                    }
+                    $this->vendorShipfromsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collVendorShipfroms !== null) {
+                foreach ($this->collVendorShipfroms as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->vendorsScheduledForDeletion !== null) {
+                if (!$this->vendorsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->vendorsScheduledForDeletion as $vendor) {
+                        // need to save related object because we set the relation to null
+                        $vendor->save($con);
+                    }
+                    $this->vendorsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collVendors !== null) {
+                foreach ($this->collVendors as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -1662,10 +1734,11 @@ abstract class Shipvia implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['Shipvia'][$this->hashCode()])) {
@@ -1701,6 +1774,38 @@ abstract class Shipvia implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collVendorShipfroms) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendorShipfroms';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_ship_froms';
+                        break;
+                    default:
+                        $key = 'VendorShipfroms';
+                }
+
+                $result[$key] = $this->collVendorShipfroms->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collVendors) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendors';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_vend_masts';
+                        break;
+                    default:
+                        $key = 'Vendors';
+                }
+
+                $result[$key] = $this->collVendors->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -2097,6 +2202,26 @@ abstract class Shipvia implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getVendorShipfroms() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addVendorShipfrom($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getVendors() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addVendor($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -2122,6 +2247,577 @@ abstract class Shipvia implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('VendorShipfrom' == $relationName) {
+            $this->initVendorShipfroms();
+            return;
+        }
+        if ('Vendor' == $relationName) {
+            $this->initVendors();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collVendorShipfroms collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addVendorShipfroms()
+     */
+    public function clearVendorShipfroms()
+    {
+        $this->collVendorShipfroms = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collVendorShipfroms collection loaded partially.
+     */
+    public function resetPartialVendorShipfroms($v = true)
+    {
+        $this->collVendorShipfromsPartial = $v;
+    }
+
+    /**
+     * Initializes the collVendorShipfroms collection.
+     *
+     * By default this just sets the collVendorShipfroms collection to an empty array (like clearcollVendorShipfroms());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initVendorShipfroms($overrideExisting = true)
+    {
+        if (null !== $this->collVendorShipfroms && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = VendorShipfromTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collVendorShipfroms = new $collectionClassName;
+        $this->collVendorShipfroms->setModel('\VendorShipfrom');
+    }
+
+    /**
+     * Gets an array of ChildVendorShipfrom objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildShipvia is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
+     * @throws PropelException
+     */
+    public function getVendorShipfroms(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorShipfromsPartial && !$this->isNew();
+        if (null === $this->collVendorShipfroms || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collVendorShipfroms) {
+                // return empty collection
+                $this->initVendorShipfroms();
+            } else {
+                $collVendorShipfroms = ChildVendorShipfromQuery::create(null, $criteria)
+                    ->filterByShipvia($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collVendorShipfromsPartial && count($collVendorShipfroms)) {
+                        $this->initVendorShipfroms(false);
+
+                        foreach ($collVendorShipfroms as $obj) {
+                            if (false == $this->collVendorShipfroms->contains($obj)) {
+                                $this->collVendorShipfroms->append($obj);
+                            }
+                        }
+
+                        $this->collVendorShipfromsPartial = true;
+                    }
+
+                    return $collVendorShipfroms;
+                }
+
+                if ($partial && $this->collVendorShipfroms) {
+                    foreach ($this->collVendorShipfroms as $obj) {
+                        if ($obj->isNew()) {
+                            $collVendorShipfroms[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collVendorShipfroms = $collVendorShipfroms;
+                $this->collVendorShipfromsPartial = false;
+            }
+        }
+
+        return $this->collVendorShipfroms;
+    }
+
+    /**
+     * Sets a collection of ChildVendorShipfrom objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $vendorShipfroms A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildShipvia The current object (for fluent API support)
+     */
+    public function setVendorShipfroms(Collection $vendorShipfroms, ConnectionInterface $con = null)
+    {
+        /** @var ChildVendorShipfrom[] $vendorShipfromsToDelete */
+        $vendorShipfromsToDelete = $this->getVendorShipfroms(new Criteria(), $con)->diff($vendorShipfroms);
+
+
+        $this->vendorShipfromsScheduledForDeletion = $vendorShipfromsToDelete;
+
+        foreach ($vendorShipfromsToDelete as $vendorShipfromRemoved) {
+            $vendorShipfromRemoved->setShipvia(null);
+        }
+
+        $this->collVendorShipfroms = null;
+        foreach ($vendorShipfroms as $vendorShipfrom) {
+            $this->addVendorShipfrom($vendorShipfrom);
+        }
+
+        $this->collVendorShipfroms = $vendorShipfroms;
+        $this->collVendorShipfromsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related VendorShipfrom objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related VendorShipfrom objects.
+     * @throws PropelException
+     */
+    public function countVendorShipfroms(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorShipfromsPartial && !$this->isNew();
+        if (null === $this->collVendorShipfroms || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collVendorShipfroms) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getVendorShipfroms());
+            }
+
+            $query = ChildVendorShipfromQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByShipvia($this)
+                ->count($con);
+        }
+
+        return count($this->collVendorShipfroms);
+    }
+
+    /**
+     * Method called to associate a ChildVendorShipfrom object to this object
+     * through the ChildVendorShipfrom foreign key attribute.
+     *
+     * @param  ChildVendorShipfrom $l ChildVendorShipfrom
+     * @return $this|\Shipvia The current object (for fluent API support)
+     */
+    public function addVendorShipfrom(ChildVendorShipfrom $l)
+    {
+        if ($this->collVendorShipfroms === null) {
+            $this->initVendorShipfroms();
+            $this->collVendorShipfromsPartial = true;
+        }
+
+        if (!$this->collVendorShipfroms->contains($l)) {
+            $this->doAddVendorShipfrom($l);
+
+            if ($this->vendorShipfromsScheduledForDeletion and $this->vendorShipfromsScheduledForDeletion->contains($l)) {
+                $this->vendorShipfromsScheduledForDeletion->remove($this->vendorShipfromsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to add.
+     */
+    protected function doAddVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
+    {
+        $this->collVendorShipfroms[]= $vendorShipfrom;
+        $vendorShipfrom->setShipvia($this);
+    }
+
+    /**
+     * @param  ChildVendorShipfrom $vendorShipfrom The ChildVendorShipfrom object to remove.
+     * @return $this|ChildShipvia The current object (for fluent API support)
+     */
+    public function removeVendorShipfrom(ChildVendorShipfrom $vendorShipfrom)
+    {
+        if ($this->getVendorShipfroms()->contains($vendorShipfrom)) {
+            $pos = $this->collVendorShipfroms->search($vendorShipfrom);
+            $this->collVendorShipfroms->remove($pos);
+            if (null === $this->vendorShipfromsScheduledForDeletion) {
+                $this->vendorShipfromsScheduledForDeletion = clone $this->collVendorShipfroms;
+                $this->vendorShipfromsScheduledForDeletion->clear();
+            }
+            $this->vendorShipfromsScheduledForDeletion[]= $vendorShipfrom;
+            $vendorShipfrom->setShipvia(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Shipvia is new, it will return
+     * an empty collection; or if this Shipvia has previously
+     * been saved, it will retrieve related VendorShipfroms from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Shipvia.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildVendorShipfrom[] List of ChildVendorShipfrom objects
+     */
+    public function getVendorShipfromsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildVendorShipfromQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getVendorShipfroms($query, $con);
+    }
+
+    /**
+     * Clears out the collVendors collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addVendors()
+     */
+    public function clearVendors()
+    {
+        $this->collVendors = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collVendors collection loaded partially.
+     */
+    public function resetPartialVendors($v = true)
+    {
+        $this->collVendorsPartial = $v;
+    }
+
+    /**
+     * Initializes the collVendors collection.
+     *
+     * By default this just sets the collVendors collection to an empty array (like clearcollVendors());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initVendors($overrideExisting = true)
+    {
+        if (null !== $this->collVendors && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = VendorTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collVendors = new $collectionClassName;
+        $this->collVendors->setModel('\Vendor');
+    }
+
+    /**
+     * Gets an array of ChildVendor objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildShipvia is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     * @throws PropelException
+     */
+    public function getVendors(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorsPartial && !$this->isNew();
+        if (null === $this->collVendors || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collVendors) {
+                // return empty collection
+                $this->initVendors();
+            } else {
+                $collVendors = ChildVendorQuery::create(null, $criteria)
+                    ->filterByShipvia($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collVendorsPartial && count($collVendors)) {
+                        $this->initVendors(false);
+
+                        foreach ($collVendors as $obj) {
+                            if (false == $this->collVendors->contains($obj)) {
+                                $this->collVendors->append($obj);
+                            }
+                        }
+
+                        $this->collVendorsPartial = true;
+                    }
+
+                    return $collVendors;
+                }
+
+                if ($partial && $this->collVendors) {
+                    foreach ($this->collVendors as $obj) {
+                        if ($obj->isNew()) {
+                            $collVendors[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collVendors = $collVendors;
+                $this->collVendorsPartial = false;
+            }
+        }
+
+        return $this->collVendors;
+    }
+
+    /**
+     * Sets a collection of ChildVendor objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $vendors A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildShipvia The current object (for fluent API support)
+     */
+    public function setVendors(Collection $vendors, ConnectionInterface $con = null)
+    {
+        /** @var ChildVendor[] $vendorsToDelete */
+        $vendorsToDelete = $this->getVendors(new Criteria(), $con)->diff($vendors);
+
+
+        $this->vendorsScheduledForDeletion = $vendorsToDelete;
+
+        foreach ($vendorsToDelete as $vendorRemoved) {
+            $vendorRemoved->setShipvia(null);
+        }
+
+        $this->collVendors = null;
+        foreach ($vendors as $vendor) {
+            $this->addVendor($vendor);
+        }
+
+        $this->collVendors = $vendors;
+        $this->collVendorsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related Vendor objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related Vendor objects.
+     * @throws PropelException
+     */
+    public function countVendors(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collVendorsPartial && !$this->isNew();
+        if (null === $this->collVendors || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collVendors) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getVendors());
+            }
+
+            $query = ChildVendorQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByShipvia($this)
+                ->count($con);
+        }
+
+        return count($this->collVendors);
+    }
+
+    /**
+     * Method called to associate a ChildVendor object to this object
+     * through the ChildVendor foreign key attribute.
+     *
+     * @param  ChildVendor $l ChildVendor
+     * @return $this|\Shipvia The current object (for fluent API support)
+     */
+    public function addVendor(ChildVendor $l)
+    {
+        if ($this->collVendors === null) {
+            $this->initVendors();
+            $this->collVendorsPartial = true;
+        }
+
+        if (!$this->collVendors->contains($l)) {
+            $this->doAddVendor($l);
+
+            if ($this->vendorsScheduledForDeletion and $this->vendorsScheduledForDeletion->contains($l)) {
+                $this->vendorsScheduledForDeletion->remove($this->vendorsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildVendor $vendor The ChildVendor object to add.
+     */
+    protected function doAddVendor(ChildVendor $vendor)
+    {
+        $this->collVendors[]= $vendor;
+        $vendor->setShipvia($this);
+    }
+
+    /**
+     * @param  ChildVendor $vendor The ChildVendor object to remove.
+     * @return $this|ChildShipvia The current object (for fluent API support)
+     */
+    public function removeVendor(ChildVendor $vendor)
+    {
+        if ($this->getVendors()->contains($vendor)) {
+            $pos = $this->collVendors->search($vendor);
+            $this->collVendors->remove($pos);
+            if (null === $this->vendorsScheduledForDeletion) {
+                $this->vendorsScheduledForDeletion = clone $this->collVendors;
+                $this->vendorsScheduledForDeletion->clear();
+            }
+            $this->vendorsScheduledForDeletion[]= $vendor;
+            $vendor->setShipvia(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Shipvia is new, it will return
+     * an empty collection; or if this Shipvia has previously
+     * been saved, it will retrieve related Vendors from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Shipvia.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     */
+    public function getVendorsJoinApTypeCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildVendorQuery::create(null, $criteria);
+        $query->joinWith('ApTypeCode', $joinBehavior);
+
+        return $this->getVendors($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Shipvia is new, it will return
+     * an empty collection; or if this Shipvia has previously
+     * been saved, it will retrieve related Vendors from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Shipvia.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     */
+    public function getVendorsJoinApTermsCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildVendorQuery::create(null, $criteria);
+        $query->joinWith('ApTermsCode', $joinBehavior);
+
+        return $this->getVendors($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Shipvia is new, it will return
+     * an empty collection; or if this Shipvia has previously
+     * been saved, it will retrieve related Vendors from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Shipvia.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildVendor[] List of ChildVendor objects
+     */
+    public function getVendorsJoinApBuyer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildVendorQuery::create(null, $criteria);
+        $query->joinWith('ApBuyer', $joinBehavior);
+
+        return $this->getVendors($query, $con);
     }
 
     /**
@@ -2171,8 +2867,20 @@ abstract class Shipvia implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collVendorShipfroms) {
+                foreach ($this->collVendorShipfroms as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collVendors) {
+                foreach ($this->collVendors as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collVendorShipfroms = null;
+        $this->collVendors = null;
     }
 
     /**

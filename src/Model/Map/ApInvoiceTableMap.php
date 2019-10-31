@@ -370,6 +370,38 @@ class ApInvoiceTableMap extends TableMap
     1 => ':PohdNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('ApInvoiceDetail', '\\ApInvoiceDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApidInvNbr',
+    1 => ':ApihInvNbr',
+  ),
+  1 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+  2 =>
+  array (
+    0 => ':ApidPayToKey',
+    1 => ':ApihPayToKey',
+  ),
+  3 =>
+  array (
+    0 => ':ApidPoNbr',
+    1 => ':ApihPoNbr',
+  ),
+  4 =>
+  array (
+    0 => ':ApidCtrlNbr',
+    1 => ':ApihCtrlNbr',
+  ),
+  5 =>
+  array (
+    0 => ':ApidSeq',
+    1 => ':ApihSeq',
+  ),
+), null, null, 'ApInvoiceDetails', false);
     } // buildRelations()
 
     /**

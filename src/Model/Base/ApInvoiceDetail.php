@@ -2,7 +2,11 @@
 
 namespace Base;
 
+use \ApInvoice as ChildApInvoice;
 use \ApInvoiceDetailQuery as ChildApInvoiceDetailQuery;
+use \ApInvoiceQuery as ChildApInvoiceQuery;
+use \Vendor as ChildVendor;
+use \VendorQuery as ChildVendorQuery;
 use \Exception;
 use \PDO;
 use Map\ApInvoiceDetailTableMap;
@@ -226,6 +230,16 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildApInvoice
+     */
+    protected $aApInvoice;
+
+    /**
+     * @var        ChildVendor
+     */
+    protected $aVendor;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -726,6 +740,14 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APVEVENDID] = true;
         }
 
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApvevendid() !== $v) {
+            $this->aApInvoice = null;
+        }
+
+        if ($this->aVendor !== null && $this->aVendor->getApvevendid() !== $v) {
+            $this->aVendor = null;
+        }
+
         return $this;
     } // setApvevendid()
 
@@ -744,6 +766,10 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
         if ($this->apidpaytokey !== $v) {
             $this->apidpaytokey = $v;
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APIDPAYTOKEY] = true;
+        }
+
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApihpaytokey() !== $v) {
+            $this->aApInvoice = null;
         }
 
         return $this;
@@ -926,6 +952,10 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APIDPONBR] = true;
         }
 
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApihponbr() !== $v) {
+            $this->aApInvoice = null;
+        }
+
         return $this;
     } // setApidponbr()
 
@@ -944,6 +974,10 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
         if ($this->apidctrlnbr !== $v) {
             $this->apidctrlnbr = $v;
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APIDCTRLNBR] = true;
+        }
+
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApihctrlnbr() !== $v) {
+            $this->aApInvoice = null;
         }
 
         return $this;
@@ -966,6 +1000,10 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APIDINVNBR] = true;
         }
 
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApihinvnbr() !== $v) {
+            $this->aApInvoice = null;
+        }
+
         return $this;
     } // setApidinvnbr()
 
@@ -984,6 +1022,10 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
         if ($this->apidseq !== $v) {
             $this->apidseq = $v;
             $this->modifiedColumns[ApInvoiceDetailTableMap::COL_APIDSEQ] = true;
+        }
+
+        if ($this->aApInvoice !== null && $this->aApInvoice->getApihseq() !== $v) {
+            $this->aApInvoice = null;
         }
 
         return $this;
@@ -1331,6 +1373,27 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aApInvoice !== null && $this->apvevendid !== $this->aApInvoice->getApvevendid()) {
+            $this->aApInvoice = null;
+        }
+        if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
+            $this->aVendor = null;
+        }
+        if ($this->aApInvoice !== null && $this->apidpaytokey !== $this->aApInvoice->getApihpaytokey()) {
+            $this->aApInvoice = null;
+        }
+        if ($this->aApInvoice !== null && $this->apidponbr !== $this->aApInvoice->getApihponbr()) {
+            $this->aApInvoice = null;
+        }
+        if ($this->aApInvoice !== null && $this->apidctrlnbr !== $this->aApInvoice->getApihctrlnbr()) {
+            $this->aApInvoice = null;
+        }
+        if ($this->aApInvoice !== null && $this->apidinvnbr !== $this->aApInvoice->getApihinvnbr()) {
+            $this->aApInvoice = null;
+        }
+        if ($this->aApInvoice !== null && $this->apidseq !== $this->aApInvoice->getApihseq()) {
+            $this->aApInvoice = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1370,6 +1433,8 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aApInvoice = null;
+            $this->aVendor = null;
         } // if (deep)
     }
 
@@ -1472,6 +1537,25 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aApInvoice !== null) {
+                if ($this->aApInvoice->isModified() || $this->aApInvoice->isNew()) {
+                    $affectedRows += $this->aApInvoice->save($con);
+                }
+                $this->setApInvoice($this->aApInvoice);
+            }
+
+            if ($this->aVendor !== null) {
+                if ($this->aVendor->isModified() || $this->aVendor->isNew()) {
+                    $affectedRows += $this->aVendor->save($con);
+                }
+                $this->setVendor($this->aVendor);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1796,10 +1880,11 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['ApInvoiceDetail'][$this->hashCode()])) {
@@ -1837,6 +1922,38 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aApInvoice) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apInvoice';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_invoice_head';
+                        break;
+                    default:
+                        $key = 'ApInvoice';
+                }
+
+                $result[$key] = $this->aApInvoice->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aVendor) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'vendor';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_vend_mast';
+                        break;
+                    default:
+                        $key = 'Vendor';
+                }
+
+                $result[$key] = $this->aVendor->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -2188,8 +2305,22 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
             null !== $this->getApidseq() &&
             null !== $this->getApidline();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 7;
         $primaryKeyFKs = [];
+
+        //relation apinvoice to table ap_invoice_head
+        if ($this->aApInvoice && $hash = spl_object_hash($this->aApInvoice)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation vendor to table ap_vend_mast
+        if ($this->aVendor && $hash = spl_object_hash($this->aVendor)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -2309,12 +2440,150 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildApInvoice object.
+     *
+     * @param  ChildApInvoice $v
+     * @return $this|\ApInvoiceDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setApInvoice(ChildApInvoice $v = null)
+    {
+        if ($v === null) {
+            $this->setApidinvnbr('');
+        } else {
+            $this->setApidinvnbr($v->getApihinvnbr());
+        }
+
+        if ($v === null) {
+            $this->setApvevendid('');
+        } else {
+            $this->setApvevendid($v->getApvevendid());
+        }
+
+        if ($v === null) {
+            $this->setApidpaytokey('');
+        } else {
+            $this->setApidpaytokey($v->getApihpaytokey());
+        }
+
+        if ($v === null) {
+            $this->setApidponbr('');
+        } else {
+            $this->setApidponbr($v->getApihponbr());
+        }
+
+        if ($v === null) {
+            $this->setApidctrlnbr('');
+        } else {
+            $this->setApidctrlnbr($v->getApihctrlnbr());
+        }
+
+        if ($v === null) {
+            $this->setApidseq(0);
+        } else {
+            $this->setApidseq($v->getApihseq());
+        }
+
+        $this->aApInvoice = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildApInvoice object, it will not be re-added.
+        if ($v !== null) {
+            $v->addApInvoiceDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildApInvoice object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildApInvoice The associated ChildApInvoice object.
+     * @throws PropelException
+     */
+    public function getApInvoice(ConnectionInterface $con = null)
+    {
+        if ($this->aApInvoice === null && (($this->apidinvnbr !== "" && $this->apidinvnbr !== null) && ($this->apvevendid !== "" && $this->apvevendid !== null) && ($this->apidpaytokey !== "" && $this->apidpaytokey !== null) && ($this->apidponbr !== "" && $this->apidponbr !== null) && ($this->apidctrlnbr !== "" && $this->apidctrlnbr !== null) && $this->apidseq != 0)) {
+            $this->aApInvoice = ChildApInvoiceQuery::create()->findPk(array($this->apvevendid, $this->apidpaytokey, $this->apidponbr, $this->apidctrlnbr, $this->apidinvnbr, $this->apidseq), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aApInvoice->addApInvoiceDetails($this);
+             */
+        }
+
+        return $this->aApInvoice;
+    }
+
+    /**
+     * Declares an association between this object and a ChildVendor object.
+     *
+     * @param  ChildVendor $v
+     * @return $this|\ApInvoiceDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setVendor(ChildVendor $v = null)
+    {
+        if ($v === null) {
+            $this->setApvevendid('');
+        } else {
+            $this->setApvevendid($v->getApvevendid());
+        }
+
+        $this->aVendor = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildVendor object, it will not be re-added.
+        if ($v !== null) {
+            $v->addApInvoiceDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildVendor object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildVendor The associated ChildVendor object.
+     * @throws PropelException
+     */
+    public function getVendor(ConnectionInterface $con = null)
+    {
+        if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
+            $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aVendor->addApInvoiceDetails($this);
+             */
+        }
+
+        return $this->aVendor;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aApInvoice) {
+            $this->aApInvoice->removeApInvoiceDetail($this);
+        }
+        if (null !== $this->aVendor) {
+            $this->aVendor->removeApInvoiceDetail($this);
+        }
         $this->apvevendid = null;
         $this->apidpaytokey = null;
         $this->apidptname = null;
@@ -2359,6 +2628,8 @@ abstract class ApInvoiceDetail implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aApInvoice = null;
+        $this->aVendor = null;
     }
 
     /**

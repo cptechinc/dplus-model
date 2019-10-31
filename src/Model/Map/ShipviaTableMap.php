@@ -254,6 +254,20 @@ class ShipviaTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('VendorShipfrom', '\\VendorShipfrom', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArtbSviaCode',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, 'VendorShipfroms', false);
+        $this->addRelation('Vendor', '\\Vendor', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveSviaCode',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, 'Vendors', false);
     } // buildRelations()
 
     /**
