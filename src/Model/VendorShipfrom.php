@@ -34,6 +34,7 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'contact2'    => 'apfmcont2',
 		'shipvia'     => 'artbsviacode',
 		'gl_account'  => 'apfmglacct',
+		'date_opened' => 'apfmdateopen',
 		'ytd_purchases_amt'    => 'apfmpurytd',
 		'ytd_purchases_count'  => 'apfmpoytd'
 	);
@@ -68,5 +69,60 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		$q->filterByVendorid($this->vendorID);
 		$q->filterByShipfromid($this->shipfromid);
 		return $q->find()->toArray();
+	}
+
+	/**
+	 * Get Vendor Phone Number
+	 *
+	 * @return string
+	 */
+	public function getPhone() {
+		$q = $this->get_phonebookquery();
+		$q->select(PhoneBook::get_aliasproperty('phone'));
+		return $q->findOne();
+	}
+
+	/**
+	 * Get Vendor Fax Number
+	 *
+	 * @return string
+	 */
+	public function getFax() {
+		$q = $this->get_phonebookquery();
+		$q->select(PhoneBook::get_aliasproperty('fax'));
+		return $q->findOne();
+	}
+
+	/**
+	 * Return First Contact for Shipfrom
+	 *
+	 * @return PhoneBook
+	 */
+	public function getShipfromcontact() {
+		$q = $this->get_phonebookquery();
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Contacts for Shipfrom
+	 *
+	 * @return PhoneBook[]|ObjectCollection
+	 */
+	public function getContacts() {
+		$q = $this->get_phonebookquery();
+		return $q->find();
+	}
+
+	/**
+	 * Return Phonebook Query with Vendor Filters applied
+	 *
+	 * @return PhoneBookQuery
+	 */
+	public function get_phonebookquery() {
+		$q = PhoneBookQuery::create();
+		$q->filterTypeVendorShipfrom();
+		$q->filterByVendorid($this->vendorid);
+		$q->filterByShipfromid($this->id);
+		return $q;
 	}
 }

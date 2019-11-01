@@ -29,14 +29,14 @@ class Vendor extends BaseVendor {
 		'city'             => 'apvecity',
 		'state'            => 'apvestat',
 		'zip'              => 'apvezipcode',
-		'billto_name'      => 'apvepayname',
-		'billto_address'   => 'apvepayadr1',
-		'billto_address2'  => 'apvepayadr2',
-		'billto_address3'  => 'apvepayadr3',
-		'billto_country'   => 'apvepayctry',
-		'billto_city'      => 'apvepaycity',
-		'billto_state'     => 'apvepaystat',
-		'billto_zip'       => 'apvepayzipcode',
+		'payto_name'      => 'apvepayname',
+		'payto_address'   => 'apvepayadr1',
+		'payto_address2'  => 'apvepayadr2',
+		'payto_address3'  => 'apvepayadr3',
+		'payto_country'   => 'apvepayctry',
+		'payto_city'      => 'apvepaycity',
+		'payto_state'     => 'apvepaystat',
+		'payto_zip'       => 'apvepayzipcode',
 		'gl_account'       => 'apvemglacct',
 		'date_lastpurchased' => 'apvelastpurdate',
 		'date_opened'        => 'apvedateopen',
@@ -77,7 +77,7 @@ class Vendor extends BaseVendor {
 	public function getPhone() {
 		$q = $this->get_phonebookquery();
 		$q->select(PhoneBook::get_aliasproperty('phone'));
-		$q->findOne();
+		return $q->findOne();
 	}
 
 	/**
@@ -88,7 +88,30 @@ class Vendor extends BaseVendor {
 	public function getFax() {
 		$q = $this->get_phonebookquery();
 		$q->select(PhoneBook::get_aliasproperty('fax'));
-		$q->findOne();
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Vendor Contact
+	 *
+	 * @return PhoneBook
+	 */
+	public function getVendorcontact() {
+		$q = $this->get_phonebookquery();
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Vendor Contacts
+	 *
+	 * @return PhoneBook[]|ObjectCollection
+	 */
+	public function getContacts() {
+		$q = PhoneBookQuery::create();
+		$q->filterTypeVendorContact();
+		$q->filterByVendorid($this->id);
+		$q->filterByShipfromid('');
+		return $q->find();
 	}
 
 	/**
