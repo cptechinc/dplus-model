@@ -11,18 +11,23 @@ use Dplus\Model\QueryTraits;
  *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
- * EXAMPLE: findOneByItemid()
+ * EXAMPLE: filterByCustid()
  *
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
- * Filters
- * @method     KitItemsQuery filterByKititemid(string $itemID) Filter the query on the ktdtkey1 column
- *
- *
+ * FilterByXXX()
+ * @method  PhoneBookQuery filterByCustid(string $custID)      filter the query by the phadid column
+ * @method  PhoneBookQuery filterByShiptoid(string $shiptoID)  filter the query by the phadsubid column
+ * @method  PhoneBookQuery filterByVendorid(string $vendorID)  filter the query by the phadid column
+ * @method  PhoneBookQuery filterByShipfromid(string $custID)  filter the query by the phadsubid column
+ * 
+ * FindOneByXXX()
+ * 
+ * FindByXXX()
  */
 class PhoneBookQuery extends BasePhoneBookQuery {
 	use QueryTraits;
-	
+
 	public function filterTypeCustomer() {
 		return $this->filterByPhadtype(PhoneBook::TYPE_CUSTOMER);
 	}
@@ -37,5 +42,13 @@ class PhoneBookQuery extends BasePhoneBookQuery {
 
 	public function filterTypeVendor() {
 		return $this->filterByPhadtype(PhoneBook::TYPE_VENDOR);
+	}
+
+	public function filterTypeVendorShipfrom() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_VENDORSHIPFROM);
+	}
+
+	public function filterTypeVendorContact() {
+		return $this->filterByPhadtype(PhoneBook::TYPE_VENDORCONTACT);
 	}
 }

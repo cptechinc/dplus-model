@@ -18,8 +18,8 @@ class PhoneBook extends BasePhoneBook {
 	const TYPE_CUSTOMERCONTACT = 'CC';
 	const TYPE_CUSTOMERSHIPTO  = 'CS';
 	const TYPE_VENDOR          = 'V';
-	const TYPE_VENDORCONTACT   = 'V';
-	const TYPE_VENDORSHIPTO    = 'V';
+	const TYPE_VENDORCONTACT   = 'VC';
+	const TYPE_VENDORSHIPFROM  = 'VS';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -29,7 +29,7 @@ class PhoneBook extends BasePhoneBook {
 		'type'                    => 'phadtype',
 		'key1'                    => 'phadid',
 		'key2'                    => 'phadsubid',
-		'sequence'                => 'phadsubid',
+		'sequence'                => 'phadsubidseq',
 		'contact'                 => 'phadcont',
 		'is_international'        => 'phadintl',
 		'phone'                   => 'phadtelenbr',
@@ -50,5 +50,4 @@ class PhoneBook extends BasePhoneBook {
 		'vendorid'                => 'phadid',
 		'shipfromid'              => 'phadsubid',
 	);
-
 }
