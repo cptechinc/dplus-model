@@ -426,7 +426,7 @@ class PurchaseOrderTableMap extends TableMap
         $this->addColumn('PohdCont', 'Pohdcont', 'VARCHAR', false, 20, null);
         $this->addColumn('PohdOrdrDate', 'Pohdordrdate', 'VARCHAR', false, 8, null);
         $this->addColumn('AptmTermCode', 'Aptmtermcode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('ArtbSviaCode', 'Artbsviacode', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
         $this->addColumn('PohdOldFob', 'Pohdoldfob', 'VARCHAR', false, 1, null);
         $this->addColumn('AptbBuyrCode', 'Aptbbuyrcode', 'VARCHAR', false, 6, null);
         $this->addColumn('PohdColPpd', 'Pohdcolppd', 'VARCHAR', false, 1, null);
@@ -482,6 +482,13 @@ class PurchaseOrderTableMap extends TableMap
   array (
     0 => ':ApfmShipId',
     1 => ':ApfmShipId',
+  ),
+), null, null, null, false);
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArtbSviaCode',
+    1 => ':ArtbShipVia',
   ),
 ), null, null, null, false);
         $this->addRelation('ApInvoice', '\\ApInvoice', RelationMap::ONE_TO_MANY, array (

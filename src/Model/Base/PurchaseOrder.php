@@ -6,6 +6,8 @@ use \ApInvoice as ChildApInvoice;
 use \ApInvoiceQuery as ChildApInvoiceQuery;
 use \PurchaseOrder as ChildPurchaseOrder;
 use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
+use \Shipvia as ChildShipvia;
+use \ShipviaQuery as ChildShipviaQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
 use \VendorShipfrom as ChildVendorShipfrom;
@@ -470,6 +472,11 @@ abstract class PurchaseOrder implements ActiveRecordInterface
      * @var        ChildVendorShipfrom
      */
     protected $aVendorShipfrom;
+
+    /**
+     * @var        ChildShipvia
+     */
+    protected $aShipvia;
 
     /**
      * @var        ObjectCollection|ChildApInvoice[] Collection to store aggregation of ChildApInvoice objects.
@@ -1798,6 +1805,10 @@ abstract class PurchaseOrder implements ActiveRecordInterface
             $this->modifiedColumns[PurchaseOrderTableMap::COL_ARTBSVIACODE] = true;
         }
 
+        if ($this->aShipvia !== null && $this->aShipvia->getArtbshipvia() !== $v) {
+            $this->aShipvia = null;
+        }
+
         return $this;
     } // setArtbsviacode()
 
@@ -2667,6 +2678,9 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         if ($this->aVendorShipfrom !== null && $this->apfmshipid !== $this->aVendorShipfrom->getApfmshipid()) {
             $this->aVendorShipfrom = null;
         }
+        if ($this->aShipvia !== null && $this->artbsviacode !== $this->aShipvia->getArtbshipvia()) {
+            $this->aShipvia = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2708,6 +2722,7 @@ abstract class PurchaseOrder implements ActiveRecordInterface
 
             $this->aVendor = null;
             $this->aVendorShipfrom = null;
+            $this->aShipvia = null;
             $this->collApInvoices = null;
 
         } // if (deep)
@@ -2830,6 +2845,13 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                     $affectedRows += $this->aVendorShipfrom->save($con);
                 }
                 $this->setVendorShipfrom($this->aVendorShipfrom);
+            }
+
+            if ($this->aShipvia !== null) {
+                if ($this->aShipvia->isModified() || $this->aShipvia->isNew()) {
+                    $affectedRows += $this->aShipvia->save($con);
+                }
+                $this->setShipvia($this->aShipvia);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -3574,6 +3596,21 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aVendorShipfrom->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aShipvia) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'shipvia';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_svia';
+                        break;
+                    default:
+                        $key = 'Shipvia';
+                }
+
+                $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->collApInvoices) {
 
@@ -4486,6 +4523,57 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         return $this->aVendorShipfrom;
     }
 
+    /**
+     * Declares an association between this object and a ChildShipvia object.
+     *
+     * @param  ChildShipvia $v
+     * @return $this|\PurchaseOrder The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setShipvia(ChildShipvia $v = null)
+    {
+        if ($v === null) {
+            $this->setArtbsviacode(NULL);
+        } else {
+            $this->setArtbsviacode($v->getArtbshipvia());
+        }
+
+        $this->aShipvia = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildShipvia object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrder($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildShipvia object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildShipvia The associated ChildShipvia object.
+     * @throws PropelException
+     */
+    public function getShipvia(ConnectionInterface $con = null)
+    {
+        if ($this->aShipvia === null && (($this->artbsviacode !== "" && $this->artbsviacode !== null))) {
+            $this->aShipvia = ChildShipviaQuery::create()->findPk($this->artbsviacode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aShipvia->addPurchaseOrders($this);
+             */
+        }
+
+        return $this->aShipvia;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -4769,6 +4857,9 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         if (null !== $this->aVendorShipfrom) {
             $this->aVendorShipfrom->removePurchaseOrder($this);
         }
+        if (null !== $this->aShipvia) {
+            $this->aShipvia->removePurchaseOrder($this);
+        }
         $this->pohdnbr = null;
         $this->pohdstat = null;
         $this->pohdref = null;
@@ -4854,6 +4945,7 @@ abstract class PurchaseOrder implements ActiveRecordInterface
         $this->collApInvoices = null;
         $this->aVendor = null;
         $this->aVendorShipfrom = null;
+        $this->aShipvia = null;
     }
 
     /**

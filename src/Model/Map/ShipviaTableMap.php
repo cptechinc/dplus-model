@@ -268,6 +268,13 @@ class ShipviaTableMap extends TableMap
     1 => ':ArtbShipVia',
   ),
 ), null, null, 'Vendors', false);
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArtbSviaCode',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, 'PurchaseOrders', false);
     } // buildRelations()
 
     /**
