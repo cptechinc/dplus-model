@@ -105,6 +105,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'DocumentFoldersQuery' => __DIR__ . '/../..' . '/src/Model/DocumentFoldersQuery.php',
         'Documents' => __DIR__ . '/../..' . '/src/Model/Documents.php',
         'DocumentsQuery' => __DIR__ . '/../..' . '/src/Model/DocumentsQuery.php',
+        'Dplus\\Model\\ItemMasterTraits' => __DIR__ . '/../..' . '/src/traits/ItemMaster.trait.php',
         'Dplus\\Model\\MagicMethodTraits' => __DIR__ . '/../..' . '/src/MagicMethods.trait.php',
         'Dplus\\Model\\QueryTraits' => __DIR__ . '/../..' . '/src/Query.trait.php',
         'Dplus\\Model\\ThrowError' => __DIR__ . '/../..' . '/src/ThrowError.trait.php',

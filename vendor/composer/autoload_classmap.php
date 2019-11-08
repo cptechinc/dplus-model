@@ -104,6 +104,7 @@ return array(
     'DocumentFoldersQuery' => $baseDir . '/src/Model/DocumentFoldersQuery.php',
     'Documents' => $baseDir . '/src/Model/Documents.php',
     'DocumentsQuery' => $baseDir . '/src/Model/DocumentsQuery.php',
+    'Dplus\\Model\\ItemMasterTraits' => $baseDir . '/src/traits/ItemMaster.trait.php',
     'Dplus\\Model\\MagicMethodTraits' => $baseDir . '/src/MagicMethods.trait.php',
     'Dplus\\Model\\QueryTraits' => $baseDir . '/src/Query.trait.php',
     'Dplus\\Model\\ThrowError' => $baseDir . '/src/ThrowError.trait.php',
