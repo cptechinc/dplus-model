@@ -1,9 +1,8 @@
 <?php namespace Dplus\Model;
 
-
 use ItemMasterItemQuery;
 
-class ItemMasterTraits {
+trait ItemMasterTraits {
 	/**
 	 * Returns if Item Type is Normal
 	 *

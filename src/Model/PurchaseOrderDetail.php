@@ -36,7 +36,12 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
  		'weight'        => 'podtwghttot',
  		'whse_destination' => 'podtdestwhse',
  	);
-
+	
+	/**
+	 * Return Qty Received from the Database
+	 *
+	 * @return int
+	 */
 	public function qty_received() {
 		$q = PurchaseOrderDetailReceivedQuery::create();
 		$q->withColumn('SUM(pordqtyrec)', 'qtyreceived');
@@ -46,6 +51,11 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		return $q->findOne();
 	}
 
+	/**
+	 * Return Qty Remaining to Receive
+	 *
+	 * @return int
+	 */
 	public function qty_remaining() {
 		return $this->qty_ordered - $this->qty_received();
 	}

@@ -31,10 +31,20 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'date_transfered' => 'potdtrandate'
 	);
 
+	/**
+	 * Return Quantity left to receive
+	 *
+	 * @return string
+	 */
 	public function qty_remaining() {
 		return $this->potdqtyord - $this->potdqtyrec;
 	}
 
+	/**
+	 * Return the Number of Lots Received
+	 *
+	 * @return int
+	 */
 	public function count_receivedlots() {
 		$q = PurchaseOrderDetailLotReceivingQuery::create();
 		$q->filterByPonbr($this->pothnbr);
@@ -42,6 +52,11 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		return $q->count();
 	}
 
+	/**
+	 * Returns Lots Received for this Purchase Order Detail Line
+	 *
+	 * @return PurchaseOrderDetailLot[]|ObjectCollection
+	 */
 	public function get_receivedlots() {
 		$q = PurchaseOrderDetailLotReceivingQuery::create();
 		$q->filterByPonbr($this->pothnbr);
