@@ -5,6 +5,8 @@ namespace Base;
 use \ApInvoice as ChildApInvoice;
 use \ApInvoiceQuery as ChildApInvoiceQuery;
 use \PurchaseOrder as ChildPurchaseOrder;
+use \PurchaseOrderDetail as ChildPurchaseOrderDetail;
+use \PurchaseOrderDetailQuery as ChildPurchaseOrderDetailQuery;
 use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
@@ -15,6 +17,7 @@ use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
 use Map\ApInvoiceTableMap;
+use Map\PurchaseOrderDetailTableMap;
 use Map\PurchaseOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -485,6 +488,12 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     protected $collApInvoicesPartial;
 
     /**
+     * @var        ObjectCollection|ChildPurchaseOrderDetail[] Collection to store aggregation of ChildPurchaseOrderDetail objects.
+     */
+    protected $collPurchaseOrderDetails;
+    protected $collPurchaseOrderDetailsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -497,6 +506,12 @@ abstract class PurchaseOrder implements ActiveRecordInterface
      * @var ObjectCollection|ChildApInvoice[]
      */
     protected $apInvoicesScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPurchaseOrderDetail[]
+     */
+    protected $purchaseOrderDetailsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -2725,6 +2740,8 @@ abstract class PurchaseOrder implements ActiveRecordInterface
             $this->aShipvia = null;
             $this->collApInvoices = null;
 
+            $this->collPurchaseOrderDetails = null;
+
         } // if (deep)
     }
 
@@ -2876,6 +2893,23 @@ abstract class PurchaseOrder implements ActiveRecordInterface
 
             if ($this->collApInvoices !== null) {
                 foreach ($this->collApInvoices as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->purchaseOrderDetailsScheduledForDeletion !== null) {
+                if (!$this->purchaseOrderDetailsScheduledForDeletion->isEmpty()) {
+                    \PurchaseOrderDetailQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->purchaseOrderDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPurchaseOrderDetails !== null) {
+                foreach ($this->collPurchaseOrderDetails as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -3626,6 +3660,21 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collApInvoices->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collPurchaseOrderDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_details';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetails';
+                }
+
+                $result[$key] = $this->collPurchaseOrderDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -4386,6 +4435,12 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getPurchaseOrderDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPurchaseOrderDetail($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -4587,6 +4642,10 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     {
         if ('ApInvoice' == $relationName) {
             $this->initApInvoices();
+            return;
+        }
+        if ('PurchaseOrderDetail' == $relationName) {
+            $this->initPurchaseOrderDetails();
             return;
         }
     }
@@ -4845,6 +4904,234 @@ abstract class PurchaseOrder implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collPurchaseOrderDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPurchaseOrderDetails()
+     */
+    public function clearPurchaseOrderDetails()
+    {
+        $this->collPurchaseOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPurchaseOrderDetails collection loaded partially.
+     */
+    public function resetPartialPurchaseOrderDetails($v = true)
+    {
+        $this->collPurchaseOrderDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPurchaseOrderDetails collection.
+     *
+     * By default this just sets the collPurchaseOrderDetails collection to an empty array (like clearcollPurchaseOrderDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPurchaseOrderDetails($overrideExisting = true)
+    {
+        if (null !== $this->collPurchaseOrderDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PurchaseOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPurchaseOrderDetails = new $collectionClassName;
+        $this->collPurchaseOrderDetails->setModel('\PurchaseOrderDetail');
+    }
+
+    /**
+     * Gets an array of ChildPurchaseOrderDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildPurchaseOrder is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPurchaseOrderDetail[] List of ChildPurchaseOrderDetail objects
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetails) {
+                // return empty collection
+                $this->initPurchaseOrderDetails();
+            } else {
+                $collPurchaseOrderDetails = ChildPurchaseOrderDetailQuery::create(null, $criteria)
+                    ->filterByPurchaseOrder($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPurchaseOrderDetailsPartial && count($collPurchaseOrderDetails)) {
+                        $this->initPurchaseOrderDetails(false);
+
+                        foreach ($collPurchaseOrderDetails as $obj) {
+                            if (false == $this->collPurchaseOrderDetails->contains($obj)) {
+                                $this->collPurchaseOrderDetails->append($obj);
+                            }
+                        }
+
+                        $this->collPurchaseOrderDetailsPartial = true;
+                    }
+
+                    return $collPurchaseOrderDetails;
+                }
+
+                if ($partial && $this->collPurchaseOrderDetails) {
+                    foreach ($this->collPurchaseOrderDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collPurchaseOrderDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPurchaseOrderDetails = $collPurchaseOrderDetails;
+                $this->collPurchaseOrderDetailsPartial = false;
+            }
+        }
+
+        return $this->collPurchaseOrderDetails;
+    }
+
+    /**
+     * Sets a collection of ChildPurchaseOrderDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $purchaseOrderDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildPurchaseOrder The current object (for fluent API support)
+     */
+    public function setPurchaseOrderDetails(Collection $purchaseOrderDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildPurchaseOrderDetail[] $purchaseOrderDetailsToDelete */
+        $purchaseOrderDetailsToDelete = $this->getPurchaseOrderDetails(new Criteria(), $con)->diff($purchaseOrderDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->purchaseOrderDetailsScheduledForDeletion = clone $purchaseOrderDetailsToDelete;
+
+        foreach ($purchaseOrderDetailsToDelete as $purchaseOrderDetailRemoved) {
+            $purchaseOrderDetailRemoved->setPurchaseOrder(null);
+        }
+
+        $this->collPurchaseOrderDetails = null;
+        foreach ($purchaseOrderDetails as $purchaseOrderDetail) {
+            $this->addPurchaseOrderDetail($purchaseOrderDetail);
+        }
+
+        $this->collPurchaseOrderDetails = $purchaseOrderDetails;
+        $this->collPurchaseOrderDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PurchaseOrderDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PurchaseOrderDetail objects.
+     * @throws PropelException
+     */
+    public function countPurchaseOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPurchaseOrderDetails());
+            }
+
+            $query = ChildPurchaseOrderDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByPurchaseOrder($this)
+                ->count($con);
+        }
+
+        return count($this->collPurchaseOrderDetails);
+    }
+
+    /**
+     * Method called to associate a ChildPurchaseOrderDetail object to this object
+     * through the ChildPurchaseOrderDetail foreign key attribute.
+     *
+     * @param  ChildPurchaseOrderDetail $l ChildPurchaseOrderDetail
+     * @return $this|\PurchaseOrder The current object (for fluent API support)
+     */
+    public function addPurchaseOrderDetail(ChildPurchaseOrderDetail $l)
+    {
+        if ($this->collPurchaseOrderDetails === null) {
+            $this->initPurchaseOrderDetails();
+            $this->collPurchaseOrderDetailsPartial = true;
+        }
+
+        if (!$this->collPurchaseOrderDetails->contains($l)) {
+            $this->doAddPurchaseOrderDetail($l);
+
+            if ($this->purchaseOrderDetailsScheduledForDeletion and $this->purchaseOrderDetailsScheduledForDeletion->contains($l)) {
+                $this->purchaseOrderDetailsScheduledForDeletion->remove($this->purchaseOrderDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPurchaseOrderDetail $purchaseOrderDetail The ChildPurchaseOrderDetail object to add.
+     */
+    protected function doAddPurchaseOrderDetail(ChildPurchaseOrderDetail $purchaseOrderDetail)
+    {
+        $this->collPurchaseOrderDetails[]= $purchaseOrderDetail;
+        $purchaseOrderDetail->setPurchaseOrder($this);
+    }
+
+    /**
+     * @param  ChildPurchaseOrderDetail $purchaseOrderDetail The ChildPurchaseOrderDetail object to remove.
+     * @return $this|ChildPurchaseOrder The current object (for fluent API support)
+     */
+    public function removePurchaseOrderDetail(ChildPurchaseOrderDetail $purchaseOrderDetail)
+    {
+        if ($this->getPurchaseOrderDetails()->contains($purchaseOrderDetail)) {
+            $pos = $this->collPurchaseOrderDetails->search($purchaseOrderDetail);
+            $this->collPurchaseOrderDetails->remove($pos);
+            if (null === $this->purchaseOrderDetailsScheduledForDeletion) {
+                $this->purchaseOrderDetailsScheduledForDeletion = clone $this->collPurchaseOrderDetails;
+                $this->purchaseOrderDetailsScheduledForDeletion->clear();
+            }
+            $this->purchaseOrderDetailsScheduledForDeletion[]= clone $purchaseOrderDetail;
+            $purchaseOrderDetail->setPurchaseOrder(null);
+        }
+
+        return $this;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -4940,9 +5227,15 @@ abstract class PurchaseOrder implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collPurchaseOrderDetails) {
+                foreach ($this->collPurchaseOrderDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collApInvoices = null;
+        $this->collPurchaseOrderDetails = null;
         $this->aVendor = null;
         $this->aVendorShipfrom = null;
         $this->aShipvia = null;

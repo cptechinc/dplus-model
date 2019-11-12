@@ -1247,6 +1247,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="po_head" name="purchaseorder" skipSql="true">
+      <reference local="PohdNbr" foreign="PohdNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

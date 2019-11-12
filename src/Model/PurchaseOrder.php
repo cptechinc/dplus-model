@@ -35,6 +35,8 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'email'              => 'pohdemailaddr',
 		'date_ordered'       => 'pohdordrdate',
 		'date_expected'      => 'pohdexptdate',
+		'date_shipped'       => 'pohdshipdate',
+		'date_cancelled'     => 'pohdcancdate',
 		'shipvia'            => 'artbsviacode',
 		'phone'              => 'pohdtelenbr',
 		'phone_intl'         => 'pohdteleintl',
@@ -50,6 +52,8 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'shipfrom_city'      => 'pohdptcity',
 		'shipfrom_state'     => 'pohdptstat',
 		'shipfrom_zip'       => 'pohdptzipcode',
+		'fob'                => 'pohdfob',
+		'tax_exempt'         => 'pohdtaxexem'
 	);
 
 	const LENGTH = 8;

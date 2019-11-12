@@ -498,6 +498,13 @@ class PurchaseOrderTableMap extends TableMap
     1 => ':PohdNbr',
   ),
 ), null, null, 'ApInvoices', false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, 'PurchaseOrderDetails', false);
     } // buildRelations()
 
     /**

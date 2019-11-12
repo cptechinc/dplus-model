@@ -331,7 +331,7 @@ class PurchaseOrderDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR', true, 8, '');
+        $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
         $this->addPrimaryKey('PodtLine', 'Podtline', 'INTEGER', true, 4, 0);
         $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
         $this->addColumn('PodtDesc1', 'Podtdesc1', 'VARCHAR', false, 35, null);
@@ -380,6 +380,13 @@ class PurchaseOrderDetailTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
