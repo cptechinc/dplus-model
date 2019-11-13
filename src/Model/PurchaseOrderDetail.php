@@ -18,25 +18,25 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	 * @var array
 	 */
 	 const COLUMN_ALIASES = array(
- 		'ponbr'      => 'pohdnbr',
- 		'linenbr'    => 'podtline',
- 		'itemid'     => 'inititemnbr',
- 		'description' => 'podtdesc1',
- 		'desscription2' => 'podtdesc2',
- 		'vendoritemid'  => 'podtvenditemnbr',
- 		'whse'          => 'inbtwhse',
- 		'date_shipped'  => 'podtshipdate',
- 		'date_expected' => 'podtexptdate',
- 		'uom'           => 'inbuompur',
- 		'qty_ordered'   => 'podtqtyord',
- 		'cost'          => 'podtcost',
- 		'cost_total'    => 'podtcosttot',
- 		'specialorder'  => 'podtspecordr',
- 		'glaccount'     => 'podtglacct',
- 		'weight'        => 'podtwghttot',
- 		'whse_destination' => 'podtdestwhse',
- 	);
-	
+		'ponbr'      => 'pohdnbr',
+		'linenbr'    => 'podtline',
+		'itemid'     => 'inititemnbr',
+		'description' => 'podtdesc1',
+		'desscription2' => 'podtdesc2',
+		'vendoritemid'  => 'podtvenditemnbr',
+		'whse'          => 'intbwhse',
+		'date_shipped'  => 'podtshipdate',
+		'date_expected' => 'podtexptdate',
+		'uom'           => 'inbuompur',
+		'qty_ordered'   => 'podtqtyord',
+		'cost'          => 'podtcost',
+		'cost_total'    => 'podtcosttot',
+		'specialorder'  => 'podtspecordr',
+		'glaccount'     => 'podtglacct',
+		'weight'        => 'podtwghttot',
+		'whse_destination' => 'podtdestwhse',
+	);
+
 	/**
 	 * Return Qty Received from the Database
 	 *
