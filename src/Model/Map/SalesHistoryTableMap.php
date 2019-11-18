@@ -1250,6 +1250,13 @@ class SalesHistoryTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesHistoryDetail', '\\SalesHistoryDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehhNbr',
+    1 => ':OehhNbr',
+  ),
+), null, null, 'SalesHistoryDetails', false);
     } // buildRelations()
 
     /**

@@ -2,7 +2,9 @@
 
 namespace Base;
 
+use \SalesHistory as ChildSalesHistory;
 use \SalesHistoryDetailQuery as ChildSalesHistoryDetailQuery;
+use \SalesHistoryQuery as ChildSalesHistoryQuery;
 use \Exception;
 use \PDO;
 use Map\SalesHistoryDetailTableMap;
@@ -1053,6 +1055,11 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildSalesHistory
+     */
+    protected $aSalesHistory;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -2735,6 +2742,10 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->oehhnbr !== $v) {
             $this->oehhnbr = $v;
             $this->modifiedColumns[SalesHistoryDetailTableMap::COL_OEHHNBR] = true;
+        }
+
+        if ($this->aSalesHistory !== null && $this->aSalesHistory->getOehhnbr() !== $v) {
+            $this->aSalesHistory = null;
         }
 
         return $this;
@@ -6055,6 +6066,9 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aSalesHistory !== null && $this->oehhnbr !== $this->aSalesHistory->getOehhnbr()) {
+            $this->aSalesHistory = null;
+        }
     } // ensureConsistency
 
     /**
@@ -6094,6 +6108,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aSalesHistory = null;
         } // if (deep)
     }
 
@@ -6196,6 +6211,18 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aSalesHistory !== null) {
+                if ($this->aSalesHistory->isModified() || $this->aSalesHistory->isNew()) {
+                    $affectedRows += $this->aSalesHistory->save($con);
+                }
+                $this->setSalesHistory($this->aSalesHistory);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -7591,10 +7618,11 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['SalesHistoryDetail'][$this->hashCode()])) {
@@ -7751,6 +7779,23 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aSalesHistory) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesHistory';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_head_hist';
+                        break;
+                    default:
+                        $key = 'SalesHistory';
+                }
+
+                $result[$key] = $this->aSalesHistory->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -9163,8 +9208,15 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $validPk = null !== $this->getOehhnbr() &&
             null !== $this->getOedhline();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation saleshistory to table so_head_hist
+        if ($this->aSalesHistory && $hash = spl_object_hash($this->aSalesHistory)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -9393,12 +9445,66 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildSalesHistory object.
+     *
+     * @param  ChildSalesHistory $v
+     * @return $this|\SalesHistoryDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSalesHistory(ChildSalesHistory $v = null)
+    {
+        if ($v === null) {
+            $this->setOehhnbr(NULL);
+        } else {
+            $this->setOehhnbr($v->getOehhnbr());
+        }
+
+        $this->aSalesHistory = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSalesHistory object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSalesHistoryDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSalesHistory object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSalesHistory The associated ChildSalesHistory object.
+     * @throws PropelException
+     */
+    public function getSalesHistory(ConnectionInterface $con = null)
+    {
+        if ($this->aSalesHistory === null && (($this->oehhnbr !== "" && $this->oehhnbr !== null))) {
+            $this->aSalesHistory = ChildSalesHistoryQuery::create()->findPk($this->oehhnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSalesHistory->addSalesHistoryDetails($this);
+             */
+        }
+
+        return $this->aSalesHistory;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aSalesHistory) {
+            $this->aSalesHistory->removeSalesHistoryDetail($this);
+        }
         $this->oehhnbr = null;
         $this->oedhline = null;
         $this->oedhyear = null;
@@ -9562,6 +9668,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aSalesHistory = null;
     }
 
     /**

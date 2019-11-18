@@ -831,7 +831,7 @@ class SalesHistoryDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('OehhNbr', 'Oehhnbr', 'VARCHAR', true, 10, null);
+        $this->addForeignPrimaryKey('OehhNbr', 'Oehhnbr', 'VARCHAR' , 'so_head_hist', 'OehhNbr', true, 10, null);
         $this->addPrimaryKey('OedhLine', 'Oedhline', 'INTEGER', true, 4, 0);
         $this->addColumn('OedhYear', 'Oedhyear', 'VARCHAR', false, 4, null);
         $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
@@ -980,6 +980,13 @@ class SalesHistoryDetailTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehhNbr',
+    1 => ':OehhNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
