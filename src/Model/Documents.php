@@ -35,6 +35,11 @@ class Documents extends BaseDocuments {
 		'reference2'  => 'docifld2'
 	);
 
+	/**
+	 * Returns Description of the folder
+	 *
+	 * @return string
+	 */
 	public function get_folderdescription() {
 		return DocumentFoldersQuery::create()->select(DocumentFolders::get_aliasproperty('description'))->findOneByTag($this->tag);
 	}
