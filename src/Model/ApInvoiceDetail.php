@@ -10,19 +10,19 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class ApInvoiceDetail extends BaseApInvoiceDetail {
-    use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'invoicenumber' => 'apidinvnbr',
-        'vendorid' => 'apvevendid',
-        'linenbr' => 'apidline',
-        'price' => 'apidamt',
-        'itemid' => 'inititemnbr',
-        'qty_received' => 'apidqtyrec'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'invoicenumber' => 'apidinvnbr',
+		'vendorid' => 'apvevendid',
+		'linenbr' => 'apidline',
+		'price' => 'apidamt',
+		'itemid' => 'inititemnbr',
+		'qty_received' => 'apidqtyrec'
+	);
 }
