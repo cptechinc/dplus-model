@@ -10,6 +10,7 @@ use Map\QuoteDetailTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -220,6 +221,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetailQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildQuoteDetailQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildQuoteDetailQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildQuoteDetailQuery leftJoinQuote($relationAlias = null) Adds a LEFT JOIN clause to the query using the Quote relation
+ * @method     ChildQuoteDetailQuery rightJoinQuote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Quote relation
+ * @method     ChildQuoteDetailQuery innerJoinQuote($relationAlias = null) Adds a INNER JOIN clause to the query using the Quote relation
+ *
+ * @method     ChildQuoteDetailQuery joinWithQuote($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Quote relation
+ *
+ * @method     ChildQuoteDetailQuery leftJoinWithQuote() Adds a LEFT JOIN clause and with to the query using the Quote relation
+ * @method     ChildQuoteDetailQuery rightJoinWithQuote() Adds a RIGHT JOIN clause and with to the query using the Quote relation
+ * @method     ChildQuoteDetailQuery innerJoinWithQuote() Adds a INNER JOIN clause and with to the query using the Quote relation
+ *
+ * @method     \QuoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildQuoteDetail findOne(ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query
  * @method     ChildQuoteDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildQuoteDetail matching the query, or a new ChildQuoteDetail object populated from the query conditions when no match is found
@@ -3868,6 +3881,83 @@ abstract class QuoteDetailQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(QuoteDetailTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \Quote object
+     *
+     * @param \Quote|ObjectCollection $quote The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildQuoteDetailQuery The current query, for fluid interface
+     */
+    public function filterByQuote($quote, $comparison = null)
+    {
+        if ($quote instanceof \Quote) {
+            return $this
+                ->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $quote->getQthdid(), $comparison);
+        } elseif ($quote instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(QuoteDetailTableMap::COL_QTHDID, $quote->toKeyValue('PrimaryKey', 'Qthdid'), $comparison);
+        } else {
+            throw new PropelException('filterByQuote() only accepts arguments of type \Quote or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Quote relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
+     */
+    public function joinQuote($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Quote');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Quote');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Quote relation Quote object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \QuoteQuery A secondary query class using the current class as primary query
+     */
+    public function useQuoteQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinQuote($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Quote', '\QuoteQuery');
     }
 
     /**

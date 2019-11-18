@@ -601,7 +601,7 @@ class QuoteDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('QthdId', 'Qthdid', 'VARCHAR', true, 8, '');
+        $this->addForeignPrimaryKey('QthdId', 'Qthdid', 'VARCHAR' , 'quote_header', 'QthdId', true, 8, '');
         $this->addPrimaryKey('QtdtLine', 'Qtdtline', 'INTEGER', true, 4, 0);
         $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
         $this->addColumn('QtdtDesc', 'Qtdtdesc', 'VARCHAR', false, 35, null);
@@ -704,6 +704,13 @@ class QuoteDetailTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Quote', '\\Quote', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':QthdId',
+    1 => ':QthdId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

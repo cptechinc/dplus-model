@@ -536,6 +536,13 @@ class QuoteTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('QuoteDetail', '\\QuoteDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':QthdId',
+    1 => ':QthdId',
+  ),
+), null, null, 'QuoteDetails', false);
     } // buildRelations()
 
     /**

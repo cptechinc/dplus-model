@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \Quote as ChildQuote;
+use \QuoteDetail as ChildQuoteDetail;
+use \QuoteDetailQuery as ChildQuoteDetailQuery;
 use \QuoteQuery as ChildQuoteQuery;
 use \Exception;
 use \PDO;
+use Map\QuoteDetailTableMap;
 use Map\QuoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -537,12 +542,24 @@ abstract class Quote implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildQuoteDetail[] Collection to store aggregation of ChildQuoteDetail objects.
+     */
+    protected $collQuoteDetails;
+    protected $collQuoteDetailsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildQuoteDetail[]
+     */
+    protected $quoteDetailsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -3134,6 +3151,8 @@ abstract class Quote implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collQuoteDetails = null;
+
         } // if (deep)
     }
 
@@ -3246,6 +3265,23 @@ abstract class Quote implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->quoteDetailsScheduledForDeletion !== null) {
+                if (!$this->quoteDetailsScheduledForDeletion->isEmpty()) {
+                    \QuoteDetailQuery::create()
+                        ->filterByPrimaryKeys($this->quoteDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->quoteDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collQuoteDetails !== null) {
+                foreach ($this->collQuoteDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -3965,10 +4001,11 @@ abstract class Quote implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['Quote'][$this->hashCode()])) {
@@ -4051,6 +4088,23 @@ abstract class Quote implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collQuoteDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'quoteDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'quote_details';
+                        break;
+                    default:
+                        $key = 'QuoteDetails';
+                }
+
+                $result[$key] = $this->collQuoteDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -4917,6 +4971,20 @@ abstract class Quote implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getQuoteDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addQuoteDetail($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -4942,6 +5010,251 @@ abstract class Quote implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('QuoteDetail' == $relationName) {
+            $this->initQuoteDetails();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collQuoteDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addQuoteDetails()
+     */
+    public function clearQuoteDetails()
+    {
+        $this->collQuoteDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collQuoteDetails collection loaded partially.
+     */
+    public function resetPartialQuoteDetails($v = true)
+    {
+        $this->collQuoteDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collQuoteDetails collection.
+     *
+     * By default this just sets the collQuoteDetails collection to an empty array (like clearcollQuoteDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initQuoteDetails($overrideExisting = true)
+    {
+        if (null !== $this->collQuoteDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = QuoteDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collQuoteDetails = new $collectionClassName;
+        $this->collQuoteDetails->setModel('\QuoteDetail');
+    }
+
+    /**
+     * Gets an array of ChildQuoteDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildQuote is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildQuoteDetail[] List of ChildQuoteDetail objects
+     * @throws PropelException
+     */
+    public function getQuoteDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collQuoteDetailsPartial && !$this->isNew();
+        if (null === $this->collQuoteDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collQuoteDetails) {
+                // return empty collection
+                $this->initQuoteDetails();
+            } else {
+                $collQuoteDetails = ChildQuoteDetailQuery::create(null, $criteria)
+                    ->filterByQuote($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collQuoteDetailsPartial && count($collQuoteDetails)) {
+                        $this->initQuoteDetails(false);
+
+                        foreach ($collQuoteDetails as $obj) {
+                            if (false == $this->collQuoteDetails->contains($obj)) {
+                                $this->collQuoteDetails->append($obj);
+                            }
+                        }
+
+                        $this->collQuoteDetailsPartial = true;
+                    }
+
+                    return $collQuoteDetails;
+                }
+
+                if ($partial && $this->collQuoteDetails) {
+                    foreach ($this->collQuoteDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collQuoteDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collQuoteDetails = $collQuoteDetails;
+                $this->collQuoteDetailsPartial = false;
+            }
+        }
+
+        return $this->collQuoteDetails;
+    }
+
+    /**
+     * Sets a collection of ChildQuoteDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $quoteDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildQuote The current object (for fluent API support)
+     */
+    public function setQuoteDetails(Collection $quoteDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildQuoteDetail[] $quoteDetailsToDelete */
+        $quoteDetailsToDelete = $this->getQuoteDetails(new Criteria(), $con)->diff($quoteDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->quoteDetailsScheduledForDeletion = clone $quoteDetailsToDelete;
+
+        foreach ($quoteDetailsToDelete as $quoteDetailRemoved) {
+            $quoteDetailRemoved->setQuote(null);
+        }
+
+        $this->collQuoteDetails = null;
+        foreach ($quoteDetails as $quoteDetail) {
+            $this->addQuoteDetail($quoteDetail);
+        }
+
+        $this->collQuoteDetails = $quoteDetails;
+        $this->collQuoteDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related QuoteDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related QuoteDetail objects.
+     * @throws PropelException
+     */
+    public function countQuoteDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collQuoteDetailsPartial && !$this->isNew();
+        if (null === $this->collQuoteDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collQuoteDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getQuoteDetails());
+            }
+
+            $query = ChildQuoteDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByQuote($this)
+                ->count($con);
+        }
+
+        return count($this->collQuoteDetails);
+    }
+
+    /**
+     * Method called to associate a ChildQuoteDetail object to this object
+     * through the ChildQuoteDetail foreign key attribute.
+     *
+     * @param  ChildQuoteDetail $l ChildQuoteDetail
+     * @return $this|\Quote The current object (for fluent API support)
+     */
+    public function addQuoteDetail(ChildQuoteDetail $l)
+    {
+        if ($this->collQuoteDetails === null) {
+            $this->initQuoteDetails();
+            $this->collQuoteDetailsPartial = true;
+        }
+
+        if (!$this->collQuoteDetails->contains($l)) {
+            $this->doAddQuoteDetail($l);
+
+            if ($this->quoteDetailsScheduledForDeletion and $this->quoteDetailsScheduledForDeletion->contains($l)) {
+                $this->quoteDetailsScheduledForDeletion->remove($this->quoteDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildQuoteDetail $quoteDetail The ChildQuoteDetail object to add.
+     */
+    protected function doAddQuoteDetail(ChildQuoteDetail $quoteDetail)
+    {
+        $this->collQuoteDetails[]= $quoteDetail;
+        $quoteDetail->setQuote($this);
+    }
+
+    /**
+     * @param  ChildQuoteDetail $quoteDetail The ChildQuoteDetail object to remove.
+     * @return $this|ChildQuote The current object (for fluent API support)
+     */
+    public function removeQuoteDetail(ChildQuoteDetail $quoteDetail)
+    {
+        if ($this->getQuoteDetails()->contains($quoteDetail)) {
+            $pos = $this->collQuoteDetails->search($quoteDetail);
+            $this->collQuoteDetails->remove($pos);
+            if (null === $this->quoteDetailsScheduledForDeletion) {
+                $this->quoteDetailsScheduledForDeletion = clone $this->collQuoteDetails;
+                $this->quoteDetailsScheduledForDeletion->clear();
+            }
+            $this->quoteDetailsScheduledForDeletion[]= clone $quoteDetail;
+            $quoteDetail->setQuote(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -5038,8 +5351,14 @@ abstract class Quote implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collQuoteDetails) {
+                foreach ($this->collQuoteDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collQuoteDetails = null;
     }
 
     /**

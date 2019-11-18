@@ -2,7 +2,9 @@
 
 namespace Base;
 
+use \Quote as ChildQuote;
 use \QuoteDetailQuery as ChildQuoteDetailQuery;
+use \QuoteQuery as ChildQuoteQuery;
 use \Exception;
 use \PDO;
 use Map\QuoteDetailTableMap;
@@ -732,6 +734,11 @@ abstract class QuoteDetail implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildQuote
+     */
+    protected $aQuote;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1955,6 +1962,10 @@ abstract class QuoteDetail implements ActiveRecordInterface
         if ($this->qthdid !== $v) {
             $this->qthdid = $v;
             $this->modifiedColumns[QuoteDetailTableMap::COL_QTHDID] = true;
+        }
+
+        if ($this->aQuote !== null && $this->aQuote->getQthdid() !== $v) {
+            $this->aQuote = null;
         }
 
         return $this;
@@ -4221,6 +4232,9 @@ abstract class QuoteDetail implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aQuote !== null && $this->qthdid !== $this->aQuote->getQthdid()) {
+            $this->aQuote = null;
+        }
     } // ensureConsistency
 
     /**
@@ -4260,6 +4274,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aQuote = null;
         } // if (deep)
     }
 
@@ -4362,6 +4377,18 @@ abstract class QuoteDetail implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aQuote !== null) {
+                if ($this->aQuote->isModified() || $this->aQuote->isNew()) {
+                    $affectedRows += $this->aQuote->save($con);
+                }
+                $this->setQuote($this->aQuote);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -5343,10 +5370,11 @@ abstract class QuoteDetail implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['QuoteDetail'][$this->hashCode()])) {
@@ -5457,6 +5485,23 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aQuote) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'quote';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'quote_header';
+                        break;
+                    default:
+                        $key = 'Quote';
+                }
+
+                $result[$key] = $this->aQuote->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -6455,8 +6500,15 @@ abstract class QuoteDetail implements ActiveRecordInterface
         $validPk = null !== $this->getQthdid() &&
             null !== $this->getQtdtline();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation quote to table quote_header
+        if ($this->aQuote && $hash = spl_object_hash($this->aQuote)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -6639,12 +6691,66 @@ abstract class QuoteDetail implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildQuote object.
+     *
+     * @param  ChildQuote $v
+     * @return $this|\QuoteDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setQuote(ChildQuote $v = null)
+    {
+        if ($v === null) {
+            $this->setQthdid('');
+        } else {
+            $this->setQthdid($v->getQthdid());
+        }
+
+        $this->aQuote = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildQuote object, it will not be re-added.
+        if ($v !== null) {
+            $v->addQuoteDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildQuote object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildQuote The associated ChildQuote object.
+     * @throws PropelException
+     */
+    public function getQuote(ConnectionInterface $con = null)
+    {
+        if ($this->aQuote === null && (($this->qthdid !== "" && $this->qthdid !== null))) {
+            $this->aQuote = ChildQuoteQuery::create()->findPk($this->qthdid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aQuote->addQuoteDetails($this);
+             */
+        }
+
+        return $this->aQuote;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aQuote) {
+            $this->aQuote->removeQuoteDetail($this);
+        }
         $this->qthdid = null;
         $this->qtdtline = null;
         $this->inititemnbr = null;
@@ -6762,6 +6868,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aQuote = null;
     }
 
     /**

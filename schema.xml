@@ -2327,6 +2327,12 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="so_header" name="salesorder" skipSql="true">
+      <reference local="OehshNbr" foreign="OehdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="so_head_hist" name="saleshistory" skipSql="true">
+      <reference local="OehshNbr" foreign="OehhNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
