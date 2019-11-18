@@ -25,6 +25,7 @@ class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceivin
 		'bin'          => 'potsbin',
 		'qty_received' => 'potsqtyrec',
 		'lotreference' => 'potslotref',
-		'date_production' => 'potsexpiredate'
+		'date_production' => 'potsexpiredate',
+		'sequence'        => 'potdseq'
 	);
 }
