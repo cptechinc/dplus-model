@@ -31,7 +31,8 @@ class Documents extends BaseDocuments {
 		'time'        => 'docitime',
 		'title'       => 'dociref',
 		'user'        => 'dociuser',
-		'reference1'  => 'docifld1'
+		'reference1'  => 'docifld1',
+		'reference2'  => 'docifld2'
 	);
 
 	public function get_folderdescription() {
