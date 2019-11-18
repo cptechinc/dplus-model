@@ -15,12 +15,16 @@ use Dplus\Model\QueryTraits;
  * -----------------------------------------------------------------------------------------
  * FilterBy
  * @method  PurchaseOrderNotesQuery filterByPonbr(string $ponbr)      Filter the query on the pohdnbr column
- * 
+ *
  * FindOneBy
- * 
+ *
  * FindBy
- * 
+ *
  */
 class PurchaseOrderNotesQuery extends BasePurchaseOrderNotesQuery {
 	use QueryTraits;
+
+	public function filterHeader() {
+		return $this->filterByLinenbr(0);
+	}
 }

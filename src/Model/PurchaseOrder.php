@@ -139,4 +139,26 @@ class PurchaseOrder extends BasePurchaseOrder {
 		$q->select('totalcost');
 		return $q->findOne();
 	}
+
+	/**
+	 * Return Notes for the Purchase Order Notes
+	 * @return PurchaseOrderNotes[]|ObjectCollection
+	 */
+	public function get_notes() {
+		$q = PurchaseOrderNotesQuery::create();
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterHeader();
+		return $q->find();
+	}
+
+	/**
+	 * Return Notes for the Purchase Order Notes
+	 * @return PurchaseOrderNotes[]|ObjectCollection
+	 */
+	public function count_notes() {
+		$q = PurchaseOrderNotesQuery::create();
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterHeader();
+		return $q->count();
+	}
 }

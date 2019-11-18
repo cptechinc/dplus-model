@@ -59,4 +59,26 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	public function qty_remaining() {
 		return $this->qty_ordered - $this->qty_received();
 	}
+
+	/**
+	 * Return Notes for the Purchase Order Notes
+	 * @return PurchaseOrderNotes[]|ObjectCollection
+	 */
+	public function get_notes() {
+		$q = PurchaseOrderNotesQuery::create();
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterByLinenbr($this->podtline);
+		return $q->find();
+	}
+
+	/**
+	 * Return Notes for the Purchase Order Notes
+	 * @return PurchaseOrderNotes[]|ObjectCollection
+	 */
+	public function count_notes() {
+		$q = PurchaseOrderNotesQuery::create();
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterByLinenbr($this->podtline);
+		return $q->count();
+	}
 }
