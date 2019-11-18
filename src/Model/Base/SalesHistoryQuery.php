@@ -404,6 +404,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSalesHistoryQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
+ * @method     ChildSalesHistoryQuery leftJoinCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the Customer relation
+ * @method     ChildSalesHistoryQuery rightJoinCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Customer relation
+ * @method     ChildSalesHistoryQuery innerJoinCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the Customer relation
+ *
+ * @method     ChildSalesHistoryQuery joinWithCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Customer relation
+ *
+ * @method     ChildSalesHistoryQuery leftJoinWithCustomer() Adds a LEFT JOIN clause and with to the query using the Customer relation
+ * @method     ChildSalesHistoryQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
+ * @method     ChildSalesHistoryQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
+ *
+ * @method     ChildSalesHistoryQuery leftJoinCustomerShipto($relationAlias = null) Adds a LEFT JOIN clause to the query using the CustomerShipto relation
+ * @method     ChildSalesHistoryQuery rightJoinCustomerShipto($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CustomerShipto relation
+ * @method     ChildSalesHistoryQuery innerJoinCustomerShipto($relationAlias = null) Adds a INNER JOIN clause to the query using the CustomerShipto relation
+ *
+ * @method     ChildSalesHistoryQuery joinWithCustomerShipto($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CustomerShipto relation
+ *
+ * @method     ChildSalesHistoryQuery leftJoinWithCustomerShipto() Adds a LEFT JOIN clause and with to the query using the CustomerShipto relation
+ * @method     ChildSalesHistoryQuery rightJoinWithCustomerShipto() Adds a RIGHT JOIN clause and with to the query using the CustomerShipto relation
+ * @method     ChildSalesHistoryQuery innerJoinWithCustomerShipto() Adds a INNER JOIN clause and with to the query using the CustomerShipto relation
+ *
  * @method     ChildSalesHistoryQuery leftJoinSalesHistoryDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistoryDetail relation
  * @method     ChildSalesHistoryQuery rightJoinSalesHistoryDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistoryDetail relation
  * @method     ChildSalesHistoryQuery innerJoinSalesHistoryDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistoryDetail relation
@@ -414,7 +434,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryQuery rightJoinWithSalesHistoryDetail() Adds a RIGHT JOIN clause and with to the query using the SalesHistoryDetail relation
  * @method     ChildSalesHistoryQuery innerJoinWithSalesHistoryDetail() Adds a INNER JOIN clause and with to the query using the SalesHistoryDetail relation
  *
- * @method     \SalesHistoryDetailQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesHistoryDetailQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesHistory findOne(ConnectionInterface $con = null) Return the first ChildSalesHistory matching the query
  * @method     ChildSalesHistory findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesHistory matching the query, or a new ChildSalesHistory object populated from the query conditions when no match is found
@@ -6791,6 +6811,154 @@ abstract class SalesHistoryQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SalesHistoryTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \Customer object
+     *
+     * @param \Customer|ObjectCollection $customer The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByCustomer($customer, $comparison = null)
+    {
+        if ($customer instanceof \Customer) {
+            return $this
+                ->addUsingAlias(SalesHistoryTableMap::COL_ARCUCUSTID, $customer->getArcucustid(), $comparison);
+        } elseif ($customer instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(SalesHistoryTableMap::COL_ARCUCUSTID, $customer->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+        } else {
+            throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Customer relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Customer');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Customer');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Customer relation Customer object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CustomerQuery A secondary query class using the current class as primary query
+     */
+    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinCustomer($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
+    }
+
+    /**
+     * Filter the query by a related \CustomerShipto object
+     *
+     * @param \CustomerShipto $customerShipto The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function filterByCustomerShipto($customerShipto, $comparison = null)
+    {
+        if ($customerShipto instanceof \CustomerShipto) {
+            return $this
+                ->addUsingAlias(SalesHistoryTableMap::COL_ARCUCUSTID, $customerShipto->getArcucustid(), $comparison)
+                ->addUsingAlias(SalesHistoryTableMap::COL_ARSTSHIPID, $customerShipto->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByCustomerShipto() only accepts arguments of type \CustomerShipto');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the CustomerShipto relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesHistoryQuery The current query, for fluid interface
+     */
+    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('CustomerShipto');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'CustomerShipto');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the CustomerShipto relation CustomerShipto object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
+     */
+    public function useCustomerShiptoQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinCustomerShipto($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
     }
 
     /**

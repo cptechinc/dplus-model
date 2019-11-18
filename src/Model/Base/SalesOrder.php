@@ -2,6 +2,10 @@
 
 namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
+use \CustomerShipto as ChildCustomerShipto;
+use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
 use \SalesOrder as ChildSalesOrder;
 use \SalesOrderDetail as ChildSalesOrderDetail;
 use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
@@ -1365,6 +1369,16 @@ abstract class SalesOrder implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildCustomer
+     */
+    protected $aCustomer;
+
+    /**
+     * @var        ChildCustomerShipto
+     */
+    protected $aCustomerShipto;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderDetail[] Collection to store aggregation of ChildSalesOrderDetail objects.
@@ -3548,6 +3562,14 @@ abstract class SalesOrder implements ActiveRecordInterface
             $this->modifiedColumns[SalesOrderTableMap::COL_ARCUCUSTID] = true;
         }
 
+        if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
+            $this->aCustomer = null;
+        }
+
+        if ($this->aCustomerShipto !== null && $this->aCustomerShipto->getArcucustid() !== $v) {
+            $this->aCustomerShipto = null;
+        }
+
         return $this;
     } // setArcucustid()
 
@@ -3566,6 +3588,10 @@ abstract class SalesOrder implements ActiveRecordInterface
         if ($this->arstshipid !== $v) {
             $this->arstshipid = $v;
             $this->modifiedColumns[SalesOrderTableMap::COL_ARSTSHIPID] = true;
+        }
+
+        if ($this->aCustomerShipto !== null && $this->aCustomerShipto->getArstshipid() !== $v) {
+            $this->aCustomerShipto = null;
         }
 
         return $this;
@@ -7814,6 +7840,15 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
+            $this->aCustomer = null;
+        }
+        if ($this->aCustomerShipto !== null && $this->arcucustid !== $this->aCustomerShipto->getArcucustid()) {
+            $this->aCustomerShipto = null;
+        }
+        if ($this->aCustomerShipto !== null && $this->arstshipid !== $this->aCustomerShipto->getArstshipid()) {
+            $this->aCustomerShipto = null;
+        }
     } // ensureConsistency
 
     /**
@@ -7853,6 +7888,8 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aCustomer = null;
+            $this->aCustomerShipto = null;
             $this->collSalesOrderDetails = null;
 
         } // if (deep)
@@ -7957,6 +7994,25 @@ abstract class SalesOrder implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aCustomer !== null) {
+                if ($this->aCustomer->isModified() || $this->aCustomer->isNew()) {
+                    $affectedRows += $this->aCustomer->save($con);
+                }
+                $this->setCustomer($this->aCustomer);
+            }
+
+            if ($this->aCustomerShipto !== null) {
+                if ($this->aCustomerShipto->isModified() || $this->aCustomerShipto->isNew()) {
+                    $affectedRows += $this->aCustomerShipto->save($con);
+                }
+                $this->setCustomerShipto($this->aCustomerShipto);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -9971,6 +10027,36 @@ abstract class SalesOrder implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aCustomer) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customer';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_mast';
+                        break;
+                    default:
+                        $key = 'Customer';
+                }
+
+                $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aCustomerShipto) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customerShipto';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_ship_to';
+                        break;
+                    default:
+                        $key = 'CustomerShipto';
+                }
+
+                $result[$key] = $this->aCustomerShipto->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collSalesOrderDetails) {
 
                 switch ($keyType) {
@@ -12074,6 +12160,114 @@ abstract class SalesOrder implements ActiveRecordInterface
         return $copyObj;
     }
 
+    /**
+     * Declares an association between this object and a ChildCustomer object.
+     *
+     * @param  ChildCustomer $v
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomer(ChildCustomer $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid(NULL);
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        $this->aCustomer = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomer object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSalesOrder($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomer object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomer The associated ChildCustomer object.
+     * @throws PropelException
+     */
+    public function getCustomer(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomer->addSalesOrders($this);
+             */
+        }
+
+        return $this->aCustomer;
+    }
+
+    /**
+     * Declares an association between this object and a ChildCustomerShipto object.
+     *
+     * @param  ChildCustomerShipto $v
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomerShipto(ChildCustomerShipto $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid(NULL);
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        if ($v === null) {
+            $this->setArstshipid(NULL);
+        } else {
+            $this->setArstshipid($v->getArstshipid());
+        }
+
+        $this->aCustomerShipto = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomerShipto object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSalesOrder($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomerShipto object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomerShipto The associated ChildCustomerShipto object.
+     * @throws PropelException
+     */
+    public function getCustomerShipto(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
+            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomerShipto->addSalesOrders($this);
+             */
+        }
+
+        return $this->aCustomerShipto;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -12326,6 +12520,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aCustomer) {
+            $this->aCustomer->removeSalesOrder($this);
+        }
+        if (null !== $this->aCustomerShipto) {
+            $this->aCustomerShipto->removeSalesOrder($this);
+        }
         $this->oehdnbr = null;
         $this->oehdstat = null;
         $this->oehdhold = null;
@@ -12538,6 +12738,8 @@ abstract class SalesOrder implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collSalesOrderDetails = null;
+        $this->aCustomer = null;
+        $this->aCustomerShipto = null;
     }
 
     /**

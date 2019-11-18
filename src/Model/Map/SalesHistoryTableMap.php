@@ -1060,8 +1060,9 @@ class SalesHistoryTableMap extends TableMap
         $this->addColumn('OehhYear', 'Oehhyear', 'VARCHAR', false, 4, null);
         $this->addColumn('OehhStat', 'Oehhstat', 'VARCHAR', false, 1, null);
         $this->addColumn('OehhHold', 'Oehhhold', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArcuCustId', 'Arcucustid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstShipId', 'Arstshipid', 'VARCHAR', false, 6, null);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_cust_mast', 'ArcuCustId', false, 6, null);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_ship_to', 'ArcuCustId', false, 6, null);
+        $this->addForeignKey('ArstShipId', 'Arstshipid', 'VARCHAR', 'ar_ship_to', 'ArstShipId', false, 6, null);
         $this->addColumn('OehhStName', 'Oehhstname', 'VARCHAR', false, 30, null);
         $this->addColumn('OehhStLastName', 'Oehhstlastname', 'VARCHAR', false, 15, null);
         $this->addColumn('OehhStFirstName', 'Oehhstfirstname', 'VARCHAR', false, 14, null);
@@ -1250,6 +1251,25 @@ class SalesHistoryTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, null, false);
+        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, null, false);
         $this->addRelation('SalesHistoryDetail', '\\SalesHistoryDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

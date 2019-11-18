@@ -2,15 +2,23 @@
 
 namespace Base;
 
+use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
+use \SalesHistory as ChildSalesHistory;
+use \SalesHistoryQuery as ChildSalesHistoryQuery;
+use \SalesOrder as ChildSalesOrder;
+use \SalesOrderQuery as ChildSalesOrderQuery;
 use \Exception;
 use \PDO;
 use Map\CustomerShiptoTableMap;
+use Map\SalesHistoryTableMap;
+use Map\SalesOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -762,12 +770,36 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
+     */
+    protected $collSalesHistories;
+    protected $collSalesHistoriesPartial;
+
+    /**
+     * @var        ObjectCollection|ChildSalesOrder[] Collection to store aggregation of ChildSalesOrder objects.
+     */
+    protected $collSalesOrders;
+    protected $collSalesOrdersPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesHistory[]
+     */
+    protected $salesHistoriesScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesOrder[]
+     */
+    protected $salesOrdersScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -4420,6 +4452,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collSalesHistories = null;
+
+            $this->collSalesOrders = null;
+
         } // if (deep)
     }
 
@@ -4532,6 +4568,42 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->salesHistoriesScheduledForDeletion !== null) {
+                if (!$this->salesHistoriesScheduledForDeletion->isEmpty()) {
+                    foreach ($this->salesHistoriesScheduledForDeletion as $salesHistory) {
+                        // need to save related object because we set the relation to null
+                        $salesHistory->save($con);
+                    }
+                    $this->salesHistoriesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesHistories !== null) {
+                foreach ($this->collSalesHistories as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->salesOrdersScheduledForDeletion !== null) {
+                if (!$this->salesOrdersScheduledForDeletion->isEmpty()) {
+                    foreach ($this->salesOrdersScheduledForDeletion as $salesOrder) {
+                        // need to save related object because we set the relation to null
+                        $salesOrder->save($con);
+                    }
+                    $this->salesOrdersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesOrders !== null) {
+                foreach ($this->collSalesOrders as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -5539,10 +5611,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['CustomerShipto'][$this->hashCode()])) {
@@ -5657,6 +5730,38 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collSalesHistories) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesHistories';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_head_hists';
+                        break;
+                    default:
+                        $key = 'SalesHistories';
+                }
+
+                $result[$key] = $this->collSalesHistories->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collSalesOrders) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_headers';
+                        break;
+                    default:
+                        $key = 'SalesOrders';
+                }
+
+                $result[$key] = $this->collSalesOrders->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -6851,6 +6956,26 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getSalesHistories() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesHistory($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getSalesOrders() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesOrder($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -6876,6 +7001,527 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('SalesHistory' == $relationName) {
+            $this->initSalesHistories();
+            return;
+        }
+        if ('SalesOrder' == $relationName) {
+            $this->initSalesOrders();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collSalesHistories collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesHistories()
+     */
+    public function clearSalesHistories()
+    {
+        $this->collSalesHistories = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesHistories collection loaded partially.
+     */
+    public function resetPartialSalesHistories($v = true)
+    {
+        $this->collSalesHistoriesPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesHistories collection.
+     *
+     * By default this just sets the collSalesHistories collection to an empty array (like clearcollSalesHistories());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesHistories($overrideExisting = true)
+    {
+        if (null !== $this->collSalesHistories && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesHistoryTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesHistories = new $collectionClassName;
+        $this->collSalesHistories->setModel('\SalesHistory');
+    }
+
+    /**
+     * Gets an array of ChildSalesHistory objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomerShipto is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesHistory[] List of ChildSalesHistory objects
+     * @throws PropelException
+     */
+    public function getSalesHistories(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesHistoriesPartial && !$this->isNew();
+        if (null === $this->collSalesHistories || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistories) {
+                // return empty collection
+                $this->initSalesHistories();
+            } else {
+                $collSalesHistories = ChildSalesHistoryQuery::create(null, $criteria)
+                    ->filterByCustomerShipto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesHistoriesPartial && count($collSalesHistories)) {
+                        $this->initSalesHistories(false);
+
+                        foreach ($collSalesHistories as $obj) {
+                            if (false == $this->collSalesHistories->contains($obj)) {
+                                $this->collSalesHistories->append($obj);
+                            }
+                        }
+
+                        $this->collSalesHistoriesPartial = true;
+                    }
+
+                    return $collSalesHistories;
+                }
+
+                if ($partial && $this->collSalesHistories) {
+                    foreach ($this->collSalesHistories as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesHistories[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesHistories = $collSalesHistories;
+                $this->collSalesHistoriesPartial = false;
+            }
+        }
+
+        return $this->collSalesHistories;
+    }
+
+    /**
+     * Sets a collection of ChildSalesHistory objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesHistories A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function setSalesHistories(Collection $salesHistories, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesHistory[] $salesHistoriesToDelete */
+        $salesHistoriesToDelete = $this->getSalesHistories(new Criteria(), $con)->diff($salesHistories);
+
+
+        $this->salesHistoriesScheduledForDeletion = $salesHistoriesToDelete;
+
+        foreach ($salesHistoriesToDelete as $salesHistoryRemoved) {
+            $salesHistoryRemoved->setCustomerShipto(null);
+        }
+
+        $this->collSalesHistories = null;
+        foreach ($salesHistories as $salesHistory) {
+            $this->addSalesHistory($salesHistory);
+        }
+
+        $this->collSalesHistories = $salesHistories;
+        $this->collSalesHistoriesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesHistory objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesHistory objects.
+     * @throws PropelException
+     */
+    public function countSalesHistories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesHistoriesPartial && !$this->isNew();
+        if (null === $this->collSalesHistories || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistories) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesHistories());
+            }
+
+            $query = ChildSalesHistoryQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomerShipto($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesHistories);
+    }
+
+    /**
+     * Method called to associate a ChildSalesHistory object to this object
+     * through the ChildSalesHistory foreign key attribute.
+     *
+     * @param  ChildSalesHistory $l ChildSalesHistory
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function addSalesHistory(ChildSalesHistory $l)
+    {
+        if ($this->collSalesHistories === null) {
+            $this->initSalesHistories();
+            $this->collSalesHistoriesPartial = true;
+        }
+
+        if (!$this->collSalesHistories->contains($l)) {
+            $this->doAddSalesHistory($l);
+
+            if ($this->salesHistoriesScheduledForDeletion and $this->salesHistoriesScheduledForDeletion->contains($l)) {
+                $this->salesHistoriesScheduledForDeletion->remove($this->salesHistoriesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesHistory $salesHistory The ChildSalesHistory object to add.
+     */
+    protected function doAddSalesHistory(ChildSalesHistory $salesHistory)
+    {
+        $this->collSalesHistories[]= $salesHistory;
+        $salesHistory->setCustomerShipto($this);
+    }
+
+    /**
+     * @param  ChildSalesHistory $salesHistory The ChildSalesHistory object to remove.
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function removeSalesHistory(ChildSalesHistory $salesHistory)
+    {
+        if ($this->getSalesHistories()->contains($salesHistory)) {
+            $pos = $this->collSalesHistories->search($salesHistory);
+            $this->collSalesHistories->remove($pos);
+            if (null === $this->salesHistoriesScheduledForDeletion) {
+                $this->salesHistoriesScheduledForDeletion = clone $this->collSalesHistories;
+                $this->salesHistoriesScheduledForDeletion->clear();
+            }
+            $this->salesHistoriesScheduledForDeletion[]= clone $salesHistory;
+            $salesHistory->setCustomerShipto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related SalesHistories from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesHistory[] List of ChildSalesHistory objects
+     */
+    public function getSalesHistoriesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesHistoryQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getSalesHistories($query, $con);
+    }
+
+    /**
+     * Clears out the collSalesOrders collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesOrders()
+     */
+    public function clearSalesOrders()
+    {
+        $this->collSalesOrders = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesOrders collection loaded partially.
+     */
+    public function resetPartialSalesOrders($v = true)
+    {
+        $this->collSalesOrdersPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesOrders collection.
+     *
+     * By default this just sets the collSalesOrders collection to an empty array (like clearcollSalesOrders());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesOrders($overrideExisting = true)
+    {
+        if (null !== $this->collSalesOrders && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesOrders = new $collectionClassName;
+        $this->collSalesOrders->setModel('\SalesOrder');
+    }
+
+    /**
+     * Gets an array of ChildSalesOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomerShipto is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesOrder[] List of ChildSalesOrder objects
+     * @throws PropelException
+     */
+    public function getSalesOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrdersPartial && !$this->isNew();
+        if (null === $this->collSalesOrders || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrders) {
+                // return empty collection
+                $this->initSalesOrders();
+            } else {
+                $collSalesOrders = ChildSalesOrderQuery::create(null, $criteria)
+                    ->filterByCustomerShipto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesOrdersPartial && count($collSalesOrders)) {
+                        $this->initSalesOrders(false);
+
+                        foreach ($collSalesOrders as $obj) {
+                            if (false == $this->collSalesOrders->contains($obj)) {
+                                $this->collSalesOrders->append($obj);
+                            }
+                        }
+
+                        $this->collSalesOrdersPartial = true;
+                    }
+
+                    return $collSalesOrders;
+                }
+
+                if ($partial && $this->collSalesOrders) {
+                    foreach ($this->collSalesOrders as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesOrders[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesOrders = $collSalesOrders;
+                $this->collSalesOrdersPartial = false;
+            }
+        }
+
+        return $this->collSalesOrders;
+    }
+
+    /**
+     * Sets a collection of ChildSalesOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesOrders A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function setSalesOrders(Collection $salesOrders, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesOrder[] $salesOrdersToDelete */
+        $salesOrdersToDelete = $this->getSalesOrders(new Criteria(), $con)->diff($salesOrders);
+
+
+        $this->salesOrdersScheduledForDeletion = $salesOrdersToDelete;
+
+        foreach ($salesOrdersToDelete as $salesOrderRemoved) {
+            $salesOrderRemoved->setCustomerShipto(null);
+        }
+
+        $this->collSalesOrders = null;
+        foreach ($salesOrders as $salesOrder) {
+            $this->addSalesOrder($salesOrder);
+        }
+
+        $this->collSalesOrders = $salesOrders;
+        $this->collSalesOrdersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesOrder objects.
+     * @throws PropelException
+     */
+    public function countSalesOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrdersPartial && !$this->isNew();
+        if (null === $this->collSalesOrders || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrders) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesOrders());
+            }
+
+            $query = ChildSalesOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomerShipto($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesOrders);
+    }
+
+    /**
+     * Method called to associate a ChildSalesOrder object to this object
+     * through the ChildSalesOrder foreign key attribute.
+     *
+     * @param  ChildSalesOrder $l ChildSalesOrder
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function addSalesOrder(ChildSalesOrder $l)
+    {
+        if ($this->collSalesOrders === null) {
+            $this->initSalesOrders();
+            $this->collSalesOrdersPartial = true;
+        }
+
+        if (!$this->collSalesOrders->contains($l)) {
+            $this->doAddSalesOrder($l);
+
+            if ($this->salesOrdersScheduledForDeletion and $this->salesOrdersScheduledForDeletion->contains($l)) {
+                $this->salesOrdersScheduledForDeletion->remove($this->salesOrdersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesOrder $salesOrder The ChildSalesOrder object to add.
+     */
+    protected function doAddSalesOrder(ChildSalesOrder $salesOrder)
+    {
+        $this->collSalesOrders[]= $salesOrder;
+        $salesOrder->setCustomerShipto($this);
+    }
+
+    /**
+     * @param  ChildSalesOrder $salesOrder The ChildSalesOrder object to remove.
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function removeSalesOrder(ChildSalesOrder $salesOrder)
+    {
+        if ($this->getSalesOrders()->contains($salesOrder)) {
+            $pos = $this->collSalesOrders->search($salesOrder);
+            $this->collSalesOrders->remove($pos);
+            if (null === $this->salesOrdersScheduledForDeletion) {
+                $this->salesOrdersScheduledForDeletion = clone $this->collSalesOrders;
+                $this->salesOrdersScheduledForDeletion->clear();
+            }
+            $this->salesOrdersScheduledForDeletion[]= clone $salesOrder;
+            $salesOrder->setCustomerShipto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related SalesOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesOrder[] List of ChildSalesOrder objects
+     */
+    public function getSalesOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesOrderQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getSalesOrders($query, $con);
     }
 
     /**
@@ -7004,8 +7650,20 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collSalesHistories) {
+                foreach ($this->collSalesHistories as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collSalesOrders) {
+                foreach ($this->collSalesOrders as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collSalesHistories = null;
+        $this->collSalesOrders = null;
     }
 
     /**

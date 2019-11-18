@@ -10,6 +10,7 @@ use Map\CustomerShiptoTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -228,6 +229,28 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildCustomerShiptoQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerShiptoQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinSalesHistory($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistory relation
+ * @method     ChildCustomerShiptoQuery rightJoinSalesHistory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistory relation
+ * @method     ChildCustomerShiptoQuery innerJoinSalesHistory($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistory relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithSalesHistory($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesHistory relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithSalesHistory() Adds a LEFT JOIN clause and with to the query using the SalesHistory relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithSalesHistory() Adds a RIGHT JOIN clause and with to the query using the SalesHistory relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithSalesHistory() Adds a INNER JOIN clause and with to the query using the SalesHistory relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinSalesOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinSalesOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinSalesOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithSalesOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithSalesOrder() Adds a LEFT JOIN clause and with to the query using the SalesOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
+ *
+ * @method     \SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
  * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
@@ -4132,6 +4155,144 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(CustomerShiptoTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \SalesHistory object
+     *
+     * @param \SalesHistory|ObjectCollection $salesHistory the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterBySalesHistory($salesHistory, $comparison = null)
+    {
+        if ($salesHistory instanceof \SalesHistory) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $salesHistory->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $salesHistory->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterBySalesHistory() only accepts arguments of type \SalesHistory');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesHistory relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesHistory');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesHistory');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesHistory relation SalesHistory object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesHistoryQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesHistoryQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinSalesHistory($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesHistory', '\SalesHistoryQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesOrder object
+     *
+     * @param \SalesOrder|ObjectCollection $salesOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrder($salesOrder, $comparison = null)
+    {
+        if ($salesOrder instanceof \SalesOrder) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $salesOrder->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $salesOrder->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterBySalesOrder() only accepts arguments of type \SalesOrder');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrder relation SalesOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinSalesOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
     }
 
     /**
