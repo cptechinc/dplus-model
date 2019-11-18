@@ -231,7 +231,8 @@ class SalesOrderShipmentTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('OehshNbr', 'Oehshnbr', 'VARCHAR', true, 10, null);
+        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, null);
+        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'VARCHAR' , 'so_head_hist', 'OehhNbr', true, 10, null);
         $this->addPrimaryKey('OehshSeq', 'Oehshseq', 'INTEGER', true, 4, 0);
         $this->addColumn('OehshShipRefNbr', 'Oehshshiprefnbr', 'INTEGER', false, 8, null);
         $this->addColumn('OehshWght', 'Oehshwght', 'DECIMAL', false, 20, null);
@@ -260,6 +261,20 @@ class SalesOrderShipmentTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehshNbr',
+    1 => ':OehdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehshNbr',
+    1 => ':OehhNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

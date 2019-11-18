@@ -1277,6 +1277,13 @@ class SalesHistoryTableMap extends TableMap
     1 => ':OehhNbr',
   ),
 ), null, null, 'SalesHistoryDetails', false);
+        $this->addRelation('SalesOrderShipment', '\\SalesOrderShipment', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehshNbr',
+    1 => ':OehhNbr',
+  ),
+), null, null, 'SalesOrderShipments', false);
     } // buildRelations()
 
     /**

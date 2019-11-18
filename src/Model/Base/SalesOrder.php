@@ -10,9 +10,12 @@ use \SalesOrder as ChildSalesOrder;
 use \SalesOrderDetail as ChildSalesOrderDetail;
 use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
 use \SalesOrderQuery as ChildSalesOrderQuery;
+use \SalesOrderShipment as ChildSalesOrderShipment;
+use \SalesOrderShipmentQuery as ChildSalesOrderShipmentQuery;
 use \Exception;
 use \PDO;
 use Map\SalesOrderDetailTableMap;
+use Map\SalesOrderShipmentTableMap;
 use Map\SalesOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -1387,6 +1390,12 @@ abstract class SalesOrder implements ActiveRecordInterface
     protected $collSalesOrderDetailsPartial;
 
     /**
+     * @var        ObjectCollection|ChildSalesOrderShipment[] Collection to store aggregation of ChildSalesOrderShipment objects.
+     */
+    protected $collSalesOrderShipments;
+    protected $collSalesOrderShipmentsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -1399,6 +1408,12 @@ abstract class SalesOrder implements ActiveRecordInterface
      * @var ObjectCollection|ChildSalesOrderDetail[]
      */
     protected $salesOrderDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesOrderShipment[]
+     */
+    protected $salesOrderShipmentsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\SalesOrder object.
@@ -7892,6 +7907,8 @@ abstract class SalesOrder implements ActiveRecordInterface
             $this->aCustomerShipto = null;
             $this->collSalesOrderDetails = null;
 
+            $this->collSalesOrderShipments = null;
+
         } // if (deep)
     }
 
@@ -8036,6 +8053,23 @@ abstract class SalesOrder implements ActiveRecordInterface
 
             if ($this->collSalesOrderDetails !== null) {
                 foreach ($this->collSalesOrderDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->salesOrderShipmentsScheduledForDeletion !== null) {
+                if (!$this->salesOrderShipmentsScheduledForDeletion->isEmpty()) {
+                    \SalesOrderShipmentQuery::create()
+                        ->filterByPrimaryKeys($this->salesOrderShipmentsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->salesOrderShipmentsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesOrderShipments !== null) {
+                foreach ($this->collSalesOrderShipments as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -10071,6 +10105,21 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collSalesOrderDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collSalesOrderShipments) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrderShipments';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_hist_ships';
+                        break;
+                    default:
+                        $key = 'SalesOrderShipments';
+                }
+
+                $result[$key] = $this->collSalesOrderShipments->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -12131,6 +12180,12 @@ abstract class SalesOrder implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getSalesOrderShipments() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesOrderShipment($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -12281,6 +12336,10 @@ abstract class SalesOrder implements ActiveRecordInterface
     {
         if ('SalesOrderDetail' == $relationName) {
             $this->initSalesOrderDetails();
+            return;
+        }
+        if ('SalesOrderShipment' == $relationName) {
+            $this->initSalesOrderShipments();
             return;
         }
     }
@@ -12514,6 +12573,259 @@ abstract class SalesOrder implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collSalesOrderShipments collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesOrderShipments()
+     */
+    public function clearSalesOrderShipments()
+    {
+        $this->collSalesOrderShipments = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesOrderShipments collection loaded partially.
+     */
+    public function resetPartialSalesOrderShipments($v = true)
+    {
+        $this->collSalesOrderShipmentsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesOrderShipments collection.
+     *
+     * By default this just sets the collSalesOrderShipments collection to an empty array (like clearcollSalesOrderShipments());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesOrderShipments($overrideExisting = true)
+    {
+        if (null !== $this->collSalesOrderShipments && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesOrderShipmentTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesOrderShipments = new $collectionClassName;
+        $this->collSalesOrderShipments->setModel('\SalesOrderShipment');
+    }
+
+    /**
+     * Gets an array of ChildSalesOrderShipment objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildSalesOrder is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
+     * @throws PropelException
+     */
+    public function getSalesOrderShipments(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderShipments || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderShipments) {
+                // return empty collection
+                $this->initSalesOrderShipments();
+            } else {
+                $collSalesOrderShipments = ChildSalesOrderShipmentQuery::create(null, $criteria)
+                    ->filterBySalesOrder($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesOrderShipmentsPartial && count($collSalesOrderShipments)) {
+                        $this->initSalesOrderShipments(false);
+
+                        foreach ($collSalesOrderShipments as $obj) {
+                            if (false == $this->collSalesOrderShipments->contains($obj)) {
+                                $this->collSalesOrderShipments->append($obj);
+                            }
+                        }
+
+                        $this->collSalesOrderShipmentsPartial = true;
+                    }
+
+                    return $collSalesOrderShipments;
+                }
+
+                if ($partial && $this->collSalesOrderShipments) {
+                    foreach ($this->collSalesOrderShipments as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesOrderShipments[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesOrderShipments = $collSalesOrderShipments;
+                $this->collSalesOrderShipmentsPartial = false;
+            }
+        }
+
+        return $this->collSalesOrderShipments;
+    }
+
+    /**
+     * Sets a collection of ChildSalesOrderShipment objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesOrderShipments A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     */
+    public function setSalesOrderShipments(Collection $salesOrderShipments, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesOrderShipment[] $salesOrderShipmentsToDelete */
+        $salesOrderShipmentsToDelete = $this->getSalesOrderShipments(new Criteria(), $con)->diff($salesOrderShipments);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->salesOrderShipmentsScheduledForDeletion = clone $salesOrderShipmentsToDelete;
+
+        foreach ($salesOrderShipmentsToDelete as $salesOrderShipmentRemoved) {
+            $salesOrderShipmentRemoved->setSalesOrder(null);
+        }
+
+        $this->collSalesOrderShipments = null;
+        foreach ($salesOrderShipments as $salesOrderShipment) {
+            $this->addSalesOrderShipment($salesOrderShipment);
+        }
+
+        $this->collSalesOrderShipments = $salesOrderShipments;
+        $this->collSalesOrderShipmentsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesOrderShipment objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesOrderShipment objects.
+     * @throws PropelException
+     */
+    public function countSalesOrderShipments(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderShipmentsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderShipments || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderShipments) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesOrderShipments());
+            }
+
+            $query = ChildSalesOrderShipmentQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterBySalesOrder($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesOrderShipments);
+    }
+
+    /**
+     * Method called to associate a ChildSalesOrderShipment object to this object
+     * through the ChildSalesOrderShipment foreign key attribute.
+     *
+     * @param  ChildSalesOrderShipment $l ChildSalesOrderShipment
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     */
+    public function addSalesOrderShipment(ChildSalesOrderShipment $l)
+    {
+        if ($this->collSalesOrderShipments === null) {
+            $this->initSalesOrderShipments();
+            $this->collSalesOrderShipmentsPartial = true;
+        }
+
+        if (!$this->collSalesOrderShipments->contains($l)) {
+            $this->doAddSalesOrderShipment($l);
+
+            if ($this->salesOrderShipmentsScheduledForDeletion and $this->salesOrderShipmentsScheduledForDeletion->contains($l)) {
+                $this->salesOrderShipmentsScheduledForDeletion->remove($this->salesOrderShipmentsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to add.
+     */
+    protected function doAddSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
+    {
+        $this->collSalesOrderShipments[]= $salesOrderShipment;
+        $salesOrderShipment->setSalesOrder($this);
+    }
+
+    /**
+     * @param  ChildSalesOrderShipment $salesOrderShipment The ChildSalesOrderShipment object to remove.
+     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     */
+    public function removeSalesOrderShipment(ChildSalesOrderShipment $salesOrderShipment)
+    {
+        if ($this->getSalesOrderShipments()->contains($salesOrderShipment)) {
+            $pos = $this->collSalesOrderShipments->search($salesOrderShipment);
+            $this->collSalesOrderShipments->remove($pos);
+            if (null === $this->salesOrderShipmentsScheduledForDeletion) {
+                $this->salesOrderShipmentsScheduledForDeletion = clone $this->collSalesOrderShipments;
+                $this->salesOrderShipmentsScheduledForDeletion->clear();
+            }
+            $this->salesOrderShipmentsScheduledForDeletion[]= clone $salesOrderShipment;
+            $salesOrderShipment->setSalesOrder(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this SalesOrder is new, it will return
+     * an empty collection; or if this SalesOrder has previously
+     * been saved, it will retrieve related SalesOrderShipments from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in SalesOrder.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesOrderShipment[] List of ChildSalesOrderShipment objects
+     */
+    public function getSalesOrderShipmentsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesOrderShipmentQuery::create(null, $criteria);
+        $query->joinWith('SalesHistory', $joinBehavior);
+
+        return $this->getSalesOrderShipments($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -12735,9 +13047,15 @@ abstract class SalesOrder implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collSalesOrderShipments) {
+                foreach ($this->collSalesOrderShipments as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collSalesOrderDetails = null;
+        $this->collSalesOrderShipments = null;
         $this->aCustomer = null;
         $this->aCustomerShipto = null;
     }

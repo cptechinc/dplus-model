@@ -432,7 +432,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery rightJoinWithSalesOrderDetail() Adds a RIGHT JOIN clause and with to the query using the SalesOrderDetail relation
  * @method     ChildSalesOrderQuery innerJoinWithSalesOrderDetail() Adds a INNER JOIN clause and with to the query using the SalesOrderDetail relation
  *
- * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildSalesOrderQuery leftJoinSalesOrderShipment($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrderShipment relation
+ * @method     ChildSalesOrderQuery rightJoinSalesOrderShipment($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrderShipment relation
+ * @method     ChildSalesOrderQuery innerJoinSalesOrderShipment($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrderShipment relation
+ *
+ * @method     ChildSalesOrderQuery joinWithSalesOrderShipment($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrderShipment relation
+ *
+ * @method     ChildSalesOrderQuery leftJoinWithSalesOrderShipment() Adds a LEFT JOIN clause and with to the query using the SalesOrderShipment relation
+ * @method     ChildSalesOrderQuery rightJoinWithSalesOrderShipment() Adds a RIGHT JOIN clause and with to the query using the SalesOrderShipment relation
+ * @method     ChildSalesOrderQuery innerJoinWithSalesOrderShipment() Adds a INNER JOIN clause and with to the query using the SalesOrderShipment relation
+ *
+ * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesOrder findOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
  * @method     ChildSalesOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
@@ -7018,6 +7028,79 @@ abstract class SalesOrderQuery extends ModelCriteria
         return $this
             ->joinSalesOrderDetail($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesOrderShipment object
+     *
+     * @param \SalesOrderShipment|ObjectCollection $salesOrderShipment the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrderShipment($salesOrderShipment, $comparison = null)
+    {
+        if ($salesOrderShipment instanceof \SalesOrderShipment) {
+            return $this
+                ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderShipment->getOehshnbr(), $comparison);
+        } elseif ($salesOrderShipment instanceof ObjectCollection) {
+            return $this
+                ->useSalesOrderShipmentQuery()
+                ->filterByPrimaryKeys($salesOrderShipment->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterBySalesOrderShipment() only accepts arguments of type \SalesOrderShipment or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrderShipment relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function joinSalesOrderShipment($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrderShipment');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrderShipment');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrderShipment relation SalesOrderShipment object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderShipmentQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderShipmentQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrderShipment($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderShipment', '\SalesOrderShipmentQuery');
     }
 
     /**
