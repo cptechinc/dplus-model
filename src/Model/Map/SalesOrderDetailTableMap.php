@@ -826,7 +826,7 @@ class SalesOrderDetailTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR', true, 10, '');
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, '');
         $this->addPrimaryKey('OedtLine', 'Oedtline', 'INTEGER', true, 4, 0);
         $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
         $this->addColumn('OedtDesc', 'Oedtdesc', 'VARCHAR', false, 35, null);
@@ -974,6 +974,13 @@ class SalesOrderDetailTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

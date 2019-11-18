@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \SalesOrder as ChildSalesOrder;
+use \SalesOrderDetail as ChildSalesOrderDetail;
+use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
 use \SalesOrderQuery as ChildSalesOrderQuery;
 use \Exception;
 use \PDO;
+use Map\SalesOrderDetailTableMap;
 use Map\SalesOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -174,7 +179,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdordrdate field.
      *
-     * @var        string
+     * @var        int
      */
     protected $oehdordrdate;
 
@@ -1362,12 +1367,24 @@ abstract class SalesOrder implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildSalesOrderDetail[] Collection to store aggregation of ChildSalesOrderDetail objects.
+     */
+    protected $collSalesOrderDetails;
+    protected $collSalesOrderDetailsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesOrderDetail[]
+     */
+    protected $salesOrderDetailsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\SalesOrder object.
@@ -1757,7 +1774,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the [oehdordrdate] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehdordrdate()
     {
@@ -3777,13 +3794,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Set the value of [oehdordrdate] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdordrdate($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehdordrdate !== $v) {
@@ -7259,7 +7276,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             $this->oehdcustpo = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehdordrdate = (null !== $col) ? (string) $col : null;
+            $this->oehdordrdate = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
@@ -7836,6 +7853,8 @@ abstract class SalesOrder implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collSalesOrderDetails = null;
+
         } // if (deep)
     }
 
@@ -7948,6 +7967,23 @@ abstract class SalesOrder implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->salesOrderDetailsScheduledForDeletion !== null) {
+                if (!$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
+                    \SalesOrderDetailQuery::create()
+                        ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->salesOrderDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesOrderDetails !== null) {
+                foreach ($this->collSalesOrderDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -8590,7 +8626,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->oehdcustpo, PDO::PARAM_STR);
                         break;
                     case 'OehdOrdrDate':
-                        $stmt->bindValue($identifier, $this->oehdordrdate, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehdordrdate, PDO::PARAM_INT);
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
@@ -9729,10 +9765,11 @@ abstract class SalesOrder implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['SalesOrder'][$this->hashCode()])) {
@@ -9933,6 +9970,23 @@ abstract class SalesOrder implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collSalesOrderDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrderDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_details';
+                        break;
+                    default:
+                        $key = 'SalesOrderDetails';
+                }
+
+                $result[$key] = $this->collSalesOrderDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -11979,6 +12033,20 @@ abstract class SalesOrder implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getSalesOrderDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesOrderDetail($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -12004,6 +12072,251 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('SalesOrderDetail' == $relationName) {
+            $this->initSalesOrderDetails();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collSalesOrderDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesOrderDetails()
+     */
+    public function clearSalesOrderDetails()
+    {
+        $this->collSalesOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesOrderDetails collection loaded partially.
+     */
+    public function resetPartialSalesOrderDetails($v = true)
+    {
+        $this->collSalesOrderDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesOrderDetails collection.
+     *
+     * By default this just sets the collSalesOrderDetails collection to an empty array (like clearcollSalesOrderDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesOrderDetails($overrideExisting = true)
+    {
+        if (null !== $this->collSalesOrderDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesOrderDetails = new $collectionClassName;
+        $this->collSalesOrderDetails->setModel('\SalesOrderDetail');
+    }
+
+    /**
+     * Gets an array of ChildSalesOrderDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildSalesOrder is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
+     * @throws PropelException
+     */
+    public function getSalesOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+                // return empty collection
+                $this->initSalesOrderDetails();
+            } else {
+                $collSalesOrderDetails = ChildSalesOrderDetailQuery::create(null, $criteria)
+                    ->filterBySalesOrder($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesOrderDetailsPartial && count($collSalesOrderDetails)) {
+                        $this->initSalesOrderDetails(false);
+
+                        foreach ($collSalesOrderDetails as $obj) {
+                            if (false == $this->collSalesOrderDetails->contains($obj)) {
+                                $this->collSalesOrderDetails->append($obj);
+                            }
+                        }
+
+                        $this->collSalesOrderDetailsPartial = true;
+                    }
+
+                    return $collSalesOrderDetails;
+                }
+
+                if ($partial && $this->collSalesOrderDetails) {
+                    foreach ($this->collSalesOrderDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesOrderDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesOrderDetails = $collSalesOrderDetails;
+                $this->collSalesOrderDetailsPartial = false;
+            }
+        }
+
+        return $this->collSalesOrderDetails;
+    }
+
+    /**
+     * Sets a collection of ChildSalesOrderDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesOrderDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     */
+    public function setSalesOrderDetails(Collection $salesOrderDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesOrderDetail[] $salesOrderDetailsToDelete */
+        $salesOrderDetailsToDelete = $this->getSalesOrderDetails(new Criteria(), $con)->diff($salesOrderDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->salesOrderDetailsScheduledForDeletion = clone $salesOrderDetailsToDelete;
+
+        foreach ($salesOrderDetailsToDelete as $salesOrderDetailRemoved) {
+            $salesOrderDetailRemoved->setSalesOrder(null);
+        }
+
+        $this->collSalesOrderDetails = null;
+        foreach ($salesOrderDetails as $salesOrderDetail) {
+            $this->addSalesOrderDetail($salesOrderDetail);
+        }
+
+        $this->collSalesOrderDetails = $salesOrderDetails;
+        $this->collSalesOrderDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesOrderDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesOrderDetail objects.
+     * @throws PropelException
+     */
+    public function countSalesOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesOrderDetails());
+            }
+
+            $query = ChildSalesOrderDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterBySalesOrder($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesOrderDetails);
+    }
+
+    /**
+     * Method called to associate a ChildSalesOrderDetail object to this object
+     * through the ChildSalesOrderDetail foreign key attribute.
+     *
+     * @param  ChildSalesOrderDetail $l ChildSalesOrderDetail
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     */
+    public function addSalesOrderDetail(ChildSalesOrderDetail $l)
+    {
+        if ($this->collSalesOrderDetails === null) {
+            $this->initSalesOrderDetails();
+            $this->collSalesOrderDetailsPartial = true;
+        }
+
+        if (!$this->collSalesOrderDetails->contains($l)) {
+            $this->doAddSalesOrderDetail($l);
+
+            if ($this->salesOrderDetailsScheduledForDeletion and $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
+                $this->salesOrderDetailsScheduledForDeletion->remove($this->salesOrderDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to add.
+     */
+    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    {
+        $this->collSalesOrderDetails[]= $salesOrderDetail;
+        $salesOrderDetail->setSalesOrder($this);
+    }
+
+    /**
+     * @param  ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
+     * @return $this|ChildSalesOrder The current object (for fluent API support)
+     */
+    public function removeSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    {
+        if ($this->getSalesOrderDetails()->contains($salesOrderDetail)) {
+            $pos = $this->collSalesOrderDetails->search($salesOrderDetail);
+            $this->collSalesOrderDetails->remove($pos);
+            if (null === $this->salesOrderDetailsScheduledForDeletion) {
+                $this->salesOrderDetailsScheduledForDeletion = clone $this->collSalesOrderDetails;
+                $this->salesOrderDetailsScheduledForDeletion->clear();
+            }
+            $this->salesOrderDetailsScheduledForDeletion[]= clone $salesOrderDetail;
+            $salesOrderDetail->setSalesOrder(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -12217,8 +12530,14 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collSalesOrderDetails) {
+                foreach ($this->collSalesOrderDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collSalesOrderDetails = null;
     }
 
     /**

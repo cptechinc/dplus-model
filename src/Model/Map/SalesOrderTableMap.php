@@ -1067,7 +1067,7 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdStStat', 'Oehdststat', 'VARCHAR', false, 2, null);
         $this->addColumn('OehdStZipCode', 'Oehdstzipcode', 'VARCHAR', false, 10, null);
         $this->addColumn('OehdCustPo', 'Oehdcustpo', 'VARCHAR', false, 20, null);
-        $this->addColumn('OehdOrdrDate', 'Oehdordrdate', 'VARCHAR', false, 8, null);
+        $this->addColumn('OehdOrdrDate', 'Oehdordrdate', 'INTEGER', false, 8, null);
         $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4, null);
         $this->addColumn('ArtbShipVia', 'Artbshipvia', 'VARCHAR', false, 4, null);
         $this->addColumn('ArinInvNbr', 'Arininvnbr', 'VARCHAR', false, 10, null);
@@ -1244,6 +1244,13 @@ class SalesOrderTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesOrderDetail', '\\SalesOrderDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+), null, null, 'SalesOrderDetails', false);
     } // buildRelations()
 
     /**

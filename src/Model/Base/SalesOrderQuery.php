@@ -10,6 +10,7 @@ use Map\SalesOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -401,6 +402,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSalesOrderQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
+ * @method     ChildSalesOrderQuery leftJoinSalesOrderDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrderDetail relation
+ * @method     ChildSalesOrderQuery rightJoinSalesOrderDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrderDetail relation
+ * @method     ChildSalesOrderQuery innerJoinSalesOrderDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrderDetail relation
+ *
+ * @method     ChildSalesOrderQuery joinWithSalesOrderDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrderDetail relation
+ *
+ * @method     ChildSalesOrderQuery leftJoinWithSalesOrderDetail() Adds a LEFT JOIN clause and with to the query using the SalesOrderDetail relation
+ * @method     ChildSalesOrderQuery rightJoinWithSalesOrderDetail() Adds a RIGHT JOIN clause and with to the query using the SalesOrderDetail relation
+ * @method     ChildSalesOrderQuery innerJoinWithSalesOrderDetail() Adds a INNER JOIN clause and with to the query using the SalesOrderDetail relation
+ *
+ * @method     \SalesOrderDetailQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ *
  * @method     ChildSalesOrder findOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
  * @method     ChildSalesOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
  *
@@ -420,7 +433,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder findOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column
  * @method     ChildSalesOrder findOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column
  * @method     ChildSalesOrder findOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column
- * @method     ChildSalesOrder findOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder findOneByOehdordrdate(int $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
  * @method     ChildSalesOrder findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column
  * @method     ChildSalesOrder findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column
  * @method     ChildSalesOrder findOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column
@@ -610,7 +623,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requireOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrder requireOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdordrdate(int $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -798,7 +811,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdststat(string $OehdStStat) Return ChildSalesOrder objects filtered by the OehdStStat column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdstzipcode(string $OehdStZipCode) Return ChildSalesOrder objects filtered by the OehdStZipCode column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdcustpo(string $OehdCustPo) Return ChildSalesOrder objects filtered by the OehdCustPo column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrdate(string $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrdate(int $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
  * @method     ChildSalesOrder[]|ObjectCollection findByArtmtermcd(string $ArtmTermCd) Return ChildSalesOrder objects filtered by the ArtmTermCd column
  * @method     ChildSalesOrder[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildSalesOrder objects filtered by the ArtbShipVia column
  * @method     ChildSalesOrder[]|ObjectCollection findByArininvnbr(string $ArinInvNbr) Return ChildSalesOrder objects filtered by the ArinInvNbr column
@@ -1561,19 +1574,35 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehdordrdate('fooValue');   // WHERE OehdOrdrDate = 'fooValue'
-     * $query->filterByOehdordrdate('%fooValue%', Criteria::LIKE); // WHERE OehdOrdrDate LIKE '%fooValue%'
+     * $query->filterByOehdordrdate(1234); // WHERE OehdOrdrDate = 1234
+     * $query->filterByOehdordrdate(array(12, 34)); // WHERE OehdOrdrDate IN (12, 34)
+     * $query->filterByOehdordrdate(array('min' => 12)); // WHERE OehdOrdrDate > 12
      * </code>
      *
-     * @param     string $oehdordrdate The value to use as filter.
+     * @param     mixed $oehdordrdate The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
     public function filterByOehdordrdate($oehdordrdate = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehdordrdate)) {
+        if (is_array($oehdordrdate)) {
+            $useMinMax = false;
+            if (isset($oehdordrdate['min'])) {
+                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehdordrdate['max'])) {
+                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -6748,6 +6777,79 @@ abstract class SalesOrderQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SalesOrderTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \SalesOrderDetail object
+     *
+     * @param \SalesOrderDetail|ObjectCollection $salesOrderDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrderDetail($salesOrderDetail, $comparison = null)
+    {
+        if ($salesOrderDetail instanceof \SalesOrderDetail) {
+            return $this
+                ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderDetail->getOehdnbr(), $comparison);
+        } elseif ($salesOrderDetail instanceof ObjectCollection) {
+            return $this
+                ->useSalesOrderDetailQuery()
+                ->filterByPrimaryKeys($salesOrderDetail->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterBySalesOrderDetail() only accepts arguments of type \SalesOrderDetail or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrderDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function joinSalesOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrderDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrderDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrderDetail relation SalesOrderDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrderDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
     }
 
     /**
