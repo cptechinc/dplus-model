@@ -37,7 +37,7 @@ class ApInvoiceDetailQuery extends BaseApInvoiceDetailQuery {
 	/**
 	 * Filter for NON Item IDs
 	 * NOTE: Usedfor getting the detail records that contain FREIGHT / TAX
-     * 
+	 *
 	 * @return ApInvoiceDetailQuery
 	 */
 	public function filterOnlyNonItemids() {

@@ -13,6 +13,11 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const NON_ITEM_ITEMIDS = array(
+		'freight',
+		'tax'
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
