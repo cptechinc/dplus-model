@@ -815,7 +815,7 @@ class CustomerTableMap extends TableMap
         $this->addColumn('ArcuBord', 'Arcubord', 'VARCHAR', false, 1, null);
         $this->addColumn('ArtbTypeCode', 'Artbtypecode', 'VARCHAR', false, 4, null);
         $this->addColumn('ArtbPricCode', 'Artbpriccode', 'VARCHAR', false, 4, null);
-        $this->addColumn('ArtbCommCode', 'Artbcommcode', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('ArtbCommCode', 'Artbcommcode', 'VARCHAR', 'ar_cust_comm', 'ArtbCommCode', false, 4, null);
         $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', false, 4, null);
         $this->addColumn('ArcuCredLmt', 'Arcucredlmt', 'DECIMAL', false, 20, null);
         $this->addColumn('ArcuStmtCode', 'Arcustmtcode', 'VARCHAR', false, 1, null);
@@ -926,6 +926,13 @@ class CustomerTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Shipvia', '\\Shipvia', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArtbShipVia',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, null, false);
         $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

@@ -296,6 +296,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
+ *
+ * @method     ChildCustomerQuery leftJoinShipvia($relationAlias = null) Adds a LEFT JOIN clause to the query using the Shipvia relation
+ * @method     ChildCustomerQuery rightJoinShipvia($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Shipvia relation
+ * @method     ChildCustomerQuery innerJoinShipvia($relationAlias = null) Adds a INNER JOIN clause to the query using the Shipvia relation
+ *
+ * @method     ChildCustomerQuery joinWithShipvia($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Shipvia relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithShipvia() Adds a LEFT JOIN clause and with to the query using the Shipvia relation
+ * @method     ChildCustomerQuery rightJoinWithShipvia() Adds a RIGHT JOIN clause and with to the query using the Shipvia relation
+ * @method     ChildCustomerQuery innerJoinWithShipvia() Adds a INNER JOIN clause and with to the query using the Shipvia relation
+ *
+ * @method     ChildCustomerQuery leftJoinCustomerShipto($relationAlias = null) Adds a LEFT JOIN clause to the query using the CustomerShipto relation
+ * @method     ChildCustomerQuery rightJoinCustomerShipto($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CustomerShipto relation
+ * @method     ChildCustomerQuery innerJoinCustomerShipto($relationAlias = null) Adds a INNER JOIN clause to the query using the CustomerShipto relation
+ *
+ * @method     ChildCustomerQuery joinWithCustomerShipto($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CustomerShipto relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithCustomerShipto() Adds a LEFT JOIN clause and with to the query using the CustomerShipto relation
+ * @method     ChildCustomerQuery rightJoinWithCustomerShipto() Adds a RIGHT JOIN clause and with to the query using the CustomerShipto relation
+ * @method     ChildCustomerQuery innerJoinWithCustomerShipto() Adds a INNER JOIN clause and with to the query using the CustomerShipto relation
+ *
  * @method     ChildCustomerQuery leftJoinSalesHistory($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistory relation
  * @method     ChildCustomerQuery rightJoinSalesHistory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistory relation
  * @method     ChildCustomerQuery innerJoinSalesHistory($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistory relation
@@ -5407,6 +5428,82 @@ abstract class CustomerQuery extends ModelCriteria
         return $this->addUsingAlias(CustomerTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
+    /**
+     * Filter the query by a related \Shipvia object
+     *
+     * @param \Shipvia|ObjectCollection $shipvia The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByShipvia($shipvia, $comparison = null)
+    {
+        if ($shipvia instanceof \Shipvia) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARTBSHIPVIA, $shipvia->getArtbshipvia(), $comparison);
+        } elseif ($shipvia instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARTBSHIPVIA, $shipvia->toKeyValue('PrimaryKey', 'Artbshipvia'), $comparison);
+        } else {
+            throw new PropelException('filterByShipvia() only accepts arguments of type \Shipvia or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Shipvia relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinShipvia($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Shipvia');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Shipvia');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Shipvia relation Shipvia object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ShipviaQuery A secondary query class using the current class as primary query
+     */
+    public function useShipviaQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinShipvia($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Shipvia', '\ShipviaQuery');
+    }
     /**
      * Filter the query by a related \SalesHistory object
      *

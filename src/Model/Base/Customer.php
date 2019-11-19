@@ -8,6 +8,8 @@ use \SalesHistory as ChildSalesHistory;
 use \SalesHistoryQuery as ChildSalesHistoryQuery;
 use \SalesOrder as ChildSalesOrder;
 use \SalesOrderQuery as ChildSalesOrderQuery;
+use \Shipvia as ChildShipvia;
+use \ShipviaQuery as ChildShipviaQuery;
 use \Exception;
 use \PDO;
 use Map\CustomerTableMap;
@@ -999,6 +1001,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     protected $dummy;
 
+    protected $aShipvia;
     /**
      * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
      */
@@ -3114,6 +3117,10 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->artbshipvia !== $v) {
             $this->artbshipvia = $v;
             $this->modifiedColumns[CustomerTableMap::COL_ARTBSHIPVIA] = true;
+        }
+
+        if ($this->aShipvia !== null && $this->aShipvia->getArtbshipvia() !== $v) {
+            $this->aShipvia = null;
         }
 
         return $this;
@@ -5727,6 +5734,9 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aShipvia !== null && $this->artbshipvia !== $this->aShipvia->getArtbshipvia()) {
+            $this->aShipvia = null;
+        }
     } // ensureConsistency
 
     /**
@@ -5766,6 +5776,7 @@ abstract class Customer implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aShipvia = null;
             $this->collSalesHistories = null;
 
             $this->collSalesOrders = null;
@@ -5872,6 +5883,13 @@ abstract class Customer implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            if ($this->aShipvia !== null) {
+                if ($this->aShipvia->isModified() || $this->aShipvia->isNew()) {
+                    $affectedRows += $this->aShipvia->save($con);
+                }
+                $this->setShipvia($this->aShipvia);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -7375,6 +7393,21 @@ abstract class Customer implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aShipvia) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'shipvia';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_svia';
+                        break;
+                    default:
+                        $key = 'Shipvia';
+                }
+
+                $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collSalesHistories) {
 
                 switch ($keyType) {
@@ -8969,6 +9002,57 @@ abstract class Customer implements ActiveRecordInterface
         return $copyObj;
     }
 
+    /**
+     * Declares an association between this object and a ChildShipvia object.
+     *
+     * @param  ChildShipvia $v
+     * @return $this|\Customer The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setShipvia(ChildShipvia $v = null)
+    {
+        if ($v === null) {
+            $this->setArtbshipvia(NULL);
+        } else {
+            $this->setArtbshipvia($v->getArtbshipvia());
+        }
+
+        $this->aShipvia = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildShipvia object, it will not be re-added.
+        if ($v !== null) {
+            $v->addCustomer($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildShipvia object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildShipvia The associated ChildShipvia object.
+     * @throws PropelException
+     */
+    public function getShipvia(ConnectionInterface $con = null)
+    {
+        if ($this->aShipvia === null && (($this->artbshipvia !== "" && $this->artbshipvia !== null))) {
+            $this->aShipvia = ChildShipviaQuery::create()->findPk($this->artbshipvia, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aShipvia->addCustomers($this);
+             */
+        }
+
+        return $this->aShipvia;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -9497,6 +9581,9 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aShipvia) {
+            $this->aShipvia->removeCustomer($this);
+        }
         $this->arcucustid = null;
         $this->arcuname = null;
         $this->arcuadr1 = null;
@@ -9663,6 +9750,7 @@ abstract class Customer implements ActiveRecordInterface
 
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
+        $this->aShipvia = null;
     }
 
     /**
