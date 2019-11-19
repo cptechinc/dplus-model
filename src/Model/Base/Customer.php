@@ -4,6 +4,8 @@ namespace Base;
 
 use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;
+use \CustomerShipto as ChildCustomerShipto;
+use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
 use \SalesHistory as ChildSalesHistory;
 use \SalesHistoryQuery as ChildSalesHistoryQuery;
 use \SalesOrder as ChildSalesOrder;
@@ -12,6 +14,7 @@ use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
 use \Exception;
 use \PDO;
+use Map\CustomerShiptoTableMap;
 use Map\CustomerTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
@@ -1002,6 +1005,13 @@ abstract class Customer implements ActiveRecordInterface
     protected $dummy;
 
     protected $aShipvia;
+
+    /**
+     * @var        ObjectCollection|ChildCustomerShipto[] Collection to store aggregation of ChildCustomerShipto objects.
+     */
+    protected $collCustomerShiptos;
+    protected $collCustomerShiptosPartial;
+
     /**
      * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
      */
@@ -1021,6 +1031,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildCustomerShipto[]
+     */
+    protected $customerShiptosScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -5777,6 +5793,8 @@ abstract class Customer implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aShipvia = null;
+            $this->collCustomerShiptos = null;
+
             $this->collSalesHistories = null;
 
             $this->collSalesOrders = null;
@@ -5900,6 +5918,23 @@ abstract class Customer implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->customerShiptosScheduledForDeletion !== null) {
+                if (!$this->customerShiptosScheduledForDeletion->isEmpty()) {
+                    \CustomerShiptoQuery::create()
+                        ->filterByPrimaryKeys($this->customerShiptosScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->customerShiptosScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collCustomerShiptos !== null) {
+                foreach ($this->collCustomerShiptos as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->salesHistoriesScheduledForDeletion !== null) {
@@ -7407,6 +7442,21 @@ abstract class Customer implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collCustomerShiptos) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customerShiptos';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_ship_tos';
+                        break;
+                    default:
+                        $key = 'CustomerShiptos';
+                }
+
+                $result[$key] = $this->collCustomerShiptos->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collSalesHistories) {
 
@@ -8961,6 +9011,12 @@ abstract class Customer implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getCustomerShiptos() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addCustomerShipto($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getSalesHistories() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addSalesHistory($relObj->copy($deepCopy));
@@ -9064,6 +9120,10 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('CustomerShipto' == $relationName) {
+            $this->initCustomerShiptos();
+            return;
+        }
         if ('SalesHistory' == $relationName) {
             $this->initSalesHistories();
             return;
@@ -9072,6 +9132,234 @@ abstract class Customer implements ActiveRecordInterface
             $this->initSalesOrders();
             return;
         }
+    }
+
+    /**
+     * Clears out the collCustomerShiptos collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addCustomerShiptos()
+     */
+    public function clearCustomerShiptos()
+    {
+        $this->collCustomerShiptos = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collCustomerShiptos collection loaded partially.
+     */
+    public function resetPartialCustomerShiptos($v = true)
+    {
+        $this->collCustomerShiptosPartial = $v;
+    }
+
+    /**
+     * Initializes the collCustomerShiptos collection.
+     *
+     * By default this just sets the collCustomerShiptos collection to an empty array (like clearcollCustomerShiptos());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initCustomerShiptos($overrideExisting = true)
+    {
+        if (null !== $this->collCustomerShiptos && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = CustomerShiptoTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collCustomerShiptos = new $collectionClassName;
+        $this->collCustomerShiptos->setModel('\CustomerShipto');
+    }
+
+    /**
+     * Gets an array of ChildCustomerShipto objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildCustomerShipto[] List of ChildCustomerShipto objects
+     * @throws PropelException
+     */
+    public function getCustomerShiptos(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCustomerShiptosPartial && !$this->isNew();
+        if (null === $this->collCustomerShiptos || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collCustomerShiptos) {
+                // return empty collection
+                $this->initCustomerShiptos();
+            } else {
+                $collCustomerShiptos = ChildCustomerShiptoQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collCustomerShiptosPartial && count($collCustomerShiptos)) {
+                        $this->initCustomerShiptos(false);
+
+                        foreach ($collCustomerShiptos as $obj) {
+                            if (false == $this->collCustomerShiptos->contains($obj)) {
+                                $this->collCustomerShiptos->append($obj);
+                            }
+                        }
+
+                        $this->collCustomerShiptosPartial = true;
+                    }
+
+                    return $collCustomerShiptos;
+                }
+
+                if ($partial && $this->collCustomerShiptos) {
+                    foreach ($this->collCustomerShiptos as $obj) {
+                        if ($obj->isNew()) {
+                            $collCustomerShiptos[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collCustomerShiptos = $collCustomerShiptos;
+                $this->collCustomerShiptosPartial = false;
+            }
+        }
+
+        return $this->collCustomerShiptos;
+    }
+
+    /**
+     * Sets a collection of ChildCustomerShipto objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $customerShiptos A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setCustomerShiptos(Collection $customerShiptos, ConnectionInterface $con = null)
+    {
+        /** @var ChildCustomerShipto[] $customerShiptosToDelete */
+        $customerShiptosToDelete = $this->getCustomerShiptos(new Criteria(), $con)->diff($customerShiptos);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->customerShiptosScheduledForDeletion = clone $customerShiptosToDelete;
+
+        foreach ($customerShiptosToDelete as $customerShiptoRemoved) {
+            $customerShiptoRemoved->setCustomer(null);
+        }
+
+        $this->collCustomerShiptos = null;
+        foreach ($customerShiptos as $customerShipto) {
+            $this->addCustomerShipto($customerShipto);
+        }
+
+        $this->collCustomerShiptos = $customerShiptos;
+        $this->collCustomerShiptosPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related CustomerShipto objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related CustomerShipto objects.
+     * @throws PropelException
+     */
+    public function countCustomerShiptos(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCustomerShiptosPartial && !$this->isNew();
+        if (null === $this->collCustomerShiptos || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collCustomerShiptos) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getCustomerShiptos());
+            }
+
+            $query = ChildCustomerShiptoQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collCustomerShiptos);
+    }
+
+    /**
+     * Method called to associate a ChildCustomerShipto object to this object
+     * through the ChildCustomerShipto foreign key attribute.
+     *
+     * @param  ChildCustomerShipto $l ChildCustomerShipto
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addCustomerShipto(ChildCustomerShipto $l)
+    {
+        if ($this->collCustomerShiptos === null) {
+            $this->initCustomerShiptos();
+            $this->collCustomerShiptosPartial = true;
+        }
+
+        if (!$this->collCustomerShiptos->contains($l)) {
+            $this->doAddCustomerShipto($l);
+
+            if ($this->customerShiptosScheduledForDeletion and $this->customerShiptosScheduledForDeletion->contains($l)) {
+                $this->customerShiptosScheduledForDeletion->remove($this->customerShiptosScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildCustomerShipto $customerShipto The ChildCustomerShipto object to add.
+     */
+    protected function doAddCustomerShipto(ChildCustomerShipto $customerShipto)
+    {
+        $this->collCustomerShiptos[]= $customerShipto;
+        $customerShipto->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildCustomerShipto $customerShipto The ChildCustomerShipto object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeCustomerShipto(ChildCustomerShipto $customerShipto)
+    {
+        if ($this->getCustomerShiptos()->contains($customerShipto)) {
+            $pos = $this->collCustomerShiptos->search($customerShipto);
+            $this->collCustomerShiptos->remove($pos);
+            if (null === $this->customerShiptosScheduledForDeletion) {
+                $this->customerShiptosScheduledForDeletion = clone $this->collCustomerShiptos;
+                $this->customerShiptosScheduledForDeletion->clear();
+            }
+            $this->customerShiptosScheduledForDeletion[]= clone $customerShipto;
+            $customerShipto->setCustomer(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -9736,6 +10024,11 @@ abstract class Customer implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collCustomerShiptos) {
+                foreach ($this->collCustomerShiptos as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collSalesHistories) {
                 foreach ($this->collSalesHistories as $o) {
                     $o->clearAllReferences($deep);
@@ -9748,6 +10041,7 @@ abstract class Customer implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collCustomerShiptos = null;
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
         $this->aShipvia = null;

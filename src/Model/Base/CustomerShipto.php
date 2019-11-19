@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
 use \SalesHistory as ChildSalesHistory;
@@ -768,6 +770,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildCustomer
+     */
+    protected $aCustomer;
 
     /**
      * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
@@ -2055,6 +2062,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->arcucustid !== $v) {
             $this->arcucustid = $v;
             $this->modifiedColumns[CustomerShiptoTableMap::COL_ARCUCUSTID] = true;
+        }
+
+        if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
+            $this->aCustomer = null;
         }
 
         return $this;
@@ -4413,6 +4424,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
+            $this->aCustomer = null;
+        }
     } // ensureConsistency
 
     /**
@@ -4452,6 +4466,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aCustomer = null;
             $this->collSalesHistories = null;
 
             $this->collSalesOrders = null;
@@ -4558,6 +4573,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aCustomer !== null) {
+                if ($this->aCustomer->isModified() || $this->aCustomer->isNew()) {
+                    $affectedRows += $this->aCustomer->save($con);
+                }
+                $this->setCustomer($this->aCustomer);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -5731,6 +5758,21 @@ abstract class CustomerShipto implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aCustomer) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customer';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_mast';
+                        break;
+                    default:
+                        $key = 'Customer';
+                }
+
+                $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collSalesHistories) {
 
                 switch ($keyType) {
@@ -6796,8 +6838,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $validPk = null !== $this->getArcucustid() &&
             null !== $this->getArstshipid();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation customer to table ar_cust_mast
+        if ($this->aCustomer && $hash = spl_object_hash($this->aCustomer)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -7001,6 +7050,57 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+    /**
+     * Declares an association between this object and a ChildCustomer object.
+     *
+     * @param  ChildCustomer $v
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomer(ChildCustomer $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid('');
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        $this->aCustomer = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomer object, it will not be re-added.
+        if ($v !== null) {
+            $v->addCustomerShipto($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomer object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomer The associated ChildCustomer object.
+     * @throws PropelException
+     */
+    public function getCustomer(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomer->addCustomerShiptos($this);
+             */
+        }
+
+        return $this->aCustomer;
     }
 
 
@@ -7531,6 +7631,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aCustomer) {
+            $this->aCustomer->removeCustomerShipto($this);
+        }
         $this->arcucustid = null;
         $this->arstshipid = null;
         $this->arstname = null;
@@ -7664,6 +7767,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
+        $this->aCustomer = null;
     }
 
     /**
