@@ -811,7 +811,7 @@ class CustomerTableMap extends TableMap
         $this->addColumn('ArcuShipComp', 'Arcushipcomp', 'VARCHAR', false, 1, null);
         $this->addColumn('ArcuTxbl', 'Arcutxbl', 'VARCHAR', false, 1, null);
         $this->addColumn('ArcuPostal', 'Arcupostal', 'VARCHAR', false, 1, null);
-        $this->addColumn('ArtbShipVia', 'Artbshipvia', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('ArtbShipVia', 'Artbshipvia', 'VARCHAR', 'ar_cust_svia', 'ArtbShipVia', false, 4, null);
         $this->addColumn('ArcuBord', 'Arcubord', 'VARCHAR', false, 1, null);
         $this->addColumn('ArtbTypeCode', 'Artbtypecode', 'VARCHAR', false, 4, null);
         $this->addColumn('ArtbPricCode', 'Artbpriccode', 'VARCHAR', false, 4, null);
