@@ -491,6 +491,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_comm" idMethod="native" phpName="CustomerCommissionCode">
+    <column name="ArtbCommCode" phpName="Artbcommcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbCommDesc" phpName="Artbcommdesc" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_mast" idMethod="native" phpName="Customer">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcuName" phpName="Arcuname" type="VARCHAR" size="30"/>
@@ -625,6 +635,12 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_comm" name="commission" skipSql="true">
+      <reference local="ArtbCommCode" foreign="ArtbCommCode"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_cust_svia" name="shipvia" skipSql="true">
+      <reference local="ArtbShipVia" foreign="ArtbShipVia"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -756,6 +772,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

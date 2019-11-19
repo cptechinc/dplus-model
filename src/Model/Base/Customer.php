@@ -3,6 +3,8 @@
 namespace Base;
 
 use \Customer as ChildCustomer;
+use \CustomerCommissionCode as ChildCustomerCommissionCode;
+use \CustomerCommissionCodeQuery as ChildCustomerCommissionCodeQuery;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
@@ -1004,6 +1006,14 @@ abstract class Customer implements ActiveRecordInterface
      */
     protected $dummy;
 
+    /**
+     * @var        ChildCustomerCommissionCode
+     */
+    protected $aCustomerCommissionCode;
+
+    /**
+     * @var        ChildShipvia
+     */
     protected $aShipvia;
 
     /**
@@ -3217,6 +3227,10 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->artbcommcode !== $v) {
             $this->artbcommcode = $v;
             $this->modifiedColumns[CustomerTableMap::COL_ARTBCOMMCODE] = true;
+        }
+
+        if ($this->aCustomerCommissionCode !== null && $this->aCustomerCommissionCode->getArtbcommcode() !== $v) {
+            $this->aCustomerCommissionCode = null;
         }
 
         return $this;
@@ -5753,6 +5767,9 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->aShipvia !== null && $this->artbshipvia !== $this->aShipvia->getArtbshipvia()) {
             $this->aShipvia = null;
         }
+        if ($this->aCustomerCommissionCode !== null && $this->artbcommcode !== $this->aCustomerCommissionCode->getArtbcommcode()) {
+            $this->aCustomerCommissionCode = null;
+        }
     } // ensureConsistency
 
     /**
@@ -5792,6 +5809,7 @@ abstract class Customer implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aCustomerCommissionCode = null;
             $this->aShipvia = null;
             $this->collCustomerShiptos = null;
 
@@ -5901,6 +5919,18 @@ abstract class Customer implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aCustomerCommissionCode !== null) {
+                if ($this->aCustomerCommissionCode->isModified() || $this->aCustomerCommissionCode->isNew()) {
+                    $affectedRows += $this->aCustomerCommissionCode->save($con);
+                }
+                $this->setCustomerCommissionCode($this->aCustomerCommissionCode);
+            }
 
             if ($this->aShipvia !== null) {
                 if ($this->aShipvia->isModified() || $this->aShipvia->isNew()) {
@@ -7428,6 +7458,21 @@ abstract class Customer implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aCustomerCommissionCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customerCommissionCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_comm';
+                        break;
+                    default:
+                        $key = 'CustomerCommissionCode';
+                }
+
+                $result[$key] = $this->aCustomerCommissionCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->aShipvia) {
 
                 switch ($keyType) {
@@ -9059,6 +9104,57 @@ abstract class Customer implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildCustomerCommissionCode object.
+     *
+     * @param  ChildCustomerCommissionCode $v
+     * @return $this|\Customer The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomerCommissionCode(ChildCustomerCommissionCode $v = null)
+    {
+        if ($v === null) {
+            $this->setArtbcommcode(NULL);
+        } else {
+            $this->setArtbcommcode($v->getArtbcommcode());
+        }
+
+        $this->aCustomerCommissionCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomerCommissionCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addCustomer($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomerCommissionCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomerCommissionCode The associated ChildCustomerCommissionCode object.
+     * @throws PropelException
+     */
+    public function getCustomerCommissionCode(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomerCommissionCode === null && (($this->artbcommcode !== "" && $this->artbcommcode !== null))) {
+            $this->aCustomerCommissionCode = ChildCustomerCommissionCodeQuery::create()->findPk($this->artbcommcode, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomerCommissionCode->addCustomers($this);
+             */
+        }
+
+        return $this->aCustomerCommissionCode;
+    }
+
+    /**
      * Declares an association between this object and a ChildShipvia object.
      *
      * @param  ChildShipvia $v
@@ -9869,6 +9965,9 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aCustomerCommissionCode) {
+            $this->aCustomerCommissionCode->removeCustomer($this);
+        }
         if (null !== $this->aShipvia) {
             $this->aShipvia->removeCustomer($this);
         }
@@ -10044,6 +10143,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collCustomerShiptos = null;
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
+        $this->aCustomerCommissionCode = null;
         $this->aShipvia = null;
     }
 
