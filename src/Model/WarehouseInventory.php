@@ -24,10 +24,11 @@ class WarehouseInventory extends BaseWarehouseInventory {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'itemid'       => 'InitItemNbr',
-		'whseid'       => 'IntbWhse',
-		'whseID'       => 'IntbWhse',
-		'warehouseID'  => 'IntbWhse',
-		'bin_default'  => 'InwhBin'
+		'itemid'       => 'inititemnbr',
+		'whseid'       => 'intbwhse',
+		'whseID'       => 'intbwhse',
+		'warehouseID'  => 'intbwhse',
+		'warehouseid'  => 'intbwhse',
+		'bin_default'  => 'inwhbin'
 	);
 }
