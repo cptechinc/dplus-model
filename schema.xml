@@ -655,6 +655,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_spgp" idMethod="native" phpName="SalespersonGroupCode">
+    <column name="ArtbSpgpCode" phpName="Artbspgpcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbSpgpDesc" phpName="Artbspgpdesc" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_svia" idMethod="native" phpName="Shipvia">
     <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbSviaDesc" phpName="Artbsviadesc" type="VARCHAR" size="20"/>
@@ -674,6 +684,17 @@
     <column name="ArtbSviaSurchgPct" phpName="Artbsviasurchgpct" type="DECIMAL" size="20" scale="3"/>
     <column name="ArtbSviaTaxCode" phpName="Artbsviataxcode" type="VARCHAR" size="6"/>
     <column name="ArtbSviaShipComplt" phpName="Artbsviashipcomplt" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="ar_cust_woff" idMethod="native" phpName="CustomerWriteOffCode">
+    <column name="ArtbWoffCode" phpName="Artbwoffcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbWoffDesc" phpName="Artbwoffdesc" type="VARCHAR" size="20"/>
+    <column name="ArtbWoffYn" phpName="Artbwoffyn" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
