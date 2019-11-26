@@ -645,6 +645,18 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_price" idMethod="native" phpName="CustomerPriceCode">
+    <column name="ArtbPricCode" phpName="Artbpriccode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbPricDesc" phpName="Artbpricdesc" type="VARCHAR" size="20"/>
+    <column name="ArtbPricUseSurchg" phpName="Artbpricusesurchg" type="VARCHAR" size="1"/>
+    <column name="ArtbPricSurchgPct" phpName="Artbpricsurchgpct" type="DECIMAL" size="20" scale="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_rout" idMethod="native" phpName="CustomerRouteCode">
     <column name="ArtbRoute" phpName="Artbroute" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="ArtbRouteDesc" phpName="Artbroutedesc" type="VARCHAR" size="20"/>
