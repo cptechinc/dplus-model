@@ -20,6 +20,7 @@ class CustomerWriteOffCode extends BaseCustomerWriteOffCode {
     const COLUMN_ALIASES = array(
         'id'           => 'artbwoffcode',
         'code'         => 'artbwoffcode',
+        'description'  => 'artbwoffdesc',
         'yesno'        => 'artbwoffyn',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
