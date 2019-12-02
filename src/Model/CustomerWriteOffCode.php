@@ -21,7 +21,6 @@ class CustomerWriteOffCode extends BaseCustomerWriteOffCode {
         'id'           => 'artbwoffcode',
         'code'         => 'artbwoffcode',
         'yesno'        => 'artbwoffyn',
-        'description'  => 'artbroutedesc',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
     );
