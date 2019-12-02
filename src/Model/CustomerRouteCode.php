@@ -19,7 +19,7 @@ class CustomerRouteCode extends BaseCustomerRouteCode {
      */
     const COLUMN_ALIASES = array(
         'id'           => 'artbroute',
-        'code'         => 'artbroute',
+        'route'        => 'artbroute',
         'description'  => 'artbroutedesc',
         'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
