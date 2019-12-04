@@ -19,7 +19,7 @@ use Dplus\Model\QueryTraits;
  *
  *
  * FindOne
- * 
+ *
  * Find
  *
  */
