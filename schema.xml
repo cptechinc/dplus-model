@@ -474,6 +474,125 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_config" idMethod="native" phpName="ConfigAr">
+    <column name="ArtbConfKey" phpName="Artbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ArtbConfGlIfac" phpName="Artbconfglifac" type="VARCHAR" size="1"/>
+    <column name="ArtbConfInIfac" phpName="Artbconfinifac" type="VARCHAR" size="1"/>
+    <column name="ArtbConfPcIfac" phpName="Artbconfpcifac" type="VARCHAR" size="1"/>
+    <column name="ArtbConfCcIfac" phpName="Artbconfccifac" type="VARCHAR" size="1"/>
+    <column name="ArtbConfInvCustGl" phpName="Artbconfinvcustgl" type="VARCHAR" size="1"/>
+    <column name="ArtbConfFrtAcct" phpName="Artbconffrtacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfMiscAcct" phpName="Artbconfmiscacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfArAcct" phpName="Artbconfaracct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfCashAcct" phpName="Artbconfcashacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2CcCashAcct" phpName="Artbcon2cccashacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfFincAcct" phpName="Artbconffincacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfDiscAcct" phpName="Artbconfdiscacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfRgaCogsAcct" phpName="Artbconfrgacogsacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfCusdAcct" phpName="Artbconfcusdacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfDpstAcct" phpName="Artbconfdpstacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfWriteOffAcct" phpName="Artbconfwriteoffacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2PresalIvtyAcct" phpName="Artbcon2presalivtyacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfFincPct" phpName="Artbconffincpct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbConfFincDays" phpName="Artbconffincdays" type="INTEGER" size="3"/>
+    <column name="ArtbConfFincMinChg" phpName="Artbconffincminchg" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbConfFincTerm" phpName="Artbconffincterm" type="VARCHAR" size="4"/>
+    <column name="ArtbConfOver1" phpName="Artbconfover1" type="INTEGER" size="3"/>
+    <column name="ArtbConfOver2" phpName="Artbconfover2" type="INTEGER" size="3"/>
+    <column name="ArtbConfStmtLine" phpName="Artbconfstmtline" type="INTEGER" size="2"/>
+    <column name="ArtbConfStmtCols" phpName="Artbconfstmtcols" type="INTEGER" size="2"/>
+    <column name="ArtbConfStmtNoteDef" phpName="Artbconfstmtnotedef" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStmtNote1" phpName="Artbconfstmtnote1" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStmtNote2" phpName="Artbconfstmtnote2" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStmtNote3" phpName="Artbconfstmtnote3" type="VARCHAR" size="1"/>
+    <column name="ArtbConfInvLine" phpName="Artbconfinvline" type="INTEGER" size="2"/>
+    <column name="ArtbConfInvCols" phpName="Artbconfinvcols" type="INTEGER" size="2"/>
+    <column name="ArtbConfInvNoteDef" phpName="Artbconfinvnotedef" type="VARCHAR" size="1"/>
+    <column name="ArtbConfCustLine" phpName="Artbconfcustline" type="INTEGER" size="2"/>
+    <column name="ArtbConfCustCols" phpName="Artbconfcustcols" type="INTEGER" size="2"/>
+    <column name="ArtbConfInvSort" phpName="Artbconfinvsort" type="VARCHAR" size="1"/>
+    <column name="ArtbConfInvNc" phpName="Artbconfinvnc" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStmtSort" phpName="Artbconfstmtsort" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStmt0OrLess" phpName="Artbconfstmt0orless" type="VARCHAR" size="1"/>
+    <column name="ArtbConfSpDef" phpName="Artbconfspdef" type="VARCHAR" size="6"/>
+    <column name="ArtbConfWhse" phpName="Artbconfwhse" type="VARCHAR" size="2"/>
+    <column name="ArtbConfSviaDef" phpName="Artbconfsviadef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfTermDef" phpName="Artbconftermdef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfTaxDef" phpName="Artbconftaxdef" type="VARCHAR" size="6"/>
+    <column name="ArtbConfStmtDef" phpName="Artbconfstmtdef" type="VARCHAR" size="1"/>
+    <column name="ArtbConfAllowBo" phpName="Artbconfallowbo" type="VARCHAR" size="1"/>
+    <column name="ArtbConfAllowFc" phpName="Artbconfallowfc" type="VARCHAR" size="1"/>
+    <column name="ArtbConfUsePricCode" phpName="Artbconfusepriccode" type="VARCHAR" size="1"/>
+    <column name="ArtbConfPricDef" phpName="Artbconfpricdef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfUseCommCode" phpName="Artbconfusecommcode" type="VARCHAR" size="1"/>
+    <column name="ArtbConfCommDef" phpName="Artbconfcommdef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfCustLabl" phpName="Artbconfcustlabl" type="VARCHAR" size="8"/>
+    <column name="ArtbConfCustReq" phpName="Artbconfcustreq" type="VARCHAR" size="1"/>
+    <column name="ArtbConfCustDef" phpName="Artbconfcustdef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfShipLabl" phpName="Artbconfshiplabl" type="VARCHAR" size="8"/>
+    <column name="ArtbConfShipReq" phpName="Artbconfshipreq" type="VARCHAR" size="1"/>
+    <column name="ArtbConfShipDef" phpName="Artbconfshipdef" type="VARCHAR" size="4"/>
+    <column name="ArtbConfReqDate2" phpName="Artbconfreqdate2" type="INTEGER" size="3"/>
+    <column name="ArtbConfReqDate3" phpName="Artbconfreqdate3" type="INTEGER" size="3"/>
+    <column name="ArtbConfReqDate4" phpName="Artbconfreqdate4" type="INTEGER" size="3"/>
+    <column name="ArtbConfUseWeb" phpName="Artbconfuseweb" type="VARCHAR" size="1"/>
+    <column name="ArtbConfPayhStoreDays" phpName="Artbconfpayhstoredays" type="INTEGER" size="4"/>
+    <column name="ArtbConfByClerk" phpName="Artbconfbyclerk" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2EcrWhse" phpName="Artbcon2ecrwhse" type="VARCHAR" size="1"/>
+    <column name="ArtbConfZeroTermDisc" phpName="Artbconfzerotermdisc" type="VARCHAR" size="1"/>
+    <column name="ArtbConfUseAutoCidGen" phpName="Artbconfuseautocidgen" type="VARCHAR" size="1"/>
+    <column name="ArtbConfPrefixLen" phpName="Artbconfprefixlen" type="INTEGER" size="1"/>
+    <column name="ArtbConfParAgeCredLast" phpName="Artbconfparagecredlast" type="VARCHAR" size="1"/>
+    <column name="ArtbConfIncludeCod" phpName="Artbconfincludecod" type="VARCHAR" size="1"/>
+    <column name="ArtbConfAddlPricDisc" phpName="Artbconfaddlpricdisc" type="VARCHAR" size="1"/>
+    <column name="ArtbConfApdOnOehd" phpName="Artbconfapdonoehd" type="VARCHAR" size="1"/>
+    <column name="ArtbConfNbrSp" phpName="Artbconfnbrsp" type="INTEGER" size="1"/>
+    <column name="ArtbConfForceSpLvl" phpName="Artbconfforcesplvl" type="INTEGER" size="1"/>
+    <column name="ArtbConfCustGetOpt" phpName="Artbconfcustgetopt" type="INTEGER" size="1"/>
+    <column name="ArtbConfAddICmnt" phpName="Artbconfaddicmnt" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2AppAddiscItmPdm" phpName="Artbcon2appaddiscitmpdm" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2RfndSelectAmt" phpName="Artbcon2rfndselectamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbCon2RfndGlAcct" phpName="Artbcon2rfndglacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2RfndApTerm" phpName="Artbcon2rfndapterm" type="VARCHAR" size="4"/>
+    <column name="ArtbCon2RfndArTerm" phpName="Artbcon2rfndarterm" type="VARCHAR" size="4"/>
+    <column name="ArtbCon2CwoTerm" phpName="Artbcon2cwoterm" type="VARCHAR" size="4"/>
+    <column name="ArtbCon2CcTerm" phpName="Artbcon2ccterm" type="VARCHAR" size="4"/>
+    <column name="ArtbCon2CcBatch" phpName="Artbcon2ccbatch" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2CcSaveDays" phpName="Artbcon2ccsavedays" type="INTEGER" size="5"/>
+    <column name="ArtbCon2AprvdCcAsDeposit" phpName="Artbcon2aprvdccasdeposit" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2CmQtySign" phpName="Artbcon2cmqtysign" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2BolLine" phpName="Artbcon2bolline" type="INTEGER" size="2"/>
+    <column name="ArtbCon2BolCols" phpName="Artbcon2bolcols" type="INTEGER" size="2"/>
+    <column name="ArtbCon2UseSoUnitWght" phpName="Artbcon2usesounitwght" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2DelZbal" phpName="Artbcon2delzbal" type="VARCHAR" size="1"/>
+    <column name="ArtbConfStopCustChg" phpName="Artbconfstopcustchg" type="INTEGER" size="4"/>
+    <column name="ArtbCon2ProspectEditCmm" phpName="Artbcon2prospecteditcmm" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2ProspectNotesToCmm" phpName="Artbcon2prospectnotestocmm" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2CtryGetDflt" phpName="Artbcon2ctrygetdflt" type="VARCHAR" size="1"/>
+    <column name="ArtbConfRptByWhse" phpName="Artbconfrptbywhse" type="VARCHAR" size="1"/>
+    <column name="ArtbConfAppendPos" phpName="Artbconfappendpos" type="INTEGER" size="1"/>
+    <column name="ArtbConfIncoAsstAcct" phpName="Artbconfincoasstacct" type="VARCHAR" size="9"/>
+    <column name="ArtbConfIncoLiabAcct" phpName="Artbconfincoliabacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2IncoAsstAcct2" phpName="Artbcon2incoasstacct2" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2IncoLiabAcct2" phpName="Artbcon2incoliabacct2" type="VARCHAR" size="9"/>
+    <column name="ArtbCon2UseSurchg" phpName="Artbcon2usesurchg" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2SurchgItemId" phpName="Artbcon2surchgitemid" type="VARCHAR" size="30"/>
+    <column name="ArtbCon2SurchgIgrupSeq" phpName="Artbcon2surchgigrupseq" type="INTEGER" size="2"/>
+    <column name="ArtbCon2SurchgSviaSeq" phpName="Artbcon2surchgsviaseq" type="INTEGER" size="2"/>
+    <column name="ArtbCon2SurchgCstidSeq" phpName="Artbcon2surchgcstidseq" type="INTEGER" size="2"/>
+    <column name="ArtbCon2SurchgCstpcSeq" phpName="Artbcon2surchgcstpcseq" type="INTEGER" size="2"/>
+    <column name="ArtbConfZeroInvcLine" phpName="Artbconfzeroinvcline" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2ZeroOrdrShip" phpName="Artbcon2zeroordrship" type="VARCHAR" size="1"/>
+    <column name="ArtbCon2ZeroOrdrMess" phpName="Artbcon2zeroordrmess" type="VARCHAR" size="1"/>
+    <column name="ArtbConfCashAcctWhse" phpName="Artbconfcashacctwhse" type="VARCHAR" size="2"/>
+    <column name="ArtbCon2MtaxFrtFlagOrCode" phpName="Artbcon2mtaxfrtflagorcode" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cont_mast" idMethod="native" phpName="Contact">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
     <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
