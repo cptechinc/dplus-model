@@ -695,7 +695,6 @@
     <column name="ArtbSviaUseSurchg" phpName="Artbsviausesurchg" type="VARCHAR" size="1"/>
     <column name="ArtbSviaSurchgPct" phpName="Artbsviasurchgpct" type="DECIMAL" size="20" scale="3"/>
     <column name="ArtbSviaTaxCode" phpName="Artbsviataxcode" type="VARCHAR" size="6"/>
-    <column name="ArtbSviaShipComplt" phpName="Artbsviashipcomplt" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

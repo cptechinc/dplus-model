@@ -37,7 +37,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipviaQuery orderByArtbsviausesurchg($order = Criteria::ASC) Order by the ArtbSviaUseSurchg column
  * @method     ChildShipviaQuery orderByArtbsviasurchgpct($order = Criteria::ASC) Order by the ArtbSviaSurchgPct column
  * @method     ChildShipviaQuery orderByArtbsviataxcode($order = Criteria::ASC) Order by the ArtbSviaTaxCode column
- * @method     ChildShipviaQuery orderByArtbsviashipcomplt($order = Criteria::ASC) Order by the ArtbSviaShipComplt column
  * @method     ChildShipviaQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildShipviaQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildShipviaQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -59,7 +58,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipviaQuery groupByArtbsviausesurchg() Group by the ArtbSviaUseSurchg column
  * @method     ChildShipviaQuery groupByArtbsviasurchgpct() Group by the ArtbSviaSurchgPct column
  * @method     ChildShipviaQuery groupByArtbsviataxcode() Group by the ArtbSviaTaxCode column
- * @method     ChildShipviaQuery groupByArtbsviashipcomplt() Group by the ArtbSviaShipComplt column
  * @method     ChildShipviaQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildShipviaQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildShipviaQuery groupByDummy() Group by the dummy column
@@ -92,6 +90,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipviaQuery rightJoinWithVendor() Adds a RIGHT JOIN clause and with to the query using the Vendor relation
  * @method     ChildShipviaQuery innerJoinWithVendor() Adds a INNER JOIN clause and with to the query using the Vendor relation
  *
+ * @method     ChildShipviaQuery leftJoinCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the Customer relation
+ * @method     ChildShipviaQuery rightJoinCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Customer relation
+ * @method     ChildShipviaQuery innerJoinCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the Customer relation
+ *
+ * @method     ChildShipviaQuery joinWithCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Customer relation
+ *
+ * @method     ChildShipviaQuery leftJoinWithCustomer() Adds a LEFT JOIN clause and with to the query using the Customer relation
+ * @method     ChildShipviaQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
+ * @method     ChildShipviaQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
+ *
  * @method     ChildShipviaQuery leftJoinPurchaseOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the PurchaseOrder relation
  * @method     ChildShipviaQuery rightJoinPurchaseOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the PurchaseOrder relation
  * @method     ChildShipviaQuery innerJoinPurchaseOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the PurchaseOrder relation
@@ -102,7 +110,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipviaQuery rightJoinWithPurchaseOrder() Adds a RIGHT JOIN clause and with to the query using the PurchaseOrder relation
  * @method     ChildShipviaQuery innerJoinWithPurchaseOrder() Adds a INNER JOIN clause and with to the query using the PurchaseOrder relation
  *
- * @method     \VendorShipfromQuery|\VendorQuery|\PurchaseOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \VendorShipfromQuery|\VendorQuery|\CustomerQuery|\PurchaseOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildShipvia findOne(ConnectionInterface $con = null) Return the first ChildShipvia matching the query
  * @method     ChildShipvia findOneOrCreate(ConnectionInterface $con = null) Return the first ChildShipvia matching the query, or a new ChildShipvia object populated from the query conditions when no match is found
@@ -124,7 +132,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipvia findOneByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return the first ChildShipvia filtered by the ArtbSviaUseSurchg column
  * @method     ChildShipvia findOneByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return the first ChildShipvia filtered by the ArtbSviaSurchgPct column
  * @method     ChildShipvia findOneByArtbsviataxcode(string $ArtbSviaTaxCode) Return the first ChildShipvia filtered by the ArtbSviaTaxCode column
- * @method     ChildShipvia findOneByArtbsviashipcomplt(string $ArtbSviaShipComplt) Return the first ChildShipvia filtered by the ArtbSviaShipComplt column
  * @method     ChildShipvia findOneByDateupdtd(string $DateUpdtd) Return the first ChildShipvia filtered by the DateUpdtd column
  * @method     ChildShipvia findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShipvia filtered by the TimeUpdtd column
  * @method     ChildShipvia findOneByDummy(string $dummy) Return the first ChildShipvia filtered by the dummy column *
@@ -149,7 +156,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipvia requireOneByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return the first ChildShipvia filtered by the ArtbSviaUseSurchg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return the first ChildShipvia filtered by the ArtbSviaSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByArtbsviataxcode(string $ArtbSviaTaxCode) Return the first ChildShipvia filtered by the ArtbSviaTaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShipvia requireOneByArtbsviashipcomplt(string $ArtbSviaShipComplt) Return the first ChildShipvia filtered by the ArtbSviaShipComplt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByDateupdtd(string $DateUpdtd) Return the first ChildShipvia filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShipvia filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildShipvia requireOneByDummy(string $dummy) Return the first ChildShipvia filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -172,7 +178,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildShipvia[]|ObjectCollection findByArtbsviausesurchg(string $ArtbSviaUseSurchg) Return ChildShipvia objects filtered by the ArtbSviaUseSurchg column
  * @method     ChildShipvia[]|ObjectCollection findByArtbsviasurchgpct(string $ArtbSviaSurchgPct) Return ChildShipvia objects filtered by the ArtbSviaSurchgPct column
  * @method     ChildShipvia[]|ObjectCollection findByArtbsviataxcode(string $ArtbSviaTaxCode) Return ChildShipvia objects filtered by the ArtbSviaTaxCode column
- * @method     ChildShipvia[]|ObjectCollection findByArtbsviashipcomplt(string $ArtbSviaShipComplt) Return ChildShipvia objects filtered by the ArtbSviaShipComplt column
  * @method     ChildShipvia[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildShipvia objects filtered by the DateUpdtd column
  * @method     ChildShipvia[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildShipvia objects filtered by the TimeUpdtd column
  * @method     ChildShipvia[]|ObjectCollection findByDummy(string $dummy) Return ChildShipvia objects filtered by the dummy column
@@ -274,7 +279,7 @@ abstract class ShipviaQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArtbShipVia, ArtbSviaDesc, ArtbSviaPrio, ArtbSviaWeb, ArtbSviaAir, ArtbSviaUpsServ, ArtbSviaUpsBilling, ArtbSviaScacCd, ArtbSviaEdiMethCd, ArtbSviaUpsResidential, ArtbSviaChrgFrt, ArtbSviaUseRoute, ArtbSviaCommFrght, ArtbSviaShipArea, ArtbSviaUseSurchg, ArtbSviaSurchgPct, ArtbSviaTaxCode, ArtbSviaShipComplt, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_svia WHERE ArtbShipVia = :p0';
+        $sql = 'SELECT ArtbShipVia, ArtbSviaDesc, ArtbSviaPrio, ArtbSviaWeb, ArtbSviaAir, ArtbSviaUpsServ, ArtbSviaUpsBilling, ArtbSviaScacCd, ArtbSviaEdiMethCd, ArtbSviaUpsResidential, ArtbSviaChrgFrt, ArtbSviaUseRoute, ArtbSviaCommFrght, ArtbSviaShipArea, ArtbSviaUseSurchg, ArtbSviaSurchgPct, ArtbSviaTaxCode, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_svia WHERE ArtbShipVia = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -806,31 +811,6 @@ abstract class ShipviaQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbSviaShipComplt column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArtbsviashipcomplt('fooValue');   // WHERE ArtbSviaShipComplt = 'fooValue'
-     * $query->filterByArtbsviashipcomplt('%fooValue%', Criteria::LIKE); // WHERE ArtbSviaShipComplt LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $artbsviashipcomplt The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildShipviaQuery The current query, for fluid interface
-     */
-    public function filterByArtbsviashipcomplt($artbsviashipcomplt = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($artbsviashipcomplt)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ShipviaTableMap::COL_ARTBSVIASHIPCOMPLT, $artbsviashipcomplt, $comparison);
-    }
-
-    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -1049,6 +1029,79 @@ abstract class ShipviaQuery extends ModelCriteria
         return $this
             ->joinVendor($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+    }
+
+    /**
+     * Filter the query by a related \Customer object
+     *
+     * @param \Customer|ObjectCollection $customer the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildShipviaQuery The current query, for fluid interface
+     */
+    public function filterByCustomer($customer, $comparison = null)
+    {
+        if ($customer instanceof \Customer) {
+            return $this
+                ->addUsingAlias(ShipviaTableMap::COL_ARTBSHIPVIA, $customer->getArtbshipvia(), $comparison);
+        } elseif ($customer instanceof ObjectCollection) {
+            return $this
+                ->useCustomerQuery()
+                ->filterByPrimaryKeys($customer->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByCustomer() only accepts arguments of type \Customer or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Customer relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildShipviaQuery The current query, for fluid interface
+     */
+    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Customer');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Customer');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Customer relation Customer object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CustomerQuery A secondary query class using the current class as primary query
+     */
+    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinCustomer($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Customer', '\CustomerQuery');
     }
 
     /**

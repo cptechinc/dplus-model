@@ -59,7 +59,7 @@ class ShipviaTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 21;
+    const NUM_COLUMNS = 20;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ShipviaTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 21;
+    const NUM_HYDRATE_COLUMNS = 20;
 
     /**
      * the column name for the ArtbShipVia field
@@ -157,11 +157,6 @@ class ShipviaTableMap extends TableMap
     const COL_ARTBSVIATAXCODE = 'ar_cust_svia.ArtbSviaTaxCode';
 
     /**
-     * the column name for the ArtbSviaShipComplt field
-     */
-    const COL_ARTBSVIASHIPCOMPLT = 'ar_cust_svia.ArtbSviaShipComplt';
-
-    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'ar_cust_svia.DateUpdtd';
@@ -188,11 +183,11 @@ class ShipviaTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Artbshipvia', 'Artbsviadesc', 'Artbsviaprio', 'Artbsviaweb', 'Artbsviaair', 'Artbsviaupsserv', 'Artbsviaupsbilling', 'Artbsviascaccd', 'Artbsviaedimethcd', 'Artbsviaupsresidential', 'Artbsviachrgfrt', 'Artbsviauseroute', 'Artbsviacommfrght', 'Artbsviashiparea', 'Artbsviausesurchg', 'Artbsviasurchgpct', 'Artbsviataxcode', 'Artbsviashipcomplt', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('artbshipvia', 'artbsviadesc', 'artbsviaprio', 'artbsviaweb', 'artbsviaair', 'artbsviaupsserv', 'artbsviaupsbilling', 'artbsviascaccd', 'artbsviaedimethcd', 'artbsviaupsresidential', 'artbsviachrgfrt', 'artbsviauseroute', 'artbsviacommfrght', 'artbsviashiparea', 'artbsviausesurchg', 'artbsviasurchgpct', 'artbsviataxcode', 'artbsviashipcomplt', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ShipviaTableMap::COL_ARTBSHIPVIA, ShipviaTableMap::COL_ARTBSVIADESC, ShipviaTableMap::COL_ARTBSVIAPRIO, ShipviaTableMap::COL_ARTBSVIAWEB, ShipviaTableMap::COL_ARTBSVIAAIR, ShipviaTableMap::COL_ARTBSVIAUPSSERV, ShipviaTableMap::COL_ARTBSVIAUPSBILLING, ShipviaTableMap::COL_ARTBSVIASCACCD, ShipviaTableMap::COL_ARTBSVIAEDIMETHCD, ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL, ShipviaTableMap::COL_ARTBSVIACHRGFRT, ShipviaTableMap::COL_ARTBSVIAUSEROUTE, ShipviaTableMap::COL_ARTBSVIACOMMFRGHT, ShipviaTableMap::COL_ARTBSVIASHIPAREA, ShipviaTableMap::COL_ARTBSVIAUSESURCHG, ShipviaTableMap::COL_ARTBSVIASURCHGPCT, ShipviaTableMap::COL_ARTBSVIATAXCODE, ShipviaTableMap::COL_ARTBSVIASHIPCOMPLT, ShipviaTableMap::COL_DATEUPDTD, ShipviaTableMap::COL_TIMEUPDTD, ShipviaTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArtbShipVia', 'ArtbSviaDesc', 'ArtbSviaPrio', 'ArtbSviaWeb', 'ArtbSviaAir', 'ArtbSviaUpsServ', 'ArtbSviaUpsBilling', 'ArtbSviaScacCd', 'ArtbSviaEdiMethCd', 'ArtbSviaUpsResidential', 'ArtbSviaChrgFrt', 'ArtbSviaUseRoute', 'ArtbSviaCommFrght', 'ArtbSviaShipArea', 'ArtbSviaUseSurchg', 'ArtbSviaSurchgPct', 'ArtbSviaTaxCode', 'ArtbSviaShipComplt', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
+        self::TYPE_PHPNAME       => array('Artbshipvia', 'Artbsviadesc', 'Artbsviaprio', 'Artbsviaweb', 'Artbsviaair', 'Artbsviaupsserv', 'Artbsviaupsbilling', 'Artbsviascaccd', 'Artbsviaedimethcd', 'Artbsviaupsresidential', 'Artbsviachrgfrt', 'Artbsviauseroute', 'Artbsviacommfrght', 'Artbsviashiparea', 'Artbsviausesurchg', 'Artbsviasurchgpct', 'Artbsviataxcode', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('artbshipvia', 'artbsviadesc', 'artbsviaprio', 'artbsviaweb', 'artbsviaair', 'artbsviaupsserv', 'artbsviaupsbilling', 'artbsviascaccd', 'artbsviaedimethcd', 'artbsviaupsresidential', 'artbsviachrgfrt', 'artbsviauseroute', 'artbsviacommfrght', 'artbsviashiparea', 'artbsviausesurchg', 'artbsviasurchgpct', 'artbsviataxcode', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ShipviaTableMap::COL_ARTBSHIPVIA, ShipviaTableMap::COL_ARTBSVIADESC, ShipviaTableMap::COL_ARTBSVIAPRIO, ShipviaTableMap::COL_ARTBSVIAWEB, ShipviaTableMap::COL_ARTBSVIAAIR, ShipviaTableMap::COL_ARTBSVIAUPSSERV, ShipviaTableMap::COL_ARTBSVIAUPSBILLING, ShipviaTableMap::COL_ARTBSVIASCACCD, ShipviaTableMap::COL_ARTBSVIAEDIMETHCD, ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL, ShipviaTableMap::COL_ARTBSVIACHRGFRT, ShipviaTableMap::COL_ARTBSVIAUSEROUTE, ShipviaTableMap::COL_ARTBSVIACOMMFRGHT, ShipviaTableMap::COL_ARTBSVIASHIPAREA, ShipviaTableMap::COL_ARTBSVIAUSESURCHG, ShipviaTableMap::COL_ARTBSVIASURCHGPCT, ShipviaTableMap::COL_ARTBSVIATAXCODE, ShipviaTableMap::COL_DATEUPDTD, ShipviaTableMap::COL_TIMEUPDTD, ShipviaTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('ArtbShipVia', 'ArtbSviaDesc', 'ArtbSviaPrio', 'ArtbSviaWeb', 'ArtbSviaAir', 'ArtbSviaUpsServ', 'ArtbSviaUpsBilling', 'ArtbSviaScacCd', 'ArtbSviaEdiMethCd', 'ArtbSviaUpsResidential', 'ArtbSviaChrgFrt', 'ArtbSviaUseRoute', 'ArtbSviaCommFrght', 'ArtbSviaShipArea', 'ArtbSviaUseSurchg', 'ArtbSviaSurchgPct', 'ArtbSviaTaxCode', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, )
     );
 
     /**
@@ -202,11 +197,11 @@ class ShipviaTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Artbshipvia' => 0, 'Artbsviadesc' => 1, 'Artbsviaprio' => 2, 'Artbsviaweb' => 3, 'Artbsviaair' => 4, 'Artbsviaupsserv' => 5, 'Artbsviaupsbilling' => 6, 'Artbsviascaccd' => 7, 'Artbsviaedimethcd' => 8, 'Artbsviaupsresidential' => 9, 'Artbsviachrgfrt' => 10, 'Artbsviauseroute' => 11, 'Artbsviacommfrght' => 12, 'Artbsviashiparea' => 13, 'Artbsviausesurchg' => 14, 'Artbsviasurchgpct' => 15, 'Artbsviataxcode' => 16, 'Artbsviashipcomplt' => 17, 'Dateupdtd' => 18, 'Timeupdtd' => 19, 'Dummy' => 20, ),
-        self::TYPE_CAMELNAME     => array('artbshipvia' => 0, 'artbsviadesc' => 1, 'artbsviaprio' => 2, 'artbsviaweb' => 3, 'artbsviaair' => 4, 'artbsviaupsserv' => 5, 'artbsviaupsbilling' => 6, 'artbsviascaccd' => 7, 'artbsviaedimethcd' => 8, 'artbsviaupsresidential' => 9, 'artbsviachrgfrt' => 10, 'artbsviauseroute' => 11, 'artbsviacommfrght' => 12, 'artbsviashiparea' => 13, 'artbsviausesurchg' => 14, 'artbsviasurchgpct' => 15, 'artbsviataxcode' => 16, 'artbsviashipcomplt' => 17, 'dateupdtd' => 18, 'timeupdtd' => 19, 'dummy' => 20, ),
-        self::TYPE_COLNAME       => array(ShipviaTableMap::COL_ARTBSHIPVIA => 0, ShipviaTableMap::COL_ARTBSVIADESC => 1, ShipviaTableMap::COL_ARTBSVIAPRIO => 2, ShipviaTableMap::COL_ARTBSVIAWEB => 3, ShipviaTableMap::COL_ARTBSVIAAIR => 4, ShipviaTableMap::COL_ARTBSVIAUPSSERV => 5, ShipviaTableMap::COL_ARTBSVIAUPSBILLING => 6, ShipviaTableMap::COL_ARTBSVIASCACCD => 7, ShipviaTableMap::COL_ARTBSVIAEDIMETHCD => 8, ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL => 9, ShipviaTableMap::COL_ARTBSVIACHRGFRT => 10, ShipviaTableMap::COL_ARTBSVIAUSEROUTE => 11, ShipviaTableMap::COL_ARTBSVIACOMMFRGHT => 12, ShipviaTableMap::COL_ARTBSVIASHIPAREA => 13, ShipviaTableMap::COL_ARTBSVIAUSESURCHG => 14, ShipviaTableMap::COL_ARTBSVIASURCHGPCT => 15, ShipviaTableMap::COL_ARTBSVIATAXCODE => 16, ShipviaTableMap::COL_ARTBSVIASHIPCOMPLT => 17, ShipviaTableMap::COL_DATEUPDTD => 18, ShipviaTableMap::COL_TIMEUPDTD => 19, ShipviaTableMap::COL_DUMMY => 20, ),
-        self::TYPE_FIELDNAME     => array('ArtbShipVia' => 0, 'ArtbSviaDesc' => 1, 'ArtbSviaPrio' => 2, 'ArtbSviaWeb' => 3, 'ArtbSviaAir' => 4, 'ArtbSviaUpsServ' => 5, 'ArtbSviaUpsBilling' => 6, 'ArtbSviaScacCd' => 7, 'ArtbSviaEdiMethCd' => 8, 'ArtbSviaUpsResidential' => 9, 'ArtbSviaChrgFrt' => 10, 'ArtbSviaUseRoute' => 11, 'ArtbSviaCommFrght' => 12, 'ArtbSviaShipArea' => 13, 'ArtbSviaUseSurchg' => 14, 'ArtbSviaSurchgPct' => 15, 'ArtbSviaTaxCode' => 16, 'ArtbSviaShipComplt' => 17, 'DateUpdtd' => 18, 'TimeUpdtd' => 19, 'dummy' => 20, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
+        self::TYPE_PHPNAME       => array('Artbshipvia' => 0, 'Artbsviadesc' => 1, 'Artbsviaprio' => 2, 'Artbsviaweb' => 3, 'Artbsviaair' => 4, 'Artbsviaupsserv' => 5, 'Artbsviaupsbilling' => 6, 'Artbsviascaccd' => 7, 'Artbsviaedimethcd' => 8, 'Artbsviaupsresidential' => 9, 'Artbsviachrgfrt' => 10, 'Artbsviauseroute' => 11, 'Artbsviacommfrght' => 12, 'Artbsviashiparea' => 13, 'Artbsviausesurchg' => 14, 'Artbsviasurchgpct' => 15, 'Artbsviataxcode' => 16, 'Dateupdtd' => 17, 'Timeupdtd' => 18, 'Dummy' => 19, ),
+        self::TYPE_CAMELNAME     => array('artbshipvia' => 0, 'artbsviadesc' => 1, 'artbsviaprio' => 2, 'artbsviaweb' => 3, 'artbsviaair' => 4, 'artbsviaupsserv' => 5, 'artbsviaupsbilling' => 6, 'artbsviascaccd' => 7, 'artbsviaedimethcd' => 8, 'artbsviaupsresidential' => 9, 'artbsviachrgfrt' => 10, 'artbsviauseroute' => 11, 'artbsviacommfrght' => 12, 'artbsviashiparea' => 13, 'artbsviausesurchg' => 14, 'artbsviasurchgpct' => 15, 'artbsviataxcode' => 16, 'dateupdtd' => 17, 'timeupdtd' => 18, 'dummy' => 19, ),
+        self::TYPE_COLNAME       => array(ShipviaTableMap::COL_ARTBSHIPVIA => 0, ShipviaTableMap::COL_ARTBSVIADESC => 1, ShipviaTableMap::COL_ARTBSVIAPRIO => 2, ShipviaTableMap::COL_ARTBSVIAWEB => 3, ShipviaTableMap::COL_ARTBSVIAAIR => 4, ShipviaTableMap::COL_ARTBSVIAUPSSERV => 5, ShipviaTableMap::COL_ARTBSVIAUPSBILLING => 6, ShipviaTableMap::COL_ARTBSVIASCACCD => 7, ShipviaTableMap::COL_ARTBSVIAEDIMETHCD => 8, ShipviaTableMap::COL_ARTBSVIAUPSRESIDENTIAL => 9, ShipviaTableMap::COL_ARTBSVIACHRGFRT => 10, ShipviaTableMap::COL_ARTBSVIAUSEROUTE => 11, ShipviaTableMap::COL_ARTBSVIACOMMFRGHT => 12, ShipviaTableMap::COL_ARTBSVIASHIPAREA => 13, ShipviaTableMap::COL_ARTBSVIAUSESURCHG => 14, ShipviaTableMap::COL_ARTBSVIASURCHGPCT => 15, ShipviaTableMap::COL_ARTBSVIATAXCODE => 16, ShipviaTableMap::COL_DATEUPDTD => 17, ShipviaTableMap::COL_TIMEUPDTD => 18, ShipviaTableMap::COL_DUMMY => 19, ),
+        self::TYPE_FIELDNAME     => array('ArtbShipVia' => 0, 'ArtbSviaDesc' => 1, 'ArtbSviaPrio' => 2, 'ArtbSviaWeb' => 3, 'ArtbSviaAir' => 4, 'ArtbSviaUpsServ' => 5, 'ArtbSviaUpsBilling' => 6, 'ArtbSviaScacCd' => 7, 'ArtbSviaEdiMethCd' => 8, 'ArtbSviaUpsResidential' => 9, 'ArtbSviaChrgFrt' => 10, 'ArtbSviaUseRoute' => 11, 'ArtbSviaCommFrght' => 12, 'ArtbSviaShipArea' => 13, 'ArtbSviaUseSurchg' => 14, 'ArtbSviaSurchgPct' => 15, 'ArtbSviaTaxCode' => 16, 'DateUpdtd' => 17, 'TimeUpdtd' => 18, 'dummy' => 19, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, )
     );
 
     /**
@@ -243,7 +238,6 @@ class ShipviaTableMap extends TableMap
         $this->addColumn('ArtbSviaUseSurchg', 'Artbsviausesurchg', 'VARCHAR', false, 1, null);
         $this->addColumn('ArtbSviaSurchgPct', 'Artbsviasurchgpct', 'DECIMAL', false, 20, null);
         $this->addColumn('ArtbSviaTaxCode', 'Artbsviataxcode', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArtbSviaShipComplt', 'Artbsviashipcomplt', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -268,6 +262,13 @@ class ShipviaTableMap extends TableMap
     1 => ':ArtbShipVia',
   ),
 ), null, null, 'Vendors', false);
+        $this->addRelation('Customer', '\\Customer', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArtbShipVia',
+    1 => ':ArtbShipVia',
+  ),
+), null, null, 'Customers', false);
         $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -435,7 +436,6 @@ class ShipviaTableMap extends TableMap
             $criteria->addSelectColumn(ShipviaTableMap::COL_ARTBSVIAUSESURCHG);
             $criteria->addSelectColumn(ShipviaTableMap::COL_ARTBSVIASURCHGPCT);
             $criteria->addSelectColumn(ShipviaTableMap::COL_ARTBSVIATAXCODE);
-            $criteria->addSelectColumn(ShipviaTableMap::COL_ARTBSVIASHIPCOMPLT);
             $criteria->addSelectColumn(ShipviaTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ShipviaTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ShipviaTableMap::COL_DUMMY);
@@ -457,7 +457,6 @@ class ShipviaTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.ArtbSviaUseSurchg');
             $criteria->addSelectColumn($alias . '.ArtbSviaSurchgPct');
             $criteria->addSelectColumn($alias . '.ArtbSviaTaxCode');
-            $criteria->addSelectColumn($alias . '.ArtbSviaShipComplt');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
