@@ -821,6 +821,27 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_type" idMethod="native" phpName="CustomerTypeCode">
+    <column name="ArtbTypeCode" phpName="Artbtypecode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbCtypDesc" phpName="Artbctypdesc" type="VARCHAR" size="20"/>
+    <column name="ArtbCtypArAcct" phpName="Artbctyparacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypFrtAcct" phpName="Artbctypfrtacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypMiscAcct" phpName="Artbctypmiscacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypCashAcct" phpName="Artbctypcashacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypFincAcct" phpName="Artbctypfincacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypDiscAcct" phpName="Artbctypdiscacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypSaleAcct" phpName="Artbctypsaleacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypCogsAcct" phpName="Artbctypcogsacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypCredAcct" phpName="Artbctypcredacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCtypMail" phpName="Artbctypmail" type="VARCHAR" size="1"/>
+    <column name="ArtbCtypAprvNeedEmail" phpName="Artbctypaprvneedemail" type="VARCHAR" size="50"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_woff" idMethod="native" phpName="CustomerWriteOffCode">
     <column name="ArtbWoffCode" phpName="Artbwoffcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbWoffDesc" phpName="Artbwoffdesc" type="VARCHAR" size="20"/>
