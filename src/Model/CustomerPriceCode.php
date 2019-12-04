@@ -16,20 +16,20 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class CustomerPriceCode extends BaseCustomerPriceCode {
-    use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'id'           => 'artbpriccode',
-        'code'         => 'artbpriccode',
-        'description'  => 'artbpricdesc',
-        'surcharge'    => 'artbpricusesurchg',
-        'percentage'   => 'artbpricsurchgpct',
-        'date'         => 'dateupdtd',
-        'time'         => 'timeupdtd'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'		   => 'artbpriccode',
+		'code'		   => 'artbpriccode',
+		'description'  => 'artbpricdesc',
+		'surcharge'    => 'artbpricusesurchg',
+		'percentage'   => 'artbpricsurchgpct',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
+	);
 }

@@ -10,18 +10,18 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class CustomerRouteCode extends BaseCustomerRouteCode {
-    use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'id'           => 'artbroute',
-        'code'         => 'artbroute',
-        'description'  => 'artbroutedesc',
-        'date'         => 'dateupdtd',
-        'time'         => 'timeupdtd'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'		   => 'artbroute',
+		'code'		   => 'artbroute',
+		'description'  => 'artbroutedesc',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
+	);
 }

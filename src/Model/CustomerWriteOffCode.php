@@ -10,19 +10,19 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class CustomerWriteOffCode extends BaseCustomerWriteOffCode {
-    use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'id'           => 'artbwoffcode',
-        'code'         => 'artbwoffcode',
-        'description'  => 'artbwoffdesc',
-        'yesno'        => 'artbwoffyn',
-        'date'         => 'dateupdtd',
-        'time'         => 'timeupdtd'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'		   => 'artbwoffcode',
+		'code'		   => 'artbwoffcode',
+		'description'  => 'artbwoffdesc',
+		'yesno' 	   => 'artbwoffyn',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
+	);
 }

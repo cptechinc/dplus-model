@@ -10,18 +10,18 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class SalespersonGroupCode extends BaseSalespersonGroupCode {
-    use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'id'           => 'artbspgpcode',
-        'code'         => 'artbspgpcode',
-        'description'  => 'artbspgpdesc',
-        'date'         => 'dateupdtd',
-        'time'         => 'timeupdtd'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'		   => 'artbspgpcode',
+		'code'		   => 'artbspgpcode',
+		'description'  => 'artbspgpdesc',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
+	);
 }
