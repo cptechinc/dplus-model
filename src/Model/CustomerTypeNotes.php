@@ -36,6 +36,4 @@ class CustomerTypeNotes extends BaseCustomerTypeNotes {
 		'pick'      => 'PCTP',
 		'statement' => 'SCTP'
 	);
-
-
 }

@@ -19,6 +19,23 @@ class CustomerTypeCode extends BaseCustomerTypeCode {
 	 */
 	const COLUMN_ALIASES = array(
 		'code'        => 'artbtypecode',
-		'description' => 'artbctypeesc'
+		'description' => 'artbctypdesc',
+		'mail_list'    => 'artbctypmail',
+		'order_approval_email' => 'artbctypaprvneedemail',
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
+
+	/**
+	 * Return the number of Notes for Note Type
+	 *
+	 * @param  string $notetypealias Note Type Alias
+	 * @return int
+	 */
+	public function count_notetypealias($notetypealias) {
+		$q = CustomerTypeNotesQuery::create();
+		$q->filterByTypecode($this->code);
+		$q->filterByTypeAlias($notetypealias);
+		return $q->count();
+	}
 }
