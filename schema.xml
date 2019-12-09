@@ -1104,6 +1104,30 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="gl_master" idMethod="native" phpName="GlCode">
+    <column name="GlmaAcct" phpName="Glmaacct" type="VARCHAR" size="9" primaryKey="true" required="true" defaultValue=""/>
+    <column name="GlmaDesc" phpName="Glmadesc" type="VARCHAR" size="30"/>
+    <column name="GlmaDrCr" phpName="Glmadrcr" type="VARCHAR" size="1"/>
+    <column name="GlmaClosAcct" phpName="Glmaclosacct" type="VARCHAR" size="9"/>
+    <column name="GlmaPackPost" phpName="Glmapackpost" type="VARCHAR" size="1"/>
+    <column name="GlmaVald" phpName="Glmavald" type="VARCHAR" size="1"/>
+    <column name="GlmaCo01" phpName="Glmaco01" type="VARCHAR" size="3"/>
+    <column name="GlmaCo02" phpName="Glmaco02" type="VARCHAR" size="3"/>
+    <column name="GlmaCo03" phpName="Glmaco03" type="VARCHAR" size="3"/>
+    <column name="GlmaCo04" phpName="Glmaco04" type="VARCHAR" size="3"/>
+    <column name="GlmaCo05" phpName="Glmaco05" type="VARCHAR" size="3"/>
+    <column name="GlmaCo06" phpName="Glmaco06" type="VARCHAR" size="3"/>
+    <column name="GlmaCo07" phpName="Glmaco07" type="VARCHAR" size="3"/>
+    <column name="GlmaCo08" phpName="Glmaco08" type="VARCHAR" size="3"/>
+    <column name="GlmaCo09" phpName="Glmaco09" type="VARCHAR" size="3"/>
+    <column name="GlmaCo10" phpName="Glmaco10" type="VARCHAR" size="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_bin_cntrl" idMethod="native" phpName="WarehouseBin">
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="BnctBinFrom" phpName="Bnctbinfrom" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
