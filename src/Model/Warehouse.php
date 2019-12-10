@@ -62,6 +62,26 @@ class Warehouse extends BaseWarehouse {
 	);
 
 	/**
+	 * Return Phone Number as string
+	 * NOTE: Function name is for Magic Method
+	 *
+	 * @return string
+	 */
+	public function getPhone() {
+		return $this->phone_area . $this->phone_prefix . $this->phone_line;
+	}
+
+	/**
+	 * Return Fax Number as string
+	 * NOTE: Function name is for Magic Method
+	 *
+	 * @return string
+	 */
+	public function getFax() {
+		return $this->fax_area . $this->fax_prefix . $this->fax_line;
+	}
+
+	/**
 	 * Returns if Bins are Ranged
 	 * @return bool
 	 */
