@@ -23,7 +23,16 @@ class CustomerTypeCode extends BaseCustomerTypeCode {
 		'mail_list'    => 'artbctypmail',
 		'order_approval_email' => 'artbctypaprvneedemail',
 		'date'         => 'dateupdtd',
-		'time'         => 'timeupdtd'
+		'time'         => 'timeupdtd',
+		'account_sales'   => 'artbctypsaleacct',
+		'account_credits' => 'artbctypcredacct',
+		'account_cogs'    => 'artbctypcogsacct', // COST OF GOODS
+		'account_freight' => 'artbctypfrtacct',
+		'account_misc'    => 'artbctypmiscacct',
+		'account_cash'    => 'artbctypcashacct',
+		'account_ar'      => 'artbctyparacct',
+		'account_finance' => 'artbctypfincacct',
+		'account_discounts' => 'artbctypdiscacct',
 	);
 
 	/**
