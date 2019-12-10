@@ -23,6 +23,14 @@ class Warehouse extends BaseWarehouse {
 	const BINS_LIST   = 'L';
 
 	/**
+	 * Options for Bin Arragement
+	 */
+	const OPTIONS_ARRANGED = array(
+		'L', // LIST
+		'R'  // RANGE
+	);
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
@@ -31,7 +39,26 @@ class Warehouse extends BaseWarehouse {
 		'whseid'   => 'IntbWhse',
 		'whseID'   => 'IntbWhse',
 		'arranged' => 'IntbWhseBinRangeList',
-		'name'     => 'IntbWhseName'
+		'name'     => 'IntbWhseName',
+		'address'  => 'IntbWhseAdr1',
+		'address2' => 'IntbWhseAdr2',
+		'city'     => 'IntbWhseCity',
+		'state'    => 'IntbWhseStat',
+		'zip'      => 'IntbWhseZipCode',
+		'country'  => 'IntbWhseCtry',
+		'phone_area' => 'IntbWhsePhArea',
+		'phone_prefix' => 'IntbWhsePhFrst3',
+		'phone_line'   => 'IntbWhsePhLast4',
+		'phone_ext'    => 'IntbWhsePhExt',
+		'fax_area'     => 'IntbWhseFaxArea',
+		'fax_prefix'   => 'IntbWhseFaxFrst3',
+		'fax_line'     => 'IntbWhseFaxLast4',
+		'email'        => 'IntbWhseEmailAdr',
+		'bin_qcrga'    => 'IntbWhseQcRgaBin',
+		'consignment'  => 'IntbWhseConsignWhse',
+		'whse_profit'  => 'IntbWhseProfWhse',
+		'whse_asset'   => 'IntbWhseAsetWhse',
+		'whse_supply'  => 'IntbWhseSupplyWhse',
 	);
 
 	/**
