@@ -7,6 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'ar_config' table.
+ * NOTE: There will only be one record in the database for the company
  *
  */
 class ConfigAr extends BaseConfigAr {
@@ -27,6 +28,11 @@ class ConfigAr extends BaseConfigAr {
 		'C' => 'customer'
 	);
 
+	/**
+	 * Returns the Description for the GL Report Type
+	 *
+	 * @return string
+	 */
 	public function gl_report_type() {
 		return self::GL_REPORT_TYPES_DESCRIPTIONS[strtoupper($this->gl_report_type)];
 	}
