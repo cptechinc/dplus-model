@@ -1,4 +1,5 @@
 <?php
+use Propel\Runtime\ActiveQuery\Criteria;
 
 use Base\QuoteQuery as BaseQuoteQuery;
 
@@ -38,7 +39,7 @@ class QuoteQuery extends BaseQuoteQuery {
 	 * </code>
 	 *
 	 * @param	  string $arspsaleper1 The value to use as filter.
-	 * 
+	 *
 	 * @return $this|QuoteQuery The current query, for fluid interface
 	 */
 	public function filterbySalesPerson($salesperson = null) {
@@ -48,4 +49,128 @@ class QuoteQuery extends BaseQuoteQuery {
 		$this->where(array('sp1', 'sp2', 'sp3'), 'or'); 				 // combine 'cond1' and 'cond2' with a logical OR
 		return $this;
 	 }
+
+	 /**
+ 	 * Filter the query on the Oehdnbr column
+ 	 *
+ 	 * @param  mixed $ordn	 array or string
+ 	 * @return $this|SalesOrderQuery The current query, for fluid interface
+ 	 */
+ 	public function filterByQuotenumber($quotnbr) {
+ 		if (is_array($quotnbr)) {
+ 			if (!empty($quotnbr[0])) {
+ 				$this->filterByQthdid($quotnbr[0], Criteria::GREATER_EQUAL);
+ 			}
+
+ 			if (!empty($quotnbr[1])) {
+ 				$this->filterByQthdid($quotnbr[1], Criteria::LESS_EQUAL);
+ 			}
+ 		} else {
+ 			$this->filterByQthdid($quotnbr);
+ 		}
+ 		return $this;
+ 	}
+
+	/**
+	 * Filter the query on the Arcucustid column
+	 *
+	 * @param  mixed $custid   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByCustid($custid) {
+		if (is_array($custid)) {
+			if (!empty($custid[0])) {
+				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($custid[1])) {
+				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByArcucustid($custid, Criteria::EQUAL);
+		}
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the Oehdordrtot column
+	 *
+	 * @param  mixed $ordertotal   array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByQuotetotal($quotetotal) {
+		if (is_array($quotetotal)) {
+			if (!empty($quotetotal[0])) {
+				$this->filterByQthdordrtot($quotetotal[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($quotetotal[1])) {
+				$this->filterByQthdordrtot($quotetotal[1], Criteria::LESS_EQUAL);
+			}
+		}
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the Oehdordrdate column
+	 *
+	 * @param  mixed $orderdate	array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByDate_quoted($quotedate) {
+		if (is_array($quotedate)) {
+			if (!empty($quotedate[0])) {
+				$this->filterByQthdquotdate($quotedate[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($quotedate[1])) {
+				$this->filterByQthdquotdate($quotedate[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByQthdquotdate($quotedate);
+		}
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the Oehdordrdate column
+	 *
+	 * @param  mixed $orderdate	array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByDate_review($reviewdate) {
+		if (is_array($reviewdate)) {
+			if (!empty($reviewdate[0])) {
+				$this->filterByQthdrevdate($reviewdate[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($orderdate[1])) {
+				$this->filterByQthdrevdate($reviewdate[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByQthdrevdate($reviewdate);
+		}
+		return $this;
+	}
+
+	/**
+	 * Filter the query on the Oehdordrdate column
+	 *
+	 * @param  mixed $orderdate	array or string
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByDate_expires($expiredate) {
+		if (is_array($expiredate)) {
+			if (!empty($expiredate[0])) {
+				$this->filterByQthdexpdate($expiredate[0], Criteria::GREATER_EQUAL);
+			}
+
+			if (!empty($expiredate[1])) {
+				$this->filterByQthdexpdate($expiredate[1], Criteria::LESS_EQUAL);
+			}
+		} else {
+			$this->filterByQthdexpdate($expiredate);
+		}
+		return $this;
+	}
 }
