@@ -13,4 +13,14 @@ use Dplus\Model\MagicMethodTraits;
 class ConfigIn extends BaseConfigIn {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'use_controlbin' => 'intbconfusecntrlbin',
+		'date'           => 'dateupdtd',
+		'time'           => 'timeupdtd',
+	);
 }
