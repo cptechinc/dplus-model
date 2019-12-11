@@ -108,16 +108,18 @@
 		public function __call($name, $arguments) {
 			$method = 'set';
 
-			if (0 === strpos($name, $method)) {
+			if ($method == substr($name, 0, 3)) {
 				if (method_exists($this, $name)) {
 					return parent::__call($name, $arguments);
 				} else {
-					$property = strtolower(str_replace($method, '', $name));
+					$property = strtolower(ltrim($name, $method));
+
 					$class_name = get_class();
 					$class_model = new $class_name();
 
 					if (!property_exists($class_model, $property)) {
 						$class_column = $class_model::get_aliasproperty($property);
+
 						$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
 					}
 					return $this->$name($arguments[0]);
