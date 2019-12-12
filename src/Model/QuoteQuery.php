@@ -144,7 +144,7 @@ class QuoteQuery extends BaseQuoteQuery {
 				$this->filterByQthdrevdate($reviewdate[0], Criteria::GREATER_EQUAL);
 			}
 
-			if (!empty($orderdate[1])) {
+			if (!empty($reviewdate[1])) {
 				$this->filterByQthdrevdate($reviewdate[1], Criteria::LESS_EQUAL);
 			}
 		} else {
@@ -173,4 +173,9 @@ class QuoteQuery extends BaseQuoteQuery {
 		}
 		return $this;
 	}
+
+	public function filterByStatus($status) {
+ 		$this->filterByQthdstat($status);
+ 		return $this;
+ 	}
 }

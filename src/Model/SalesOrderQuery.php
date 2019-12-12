@@ -146,6 +146,11 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		return $this;
 	}
 
+    public function filterByStatus($status) {
+ 	   $this->filterByOehdstat($status);
+ 	   return $this;
+    }
+
 	/**
 	 * Selects SUM of ordertotal
 	 *
