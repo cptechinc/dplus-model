@@ -127,4 +127,12 @@ class Warehouse extends BaseWarehouse {
 	public function get_binarrangementdescription() {
 		return $this->are_binslisted() ? 'list' : 'range';
 	}
+	
+	/**
+	 * Return Bin Arrangement Options
+	 * @return array
+	 */
+	public function get_arrangement_options() {
+		return self::OPTIONS_ARRANGED;
+	}
 }

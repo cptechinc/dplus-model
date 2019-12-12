@@ -23,4 +23,12 @@ class ConfigIn extends BaseConfigIn {
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
 	);
+
+	/**
+	 * Return if Company is configured to use Control Bin
+	 * @return bool
+	 */
+	public function use_controlbin() {
+		return $this->use_controlbin == 'Y';
+	}
 }
