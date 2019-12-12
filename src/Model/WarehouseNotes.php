@@ -27,13 +27,14 @@ class WarehouseNotes extends BaseWarehouseNotes {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'    => 'qntype',
-		'desc'    => 'qntypedesc',
-		'whse'    => 'IntbWhse',
-		'whseID'  => 'IntbWhse',
-		'whseid'  => 'IntbWhse',
-		'note'    => 'qnnote',
-		'key2'    => 'qnkey',
+		'type'      => 'qntype',
+		'desc'      => 'qntypedesc',
+		'sequence'  => 'qnseq',
+		'whse'      => 'IntbWhse',
+		'whseID'    => 'IntbWhse',
+		'whseid'    => 'IntbWhse',
+		'note'      => 'qnnote',
+		'key2'      => 'qnkey',
 	);
 
 	
