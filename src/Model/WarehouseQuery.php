@@ -1,6 +1,7 @@
 <?php
 
 use Base\WarehouseQuery as BaseWarehouseQuery;
+
 use Dplus\Model\QueryTraits;
 
 
