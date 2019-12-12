@@ -2,10 +2,12 @@
 
 namespace Base;
 
-use \WarehouseNotesQuery as ChildWarehouseNotesQuery;
+use \Warehouse as ChildWarehouse;
+use \WarehouseNoteQuery as ChildWarehouseNoteQuery;
+use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
-use Map\WarehouseNotesTableMap;
+use Map\WarehouseNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +27,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class WarehouseNotes implements ActiveRecordInterface
+abstract class WarehouseNote implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\WarehouseNotesTableMap';
+    const TABLE_MAP = '\\Map\\WarehouseNoteTableMap';
 
 
     /**
@@ -134,6 +136,11 @@ abstract class WarehouseNotes implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ChildWarehouse
+     */
+    protected $aWarehouse;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -156,7 +163,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\WarehouseNotes object.
+     * Initializes internal state of Base\WarehouseNote object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -253,9 +260,9 @@ abstract class WarehouseNotes implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>WarehouseNotes</code> instance.  If
-     * <code>obj</code> is an instance of <code>WarehouseNotes</code>, delegates to
-     * <code>equals(WarehouseNotes)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>WarehouseNote</code> instance.  If
+     * <code>obj</code> is an instance of <code>WarehouseNote</code>, delegates to
+     * <code>equals(WarehouseNote)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -321,7 +328,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|WarehouseNotes The current object, for fluid interface
+     * @return $this|WarehouseNote The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -486,7 +493,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qntype] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQntype($v)
     {
@@ -496,7 +503,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qntype !== $v) {
             $this->qntype = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNTYPE] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNTYPE] = true;
         }
 
         return $this;
@@ -506,7 +513,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qntypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQntypedesc($v)
     {
@@ -516,7 +523,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qntypedesc !== $v) {
             $this->qntypedesc = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNTYPEDESC] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNTYPEDESC] = true;
         }
 
         return $this;
@@ -526,7 +533,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [intbwhse] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -536,7 +543,11 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->intbwhse !== $v) {
             $this->intbwhse = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_INTBWHSE] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_INTBWHSE] = true;
+        }
+
+        if ($this->aWarehouse !== null && $this->aWarehouse->getIntbwhse() !== $v) {
+            $this->aWarehouse = null;
         }
 
         return $this;
@@ -546,7 +557,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qnseq] column.
      *
      * @param int $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQnseq($v)
     {
@@ -556,7 +567,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qnseq !== $v) {
             $this->qnseq = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNSEQ] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNSEQ] = true;
         }
 
         return $this;
@@ -566,7 +577,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qnnote] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQnnote($v)
     {
@@ -576,7 +587,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qnnote !== $v) {
             $this->qnnote = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNNOTE] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNNOTE] = true;
         }
 
         return $this;
@@ -586,7 +597,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qnkey2] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQnkey2($v)
     {
@@ -596,7 +607,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qnkey2 !== $v) {
             $this->qnkey2 = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNKEY2] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNKEY2] = true;
         }
 
         return $this;
@@ -606,7 +617,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [qnform] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setQnform($v)
     {
@@ -616,7 +627,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->qnform !== $v) {
             $this->qnform = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_QNFORM] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_QNFORM] = true;
         }
 
         return $this;
@@ -626,7 +637,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -636,7 +647,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -646,7 +657,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -656,7 +667,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -666,7 +677,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseNotes The current object (for fluent API support)
+     * @return $this|\WarehouseNote The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -676,7 +687,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[WarehouseNotesTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[WarehouseNoteTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -734,34 +745,34 @@ abstract class WarehouseNotes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WarehouseNotesTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WarehouseNoteTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WarehouseNotesTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WarehouseNoteTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WarehouseNotesTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WarehouseNoteTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WarehouseNotesTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WarehouseNoteTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WarehouseNotesTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WarehouseNoteTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WarehouseNotesTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WarehouseNoteTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WarehouseNotesTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WarehouseNoteTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WarehouseNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WarehouseNoteTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WarehouseNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WarehouseNoteTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WarehouseNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WarehouseNoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -771,10 +782,10 @@ abstract class WarehouseNotes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 10; // 10 = WarehouseNotesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 10; // 10 = WarehouseNoteTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\WarehouseNotes'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\WarehouseNote'), 0, $e);
         }
     }
 
@@ -793,6 +804,9 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aWarehouse !== null && $this->intbwhse !== $this->aWarehouse->getIntbwhse()) {
+            $this->aWarehouse = null;
+        }
     } // ensureConsistency
 
     /**
@@ -816,13 +830,13 @@ abstract class WarehouseNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WarehouseNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(WarehouseNoteTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildWarehouseNotesQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildWarehouseNoteQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -832,6 +846,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aWarehouse = null;
         } // if (deep)
     }
 
@@ -841,8 +856,8 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see WarehouseNotes::setDeleted()
-     * @see WarehouseNotes::isDeleted()
+     * @see WarehouseNote::setDeleted()
+     * @see WarehouseNote::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -851,11 +866,11 @@ abstract class WarehouseNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildWarehouseNotesQuery::create()
+            $deleteQuery = ChildWarehouseNoteQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -890,7 +905,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -909,7 +924,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                WarehouseNotesTableMap::addInstanceToPool($this);
+                WarehouseNoteTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -934,6 +949,18 @@ abstract class WarehouseNotes implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aWarehouse !== null) {
+                if ($this->aWarehouse->isModified() || $this->aWarehouse->isNew()) {
+                    $affectedRows += $this->aWarehouse->save($con);
+                }
+                $this->setWarehouse($this->aWarehouse);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -968,34 +995,34 @@ abstract class WarehouseNotes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNTYPE)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'QnType';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNTYPEDESC)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'QnTypeDesc';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_INTBWHSE)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_INTBWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhse';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNSEQ)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'QnSeq';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNNOTE)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'QnNote';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNKEY2)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'QnKey2';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNFORM)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNFORM)) {
             $modifiedColumns[':p' . $index++]  = 'QnForm';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1078,7 +1105,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WarehouseNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = WarehouseNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1141,17 +1168,18 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['WarehouseNotes'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['WarehouseNote'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['WarehouseNotes'][$this->hashCode()] = true;
-        $keys = WarehouseNotesTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['WarehouseNote'][$this->hashCode()] = true;
+        $keys = WarehouseNoteTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getQntype(),
             $keys[1] => $this->getQntypedesc(),
@@ -1169,6 +1197,23 @@ abstract class WarehouseNotes implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aWarehouse) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouse';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_code';
+                        break;
+                    default:
+                        $key = 'Warehouse';
+                }
+
+                $result[$key] = $this->aWarehouse->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1182,11 +1227,11 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\WarehouseNotes
+     * @return $this|\WarehouseNote
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WarehouseNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = WarehouseNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1197,7 +1242,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\WarehouseNotes
+     * @return $this|\WarehouseNote
      */
     public function setByPosition($pos, $value)
     {
@@ -1256,7 +1301,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = WarehouseNotesTableMap::getFieldNames($keyType);
+        $keys = WarehouseNoteTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setQntype($arr[$keys[0]]);
@@ -1307,7 +1352,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\WarehouseNotes The current object, for fluid interface
+     * @return $this|\WarehouseNote The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1327,37 +1372,37 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(WarehouseNotesTableMap::DATABASE_NAME);
+        $criteria = new Criteria(WarehouseNoteTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNTYPE)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNTYPE, $this->qntype);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNTYPE)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNTYPE, $this->qntype);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNTYPEDESC)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNTYPEDESC, $this->qntypedesc);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNTYPEDESC)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNTYPEDESC, $this->qntypedesc);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_INTBWHSE)) {
-            $criteria->add(WarehouseNotesTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_INTBWHSE)) {
+            $criteria->add(WarehouseNoteTableMap::COL_INTBWHSE, $this->intbwhse);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNSEQ)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNSEQ, $this->qnseq);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNSEQ)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNSEQ, $this->qnseq);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNNOTE)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNNOTE, $this->qnnote);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNNOTE)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNNOTE, $this->qnnote);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNKEY2)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNKEY2, $this->qnkey2);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNKEY2)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNKEY2, $this->qnkey2);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_QNFORM)) {
-            $criteria->add(WarehouseNotesTableMap::COL_QNFORM, $this->qnform);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_QNFORM)) {
+            $criteria->add(WarehouseNoteTableMap::COL_QNFORM, $this->qnform);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_DATEUPDTD)) {
-            $criteria->add(WarehouseNotesTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_DATEUPDTD)) {
+            $criteria->add(WarehouseNoteTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(WarehouseNotesTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(WarehouseNoteTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(WarehouseNotesTableMap::COL_DUMMY)) {
-            $criteria->add(WarehouseNotesTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(WarehouseNoteTableMap::COL_DUMMY)) {
+            $criteria->add(WarehouseNoteTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1375,11 +1420,11 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildWarehouseNotesQuery::create();
-        $criteria->add(WarehouseNotesTableMap::COL_QNTYPE, $this->qntype);
-        $criteria->add(WarehouseNotesTableMap::COL_QNSEQ, $this->qnseq);
-        $criteria->add(WarehouseNotesTableMap::COL_QNKEY2, $this->qnkey2);
-        $criteria->add(WarehouseNotesTableMap::COL_QNFORM, $this->qnform);
+        $criteria = ChildWarehouseNoteQuery::create();
+        $criteria->add(WarehouseNoteTableMap::COL_QNTYPE, $this->qntype);
+        $criteria->add(WarehouseNoteTableMap::COL_QNSEQ, $this->qnseq);
+        $criteria->add(WarehouseNoteTableMap::COL_QNKEY2, $this->qnkey2);
+        $criteria->add(WarehouseNoteTableMap::COL_QNFORM, $this->qnform);
 
         return $criteria;
     }
@@ -1454,7 +1499,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \WarehouseNotes (or compatible) type.
+     * @param      object $copyObj An object of \WarehouseNote (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1485,7 +1530,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \WarehouseNotes Clone of current object.
+     * @return \WarehouseNote Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1499,12 +1544,66 @@ abstract class WarehouseNotes implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildWarehouse object.
+     *
+     * @param  ChildWarehouse $v
+     * @return $this|\WarehouseNote The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setWarehouse(ChildWarehouse $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbwhse(NULL);
+        } else {
+            $this->setIntbwhse($v->getIntbwhse());
+        }
+
+        $this->aWarehouse = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildWarehouse object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWarehouseNote($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildWarehouse object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildWarehouse The associated ChildWarehouse object.
+     * @throws PropelException
+     */
+    public function getWarehouse(ConnectionInterface $con = null)
+    {
+        if ($this->aWarehouse === null && (($this->intbwhse !== "" && $this->intbwhse !== null))) {
+            $this->aWarehouse = ChildWarehouseQuery::create()->findPk($this->intbwhse, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aWarehouse->addWarehouseNotes($this);
+             */
+        }
+
+        return $this->aWarehouse;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aWarehouse) {
+            $this->aWarehouse->removeWarehouseNote($this);
+        }
         $this->qntype = null;
         $this->qntypedesc = null;
         $this->intbwhse = null;
@@ -1536,6 +1635,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aWarehouse = null;
     }
 
     /**
@@ -1545,7 +1645,7 @@ abstract class WarehouseNotes implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WarehouseNotesTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(WarehouseNoteTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

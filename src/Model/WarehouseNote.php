@@ -1,6 +1,6 @@
 <?php
 
-use Base\WarehouseNotes as BaseWarehouseNotes;
+use Base\WarehouseNote as BaseWarehouseNote;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -15,7 +15,7 @@ use Dplus\Model\MagicMethodTraits;
  * long as it does not already exist in the output directory.
  *
  */
-class WarehouseNotes extends BaseWarehouseNotes {
+class WarehouseNote extends BaseWarehouseNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -36,6 +36,4 @@ class WarehouseNotes extends BaseWarehouseNotes {
 		'note'      => 'qnnote',
 		'key2'      => 'qnkey',
 	);
-
-	
 }

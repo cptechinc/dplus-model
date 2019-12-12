@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \Warehouse as ChildWarehouse;
+use \WarehouseNote as ChildWarehouseNote;
+use \WarehouseNoteQuery as ChildWarehouseNoteQuery;
 use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
+use Map\WarehouseNoteTableMap;
 use Map\WarehouseTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -298,12 +303,24 @@ abstract class Warehouse implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildWarehouseNote[] Collection to store aggregation of ChildWarehouseNote objects.
+     */
+    protected $collWarehouseNotes;
+    protected $collWarehouseNotesPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWarehouseNote[]
+     */
+    protected $warehouseNotesScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\Warehouse object.
@@ -1756,6 +1773,8 @@ abstract class Warehouse implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collWarehouseNotes = null;
+
         } // if (deep)
     }
 
@@ -1868,6 +1887,24 @@ abstract class Warehouse implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->warehouseNotesScheduledForDeletion !== null) {
+                if (!$this->warehouseNotesScheduledForDeletion->isEmpty()) {
+                    foreach ($this->warehouseNotesScheduledForDeletion as $warehouseNote) {
+                        // need to save related object because we set the relation to null
+                        $warehouseNote->save($con);
+                    }
+                    $this->warehouseNotesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWarehouseNotes !== null) {
+                foreach ($this->collWarehouseNotes as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -2281,10 +2318,11 @@ abstract class Warehouse implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['Warehouse'][$this->hashCode()])) {
@@ -2333,6 +2371,23 @@ abstract class Warehouse implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collWarehouseNotes) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouseNotes';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_whse_invc_stmts';
+                        break;
+                    default:
+                        $key = 'WarehouseNotes';
+                }
+
+                $result[$key] = $this->collWarehouseNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -2859,6 +2914,20 @@ abstract class Warehouse implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getWarehouseNotes() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWarehouseNote($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -2884,6 +2953,248 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('WarehouseNote' == $relationName) {
+            $this->initWarehouseNotes();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collWarehouseNotes collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWarehouseNotes()
+     */
+    public function clearWarehouseNotes()
+    {
+        $this->collWarehouseNotes = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWarehouseNotes collection loaded partially.
+     */
+    public function resetPartialWarehouseNotes($v = true)
+    {
+        $this->collWarehouseNotesPartial = $v;
+    }
+
+    /**
+     * Initializes the collWarehouseNotes collection.
+     *
+     * By default this just sets the collWarehouseNotes collection to an empty array (like clearcollWarehouseNotes());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWarehouseNotes($overrideExisting = true)
+    {
+        if (null !== $this->collWarehouseNotes && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WarehouseNoteTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWarehouseNotes = new $collectionClassName;
+        $this->collWarehouseNotes->setModel('\WarehouseNote');
+    }
+
+    /**
+     * Gets an array of ChildWarehouseNote objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWarehouseNote[] List of ChildWarehouseNote objects
+     * @throws PropelException
+     */
+    public function getWarehouseNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseNotesPartial && !$this->isNew();
+        if (null === $this->collWarehouseNotes || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseNotes) {
+                // return empty collection
+                $this->initWarehouseNotes();
+            } else {
+                $collWarehouseNotes = ChildWarehouseNoteQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWarehouseNotesPartial && count($collWarehouseNotes)) {
+                        $this->initWarehouseNotes(false);
+
+                        foreach ($collWarehouseNotes as $obj) {
+                            if (false == $this->collWarehouseNotes->contains($obj)) {
+                                $this->collWarehouseNotes->append($obj);
+                            }
+                        }
+
+                        $this->collWarehouseNotesPartial = true;
+                    }
+
+                    return $collWarehouseNotes;
+                }
+
+                if ($partial && $this->collWarehouseNotes) {
+                    foreach ($this->collWarehouseNotes as $obj) {
+                        if ($obj->isNew()) {
+                            $collWarehouseNotes[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWarehouseNotes = $collWarehouseNotes;
+                $this->collWarehouseNotesPartial = false;
+            }
+        }
+
+        return $this->collWarehouseNotes;
+    }
+
+    /**
+     * Sets a collection of ChildWarehouseNote objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $warehouseNotes A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setWarehouseNotes(Collection $warehouseNotes, ConnectionInterface $con = null)
+    {
+        /** @var ChildWarehouseNote[] $warehouseNotesToDelete */
+        $warehouseNotesToDelete = $this->getWarehouseNotes(new Criteria(), $con)->diff($warehouseNotes);
+
+
+        $this->warehouseNotesScheduledForDeletion = $warehouseNotesToDelete;
+
+        foreach ($warehouseNotesToDelete as $warehouseNoteRemoved) {
+            $warehouseNoteRemoved->setWarehouse(null);
+        }
+
+        $this->collWarehouseNotes = null;
+        foreach ($warehouseNotes as $warehouseNote) {
+            $this->addWarehouseNote($warehouseNote);
+        }
+
+        $this->collWarehouseNotes = $warehouseNotes;
+        $this->collWarehouseNotesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related WarehouseNote objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WarehouseNote objects.
+     * @throws PropelException
+     */
+    public function countWarehouseNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseNotesPartial && !$this->isNew();
+        if (null === $this->collWarehouseNotes || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseNotes) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWarehouseNotes());
+            }
+
+            $query = ChildWarehouseNoteQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collWarehouseNotes);
+    }
+
+    /**
+     * Method called to associate a ChildWarehouseNote object to this object
+     * through the ChildWarehouseNote foreign key attribute.
+     *
+     * @param  ChildWarehouseNote $l ChildWarehouseNote
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addWarehouseNote(ChildWarehouseNote $l)
+    {
+        if ($this->collWarehouseNotes === null) {
+            $this->initWarehouseNotes();
+            $this->collWarehouseNotesPartial = true;
+        }
+
+        if (!$this->collWarehouseNotes->contains($l)) {
+            $this->doAddWarehouseNote($l);
+
+            if ($this->warehouseNotesScheduledForDeletion and $this->warehouseNotesScheduledForDeletion->contains($l)) {
+                $this->warehouseNotesScheduledForDeletion->remove($this->warehouseNotesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWarehouseNote $warehouseNote The ChildWarehouseNote object to add.
+     */
+    protected function doAddWarehouseNote(ChildWarehouseNote $warehouseNote)
+    {
+        $this->collWarehouseNotes[]= $warehouseNote;
+        $warehouseNote->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildWarehouseNote $warehouseNote The ChildWarehouseNote object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeWarehouseNote(ChildWarehouseNote $warehouseNote)
+    {
+        if ($this->getWarehouseNotes()->contains($warehouseNote)) {
+            $pos = $this->collWarehouseNotes->search($warehouseNote);
+            $this->collWarehouseNotes->remove($pos);
+            if (null === $this->warehouseNotesScheduledForDeletion) {
+                $this->warehouseNotesScheduledForDeletion = clone $this->collWarehouseNotes;
+                $this->warehouseNotesScheduledForDeletion->clear();
+            }
+            $this->warehouseNotesScheduledForDeletion[]= $warehouseNote;
+            $warehouseNote->setWarehouse(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -2945,8 +3256,14 @@ abstract class Warehouse implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collWarehouseNotes) {
+                foreach ($this->collWarehouseNotes as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collWarehouseNotes = null;
     }
 
     /**

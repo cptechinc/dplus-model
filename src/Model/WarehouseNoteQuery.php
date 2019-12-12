@@ -1,6 +1,6 @@
 <?php
 
-use Base\WarehouseNotesQuery as BaseWarehouseNotesQuery;
+use Base\WarehouseNoteQuery as BaseWarehouseNoteQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -22,16 +22,16 @@ use Dplus\Model\QueryTraits;
  * Find
  *
  */
-class WarehouseNotesQuery extends BaseWarehouseNotesQuery {
+class WarehouseNoteQuery extends BaseWarehouseNoteQuery {
 	use QueryTraits;
 
 	/**
 	 * Filter the Query for the Iype Statement
 	 *
-	 * @return WarehouseNotesQuery
+	 * @return WarehouseNoteQuery
 	 */
 	public function filterByTypeStatement() {
-		return $this->filterbyType(WarehouseNotes::TYPE_STATEMENT);
+		return $this->filterbyType(WarehouseNote::TYPE_STATEMENT);
 	}
 
 	/**
@@ -40,6 +40,6 @@ class WarehouseNotesQuery extends BaseWarehouseNotesQuery {
 	 * @return WarehouseNotesQuery
 	 */
 	public function filterByTypeInvoice() {
-		return $this->filterbyType(WarehouseNotes::TYPE_INVOICE);
+		return $this->filterbyType(WarehouseNote::TYPE_INVOICE);
 	}
 }

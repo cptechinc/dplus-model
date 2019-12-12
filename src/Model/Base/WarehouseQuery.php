@@ -10,6 +10,7 @@ use Map\WarehouseTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -96,6 +97,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildWarehouseQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWarehouseQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildWarehouseQuery leftJoinWarehouseNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseNote relation
+ * @method     ChildWarehouseQuery rightJoinWarehouseNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseNote relation
+ * @method     ChildWarehouseQuery innerJoinWarehouseNote($relationAlias = null) Adds a INNER JOIN clause to the query using the WarehouseNote relation
+ *
+ * @method     ChildWarehouseQuery joinWithWarehouseNote($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WarehouseNote relation
+ *
+ * @method     ChildWarehouseQuery leftJoinWithWarehouseNote() Adds a LEFT JOIN clause and with to the query using the WarehouseNote relation
+ * @method     ChildWarehouseQuery rightJoinWithWarehouseNote() Adds a RIGHT JOIN clause and with to the query using the WarehouseNote relation
+ * @method     ChildWarehouseQuery innerJoinWithWarehouseNote() Adds a INNER JOIN clause and with to the query using the WarehouseNote relation
+ *
+ * @method     \WarehouseNoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouse findOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
  * @method     ChildWarehouse findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
@@ -1244,6 +1257,79 @@ abstract class WarehouseQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WarehouseTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \WarehouseNote object
+     *
+     * @param \WarehouseNote|ObjectCollection $warehouseNote the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByWarehouseNote($warehouseNote, $comparison = null)
+    {
+        if ($warehouseNote instanceof \WarehouseNote) {
+            return $this
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $warehouseNote->getIntbwhse(), $comparison);
+        } elseif ($warehouseNote instanceof ObjectCollection) {
+            return $this
+                ->useWarehouseNoteQuery()
+                ->filterByPrimaryKeys($warehouseNote->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByWarehouseNote() only accepts arguments of type \WarehouseNote or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the WarehouseNote relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function joinWarehouseNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('WarehouseNote');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'WarehouseNote');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the WarehouseNote relation WarehouseNote object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WarehouseNoteQuery A secondary query class using the current class as primary query
+     */
+    public function useWarehouseNoteQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinWarehouseNote($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'WarehouseNote', '\WarehouseNoteQuery');
     }
 
     /**

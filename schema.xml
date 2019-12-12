@@ -1612,7 +1612,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_whse_invc_stmt" idMethod="native" phpName="WarehouseNotes">
+  <table name="notes_whse_invc_stmt" idMethod="native" phpName="WarehouseNote">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
@@ -1623,6 +1623,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse" skipSql="true">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

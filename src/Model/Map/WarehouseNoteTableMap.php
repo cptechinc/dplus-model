@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \WarehouseNotes;
-use \WarehouseNotesQuery;
+use \WarehouseNote;
+use \WarehouseNoteQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class WarehouseNotesTableMap extends TableMap
+class WarehouseNoteTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class WarehouseNotesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WarehouseNotesTableMap';
+    const CLASS_NAME = '.Map.WarehouseNoteTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class WarehouseNotesTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\WarehouseNotes';
+    const OM_CLASS = '\\WarehouseNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'WarehouseNotes';
+    const CLASS_DEFAULT = 'WarehouseNote';
 
     /**
      * The total number of columns
@@ -135,7 +135,7 @@ class WarehouseNotesTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Intbwhse', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'intbwhse', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WarehouseNotesTableMap::COL_QNTYPE, WarehouseNotesTableMap::COL_QNTYPEDESC, WarehouseNotesTableMap::COL_INTBWHSE, WarehouseNotesTableMap::COL_QNSEQ, WarehouseNotesTableMap::COL_QNNOTE, WarehouseNotesTableMap::COL_QNKEY2, WarehouseNotesTableMap::COL_QNFORM, WarehouseNotesTableMap::COL_DATEUPDTD, WarehouseNotesTableMap::COL_TIMEUPDTD, WarehouseNotesTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(WarehouseNoteTableMap::COL_QNTYPE, WarehouseNoteTableMap::COL_QNTYPEDESC, WarehouseNoteTableMap::COL_INTBWHSE, WarehouseNoteTableMap::COL_QNSEQ, WarehouseNoteTableMap::COL_QNNOTE, WarehouseNoteTableMap::COL_QNKEY2, WarehouseNoteTableMap::COL_QNFORM, WarehouseNoteTableMap::COL_DATEUPDTD, WarehouseNoteTableMap::COL_TIMEUPDTD, WarehouseNoteTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'IntbWhse', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -149,7 +149,7 @@ class WarehouseNotesTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Intbwhse' => 2, 'Qnseq' => 3, 'Qnnote' => 4, 'Qnkey2' => 5, 'Qnform' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
         self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'intbwhse' => 2, 'qnseq' => 3, 'qnnote' => 4, 'qnkey2' => 5, 'qnform' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(WarehouseNotesTableMap::COL_QNTYPE => 0, WarehouseNotesTableMap::COL_QNTYPEDESC => 1, WarehouseNotesTableMap::COL_INTBWHSE => 2, WarehouseNotesTableMap::COL_QNSEQ => 3, WarehouseNotesTableMap::COL_QNNOTE => 4, WarehouseNotesTableMap::COL_QNKEY2 => 5, WarehouseNotesTableMap::COL_QNFORM => 6, WarehouseNotesTableMap::COL_DATEUPDTD => 7, WarehouseNotesTableMap::COL_TIMEUPDTD => 8, WarehouseNotesTableMap::COL_DUMMY => 9, ),
+        self::TYPE_COLNAME       => array(WarehouseNoteTableMap::COL_QNTYPE => 0, WarehouseNoteTableMap::COL_QNTYPEDESC => 1, WarehouseNoteTableMap::COL_INTBWHSE => 2, WarehouseNoteTableMap::COL_QNSEQ => 3, WarehouseNoteTableMap::COL_QNNOTE => 4, WarehouseNoteTableMap::COL_QNKEY2 => 5, WarehouseNoteTableMap::COL_QNFORM => 6, WarehouseNoteTableMap::COL_DATEUPDTD => 7, WarehouseNoteTableMap::COL_TIMEUPDTD => 8, WarehouseNoteTableMap::COL_DUMMY => 9, ),
         self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'IntbWhse' => 2, 'QnSeq' => 3, 'QnNote' => 4, 'QnKey2' => 5, 'QnForm' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -165,15 +165,15 @@ class WarehouseNotesTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_whse_invc_stmt');
-        $this->setPhpName('WarehouseNotes');
+        $this->setPhpName('WarehouseNote');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\WarehouseNotes');
+        $this->setClassName('\\WarehouseNote');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('QnType', 'Qntype', 'VARCHAR', true, 4, '');
         $this->addColumn('QnTypeDesc', 'Qntypedesc', 'VARCHAR', false, 40, null);
-        $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', false, 2, null);
+        $this->addForeignKey('IntbWhse', 'Intbwhse', 'VARCHAR', 'inv_whse_code', 'IntbWhse', false, 2, null);
         $this->addPrimaryKey('QnSeq', 'Qnseq', 'INTEGER', true, 8, 0);
         $this->addColumn('QnNote', 'Qnnote', 'VARCHAR', false, 150, null);
         $this->addPrimaryKey('QnKey2', 'Qnkey2', 'VARCHAR', true, 50, '');
@@ -188,6 +188,13 @@ class WarehouseNotesTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
@@ -198,7 +205,7 @@ class WarehouseNotesTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \WarehouseNotes $obj A \WarehouseNotes object.
+     * @param \WarehouseNote $obj A \WarehouseNote object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -219,12 +226,12 @@ class WarehouseNotesTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \WarehouseNotes object or a primary key value.
+     * @param mixed $value A \WarehouseNote object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \WarehouseNotes) {
+            if (is_object($value) && $value instanceof \WarehouseNote) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -235,7 +242,7 @@ class WarehouseNotesTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \WarehouseNotes object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \WarehouseNote object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -319,7 +326,7 @@ class WarehouseNotesTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? WarehouseNotesTableMap::CLASS_DEFAULT : WarehouseNotesTableMap::OM_CLASS;
+        return $withPrefix ? WarehouseNoteTableMap::CLASS_DEFAULT : WarehouseNoteTableMap::OM_CLASS;
     }
 
     /**
@@ -333,22 +340,22 @@ class WarehouseNotesTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (WarehouseNotes object, last column rank)
+     * @return array           (WarehouseNote object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = WarehouseNotesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = WarehouseNotesTableMap::getInstanceFromPool($key))) {
+        $key = WarehouseNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = WarehouseNoteTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + WarehouseNotesTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + WarehouseNoteTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = WarehouseNotesTableMap::OM_CLASS;
-            /** @var WarehouseNotes $obj */
+            $cls = WarehouseNoteTableMap::OM_CLASS;
+            /** @var WarehouseNote $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            WarehouseNotesTableMap::addInstanceToPool($obj, $key);
+            WarehouseNoteTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -371,18 +378,18 @@ class WarehouseNotesTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = WarehouseNotesTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = WarehouseNotesTableMap::getInstanceFromPool($key))) {
+            $key = WarehouseNoteTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = WarehouseNoteTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var WarehouseNotes $obj */
+                /** @var WarehouseNote $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                WarehouseNotesTableMap::addInstanceToPool($obj, $key);
+                WarehouseNoteTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -403,16 +410,16 @@ class WarehouseNotesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_INTBWHSE);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(WarehouseNotesTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_INTBWHSE);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(WarehouseNoteTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnType');
             $criteria->addSelectColumn($alias . '.QnTypeDesc');
@@ -436,7 +443,7 @@ class WarehouseNotesTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(WarehouseNotesTableMap::DATABASE_NAME)->getTable(WarehouseNotesTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(WarehouseNoteTableMap::DATABASE_NAME)->getTable(WarehouseNoteTableMap::TABLE_NAME);
     }
 
     /**
@@ -444,16 +451,16 @@ class WarehouseNotesTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WarehouseNotesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WarehouseNotesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WarehouseNotesTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WarehouseNoteTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(WarehouseNoteTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new WarehouseNoteTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a WarehouseNotes or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a WarehouseNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or WarehouseNotes object or primary key or array of primary keys
+     * @param mixed               $values Criteria or WarehouseNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -464,17 +471,17 @@ class WarehouseNotesTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \WarehouseNotes) { // it's a model object
+        } elseif ($values instanceof \WarehouseNote) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(WarehouseNotesTableMap::DATABASE_NAME);
+            $criteria = new Criteria(WarehouseNoteTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -482,21 +489,21 @@ class WarehouseNotesTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(WarehouseNotesTableMap::COL_QNTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(WarehouseNotesTableMap::COL_QNSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(WarehouseNotesTableMap::COL_QNKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(WarehouseNotesTableMap::COL_QNFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(WarehouseNoteTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(WarehouseNoteTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(WarehouseNoteTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(WarehouseNoteTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = WarehouseNotesQuery::create()->mergeWith($criteria);
+        $query = WarehouseNoteQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            WarehouseNotesTableMap::clearInstancePool();
+            WarehouseNoteTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                WarehouseNotesTableMap::removeInstanceFromPool($singleval);
+                WarehouseNoteTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -511,13 +518,13 @@ class WarehouseNotesTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return WarehouseNotesQuery::create()->doDeleteAll($con);
+        return WarehouseNoteQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a WarehouseNotes or Criteria object.
+     * Performs an INSERT on the database, given a WarehouseNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or WarehouseNotes object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or WarehouseNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -526,18 +533,18 @@ class WarehouseNotesTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseNoteTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from WarehouseNotes object
+            $criteria = $criteria->buildCriteria(); // build Criteria from WarehouseNote object
         }
 
 
         // Set the correct dbName
-        $query = WarehouseNotesQuery::create()->mergeWith($criteria);
+        $query = WarehouseNoteQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -546,7 +553,7 @@ class WarehouseNotesTableMap extends TableMap
         });
     }
 
-} // WarehouseNotesTableMap
+} // WarehouseNoteTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-WarehouseNotesTableMap::buildTableMap();
+WarehouseNoteTableMap::buildTableMap();
