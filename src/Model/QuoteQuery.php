@@ -77,19 +77,8 @@ class QuoteQuery extends BaseQuoteQuery {
 	 * @param  mixed $custid   array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByCustid($custid) {
-		if (is_array($custid)) {
-			if (!empty($custid[0])) {
-				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($custid[1])) {
-				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByArcucustid($custid, Criteria::EQUAL);
-		}
-		return $this;
+	public function filterByCustid($custid, $comparison = null) {
+		return $this->filterByArcucustid($custid, $comparison);
 	}
 
 	/**
@@ -175,7 +164,7 @@ class QuoteQuery extends BaseQuoteQuery {
 	}
 
 	public function filterByStatus($status) {
- 		$this->filterByQthdstat($status);
- 		return $this;
- 	}
+		$this->filterByQthdstat($status);
+		return $this;
+	}
 }
