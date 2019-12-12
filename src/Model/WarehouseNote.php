@@ -2,6 +2,8 @@
 
 use Base\WarehouseNote as BaseWarehouseNote;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
@@ -30,10 +32,23 @@ class WarehouseNote extends BaseWarehouseNote {
 		'type'      => 'qntype',
 		'desc'      => 'qntypedesc',
 		'sequence'  => 'qnseq',
-		'whse'      => 'IntbWhse',
-		'whseID'    => 'IntbWhse',
-		'whseid'    => 'IntbWhse',
+		'whse'      => 'intbwhse',
+		'whseID'    => 'intbwhse',
+		'whseid'    => 'intbwhse',
 		'note'      => 'qnnote',
 		'key2'      => 'qnkey',
 	);
+
+	/**
+	 * Returns the Note Lines Greater than 1
+	 *
+	 * @return WarehouseNote[]
+	 */
+	public function get_othernotelines() {
+		$q = WarehouseNoteQuery::create();
+		$q->filterByWhse($this->whse);
+		$q->filterByType($this->type);
+		$q->filterBySequence(1, Criteria::GREATER_THAN);
+		return $q->find();
+	}
 }
