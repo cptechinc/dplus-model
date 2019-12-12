@@ -107,4 +107,9 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	   }
 	   return $this;
    }
+
+   public function filterByStatus($status) {
+	   $this->filterByPohdstat($status);
+	   return $this;
+   }
 }
