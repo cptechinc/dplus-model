@@ -51,7 +51,7 @@ class QuoteQuery extends BaseQuoteQuery {
 	 }
 
 	 /**
-	 * Filter the query on the Oehdnbr column
+	 * Filter the query on the Qthdid column
 	 *
 	 * @param  mixed $ordn	    array or string
 	 * @return $this|QuoteQuery The current query, for fluid interface
