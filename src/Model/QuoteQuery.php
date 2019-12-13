@@ -63,8 +63,8 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid   array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $custid     string|array
+	 * @return $this|QuoteQuery  The current query, for fluid interface
 	 */
 	public function filterByCustid($custid, $comparison = null) {
 		return $this->filterByArcucustid($custid, $comparison);
@@ -105,20 +105,11 @@ class QuoteQuery extends BaseQuoteQuery {
 	 *
 	 * @param  mixed $orderdate	array or string
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $orderdate	string|array
+	 * @return $this|QuoteQuery The current query, for fluid interface
 	 */
-	public function filterByDate_expires($expiredate) {
-		if (is_array($expiredate)) {
-			if (!empty($expiredate[0])) {
-				$this->filterByQthdexpdate($expiredate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($expiredate[1])) {
-				$this->filterByQthdexpdate($expiredate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByQthdexpdate($expiredate);
-		}
-		return $this;
+	public function filterByDate_expires($expiredate, $comparison = null) {
+		return $this->filterByQthdexpdate($expiredate, $comparison);
 	}
 
 	public function filterByStatus($status) {
