@@ -104,22 +104,11 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $orderdate	string|array
+	 * @return $this|QuoteQuery The current query, for fluid interface
 	 */
-	public function filterByDate_review($reviewdate) {
-		if (is_array($reviewdate)) {
-			if (!empty($reviewdate[0])) {
-				$this->filterByQthdrevdate($reviewdate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($reviewdate[1])) {
-				$this->filterByQthdrevdate($reviewdate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByQthdrevdate($reviewdate);
-		}
-		return $this;
+	public function filterByDate_review($reviewdate, $comparison = null) {
+		return $this->filterByQthdrevdate($reviewdate, $comparison);
 	}
 
 	/**
