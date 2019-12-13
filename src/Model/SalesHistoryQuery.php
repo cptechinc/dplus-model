@@ -58,7 +58,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	  * Return if Sales Order Exists in so_head_hist
 	 *
 	 * @param	string $ordn Sales Order Number
-	 * @return bool		 Does Sales Order Exist
+	 * @return  bool		 Does Sales Order Exist
 	 */
 	public function orderExists($ordn) {
 		return boolval($this->filterByOehhnbr($ordn)->count());
@@ -67,105 +67,57 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	 * Filter the query on the oehhnbr column
 	 *
-	 * @param  mixed $ordn	 array or string
+	 * @param  mixed  $ordn	           string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
-	public function filterByOrdernumber($ordn) {
-		if (is_array($ordn)) {
-			if (!empty($ordn[0])) {
-				$this->filterByOehhnbr($ordn[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordn[1])) {
-				$this->filterByOehhnbr($ordn[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehhnbr($ordn);
-		}
-		return $this;
+	public function filterByOrdernumber($ordn, $comparison = null) {
+		return $this->filterByOehhnbr($ordn, $comparison);
 	}
 
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid   array or string
+	 * @param  mixed  $custid          string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
-	public function filterByCustid($custid) {
-		if (is_array($custid)) {
-			if (!empty($custid[0])) {
-				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($custid[1])) {
-				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByArcucustid($custid, Criteria::LIKE);
-		}
-		return $this;
+	public function filterByCustid($custid, $comparison = null) {
+		return $this->filterByArcucustid($custid, $comparison);
 	}
 
 	/**
 	* Filter the query on the Oehhordrtot column
 	*
-	* @param  mixed $ordertotal   array or string
+	* @param  mixed  $ordertotal      string|array
+	* @param  string $comparison      Database Comparison Operator e.g. <=
 	* @return $this|SalesHistoryQuery The current query, for fluid interface
 	*/
-	public function filterByOrdertotal($ordertotal) {
-		if (is_array($ordertotal)) {
-			if (!empty($ordertotal[0])) {
-				$this->filterByOehhordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordertotal[1])) {
-				$this->filterByOehhordrtot($ordertotal[1], Criteria::LESS_EQUAL);
-			}
-		}
-		return $this;
+	public function filterByOrdertotal($ordertotal, $comparison = null) {
+		return $this->filterByOehhordrtot($ordertotal, $comparison);
 	}
 
-	 /**
-	  * Filter the query on the Oehhinvdate column
-	  *
-	  * @param	mixed $orderdate   array or string
-	  * @return $this|SalesHistoryQuery The current query, for fluid interface
-	  */
-	 public function filterByInvoicedate($invoicedate) {
-		  if (is_array($invoicedate)) {
-			   if (!empty($invoicedate[0])) {
-					$this->filterByOehhinvdate($invoicedate[0], Criteria::GREATER_EQUAL);
-			   }
-
-			   if (!empty($invoicedate[1])) {
-					$this->filterByOehhinvdate($invoicedate[1], Criteria::LESS_EQUAL);
-			   }
-		  } else {
-			   $this->filterByOehhinvdate($invoicedate);
-		  }
-		  return $this;
-	 }
+	/**
+	 * Filter the query on the Oehhinvdate column
+	 *
+	 * @param  mixed  $orderdate       string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
+	 */
+	public function filterByInvoicedate($invoicedate, $comparison = null) {
+		return $this->filterByOehhinvdate($invoicedate, $comparison);
+	}
 
 	/**
 	 * Filter the query on the Oehhordrdate column
 	 *
-	 * @param  mixed $orderdate   array or string
+	 * @param  mixed  $orderdate       string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
-	 public function filterByOrderdate($orderdate) {
-		 if (is_array($orderdate)) {
-			if (!empty($orderdate[0])) {
-				$this->filterByOehhordrdate($orderdate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($orderdate[1])) {
-				$this->filterByOehhordrdate($orderdate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			 $this->filterByOehhordrdate($orderdate);
-		}
-		return $this;
-	 }
+	 public function filterByOrderdate($orderdate, $comparison = null) {
+ 		return $this->filterByOehdordrdate($orderdate, $comparison);
+ 	}
 
 	/**
 	 * Returns the Customer ID for Sales Order

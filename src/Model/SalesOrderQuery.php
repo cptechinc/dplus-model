@@ -67,89 +67,57 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Oehdnbr column
 	 *
-	 * @param  mixed $ordn	 array or string
+	 * @param  mixed $ordn	      string|array
+	 * @param  string $comparison Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrdernumber($ordn) {
-		if (is_array($ordn)) {
-			if (!empty($ordn[0])) {
-				$this->filterByOehdnbr($ordn[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordn[1])) {
-				$this->filterByOehdnbr($ordn[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehdnbr($ordn);
-		}
-		return $this;
+	public function filterByOrdernumber($ordn, $comparison = null) {
+		return $this->filterByOehdnbr($ordn, $comparison);
 	}
 
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid   array or string
+	 * @param  mixed $custid      string|array
+	 * @param  string $comparison Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByCustid($custid) {
-		if (is_array($custid)) {
-			if (!empty($custid[0])) {
-				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($custid[1])) {
-				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByArcucustid($custid, Criteria::EQUAL);
-		}
-		return $this;
+	 public function filterByCustid($custid, $comparison = null) {
+		return $this->filterByArcucustid($custid, $comparison);
 	}
 
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed  $orderdate      string|array
+	 * @param  string $comparison     Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery  The current query, for fluid interface
 	 */
-	public function filterByOrderdate($orderdate) {
-		if (is_array($orderdate)) {
-			if (!empty($orderdate[0])) {
-				$this->filterByOehdordrdate($orderdate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($orderdate[1])) {
-				$this->filterByOehdordrdate($orderdate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehdordrdate($orderdate);
-		}
-		return $this;
+	public function filterByOrderdate($orderdate, $comparison = null) {
+		return $this->filterByOehdordrdate($orderdate, $comparison);
 	}
 
 	/**
 	 * Filter the query on the Oehdordrtot column
 	 *
-	 * @param  mixed $ordertotal   array or string
+	 * @param  mixed  $ordertotal    string|array
+	 * @param  string $comparison    Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrdertotal($ordertotal) {
-		if (is_array($ordertotal)) {
-			if (!empty($ordertotal[0])) {
-				$this->filterByOehdordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordertotal[1])) {
-				$this->filterByOehdordrtot($ordertotal[1], Criteria::LESS_EQUAL);
-			}
-		}
-		return $this;
+	public function filterByOrdertotal($ordertotal, $comparison = null) {
+		return $this->filterByOehdordrtot($ordertotal, $comparison);
 	}
 
-    public function filterByStatus($status) {
- 	   $this->filterByOehdstat($status);
- 	   return $this;
-    }
+	/**
+	 * Filter the query on the Oehdstat column
+	 *
+	 * @param  mixed  $status        string|array
+	 * @param  string $comparison    Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByStatus($status) {
+		return $this->filterByOehdstat($status);
+	}
 
 	/**
 	 * Selects SUM of ordertotal
