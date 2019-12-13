@@ -58,7 +58,7 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	  * Return if Sales Order Exists in so_head_hist
 	 *
 	 * @param	string $ordn Sales Order Number
-	 * @return bool		 Does Sales Order Exist
+	 * @return  bool		 Does Sales Order Exist
 	 */
 	public function orderExists($ordn) {
 		return boolval($this->filterByOehhnbr($ordn)->count());
@@ -97,26 +97,16 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 		return $this->filterByOehhordrtot($ordertotal, $comparison);
 	}
 
-	 /**
-	  * Filter the query on the Oehhinvdate column
-	  *
-	  * @param	mixed $orderdate   array or string
-	  * @return $this|SalesHistoryQuery The current query, for fluid interface
-	  */
-	 public function filterByInvoicedate($invoicedate) {
-		  if (is_array($invoicedate)) {
-			   if (!empty($invoicedate[0])) {
-					$this->filterByOehhinvdate($invoicedate[0], Criteria::GREATER_EQUAL);
-			   }
-
-			   if (!empty($invoicedate[1])) {
-					$this->filterByOehhinvdate($invoicedate[1], Criteria::LESS_EQUAL);
-			   }
-		  } else {
-			   $this->filterByOehhinvdate($invoicedate);
-		  }
-		  return $this;
-	 }
+	/**
+	 * Filter the query on the Oehhinvdate column
+	 *
+	 * @param  mixed  $orderdate       string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
+	 * @return $this|SalesHistoryQuery The current query, for fluid interface
+	 */
+	public function filterByInvoicedate($invoicedate, $comparison = null) {
+		return $this->filterByOehhinvdate($invoicedate, $comparison);
+	}
 
 	/**
 	 * Filter the query on the Oehhordrdate column
