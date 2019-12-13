@@ -89,20 +89,12 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	* Filter the query on the Oehhordrtot column
 	*
-	* @param  mixed $ordertotal   array or string
+	* @param  mixed  $ordertotal      string|array
+	* @param  string $comparison      Database Comparison Operator e.g. <=
 	* @return $this|SalesHistoryQuery The current query, for fluid interface
 	*/
-	public function filterByOrdertotal($ordertotal) {
-		if (is_array($ordertotal)) {
-			if (!empty($ordertotal[0])) {
-				$this->filterByOehhordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordertotal[1])) {
-				$this->filterByOehhordrtot($ordertotal[1], Criteria::LESS_EQUAL);
-			}
-		}
-		return $this;
+	public function filterByOrdertotal($ordertotal, $comparison = null) {
+		return $this->filterByOehhordrtot($ordertotal, $comparison);
 	}
 
 	 /**

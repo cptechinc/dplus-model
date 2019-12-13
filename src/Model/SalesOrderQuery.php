@@ -100,20 +100,12 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Oehdordrtot column
 	 *
-	 * @param  mixed $ordertotal   array or string
+	 * @param  mixed  $ordertotal    string|array
+	 * @param  string $comparison    Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrdertotal($ordertotal) {
-		if (is_array($ordertotal)) {
-			if (!empty($ordertotal[0])) {
-				$this->filterByOehdordrtot($ordertotal[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordertotal[1])) {
-				$this->filterByOehdordrtot($ordertotal[1], Criteria::LESS_EQUAL);
-			}
-		}
-		return $this;
+	public function filterByOrdertotal($ordertotal, $comparison = null) {
+		return $this->filterByOehdordrtot($ordertotal, $comparison);
 	}
 
     public function filterByStatus($status) {
