@@ -78,22 +78,12 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid   array or string
+	 * @param  mixed $custid      string|array
+	 * @param  string $comparison Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByCustid($custid) {
-		if (is_array($custid)) {
-			if (!empty($custid[0])) {
-				$this->filterByArcucustid($custid[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($custid[1])) {
-				$this->filterByArcucustid($custid[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByArcucustid($custid, Criteria::EQUAL);
-		}
-		return $this;
+	 public function filterByCustid($custid, $comparison = null) {
+		return $this->filterByArcucustid($custid, $comparison);
 	}
 
 	/**
