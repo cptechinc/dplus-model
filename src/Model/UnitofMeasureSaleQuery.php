@@ -3,16 +3,23 @@
 use Base\UnitofMeasureSaleQuery as BaseUnitofMeasureSaleQuery;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_uom_sale' table.
+ * Class for performing query and update operations on the 'inv_uom_sale' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByCode()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindOneByXXX()
+ * @method  UnitofMeasureSale findOneByCode(string $code)      Return the first UnitofMeasureSale filtered by the intbuomsale column
+ *
+ * FindByXXX()
+ *
  *
  */
-class UnitofMeasureSaleQuery extends BaseUnitofMeasureSaleQuery
-{
-
+class UnitofMeasureSaleQuery extends BaseUnitofMeasureSaleQuery {
+    use QueryTraits;
 }

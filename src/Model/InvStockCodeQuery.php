@@ -3,16 +3,23 @@
 use Base\InvStockCodeQuery as BaseInvStockCodeQuery;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_stck_code' table.
+ * Class for performing query and update operations on the 'inv_stck_code' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByCode()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindOneByXXX()
+ * @method  InvStockCode findOneByCode(string $code)      Return the first InvStockCode filtered by the intbstckcode column
+ *
+ * FindByXXX()
+ *
  *
  */
-class InvStockCodeQuery extends BaseInvStockCodeQuery
-{
-
+class InvStockCodeQuery extends BaseInvStockCodeQuery {
+    use QueryTraits;
 }

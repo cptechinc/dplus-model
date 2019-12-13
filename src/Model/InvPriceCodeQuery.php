@@ -3,16 +3,23 @@
 use Base\InvPriceCodeQuery as BaseInvPriceCodeQuery;
 
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_pric_code' table.
+ * Class for performing query and update operations on the 'inv_pric_code' table.
  *
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByCode()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
  *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindOneByXXX()
+ * @method  InvPriceCode findOneByCode(string $code)      Return the first InvPriceCode filtered by the intbpricgrup column
+ *
+ * FindByXXX()
+ *
  *
  */
-class InvPriceCodeQuery extends BaseInvPriceCodeQuery
-{
-
+class InvPriceCodeQuery extends BaseInvPriceCodeQuery {
+    use QueryTraits;
 }
