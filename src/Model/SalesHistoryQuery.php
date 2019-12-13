@@ -129,23 +129,13 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	/**
 	 * Filter the query on the Oehhordrdate column
 	 *
-	 * @param  mixed $orderdate   array or string
+	 * @param  mixed  $orderdate       string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
-	 public function filterByOrderdate($orderdate) {
-		 if (is_array($orderdate)) {
-			if (!empty($orderdate[0])) {
-				$this->filterByOehhordrdate($orderdate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($orderdate[1])) {
-				$this->filterByOehhordrdate($orderdate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			 $this->filterByOehhordrdate($orderdate);
-		}
-		return $this;
-	 }
+	 public function filterByOrderdate($orderdate, $comparison = null) {
+ 		return $this->filterByOehdordrdate($orderdate, $comparison);
+ 	}
 
 	/**
 	 * Returns the Customer ID for Sales Order

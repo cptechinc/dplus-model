@@ -89,22 +89,12 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed  $orderdate      string|array
+	 * @param  string $comparison     Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery  The current query, for fluid interface
 	 */
-	public function filterByOrderdate($orderdate) {
-		if (is_array($orderdate)) {
-			if (!empty($orderdate[0])) {
-				$this->filterByOehdordrdate($orderdate[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($orderdate[1])) {
-				$this->filterByOehdordrdate($orderdate[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehdordrdate($orderdate);
-		}
-		return $this;
+	public function filterByOrderdate($orderdate, $comparison = null) {
+		return $this->filterByOehdordrdate($orderdate, $comparison);
 	}
 
 	/**
