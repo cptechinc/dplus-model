@@ -53,8 +53,9 @@ class QuoteQuery extends BaseQuoteQuery {
 	 /**
 	 * Filter the query on the Qthdid column
 	 *
-	 * @param  mixed $ordn	    array or string
-	 * @return $this|QuoteQuery The current query, for fluid interface
+	 * @param  mixed  $quotnbr     string|array
+	 * @param  string $comparison  Database Comparison Operator e.g. <=
+	 * @return $this|QuoteQuery    The current query, for fluid interface
 	 */
 	public function filterByQuotenumber($quotnbr, $comparison = null) {
 		return $this->filterByQthdid($quotnbr, $comparison);
@@ -63,8 +64,9 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Arcucustid column
 	 *
-	 * @param  mixed $custid     string|array
-	 * @return $this|QuoteQuery  The current query, for fluid interface
+	 * @param  mixed  $custid      string|array
+	 * @param  string $comparison  Database Comparison Operator e.g. <=
+	 * @return $this|QuoteQuery    The current query, for fluid interface
 	 */
 	public function filterByCustid($custid, $comparison = null) {
 		return $this->filterByArcucustid($custid, $comparison);
@@ -73,8 +75,9 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrtot column
 	 *
-	 * @param  mixed $ordertotal  string|array
-	 * @return $this|QuoteQuery   The current query, for fluid interface
+	 * @param  mixed  $ordertotal  string|array
+	 * @param  string $comparison  Database Comparison Operator e.g. <=
+	 * @return $this|QuoteQuery    The current query, for fluid interface
 	 */
 	public function filterByQuotetotal($quotetotal, $comparison = null) {
 		return $this->filterByQthdordrtot($quotetotal, $comparison);
