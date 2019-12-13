@@ -73,20 +73,11 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrtot column
 	 *
-	 * @param  mixed $ordertotal   array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 * @param  mixed $ordertotal  string|array
+	 * @return $this|QuoteQuery   The current query, for fluid interface
 	 */
-	public function filterByQuotetotal($quotetotal) {
-		if (is_array($quotetotal)) {
-			if (!empty($quotetotal[0])) {
-				$this->filterByQthdordrtot($quotetotal[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($quotetotal[1])) {
-				$this->filterByQthdordrtot($quotetotal[1], Criteria::LESS_EQUAL);
-			}
-		}
-		return $this;
+	public function filterByQuotetotal($quotetotal, $comparison = null) {
+		return $this->filterByQthdordrtot($quotetotal, $comparison);
 	}
 
 	/**
