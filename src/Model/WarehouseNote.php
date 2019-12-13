@@ -39,11 +39,6 @@ class WarehouseNote extends BaseWarehouseNote {
 		'key2'      => 'qnkey',
 	);
 
-	/**
-	 * Returns the Note Lines Greater than 1
-	 *
-	 * @return WarehouseNote[]
-	 */
 	public function get_othernotelines() {
 		$q = WarehouseNoteQuery::create();
 		$q->filterByWhse($this->whse);
