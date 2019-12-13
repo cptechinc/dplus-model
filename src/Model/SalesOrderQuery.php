@@ -67,22 +67,12 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	/**
 	 * Filter the query on the Oehdnbr column
 	 *
-	 * @param  mixed $ordn	 array or string
+	 * @param  mixed $ordn	      string|array
+	 * @param  string $comparison Database Comparison Operator e.g. <=
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
-	public function filterByOrdernumber($ordn) {
-		if (is_array($ordn)) {
-			if (!empty($ordn[0])) {
-				$this->filterByOehdnbr($ordn[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordn[1])) {
-				$this->filterByOehdnbr($ordn[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehdnbr($ordn);
-		}
-		return $this;
+	public function filterByOrdernumber($ordn, $comparison = null) {
+		return $this->filterByOehdnbr($ordn, $comparison);
 	}
 
 	/**

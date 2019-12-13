@@ -67,22 +67,12 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 /**
 	 * Filter the query on the oehhnbr column
 	 *
-	 * @param  mixed $ordn	 array or string
+	 * @param  mixed  $ordn	           string|array
+	 * @param  string $comparison      Database Comparison Operator e.g. <=
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
-	public function filterByOrdernumber($ordn) {
-		if (is_array($ordn)) {
-			if (!empty($ordn[0])) {
-				$this->filterByOehhnbr($ordn[0], Criteria::GREATER_EQUAL);
-			}
-
-			if (!empty($ordn[1])) {
-				$this->filterByOehhnbr($ordn[1], Criteria::LESS_EQUAL);
-			}
-		} else {
-			$this->filterByOehhnbr($ordn);
-		}
-		return $this;
+	public function filterByOrdernumber($ordn, $comparison = null) {
+		return $this->filterByOehhnbr($ordn, $comparison);
 	}
 
 	/**
