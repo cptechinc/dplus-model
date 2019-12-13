@@ -51,25 +51,14 @@ class QuoteQuery extends BaseQuoteQuery {
 	 }
 
 	 /**
- 	 * Filter the query on the Oehdnbr column
- 	 *
- 	 * @param  mixed $ordn	 array or string
- 	 * @return $this|SalesOrderQuery The current query, for fluid interface
- 	 */
- 	public function filterByQuotenumber($quotnbr) {
- 		if (is_array($quotnbr)) {
- 			if (!empty($quotnbr[0])) {
- 				$this->filterByQthdid($quotnbr[0], Criteria::GREATER_EQUAL);
- 			}
-
- 			if (!empty($quotnbr[1])) {
- 				$this->filterByQthdid($quotnbr[1], Criteria::LESS_EQUAL);
- 			}
- 		} else {
- 			$this->filterByQthdid($quotnbr);
- 		}
- 		return $this;
- 	}
+	 * Filter the query on the Oehdnbr column
+	 *
+	 * @param  mixed $ordn	    array or string
+	 * @return $this|QuoteQuery The current query, for fluid interface
+	 */
+	public function filterByQuotenumber($quotnbr, $comparison = null) {
+		return $this->filterByQthdid($quotnbr, $comparison);
+	}
 
 	/**
 	 * Filter the query on the Arcucustid column
