@@ -108,10 +108,16 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 		return $this->filterByOehdordrtot($ordertotal, $comparison);
 	}
 
-    public function filterByStatus($status) {
- 	   $this->filterByOehdstat($status);
- 	   return $this;
-    }
+	/**
+	 * Filter the query on the Oehdstat column
+	 *
+	 * @param  mixed  $status        string|array
+	 * @param  string $comparison    Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery The current query, for fluid interface
+	 */
+	public function filterByStatus($status) {
+		return $this->filterByOehdstat($status);
+	}
 
 	/**
 	 * Selects SUM of ordertotal
