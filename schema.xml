@@ -1307,6 +1307,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_asst_code" idMethod="native" phpName="InvAssortmentCode">
+    <column name="IntbAsstCode" phpName="Intbasstcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbAsstDesc" phpName="Intbasstdesc" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_bin_cntrl" idMethod="native" phpName="WarehouseBin">
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="BnctBinFrom" phpName="Bnctbinfrom" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
@@ -1314,6 +1324,16 @@
     <column name="BnctTypeDesc" phpName="Bncttypedesc" type="VARCHAR" size="1"/>
     <column name="BnctBinArea" phpName="Bnctbinarea" type="VARCHAR" size="2"/>
     <column name="BnctBinDesc" phpName="Bnctbindesc" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_cell_code" idMethod="native" phpName="CustomerStockingCell">
+    <column name="IntbCellCode" phpName="Intbcellcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbCellDesc" phpName="Intbcelldesc" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
@@ -1453,6 +1473,83 @@
   </table>
   <table name="inv_kit_head" idMethod="native" phpName="Kits">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_msds_code" idMethod="native" phpName="MsdsCode">
+    <column name="IntbMsdsCode" phpName="Intbmsdscode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbMsdsDesc" phpName="Intbmsdsdesc" type="VARCHAR" size="20"/>
+    <column name="IntbMsdsEfftDate" phpName="Intbmsdsefftdate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_plne_code" idMethod="native" phpName="InvProductLineCode">
+    <column name="IntbPlneCode" phpName="Intbplnecode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbPlneDesc" phpName="Intbplnedesc" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_pric_code" idMethod="native" phpName="InvPriceCode">
+    <column name="IntbPricGrup" phpName="Intbpricgrup" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbPricDesc" phpName="Intbpricdesc" type="VARCHAR" size="20"/>
+    <column name="IntbPricSaleProg" phpName="Intbpricsaleprog" type="VARCHAR" size="1"/>
+    <column name="IntbPricCostPct" phpName="Intbpriccostpct" type="DECIMAL" size="20" scale="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_spit_code" idMethod="native" phpName="InvSpecialCode">
+    <column name="IntbSpitCode" phpName="Intbspitcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbSpitDesc" phpName="Intbspitdesc" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_stck_code" idMethod="native" phpName="InvStockCode">
+    <column name="IntbStckCode" phpName="Intbstckcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbStckDesc" phpName="Intbstckdesc" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_uom_pur" idMethod="native" phpName="UnitofMeasurePurchase">
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbUomDesc" phpName="Intbuomdesc" type="VARCHAR" size="20"/>
+    <column name="IntbUomConv" phpName="Intbuomconv" type="DECIMAL" size="20" scale="7"/>
+    <column name="IntbUomPricByWght" phpName="Intbuompricbywght" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_uom_sale" idMethod="native" phpName="UnitofMeasureSale">
+    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbUomDesc" phpName="Intbuomdesc" type="VARCHAR" size="20"/>
+    <column name="IntbUomConv" phpName="Intbuomconv" type="DECIMAL" size="20" scale="7"/>
+    <column name="IntbUomPricByWght" phpName="Intbuompricbywght" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
