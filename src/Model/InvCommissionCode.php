@@ -14,11 +14,11 @@ class InvCommissionCode extends BaseInvCommissionCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'IntbCommGrup',
-        'code'         => 'IntbCommGrup',
-		'description'  => 'IntbCommDesc',
-		'markup'       => 'IntbCommMarkup',
-		'date'         => 'DateUpdtd',
-		'time'         => 'TimeUpdtd'
+		'id'           => 'intbcommgrup',
+        'code'         => 'intbcommgrup',
+		'description'  => 'intbcommdesc',
+		'markup'       => 'intbcommmarkup',
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 }
