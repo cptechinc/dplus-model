@@ -103,8 +103,6 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	array or string
-	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 * @param  mixed $orderdate	string|array
 	 * @return $this|QuoteQuery The current query, for fluid interface
 	 */
@@ -112,8 +110,13 @@ class QuoteQuery extends BaseQuoteQuery {
 		return $this->filterByQthdexpdate($expiredate, $comparison);
 	}
 
+	/**
+	 * Filter the Query on the Qthdstat
+	 *
+	 * @param mixed $status      string|array
+	 * @return $this|QuoteQuery  The current query, for fluid interface
+	 */
 	public function filterByStatus($status) {
-		$this->filterByQthdstat($status);
-		return $this;
+		return $this->filterByQthdstat($status);
 	}
 }
