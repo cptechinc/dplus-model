@@ -86,8 +86,9 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	string|array
-	 * @return $this|QuoteQuery The current query, for fluid interface
+	 * @param  mixed  $orderdate   string|array
+	 * @param  string $comparison  Database Comparison Operator e.g. <=
+	 * @return $this|QuoteQuery    The current query, for fluid interface
 	 */
 	public function filterByDate_quoted($quotedate, $comparison = null) {
 		return $this->filterByQthdquotdate($quotedate, $comparison);
@@ -96,8 +97,9 @@ class QuoteQuery extends BaseQuoteQuery {
 	/**
 	 * Filter the query on the Oehdordrdate column
 	 *
-	 * @param  mixed $orderdate	string|array
-	 * @return $this|QuoteQuery The current query, for fluid interface
+	 * @param  mixed $orderdate	   string|array
+	 * @param  string $comparison  Database Comparison Operator e.g. <=
+	 * @return $this|QuoteQuery    The current query, for fluid interface
 	 */
 	public function filterByDate_review($reviewdate, $comparison = null) {
 		return $this->filterByQthdrevdate($reviewdate, $comparison);
