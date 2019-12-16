@@ -10,81 +10,48 @@ use Dplus\Model\QueryTraits;
  *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
- * EXAMPLE: findOneByCode()
+ * EXAMPLE: findOneByInvnbr()
  *
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
  *
  * FindOneByXXX()
- * @method  ApBuyer findOneByCode(string $code)      Return the first ApBuyercode filtered by the aptbuyrcode column
+ * @method  ApInvoice findOneByInvnbr(string $invnbr)		Return the first ApInvoice filtered by the Apihinvnbr column
  *
  * FindByXXX()
+ * 
  */
 class ApInvoiceQuery extends BaseApInvoiceQuery {
-    use QueryTraits;
+	use QueryTraits;
 
-    /**
-	* Filter the query on the Oehdnbr column
+	/**
+	* Filter the query on the Apihinvnbr column
 	*
-	* @param  mixed $ordn	 array or string
-	* @return $this|SalesOrderQuery The current query, for fluid interface
+	* @param  mixed $invnbr	        string|array
+	* @return $this|ApInvoiceQuery  The current query, for fluid interface
 	*/
-   public function filterByInvnbr($invnbr) {
-	   if (is_array($invnbr)) {
-		   if (!empty($invnbr[0])) {
-			   $this->filterByApihinvnbr($invnbr[0], Criteria::GREATER_EQUAL);
-		   }
+	public function filterByInvnbr($invnbr, $comparison = null) {
+		return $this->filterByApihinvnbr($invnbr, $comparison);
+	}
 
-		   if (!empty($invnbr[1])) {
-			   $this->filterByApihinvnbr($invnbr[1], Criteria::LESS_EQUAL);
-		   }
-	   } else {
-		   $this->filterByApihinvnbr($invnbr);
-	   }
-	   return $this;
-   }
-
-   /**
-	* Filter the query on the Arcucustid column
+	/**
+	* Filter the query on the Apvevendid column
 	*
-	* @param  mixed $vendid   array or string
-	* @return $this|SalesOrderQuery The current query, for fluid interface
+	* @param  mixed $vendorID	       string|array
+	* @return $this|ApInvoiceQuery The current query, for fluid interface
 	*/
-   public function filterByVendorid($vendid) {
-	   if (is_array($vendid)) {
-		   if (!empty($vendid[0])) {
-			   $this->filterByApvevendid($vendid[0], Criteria::GREATER_EQUAL);
-		   }
+	public function filterByVendorid($vendorID, $comparison = null) {
+		return $this->filterByApvevendid($vendorID, $comparison);
+	}
 
-		   if (!empty($vendid[1])) {
-			   $this->filterByApvevendid($vendid[1], Criteria::LESS_EQUAL);
-		   }
-	   } else {
-		   $this->filterByApvevendid($vendid, Criteria::EQUAL);
-	   }
-	   return $this;
-   }
-
-   /**
-	* Filter the query on the Oehdordrdate column
+	/**
+	* Filter the query on the Apihinvdate column
 	*
-	* @param  mixed $orderdate	array or string
-	* @return $this|SalesOrderQuery The current query, for fluid interface
+	* @param  mixed invoicedate	    string|array
+	* @return $this|ApInvoiceQuery  The current query, for fluid interface
 	*/
-   public function filterByDate_invoiced($invoiceddate) {
-	   if (is_array($invoiceddate)) {
-		   if (!empty($invoiceddate[0])) {
-			   $this->filterByApihinvdate($invoiceddate[0], Criteria::GREATER_EQUAL);
-		   }
-
-		   if (!empty($orderdate[1])) {
-			   $this->filterByApihinvdate($invoiceddate[1], Criteria::LESS_EQUAL);
-		   }
-	   } else {
-		   $this->filterByApihinvdate($invoiceddate);
-	   }
-	   return $this;
-   }
-
+	public function filterByDate_invoiced($invoicedate, $comparison = null) {
+		return $this->filterByApihinvdate($invoicedate, $comparison);
+	}
 }
