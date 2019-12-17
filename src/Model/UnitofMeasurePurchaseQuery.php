@@ -2,6 +2,8 @@
 
 use Base\UnitofMeasurePurchaseQuery as BaseUnitofMeasurePurchaseQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_uom_pur' table.
  *

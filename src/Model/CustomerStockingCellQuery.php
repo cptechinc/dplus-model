@@ -2,6 +2,8 @@
 
 use Base\CustomerStockingCellQuery as BaseCustomerStockingCellQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_cell_cell' table.
  *

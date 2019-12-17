@@ -2,6 +2,8 @@
 
 use Base\InvAssortmentCodeQuery as BaseInvAssortmentCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_asst_code' table.
  *

@@ -2,6 +2,8 @@
 
 use Base\InvProductLineCodeQuery as BaseInvProductLineCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_plne_code' table.
  *

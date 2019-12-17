@@ -2,6 +2,8 @@
 
 use Base\InvCommissionCodeQuery as BaseInvCommissionCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_comm_code' table.
  *

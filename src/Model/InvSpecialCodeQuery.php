@@ -2,6 +2,8 @@
 
 use Base\InvSpecialCodeQuery as BaseInvSpecialCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_spit_code' table.
  *

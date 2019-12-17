@@ -2,6 +2,8 @@
 
 use Base\InvStockCodeQuery as BaseInvStockCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_stck_code' table.
  *
