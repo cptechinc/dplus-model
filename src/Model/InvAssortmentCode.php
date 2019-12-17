@@ -20,7 +20,7 @@ class InvAssortmentCode extends BaseInvAssortmentCode {
         'id'           => 'intbasstcode',
         'code'         => 'intbasstcode',
         'description'  => 'intbasstdesc',
-        'name'         => 'dateupdtd',
-        'email'        => 'timeupdtd'
+        'date'         => 'dateupdtd',
+        'time'         => 'timeupdtd'
     );
 }

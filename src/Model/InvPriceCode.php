@@ -22,7 +22,7 @@ class InvPriceCode extends BaseInvPriceCode {
         'description'    => 'intbpricdesc',
         'sales_program'  => 'intbpricsaleprog',
         'cost_precent'   => 'intbpriccostpct',
-        'name'           => 'dateupdtd',
-        'email'          => 'timeupdtd'
+        'date'           => 'dateupdtd',
+        'time'           => 'timeupdtd'
     );
 }

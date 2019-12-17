@@ -20,7 +20,7 @@ class InvStockCode extends BaseInvStockCode {
         'id'           => 'intbstckcode',
         'code'         => 'intbstckcode',
         'description'  => 'intbstckdesc',
-        'name'         => 'dateupdtd',
-        'email'        => 'timeupdtd'
+        'date'         => 'dateupdtd',
+        'time'         => 'timeupdtd'
     );
 }

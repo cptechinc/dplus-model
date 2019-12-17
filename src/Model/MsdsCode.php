@@ -21,7 +21,7 @@ class MsdsCode extends BaseMsdsCode {
         'code'            => 'intbmsdscode',
         'description'     => 'intbmsdsdesc',
         'effective_date'  => 'intbmsdsefftdate',
-        'name'            => 'dateupdtd',
-        'email'           => 'timeupdtd'
+        'date'            => 'dateupdtd',
+        'time'            => 'timeupdtd'
     );
 }

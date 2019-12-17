@@ -20,7 +20,7 @@ class CustomerStockingCell extends BaseCustomerStockingCell {
         'id'           => 'intbcellcode',
         'code'         => 'intbcellcode',
         'description'  => 'intbcelldesc',
-        'name'         => 'dateupdtd',
-        'email'        => 'timeupdtd'
+        'date'         => 'dateupdtd',
+        'time'         => 'timeupdtd'
     );
 }

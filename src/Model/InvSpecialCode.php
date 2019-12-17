@@ -20,7 +20,7 @@ class InvSpecialCode extends BaseInvSpecialCode {
         'id'           => 'intbspitcode',
         'code'         => 'intbspitcode',
         'description'  => 'intbspitdesc',
-        'name'         => 'dateupdtd',
-        'email'        => 'timeupdtd'
+        'date'         => 'dateupdtd',
+        'time'         => 'timeupdtd'
     );
 }

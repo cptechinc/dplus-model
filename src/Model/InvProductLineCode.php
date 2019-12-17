@@ -20,7 +20,7 @@ class InvProductLineCode extends BaseInvProductLineCode {
 		'id'           => 'intbplnecode',
 		'code'         => 'intbplnecode',
 		'description'  => 'intbplnedesc',
-		'name'         => 'dateupdtd',
-		'email'        => 'timeupdtd'
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 }

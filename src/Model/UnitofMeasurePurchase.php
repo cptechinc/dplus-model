@@ -22,7 +22,7 @@ class UnitofMeasurePurchase extends BaseUnitofMeasurePurchase {
         'description'   => 'intbuomdesc',
         'conversion'    => 'intbuomconv',
         'pricebyweight' => 'intbuompricbywght',
-        'name'          => 'dateupdtd',
-        'email'         => 'timeupdtd'
+        'date'          => 'dateupdtd',
+        'time'          => 'timeupdtd'
     );
 }
