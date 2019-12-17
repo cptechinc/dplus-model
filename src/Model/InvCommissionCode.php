@@ -2,6 +2,9 @@
 
 use Base\InvCommissionCode as BaseInvCommissionCode;
 
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
+
 /**
  * Class for representing a row from the 'inv_comm_code' table.
  */
