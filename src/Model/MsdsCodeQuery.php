@@ -2,6 +2,8 @@
 
 use Base\MsdsCodeQuery as BaseMsdsCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'inv_msds_code' table.
  *
