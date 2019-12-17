@@ -2289,6 +2289,8 @@
     <column name="OedhWiBatch1Qty" phpName="Oedhwibatch1qty" type="DECIMAL" size="20" scale="5"/>
     <column name="OedhWiBatch1Stat" phpName="Oedhwibatch1stat" type="VARCHAR" size="1"/>
     <column name="OedhRgaNbr" phpName="Oedhrganbr" type="INTEGER" size="8"/>
+    <column name="OedhBinLocn" phpName="OedhBinLocn" type="VARCHAR" size="20"/>
+    <column name="OedhAcSuplyWhse" phpName="OedhAcSuplyWhse" type="VARCHAR" size="2"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

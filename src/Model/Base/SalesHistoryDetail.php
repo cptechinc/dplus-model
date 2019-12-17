@@ -1036,6 +1036,20 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     protected $oedhrganbr;
 
     /**
+     * The value for the oedhbinlocn field.
+     *
+     * @var        string
+     */
+    protected $oedhbinlocn;
+
+    /**
+     * The value for the oedhacsuplywhse field.
+     *
+     * @var        string
+     */
+    protected $oedhacsuplywhse;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -2695,6 +2709,26 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     public function getOedhrganbr()
     {
         return $this->oedhrganbr;
+    }
+
+    /**
+     * Get the [oedhbinlocn] column value.
+     *
+     * @return string
+     */
+    public function getOedhBinLocn()
+    {
+        return $this->oedhbinlocn;
+    }
+
+    /**
+     * Get the [oedhacsuplywhse] column value.
+     *
+     * @return string
+     */
+    public function getOedhAcSuplyWhse()
+    {
+        return $this->oedhacsuplywhse;
     }
 
     /**
@@ -5512,6 +5546,46 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     } // setOedhrganbr()
 
     /**
+     * Set the value of [oedhbinlocn] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistoryDetail The current object (for fluent API support)
+     */
+    public function setOedhBinLocn($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedhbinlocn !== $v) {
+            $this->oedhbinlocn = $v;
+            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_OEDHBINLOCN] = true;
+        }
+
+        return $this;
+    } // setOedhBinLocn()
+
+    /**
+     * Set the value of [oedhacsuplywhse] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistoryDetail The current object (for fluent API support)
+     */
+    public function setOedhAcSuplyWhse($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedhacsuplywhse !== $v) {
+            $this->oedhacsuplywhse = $v;
+            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE] = true;
+        }
+
+        return $this;
+    } // setOedhAcSuplyWhse()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -6028,13 +6102,19 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhrganbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhrganbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesHistoryDetailTableMap::translateFieldName('OedhBinLocn', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedhbinlocn = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesHistoryDetailTableMap::translateFieldName('OedhAcSuplyWhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedhacsuplywhse = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -6044,7 +6124,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 142; // 142 = SalesHistoryDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 144; // 144 = SalesHistoryDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesHistoryDetail'), 0, $e);
@@ -6674,6 +6754,12 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHRGANBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedhRgaNbr';
         }
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHBINLOCN)) {
+            $modifiedColumns[':p' . $index++]  = 'OedhBinLocn';
+        }
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE)) {
+            $modifiedColumns[':p' . $index++]  = 'OedhAcSuplyWhse';
+        }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -7110,6 +7196,12 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                         break;
                     case 'OedhRgaNbr':
                         $stmt->bindValue($identifier, $this->oedhrganbr, PDO::PARAM_INT);
+                        break;
+                    case 'OedhBinLocn':
+                        $stmt->bindValue($identifier, $this->oedhbinlocn, PDO::PARAM_STR);
+                        break;
+                    case 'OedhAcSuplyWhse':
+                        $stmt->bindValue($identifier, $this->oedhacsuplywhse, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -7593,12 +7685,18 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 return $this->getOedhrganbr();
                 break;
             case 139:
-                return $this->getDateupdtd();
+                return $this->getOedhBinLocn();
                 break;
             case 140:
-                return $this->getTimeupdtd();
+                return $this->getOedhAcSuplyWhse();
                 break;
             case 141:
+                return $this->getDateupdtd();
+                break;
+            case 142:
+                return $this->getTimeupdtd();
+                break;
+            case 143:
                 return $this->getDummy();
                 break;
             default:
@@ -7770,9 +7868,11 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $keys[136] => $this->getOedhwibatch1qty(),
             $keys[137] => $this->getOedhwibatch1stat(),
             $keys[138] => $this->getOedhrganbr(),
-            $keys[139] => $this->getDateupdtd(),
-            $keys[140] => $this->getTimeupdtd(),
-            $keys[141] => $this->getDummy(),
+            $keys[139] => $this->getOedhBinLocn(),
+            $keys[140] => $this->getOedhAcSuplyWhse(),
+            $keys[141] => $this->getDateupdtd(),
+            $keys[142] => $this->getTimeupdtd(),
+            $keys[143] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -8247,12 +8347,18 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 $this->setOedhrganbr($value);
                 break;
             case 139:
-                $this->setDateupdtd($value);
+                $this->setOedhBinLocn($value);
                 break;
             case 140:
-                $this->setTimeupdtd($value);
+                $this->setOedhAcSuplyWhse($value);
                 break;
             case 141:
+                $this->setDateupdtd($value);
+                break;
+            case 142:
+                $this->setTimeupdtd($value);
+                break;
+            case 143:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -8699,13 +8805,19 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $this->setOedhrganbr($arr[$keys[138]]);
         }
         if (array_key_exists($keys[139], $arr)) {
-            $this->setDateupdtd($arr[$keys[139]]);
+            $this->setOedhBinLocn($arr[$keys[139]]);
         }
         if (array_key_exists($keys[140], $arr)) {
-            $this->setTimeupdtd($arr[$keys[140]]);
+            $this->setOedhAcSuplyWhse($arr[$keys[140]]);
         }
         if (array_key_exists($keys[141], $arr)) {
-            $this->setDummy($arr[$keys[141]]);
+            $this->setDateupdtd($arr[$keys[141]]);
+        }
+        if (array_key_exists($keys[142], $arr)) {
+            $this->setTimeupdtd($arr[$keys[142]]);
+        }
+        if (array_key_exists($keys[143], $arr)) {
+            $this->setDummy($arr[$keys[143]]);
         }
     }
 
@@ -9165,6 +9277,12 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHRGANBR)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_OEDHRGANBR, $this->oedhrganbr);
         }
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHBINLOCN)) {
+            $criteria->add(SalesHistoryDetailTableMap::COL_OEDHBINLOCN, $this->oedhbinlocn);
+        }
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE)) {
+            $criteria->add(SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE, $this->oedhacsuplywhse);
+        }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -9414,6 +9532,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $copyObj->setOedhwibatch1qty($this->getOedhwibatch1qty());
         $copyObj->setOedhwibatch1stat($this->getOedhwibatch1stat());
         $copyObj->setOedhrganbr($this->getOedhrganbr());
+        $copyObj->setOedhBinLocn($this->getOedhBinLocn());
+        $copyObj->setOedhAcSuplyWhse($this->getOedhAcSuplyWhse());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -9644,6 +9764,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $this->oedhwibatch1qty = null;
         $this->oedhwibatch1stat = null;
         $this->oedhrganbr = null;
+        $this->oedhbinlocn = null;
+        $this->oedhacsuplywhse = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
