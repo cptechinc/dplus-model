@@ -26,8 +26,8 @@ class Warehouse extends BaseWarehouse {
 	 * Options for Bin Arragement
 	 */
 	const OPTIONS_ARRANGED = array(
-		'L', // LIST
-		'R'  // RANGE
+		'L' => 'list', // LIST
+		'R' => 'range' // RANGE
 	);
 
 	/**
