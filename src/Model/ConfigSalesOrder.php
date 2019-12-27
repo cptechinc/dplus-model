@@ -16,8 +16,17 @@ use Dplus\Model\MagicMethodTraits;
  *
  */
 class ConfigSalesOrder extends BaseConfigSalesOrder {
-    use ThrowErrorTrait;
+	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Request Catalog Code
+	 * P = Program
+	 * C = Catalog
+	 * N = None
+	 * @var string
+	 */
+	protected $oetbconfrqstcatlg;
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -26,4 +35,12 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	const COLUMN_ALIASES = array(
 		'request_catalog' => 'oetbconfrqstcatlg'
 	);
+
+	/**
+	 * Returns if the Request Type is Program
+	 * @return bool
+	 */
+	public function is_request_program() {
+		return strtoupper($this->request_catalog) == 'P';
+	}
 }
