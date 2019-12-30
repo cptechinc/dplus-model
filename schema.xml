@@ -1066,6 +1066,21 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="country_codes" idMethod="native" phpName="CountryCodes">
+    <column name="CtryIsoAlpha3" phpName="Ctryisoalpha3" type="VARCHAR" size="3" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CtryDesc" phpName="Ctrydesc" type="VARCHAR" size="25"/>
+    <column name="CtryIsoAlpha2" phpName="Ctryisoalpha2" type="VARCHAR" size="2"/>
+    <column name="CtryIsoNumeric" phpName="Ctryisonumeric" type="INTEGER" size="3"/>
+    <column name="CtryCustomCode" phpName="Ctrycustomcode" type="VARCHAR" size="4"/>
+    <column name="CtryExchRate" phpName="Ctryexchrate" type="DECIMAL" size="20" scale="7"/>
+    <column name="CtryDate" phpName="Ctrydate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="doc_control" idMethod="native" phpName="DocumentFolders">
     <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="DoccFolderDesc" phpName="Doccfolderdesc" type="VARCHAR" size="40"/>
@@ -1352,13 +1367,12 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_grup_code" idMethod="native" phpName="ItemGroupcode">
+  <table name="inv_grup_code" idMethod="native" phpName="ItemGroupCode">
     <column name="IntbGrup" phpName="Intbgrup" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbGrupDesc" phpName="Intbgrupdesc" type="VARCHAR" size="20"/>
     <column name="IntbGrupSaleAcct" phpName="Intbgrupsaleacct" type="VARCHAR" size="12"/>
     <column name="IntbGrupIvtyAcct" phpName="Intbgrupivtyacct" type="VARCHAR" size="12"/>
     <column name="IntbGrupCogsAcct" phpName="Intbgrupcogsacct" type="VARCHAR" size="12"/>
-    <column name="IntbGrupBuyerCd" phpName="Intbgrupbuyercd" type="VARCHAR" size="6"/>
     <column name="IntbGrupCredAcct" phpName="Intbgrupcredacct" type="VARCHAR" size="12"/>
     <column name="IntbGrupWebGrup" phpName="Intbgrupwebgrup" type="VARCHAR" size="1"/>
     <column name="IntbGrupDropAcct" phpName="Intbgrupdropacct" type="VARCHAR" size="12"/>
@@ -1367,10 +1381,9 @@
     <column name="IntbGrupCoop" phpName="Intbgrupcoop" type="VARCHAR" size="1"/>
     <column name="IntbGrupUseSurchg" phpName="Intbgrupusesurchg" type="VARCHAR" size="1"/>
     <column name="IntbGrupSurchgDollOrPct" phpName="Intbgrupsurchgdollorpct" type="VARCHAR" size="1"/>
-    <column name="IntbGrupSurchgDollAmt" phpName="Intbgrupsurchgdollamt" type="DECIMAL" size="20" scale="3"/>
+    <column name="IntbGrupSurchgDollAmt" phpName="Intbgrupsurchgdollamt" type="DECIMAL" size="20" scale="2"/>
     <column name="IntbGrupSurchgPct" phpName="Intbgrupsurchgpct" type="DECIMAL" size="20" scale="3"/>
     <column name="IntbGrupFrtGrup" phpName="Intbgrupfrtgrup" type="VARCHAR" size="2"/>
-    <column name="IntbGrupUseAdjust" phpName="Intbgrupuseadjust" type="DECIMAL" size="20" scale="3"/>
     <column name="IntbGrupProdLine" phpName="Intbgrupprodline" type="VARCHAR" size="4"/>
     <column name="IntbGrupLmEcommDesc" phpName="Intbgruplmecommdesc" type="VARCHAR" size="40"/>
     <column name="IntbGrupLmMaxQtyLrg" phpName="Intbgruplmmaxqtylrg" type="INTEGER" size="8"/>
@@ -1526,6 +1539,28 @@
   <table name="inv_stck_code" idMethod="native" phpName="InvStockCode">
     <column name="IntbStckCode" phpName="Intbstckcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbStckDesc" phpName="Intbstckdesc" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_tari_code" idMethod="native" phpName="TariffCode">
+    <column name="IntbTariCode" phpName="Intbtaricode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbTariNbr" phpName="Intbtarinbr" type="VARCHAR" size="12"/>
+    <column name="IntbTariDesc" phpName="Intbtaridesc" type="VARCHAR" size="30"/>
+    <column name="IntbTariDutyRatePct" phpName="Intbtaridutyratepct" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_trco_code" idMethod="native" phpName="TariffCodeCountry">
+    <column name="IntbTariCode" phpName="Intbtaricode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbTrcoCtry" phpName="Intbtrcoctry" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
