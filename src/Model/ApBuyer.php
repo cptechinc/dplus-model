@@ -21,6 +21,8 @@ class ApBuyer extends BaseApBuyer {
 		'code'         => 'aptbbuyrcode',
 		'description'  => 'aptbbuyrdesc',
 		'name'         => 'aptbbuyrdesc',
-		'email'        => 'aptbbuyremail'
+		'email'        => 'aptbbuyremail',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
 	);
 }
