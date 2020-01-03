@@ -22,7 +22,16 @@ class TariffCode extends BaseTariffCode {
 		'number'       => 'intbtarinbr',
 		'description'  => 'intbtaridesc',
 		'duty_rate'    => 'intbtaridutyratepct',
-		'email'        => 'dateupdtd',
+		'date'         => 'dateupdtd',
         'time'         => 'timeupdtd'
 	);
+
+    /**
+	 * Return the status description based of the order status
+	 *
+	 * @return void
+	 */
+	public function get_country_code($tariffid) {
+        return CountryCodesQuery::create()->filterById(TariffCodeCountryQuery::create()->filterById($tariffid));
+	}
 }
