@@ -1,22 +1,15 @@
 <?php
 
-use Base\ItemGroupcode as BaseItemGroupcode;
+use Base\ItemGroupCode as BaseItemGroupCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_grup_code' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'inv_grup_code' table.
  */
-class ItemGroupcode extends BaseItemGroupcode {
-	use ThrowErrorTrait;
+class ItemGroupCode extends BaseItemGroupCode {
+    use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	/**
@@ -24,8 +17,10 @@ class ItemGroupcode extends BaseItemGroupcode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'groupcode'   => 'intbgrup',
-		'itemgroup'   => 'intbgrup',
-		'description' => 'intbgrupdesc',
+		'id'           => 'intbgrup',
+		'code'         => 'intbgrup',
+		'description'  => 'intbgrupdesc',
+		'date'		   => 'dateupdtd',
+		'time'		   => 'timeupdtd'
 	);
 }

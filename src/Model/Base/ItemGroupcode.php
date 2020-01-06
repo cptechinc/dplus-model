@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \ItemGroupcodeQuery as ChildItemGroupcodeQuery;
+use \ItemGroupCodeQuery as ChildItemGroupCodeQuery;
 use \Exception;
 use \PDO;
-use Map\ItemGroupcodeTableMap;
+use Map\ItemGroupCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class ItemGroupcode implements ActiveRecordInterface
+abstract class ItemGroupCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\ItemGroupcodeTableMap';
+    const TABLE_MAP = '\\Map\\ItemGroupCodeTableMap';
 
 
     /**
@@ -93,13 +93,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * @var        string
      */
     protected $intbgrupcogsacct;
-
-    /**
-     * The value for the intbgrupbuyercd field.
-     *
-     * @var        string
-     */
-    protected $intbgrupbuyercd;
 
     /**
      * The value for the intbgrupcredacct field.
@@ -177,13 +170,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * @var        string
      */
     protected $intbgrupfrtgrup;
-
-    /**
-     * The value for the intbgrupuseadjust field.
-     *
-     * @var        string
-     */
-    protected $intbgrupuseadjust;
 
     /**
      * The value for the intbgrupprodline field.
@@ -278,7 +264,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\ItemGroupcode object.
+     * Initializes internal state of Base\ItemGroupCode object.
      */
     public function __construct()
     {
@@ -373,9 +359,9 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>ItemGroupcode</code> instance.  If
-     * <code>obj</code> is an instance of <code>ItemGroupcode</code>, delegates to
-     * <code>equals(ItemGroupcode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ItemGroupCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ItemGroupCode</code>, delegates to
+     * <code>equals(ItemGroupCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -441,7 +427,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|ItemGroupcode The current object, for fluid interface
+     * @return $this|ItemGroupCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -553,16 +539,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbgrupbuyercd] column value.
-     *
-     * @return string
-     */
-    public function getIntbgrupbuyercd()
-    {
-        return $this->intbgrupbuyercd;
-    }
-
-    /**
      * Get the [intbgrupcredacct] column value.
      *
      * @return string
@@ -670,16 +646,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     public function getIntbgrupfrtgrup()
     {
         return $this->intbgrupfrtgrup;
-    }
-
-    /**
-     * Get the [intbgrupuseadjust] column value.
-     *
-     * @return string
-     */
-    public function getIntbgrupuseadjust()
-    {
-        return $this->intbgrupuseadjust;
     }
 
     /**
@@ -806,7 +772,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrup] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrup($v)
     {
@@ -816,7 +782,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrup !== $v) {
             $this->intbgrup = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUP] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUP] = true;
         }
 
         return $this;
@@ -826,7 +792,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupdesc] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupdesc($v)
     {
@@ -836,7 +802,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupdesc !== $v) {
             $this->intbgrupdesc = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPDESC] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPDESC] = true;
         }
 
         return $this;
@@ -846,7 +812,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupsaleacct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupsaleacct($v)
     {
@@ -856,7 +822,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupsaleacct !== $v) {
             $this->intbgrupsaleacct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPSALEACCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT] = true;
         }
 
         return $this;
@@ -866,7 +832,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupivtyacct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupivtyacct($v)
     {
@@ -876,7 +842,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupivtyacct !== $v) {
             $this->intbgrupivtyacct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPIVTYACCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT] = true;
         }
 
         return $this;
@@ -886,7 +852,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupcogsacct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupcogsacct($v)
     {
@@ -896,37 +862,17 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupcogsacct !== $v) {
             $this->intbgrupcogsacct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPCOGSACCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT] = true;
         }
 
         return $this;
     } // setIntbgrupcogsacct()
 
     /**
-     * Set the value of [intbgrupbuyercd] column.
-     *
-     * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
-     */
-    public function setIntbgrupbuyercd($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->intbgrupbuyercd !== $v) {
-            $this->intbgrupbuyercd = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPBUYERCD] = true;
-        }
-
-        return $this;
-    } // setIntbgrupbuyercd()
-
-    /**
      * Set the value of [intbgrupcredacct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupcredacct($v)
     {
@@ -936,7 +882,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupcredacct !== $v) {
             $this->intbgrupcredacct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPCREDACCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT] = true;
         }
 
         return $this;
@@ -946,7 +892,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupwebgrup] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupwebgrup($v)
     {
@@ -956,7 +902,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupwebgrup !== $v) {
             $this->intbgrupwebgrup = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPWEBGRUP] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP] = true;
         }
 
         return $this;
@@ -966,7 +912,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupdropacct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupdropacct($v)
     {
@@ -976,7 +922,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupdropacct !== $v) {
             $this->intbgrupdropacct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPDROPACCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT] = true;
         }
 
         return $this;
@@ -986,7 +932,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupsaleprog] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupsaleprog($v)
     {
@@ -996,7 +942,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupsaleprog !== $v) {
             $this->intbgrupsaleprog = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPSALEPROG] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG] = true;
         }
 
         return $this;
@@ -1006,7 +952,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupcostpct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupcostpct($v)
     {
@@ -1016,7 +962,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupcostpct !== $v) {
             $this->intbgrupcostpct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPCOSTPCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT] = true;
         }
 
         return $this;
@@ -1026,7 +972,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupcoop] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupcoop($v)
     {
@@ -1036,7 +982,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupcoop !== $v) {
             $this->intbgrupcoop = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPCOOP] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPCOOP] = true;
         }
 
         return $this;
@@ -1046,7 +992,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupusesurchg] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupusesurchg($v)
     {
@@ -1056,7 +1002,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupusesurchg !== $v) {
             $this->intbgrupusesurchg = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPUSESURCHG] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG] = true;
         }
 
         return $this;
@@ -1066,7 +1012,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupsurchgdollorpct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupsurchgdollorpct($v)
     {
@@ -1076,7 +1022,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupsurchgdollorpct !== $v) {
             $this->intbgrupsurchgdollorpct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT] = true;
         }
 
         return $this;
@@ -1086,7 +1032,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupsurchgdollamt] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupsurchgdollamt($v)
     {
@@ -1096,7 +1042,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupsurchgdollamt !== $v) {
             $this->intbgrupsurchgdollamt = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLAMT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT] = true;
         }
 
         return $this;
@@ -1106,7 +1052,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupsurchgpct] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupsurchgpct($v)
     {
@@ -1116,7 +1062,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupsurchgpct !== $v) {
             $this->intbgrupsurchgpct = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPSURCHGPCT] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT] = true;
         }
 
         return $this;
@@ -1126,7 +1072,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupfrtgrup] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupfrtgrup($v)
     {
@@ -1136,37 +1082,17 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupfrtgrup !== $v) {
             $this->intbgrupfrtgrup = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPFRTGRUP] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP] = true;
         }
 
         return $this;
     } // setIntbgrupfrtgrup()
 
     /**
-     * Set the value of [intbgrupuseadjust] column.
-     *
-     * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
-     */
-    public function setIntbgrupuseadjust($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->intbgrupuseadjust !== $v) {
-            $this->intbgrupuseadjust = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPUSEADJUST] = true;
-        }
-
-        return $this;
-    } // setIntbgrupuseadjust()
-
-    /**
      * Set the value of [intbgrupprodline] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupprodline($v)
     {
@@ -1176,7 +1102,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupprodline !== $v) {
             $this->intbgrupprodline = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPPRODLINE] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE] = true;
         }
 
         return $this;
@@ -1186,7 +1112,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgruplmecommdesc] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgruplmecommdesc($v)
     {
@@ -1196,7 +1122,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgruplmecommdesc !== $v) {
             $this->intbgruplmecommdesc = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPLMECOMMDESC] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC] = true;
         }
 
         return $this;
@@ -1206,7 +1132,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgruplmmaxqtylrg] column.
      *
      * @param int $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtylrg($v)
     {
@@ -1216,7 +1142,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgruplmmaxqtylrg !== $v) {
             $this->intbgruplmmaxqtylrg = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYLRG] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG] = true;
         }
 
         return $this;
@@ -1226,7 +1152,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgruplmmaxqtymed] column.
      *
      * @param int $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtymed($v)
     {
@@ -1236,7 +1162,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgruplmmaxqtymed !== $v) {
             $this->intbgruplmmaxqtymed = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYMED] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED] = true;
         }
 
         return $this;
@@ -1246,7 +1172,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgruplmmaxqtysml] column.
      *
      * @param int $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgruplmmaxqtysml($v)
     {
@@ -1256,7 +1182,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgruplmmaxqtysml !== $v) {
             $this->intbgruplmmaxqtysml = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYSML] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML] = true;
         }
 
         return $this;
@@ -1266,7 +1192,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupacdisc1] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupacdisc1($v)
     {
@@ -1276,7 +1202,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupacdisc1 !== $v) {
             $this->intbgrupacdisc1 = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPACDISC1] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPACDISC1] = true;
         }
 
         return $this;
@@ -1286,7 +1212,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupacdisc2] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupacdisc2($v)
     {
@@ -1296,7 +1222,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupacdisc2 !== $v) {
             $this->intbgrupacdisc2 = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPACDISC2] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPACDISC2] = true;
         }
 
         return $this;
@@ -1306,7 +1232,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupacdisc3] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupacdisc3($v)
     {
@@ -1316,7 +1242,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupacdisc3 !== $v) {
             $this->intbgrupacdisc3 = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPACDISC3] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPACDISC3] = true;
         }
 
         return $this;
@@ -1326,7 +1252,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [intbgrupacdisc4] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setIntbgrupacdisc4($v)
     {
@@ -1336,7 +1262,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->intbgrupacdisc4 !== $v) {
             $this->intbgrupacdisc4 = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_INTBGRUPACDISC4] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_INTBGRUPACDISC4] = true;
         }
 
         return $this;
@@ -1346,7 +1272,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1356,7 +1282,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -1366,7 +1292,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1376,7 +1302,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -1386,7 +1312,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\ItemGroupcode The current object (for fluent API support)
+     * @return $this|\ItemGroupCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1396,7 +1322,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[ItemGroupcodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ItemGroupCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1438,94 +1364,88 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupsaleacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupsaleacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupsaleacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupivtyacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupivtyacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupivtyacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupcogsacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupcogsacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupcogsacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupbuyercd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbgrupbuyercd = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupcredacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupcredacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupcredacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupwebgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupwebgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupwebgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupdropacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupdropacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupdropacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupsaleprog', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupsaleprog', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupsaleprog = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupcostpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupcostpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupcostpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupcoop', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupcoop', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupcoop = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupusesurchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupusesurchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupusesurchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupsurchgdollorpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupsurchgdollorpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupsurchgdollorpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupsurchgdollamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupsurchgdollamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupsurchgdollamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupsurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupfrtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupfrtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupuseadjust', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbgrupuseadjust = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupprodline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupprodline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupprodline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgruplmecommdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgruplmecommdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgruplmecommdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgruplmmaxqtylrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgruplmmaxqtylrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgruplmmaxqtylrg = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgruplmmaxqtymed', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgruplmmaxqtymed', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgruplmmaxqtymed = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgruplmmaxqtysml', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgruplmmaxqtysml', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgruplmmaxqtysml = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupacdisc1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupacdisc1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupacdisc1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupacdisc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupacdisc2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupacdisc2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupacdisc3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupacdisc3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupacdisc3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ItemGroupcodeTableMap::translateFieldName('Intbgrupacdisc4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ItemGroupCodeTableMap::translateFieldName('Intbgrupacdisc4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbgrupacdisc4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ItemGroupcodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ItemGroupCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ItemGroupcodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ItemGroupCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ItemGroupcodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ItemGroupCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1535,10 +1455,10 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 30; // 30 = ItemGroupcodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 28; // 28 = ItemGroupCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\ItemGroupcode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ItemGroupCode'), 0, $e);
         }
     }
 
@@ -1580,13 +1500,13 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ItemGroupcodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ItemGroupCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildItemGroupcodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildItemGroupCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1605,8 +1525,8 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see ItemGroupcode::setDeleted()
-     * @see ItemGroupcode::isDeleted()
+     * @see ItemGroupCode::setDeleted()
+     * @see ItemGroupCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1615,11 +1535,11 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupcodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildItemGroupcodeQuery::create()
+            $deleteQuery = ChildItemGroupCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1654,7 +1574,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupcodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1673,7 +1593,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                ItemGroupcodeTableMap::addInstanceToPool($this);
+                ItemGroupCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1732,94 +1652,88 @@ abstract class ItemGroupcode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUP)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrup';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPDESC)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPDESC)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupDesc';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSALEACCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupSaleAcct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPIVTYACCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupIvtyAcct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOGSACCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupCogsAcct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPBUYERCD)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbGrupBuyerCd';
-        }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCREDACCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupCredAcct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPWEBGRUP)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupWebGrup';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPDROPACCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupDropAcct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSALEPROG)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupSaleProg';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOSTPCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupCostPct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOOP)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOOP)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupCoop';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPUSESURCHG)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupUseSurchg';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupSurchgDollOrPct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLAMT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupSurchgDollAmt';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGPCT)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupSurchgPct';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPFRTGRUP)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupFrtGrup';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPUSEADJUST)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbGrupUseAdjust';
-        }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPPRODLINE)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupProdLine';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMECOMMDESC)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupLmEcommDesc';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYLRG)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupLmMaxQtyLrg';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYMED)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupLmMaxQtyMed';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYSML)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupLmMaxQtySml';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC1)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC1)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupAcDisc1';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC2)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC2)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupAcDisc2';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC3)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC3)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupAcDisc3';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC4)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC4)) {
             $modifiedColumns[':p' . $index++]  = 'IntbGrupAcDisc4';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1847,9 +1761,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                         break;
                     case 'IntbGrupCogsAcct':
                         $stmt->bindValue($identifier, $this->intbgrupcogsacct, PDO::PARAM_STR);
-                        break;
-                    case 'IntbGrupBuyerCd':
-                        $stmt->bindValue($identifier, $this->intbgrupbuyercd, PDO::PARAM_STR);
                         break;
                     case 'IntbGrupCredAcct':
                         $stmt->bindValue($identifier, $this->intbgrupcredacct, PDO::PARAM_STR);
@@ -1883,9 +1794,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                         break;
                     case 'IntbGrupFrtGrup':
                         $stmt->bindValue($identifier, $this->intbgrupfrtgrup, PDO::PARAM_STR);
-                        break;
-                    case 'IntbGrupUseAdjust':
-                        $stmt->bindValue($identifier, $this->intbgrupuseadjust, PDO::PARAM_STR);
                         break;
                     case 'IntbGrupProdLine':
                         $stmt->bindValue($identifier, $this->intbgrupprodline, PDO::PARAM_STR);
@@ -1962,7 +1870,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ItemGroupcodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ItemGroupCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1994,78 +1902,72 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                 return $this->getIntbgrupcogsacct();
                 break;
             case 5:
-                return $this->getIntbgrupbuyercd();
-                break;
-            case 6:
                 return $this->getIntbgrupcredacct();
                 break;
-            case 7:
+            case 6:
                 return $this->getIntbgrupwebgrup();
                 break;
-            case 8:
+            case 7:
                 return $this->getIntbgrupdropacct();
                 break;
-            case 9:
+            case 8:
                 return $this->getIntbgrupsaleprog();
                 break;
-            case 10:
+            case 9:
                 return $this->getIntbgrupcostpct();
                 break;
-            case 11:
+            case 10:
                 return $this->getIntbgrupcoop();
                 break;
-            case 12:
+            case 11:
                 return $this->getIntbgrupusesurchg();
                 break;
-            case 13:
+            case 12:
                 return $this->getIntbgrupsurchgdollorpct();
                 break;
-            case 14:
+            case 13:
                 return $this->getIntbgrupsurchgdollamt();
                 break;
-            case 15:
+            case 14:
                 return $this->getIntbgrupsurchgpct();
                 break;
-            case 16:
+            case 15:
                 return $this->getIntbgrupfrtgrup();
                 break;
-            case 17:
-                return $this->getIntbgrupuseadjust();
-                break;
-            case 18:
+            case 16:
                 return $this->getIntbgrupprodline();
                 break;
-            case 19:
+            case 17:
                 return $this->getIntbgruplmecommdesc();
                 break;
-            case 20:
+            case 18:
                 return $this->getIntbgruplmmaxqtylrg();
                 break;
-            case 21:
+            case 19:
                 return $this->getIntbgruplmmaxqtymed();
                 break;
-            case 22:
+            case 20:
                 return $this->getIntbgruplmmaxqtysml();
                 break;
-            case 23:
+            case 21:
                 return $this->getIntbgrupacdisc1();
                 break;
-            case 24:
+            case 22:
                 return $this->getIntbgrupacdisc2();
                 break;
-            case 25:
+            case 23:
                 return $this->getIntbgrupacdisc3();
                 break;
-            case 26:
+            case 24:
                 return $this->getIntbgrupacdisc4();
                 break;
-            case 27:
+            case 25:
                 return $this->getDateupdtd();
                 break;
-            case 28:
+            case 26:
                 return $this->getTimeupdtd();
                 break;
-            case 29:
+            case 27:
                 return $this->getDummy();
                 break;
             default:
@@ -2091,42 +1993,40 @@ abstract class ItemGroupcode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['ItemGroupcode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ItemGroupCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['ItemGroupcode'][$this->hashCode()] = true;
-        $keys = ItemGroupcodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ItemGroupCode'][$this->hashCode()] = true;
+        $keys = ItemGroupCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getIntbgrup(),
             $keys[1] => $this->getIntbgrupdesc(),
             $keys[2] => $this->getIntbgrupsaleacct(),
             $keys[3] => $this->getIntbgrupivtyacct(),
             $keys[4] => $this->getIntbgrupcogsacct(),
-            $keys[5] => $this->getIntbgrupbuyercd(),
-            $keys[6] => $this->getIntbgrupcredacct(),
-            $keys[7] => $this->getIntbgrupwebgrup(),
-            $keys[8] => $this->getIntbgrupdropacct(),
-            $keys[9] => $this->getIntbgrupsaleprog(),
-            $keys[10] => $this->getIntbgrupcostpct(),
-            $keys[11] => $this->getIntbgrupcoop(),
-            $keys[12] => $this->getIntbgrupusesurchg(),
-            $keys[13] => $this->getIntbgrupsurchgdollorpct(),
-            $keys[14] => $this->getIntbgrupsurchgdollamt(),
-            $keys[15] => $this->getIntbgrupsurchgpct(),
-            $keys[16] => $this->getIntbgrupfrtgrup(),
-            $keys[17] => $this->getIntbgrupuseadjust(),
-            $keys[18] => $this->getIntbgrupprodline(),
-            $keys[19] => $this->getIntbgruplmecommdesc(),
-            $keys[20] => $this->getIntbgruplmmaxqtylrg(),
-            $keys[21] => $this->getIntbgruplmmaxqtymed(),
-            $keys[22] => $this->getIntbgruplmmaxqtysml(),
-            $keys[23] => $this->getIntbgrupacdisc1(),
-            $keys[24] => $this->getIntbgrupacdisc2(),
-            $keys[25] => $this->getIntbgrupacdisc3(),
-            $keys[26] => $this->getIntbgrupacdisc4(),
-            $keys[27] => $this->getDateupdtd(),
-            $keys[28] => $this->getTimeupdtd(),
-            $keys[29] => $this->getDummy(),
+            $keys[5] => $this->getIntbgrupcredacct(),
+            $keys[6] => $this->getIntbgrupwebgrup(),
+            $keys[7] => $this->getIntbgrupdropacct(),
+            $keys[8] => $this->getIntbgrupsaleprog(),
+            $keys[9] => $this->getIntbgrupcostpct(),
+            $keys[10] => $this->getIntbgrupcoop(),
+            $keys[11] => $this->getIntbgrupusesurchg(),
+            $keys[12] => $this->getIntbgrupsurchgdollorpct(),
+            $keys[13] => $this->getIntbgrupsurchgdollamt(),
+            $keys[14] => $this->getIntbgrupsurchgpct(),
+            $keys[15] => $this->getIntbgrupfrtgrup(),
+            $keys[16] => $this->getIntbgrupprodline(),
+            $keys[17] => $this->getIntbgruplmecommdesc(),
+            $keys[18] => $this->getIntbgruplmmaxqtylrg(),
+            $keys[19] => $this->getIntbgruplmmaxqtymed(),
+            $keys[20] => $this->getIntbgruplmmaxqtysml(),
+            $keys[21] => $this->getIntbgrupacdisc1(),
+            $keys[22] => $this->getIntbgrupacdisc2(),
+            $keys[23] => $this->getIntbgrupacdisc3(),
+            $keys[24] => $this->getIntbgrupacdisc4(),
+            $keys[25] => $this->getDateupdtd(),
+            $keys[26] => $this->getTimeupdtd(),
+            $keys[27] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2146,11 +2046,11 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ItemGroupcode
+     * @return $this|\ItemGroupCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ItemGroupcodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ItemGroupCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -2161,7 +2061,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\ItemGroupcode
+     * @return $this|\ItemGroupCode
      */
     public function setByPosition($pos, $value)
     {
@@ -2182,78 +2082,72 @@ abstract class ItemGroupcode implements ActiveRecordInterface
                 $this->setIntbgrupcogsacct($value);
                 break;
             case 5:
-                $this->setIntbgrupbuyercd($value);
-                break;
-            case 6:
                 $this->setIntbgrupcredacct($value);
                 break;
-            case 7:
+            case 6:
                 $this->setIntbgrupwebgrup($value);
                 break;
-            case 8:
+            case 7:
                 $this->setIntbgrupdropacct($value);
                 break;
-            case 9:
+            case 8:
                 $this->setIntbgrupsaleprog($value);
                 break;
-            case 10:
+            case 9:
                 $this->setIntbgrupcostpct($value);
                 break;
-            case 11:
+            case 10:
                 $this->setIntbgrupcoop($value);
                 break;
-            case 12:
+            case 11:
                 $this->setIntbgrupusesurchg($value);
                 break;
-            case 13:
+            case 12:
                 $this->setIntbgrupsurchgdollorpct($value);
                 break;
-            case 14:
+            case 13:
                 $this->setIntbgrupsurchgdollamt($value);
                 break;
-            case 15:
+            case 14:
                 $this->setIntbgrupsurchgpct($value);
                 break;
-            case 16:
+            case 15:
                 $this->setIntbgrupfrtgrup($value);
                 break;
-            case 17:
-                $this->setIntbgrupuseadjust($value);
-                break;
-            case 18:
+            case 16:
                 $this->setIntbgrupprodline($value);
                 break;
-            case 19:
+            case 17:
                 $this->setIntbgruplmecommdesc($value);
                 break;
-            case 20:
+            case 18:
                 $this->setIntbgruplmmaxqtylrg($value);
                 break;
-            case 21:
+            case 19:
                 $this->setIntbgruplmmaxqtymed($value);
                 break;
-            case 22:
+            case 20:
                 $this->setIntbgruplmmaxqtysml($value);
                 break;
-            case 23:
+            case 21:
                 $this->setIntbgrupacdisc1($value);
                 break;
-            case 24:
+            case 22:
                 $this->setIntbgrupacdisc2($value);
                 break;
-            case 25:
+            case 23:
                 $this->setIntbgrupacdisc3($value);
                 break;
-            case 26:
+            case 24:
                 $this->setIntbgrupacdisc4($value);
                 break;
-            case 27:
+            case 25:
                 $this->setDateupdtd($value);
                 break;
-            case 28:
+            case 26:
                 $this->setTimeupdtd($value);
                 break;
-            case 29:
+            case 27:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2280,7 +2174,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = ItemGroupcodeTableMap::getFieldNames($keyType);
+        $keys = ItemGroupCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setIntbgrup($arr[$keys[0]]);
@@ -2298,79 +2192,73 @@ abstract class ItemGroupcode implements ActiveRecordInterface
             $this->setIntbgrupcogsacct($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setIntbgrupbuyercd($arr[$keys[5]]);
+            $this->setIntbgrupcredacct($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setIntbgrupcredacct($arr[$keys[6]]);
+            $this->setIntbgrupwebgrup($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setIntbgrupwebgrup($arr[$keys[7]]);
+            $this->setIntbgrupdropacct($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setIntbgrupdropacct($arr[$keys[8]]);
+            $this->setIntbgrupsaleprog($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setIntbgrupsaleprog($arr[$keys[9]]);
+            $this->setIntbgrupcostpct($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setIntbgrupcostpct($arr[$keys[10]]);
+            $this->setIntbgrupcoop($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setIntbgrupcoop($arr[$keys[11]]);
+            $this->setIntbgrupusesurchg($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setIntbgrupusesurchg($arr[$keys[12]]);
+            $this->setIntbgrupsurchgdollorpct($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setIntbgrupsurchgdollorpct($arr[$keys[13]]);
+            $this->setIntbgrupsurchgdollamt($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setIntbgrupsurchgdollamt($arr[$keys[14]]);
+            $this->setIntbgrupsurchgpct($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setIntbgrupsurchgpct($arr[$keys[15]]);
+            $this->setIntbgrupfrtgrup($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setIntbgrupfrtgrup($arr[$keys[16]]);
+            $this->setIntbgrupprodline($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setIntbgrupuseadjust($arr[$keys[17]]);
+            $this->setIntbgruplmecommdesc($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setIntbgrupprodline($arr[$keys[18]]);
+            $this->setIntbgruplmmaxqtylrg($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setIntbgruplmecommdesc($arr[$keys[19]]);
+            $this->setIntbgruplmmaxqtymed($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setIntbgruplmmaxqtylrg($arr[$keys[20]]);
+            $this->setIntbgruplmmaxqtysml($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setIntbgruplmmaxqtymed($arr[$keys[21]]);
+            $this->setIntbgrupacdisc1($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setIntbgruplmmaxqtysml($arr[$keys[22]]);
+            $this->setIntbgrupacdisc2($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setIntbgrupacdisc1($arr[$keys[23]]);
+            $this->setIntbgrupacdisc3($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setIntbgrupacdisc2($arr[$keys[24]]);
+            $this->setIntbgrupacdisc4($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setIntbgrupacdisc3($arr[$keys[25]]);
+            $this->setDateupdtd($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setIntbgrupacdisc4($arr[$keys[26]]);
+            $this->setTimeupdtd($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setDateupdtd($arr[$keys[27]]);
-        }
-        if (array_key_exists($keys[28], $arr)) {
-            $this->setTimeupdtd($arr[$keys[28]]);
-        }
-        if (array_key_exists($keys[29], $arr)) {
-            $this->setDummy($arr[$keys[29]]);
+            $this->setDummy($arr[$keys[27]]);
         }
     }
 
@@ -2391,7 +2279,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ItemGroupcode The current object, for fluid interface
+     * @return $this|\ItemGroupCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -2411,97 +2299,91 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(ItemGroupcodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ItemGroupCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUP)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUP, $this->intbgrup);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUP)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUP, $this->intbgrup);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPDESC)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPDESC, $this->intbgrupdesc);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPDESC)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPDESC, $this->intbgrupdesc);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSALEACCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPSALEACCT, $this->intbgrupsaleacct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT, $this->intbgrupsaleacct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPIVTYACCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPIVTYACCT, $this->intbgrupivtyacct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT, $this->intbgrupivtyacct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOGSACCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPCOGSACCT, $this->intbgrupcogsacct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT, $this->intbgrupcogsacct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPBUYERCD)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPBUYERCD, $this->intbgrupbuyercd);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT, $this->intbgrupcredacct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCREDACCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPCREDACCT, $this->intbgrupcredacct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP, $this->intbgrupwebgrup);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPWEBGRUP)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPWEBGRUP, $this->intbgrupwebgrup);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT, $this->intbgrupdropacct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPDROPACCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPDROPACCT, $this->intbgrupdropacct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG, $this->intbgrupsaleprog);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSALEPROG)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPSALEPROG, $this->intbgrupsaleprog);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $this->intbgrupcostpct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOSTPCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPCOSTPCT, $this->intbgrupcostpct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPCOOP)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPCOOP, $this->intbgrupcoop);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPCOOP)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPCOOP, $this->intbgrupcoop);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG, $this->intbgrupusesurchg);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPUSESURCHG)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPUSESURCHG, $this->intbgrupusesurchg);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, $this->intbgrupsurchgdollorpct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, $this->intbgrupsurchgdollorpct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $this->intbgrupsurchgdollamt);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLAMT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $this->intbgrupsurchgdollamt);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $this->intbgrupsurchgpct);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGPCT)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPSURCHGPCT, $this->intbgrupsurchgpct);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP, $this->intbgrupfrtgrup);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPFRTGRUP)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPFRTGRUP, $this->intbgrupfrtgrup);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE, $this->intbgrupprodline);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPUSEADJUST)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPUSEADJUST, $this->intbgrupuseadjust);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, $this->intbgruplmecommdesc);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPPRODLINE)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPPRODLINE, $this->intbgrupprodline);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $this->intbgruplmmaxqtylrg);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMECOMMDESC)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPLMECOMMDESC, $this->intbgruplmecommdesc);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $this->intbgruplmmaxqtymed);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYLRG)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $this->intbgruplmmaxqtylrg);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $this->intbgruplmmaxqtysml);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYMED)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYMED, $this->intbgruplmmaxqtymed);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC1)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPACDISC1, $this->intbgrupacdisc1);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYSML)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPLMMAXQTYSML, $this->intbgruplmmaxqtysml);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC2)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPACDISC2, $this->intbgrupacdisc2);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC1)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPACDISC1, $this->intbgrupacdisc1);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC3)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPACDISC3, $this->intbgrupacdisc3);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC2)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPACDISC2, $this->intbgrupacdisc2);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_INTBGRUPACDISC4)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUPACDISC4, $this->intbgrupacdisc4);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC3)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPACDISC3, $this->intbgrupacdisc3);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_INTBGRUPACDISC4)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUPACDISC4, $this->intbgrupacdisc4);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
-        }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
-        }
-        if ($this->isColumnModified(ItemGroupcodeTableMap::COL_DUMMY)) {
-            $criteria->add(ItemGroupcodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ItemGroupCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ItemGroupCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2519,8 +2401,8 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildItemGroupcodeQuery::create();
-        $criteria->add(ItemGroupcodeTableMap::COL_INTBGRUP, $this->intbgrup);
+        $criteria = ChildItemGroupCodeQuery::create();
+        $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUP, $this->intbgrup);
 
         return $criteria;
     }
@@ -2582,7 +2464,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ItemGroupcode (or compatible) type.
+     * @param      object $copyObj An object of \ItemGroupCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2594,7 +2476,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         $copyObj->setIntbgrupsaleacct($this->getIntbgrupsaleacct());
         $copyObj->setIntbgrupivtyacct($this->getIntbgrupivtyacct());
         $copyObj->setIntbgrupcogsacct($this->getIntbgrupcogsacct());
-        $copyObj->setIntbgrupbuyercd($this->getIntbgrupbuyercd());
         $copyObj->setIntbgrupcredacct($this->getIntbgrupcredacct());
         $copyObj->setIntbgrupwebgrup($this->getIntbgrupwebgrup());
         $copyObj->setIntbgrupdropacct($this->getIntbgrupdropacct());
@@ -2606,7 +2487,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         $copyObj->setIntbgrupsurchgdollamt($this->getIntbgrupsurchgdollamt());
         $copyObj->setIntbgrupsurchgpct($this->getIntbgrupsurchgpct());
         $copyObj->setIntbgrupfrtgrup($this->getIntbgrupfrtgrup());
-        $copyObj->setIntbgrupuseadjust($this->getIntbgrupuseadjust());
         $copyObj->setIntbgrupprodline($this->getIntbgrupprodline());
         $copyObj->setIntbgruplmecommdesc($this->getIntbgruplmecommdesc());
         $copyObj->setIntbgruplmmaxqtylrg($this->getIntbgruplmmaxqtylrg());
@@ -2633,7 +2513,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \ItemGroupcode Clone of current object.
+     * @return \ItemGroupCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2658,7 +2538,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         $this->intbgrupsaleacct = null;
         $this->intbgrupivtyacct = null;
         $this->intbgrupcogsacct = null;
-        $this->intbgrupbuyercd = null;
         $this->intbgrupcredacct = null;
         $this->intbgrupwebgrup = null;
         $this->intbgrupdropacct = null;
@@ -2670,7 +2549,6 @@ abstract class ItemGroupcode implements ActiveRecordInterface
         $this->intbgrupsurchgdollamt = null;
         $this->intbgrupsurchgpct = null;
         $this->intbgrupfrtgrup = null;
-        $this->intbgrupuseadjust = null;
         $this->intbgrupprodline = null;
         $this->intbgruplmecommdesc = null;
         $this->intbgruplmmaxqtylrg = null;
@@ -2712,7 +2590,7 @@ abstract class ItemGroupcode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ItemGroupcodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ItemGroupCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
