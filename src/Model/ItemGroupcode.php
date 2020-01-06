@@ -17,10 +17,26 @@ class ItemGroupCode extends BaseItemGroupCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'intbgrup',
-		'code'         => 'intbgrup',
-		'description'  => 'intbgrupdesc',
-		'date'		   => 'dateupdtd',
-		'time'		   => 'timeupdtd'
+		'id'                       => 'intbgrup',
+		'code'                     => 'intbgrup',
+		'description'              => 'intbgrupdesc',
+        'sales'                    => 'intbgrupsaleacct',
+        'inventory'                => 'intbgrupivtyacct',
+        'cogs'                     => 'intbgrupcogsacct',
+        'credit'                   => 'intbgrupcredacct',
+        'web_group'                => 'intbgrupwebgrup',
+        'drop_ship'                => 'intbgrupdropacct',
+        'sales_program'            => 'intbgrupsaleprog'
+        'cost_percent'             => 'intbgrupcostpct',
+        'coop'                     => 'intbgrupcoop',
+        'surcharge'                => 'intbgrupusesurchg',
+        'surcharge_dollar_percent' => 'intbgrupsurchgdollorpct',
+        'surcahrge_dollar_amount'  => 'intbgrupsurchgdollamt',
+        'surcharge_percent'        => 'intbgrupsurchgpct',
+        'freight_group'            => 'intbgrupfrtgrup',
+        'product_line'             => 'intbgrupprodline',
+        'ecomm_desc'               => 'intbgruplmecommdesc',
+		'date'		               => 'dateupdtd',
+		'time'		               => 'timeupdtd'
 	);
 }
