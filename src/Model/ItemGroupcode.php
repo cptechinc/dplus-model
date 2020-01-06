@@ -26,7 +26,7 @@ class ItemGroupCode extends BaseItemGroupCode {
         'credit'                   => 'intbgrupcredacct',
         'web_group'                => 'intbgrupwebgrup',
         'drop_ship'                => 'intbgrupdropacct',
-        'sales_program'            => 'intbgrupsaleprog'
+        'sales_program'            => 'intbgrupsaleprog',
         'cost_percent'             => 'intbgrupcostpct',
         'coop'                     => 'intbgrupcoop',
         'surcharge'                => 'intbgrupusesurchg',
