@@ -69,8 +69,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return string
 	 */
 	public function get_itemgroupdescription() {
-		$query = ItemGroupcodeQuery::create();
-		$query->select(ItemGroupcode::get_aliasproperty('description'));
+		$query = ItemGroupCodeQuery::create();
+		$query->select(ItemGroupCode::get_aliasproperty('description'));
 		return $query->findOneByItemgroup($this->intbgrup);
 	}
 
