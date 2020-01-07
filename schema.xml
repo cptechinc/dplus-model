@@ -3156,4 +3156,18 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_mfrt_code" idMethod="native" phpName="MotorFreightCode">
+    <column name="Oe2tbMfrtCode" phpName="Oe2tbmfrtcode" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="Oe2tbMfrtClass" phpName="Oe2tbmfrtclass" type="VARCHAR" size="4"/>
+    <column name="Oe2tbMfrtDesc1" phpName="Oe2tbmfrtdesc1" type="VARCHAR" size="50"/>
+    <column name="Oe2tbMfrtDesc2" phpName="Oe2tbmfrtdesc2" type="VARCHAR" size="50"/>
+    <column name="Oe2tbMfrtDesc3" phpName="Oe2tbmfrtdesc3" type="VARCHAR" size="50"/>
+    <column name="Oe2tbMfrtDesc4" phpName="Oe2tbmfrtdesc4" type="VARCHAR" size="50"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
 </database>
