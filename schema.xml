@@ -3170,4 +3170,50 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="vend_item_xref" idMethod="native" phpName="ItemXrefVendor">
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="VexrVendItemNbr" phpName="Vexrvenditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="VexrPoOrderCode" phpName="Vexrpoordercode" type="VARCHAR" size="1"/>
+    <column name="VexrOption1" phpName="Vexroption1" type="VARCHAR" size="8"/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
+    <column name="VexrCaseQty" phpName="Vexrcaseqty" type="DECIMAL" size="20" scale="2"/>
+    <column name="VexrPrtKitDet" phpName="Vexrprtkitdet" type="VARCHAR" size="1"/>
+    <column name="VexrListPrice" phpName="Vexrlistprice" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitCost" phpName="Vexrunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrForeignCost" phpName="Vexrforeigncost" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrCostLastDate" phpName="Vexrcostlastdate" type="VARCHAR" size="8"/>
+    <column name="VexrUnitUnit1" phpName="Vexrunitunit1" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost1" phpName="Vexrunitcost1" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit2" phpName="Vexrunitunit2" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost2" phpName="Vexrunitcost2" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit3" phpName="Vexrunitunit3" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost3" phpName="Vexrunitcost3" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit4" phpName="Vexrunitunit4" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost4" phpName="Vexrunitcost4" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit5" phpName="Vexrunitunit5" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost5" phpName="Vexrunitcost5" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit6" phpName="Vexrunitunit6" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost6" phpName="Vexrunitcost6" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit7" phpName="Vexrunitunit7" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost7" phpName="Vexrunitcost7" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit8" phpName="Vexrunitunit8" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost8" phpName="Vexrunitcost8" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit9" phpName="Vexrunitunit9" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost9" phpName="Vexrunitcost9" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrUnitUnit10" phpName="Vexrunitunit10" type="INTEGER" size="9"/>
+    <column name="VexrUnitCost10" phpName="Vexrunitcost10" type="DECIMAL" size="20" scale="7"/>
+    <column name="VexrAprvCode" phpName="Vexraprvcode" type="VARCHAR" size="1"/>
+    <column name="VexrVendItemDesc" phpName="Vexrvenditemdesc" type="VARCHAR" size="60"/>
+    <column name="VexrMinBuyQty" phpName="Vexrminbuyqty" type="INTEGER" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
 </database>
