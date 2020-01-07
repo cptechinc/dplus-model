@@ -31,7 +31,7 @@ class ItemGroupCode extends BaseItemGroupCode {
         'coop'                     => 'intbgrupcoop',
         'surcharge'                => 'intbgrupusesurchg',
         'surcharge_dollar_percent' => 'intbgrupsurchgdollorpct',
-        'surcahrge_dollar_amount'  => 'intbgrupsurchgdollamt',
+        'surcharge_dollar_amount'  => 'intbgrupsurchgdollamt',
         'surcharge_percent'        => 'intbgrupsurchgpct',
         'freight_group'            => 'intbgrupfrtgrup',
         'product_line'             => 'intbgrupprodline',
