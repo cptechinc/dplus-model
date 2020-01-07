@@ -15,12 +15,21 @@ class ConfigAr extends BaseConfigAr {
 	use MagicMethodTraits;
 
 	/**
+	 * Web Program Code
+	 * Y = Yes
+	 * N = No
+	 * @var string
+	 */
+	protected $artbconfuseweb;
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
 		'id'             => 'artbconfkey',
-		'gl_report_type' => 'artbconfinvcustgl'
+		'gl_report_type' => 'artbconfinvcustgl',
+		'web_group'      => 'artbconfuseweb'
 	);
 
 	const GL_REPORT_TYPES_DESCRIPTIONS = array(
@@ -35,5 +44,13 @@ class ConfigAr extends BaseConfigAr {
 	 */
 	public function gl_report_type() {
 		return self::GL_REPORT_TYPES_DESCRIPTIONS[strtoupper($this->gl_report_type)];
+	}
+
+	/**
+	 * Returns if the Web Program is Yes
+	 * @return bool
+	 */
+	public function is_web_group() {
+		return strtoupper($this->web_group) == 'Y';
 	}
 }
