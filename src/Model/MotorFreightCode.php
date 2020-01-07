@@ -26,6 +26,7 @@ class MotorFreightCode extends BaseMotorFreightCode {
 	const COLUMN_ALIASES = array(
 		'id'            => 'oe2tbmfrtcode',
 		'code'          => 'oe2tbmfrtcode',
+		'class'         => 'oe2tbmfrtclass',
 		'description'   => 'oe2tbmfrtdesc1',
 		'description2'  => 'oe2tbmfrtdesc2',
 		'description3'  => 'oe2tbmfrtdesc3',
