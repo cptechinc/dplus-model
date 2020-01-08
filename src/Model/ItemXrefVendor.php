@@ -53,8 +53,31 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'time'          => 'timeupdtd'
 	);
 
+	/**
+	 * Return the number of Units Available to save
+	 *
+	 * @return int
+	 */
 	public function get_unitsavailable() {
 		return self::UNITS_AVAILABLE;
+	}
+
+	/**
+	 * Return Purchase Order Code Options
+	 *
+	 * @return array
+	 */
+	public function get_po_ordercodeoptions() {
+		return self::OPTIONS_POORDERCODE;
+	}
+
+	/**
+	 * Return Approval Code Options
+	 *
+	 * @return array
+	 */
+	public function get_approvalcodeoptions() {
+		return self::OPTIONS_APPROVALCODE;
 	}
 
 	/**
@@ -67,7 +90,8 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		$col_base = 'vexrunitunit';
 
 		if ($unit <= self::UNITS_AVAILABLE) {
-			return $col_base . $unit;
+			$col = $col_base . $unit;
+			return $this->$col;
 		} else {
 			return 0;
 		}
@@ -83,7 +107,8 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		$col_base = 'vexrunitcost';
 
 		if ($unit <= self::UNITS_AVAILABLE) {
-			return $col_base . $unit;
+			$col = $col_base . $unit;
+			return $this->$col;
 		} else {
 			return 0;
 		}
