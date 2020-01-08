@@ -2,7 +2,11 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
+use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
+use \UnitofMeasurePurchaseQuery as ChildUnitofMeasurePurchaseQuery;
 use \Vendor as ChildVendor;
 use \VendorQuery as ChildVendorQuery;
 use \Exception;
@@ -334,6 +338,16 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
      * @var        ChildVendor
      */
     protected $aVendor;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
+
+    /**
+     * @var        ChildUnitofMeasurePurchase
+     */
+    protected $aUnitofMeasurePurchase;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1024,6 +1038,10 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             $this->modifiedColumns[ItemXrefVendorTableMap::COL_INITITEMNBR] = true;
         }
 
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
+        }
+
         return $this;
     } // setInititemnbr()
 
@@ -1082,6 +1100,10 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         if ($this->intbuompur !== $v) {
             $this->intbuompur = $v;
             $this->modifiedColumns[ItemXrefVendorTableMap::COL_INTBUOMPUR] = true;
+        }
+
+        if ($this->aUnitofMeasurePurchase !== null && $this->aUnitofMeasurePurchase->getIntbuompur() !== $v) {
+            $this->aUnitofMeasurePurchase = null;
         }
 
         return $this;
@@ -1921,6 +1943,12 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
         }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
+        if ($this->aUnitofMeasurePurchase !== null && $this->intbuompur !== $this->aUnitofMeasurePurchase->getIntbuompur()) {
+            $this->aUnitofMeasurePurchase = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1961,6 +1989,8 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aVendor = null;
+            $this->aItemMasterItem = null;
+            $this->aUnitofMeasurePurchase = null;
         } // if (deep)
     }
 
@@ -2074,6 +2104,20 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
                     $affectedRows += $this->aVendor->save($con);
                 }
                 $this->setVendor($this->aVendor);
+            }
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aUnitofMeasurePurchase !== null) {
+                if ($this->aUnitofMeasurePurchase->isModified() || $this->aUnitofMeasurePurchase->isNew()) {
+                    $affectedRows += $this->aUnitofMeasurePurchase->save($con);
+                }
+                $this->setUnitofMeasurePurchase($this->aUnitofMeasurePurchase);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -2607,6 +2651,36 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
 
                 $result[$key] = $this->aVendor->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aUnitofMeasurePurchase) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'unitofMeasurePurchase';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_uom_pur';
+                        break;
+                    default:
+                        $key = 'UnitofMeasurePurchase';
+                }
+
+                $result[$key] = $this->aUnitofMeasurePurchase->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -3086,11 +3160,18 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             null !== $this->getVexrvenditemnbr() &&
             null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
 
         //relation vendor to table ap_vend_mast
         if ($this->aVendor && $hash = spl_object_hash($this->aVendor)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -3272,6 +3353,108 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\ItemXrefVendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemXrefVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addItemXrefVendors($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+    /**
+     * Declares an association between this object and a ChildUnitofMeasurePurchase object.
+     *
+     * @param  ChildUnitofMeasurePurchase $v
+     * @return $this|\ItemXrefVendor The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbuompur(NULL);
+        } else {
+            $this->setIntbuompur($v->getIntbuompur());
+        }
+
+        $this->aUnitofMeasurePurchase = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildUnitofMeasurePurchase object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemXrefVendor($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildUnitofMeasurePurchase object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildUnitofMeasurePurchase The associated ChildUnitofMeasurePurchase object.
+     * @throws PropelException
+     */
+    public function getUnitofMeasurePurchase(ConnectionInterface $con = null)
+    {
+        if ($this->aUnitofMeasurePurchase === null && (($this->intbuompur !== "" && $this->intbuompur !== null))) {
+            $this->aUnitofMeasurePurchase = ChildUnitofMeasurePurchaseQuery::create()->findPk($this->intbuompur, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aUnitofMeasurePurchase->addItemXrefVendors($this);
+             */
+        }
+
+        return $this->aUnitofMeasurePurchase;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3280,6 +3463,12 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     {
         if (null !== $this->aVendor) {
             $this->aVendor->removeItemXrefVendor($this);
+        }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeItemXrefVendor($this);
+        }
+        if (null !== $this->aUnitofMeasurePurchase) {
+            $this->aUnitofMeasurePurchase->removeItemXrefVendor($this);
         }
         $this->apvevendid = null;
         $this->vexrvenditemnbr = null;
@@ -3341,6 +3530,8 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aVendor = null;
+        $this->aItemMasterItem = null;
+        $this->aUnitofMeasurePurchase = null;
     }
 
     /**

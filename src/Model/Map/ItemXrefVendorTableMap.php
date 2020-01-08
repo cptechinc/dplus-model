@@ -313,10 +313,10 @@ class ItemXrefVendorTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('ApveVendId', 'Apvevendid', 'VARCHAR' , 'ap_vend_mast', 'ApveVendId', true, 6, '');
         $this->addPrimaryKey('VexrVendItemNbr', 'Vexrvenditemnbr', 'VARCHAR', true, 30, '');
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('VexrPoOrderCode', 'Vexrpoordercode', 'VARCHAR', false, 1, null);
         $this->addColumn('VexrOption1', 'Vexroption1', 'VARCHAR', false, 8, null);
-        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_pur', 'IntbUomPur', false, 4, null);
         $this->addColumn('VexrCaseQty', 'Vexrcaseqty', 'DECIMAL', false, 20, null);
         $this->addColumn('VexrPrtKitDet', 'Vexrprtkitdet', 'VARCHAR', false, 1, null);
         $this->addColumn('VexrListPrice', 'Vexrlistprice', 'DECIMAL', false, 20, null);
@@ -361,6 +361,20 @@ class ItemXrefVendorTableMap extends TableMap
   array (
     0 => ':ApveVendId',
     1 => ':ApveVendId',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('UnitofMeasurePurchase', '\\UnitofMeasurePurchase', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbUomPur',
+    1 => ':IntbUomPur',
   ),
 ), null, null, null, false);
     } // buildRelations()

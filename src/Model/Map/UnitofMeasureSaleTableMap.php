@@ -170,6 +170,13 @@ class UnitofMeasureSaleTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbUomSale',
+    1 => ':IntbUomSale',
+  ),
+), null, null, 'ItemMasterItems', false);
     } // buildRelations()
 
     /**

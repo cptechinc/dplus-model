@@ -457,7 +457,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('InitStatChgd', 'Initstatchgd', 'VARCHAR', false, 1, null);
         $this->addColumn('InitSpecItemCd', 'Initspecitemcd', 'VARCHAR', false, 1, null);
         $this->addColumn('InitWarrDays', 'Initwarrdays', 'INTEGER', false, 5, null);
-        $this->addColumn('IntbUomSale', 'Intbuomsale', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('IntbUomSale', 'Intbuomsale', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', false, 4, null);
         $this->addColumn('InitWght', 'Initwght', 'DECIMAL', false, 20, null);
         $this->addColumn('InitBord', 'Initbord', 'VARCHAR', false, 1, null);
         $this->addColumn('InitBaseItemId', 'Initbaseitemid', 'VARCHAR', false, 30, null);
@@ -465,7 +465,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('InitGiveDisc', 'Initgivedisc', 'VARCHAR', false, 1, null);
         $this->addColumn('InitAsstCode', 'Initasstcode', 'VARCHAR', false, 3, null);
         $this->addColumn('InitPricLastDate', 'Initpriclastdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_pur', 'IntbUomPur', false, 4, null);
         $this->addColumn('InitStanCost', 'Initstancost', 'DECIMAL', false, 20, null);
         $this->addColumn('InitStanCostBase', 'Initstancostbase', 'VARCHAR', false, 1, null);
         $this->addColumn('InitStanCostLastDate', 'Initstancostlastdate', 'VARCHAR', false, 8, null);
@@ -512,6 +512,27 @@ class ItemMasterItemTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('UnitofMeasureSale', '\\UnitofMeasureSale', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbUomSale',
+    1 => ':IntbUomSale',
+  ),
+), null, null, null, false);
+        $this->addRelation('UnitofMeasurePurchase', '\\UnitofMeasurePurchase', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbUomPur',
+    1 => ':IntbUomPur',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemXrefVendors', false);
     } // buildRelations()
 
     /**

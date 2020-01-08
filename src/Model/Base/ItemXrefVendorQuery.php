@@ -116,7 +116,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorQuery rightJoinWithVendor() Adds a RIGHT JOIN clause and with to the query using the Vendor relation
  * @method     ChildItemXrefVendorQuery innerJoinWithVendor() Adds a INNER JOIN clause and with to the query using the Vendor relation
  *
- * @method     \VendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildItemXrefVendorQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildItemXrefVendorQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildItemXrefVendorQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ *
+ * @method     ChildItemXrefVendorQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildItemXrefVendorQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildItemXrefVendorQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildItemXrefVendorQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildItemXrefVendorQuery leftJoinUnitofMeasurePurchase($relationAlias = null) Adds a LEFT JOIN clause to the query using the UnitofMeasurePurchase relation
+ * @method     ChildItemXrefVendorQuery rightJoinUnitofMeasurePurchase($relationAlias = null) Adds a RIGHT JOIN clause to the query using the UnitofMeasurePurchase relation
+ * @method     ChildItemXrefVendorQuery innerJoinUnitofMeasurePurchase($relationAlias = null) Adds a INNER JOIN clause to the query using the UnitofMeasurePurchase relation
+ *
+ * @method     ChildItemXrefVendorQuery joinWithUnitofMeasurePurchase($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the UnitofMeasurePurchase relation
+ *
+ * @method     ChildItemXrefVendorQuery leftJoinWithUnitofMeasurePurchase() Adds a LEFT JOIN clause and with to the query using the UnitofMeasurePurchase relation
+ * @method     ChildItemXrefVendorQuery rightJoinWithUnitofMeasurePurchase() Adds a RIGHT JOIN clause and with to the query using the UnitofMeasurePurchase relation
+ * @method     ChildItemXrefVendorQuery innerJoinWithUnitofMeasurePurchase() Adds a INNER JOIN clause and with to the query using the UnitofMeasurePurchase relation
+ *
+ * @method     \VendorQuery|\ItemMasterItemQuery|\UnitofMeasurePurchaseQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemXrefVendor findOne(ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query
  * @method     ChildItemXrefVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemXrefVendor matching the query, or a new ChildItemXrefVendor object populated from the query conditions when no match is found
@@ -1870,6 +1890,160 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
         return $this
             ->joinVendor($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'Vendor', '\VendorQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemMasterItem object
+     *
+     * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemXrefVendorQuery The current query, for fluid interface
+     */
+    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    {
+        if ($itemMasterItem instanceof \ItemMasterItem) {
+            return $this
+                ->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+        } elseif ($itemMasterItem instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemXrefVendorTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+        } else {
+            throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemMasterItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     */
+    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemMasterItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemMasterItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemMasterItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \UnitofMeasurePurchase object
+     *
+     * @param \UnitofMeasurePurchase|ObjectCollection $unitofMeasurePurchase The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemXrefVendorQuery The current query, for fluid interface
+     */
+    public function filterByUnitofMeasurePurchase($unitofMeasurePurchase, $comparison = null)
+    {
+        if ($unitofMeasurePurchase instanceof \UnitofMeasurePurchase) {
+            return $this
+                ->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $unitofMeasurePurchase->getIntbuompur(), $comparison);
+        } elseif ($unitofMeasurePurchase instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemXrefVendorTableMap::COL_INTBUOMPUR, $unitofMeasurePurchase->toKeyValue('PrimaryKey', 'Intbuompur'), $comparison);
+        } else {
+            throw new PropelException('filterByUnitofMeasurePurchase() only accepts arguments of type \UnitofMeasurePurchase or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the UnitofMeasurePurchase relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
+     */
+    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('UnitofMeasurePurchase');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'UnitofMeasurePurchase');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the UnitofMeasurePurchase relation UnitofMeasurePurchase object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \UnitofMeasurePurchaseQuery A secondary query class using the current class as primary query
+     */
+    public function useUnitofMeasurePurchaseQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinUnitofMeasurePurchase($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
     }
 
     /**

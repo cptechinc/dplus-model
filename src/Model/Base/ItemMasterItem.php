@@ -2,15 +2,24 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \ItemXrefVendor as ChildItemXrefVendor;
+use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
+use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
+use \UnitofMeasurePurchaseQuery as ChildUnitofMeasurePurchaseQuery;
+use \UnitofMeasureSale as ChildUnitofMeasureSale;
+use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
 use Map\ItemMasterItemTableMap;
+use Map\ItemXrefVendorTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -509,12 +518,34 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ChildUnitofMeasureSale
+     */
+    protected $aUnitofMeasureSale;
+
+    /**
+     * @var        ChildUnitofMeasurePurchase
+     */
+    protected $aUnitofMeasurePurchase;
+
+    /**
+     * @var        ObjectCollection|ChildItemXrefVendor[] Collection to store aggregation of ChildItemXrefVendor objects.
+     */
+    protected $collItemXrefVendors;
+    protected $collItemXrefVendorsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefVendor[]
+     */
+    protected $itemXrefVendorsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -1731,6 +1762,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INTBUOMSALE] = true;
         }
 
+        if ($this->aUnitofMeasureSale !== null && $this->aUnitofMeasureSale->getIntbuomsale() !== $v) {
+            $this->aUnitofMeasureSale = null;
+        }
+
         return $this;
     } // setIntbuomsale()
 
@@ -1889,6 +1924,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->intbuompur !== $v) {
             $this->intbuompur = $v;
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INTBUOMPUR] = true;
+        }
+
+        if ($this->aUnitofMeasurePurchase !== null && $this->aUnitofMeasurePurchase->getIntbuompur() !== $v) {
+            $this->aUnitofMeasurePurchase = null;
         }
 
         return $this;
@@ -2935,6 +2974,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aUnitofMeasureSale !== null && $this->intbuomsale !== $this->aUnitofMeasureSale->getIntbuomsale()) {
+            $this->aUnitofMeasureSale = null;
+        }
+        if ($this->aUnitofMeasurePurchase !== null && $this->intbuompur !== $this->aUnitofMeasurePurchase->getIntbuompur()) {
+            $this->aUnitofMeasurePurchase = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2973,6 +3018,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->hydrate($row, 0, true, $dataFetcher->getIndexType()); // rehydrate
 
         if ($deep) {  // also de-associate any related objects?
+
+            $this->aUnitofMeasureSale = null;
+            $this->aUnitofMeasurePurchase = null;
+            $this->collItemXrefVendors = null;
 
         } // if (deep)
     }
@@ -3077,6 +3126,25 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aUnitofMeasureSale !== null) {
+                if ($this->aUnitofMeasureSale->isModified() || $this->aUnitofMeasureSale->isNew()) {
+                    $affectedRows += $this->aUnitofMeasureSale->save($con);
+                }
+                $this->setUnitofMeasureSale($this->aUnitofMeasureSale);
+            }
+
+            if ($this->aUnitofMeasurePurchase !== null) {
+                if ($this->aUnitofMeasurePurchase->isModified() || $this->aUnitofMeasurePurchase->isNew()) {
+                    $affectedRows += $this->aUnitofMeasurePurchase->save($con);
+                }
+                $this->setUnitofMeasurePurchase($this->aUnitofMeasurePurchase);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -3086,6 +3154,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->itemXrefVendorsScheduledForDeletion !== null) {
+                if (!$this->itemXrefVendorsScheduledForDeletion->isEmpty()) {
+                    \ItemXrefVendorQuery::create()
+                        ->filterByPrimaryKeys($this->itemXrefVendorsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemXrefVendorsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefVendors !== null) {
+                foreach ($this->collItemXrefVendors as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -3769,10 +3854,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['ItemMasterItem'][$this->hashCode()])) {
@@ -3851,6 +3937,53 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aUnitofMeasureSale) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'unitofMeasureSale';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_uom_sale';
+                        break;
+                    default:
+                        $key = 'UnitofMeasureSale';
+                }
+
+                $result[$key] = $this->aUnitofMeasureSale->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aUnitofMeasurePurchase) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'unitofMeasurePurchase';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_uom_pur';
+                        break;
+                    default:
+                        $key = 'UnitofMeasurePurchase';
+                }
+
+                $result[$key] = $this->aUnitofMeasurePurchase->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collItemXrefVendors) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefVendors';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'vend_item_xrefs';
+                        break;
+                    default:
+                        $key = 'ItemXrefVendors';
+                }
+
+                $result[$key] = $this->collItemXrefVendors->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -4677,6 +4810,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getItemXrefVendors() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefVendor($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -4705,12 +4852,390 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildUnitofMeasureSale object.
+     *
+     * @param  ChildUnitofMeasureSale $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setUnitofMeasureSale(ChildUnitofMeasureSale $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbuomsale(NULL);
+        } else {
+            $this->setIntbuomsale($v->getIntbuomsale());
+        }
+
+        $this->aUnitofMeasureSale = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildUnitofMeasureSale object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildUnitofMeasureSale object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildUnitofMeasureSale The associated ChildUnitofMeasureSale object.
+     * @throws PropelException
+     */
+    public function getUnitofMeasureSale(ConnectionInterface $con = null)
+    {
+        if ($this->aUnitofMeasureSale === null && (($this->intbuomsale !== "" && $this->intbuomsale !== null))) {
+            $this->aUnitofMeasureSale = ChildUnitofMeasureSaleQuery::create()->findPk($this->intbuomsale, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aUnitofMeasureSale->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aUnitofMeasureSale;
+    }
+
+    /**
+     * Declares an association between this object and a ChildUnitofMeasurePurchase object.
+     *
+     * @param  ChildUnitofMeasurePurchase $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbuompur(NULL);
+        } else {
+            $this->setIntbuompur($v->getIntbuompur());
+        }
+
+        $this->aUnitofMeasurePurchase = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildUnitofMeasurePurchase object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildUnitofMeasurePurchase object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildUnitofMeasurePurchase The associated ChildUnitofMeasurePurchase object.
+     * @throws PropelException
+     */
+    public function getUnitofMeasurePurchase(ConnectionInterface $con = null)
+    {
+        if ($this->aUnitofMeasurePurchase === null && (($this->intbuompur !== "" && $this->intbuompur !== null))) {
+            $this->aUnitofMeasurePurchase = ChildUnitofMeasurePurchaseQuery::create()->findPk($this->intbuompur, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aUnitofMeasurePurchase->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aUnitofMeasurePurchase;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('ItemXrefVendor' == $relationName) {
+            $this->initItemXrefVendors();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collItemXrefVendors collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefVendors()
+     */
+    public function clearItemXrefVendors()
+    {
+        $this->collItemXrefVendors = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefVendors collection loaded partially.
+     */
+    public function resetPartialItemXrefVendors($v = true)
+    {
+        $this->collItemXrefVendorsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefVendors collection.
+     *
+     * By default this just sets the collItemXrefVendors collection to an empty array (like clearcollItemXrefVendors());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefVendors($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefVendors && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefVendorTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefVendors = new $collectionClassName;
+        $this->collItemXrefVendors->setModel('\ItemXrefVendor');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefVendor objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     * @throws PropelException
+     */
+    public function getItemXrefVendors(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendors || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendors) {
+                // return empty collection
+                $this->initItemXrefVendors();
+            } else {
+                $collItemXrefVendors = ChildItemXrefVendorQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefVendorsPartial && count($collItemXrefVendors)) {
+                        $this->initItemXrefVendors(false);
+
+                        foreach ($collItemXrefVendors as $obj) {
+                            if (false == $this->collItemXrefVendors->contains($obj)) {
+                                $this->collItemXrefVendors->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefVendorsPartial = true;
+                    }
+
+                    return $collItemXrefVendors;
+                }
+
+                if ($partial && $this->collItemXrefVendors) {
+                    foreach ($this->collItemXrefVendors as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefVendors[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefVendors = $collItemXrefVendors;
+                $this->collItemXrefVendorsPartial = false;
+            }
+        }
+
+        return $this->collItemXrefVendors;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefVendor objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefVendors A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefVendors(Collection $itemXrefVendors, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefVendor[] $itemXrefVendorsToDelete */
+        $itemXrefVendorsToDelete = $this->getItemXrefVendors(new Criteria(), $con)->diff($itemXrefVendors);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemXrefVendorsScheduledForDeletion = clone $itemXrefVendorsToDelete;
+
+        foreach ($itemXrefVendorsToDelete as $itemXrefVendorRemoved) {
+            $itemXrefVendorRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefVendors = null;
+        foreach ($itemXrefVendors as $itemXrefVendor) {
+            $this->addItemXrefVendor($itemXrefVendor);
+        }
+
+        $this->collItemXrefVendors = $itemXrefVendors;
+        $this->collItemXrefVendorsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefVendor objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefVendor objects.
+     * @throws PropelException
+     */
+    public function countItemXrefVendors(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendors || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendors) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefVendors());
+            }
+
+            $query = ChildItemXrefVendorQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefVendors);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefVendor object to this object
+     * through the ChildItemXrefVendor foreign key attribute.
+     *
+     * @param  ChildItemXrefVendor $l ChildItemXrefVendor
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefVendor(ChildItemXrefVendor $l)
+    {
+        if ($this->collItemXrefVendors === null) {
+            $this->initItemXrefVendors();
+            $this->collItemXrefVendorsPartial = true;
+        }
+
+        if (!$this->collItemXrefVendors->contains($l)) {
+            $this->doAddItemXrefVendor($l);
+
+            if ($this->itemXrefVendorsScheduledForDeletion and $this->itemXrefVendorsScheduledForDeletion->contains($l)) {
+                $this->itemXrefVendorsScheduledForDeletion->remove($this->itemXrefVendorsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to add.
+     */
+    protected function doAddItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
+    {
+        $this->collItemXrefVendors[]= $itemXrefVendor;
+        $itemXrefVendor->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefVendor $itemXrefVendor The ChildItemXrefVendor object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefVendor(ChildItemXrefVendor $itemXrefVendor)
+    {
+        if ($this->getItemXrefVendors()->contains($itemXrefVendor)) {
+            $pos = $this->collItemXrefVendors->search($itemXrefVendor);
+            $this->collItemXrefVendors->remove($pos);
+            if (null === $this->itemXrefVendorsScheduledForDeletion) {
+                $this->itemXrefVendorsScheduledForDeletion = clone $this->collItemXrefVendors;
+                $this->itemXrefVendorsScheduledForDeletion->clear();
+            }
+            $this->itemXrefVendorsScheduledForDeletion[]= clone $itemXrefVendor;
+            $itemXrefVendor->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefVendors from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     */
+    public function getItemXrefVendorsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefVendorQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getItemXrefVendors($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aUnitofMeasureSale) {
+            $this->aUnitofMeasureSale->removeItemMasterItem($this);
+        }
+        if (null !== $this->aUnitofMeasurePurchase) {
+            $this->aUnitofMeasurePurchase->removeItemMasterItem($this);
+        }
         $this->inititemnbr = null;
         $this->initdesc1 = null;
         $this->initdesc2 = null;
@@ -4794,8 +5319,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collItemXrefVendors) {
+                foreach ($this->collItemXrefVendors as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collItemXrefVendors = null;
+        $this->aUnitofMeasureSale = null;
+        $this->aUnitofMeasurePurchase = null;
     }
 
     /**
