@@ -39,6 +39,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'theiritemID'   => 'vexrvenditemnbr',
 		'ouritemID'     => 'inititemnbr',
 		'ouritemid'     => 'inititemnbr',
+		'description'   => 'vexrvenditemdesc',
 		'po_ordercode'  => 'vexrpoordercode',
 		'qty_percase'   => 'vexrcaseqty',
 		'minbuyqty'     => 'vexrminbuyqty',
