@@ -172,7 +172,7 @@ class ItemXrefUpcTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('UpcxCode', 'Upcxcode', 'VARCHAR', true, 20, '');
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('UpcxPrim', 'Upcxprim', 'VARCHAR', false, 1, null);
         $this->addColumn('UpcxQtyEachesPerUpc', 'Upcxqtyeachesperupc', 'INTEGER', false, 8, null);
         $this->addColumn('UpcxUom', 'Upcxuom', 'VARCHAR', false, 4, null);
@@ -188,6 +188,13 @@ class ItemXrefUpcTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

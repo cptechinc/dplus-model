@@ -3187,6 +3187,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -3233,7 +3236,7 @@
     <foreign-key foreignTable="ap_vend_mast" name="vendor">
       <reference local="ApveVendId" foreign="ApveVendId"/>
     </foreign-key>
-     <foreign-key foreignTable="inv_item_mast" name="item">
+    <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
     <foreign-key foreignTable="inv_uom_pur" name="uompur">

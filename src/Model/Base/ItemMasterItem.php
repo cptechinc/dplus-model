@@ -4,6 +4,8 @@ namespace Base;
 
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \ItemXrefUpc as ChildItemXrefUpc;
+use \ItemXrefUpcQuery as ChildItemXrefUpcQuery;
 use \ItemXrefVendor as ChildItemXrefVendor;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
 use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
@@ -13,6 +15,7 @@ use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
 use Map\ItemMasterItemTableMap;
+use Map\ItemXrefUpcTableMap;
 use Map\ItemXrefVendorTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -528,6 +531,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $aUnitofMeasurePurchase;
 
     /**
+     * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
+     */
+    protected $collItemXrefUpcs;
+    protected $collItemXrefUpcsPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemXrefVendor[] Collection to store aggregation of ChildItemXrefVendor objects.
      */
     protected $collItemXrefVendors;
@@ -540,6 +549,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefUpc[]
+     */
+    protected $itemXrefUpcsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3021,6 +3036,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->aUnitofMeasureSale = null;
             $this->aUnitofMeasurePurchase = null;
+            $this->collItemXrefUpcs = null;
+
             $this->collItemXrefVendors = null;
 
         } // if (deep)
@@ -3154,6 +3171,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->itemXrefUpcsScheduledForDeletion !== null) {
+                if (!$this->itemXrefUpcsScheduledForDeletion->isEmpty()) {
+                    \ItemXrefUpcQuery::create()
+                        ->filterByPrimaryKeys($this->itemXrefUpcsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemXrefUpcsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefUpcs !== null) {
+                foreach ($this->collItemXrefUpcs as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->itemXrefVendorsScheduledForDeletion !== null) {
@@ -3967,6 +4001,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aUnitofMeasurePurchase->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collItemXrefUpcs) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefUpcs';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'upc_item_xrefs';
+                        break;
+                    default:
+                        $key = 'ItemXrefUpcs';
+                }
+
+                $result[$key] = $this->collItemXrefUpcs->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemXrefVendors) {
 
@@ -4816,6 +4865,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getItemXrefUpcs() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefUpc($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemXrefVendors() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemXrefVendor($relObj->copy($deepCopy));
@@ -4964,10 +5019,242 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ItemXrefUpc' == $relationName) {
+            $this->initItemXrefUpcs();
+            return;
+        }
         if ('ItemXrefVendor' == $relationName) {
             $this->initItemXrefVendors();
             return;
         }
+    }
+
+    /**
+     * Clears out the collItemXrefUpcs collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefUpcs()
+     */
+    public function clearItemXrefUpcs()
+    {
+        $this->collItemXrefUpcs = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefUpcs collection loaded partially.
+     */
+    public function resetPartialItemXrefUpcs($v = true)
+    {
+        $this->collItemXrefUpcsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefUpcs collection.
+     *
+     * By default this just sets the collItemXrefUpcs collection to an empty array (like clearcollItemXrefUpcs());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefUpcs($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefUpcs && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefUpcTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefUpcs = new $collectionClassName;
+        $this->collItemXrefUpcs->setModel('\ItemXrefUpc');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefUpc objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefUpc[] List of ChildItemXrefUpc objects
+     * @throws PropelException
+     */
+    public function getItemXrefUpcs(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
+        if (null === $this->collItemXrefUpcs || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefUpcs) {
+                // return empty collection
+                $this->initItemXrefUpcs();
+            } else {
+                $collItemXrefUpcs = ChildItemXrefUpcQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefUpcsPartial && count($collItemXrefUpcs)) {
+                        $this->initItemXrefUpcs(false);
+
+                        foreach ($collItemXrefUpcs as $obj) {
+                            if (false == $this->collItemXrefUpcs->contains($obj)) {
+                                $this->collItemXrefUpcs->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefUpcsPartial = true;
+                    }
+
+                    return $collItemXrefUpcs;
+                }
+
+                if ($partial && $this->collItemXrefUpcs) {
+                    foreach ($this->collItemXrefUpcs as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefUpcs[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefUpcs = $collItemXrefUpcs;
+                $this->collItemXrefUpcsPartial = false;
+            }
+        }
+
+        return $this->collItemXrefUpcs;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefUpc objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefUpcs A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefUpcs(Collection $itemXrefUpcs, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefUpc[] $itemXrefUpcsToDelete */
+        $itemXrefUpcsToDelete = $this->getItemXrefUpcs(new Criteria(), $con)->diff($itemXrefUpcs);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemXrefUpcsScheduledForDeletion = clone $itemXrefUpcsToDelete;
+
+        foreach ($itemXrefUpcsToDelete as $itemXrefUpcRemoved) {
+            $itemXrefUpcRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefUpcs = null;
+        foreach ($itemXrefUpcs as $itemXrefUpc) {
+            $this->addItemXrefUpc($itemXrefUpc);
+        }
+
+        $this->collItemXrefUpcs = $itemXrefUpcs;
+        $this->collItemXrefUpcsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefUpc objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefUpc objects.
+     * @throws PropelException
+     */
+    public function countItemXrefUpcs(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefUpcsPartial && !$this->isNew();
+        if (null === $this->collItemXrefUpcs || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefUpcs) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefUpcs());
+            }
+
+            $query = ChildItemXrefUpcQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefUpcs);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefUpc object to this object
+     * through the ChildItemXrefUpc foreign key attribute.
+     *
+     * @param  ChildItemXrefUpc $l ChildItemXrefUpc
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefUpc(ChildItemXrefUpc $l)
+    {
+        if ($this->collItemXrefUpcs === null) {
+            $this->initItemXrefUpcs();
+            $this->collItemXrefUpcsPartial = true;
+        }
+
+        if (!$this->collItemXrefUpcs->contains($l)) {
+            $this->doAddItemXrefUpc($l);
+
+            if ($this->itemXrefUpcsScheduledForDeletion and $this->itemXrefUpcsScheduledForDeletion->contains($l)) {
+                $this->itemXrefUpcsScheduledForDeletion->remove($this->itemXrefUpcsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefUpc $itemXrefUpc The ChildItemXrefUpc object to add.
+     */
+    protected function doAddItemXrefUpc(ChildItemXrefUpc $itemXrefUpc)
+    {
+        $this->collItemXrefUpcs[]= $itemXrefUpc;
+        $itemXrefUpc->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefUpc $itemXrefUpc The ChildItemXrefUpc object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefUpc(ChildItemXrefUpc $itemXrefUpc)
+    {
+        if ($this->getItemXrefUpcs()->contains($itemXrefUpc)) {
+            $pos = $this->collItemXrefUpcs->search($itemXrefUpc);
+            $this->collItemXrefUpcs->remove($pos);
+            if (null === $this->itemXrefUpcsScheduledForDeletion) {
+                $this->itemXrefUpcsScheduledForDeletion = clone $this->collItemXrefUpcs;
+                $this->itemXrefUpcsScheduledForDeletion->clear();
+            }
+            $this->itemXrefUpcsScheduledForDeletion[]= clone $itemXrefUpc;
+            $itemXrefUpc->setItemMasterItem(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -5223,6 +5510,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         return $this->getItemXrefVendors($query, $con);
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefVendors from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefVendor[] List of ChildItemXrefVendor objects
+     */
+    public function getItemXrefVendorsJoinUnitofMeasurePurchase(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefVendorQuery::create(null, $criteria);
+        $query->joinWith('UnitofMeasurePurchase', $joinBehavior);
+
+        return $this->getItemXrefVendors($query, $con);
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -5319,6 +5631,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collItemXrefUpcs) {
+                foreach ($this->collItemXrefUpcs as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemXrefVendors) {
                 foreach ($this->collItemXrefVendors as $o) {
                     $o->clearAllReferences($deep);
@@ -5326,6 +5643,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;
         $this->aUnitofMeasurePurchase = null;

@@ -178,6 +178,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithUnitofMeasurePurchase() Adds a RIGHT JOIN clause and with to the query using the UnitofMeasurePurchase relation
  * @method     ChildItemMasterItemQuery innerJoinWithUnitofMeasurePurchase() Adds a INNER JOIN clause and with to the query using the UnitofMeasurePurchase relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
+ * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
+ * @method     ChildItemMasterItemQuery innerJoinItemXrefUpc($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefUpc relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemXrefUpc($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemXrefUpc relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemXrefUpc() Adds a LEFT JOIN clause and with to the query using the ItemXrefUpc relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemXrefUpc() Adds a RIGHT JOIN clause and with to the query using the ItemXrefUpc relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemXrefUpc() Adds a INNER JOIN clause and with to the query using the ItemXrefUpc relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefVendor($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefVendor($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefVendor($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefVendor relation
@@ -188,7 +198,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -2619,6 +2629,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemXrefUpc object
+     *
+     * @param \ItemXrefUpc|ObjectCollection $itemXrefUpc the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemXrefUpc($itemXrefUpc, $comparison = null)
+    {
+        if ($itemXrefUpc instanceof \ItemXrefUpc) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefUpc->getInititemnbr(), $comparison);
+        } elseif ($itemXrefUpc instanceof ObjectCollection) {
+            return $this
+                ->useItemXrefUpcQuery()
+                ->filterByPrimaryKeys($itemXrefUpc->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemXrefUpc() only accepts arguments of type \ItemXrefUpc or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemXrefUpc relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemXrefUpc($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemXrefUpc');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemXrefUpc');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemXrefUpc relation ItemXrefUpc object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemXrefUpcQuery A secondary query class using the current class as primary query
+     */
+    public function useItemXrefUpcQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemXrefUpc($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefUpc', '\ItemXrefUpcQuery');
     }
 
     /**
