@@ -10,7 +10,6 @@ use Map\ItemXrefUpcTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
-use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -27,7 +26,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpcQuery orderByUpcxuom($order = Criteria::ASC) Order by the UpcxUom column
  * @method     ChildItemXrefUpcQuery orderByUpcxmstrcase($order = Criteria::ASC) Order by the UpcxMstrCase column
  * @method     ChildItemXrefUpcQuery orderByUpcxlabel($order = Criteria::ASC) Order by the UpcxLabel column
- * @method     ChildItemXrefUpcQuery orderByUpcxamazon($order = Criteria::ASC) Order by the UpcxAmazon column
  * @method     ChildItemXrefUpcQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildItemXrefUpcQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildItemXrefUpcQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -39,7 +37,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpcQuery groupByUpcxuom() Group by the UpcxUom column
  * @method     ChildItemXrefUpcQuery groupByUpcxmstrcase() Group by the UpcxMstrCase column
  * @method     ChildItemXrefUpcQuery groupByUpcxlabel() Group by the UpcxLabel column
- * @method     ChildItemXrefUpcQuery groupByUpcxamazon() Group by the UpcxAmazon column
  * @method     ChildItemXrefUpcQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildItemXrefUpcQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildItemXrefUpcQuery groupByDummy() Group by the dummy column
@@ -52,18 +49,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpcQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildItemXrefUpcQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemXrefUpcQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemXrefUpcQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemXrefUpcQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
- *
- * @method     ChildItemXrefUpcQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
- *
- * @method     ChildItemXrefUpcQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemXrefUpcQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemXrefUpcQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
- *
- * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
- *
  * @method     ChildItemXrefUpc findOne(ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query
  * @method     ChildItemXrefUpc findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemXrefUpc matching the query, or a new ChildItemXrefUpc object populated from the query conditions when no match is found
  *
@@ -74,7 +59,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpc findOneByUpcxuom(string $UpcxUom) Return the first ChildItemXrefUpc filtered by the UpcxUom column
  * @method     ChildItemXrefUpc findOneByUpcxmstrcase(string $UpcxMstrCase) Return the first ChildItemXrefUpc filtered by the UpcxMstrCase column
  * @method     ChildItemXrefUpc findOneByUpcxlabel(string $UpcxLabel) Return the first ChildItemXrefUpc filtered by the UpcxLabel column
- * @method     ChildItemXrefUpc findOneByUpcxamazon(string $UpcxAmazon) Return the first ChildItemXrefUpc filtered by the UpcxAmazon column
  * @method     ChildItemXrefUpc findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefUpc filtered by the DateUpdtd column
  * @method     ChildItemXrefUpc findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefUpc filtered by the TimeUpdtd column
  * @method     ChildItemXrefUpc findOneByDummy(string $dummy) Return the first ChildItemXrefUpc filtered by the dummy column *
@@ -89,7 +73,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpc requireOneByUpcxuom(string $UpcxUom) Return the first ChildItemXrefUpc filtered by the UpcxUom column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByUpcxmstrcase(string $UpcxMstrCase) Return the first ChildItemXrefUpc filtered by the UpcxMstrCase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByUpcxlabel(string $UpcxLabel) Return the first ChildItemXrefUpc filtered by the UpcxLabel column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefUpc requireOneByUpcxamazon(string $UpcxAmazon) Return the first ChildItemXrefUpc filtered by the UpcxAmazon column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefUpc filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefUpc filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefUpc requireOneByDummy(string $dummy) Return the first ChildItemXrefUpc filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -102,7 +85,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxuom(string $UpcxUom) Return ChildItemXrefUpc objects filtered by the UpcxUom column
  * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxmstrcase(string $UpcxMstrCase) Return ChildItemXrefUpc objects filtered by the UpcxMstrCase column
  * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxlabel(string $UpcxLabel) Return ChildItemXrefUpc objects filtered by the UpcxLabel column
- * @method     ChildItemXrefUpc[]|ObjectCollection findByUpcxamazon(string $UpcxAmazon) Return ChildItemXrefUpc objects filtered by the UpcxAmazon column
  * @method     ChildItemXrefUpc[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemXrefUpc objects filtered by the DateUpdtd column
  * @method     ChildItemXrefUpc[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemXrefUpc objects filtered by the TimeUpdtd column
  * @method     ChildItemXrefUpc[]|ObjectCollection findByDummy(string $dummy) Return ChildItemXrefUpc objects filtered by the dummy column
@@ -204,7 +186,7 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT UpcxCode, InitItemNbr, UpcxPrim, UpcxQtyEachesPerUpc, UpcxUom, UpcxMstrCase, UpcxLabel, UpcxAmazon, DateUpdtd, TimeUpdtd, dummy FROM upc_item_xref WHERE UpcxCode = :p0 AND InitItemNbr = :p1';
+        $sql = 'SELECT UpcxCode, InitItemNbr, UpcxPrim, UpcxQtyEachesPerUpc, UpcxUom, UpcxMstrCase, UpcxLabel, DateUpdtd, TimeUpdtd, dummy FROM upc_item_xref WHERE UpcxCode = :p0 AND InitItemNbr = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -498,31 +480,6 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the UpcxAmazon column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByUpcxamazon('fooValue');   // WHERE UpcxAmazon = 'fooValue'
-     * $query->filterByUpcxamazon('%fooValue%', Criteria::LIKE); // WHERE UpcxAmazon LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $upcxamazon The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
-     */
-    public function filterByUpcxamazon($upcxamazon = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($upcxamazon)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ItemXrefUpcTableMap::COL_UPCXAMAZON, $upcxamazon, $comparison);
-    }
-
-    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -595,83 +552,6 @@ abstract class ItemXrefUpcQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ItemXrefUpcTableMap::COL_DUMMY, $dummy, $comparison);
-    }
-
-    /**
-     * Filter the query by a related \ItemMasterItem object
-     *
-     * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @throws \Propel\Runtime\Exception\PropelException
-     *
-     * @return ChildItemXrefUpcQuery The current query, for fluid interface
-     */
-    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
-    {
-        if ($itemMasterItem instanceof \ItemMasterItem) {
-            return $this
-                ->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
-        } elseif ($itemMasterItem instanceof ObjectCollection) {
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-
-            return $this
-                ->addUsingAlias(ItemXrefUpcTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
-        } else {
-            throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
-        }
-    }
-
-    /**
-     * Adds a JOIN clause to the query using the ItemMasterItem relation
-     *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return $this|ChildItemXrefUpcQuery The current query, for fluid interface
-     */
-    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('ItemMasterItem');
-
-        // create a ModelJoin object for this join
-        $join = new ModelJoin();
-        $join->setJoinType($joinType);
-        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
-            $join->setPreviousJoin($previousJoin);
-        }
-
-        // add the ModelJoin to the current object
-        if ($relationAlias) {
-            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
-            $this->addJoinObject($join, $relationAlias);
-        } else {
-            $this->addJoinObject($join, 'ItemMasterItem');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Use the ItemMasterItem relation ItemMasterItem object
-     *
-     * @see useQuery()
-     *
-     * @param     string $relationAlias optional alias for the relation,
-     *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
-     */
-    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        return $this
-            ->joinItemMasterItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**

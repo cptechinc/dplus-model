@@ -2,8 +2,6 @@
 
 namespace Base;
 
-use \ItemMasterItem as ChildItemMasterItem;
-use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemXrefUpcQuery as ChildItemXrefUpcQuery;
 use \Exception;
 use \PDO;
@@ -113,13 +111,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
     protected $upcxlabel;
 
     /**
-     * The value for the upcxamazon field.
-     *
-     * @var        string
-     */
-    protected $upcxamazon;
-
-    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -139,11 +130,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
-
-    /**
-     * @var        ChildItemMasterItem
-     */
-    protected $aItemMasterItem;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -463,16 +449,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
     }
 
     /**
-     * Get the [upcxamazon] column value.
-     *
-     * @return string
-     */
-    public function getUpcxamazon()
-    {
-        return $this->upcxamazon;
-    }
-
-    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -537,10 +513,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[ItemXrefUpcTableMap::COL_INITITEMNBR] = true;
-        }
-
-        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
-            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -645,26 +617,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
 
         return $this;
     } // setUpcxlabel()
-
-    /**
-     * Set the value of [upcxamazon] column.
-     *
-     * @param string $v new value
-     * @return $this|\ItemXrefUpc The current object (for fluent API support)
-     */
-    public function setUpcxamazon($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->upcxamazon !== $v) {
-            $this->upcxamazon = $v;
-            $this->modifiedColumns[ItemXrefUpcTableMap::COL_UPCXAMAZON] = true;
-        }
-
-        return $this;
-    } // setUpcxamazon()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -791,16 +743,13 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemXrefUpcTableMap::translateFieldName('Upcxlabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->upcxlabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemXrefUpcTableMap::translateFieldName('Upcxamazon', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->upcxamazon = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemXrefUpcTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemXrefUpcTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemXrefUpcTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemXrefUpcTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemXrefUpcTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemXrefUpcTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -810,7 +759,7 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = ItemXrefUpcTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 10; // 10 = ItemXrefUpcTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemXrefUpc'), 0, $e);
@@ -832,9 +781,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
-        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
-            $this->aItemMasterItem = null;
-        }
     } // ensureConsistency
 
     /**
@@ -874,7 +820,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
-            $this->aItemMasterItem = null;
         } // if (deep)
     }
 
@@ -978,18 +923,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
-            // We call the save method on the following object(s) if they
-            // were passed to this object by their corresponding set
-            // method.  This object relates to these object(s) by a
-            // foreign key reference.
-
-            if ($this->aItemMasterItem !== null) {
-                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
-                    $affectedRows += $this->aItemMasterItem->save($con);
-                }
-                $this->setItemMasterItem($this->aItemMasterItem);
-            }
-
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -1044,9 +977,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefUpcTableMap::COL_UPCXLABEL)) {
             $modifiedColumns[':p' . $index++]  = 'UpcxLabel';
         }
-        if ($this->isColumnModified(ItemXrefUpcTableMap::COL_UPCXAMAZON)) {
-            $modifiedColumns[':p' . $index++]  = 'UpcxAmazon';
-        }
         if ($this->isColumnModified(ItemXrefUpcTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1087,9 +1017,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
                         break;
                     case 'UpcxLabel':
                         $stmt->bindValue($identifier, $this->upcxlabel, PDO::PARAM_STR);
-                        break;
-                    case 'UpcxAmazon':
-                        $stmt->bindValue($identifier, $this->upcxamazon, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1177,15 +1104,12 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
                 return $this->getUpcxlabel();
                 break;
             case 7:
-                return $this->getUpcxamazon();
-                break;
-            case 8:
                 return $this->getDateupdtd();
                 break;
-            case 9:
+            case 8:
                 return $this->getTimeupdtd();
                 break;
-            case 10:
+            case 9:
                 return $this->getDummy();
                 break;
             default:
@@ -1205,11 +1129,10 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
-     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
         if (isset($alreadyDumpedObjects['ItemXrefUpc'][$this->hashCode()])) {
@@ -1225,33 +1148,15 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
             $keys[4] => $this->getUpcxuom(),
             $keys[5] => $this->getUpcxmstrcase(),
             $keys[6] => $this->getUpcxlabel(),
-            $keys[7] => $this->getUpcxamazon(),
-            $keys[8] => $this->getDateupdtd(),
-            $keys[9] => $this->getTimeupdtd(),
-            $keys[10] => $this->getDummy(),
+            $keys[7] => $this->getDateupdtd(),
+            $keys[8] => $this->getTimeupdtd(),
+            $keys[9] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
         }
 
-        if ($includeForeignObjects) {
-            if (null !== $this->aItemMasterItem) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'itemMasterItem';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'inv_item_mast';
-                        break;
-                    default:
-                        $key = 'ItemMasterItem';
-                }
-
-                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
-            }
-        }
 
         return $result;
     }
@@ -1307,15 +1212,12 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
                 $this->setUpcxlabel($value);
                 break;
             case 7:
-                $this->setUpcxamazon($value);
-                break;
-            case 8:
                 $this->setDateupdtd($value);
                 break;
-            case 9:
+            case 8:
                 $this->setTimeupdtd($value);
                 break;
-            case 10:
+            case 9:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1366,16 +1268,13 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
             $this->setUpcxlabel($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setUpcxamazon($arr[$keys[7]]);
+            $this->setDateupdtd($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDateupdtd($arr[$keys[8]]);
+            $this->setTimeupdtd($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setTimeupdtd($arr[$keys[9]]);
-        }
-        if (array_key_exists($keys[10], $arr)) {
-            $this->setDummy($arr[$keys[10]]);
+            $this->setDummy($arr[$keys[9]]);
         }
     }
 
@@ -1439,9 +1338,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefUpcTableMap::COL_UPCXLABEL)) {
             $criteria->add(ItemXrefUpcTableMap::COL_UPCXLABEL, $this->upcxlabel);
         }
-        if ($this->isColumnModified(ItemXrefUpcTableMap::COL_UPCXAMAZON)) {
-            $criteria->add(ItemXrefUpcTableMap::COL_UPCXAMAZON, $this->upcxamazon);
-        }
         if ($this->isColumnModified(ItemXrefUpcTableMap::COL_DATEUPDTD)) {
             $criteria->add(ItemXrefUpcTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -1485,15 +1381,8 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         $validPk = null !== $this->getUpcxcode() &&
             null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
-
-        //relation item to table inv_item_mast
-        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
-            $primaryKeyFKs[] = $hash;
-        } else {
-            $validPrimaryKeyFKs = false;
-        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1559,7 +1448,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         $copyObj->setUpcxuom($this->getUpcxuom());
         $copyObj->setUpcxmstrcase($this->getUpcxmstrcase());
         $copyObj->setUpcxlabel($this->getUpcxlabel());
-        $copyObj->setUpcxamazon($this->getUpcxamazon());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1591,66 +1479,12 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
     }
 
     /**
-     * Declares an association between this object and a ChildItemMasterItem object.
-     *
-     * @param  ChildItemMasterItem $v
-     * @return $this|\ItemXrefUpc The current object (for fluent API support)
-     * @throws PropelException
-     */
-    public function setItemMasterItem(ChildItemMasterItem $v = null)
-    {
-        if ($v === null) {
-            $this->setInititemnbr('');
-        } else {
-            $this->setInititemnbr($v->getInititemnbr());
-        }
-
-        $this->aItemMasterItem = $v;
-
-        // Add binding for other direction of this n:n relationship.
-        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
-        if ($v !== null) {
-            $v->addItemXrefUpc($this);
-        }
-
-
-        return $this;
-    }
-
-
-    /**
-     * Get the associated ChildItemMasterItem object
-     *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
-     * @throws PropelException
-     */
-    public function getItemMasterItem(ConnectionInterface $con = null)
-    {
-        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
-            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
-            /* The following can be used additionally to
-                guarantee the related object contains a reference
-                to this object.  This level of coupling may, however, be
-                undesirable since it could result in an only partially populated collection
-                in the referenced object.
-                $this->aItemMasterItem->addItemXrefUpcs($this);
-             */
-        }
-
-        return $this->aItemMasterItem;
-    }
-
-    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
-        if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeItemXrefUpc($this);
-        }
         $this->upcxcode = null;
         $this->inititemnbr = null;
         $this->upcxprim = null;
@@ -1658,7 +1492,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         $this->upcxuom = null;
         $this->upcxmstrcase = null;
         $this->upcxlabel = null;
-        $this->upcxamazon = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -1683,7 +1516,6 @@ abstract class ItemXrefUpc implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
-        $this->aItemMasterItem = null;
     }
 
     /**

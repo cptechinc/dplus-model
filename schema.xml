@@ -3176,7 +3176,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="upc_item_xref" idMethod="native" phpName="ItemUpcXref">
+  <table name="upc_item_xref" idMethod="native" phpName="ItemXrefUpc">
     <column name="UpcxCode" phpName="Upcxcode" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="UpcxPrim" phpName="Upcxprim" type="VARCHAR" size="1"/>
@@ -3184,7 +3184,6 @@
     <column name="UpcxUom" phpName="Upcxuom" type="VARCHAR" size="4"/>
     <column name="UpcxMstrCase" phpName="Upcxmstrcase" type="VARCHAR" size="1"/>
     <column name="UpcxLabel" phpName="Upcxlabel" type="VARCHAR" size="1"/>
-    <column name="UpcxAmazon" phpName="Upcxamazon" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

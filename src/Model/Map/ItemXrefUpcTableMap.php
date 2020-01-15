@@ -59,7 +59,7 @@ class ItemXrefUpcTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 11;
+    const NUM_COLUMNS = 10;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ItemXrefUpcTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 11;
+    const NUM_HYDRATE_COLUMNS = 10;
 
     /**
      * the column name for the UpcxCode field
@@ -107,11 +107,6 @@ class ItemXrefUpcTableMap extends TableMap
     const COL_UPCXLABEL = 'upc_item_xref.UpcxLabel';
 
     /**
-     * the column name for the UpcxAmazon field
-     */
-    const COL_UPCXAMAZON = 'upc_item_xref.UpcxAmazon';
-
-    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'upc_item_xref.DateUpdtd';
@@ -138,11 +133,11 @@ class ItemXrefUpcTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Upcxcode', 'Inititemnbr', 'Upcxprim', 'Upcxqtyeachesperupc', 'Upcxuom', 'Upcxmstrcase', 'Upcxlabel', 'Upcxamazon', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('upcxcode', 'inititemnbr', 'upcxprim', 'upcxqtyeachesperupc', 'upcxuom', 'upcxmstrcase', 'upcxlabel', 'upcxamazon', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE, ItemXrefUpcTableMap::COL_INITITEMNBR, ItemXrefUpcTableMap::COL_UPCXPRIM, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, ItemXrefUpcTableMap::COL_UPCXUOM, ItemXrefUpcTableMap::COL_UPCXMSTRCASE, ItemXrefUpcTableMap::COL_UPCXLABEL, ItemXrefUpcTableMap::COL_UPCXAMAZON, ItemXrefUpcTableMap::COL_DATEUPDTD, ItemXrefUpcTableMap::COL_TIMEUPDTD, ItemXrefUpcTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('UpcxCode', 'InitItemNbr', 'UpcxPrim', 'UpcxQtyEachesPerUpc', 'UpcxUom', 'UpcxMstrCase', 'UpcxLabel', 'UpcxAmazon', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
+        self::TYPE_PHPNAME       => array('Upcxcode', 'Inititemnbr', 'Upcxprim', 'Upcxqtyeachesperupc', 'Upcxuom', 'Upcxmstrcase', 'Upcxlabel', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('upcxcode', 'inititemnbr', 'upcxprim', 'upcxqtyeachesperupc', 'upcxuom', 'upcxmstrcase', 'upcxlabel', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE, ItemXrefUpcTableMap::COL_INITITEMNBR, ItemXrefUpcTableMap::COL_UPCXPRIM, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC, ItemXrefUpcTableMap::COL_UPCXUOM, ItemXrefUpcTableMap::COL_UPCXMSTRCASE, ItemXrefUpcTableMap::COL_UPCXLABEL, ItemXrefUpcTableMap::COL_DATEUPDTD, ItemXrefUpcTableMap::COL_TIMEUPDTD, ItemXrefUpcTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('UpcxCode', 'InitItemNbr', 'UpcxPrim', 'UpcxQtyEachesPerUpc', 'UpcxUom', 'UpcxMstrCase', 'UpcxLabel', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
 
     /**
@@ -152,11 +147,11 @@ class ItemXrefUpcTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Upcxcode' => 0, 'Inititemnbr' => 1, 'Upcxprim' => 2, 'Upcxqtyeachesperupc' => 3, 'Upcxuom' => 4, 'Upcxmstrcase' => 5, 'Upcxlabel' => 6, 'Upcxamazon' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('upcxcode' => 0, 'inititemnbr' => 1, 'upcxprim' => 2, 'upcxqtyeachesperupc' => 3, 'upcxuom' => 4, 'upcxmstrcase' => 5, 'upcxlabel' => 6, 'upcxamazon' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE => 0, ItemXrefUpcTableMap::COL_INITITEMNBR => 1, ItemXrefUpcTableMap::COL_UPCXPRIM => 2, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC => 3, ItemXrefUpcTableMap::COL_UPCXUOM => 4, ItemXrefUpcTableMap::COL_UPCXMSTRCASE => 5, ItemXrefUpcTableMap::COL_UPCXLABEL => 6, ItemXrefUpcTableMap::COL_UPCXAMAZON => 7, ItemXrefUpcTableMap::COL_DATEUPDTD => 8, ItemXrefUpcTableMap::COL_TIMEUPDTD => 9, ItemXrefUpcTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('UpcxCode' => 0, 'InitItemNbr' => 1, 'UpcxPrim' => 2, 'UpcxQtyEachesPerUpc' => 3, 'UpcxUom' => 4, 'UpcxMstrCase' => 5, 'UpcxLabel' => 6, 'UpcxAmazon' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
+        self::TYPE_PHPNAME       => array('Upcxcode' => 0, 'Inititemnbr' => 1, 'Upcxprim' => 2, 'Upcxqtyeachesperupc' => 3, 'Upcxuom' => 4, 'Upcxmstrcase' => 5, 'Upcxlabel' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
+        self::TYPE_CAMELNAME     => array('upcxcode' => 0, 'inititemnbr' => 1, 'upcxprim' => 2, 'upcxqtyeachesperupc' => 3, 'upcxuom' => 4, 'upcxmstrcase' => 5, 'upcxlabel' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
+        self::TYPE_COLNAME       => array(ItemXrefUpcTableMap::COL_UPCXCODE => 0, ItemXrefUpcTableMap::COL_INITITEMNBR => 1, ItemXrefUpcTableMap::COL_UPCXPRIM => 2, ItemXrefUpcTableMap::COL_UPCXQTYEACHESPERUPC => 3, ItemXrefUpcTableMap::COL_UPCXUOM => 4, ItemXrefUpcTableMap::COL_UPCXMSTRCASE => 5, ItemXrefUpcTableMap::COL_UPCXLABEL => 6, ItemXrefUpcTableMap::COL_DATEUPDTD => 7, ItemXrefUpcTableMap::COL_TIMEUPDTD => 8, ItemXrefUpcTableMap::COL_DUMMY => 9, ),
+        self::TYPE_FIELDNAME     => array('UpcxCode' => 0, 'InitItemNbr' => 1, 'UpcxPrim' => 2, 'UpcxQtyEachesPerUpc' => 3, 'UpcxUom' => 4, 'UpcxMstrCase' => 5, 'UpcxLabel' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
 
     /**
@@ -177,13 +172,12 @@ class ItemXrefUpcTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('UpcxCode', 'Upcxcode', 'VARCHAR', true, 20, '');
-        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
+        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
         $this->addColumn('UpcxPrim', 'Upcxprim', 'VARCHAR', false, 1, null);
         $this->addColumn('UpcxQtyEachesPerUpc', 'Upcxqtyeachesperupc', 'INTEGER', false, 8, null);
         $this->addColumn('UpcxUom', 'Upcxuom', 'VARCHAR', false, 4, null);
         $this->addColumn('UpcxMstrCase', 'Upcxmstrcase', 'VARCHAR', false, 1, null);
         $this->addColumn('UpcxLabel', 'Upcxlabel', 'VARCHAR', false, 1, null);
-        $this->addColumn('UpcxAmazon', 'Upcxamazon', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -194,13 +188,6 @@ class ItemXrefUpcTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
-  0 =>
-  array (
-    0 => ':InitItemNbr',
-    1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
     } // buildRelations()
 
     /**
@@ -413,7 +400,6 @@ class ItemXrefUpcTableMap extends TableMap
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_UPCXUOM);
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_UPCXMSTRCASE);
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_UPCXLABEL);
-            $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_UPCXAMAZON);
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ItemXrefUpcTableMap::COL_DUMMY);
@@ -425,7 +411,6 @@ class ItemXrefUpcTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.UpcxUom');
             $criteria->addSelectColumn($alias . '.UpcxMstrCase');
             $criteria->addSelectColumn($alias . '.UpcxLabel');
-            $criteria->addSelectColumn($alias . '.UpcxAmazon');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
