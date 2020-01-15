@@ -79,20 +79,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		return self::OPTIONS_POORDERCODE;
 	}
 
-	/**
-	 * Return self::POORDERCODE_PRIMARY
-	 *
-	 * @return string
-	 */
 	public function getOptionpoordercodePrimary() {
 		return self::POORDERCODE_PRIMARY;
 	}
 
-	/**
-	 * Retturns if the PO Order code is the primary
-	 *
-	 * @return boolean
-	 */
 	public function is_po_ordercode_primary() {
 		return $this->po_ordercode == self::POORDERCODE_PRIMARY;
 	}
@@ -239,7 +229,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Returns ItemXrefVendor that is the primary PO Order code for Item ID
+	 * Returns Primary VXM item for Our Item ID
 	 *
 	 * @return ItemXrefVendor
 	 */
@@ -251,9 +241,9 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Returns ItemXrefVendor that is the primary PO Order code for Item ID
+	 * Returns Primary VXM item's Vendor Item ID
 	 *
-	 * @return ItemXrefVendor
+	 * @return string
 	 */
 	public function other_primary_poordercode_itemid() {
 		$q = ItemXrefVendorQuery::create();
@@ -264,9 +254,9 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	}
 
 	/**
-	 * Returns If theree is another primary PO Order code for Item ID
+	 * Returns Primary VXM item's Vendor ID
 	 *
-	 * @return bool
+	 * @return string
 	 */
 	public function other_primary_poordercode_vendorid() {
 		$q = ItemXrefVendorQuery::create();

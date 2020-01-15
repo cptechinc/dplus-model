@@ -32,7 +32,8 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'desc1'        => 'oedtdesc',
 		'desc2'        => 'oedtdesc2',
 		'line'         => 'oedtline',
-		'linenbr'      => 'oedtline'
+		'linenbr'      => 'oedtline',
+		'vendorpo'     => 'oedtponbr'
 	);
 
 	/**

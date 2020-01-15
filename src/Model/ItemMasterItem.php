@@ -45,7 +45,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'specialitemcode' => 'initspecitemcd',
 		'assortmentcode'  => 'initasstcode',
 		'vendor_primary'  => 'initvendid',
-		'uom_purchase'    => 'intbuompur'
+		'uom_purchase'    => 'intbuompur',
+		'uom_SALE'        => 'intbuomsale',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
