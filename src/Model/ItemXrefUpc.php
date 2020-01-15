@@ -1,6 +1,6 @@
 <?php
 
-use Base\ItemUpcXref as BaseItemUpcXref;
+use Base\ItemXrefUpc as BaseItemXrefUpc;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'upc_item_xref' table.
  * 
  */
-class ItemUpcXref extends BaseItemUpcXref {
+class ItemXrefUpc extends BaseItemXrefUpc {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

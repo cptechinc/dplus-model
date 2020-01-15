@@ -1,6 +1,6 @@
 <?php
 
-use Base\ItemUpcXrefQuery as BaseItemUpcXrefQuery;
+use Base\ItemXrefUpcQuery as BaseItemXrefUpcQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -22,6 +22,6 @@ use Dplus\Model\QueryTraits;
  * FindByXXX()
  *
  */
-class ItemUpcXrefQuery extends BaseItemUpcXrefQuery {
+class ItemXrefUpcQuery extends BaseItemXrefUpcQuery {
 	use QueryTraits;
 }
