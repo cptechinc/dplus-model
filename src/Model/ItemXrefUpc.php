@@ -5,13 +5,19 @@ use Base\ItemXrefUpc as BaseItemXrefUpc;
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 /**
  * Class for representing a row from the 'upc_item_xref' table.
- * 
+ *
  */
 class ItemXrefUpc extends BaseItemXrefUpc {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const PRIMARY_TRUE  = 'Y';
+	const PRIMARY_FALSE = 'N';
+	const MASTERCASE_TRUE = 'Y';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -64,7 +70,7 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	 * @return array
 	 */
 	public function get_other_upcs_codes() {
-		$q = ItemUpcXrefQuery::create();
+		$q = ItemXrefUpcQuery::create();
 		$q->select('inititemnbr');
 		$q->filterByInititemnbr($this->itemid);
 		return $q->find();
@@ -73,11 +79,36 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	/**
 	 * Return UPCs that share Item IDs
 	 *
-	 * @return ItemUpcXref[]|ObjectCollection
+	 * @return ItemXrefUpc[]|ObjectCollection
 	 */
 	public function get_other_upcs() {
-		$q = ItemUpcXrefQuery::create();
+		$q = ItemXrefUpcQuery::create();
 		$q->filterByInititemnbr($this->itemid);
 		return $q->find();
+	}
+
+	/**
+	 * Returns ItemXrefUpc for this Item ID
+	 * @return ItemXrefUpc
+	 */
+	public function get_primary_upc() {
+		$q = ItemXrefUpcQuery::create();
+		$q->filterByUpc($this->upc, Criteria::NOT_IN);
+		$q->filterByInititemnbr($this->itemid);
+		$q->filterByPrimary(self::PRIMARY_TRUE);
+		return $q->findOne();
+	}
+
+	/**
+	 * Returns ItemXrefUpc for this Item ID
+	 * @return ItemXrefUpc
+	 */
+	public function get_primary_upc_code() {
+		$q = ItemXrefUpcQuery::create();
+		$q->select('upcxcode');
+		$q->filterByUpc($this->upc, Criteria::NOT_IN);
+		$q->filterByInititemnbr($this->itemid);
+		$q->filterByPrimary(self::PRIMARY_TRUE);
+		return $q->findOne();
 	}
 }
