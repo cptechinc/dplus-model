@@ -25,11 +25,11 @@ class TariffCodeCountry extends BaseTariffCodeCountry {
     );
 
     /**
-	 * Return the status description based of the order status
+	 * Return the country codes used by Tariff code
 	 *
-	 * @return void
+	 * @return array
 	 */
-	public function get_country($tariffid) {
-		return TariffCodeCountryQuery::create()->filterById($tariffid, $comparison = null);
+	public function get_countries($tariffid) {
+		return TariffCodeCountryQuery::create()->findById($tariffid);
 	}
 }
