@@ -26,12 +26,4 @@ class TariffCode extends BaseTariffCode {
         'time'         => 'timeupdtd'
 	);
 
-    /**
-	 * Return the status description based of the order status
-	 *
-	 * @return void
-	 */
-	public function get_country_code($tariffid) {
-        return CountryCodesQuery::create()->filterById(TariffCodeCountryQuery::create()->filterById($tariffid));
-	}
 }
