@@ -14,7 +14,7 @@ class TariffCodeCountryQuery extends BaseTariffCodeCountryQuery {
 	public function get_existing_countries($tariffid) {
 		$this->select('intbtrcoctry');
 		$this->filterByCode($tariffid);
-		return $this->find();
+		return $this->find()->toArray();
 	}
 
 	/**
