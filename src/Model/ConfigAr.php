@@ -29,7 +29,9 @@ class ConfigAr extends BaseConfigAr {
 	const COLUMN_ALIASES = array(
 		'id'             => 'artbconfkey',
 		'gl_report_type' => 'artbconfinvcustgl',
-		'web_group'      => 'artbconfuseweb'
+		'web_group'      => 'artbconfuseweb',
+		'columns_notes_statement' => 'ArtbConfStmtCols',
+		'columns_notes_invoice'   => 'ArtbConfInvCols',
 	);
 
 	const GL_REPORT_TYPES_DESCRIPTIONS = array(
