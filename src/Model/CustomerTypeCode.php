@@ -13,6 +13,8 @@ class CustomerTypeCode extends BaseCustomerTypeCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const MAX_LENGTH_CODE = 4;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -36,15 +38,34 @@ class CustomerTypeCode extends BaseCustomerTypeCode {
 	);
 
 	/**
-	 * Return the number of Notes for Note Type
-	 *
-	 * @param  string $notetypealias Note Type Alias
+	 * Return Max Length of Characters allowed for Code
 	 * @return int
 	 */
-	public function count_notetypealias($notetypealias) {
+	public function get_max_length_code() {
+		return self::MAX_LENGTH_CODE;
+	}
+
+	/**
+	 * Return the number of Notes filtered by the Note Type
+	 * @param  string $notetype Note Type see CustomerTypeNotes::TYPES
+	 * @return int
+	 */
+	public function count_notetype($notetype) {
 		$q = CustomerTypeNotesQuery::create();
-		$q->filterByTypecode($this->code);
-		$q->filterByTypeAlias($notetypealias);
+		$q->filterByType($notetype);
+		$q->filterByCustomertype($this->code);
 		return $q->count();
+	}
+
+	/**
+	 * Return the Notes filtered by the Note Type
+	 * @param  string $notetype Note Type see CustomerTypeNotes::TYPES
+	 * @return int
+	 */
+	public function get_notetype($notetype) {
+		$q = CustomerTypeNotesQuery::create();
+		$q->filterByType($notetype);
+		$q->filterByCustomertype($this->code);
+		return $q->find();
 	}
 }
