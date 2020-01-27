@@ -12,11 +12,11 @@ class TariffCodeCountryQuery extends BaseTariffCodeCountryQuery {
 
 	/**
 	 * Filter the query on the IntbTrcoCtry column
-	 * @param  mixed  $country             The value to use as filter.
+	 * @param  mixed  $country              The value to use as filter.
 	 * @param  string $comparison           Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 * @return $this|TariffCodeCountryQuery The current query, for fluid interface
 	 */
 	public function filterByCountry($country = null, $comparison = null) {
-		return $this->filterByIntbtrcoctry($intbtrcoctry, $comparison);
+		return $this->filterByIntbtrcoctry($country, $comparison);
 	}
 }
