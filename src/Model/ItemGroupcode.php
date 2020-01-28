@@ -12,6 +12,8 @@ class ItemGroupCode extends BaseItemGroupCode {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const MAX_LENGTH_CODE = 4;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -40,4 +42,12 @@ class ItemGroupCode extends BaseItemGroupCode {
 		'date'		               => 'dateupdtd',
 		'time'		               => 'timeupdtd'
 	);
+
+    /**
+     * Return the Maximum of characters allowed for code
+     * @return int
+     */
+    public function get_max_code_length() {
+        return self::MAX_LENGTH_CODE;
+    }
 }
