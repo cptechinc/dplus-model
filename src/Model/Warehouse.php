@@ -6,18 +6,13 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_whse_code' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'inv_whse_code' table.
  */
 class Warehouse extends BaseWarehouse {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const MAX_LENGTH_CODE = 2;
 
 	const BINS_RANGED = 'R';
 	const BINS_LIST   = 'L';
@@ -66,6 +61,14 @@ class Warehouse extends BaseWarehouse {
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 	);
+
+	/**
+	 * Return the Maximum of characters allowed for code
+	 * @return int
+	 */
+	public function get_max_code_length() {
+		return self::MAX_LENGTH_CODE;
+	}
 
 	/**
 	 * Return Phone Number as string
@@ -127,7 +130,7 @@ class Warehouse extends BaseWarehouse {
 	public function get_binarrangementdescription() {
 		return $this->are_binslisted() ? 'list' : 'range';
 	}
-	
+
 	/**
 	 * Return Bin Arrangement Options
 	 * @return array
