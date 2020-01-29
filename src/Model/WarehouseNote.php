@@ -2,20 +2,11 @@
 
 use Base\WarehouseNote as BaseWarehouseNote;
 
-use Propel\Runtime\ActiveQuery\Criteria;
-
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'notes_whse_invc_stmt' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'notes_whse_invc_stmt' table.
  */
 class WarehouseNote extends BaseWarehouseNote {
 	use ThrowErrorTrait;
@@ -25,25 +16,46 @@ class WarehouseNote extends BaseWarehouseNote {
 	const TYPE_STATEMENT = 'SWHS';
 
 	/**
+	 * Note Types
+	 */
+	const TYPES = array(
+		'IWHS',
+		'SWHS'
+	);
+
+	/**
+	 * Note Types
+	 */
+	const TYPES_DESCRIPTIONS = array(
+		'IWHS' => 'invoice',
+		'SWHS' => 'statement'
+	);
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'      => 'qntype',
-		'desc'      => 'qntypedesc',
+		'type'        => 'qntype',
+		'desc'        => 'qntypedesc',
+		'description' => 'qntypedesc',
 		'sequence'  => 'qnseq',
 		'whse'      => 'intbwhse',
 		'whseID'    => 'intbwhse',
 		'whseid'    => 'intbwhse',
 		'note'      => 'qnnote',
-		'key2'      => 'qnkey',
+		'key2'      => 'qnkey2',
+		'date'      => 'dateupdtd',
+		'time'      => 'timeupdtd',
 	);
 
-	public function get_othernotelines() {
-		$q = WarehouseNoteQuery::create();
-		$q->filterByWhse($this->whse);
-		$q->filterByType($this->type);
-		$q->filterBySequence(1, Criteria::GREATER_THAN);
-		return $q->find();
+	/**
+	 * Return Description for Note Type
+	 *
+	 * @param  string $type
+	 * @return string
+	 */
+	public static function get_type_description($type) {
+		return self::TYPES_DESCRIPTIONS[$type];
 	}
 }
