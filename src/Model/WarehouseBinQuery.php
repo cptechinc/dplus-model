@@ -2,6 +2,8 @@
 
 use Base\WarehouseBinQuery as BaseWarehouseBinQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use Dplus\Model\QueryTraits;
 
 /**
