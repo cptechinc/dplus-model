@@ -494,7 +494,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('InitShipTareQty', 'Initshiptareqty', 'INTEGER', false, 4, null);
         $this->addColumn('InitWgItem', 'Initwgitem', 'VARCHAR', false, 20, null);
         $this->addForeignKey('IntbPricGrup', 'Intbpricgrup', 'VARCHAR', 'inv_pric_code', 'IntbPricGrup', false, 8, null);
-        $this->addColumn('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', false, 8, null);
+        $this->addForeignKey('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', 'inv_comm_code', 'IntbCommGrup', false, 8, null);
         $this->addColumn('InitLastCostDate', 'Initlastcostdate', 'VARCHAR', false, 8, null);
         $this->addColumn('InitQtyPerCase', 'Initqtypercase', 'INTEGER', false, 8, null);
         $this->addColumn('InitRevision', 'Initrevision', 'VARCHAR', false, 10, null);
@@ -538,6 +538,13 @@ class ItemMasterItemTableMap extends TableMap
   array (
     0 => ':IntbPricGrup',
     1 => ':IntbPricGrup',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvCommissionCode', '\\InvCommissionCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbCommGrup',
+    1 => ':IntbCommGrup',
   ),
 ), null, null, null, false);
         $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY, array (

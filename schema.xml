@@ -1477,6 +1477,9 @@
     <foreign-key foreignTable="inv_pric_code" name="pricecode">
       <reference local="IntbPricGrup" foreign="IntbPricGrup"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_comm_code" name="commissioncode">
+      <reference local="IntbCommGrup" foreign="IntbCommGrup"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

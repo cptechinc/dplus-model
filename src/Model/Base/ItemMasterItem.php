@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \InvCommissionCode as ChildInvCommissionCode;
+use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \ItemGroupCode as ChildItemGroupCode;
@@ -543,6 +545,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var        ChildInvPriceCode
      */
     protected $aInvPriceCode;
+
+    /**
+     * @var        ChildInvCommissionCode
+     */
+    protected $aInvCommissionCode;
 
     /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
@@ -2547,6 +2554,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INTBCOMMGRUP] = true;
         }
 
+        if ($this->aInvCommissionCode !== null && $this->aInvCommissionCode->getIntbcommgrup() !== $v) {
+            $this->aInvCommissionCode = null;
+        }
+
         return $this;
     } // setIntbcommgrup()
 
@@ -3023,6 +3034,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->aInvPriceCode !== null && $this->intbpricgrup !== $this->aInvPriceCode->getIntbpricgrup()) {
             $this->aInvPriceCode = null;
         }
+        if ($this->aInvCommissionCode !== null && $this->intbcommgrup !== $this->aInvCommissionCode->getIntbcommgrup()) {
+            $this->aInvCommissionCode = null;
+        }
     } // ensureConsistency
 
     /**
@@ -3066,6 +3080,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aUnitofMeasurePurchase = null;
             $this->aItemGroupCode = null;
             $this->aInvPriceCode = null;
+            $this->aInvCommissionCode = null;
             $this->collItemXrefUpcs = null;
 
             $this->collItemXrefVendors = null;
@@ -3204,6 +3219,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $affectedRows += $this->aInvPriceCode->save($con);
                 }
                 $this->setInvPriceCode($this->aInvPriceCode);
+            }
+
+            if ($this->aInvCommissionCode !== null) {
+                if ($this->aInvCommissionCode->isModified() || $this->aInvCommissionCode->isNew()) {
+                    $affectedRows += $this->aInvCommissionCode->save($con);
+                }
+                $this->setInvCommissionCode($this->aInvCommissionCode);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -4075,6 +4097,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aInvPriceCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aInvCommissionCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invCommissionCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_comm_code';
+                        break;
+                    default:
+                        $key = 'InvCommissionCode';
+                }
+
+                $result[$key] = $this->aInvCommissionCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->collItemXrefUpcs) {
 
@@ -5184,6 +5221,57 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         return $this->aInvPriceCode;
     }
 
+    /**
+     * Declares an association between this object and a ChildInvCommissionCode object.
+     *
+     * @param  ChildInvCommissionCode $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvCommissionCode(ChildInvCommissionCode $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbcommgrup(NULL);
+        } else {
+            $this->setIntbcommgrup($v->getIntbcommgrup());
+        }
+
+        $this->aInvCommissionCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvCommissionCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvCommissionCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvCommissionCode The associated ChildInvCommissionCode object.
+     * @throws PropelException
+     */
+    public function getInvCommissionCode(ConnectionInterface $con = null)
+    {
+        if ($this->aInvCommissionCode === null && (($this->intbcommgrup !== "" && $this->intbcommgrup !== null))) {
+            $this->aInvCommissionCode = ChildInvCommissionCodeQuery::create()->findPk($this->intbcommgrup, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvCommissionCode->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aInvCommissionCode;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -5730,6 +5818,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (null !== $this->aInvPriceCode) {
             $this->aInvPriceCode->removeItemMasterItem($this);
         }
+        if (null !== $this->aInvCommissionCode) {
+            $this->aInvCommissionCode->removeItemMasterItem($this);
+        }
         $this->inititemnbr = null;
         $this->initdesc1 = null;
         $this->initdesc2 = null;
@@ -5831,6 +5922,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->aUnitofMeasurePurchase = null;
         $this->aItemGroupCode = null;
         $this->aInvPriceCode = null;
+        $this->aInvCommissionCode = null;
     }
 
     /**

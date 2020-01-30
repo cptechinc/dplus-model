@@ -198,6 +198,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvPriceCode() Adds a RIGHT JOIN clause and with to the query using the InvPriceCode relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvPriceCode() Adds a INNER JOIN clause and with to the query using the InvPriceCode relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvCommissionCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvCommissionCode relation
+ * @method     ChildItemMasterItemQuery rightJoinInvCommissionCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvCommissionCode relation
+ * @method     ChildItemMasterItemQuery innerJoinInvCommissionCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvCommissionCode relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvCommissionCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvCommissionCode relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvCommissionCode() Adds a LEFT JOIN clause and with to the query using the InvCommissionCode relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvCommissionCode() Adds a RIGHT JOIN clause and with to the query using the InvCommissionCode relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvCommissionCode() Adds a INNER JOIN clause and with to the query using the InvCommissionCode relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefUpc($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefUpc relation
@@ -218,7 +228,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemGroupCodeQuery|\InvPriceCodeQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -2803,6 +2813,83 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinInvPriceCode($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvPriceCode', '\InvPriceCodeQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvCommissionCode object
+     *
+     * @param \InvCommissionCode|ObjectCollection $invCommissionCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvCommissionCode($invCommissionCode, $comparison = null)
+    {
+        if ($invCommissionCode instanceof \InvCommissionCode) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $invCommissionCode->getIntbcommgrup(), $comparison);
+        } elseif ($invCommissionCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBCOMMGRUP, $invCommissionCode->toKeyValue('PrimaryKey', 'Intbcommgrup'), $comparison);
+        } else {
+            throw new PropelException('filterByInvCommissionCode() only accepts arguments of type \InvCommissionCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvCommissionCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvCommissionCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvCommissionCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvCommissionCode relation InvCommissionCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvCommissionCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useInvCommissionCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinInvCommissionCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvCommissionCode', '\InvCommissionCodeQuery');
     }
 
     /**

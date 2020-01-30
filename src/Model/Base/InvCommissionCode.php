@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Exception;
 use \PDO;
 use Map\InvCommissionCodeTableMap;
+use Map\ItemMasterItemTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -102,12 +107,24 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildItemMasterItem[] Collection to store aggregation of ChildItemMasterItem objects.
+     */
+    protected $collItemMasterItems;
+    protected $collItemMasterItemsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemMasterItem[]
+     */
+    protected $itemMasterItemsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\InvCommissionCode object.
@@ -636,6 +653,8 @@ abstract class InvCommissionCode implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collItemMasterItems = null;
+
         } // if (deep)
     }
 
@@ -748,6 +767,24 @@ abstract class InvCommissionCode implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->itemMasterItemsScheduledForDeletion !== null) {
+                if (!$this->itemMasterItemsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->itemMasterItemsScheduledForDeletion as $itemMasterItem) {
+                        // need to save related object because we set the relation to null
+                        $itemMasterItem->save($con);
+                    }
+                    $this->itemMasterItemsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemMasterItems !== null) {
+                foreach ($this->collItemMasterItems as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -909,10 +946,11 @@ abstract class InvCommissionCode implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['InvCommissionCode'][$this->hashCode()])) {
@@ -933,6 +971,23 @@ abstract class InvCommissionCode implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collItemMasterItems) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_masts';
+                        break;
+                    default:
+                        $key = 'ItemMasterItems';
+                }
+
+                $result[$key] = $this->collItemMasterItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -1179,6 +1234,20 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getItemMasterItems() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemMasterItem($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1204,6 +1273,348 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('ItemMasterItem' == $relationName) {
+            $this->initItemMasterItems();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collItemMasterItems collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemMasterItems()
+     */
+    public function clearItemMasterItems()
+    {
+        $this->collItemMasterItems = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemMasterItems collection loaded partially.
+     */
+    public function resetPartialItemMasterItems($v = true)
+    {
+        $this->collItemMasterItemsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemMasterItems collection.
+     *
+     * By default this just sets the collItemMasterItems collection to an empty array (like clearcollItemMasterItems());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemMasterItems($overrideExisting = true)
+    {
+        if (null !== $this->collItemMasterItems && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemMasterItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemMasterItems = new $collectionClassName;
+        $this->collItemMasterItems->setModel('\ItemMasterItem');
+    }
+
+    /**
+     * Gets an array of ChildItemMasterItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvCommissionCode is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     * @throws PropelException
+     */
+    public function getItemMasterItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemMasterItemsPartial && !$this->isNew();
+        if (null === $this->collItemMasterItems || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemMasterItems) {
+                // return empty collection
+                $this->initItemMasterItems();
+            } else {
+                $collItemMasterItems = ChildItemMasterItemQuery::create(null, $criteria)
+                    ->filterByInvCommissionCode($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemMasterItemsPartial && count($collItemMasterItems)) {
+                        $this->initItemMasterItems(false);
+
+                        foreach ($collItemMasterItems as $obj) {
+                            if (false == $this->collItemMasterItems->contains($obj)) {
+                                $this->collItemMasterItems->append($obj);
+                            }
+                        }
+
+                        $this->collItemMasterItemsPartial = true;
+                    }
+
+                    return $collItemMasterItems;
+                }
+
+                if ($partial && $this->collItemMasterItems) {
+                    foreach ($this->collItemMasterItems as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemMasterItems[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemMasterItems = $collItemMasterItems;
+                $this->collItemMasterItemsPartial = false;
+            }
+        }
+
+        return $this->collItemMasterItems;
+    }
+
+    /**
+     * Sets a collection of ChildItemMasterItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemMasterItems A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvCommissionCode The current object (for fluent API support)
+     */
+    public function setItemMasterItems(Collection $itemMasterItems, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemMasterItem[] $itemMasterItemsToDelete */
+        $itemMasterItemsToDelete = $this->getItemMasterItems(new Criteria(), $con)->diff($itemMasterItems);
+
+
+        $this->itemMasterItemsScheduledForDeletion = $itemMasterItemsToDelete;
+
+        foreach ($itemMasterItemsToDelete as $itemMasterItemRemoved) {
+            $itemMasterItemRemoved->setInvCommissionCode(null);
+        }
+
+        $this->collItemMasterItems = null;
+        foreach ($itemMasterItems as $itemMasterItem) {
+            $this->addItemMasterItem($itemMasterItem);
+        }
+
+        $this->collItemMasterItems = $itemMasterItems;
+        $this->collItemMasterItemsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemMasterItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemMasterItem objects.
+     * @throws PropelException
+     */
+    public function countItemMasterItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemMasterItemsPartial && !$this->isNew();
+        if (null === $this->collItemMasterItems || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemMasterItems) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemMasterItems());
+            }
+
+            $query = ChildItemMasterItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvCommissionCode($this)
+                ->count($con);
+        }
+
+        return count($this->collItemMasterItems);
+    }
+
+    /**
+     * Method called to associate a ChildItemMasterItem object to this object
+     * through the ChildItemMasterItem foreign key attribute.
+     *
+     * @param  ChildItemMasterItem $l ChildItemMasterItem
+     * @return $this|\InvCommissionCode The current object (for fluent API support)
+     */
+    public function addItemMasterItem(ChildItemMasterItem $l)
+    {
+        if ($this->collItemMasterItems === null) {
+            $this->initItemMasterItems();
+            $this->collItemMasterItemsPartial = true;
+        }
+
+        if (!$this->collItemMasterItems->contains($l)) {
+            $this->doAddItemMasterItem($l);
+
+            if ($this->itemMasterItemsScheduledForDeletion and $this->itemMasterItemsScheduledForDeletion->contains($l)) {
+                $this->itemMasterItemsScheduledForDeletion->remove($this->itemMasterItemsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemMasterItem $itemMasterItem The ChildItemMasterItem object to add.
+     */
+    protected function doAddItemMasterItem(ChildItemMasterItem $itemMasterItem)
+    {
+        $this->collItemMasterItems[]= $itemMasterItem;
+        $itemMasterItem->setInvCommissionCode($this);
+    }
+
+    /**
+     * @param  ChildItemMasterItem $itemMasterItem The ChildItemMasterItem object to remove.
+     * @return $this|ChildInvCommissionCode The current object (for fluent API support)
+     */
+    public function removeItemMasterItem(ChildItemMasterItem $itemMasterItem)
+    {
+        if ($this->getItemMasterItems()->contains($itemMasterItem)) {
+            $pos = $this->collItemMasterItems->search($itemMasterItem);
+            $this->collItemMasterItems->remove($pos);
+            if (null === $this->itemMasterItemsScheduledForDeletion) {
+                $this->itemMasterItemsScheduledForDeletion = clone $this->collItemMasterItems;
+                $this->itemMasterItemsScheduledForDeletion->clear();
+            }
+            $this->itemMasterItemsScheduledForDeletion[]= $itemMasterItem;
+            $itemMasterItem->setInvCommissionCode(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvCommissionCode is new, it will return
+     * an empty collection; or if this InvCommissionCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvCommissionCode.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('UnitofMeasureSale', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvCommissionCode is new, it will return
+     * an empty collection; or if this InvCommissionCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvCommissionCode.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinUnitofMeasurePurchase(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('UnitofMeasurePurchase', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvCommissionCode is new, it will return
+     * an empty collection; or if this InvCommissionCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvCommissionCode.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinItemGroupCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('ItemGroupCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvCommissionCode is new, it will return
+     * an empty collection; or if this InvCommissionCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvCommissionCode.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinInvPriceCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('InvPriceCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
     }
 
     /**
@@ -1237,8 +1648,14 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collItemMasterItems) {
+                foreach ($this->collItemMasterItems as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collItemMasterItems = null;
     }
 
     /**

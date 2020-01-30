@@ -164,6 +164,13 @@ class InvCommissionCodeTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbCommGrup',
+    1 => ':IntbCommGrup',
+  ),
+), null, null, 'ItemMasterItems', false);
     } // buildRelations()
 
     /**
