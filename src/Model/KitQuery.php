@@ -1,6 +1,6 @@
 <?php
 
-use Base\KitsQuery as BaseKitsQuery;
+use Base\KitQuery as BaseKitQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -11,7 +11,7 @@ use Dplus\Model\QueryTraits;
  * methods with an alias
  * EXAMPLE: findOneByItemid()
  */
-class KitsQuery extends BaseKitsQuery {
+class KitQuery extends BaseKitQuery {
 	use QueryTraits;
 	
 	/**

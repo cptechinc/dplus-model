@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \KitsQuery as ChildKitsQuery;
+use \KitQuery as ChildKitQuery;
 use \Exception;
 use \PDO;
-use Map\KitsTableMap;
+use Map\KitTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class Kits implements ActiveRecordInterface
+abstract class Kit implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\KitsTableMap';
+    const TABLE_MAP = '\\Map\\KitTableMap';
 
 
     /**
@@ -108,7 +108,7 @@ abstract class Kits implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\Kits object.
+     * Initializes internal state of Base\Kit object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -205,9 +205,9 @@ abstract class Kits implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>Kits</code> instance.  If
-     * <code>obj</code> is an instance of <code>Kits</code>, delegates to
-     * <code>equals(Kits)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>Kit</code> instance.  If
+     * <code>obj</code> is an instance of <code>Kit</code>, delegates to
+     * <code>equals(Kit)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -273,7 +273,7 @@ abstract class Kits implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|Kits The current object, for fluid interface
+     * @return $this|Kit The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -378,7 +378,7 @@ abstract class Kits implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\Kits The current object (for fluent API support)
+     * @return $this|\Kit The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -388,7 +388,7 @@ abstract class Kits implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[KitsTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[KitTableMap::COL_INITITEMNBR] = true;
         }
 
         return $this;
@@ -398,7 +398,7 @@ abstract class Kits implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\Kits The current object (for fluent API support)
+     * @return $this|\Kit The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -408,7 +408,7 @@ abstract class Kits implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[KitsTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[KitTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -418,7 +418,7 @@ abstract class Kits implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\Kits The current object (for fluent API support)
+     * @return $this|\Kit The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -428,7 +428,7 @@ abstract class Kits implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[KitsTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[KitTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -438,7 +438,7 @@ abstract class Kits implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\Kits The current object (for fluent API support)
+     * @return $this|\Kit The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -448,7 +448,7 @@ abstract class Kits implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[KitsTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[KitTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -494,16 +494,16 @@ abstract class Kits implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : KitsTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : KitTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : KitsTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : KitTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : KitsTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : KitTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : KitsTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : KitTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -513,10 +513,10 @@ abstract class Kits implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 4; // 4 = KitsTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 4; // 4 = KitTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\Kits'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Kit'), 0, $e);
         }
     }
 
@@ -558,13 +558,13 @@ abstract class Kits implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(KitsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(KitTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildKitsQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildKitQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -583,8 +583,8 @@ abstract class Kits implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see Kits::setDeleted()
-     * @see Kits::isDeleted()
+     * @see Kit::setDeleted()
+     * @see Kit::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -593,11 +593,11 @@ abstract class Kits implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(KitTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildKitsQuery::create()
+            $deleteQuery = ChildKitQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -632,7 +632,7 @@ abstract class Kits implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(KitTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -651,7 +651,7 @@ abstract class Kits implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                KitsTableMap::addInstanceToPool($this);
+                KitTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -710,16 +710,16 @@ abstract class Kits implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(KitsTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(KitTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(KitsTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(KitTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(KitsTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(KitTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(KitsTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(KitTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -784,7 +784,7 @@ abstract class Kits implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = KitsTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = KitTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -835,11 +835,11 @@ abstract class Kits implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['Kits'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['Kit'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['Kits'][$this->hashCode()] = true;
-        $keys = KitsTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['Kit'][$this->hashCode()] = true;
+        $keys = KitTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getInititemnbr(),
             $keys[1] => $this->getDateupdtd(),
@@ -864,11 +864,11 @@ abstract class Kits implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\Kits
+     * @return $this|\Kit
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = KitsTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = KitTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -879,7 +879,7 @@ abstract class Kits implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\Kits
+     * @return $this|\Kit
      */
     public function setByPosition($pos, $value)
     {
@@ -920,7 +920,7 @@ abstract class Kits implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = KitsTableMap::getFieldNames($keyType);
+        $keys = KitTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setInititemnbr($arr[$keys[0]]);
@@ -953,7 +953,7 @@ abstract class Kits implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\Kits The current object, for fluid interface
+     * @return $this|\Kit The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -973,19 +973,19 @@ abstract class Kits implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(KitsTableMap::DATABASE_NAME);
+        $criteria = new Criteria(KitTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(KitsTableMap::COL_INITITEMNBR)) {
-            $criteria->add(KitsTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(KitTableMap::COL_INITITEMNBR)) {
+            $criteria->add(KitTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(KitsTableMap::COL_DATEUPDTD)) {
-            $criteria->add(KitsTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(KitTableMap::COL_DATEUPDTD)) {
+            $criteria->add(KitTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(KitsTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(KitsTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(KitTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(KitTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(KitsTableMap::COL_DUMMY)) {
-            $criteria->add(KitsTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(KitTableMap::COL_DUMMY)) {
+            $criteria->add(KitTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1003,8 +1003,8 @@ abstract class Kits implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildKitsQuery::create();
-        $criteria->add(KitsTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        $criteria = ChildKitQuery::create();
+        $criteria->add(KitTableMap::COL_INITITEMNBR, $this->inititemnbr);
 
         return $criteria;
     }
@@ -1066,7 +1066,7 @@ abstract class Kits implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \Kits (or compatible) type.
+     * @param      object $copyObj An object of \Kit (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1091,7 +1091,7 @@ abstract class Kits implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \Kits Clone of current object.
+     * @return \Kit Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1145,7 +1145,7 @@ abstract class Kits implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(KitsTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(KitTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-use Base\Kits as BaseKits;
+use Base\Kit as BaseKit;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_kit_head' table.
  */
-class Kits extends BaseKits {
+class Kits extends BaseKit {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

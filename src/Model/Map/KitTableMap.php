@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Kits;
-use \KitsQuery;
+use \Kit;
+use \KitQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class KitsTableMap extends TableMap
+class KitTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class KitsTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.KitsTableMap';
+    const CLASS_NAME = '.Map.KitTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class KitsTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Kits';
+    const OM_CLASS = '\\Kit';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Kits';
+    const CLASS_DEFAULT = 'Kit';
 
     /**
      * The total number of columns
@@ -105,7 +105,7 @@ class KitsTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Inititemnbr', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('inititemnbr', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(KitsTableMap::COL_INITITEMNBR, KitsTableMap::COL_DATEUPDTD, KitsTableMap::COL_TIMEUPDTD, KitsTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(KitTableMap::COL_INITITEMNBR, KitTableMap::COL_DATEUPDTD, KitTableMap::COL_TIMEUPDTD, KitTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
@@ -119,7 +119,7 @@ class KitsTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Dateupdtd' => 1, 'Timeupdtd' => 2, 'Dummy' => 3, ),
         self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'dateupdtd' => 1, 'timeupdtd' => 2, 'dummy' => 3, ),
-        self::TYPE_COLNAME       => array(KitsTableMap::COL_INITITEMNBR => 0, KitsTableMap::COL_DATEUPDTD => 1, KitsTableMap::COL_TIMEUPDTD => 2, KitsTableMap::COL_DUMMY => 3, ),
+        self::TYPE_COLNAME       => array(KitTableMap::COL_INITITEMNBR => 0, KitTableMap::COL_DATEUPDTD => 1, KitTableMap::COL_TIMEUPDTD => 2, KitTableMap::COL_DUMMY => 3, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'DateUpdtd' => 1, 'TimeUpdtd' => 2, 'dummy' => 3, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, )
     );
@@ -135,9 +135,9 @@ class KitsTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_kit_head');
-        $this->setPhpName('Kits');
+        $this->setPhpName('Kit');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Kits');
+        $this->setClassName('\\Kit');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -211,7 +211,7 @@ class KitsTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? KitsTableMap::CLASS_DEFAULT : KitsTableMap::OM_CLASS;
+        return $withPrefix ? KitTableMap::CLASS_DEFAULT : KitTableMap::OM_CLASS;
     }
 
     /**
@@ -225,22 +225,22 @@ class KitsTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Kits object, last column rank)
+     * @return array           (Kit object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = KitsTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = KitsTableMap::getInstanceFromPool($key))) {
+        $key = KitTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = KitTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + KitsTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + KitTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = KitsTableMap::OM_CLASS;
-            /** @var Kits $obj */
+            $cls = KitTableMap::OM_CLASS;
+            /** @var Kit $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            KitsTableMap::addInstanceToPool($obj, $key);
+            KitTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -263,18 +263,18 @@ class KitsTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = KitsTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = KitsTableMap::getInstanceFromPool($key))) {
+            $key = KitTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = KitTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Kits $obj */
+                /** @var Kit $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                KitsTableMap::addInstanceToPool($obj, $key);
+                KitTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -295,10 +295,10 @@ class KitsTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(KitsTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(KitsTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(KitsTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(KitsTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(KitTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(KitTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(KitTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(KitTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
@@ -316,7 +316,7 @@ class KitsTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(KitsTableMap::DATABASE_NAME)->getTable(KitsTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(KitTableMap::DATABASE_NAME)->getTable(KitTableMap::TABLE_NAME);
     }
 
     /**
@@ -324,16 +324,16 @@ class KitsTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(KitsTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(KitsTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new KitsTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(KitTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(KitTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new KitTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Kits or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a Kit or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Kits object or primary key or array of primary keys
+     * @param mixed               $values Criteria or Kit object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -344,27 +344,27 @@ class KitsTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(KitTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Kits) { // it's a model object
+        } elseif ($values instanceof \Kit) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(KitsTableMap::DATABASE_NAME);
-            $criteria->add(KitsTableMap::COL_INITITEMNBR, (array) $values, Criteria::IN);
+            $criteria = new Criteria(KitTableMap::DATABASE_NAME);
+            $criteria->add(KitTableMap::COL_INITITEMNBR, (array) $values, Criteria::IN);
         }
 
-        $query = KitsQuery::create()->mergeWith($criteria);
+        $query = KitQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            KitsTableMap::clearInstancePool();
+            KitTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                KitsTableMap::removeInstanceFromPool($singleval);
+                KitTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -379,13 +379,13 @@ class KitsTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return KitsQuery::create()->doDeleteAll($con);
+        return KitQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Kits or Criteria object.
+     * Performs an INSERT on the database, given a Kit or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Kits object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or Kit object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -394,18 +394,18 @@ class KitsTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(KitTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Kits object
+            $criteria = $criteria->buildCriteria(); // build Criteria from Kit object
         }
 
 
         // Set the correct dbName
-        $query = KitsQuery::create()->mergeWith($criteria);
+        $query = KitQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -414,7 +414,7 @@ class KitsTableMap extends TableMap
         });
     }
 
-} // KitsTableMap
+} // KitTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-KitsTableMap::buildTableMap();
+KitTableMap::buildTableMap();
