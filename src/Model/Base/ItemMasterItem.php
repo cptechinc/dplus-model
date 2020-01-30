@@ -2,6 +2,10 @@
 
 namespace Base;
 
+use \InvPriceCode as ChildInvPriceCode;
+use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
+use \ItemGroupCode as ChildItemGroupCode;
+use \ItemGroupCodeQuery as ChildItemGroupCodeQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemXrefUpc as ChildItemXrefUpc;
@@ -529,6 +533,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var        ChildUnitofMeasurePurchase
      */
     protected $aUnitofMeasurePurchase;
+
+    /**
+     * @var        ChildItemGroupCode
+     */
+    protected $aItemGroupCode;
+
+    /**
+     * @var        ChildInvPriceCode
+     */
+    protected $aInvPriceCode;
 
     /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
@@ -1515,6 +1529,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->intbgrup !== $v) {
             $this->intbgrup = $v;
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INTBGRUP] = true;
+        }
+
+        if ($this->aItemGroupCode !== null && $this->aItemGroupCode->getIntbgrup() !== $v) {
+            $this->aItemGroupCode = null;
         }
 
         return $this;
@@ -2505,6 +2523,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INTBPRICGRUP] = true;
         }
 
+        if ($this->aInvPriceCode !== null && $this->aInvPriceCode->getIntbpricgrup() !== $v) {
+            $this->aInvPriceCode = null;
+        }
+
         return $this;
     } // setIntbpricgrup()
 
@@ -2989,11 +3011,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aItemGroupCode !== null && $this->intbgrup !== $this->aItemGroupCode->getIntbgrup()) {
+            $this->aItemGroupCode = null;
+        }
         if ($this->aUnitofMeasureSale !== null && $this->intbuomsale !== $this->aUnitofMeasureSale->getIntbuomsale()) {
             $this->aUnitofMeasureSale = null;
         }
         if ($this->aUnitofMeasurePurchase !== null && $this->intbuompur !== $this->aUnitofMeasurePurchase->getIntbuompur()) {
             $this->aUnitofMeasurePurchase = null;
+        }
+        if ($this->aInvPriceCode !== null && $this->intbpricgrup !== $this->aInvPriceCode->getIntbpricgrup()) {
+            $this->aInvPriceCode = null;
         }
     } // ensureConsistency
 
@@ -3036,6 +3064,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->aUnitofMeasureSale = null;
             $this->aUnitofMeasurePurchase = null;
+            $this->aItemGroupCode = null;
+            $this->aInvPriceCode = null;
             $this->collItemXrefUpcs = null;
 
             $this->collItemXrefVendors = null;
@@ -3160,6 +3190,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $affectedRows += $this->aUnitofMeasurePurchase->save($con);
                 }
                 $this->setUnitofMeasurePurchase($this->aUnitofMeasurePurchase);
+            }
+
+            if ($this->aItemGroupCode !== null) {
+                if ($this->aItemGroupCode->isModified() || $this->aItemGroupCode->isNew()) {
+                    $affectedRows += $this->aItemGroupCode->save($con);
+                }
+                $this->setItemGroupCode($this->aItemGroupCode);
+            }
+
+            if ($this->aInvPriceCode !== null) {
+                if ($this->aInvPriceCode->isModified() || $this->aInvPriceCode->isNew()) {
+                    $affectedRows += $this->aInvPriceCode->save($con);
+                }
+                $this->setInvPriceCode($this->aInvPriceCode);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -4001,6 +4045,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aUnitofMeasurePurchase->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aItemGroupCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemGroupCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_grup_code';
+                        break;
+                    default:
+                        $key = 'ItemGroupCode';
+                }
+
+                $result[$key] = $this->aItemGroupCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aInvPriceCode) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invPriceCode';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_pric_code';
+                        break;
+                    default:
+                        $key = 'InvPriceCode';
+                }
+
+                $result[$key] = $this->aInvPriceCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->collItemXrefUpcs) {
 
@@ -5008,6 +5082,108 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         return $this->aUnitofMeasurePurchase;
     }
 
+    /**
+     * Declares an association between this object and a ChildItemGroupCode object.
+     *
+     * @param  ChildItemGroupCode $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemGroupCode(ChildItemGroupCode $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbgrup(NULL);
+        } else {
+            $this->setIntbgrup($v->getIntbgrup());
+        }
+
+        $this->aItemGroupCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemGroupCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemGroupCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemGroupCode The associated ChildItemGroupCode object.
+     * @throws PropelException
+     */
+    public function getItemGroupCode(ConnectionInterface $con = null)
+    {
+        if ($this->aItemGroupCode === null && (($this->intbgrup !== "" && $this->intbgrup !== null))) {
+            $this->aItemGroupCode = ChildItemGroupCodeQuery::create()->findPk($this->intbgrup, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemGroupCode->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aItemGroupCode;
+    }
+
+    /**
+     * Declares an association between this object and a ChildInvPriceCode object.
+     *
+     * @param  ChildInvPriceCode $v
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvPriceCode(ChildInvPriceCode $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbpricgrup(NULL);
+        } else {
+            $this->setIntbpricgrup($v->getIntbpricgrup());
+        }
+
+        $this->aInvPriceCode = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvPriceCode object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemMasterItem($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvPriceCode object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvPriceCode The associated ChildInvPriceCode object.
+     * @throws PropelException
+     */
+    public function getInvPriceCode(ConnectionInterface $con = null)
+    {
+        if ($this->aInvPriceCode === null && (($this->intbpricgrup !== "" && $this->intbpricgrup !== null))) {
+            $this->aInvPriceCode = ChildInvPriceCodeQuery::create()->findPk($this->intbpricgrup, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvPriceCode->addItemMasterItems($this);
+             */
+        }
+
+        return $this->aInvPriceCode;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -5548,6 +5724,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (null !== $this->aUnitofMeasurePurchase) {
             $this->aUnitofMeasurePurchase->removeItemMasterItem($this);
         }
+        if (null !== $this->aItemGroupCode) {
+            $this->aItemGroupCode->removeItemMasterItem($this);
+        }
+        if (null !== $this->aInvPriceCode) {
+            $this->aInvPriceCode->removeItemMasterItem($this);
+        }
         $this->inititemnbr = null;
         $this->initdesc1 = null;
         $this->initdesc2 = null;
@@ -5647,6 +5829,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;
         $this->aUnitofMeasurePurchase = null;
+        $this->aItemGroupCode = null;
+        $this->aInvPriceCode = null;
     }
 
     /**

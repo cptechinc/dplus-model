@@ -36,7 +36,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'description' => 'initdesc1',
 		'desc2'       => 'initdesc2',
 		'itemgroup'   => 'intbgrup',
-		'pricegroup'  => 'intbpricegrup',
+		'pricegroup'  => 'intbpricgrup',
+		'pricecode'   => 'intbpricgrup',
+		'commissiongroup' => 'intbcommgrup',
 		'itemtype'    => 'inittype',
 		'taxable'     => 'inittax',
 		'supercede'   => 'initsupritemnbr',
@@ -59,9 +61,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * ===================================================================
-	 * 
+	 *
 	 * CLASS OBJECT FUNCTIONS
-	 * 
+	 *
 	 * ===================================================================
 	 */
 
@@ -108,9 +110,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * ===================================================================
-	 * 
+	 *
 	 * STATIC LOOKUP FUNCTIONS
-	 * 
+	 *
 	 * ===================================================================
 	 */
 

@@ -178,6 +178,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithUnitofMeasurePurchase() Adds a RIGHT JOIN clause and with to the query using the UnitofMeasurePurchase relation
  * @method     ChildItemMasterItemQuery innerJoinWithUnitofMeasurePurchase() Adds a INNER JOIN clause and with to the query using the UnitofMeasurePurchase relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemGroupCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemGroupCode relation
+ * @method     ChildItemMasterItemQuery rightJoinItemGroupCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemGroupCode relation
+ * @method     ChildItemMasterItemQuery innerJoinItemGroupCode($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemGroupCode relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemGroupCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemGroupCode relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemGroupCode() Adds a LEFT JOIN clause and with to the query using the ItemGroupCode relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemGroupCode() Adds a RIGHT JOIN clause and with to the query using the ItemGroupCode relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemGroupCode() Adds a INNER JOIN clause and with to the query using the ItemGroupCode relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvPriceCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvPriceCode relation
+ * @method     ChildItemMasterItemQuery rightJoinInvPriceCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvPriceCode relation
+ * @method     ChildItemMasterItemQuery innerJoinInvPriceCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvPriceCode relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvPriceCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvPriceCode relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvPriceCode() Adds a LEFT JOIN clause and with to the query using the InvPriceCode relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvPriceCode() Adds a RIGHT JOIN clause and with to the query using the InvPriceCode relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvPriceCode() Adds a INNER JOIN clause and with to the query using the InvPriceCode relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefUpc($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefUpc relation
@@ -198,7 +218,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\ItemGroupCodeQuery|\InvPriceCodeQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -2629,6 +2649,160 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'UnitofMeasurePurchase', '\UnitofMeasurePurchaseQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemGroupCode object
+     *
+     * @param \ItemGroupCode|ObjectCollection $itemGroupCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemGroupCode($itemGroupCode, $comparison = null)
+    {
+        if ($itemGroupCode instanceof \ItemGroupCode) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $itemGroupCode->getIntbgrup(), $comparison);
+        } elseif ($itemGroupCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBGRUP, $itemGroupCode->toKeyValue('PrimaryKey', 'Intbgrup'), $comparison);
+        } else {
+            throw new PropelException('filterByItemGroupCode() only accepts arguments of type \ItemGroupCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemGroupCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemGroupCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemGroupCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemGroupCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemGroupCode relation ItemGroupCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemGroupCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useItemGroupCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinItemGroupCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemGroupCode', '\ItemGroupCodeQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvPriceCode object
+     *
+     * @param \InvPriceCode|ObjectCollection $invPriceCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvPriceCode($invPriceCode, $comparison = null)
+    {
+        if ($invPriceCode instanceof \InvPriceCode) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $invPriceCode->getIntbpricgrup(), $comparison);
+        } elseif ($invPriceCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INTBPRICGRUP, $invPriceCode->toKeyValue('PrimaryKey', 'Intbpricgrup'), $comparison);
+        } else {
+            throw new PropelException('filterByInvPriceCode() only accepts arguments of type \InvPriceCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvPriceCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvPriceCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvPriceCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvPriceCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvPriceCode relation InvPriceCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvPriceCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useInvPriceCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinInvPriceCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvPriceCode', '\InvPriceCodeQuery');
     }
 
     /**

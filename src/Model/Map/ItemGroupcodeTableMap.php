@@ -296,6 +296,13 @@ class ItemGroupCodeTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbGrup',
+    1 => ':IntbGrup',
+  ),
+), null, null, 'ItemMasterItems', false);
     } // buildRelations()
 
     /**

@@ -444,7 +444,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
         $this->addColumn('InitDesc1', 'Initdesc1', 'VARCHAR', false, 35, null);
         $this->addColumn('InitDesc2', 'Initdesc2', 'VARCHAR', false, 35, null);
-        $this->addColumn('IntbGrup', 'Intbgrup', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('IntbGrup', 'Intbgrup', 'VARCHAR', 'inv_grup_code', 'IntbGrup', false, 4, null);
         $this->addColumn('InitFormatCode', 'Initformatcode', 'VARCHAR', false, 2, null);
         $this->addColumn('InitSplit', 'Initsplit', 'VARCHAR', false, 1, null);
         $this->addColumn('InitSherDateCd', 'Initsherdatecd', 'VARCHAR', false, 1, null);
@@ -493,7 +493,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->addColumn('InitBaseStanCost', 'Initbasestancost', 'DECIMAL', false, 20, null);
         $this->addColumn('InitShipTareQty', 'Initshiptareqty', 'INTEGER', false, 4, null);
         $this->addColumn('InitWgItem', 'Initwgitem', 'VARCHAR', false, 20, null);
-        $this->addColumn('IntbPricGrup', 'Intbpricgrup', 'VARCHAR', false, 8, null);
+        $this->addForeignKey('IntbPricGrup', 'Intbpricgrup', 'VARCHAR', 'inv_pric_code', 'IntbPricGrup', false, 8, null);
         $this->addColumn('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', false, 8, null);
         $this->addColumn('InitLastCostDate', 'Initlastcostdate', 'VARCHAR', false, 8, null);
         $this->addColumn('InitQtyPerCase', 'Initqtypercase', 'INTEGER', false, 8, null);
@@ -524,6 +524,20 @@ class ItemMasterItemTableMap extends TableMap
   array (
     0 => ':IntbUomPur',
     1 => ':IntbUomPur',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemGroupCode', '\\ItemGroupCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbGrup',
+    1 => ':IntbGrup',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvPriceCode', '\\InvPriceCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbPricGrup',
+    1 => ':IntbPricGrup',
   ),
 ), null, null, null, false);
         $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY, array (

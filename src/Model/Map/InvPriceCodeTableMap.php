@@ -170,6 +170,13 @@ class InvPriceCodeTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbPricGrup',
+    1 => ':IntbPricGrup',
+  ),
+), null, null, 'ItemMasterItems', false);
     } // buildRelations()
 
     /**

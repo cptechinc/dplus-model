@@ -1471,6 +1471,12 @@
     <foreign-key foreignTable="inv_uom_pur" name="uompur">
       <reference local="IntbUomPur" foreign="IntbUomPur"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_grup_code" name="itemgroup">
+      <reference local="IntbGrup" foreign="IntbGrup"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_pric_code" name="pricecode">
+      <reference local="IntbPricGrup" foreign="IntbPricGrup"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
