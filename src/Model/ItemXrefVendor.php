@@ -11,6 +11,8 @@ use Propel\Runtime\ActiveQuery\Criteria;
  * Class for representing a row from the 'vend_item_xref' table.
  *
  * PRIMARY KEY = ApveVendId, VexrVendItemNbr, InitItemNbr
+ *
+ * NOTE: Foreign Key Relationship to Vendor, ItemMasterItem, UnitofMeasurePurchase
  */
 class ItemXrefVendor extends BaseItemXrefVendor {
 	use ThrowErrorTrait;

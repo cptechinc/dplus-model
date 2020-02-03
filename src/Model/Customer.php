@@ -8,7 +8,9 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ar_cust_mast' table.
  *
+ * NOTE: Foreign Key Relationship to CustomeCommissionCode, Shipvia
  */
+
 class Customer extends BaseCustomer {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;

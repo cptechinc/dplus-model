@@ -10,6 +10,7 @@ use Propel\Runtime\ActiveQuery\Criteria;
 /**
  * Class for representing a row from the 'upc_item_xref' table.
  *
+ * NOTE: Foreign Key Relationship to ItemMasterItem
  */
 class ItemXrefUpc extends BaseItemXrefUpc {
 	use ThrowErrorTrait;

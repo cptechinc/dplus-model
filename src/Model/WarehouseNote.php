@@ -7,6 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'notes_whse_invc_stmt' table.
+ *
+ * NOTE: Foreign Key Relationship to Warehouse
  */
 class WarehouseNote extends BaseWarehouseNote {
 	use ThrowErrorTrait;

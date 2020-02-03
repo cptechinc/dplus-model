@@ -8,6 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ap_vend_mast' table.
  *
+ * NOTE: Foreign Key Relationship to ApTypeCode, ApTermsCode, Shipvia, ApBuyer
  */
 class Vendor extends BaseVendor {
 	use ThrowErrorTrait;

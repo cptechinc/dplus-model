@@ -8,6 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'po_head' table.
  *
+ * NOTE: Foreign Key Relationship to Vendor, VendorShipfrom, Shipvia
  */
 class PurchaseOrder extends BasePurchaseOrder {
 	use ThrowErrorTrait;

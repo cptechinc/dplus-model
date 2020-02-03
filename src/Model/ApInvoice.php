@@ -8,7 +8,9 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ap_invoice_head' table.
  *
+ * NOTE: Foreign Key Relationship to Vendor, Purchase Order
  */
+
 class ApInvoice extends BaseApInvoice {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;

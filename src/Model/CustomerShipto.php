@@ -7,6 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'ar_ship_to' table.
+ *
+ * NOTE: Foreign Key Relationship to Customer
  */
 class CustomerShipto extends BaseCustomerShipto {
 	use ThrowErrorTrait;

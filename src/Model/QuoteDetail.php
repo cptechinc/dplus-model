@@ -7,6 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'quote_detail' table.
+ *
+ * NOTE: Foreign Key Relationship to Quote
  */
 class QuoteDetail extends BaseQuoteDetail {
 	use ThrowErrorTrait;

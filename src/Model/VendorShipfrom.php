@@ -8,7 +8,9 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ap_ship_from' table.
  *
+ * NOTE: Foreign Key Relationship to Vendor, Shipvia
  */
+
 class VendorShipfrom extends BaseVendorShipfrom {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
