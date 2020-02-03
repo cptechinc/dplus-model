@@ -1644,10 +1644,10 @@ abstract class InvPriceCode implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
      */
-    public function getItemMasterItemsJoinItemGroupCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getItemMasterItemsJoinInvGroupCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildItemMasterItemQuery::create(null, $criteria);
-        $query->joinWith('ItemGroupCode', $joinBehavior);
+        $query->joinWith('InvGroupCode', $joinBehavior);
 
         return $this->getItemMasterItems($query, $con);
     }
