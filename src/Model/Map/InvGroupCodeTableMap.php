@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \ItemGroupCode;
-use \ItemGroupCodeQuery;
+use \InvGroupCode;
+use \InvGroupCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class ItemGroupCodeTableMap extends TableMap
+class InvGroupCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class ItemGroupCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemGroupCodeTableMap';
+    const CLASS_NAME = '.Map.InvGroupCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ItemGroupCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemGroupCode';
+    const OM_CLASS = '\\InvGroupCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemGroupCode';
+    const CLASS_DEFAULT = 'InvGroupCode';
 
     /**
      * The total number of columns
@@ -225,7 +225,7 @@ class ItemGroupCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Intbgrup', 'Intbgrupdesc', 'Intbgrupsaleacct', 'Intbgrupivtyacct', 'Intbgrupcogsacct', 'Intbgrupcredacct', 'Intbgrupwebgrup', 'Intbgrupdropacct', 'Intbgrupsaleprog', 'Intbgrupcostpct', 'Intbgrupcoop', 'Intbgrupusesurchg', 'Intbgrupsurchgdollorpct', 'Intbgrupsurchgdollamt', 'Intbgrupsurchgpct', 'Intbgrupfrtgrup', 'Intbgrupprodline', 'Intbgruplmecommdesc', 'Intbgruplmmaxqtylrg', 'Intbgruplmmaxqtymed', 'Intbgruplmmaxqtysml', 'Intbgrupacdisc1', 'Intbgrupacdisc2', 'Intbgrupacdisc3', 'Intbgrupacdisc4', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('intbgrup', 'intbgrupdesc', 'intbgrupsaleacct', 'intbgrupivtyacct', 'intbgrupcogsacct', 'intbgrupcredacct', 'intbgrupwebgrup', 'intbgrupdropacct', 'intbgrupsaleprog', 'intbgrupcostpct', 'intbgrupcoop', 'intbgrupusesurchg', 'intbgrupsurchgdollorpct', 'intbgrupsurchgdollamt', 'intbgrupsurchgpct', 'intbgrupfrtgrup', 'intbgrupprodline', 'intbgruplmecommdesc', 'intbgruplmmaxqtylrg', 'intbgruplmmaxqtymed', 'intbgruplmmaxqtysml', 'intbgrupacdisc1', 'intbgrupacdisc2', 'intbgrupacdisc3', 'intbgrupacdisc4', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemGroupCodeTableMap::COL_INTBGRUP, ItemGroupCodeTableMap::COL_INTBGRUPDESC, ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT, ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT, ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT, ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT, ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP, ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT, ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG, ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT, ItemGroupCodeTableMap::COL_INTBGRUPCOOP, ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP, ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE, ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, ItemGroupCodeTableMap::COL_INTBGRUPACDISC1, ItemGroupCodeTableMap::COL_INTBGRUPACDISC2, ItemGroupCodeTableMap::COL_INTBGRUPACDISC3, ItemGroupCodeTableMap::COL_INTBGRUPACDISC4, ItemGroupCodeTableMap::COL_DATEUPDTD, ItemGroupCodeTableMap::COL_TIMEUPDTD, ItemGroupCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(InvGroupCodeTableMap::COL_INTBGRUP, InvGroupCodeTableMap::COL_INTBGRUPDESC, InvGroupCodeTableMap::COL_INTBGRUPSALEACCT, InvGroupCodeTableMap::COL_INTBGRUPIVTYACCT, InvGroupCodeTableMap::COL_INTBGRUPCOGSACCT, InvGroupCodeTableMap::COL_INTBGRUPCREDACCT, InvGroupCodeTableMap::COL_INTBGRUPWEBGRUP, InvGroupCodeTableMap::COL_INTBGRUPDROPACCT, InvGroupCodeTableMap::COL_INTBGRUPSALEPROG, InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT, InvGroupCodeTableMap::COL_INTBGRUPCOOP, InvGroupCodeTableMap::COL_INTBGRUPUSESURCHG, InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, InvGroupCodeTableMap::COL_INTBGRUPFRTGRUP, InvGroupCodeTableMap::COL_INTBGRUPPRODLINE, InvGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, InvGroupCodeTableMap::COL_INTBGRUPACDISC1, InvGroupCodeTableMap::COL_INTBGRUPACDISC2, InvGroupCodeTableMap::COL_INTBGRUPACDISC3, InvGroupCodeTableMap::COL_INTBGRUPACDISC4, InvGroupCodeTableMap::COL_DATEUPDTD, InvGroupCodeTableMap::COL_TIMEUPDTD, InvGroupCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('IntbGrup', 'IntbGrupDesc', 'IntbGrupSaleAcct', 'IntbGrupIvtyAcct', 'IntbGrupCogsAcct', 'IntbGrupCredAcct', 'IntbGrupWebGrup', 'IntbGrupDropAcct', 'IntbGrupSaleProg', 'IntbGrupCostPct', 'IntbGrupCoop', 'IntbGrupUseSurchg', 'IntbGrupSurchgDollOrPct', 'IntbGrupSurchgDollAmt', 'IntbGrupSurchgPct', 'IntbGrupFrtGrup', 'IntbGrupProdLine', 'IntbGrupLmEcommDesc', 'IntbGrupLmMaxQtyLrg', 'IntbGrupLmMaxQtyMed', 'IntbGrupLmMaxQtySml', 'IntbGrupAcDisc1', 'IntbGrupAcDisc2', 'IntbGrupAcDisc3', 'IntbGrupAcDisc4', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, )
     );
@@ -239,7 +239,7 @@ class ItemGroupCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Intbgrup' => 0, 'Intbgrupdesc' => 1, 'Intbgrupsaleacct' => 2, 'Intbgrupivtyacct' => 3, 'Intbgrupcogsacct' => 4, 'Intbgrupcredacct' => 5, 'Intbgrupwebgrup' => 6, 'Intbgrupdropacct' => 7, 'Intbgrupsaleprog' => 8, 'Intbgrupcostpct' => 9, 'Intbgrupcoop' => 10, 'Intbgrupusesurchg' => 11, 'Intbgrupsurchgdollorpct' => 12, 'Intbgrupsurchgdollamt' => 13, 'Intbgrupsurchgpct' => 14, 'Intbgrupfrtgrup' => 15, 'Intbgrupprodline' => 16, 'Intbgruplmecommdesc' => 17, 'Intbgruplmmaxqtylrg' => 18, 'Intbgruplmmaxqtymed' => 19, 'Intbgruplmmaxqtysml' => 20, 'Intbgrupacdisc1' => 21, 'Intbgrupacdisc2' => 22, 'Intbgrupacdisc3' => 23, 'Intbgrupacdisc4' => 24, 'Dateupdtd' => 25, 'Timeupdtd' => 26, 'Dummy' => 27, ),
         self::TYPE_CAMELNAME     => array('intbgrup' => 0, 'intbgrupdesc' => 1, 'intbgrupsaleacct' => 2, 'intbgrupivtyacct' => 3, 'intbgrupcogsacct' => 4, 'intbgrupcredacct' => 5, 'intbgrupwebgrup' => 6, 'intbgrupdropacct' => 7, 'intbgrupsaleprog' => 8, 'intbgrupcostpct' => 9, 'intbgrupcoop' => 10, 'intbgrupusesurchg' => 11, 'intbgrupsurchgdollorpct' => 12, 'intbgrupsurchgdollamt' => 13, 'intbgrupsurchgpct' => 14, 'intbgrupfrtgrup' => 15, 'intbgrupprodline' => 16, 'intbgruplmecommdesc' => 17, 'intbgruplmmaxqtylrg' => 18, 'intbgruplmmaxqtymed' => 19, 'intbgruplmmaxqtysml' => 20, 'intbgrupacdisc1' => 21, 'intbgrupacdisc2' => 22, 'intbgrupacdisc3' => 23, 'intbgrupacdisc4' => 24, 'dateupdtd' => 25, 'timeupdtd' => 26, 'dummy' => 27, ),
-        self::TYPE_COLNAME       => array(ItemGroupCodeTableMap::COL_INTBGRUP => 0, ItemGroupCodeTableMap::COL_INTBGRUPDESC => 1, ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT => 2, ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT => 3, ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT => 4, ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT => 5, ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP => 6, ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT => 7, ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG => 8, ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT => 9, ItemGroupCodeTableMap::COL_INTBGRUPCOOP => 10, ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG => 11, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT => 12, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT => 13, ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT => 14, ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP => 15, ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE => 16, ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC => 17, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG => 18, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED => 19, ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML => 20, ItemGroupCodeTableMap::COL_INTBGRUPACDISC1 => 21, ItemGroupCodeTableMap::COL_INTBGRUPACDISC2 => 22, ItemGroupCodeTableMap::COL_INTBGRUPACDISC3 => 23, ItemGroupCodeTableMap::COL_INTBGRUPACDISC4 => 24, ItemGroupCodeTableMap::COL_DATEUPDTD => 25, ItemGroupCodeTableMap::COL_TIMEUPDTD => 26, ItemGroupCodeTableMap::COL_DUMMY => 27, ),
+        self::TYPE_COLNAME       => array(InvGroupCodeTableMap::COL_INTBGRUP => 0, InvGroupCodeTableMap::COL_INTBGRUPDESC => 1, InvGroupCodeTableMap::COL_INTBGRUPSALEACCT => 2, InvGroupCodeTableMap::COL_INTBGRUPIVTYACCT => 3, InvGroupCodeTableMap::COL_INTBGRUPCOGSACCT => 4, InvGroupCodeTableMap::COL_INTBGRUPCREDACCT => 5, InvGroupCodeTableMap::COL_INTBGRUPWEBGRUP => 6, InvGroupCodeTableMap::COL_INTBGRUPDROPACCT => 7, InvGroupCodeTableMap::COL_INTBGRUPSALEPROG => 8, InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT => 9, InvGroupCodeTableMap::COL_INTBGRUPCOOP => 10, InvGroupCodeTableMap::COL_INTBGRUPUSESURCHG => 11, InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT => 12, InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT => 13, InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT => 14, InvGroupCodeTableMap::COL_INTBGRUPFRTGRUP => 15, InvGroupCodeTableMap::COL_INTBGRUPPRODLINE => 16, InvGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC => 17, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG => 18, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED => 19, InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML => 20, InvGroupCodeTableMap::COL_INTBGRUPACDISC1 => 21, InvGroupCodeTableMap::COL_INTBGRUPACDISC2 => 22, InvGroupCodeTableMap::COL_INTBGRUPACDISC3 => 23, InvGroupCodeTableMap::COL_INTBGRUPACDISC4 => 24, InvGroupCodeTableMap::COL_DATEUPDTD => 25, InvGroupCodeTableMap::COL_TIMEUPDTD => 26, InvGroupCodeTableMap::COL_DUMMY => 27, ),
         self::TYPE_FIELDNAME     => array('IntbGrup' => 0, 'IntbGrupDesc' => 1, 'IntbGrupSaleAcct' => 2, 'IntbGrupIvtyAcct' => 3, 'IntbGrupCogsAcct' => 4, 'IntbGrupCredAcct' => 5, 'IntbGrupWebGrup' => 6, 'IntbGrupDropAcct' => 7, 'IntbGrupSaleProg' => 8, 'IntbGrupCostPct' => 9, 'IntbGrupCoop' => 10, 'IntbGrupUseSurchg' => 11, 'IntbGrupSurchgDollOrPct' => 12, 'IntbGrupSurchgDollAmt' => 13, 'IntbGrupSurchgPct' => 14, 'IntbGrupFrtGrup' => 15, 'IntbGrupProdLine' => 16, 'IntbGrupLmEcommDesc' => 17, 'IntbGrupLmMaxQtyLrg' => 18, 'IntbGrupLmMaxQtyMed' => 19, 'IntbGrupLmMaxQtySml' => 20, 'IntbGrupAcDisc1' => 21, 'IntbGrupAcDisc2' => 22, 'IntbGrupAcDisc3' => 23, 'IntbGrupAcDisc4' => 24, 'DateUpdtd' => 25, 'TimeUpdtd' => 26, 'dummy' => 27, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, )
     );
@@ -255,9 +255,9 @@ class ItemGroupCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_grup_code');
-        $this->setPhpName('ItemGroupCode');
+        $this->setPhpName('InvGroupCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\ItemGroupCode');
+        $this->setClassName('\\InvGroupCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -362,7 +362,7 @@ class ItemGroupCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? ItemGroupCodeTableMap::CLASS_DEFAULT : ItemGroupCodeTableMap::OM_CLASS;
+        return $withPrefix ? InvGroupCodeTableMap::CLASS_DEFAULT : InvGroupCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -376,22 +376,22 @@ class ItemGroupCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemGroupCode object, last column rank)
+     * @return array           (InvGroupCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = ItemGroupCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = ItemGroupCodeTableMap::getInstanceFromPool($key))) {
+        $key = InvGroupCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = InvGroupCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + ItemGroupCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + InvGroupCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ItemGroupCodeTableMap::OM_CLASS;
-            /** @var ItemGroupCode $obj */
+            $cls = InvGroupCodeTableMap::OM_CLASS;
+            /** @var InvGroupCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            ItemGroupCodeTableMap::addInstanceToPool($obj, $key);
+            InvGroupCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -414,18 +414,18 @@ class ItemGroupCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = ItemGroupCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = ItemGroupCodeTableMap::getInstanceFromPool($key))) {
+            $key = InvGroupCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = InvGroupCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var ItemGroupCode $obj */
+                /** @var InvGroupCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ItemGroupCodeTableMap::addInstanceToPool($obj, $key);
+                InvGroupCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -446,34 +446,34 @@ class ItemGroupCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUP);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPDESC);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPCOOP);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPACDISC1);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPACDISC2);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPACDISC3);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_INTBGRUPACDISC4);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(ItemGroupCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUP);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPDESC);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPSALEACCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPIVTYACCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPCOGSACCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPCREDACCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPWEBGRUP);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPDROPACCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPSALEPROG);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPCOOP);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPUSESURCHG);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPFRTGRUP);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPPRODLINE);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPACDISC1);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPACDISC2);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPACDISC3);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_INTBGRUPACDISC4);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(InvGroupCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.IntbGrup');
             $criteria->addSelectColumn($alias . '.IntbGrupDesc');
@@ -515,7 +515,7 @@ class ItemGroupCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(ItemGroupCodeTableMap::DATABASE_NAME)->getTable(ItemGroupCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(InvGroupCodeTableMap::DATABASE_NAME)->getTable(InvGroupCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -523,16 +523,16 @@ class ItemGroupCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemGroupCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemGroupCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemGroupCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvGroupCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(InvGroupCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new InvGroupCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a ItemGroupCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a InvGroupCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemGroupCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or InvGroupCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -543,27 +543,27 @@ class ItemGroupCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \ItemGroupCode) { // it's a model object
+        } elseif ($values instanceof \InvGroupCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ItemGroupCodeTableMap::DATABASE_NAME);
-            $criteria->add(ItemGroupCodeTableMap::COL_INTBGRUP, (array) $values, Criteria::IN);
+            $criteria = new Criteria(InvGroupCodeTableMap::DATABASE_NAME);
+            $criteria->add(InvGroupCodeTableMap::COL_INTBGRUP, (array) $values, Criteria::IN);
         }
 
-        $query = ItemGroupCodeQuery::create()->mergeWith($criteria);
+        $query = InvGroupCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            ItemGroupCodeTableMap::clearInstancePool();
+            InvGroupCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                ItemGroupCodeTableMap::removeInstanceFromPool($singleval);
+                InvGroupCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -578,13 +578,13 @@ class ItemGroupCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return ItemGroupCodeQuery::create()->doDeleteAll($con);
+        return InvGroupCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a ItemGroupCode or Criteria object.
+     * Performs an INSERT on the database, given a InvGroupCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemGroupCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or InvGroupCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -593,18 +593,18 @@ class ItemGroupCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from ItemGroupCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from InvGroupCode object
         }
 
 
         // Set the correct dbName
-        $query = ItemGroupCodeQuery::create()->mergeWith($criteria);
+        $query = InvGroupCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -613,7 +613,7 @@ class ItemGroupCodeTableMap extends TableMap
         });
     }
 
-} // ItemGroupCodeTableMap
+} // InvGroupCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-ItemGroupCodeTableMap::buildTableMap();
+InvGroupCodeTableMap::buildTableMap();

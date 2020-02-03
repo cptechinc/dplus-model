@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \ItemGroupCode as ChildItemGroupCode;
-use \ItemGroupCodeQuery as ChildItemGroupCodeQuery;
+use \InvGroupCode as ChildInvGroupCode;
+use \InvGroupCodeQuery as ChildInvGroupCodeQuery;
 use \Exception;
 use \PDO;
-use Map\ItemGroupCodeTableMap;
+use Map\InvGroupCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -20,210 +20,210 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildItemGroupCodeQuery orderByIntbgrup($order = Criteria::ASC) Order by the IntbGrup column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupdesc($order = Criteria::ASC) Order by the IntbGrupDesc column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupsaleacct($order = Criteria::ASC) Order by the IntbGrupSaleAcct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupivtyacct($order = Criteria::ASC) Order by the IntbGrupIvtyAcct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupcogsacct($order = Criteria::ASC) Order by the IntbGrupCogsAcct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupcredacct($order = Criteria::ASC) Order by the IntbGrupCredAcct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupwebgrup($order = Criteria::ASC) Order by the IntbGrupWebGrup column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupdropacct($order = Criteria::ASC) Order by the IntbGrupDropAcct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupsaleprog($order = Criteria::ASC) Order by the IntbGrupSaleProg column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupcostpct($order = Criteria::ASC) Order by the IntbGrupCostPct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupcoop($order = Criteria::ASC) Order by the IntbGrupCoop column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupusesurchg($order = Criteria::ASC) Order by the IntbGrupUseSurchg column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupsurchgdollorpct($order = Criteria::ASC) Order by the IntbGrupSurchgDollOrPct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupsurchgdollamt($order = Criteria::ASC) Order by the IntbGrupSurchgDollAmt column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupsurchgpct($order = Criteria::ASC) Order by the IntbGrupSurchgPct column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupfrtgrup($order = Criteria::ASC) Order by the IntbGrupFrtGrup column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupprodline($order = Criteria::ASC) Order by the IntbGrupProdLine column
- * @method     ChildItemGroupCodeQuery orderByIntbgruplmecommdesc($order = Criteria::ASC) Order by the IntbGrupLmEcommDesc column
- * @method     ChildItemGroupCodeQuery orderByIntbgruplmmaxqtylrg($order = Criteria::ASC) Order by the IntbGrupLmMaxQtyLrg column
- * @method     ChildItemGroupCodeQuery orderByIntbgruplmmaxqtymed($order = Criteria::ASC) Order by the IntbGrupLmMaxQtyMed column
- * @method     ChildItemGroupCodeQuery orderByIntbgruplmmaxqtysml($order = Criteria::ASC) Order by the IntbGrupLmMaxQtySml column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupacdisc1($order = Criteria::ASC) Order by the IntbGrupAcDisc1 column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupacdisc2($order = Criteria::ASC) Order by the IntbGrupAcDisc2 column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupacdisc3($order = Criteria::ASC) Order by the IntbGrupAcDisc3 column
- * @method     ChildItemGroupCodeQuery orderByIntbgrupacdisc4($order = Criteria::ASC) Order by the IntbGrupAcDisc4 column
- * @method     ChildItemGroupCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildItemGroupCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildItemGroupCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrup($order = Criteria::ASC) Order by the IntbGrup column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupdesc($order = Criteria::ASC) Order by the IntbGrupDesc column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupsaleacct($order = Criteria::ASC) Order by the IntbGrupSaleAcct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupivtyacct($order = Criteria::ASC) Order by the IntbGrupIvtyAcct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupcogsacct($order = Criteria::ASC) Order by the IntbGrupCogsAcct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupcredacct($order = Criteria::ASC) Order by the IntbGrupCredAcct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupwebgrup($order = Criteria::ASC) Order by the IntbGrupWebGrup column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupdropacct($order = Criteria::ASC) Order by the IntbGrupDropAcct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupsaleprog($order = Criteria::ASC) Order by the IntbGrupSaleProg column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupcostpct($order = Criteria::ASC) Order by the IntbGrupCostPct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupcoop($order = Criteria::ASC) Order by the IntbGrupCoop column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupusesurchg($order = Criteria::ASC) Order by the IntbGrupUseSurchg column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupsurchgdollorpct($order = Criteria::ASC) Order by the IntbGrupSurchgDollOrPct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupsurchgdollamt($order = Criteria::ASC) Order by the IntbGrupSurchgDollAmt column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupsurchgpct($order = Criteria::ASC) Order by the IntbGrupSurchgPct column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupfrtgrup($order = Criteria::ASC) Order by the IntbGrupFrtGrup column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupprodline($order = Criteria::ASC) Order by the IntbGrupProdLine column
+ * @method     ChildInvGroupCodeQuery orderByIntbgruplmecommdesc($order = Criteria::ASC) Order by the IntbGrupLmEcommDesc column
+ * @method     ChildInvGroupCodeQuery orderByIntbgruplmmaxqtylrg($order = Criteria::ASC) Order by the IntbGrupLmMaxQtyLrg column
+ * @method     ChildInvGroupCodeQuery orderByIntbgruplmmaxqtymed($order = Criteria::ASC) Order by the IntbGrupLmMaxQtyMed column
+ * @method     ChildInvGroupCodeQuery orderByIntbgruplmmaxqtysml($order = Criteria::ASC) Order by the IntbGrupLmMaxQtySml column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupacdisc1($order = Criteria::ASC) Order by the IntbGrupAcDisc1 column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupacdisc2($order = Criteria::ASC) Order by the IntbGrupAcDisc2 column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupacdisc3($order = Criteria::ASC) Order by the IntbGrupAcDisc3 column
+ * @method     ChildInvGroupCodeQuery orderByIntbgrupacdisc4($order = Criteria::ASC) Order by the IntbGrupAcDisc4 column
+ * @method     ChildInvGroupCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildInvGroupCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildInvGroupCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildItemGroupCodeQuery groupByIntbgrup() Group by the IntbGrup column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupdesc() Group by the IntbGrupDesc column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupsaleacct() Group by the IntbGrupSaleAcct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupivtyacct() Group by the IntbGrupIvtyAcct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupcogsacct() Group by the IntbGrupCogsAcct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupcredacct() Group by the IntbGrupCredAcct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupwebgrup() Group by the IntbGrupWebGrup column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupdropacct() Group by the IntbGrupDropAcct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupsaleprog() Group by the IntbGrupSaleProg column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupcostpct() Group by the IntbGrupCostPct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupcoop() Group by the IntbGrupCoop column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupusesurchg() Group by the IntbGrupUseSurchg column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupsurchgdollorpct() Group by the IntbGrupSurchgDollOrPct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupsurchgdollamt() Group by the IntbGrupSurchgDollAmt column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupsurchgpct() Group by the IntbGrupSurchgPct column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupfrtgrup() Group by the IntbGrupFrtGrup column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupprodline() Group by the IntbGrupProdLine column
- * @method     ChildItemGroupCodeQuery groupByIntbgruplmecommdesc() Group by the IntbGrupLmEcommDesc column
- * @method     ChildItemGroupCodeQuery groupByIntbgruplmmaxqtylrg() Group by the IntbGrupLmMaxQtyLrg column
- * @method     ChildItemGroupCodeQuery groupByIntbgruplmmaxqtymed() Group by the IntbGrupLmMaxQtyMed column
- * @method     ChildItemGroupCodeQuery groupByIntbgruplmmaxqtysml() Group by the IntbGrupLmMaxQtySml column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupacdisc1() Group by the IntbGrupAcDisc1 column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupacdisc2() Group by the IntbGrupAcDisc2 column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupacdisc3() Group by the IntbGrupAcDisc3 column
- * @method     ChildItemGroupCodeQuery groupByIntbgrupacdisc4() Group by the IntbGrupAcDisc4 column
- * @method     ChildItemGroupCodeQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildItemGroupCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildItemGroupCodeQuery groupByDummy() Group by the dummy column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrup() Group by the IntbGrup column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupdesc() Group by the IntbGrupDesc column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupsaleacct() Group by the IntbGrupSaleAcct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupivtyacct() Group by the IntbGrupIvtyAcct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupcogsacct() Group by the IntbGrupCogsAcct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupcredacct() Group by the IntbGrupCredAcct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupwebgrup() Group by the IntbGrupWebGrup column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupdropacct() Group by the IntbGrupDropAcct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupsaleprog() Group by the IntbGrupSaleProg column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupcostpct() Group by the IntbGrupCostPct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupcoop() Group by the IntbGrupCoop column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupusesurchg() Group by the IntbGrupUseSurchg column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupsurchgdollorpct() Group by the IntbGrupSurchgDollOrPct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupsurchgdollamt() Group by the IntbGrupSurchgDollAmt column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupsurchgpct() Group by the IntbGrupSurchgPct column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupfrtgrup() Group by the IntbGrupFrtGrup column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupprodline() Group by the IntbGrupProdLine column
+ * @method     ChildInvGroupCodeQuery groupByIntbgruplmecommdesc() Group by the IntbGrupLmEcommDesc column
+ * @method     ChildInvGroupCodeQuery groupByIntbgruplmmaxqtylrg() Group by the IntbGrupLmMaxQtyLrg column
+ * @method     ChildInvGroupCodeQuery groupByIntbgruplmmaxqtymed() Group by the IntbGrupLmMaxQtyMed column
+ * @method     ChildInvGroupCodeQuery groupByIntbgruplmmaxqtysml() Group by the IntbGrupLmMaxQtySml column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupacdisc1() Group by the IntbGrupAcDisc1 column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupacdisc2() Group by the IntbGrupAcDisc2 column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupacdisc3() Group by the IntbGrupAcDisc3 column
+ * @method     ChildInvGroupCodeQuery groupByIntbgrupacdisc4() Group by the IntbGrupAcDisc4 column
+ * @method     ChildInvGroupCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildInvGroupCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildInvGroupCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildItemGroupCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildItemGroupCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildItemGroupCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildInvGroupCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildInvGroupCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildInvGroupCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildItemGroupCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildItemGroupCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildItemGroupCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildInvGroupCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildInvGroupCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildInvGroupCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemGroupCodeQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemGroupCodeQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemGroupCodeQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
  *
- * @method     ChildItemGroupCodeQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildItemGroupCodeQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemGroupCodeQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemGroupCodeQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvGroupCodeQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemGroupCode findOne(ConnectionInterface $con = null) Return the first ChildItemGroupCode matching the query
- * @method     ChildItemGroupCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemGroupCode matching the query, or a new ChildItemGroupCode object populated from the query conditions when no match is found
+ * @method     ChildInvGroupCode findOne(ConnectionInterface $con = null) Return the first ChildInvGroupCode matching the query
+ * @method     ChildInvGroupCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvGroupCode matching the query, or a new ChildInvGroupCode object populated from the query conditions when no match is found
  *
- * @method     ChildItemGroupCode findOneByIntbgrup(string $IntbGrup) Return the first ChildItemGroupCode filtered by the IntbGrup column
- * @method     ChildItemGroupCode findOneByIntbgrupdesc(string $IntbGrupDesc) Return the first ChildItemGroupCode filtered by the IntbGrupDesc column
- * @method     ChildItemGroupCode findOneByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return the first ChildItemGroupCode filtered by the IntbGrupSaleAcct column
- * @method     ChildItemGroupCode findOneByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return the first ChildItemGroupCode filtered by the IntbGrupIvtyAcct column
- * @method     ChildItemGroupCode findOneByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return the first ChildItemGroupCode filtered by the IntbGrupCogsAcct column
- * @method     ChildItemGroupCode findOneByIntbgrupcredacct(string $IntbGrupCredAcct) Return the first ChildItemGroupCode filtered by the IntbGrupCredAcct column
- * @method     ChildItemGroupCode findOneByIntbgrupwebgrup(string $IntbGrupWebGrup) Return the first ChildItemGroupCode filtered by the IntbGrupWebGrup column
- * @method     ChildItemGroupCode findOneByIntbgrupdropacct(string $IntbGrupDropAcct) Return the first ChildItemGroupCode filtered by the IntbGrupDropAcct column
- * @method     ChildItemGroupCode findOneByIntbgrupsaleprog(string $IntbGrupSaleProg) Return the first ChildItemGroupCode filtered by the IntbGrupSaleProg column
- * @method     ChildItemGroupCode findOneByIntbgrupcostpct(string $IntbGrupCostPct) Return the first ChildItemGroupCode filtered by the IntbGrupCostPct column
- * @method     ChildItemGroupCode findOneByIntbgrupcoop(string $IntbGrupCoop) Return the first ChildItemGroupCode filtered by the IntbGrupCoop column
- * @method     ChildItemGroupCode findOneByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return the first ChildItemGroupCode filtered by the IntbGrupUseSurchg column
- * @method     ChildItemGroupCode findOneByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgDollOrPct column
- * @method     ChildItemGroupCode findOneByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgDollAmt column
- * @method     ChildItemGroupCode findOneByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgPct column
- * @method     ChildItemGroupCode findOneByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return the first ChildItemGroupCode filtered by the IntbGrupFrtGrup column
- * @method     ChildItemGroupCode findOneByIntbgrupprodline(string $IntbGrupProdLine) Return the first ChildItemGroupCode filtered by the IntbGrupProdLine column
- * @method     ChildItemGroupCode findOneByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return the first ChildItemGroupCode filtered by the IntbGrupLmEcommDesc column
- * @method     ChildItemGroupCode findOneByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtyLrg column
- * @method     ChildItemGroupCode findOneByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtyMed column
- * @method     ChildItemGroupCode findOneByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtySml column
- * @method     ChildItemGroupCode findOneByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc1 column
- * @method     ChildItemGroupCode findOneByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc2 column
- * @method     ChildItemGroupCode findOneByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc3 column
- * @method     ChildItemGroupCode findOneByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc4 column
- * @method     ChildItemGroupCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemGroupCode filtered by the DateUpdtd column
- * @method     ChildItemGroupCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemGroupCode filtered by the TimeUpdtd column
- * @method     ChildItemGroupCode findOneByDummy(string $dummy) Return the first ChildItemGroupCode filtered by the dummy column *
+ * @method     ChildInvGroupCode findOneByIntbgrup(string $IntbGrup) Return the first ChildInvGroupCode filtered by the IntbGrup column
+ * @method     ChildInvGroupCode findOneByIntbgrupdesc(string $IntbGrupDesc) Return the first ChildInvGroupCode filtered by the IntbGrupDesc column
+ * @method     ChildInvGroupCode findOneByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return the first ChildInvGroupCode filtered by the IntbGrupSaleAcct column
+ * @method     ChildInvGroupCode findOneByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return the first ChildInvGroupCode filtered by the IntbGrupIvtyAcct column
+ * @method     ChildInvGroupCode findOneByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return the first ChildInvGroupCode filtered by the IntbGrupCogsAcct column
+ * @method     ChildInvGroupCode findOneByIntbgrupcredacct(string $IntbGrupCredAcct) Return the first ChildInvGroupCode filtered by the IntbGrupCredAcct column
+ * @method     ChildInvGroupCode findOneByIntbgrupwebgrup(string $IntbGrupWebGrup) Return the first ChildInvGroupCode filtered by the IntbGrupWebGrup column
+ * @method     ChildInvGroupCode findOneByIntbgrupdropacct(string $IntbGrupDropAcct) Return the first ChildInvGroupCode filtered by the IntbGrupDropAcct column
+ * @method     ChildInvGroupCode findOneByIntbgrupsaleprog(string $IntbGrupSaleProg) Return the first ChildInvGroupCode filtered by the IntbGrupSaleProg column
+ * @method     ChildInvGroupCode findOneByIntbgrupcostpct(string $IntbGrupCostPct) Return the first ChildInvGroupCode filtered by the IntbGrupCostPct column
+ * @method     ChildInvGroupCode findOneByIntbgrupcoop(string $IntbGrupCoop) Return the first ChildInvGroupCode filtered by the IntbGrupCoop column
+ * @method     ChildInvGroupCode findOneByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return the first ChildInvGroupCode filtered by the IntbGrupUseSurchg column
+ * @method     ChildInvGroupCode findOneByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgDollOrPct column
+ * @method     ChildInvGroupCode findOneByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgDollAmt column
+ * @method     ChildInvGroupCode findOneByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgPct column
+ * @method     ChildInvGroupCode findOneByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return the first ChildInvGroupCode filtered by the IntbGrupFrtGrup column
+ * @method     ChildInvGroupCode findOneByIntbgrupprodline(string $IntbGrupProdLine) Return the first ChildInvGroupCode filtered by the IntbGrupProdLine column
+ * @method     ChildInvGroupCode findOneByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return the first ChildInvGroupCode filtered by the IntbGrupLmEcommDesc column
+ * @method     ChildInvGroupCode findOneByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtyLrg column
+ * @method     ChildInvGroupCode findOneByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtyMed column
+ * @method     ChildInvGroupCode findOneByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtySml column
+ * @method     ChildInvGroupCode findOneByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc1 column
+ * @method     ChildInvGroupCode findOneByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc2 column
+ * @method     ChildInvGroupCode findOneByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc3 column
+ * @method     ChildInvGroupCode findOneByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc4 column
+ * @method     ChildInvGroupCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvGroupCode filtered by the DateUpdtd column
+ * @method     ChildInvGroupCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvGroupCode filtered by the TimeUpdtd column
+ * @method     ChildInvGroupCode findOneByDummy(string $dummy) Return the first ChildInvGroupCode filtered by the dummy column *
 
- * @method     ChildItemGroupCode requirePk($key, ConnectionInterface $con = null) Return the ChildItemGroupCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOne(ConnectionInterface $con = null) Return the first ChildItemGroupCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requirePk($key, ConnectionInterface $con = null) Return the ChildInvGroupCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOne(ConnectionInterface $con = null) Return the first ChildInvGroupCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemGroupCode requireOneByIntbgrup(string $IntbGrup) Return the first ChildItemGroupCode filtered by the IntbGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupdesc(string $IntbGrupDesc) Return the first ChildItemGroupCode filtered by the IntbGrupDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return the first ChildItemGroupCode filtered by the IntbGrupSaleAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return the first ChildItemGroupCode filtered by the IntbGrupIvtyAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return the first ChildItemGroupCode filtered by the IntbGrupCogsAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupcredacct(string $IntbGrupCredAcct) Return the first ChildItemGroupCode filtered by the IntbGrupCredAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupwebgrup(string $IntbGrupWebGrup) Return the first ChildItemGroupCode filtered by the IntbGrupWebGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupdropacct(string $IntbGrupDropAcct) Return the first ChildItemGroupCode filtered by the IntbGrupDropAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupsaleprog(string $IntbGrupSaleProg) Return the first ChildItemGroupCode filtered by the IntbGrupSaleProg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupcostpct(string $IntbGrupCostPct) Return the first ChildItemGroupCode filtered by the IntbGrupCostPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupcoop(string $IntbGrupCoop) Return the first ChildItemGroupCode filtered by the IntbGrupCoop column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return the first ChildItemGroupCode filtered by the IntbGrupUseSurchg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgDollOrPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgDollAmt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return the first ChildItemGroupCode filtered by the IntbGrupSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return the first ChildItemGroupCode filtered by the IntbGrupFrtGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupprodline(string $IntbGrupProdLine) Return the first ChildItemGroupCode filtered by the IntbGrupProdLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return the first ChildItemGroupCode filtered by the IntbGrupLmEcommDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtyLrg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtyMed column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return the first ChildItemGroupCode filtered by the IntbGrupLmMaxQtySml column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return the first ChildItemGroupCode filtered by the IntbGrupAcDisc4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemGroupCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemGroupCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemGroupCode requireOneByDummy(string $dummy) Return the first ChildItemGroupCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrup(string $IntbGrup) Return the first ChildInvGroupCode filtered by the IntbGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupdesc(string $IntbGrupDesc) Return the first ChildInvGroupCode filtered by the IntbGrupDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return the first ChildInvGroupCode filtered by the IntbGrupSaleAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return the first ChildInvGroupCode filtered by the IntbGrupIvtyAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return the first ChildInvGroupCode filtered by the IntbGrupCogsAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupcredacct(string $IntbGrupCredAcct) Return the first ChildInvGroupCode filtered by the IntbGrupCredAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupwebgrup(string $IntbGrupWebGrup) Return the first ChildInvGroupCode filtered by the IntbGrupWebGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupdropacct(string $IntbGrupDropAcct) Return the first ChildInvGroupCode filtered by the IntbGrupDropAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupsaleprog(string $IntbGrupSaleProg) Return the first ChildInvGroupCode filtered by the IntbGrupSaleProg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupcostpct(string $IntbGrupCostPct) Return the first ChildInvGroupCode filtered by the IntbGrupCostPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupcoop(string $IntbGrupCoop) Return the first ChildInvGroupCode filtered by the IntbGrupCoop column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return the first ChildInvGroupCode filtered by the IntbGrupUseSurchg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgDollOrPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgDollAmt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return the first ChildInvGroupCode filtered by the IntbGrupSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return the first ChildInvGroupCode filtered by the IntbGrupFrtGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupprodline(string $IntbGrupProdLine) Return the first ChildInvGroupCode filtered by the IntbGrupProdLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return the first ChildInvGroupCode filtered by the IntbGrupLmEcommDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtyLrg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtyMed column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return the first ChildInvGroupCode filtered by the IntbGrupLmMaxQtySml column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return the first ChildInvGroupCode filtered by the IntbGrupAcDisc4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvGroupCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvGroupCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvGroupCode requireOneByDummy(string $dummy) Return the first ChildInvGroupCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemGroupCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemGroupCode objects based on current ModelCriteria
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrup(string $IntbGrup) Return ChildItemGroupCode objects filtered by the IntbGrup column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupdesc(string $IntbGrupDesc) Return ChildItemGroupCode objects filtered by the IntbGrupDesc column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return ChildItemGroupCode objects filtered by the IntbGrupSaleAcct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return ChildItemGroupCode objects filtered by the IntbGrupIvtyAcct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return ChildItemGroupCode objects filtered by the IntbGrupCogsAcct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupcredacct(string $IntbGrupCredAcct) Return ChildItemGroupCode objects filtered by the IntbGrupCredAcct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupwebgrup(string $IntbGrupWebGrup) Return ChildItemGroupCode objects filtered by the IntbGrupWebGrup column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupdropacct(string $IntbGrupDropAcct) Return ChildItemGroupCode objects filtered by the IntbGrupDropAcct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupsaleprog(string $IntbGrupSaleProg) Return ChildItemGroupCode objects filtered by the IntbGrupSaleProg column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupcostpct(string $IntbGrupCostPct) Return ChildItemGroupCode objects filtered by the IntbGrupCostPct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupcoop(string $IntbGrupCoop) Return ChildItemGroupCode objects filtered by the IntbGrupCoop column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return ChildItemGroupCode objects filtered by the IntbGrupUseSurchg column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return ChildItemGroupCode objects filtered by the IntbGrupSurchgDollOrPct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return ChildItemGroupCode objects filtered by the IntbGrupSurchgDollAmt column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return ChildItemGroupCode objects filtered by the IntbGrupSurchgPct column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return ChildItemGroupCode objects filtered by the IntbGrupFrtGrup column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupprodline(string $IntbGrupProdLine) Return ChildItemGroupCode objects filtered by the IntbGrupProdLine column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return ChildItemGroupCode objects filtered by the IntbGrupLmEcommDesc column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return ChildItemGroupCode objects filtered by the IntbGrupLmMaxQtyLrg column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return ChildItemGroupCode objects filtered by the IntbGrupLmMaxQtyMed column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return ChildItemGroupCode objects filtered by the IntbGrupLmMaxQtySml column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return ChildItemGroupCode objects filtered by the IntbGrupAcDisc1 column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return ChildItemGroupCode objects filtered by the IntbGrupAcDisc2 column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return ChildItemGroupCode objects filtered by the IntbGrupAcDisc3 column
- * @method     ChildItemGroupCode[]|ObjectCollection findByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return ChildItemGroupCode objects filtered by the IntbGrupAcDisc4 column
- * @method     ChildItemGroupCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemGroupCode objects filtered by the DateUpdtd column
- * @method     ChildItemGroupCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemGroupCode objects filtered by the TimeUpdtd column
- * @method     ChildItemGroupCode[]|ObjectCollection findByDummy(string $dummy) Return ChildItemGroupCode objects filtered by the dummy column
- * @method     ChildItemGroupCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvGroupCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvGroupCode objects based on current ModelCriteria
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrup(string $IntbGrup) Return ChildInvGroupCode objects filtered by the IntbGrup column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupdesc(string $IntbGrupDesc) Return ChildInvGroupCode objects filtered by the IntbGrupDesc column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupsaleacct(string $IntbGrupSaleAcct) Return ChildInvGroupCode objects filtered by the IntbGrupSaleAcct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupivtyacct(string $IntbGrupIvtyAcct) Return ChildInvGroupCode objects filtered by the IntbGrupIvtyAcct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupcogsacct(string $IntbGrupCogsAcct) Return ChildInvGroupCode objects filtered by the IntbGrupCogsAcct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupcredacct(string $IntbGrupCredAcct) Return ChildInvGroupCode objects filtered by the IntbGrupCredAcct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupwebgrup(string $IntbGrupWebGrup) Return ChildInvGroupCode objects filtered by the IntbGrupWebGrup column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupdropacct(string $IntbGrupDropAcct) Return ChildInvGroupCode objects filtered by the IntbGrupDropAcct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupsaleprog(string $IntbGrupSaleProg) Return ChildInvGroupCode objects filtered by the IntbGrupSaleProg column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupcostpct(string $IntbGrupCostPct) Return ChildInvGroupCode objects filtered by the IntbGrupCostPct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupcoop(string $IntbGrupCoop) Return ChildInvGroupCode objects filtered by the IntbGrupCoop column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupusesurchg(string $IntbGrupUseSurchg) Return ChildInvGroupCode objects filtered by the IntbGrupUseSurchg column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupsurchgdollorpct(string $IntbGrupSurchgDollOrPct) Return ChildInvGroupCode objects filtered by the IntbGrupSurchgDollOrPct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupsurchgdollamt(string $IntbGrupSurchgDollAmt) Return ChildInvGroupCode objects filtered by the IntbGrupSurchgDollAmt column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupsurchgpct(string $IntbGrupSurchgPct) Return ChildInvGroupCode objects filtered by the IntbGrupSurchgPct column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupfrtgrup(string $IntbGrupFrtGrup) Return ChildInvGroupCode objects filtered by the IntbGrupFrtGrup column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupprodline(string $IntbGrupProdLine) Return ChildInvGroupCode objects filtered by the IntbGrupProdLine column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgruplmecommdesc(string $IntbGrupLmEcommDesc) Return ChildInvGroupCode objects filtered by the IntbGrupLmEcommDesc column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgruplmmaxqtylrg(int $IntbGrupLmMaxQtyLrg) Return ChildInvGroupCode objects filtered by the IntbGrupLmMaxQtyLrg column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgruplmmaxqtymed(int $IntbGrupLmMaxQtyMed) Return ChildInvGroupCode objects filtered by the IntbGrupLmMaxQtyMed column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgruplmmaxqtysml(int $IntbGrupLmMaxQtySml) Return ChildInvGroupCode objects filtered by the IntbGrupLmMaxQtySml column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupacdisc1(string $IntbGrupAcDisc1) Return ChildInvGroupCode objects filtered by the IntbGrupAcDisc1 column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupacdisc2(string $IntbGrupAcDisc2) Return ChildInvGroupCode objects filtered by the IntbGrupAcDisc2 column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupacdisc3(string $IntbGrupAcDisc3) Return ChildInvGroupCode objects filtered by the IntbGrupAcDisc3 column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByIntbgrupacdisc4(string $IntbGrupAcDisc4) Return ChildInvGroupCode objects filtered by the IntbGrupAcDisc4 column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvGroupCode objects filtered by the DateUpdtd column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvGroupCode objects filtered by the TimeUpdtd column
+ * @method     ChildInvGroupCode[]|ObjectCollection findByDummy(string $dummy) Return ChildInvGroupCode objects filtered by the dummy column
+ * @method     ChildInvGroupCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class ItemGroupCodeQuery extends ModelCriteria
+abstract class InvGroupCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\ItemGroupCodeQuery object.
+     * Initializes internal state of \Base\InvGroupCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\ItemGroupCode', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\InvGroupCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildItemGroupCodeQuery object.
+     * Returns a new ChildInvGroupCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildItemGroupCodeQuery
+     * @return ChildInvGroupCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildItemGroupCodeQuery) {
+        if ($criteria instanceof ChildInvGroupCodeQuery) {
             return $criteria;
         }
-        $query = new ChildItemGroupCodeQuery();
+        $query = new ChildInvGroupCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -246,7 +246,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildItemGroupCode|array|mixed the result, formatted by the current formatter
+     * @return ChildInvGroupCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -255,7 +255,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ItemGroupCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -268,7 +268,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = ItemGroupCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = InvGroupCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -285,7 +285,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemGroupCode A model object, or null if the key is not found
+     * @return ChildInvGroupCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -300,10 +300,10 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemGroupCode $obj */
-            $obj = new ChildItemGroupCode();
+            /** @var ChildInvGroupCode $obj */
+            $obj = new ChildInvGroupCode();
             $obj->hydrate($row);
-            ItemGroupCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            InvGroupCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -316,7 +316,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildItemGroupCode|array|mixed the result, formatted by the current formatter
+     * @return ChildInvGroupCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -358,12 +358,12 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUP, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $key, Criteria::EQUAL);
     }
 
     /**
@@ -371,12 +371,12 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUP, $keys, Criteria::IN);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $keys, Criteria::IN);
     }
 
     /**
@@ -391,7 +391,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrup The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrup($intbgrup = null, $comparison = null)
     {
@@ -401,7 +401,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUP, $intbgrup, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $intbgrup, $comparison);
     }
 
     /**
@@ -416,7 +416,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupdesc($intbgrupdesc = null, $comparison = null)
     {
@@ -426,7 +426,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPDESC, $intbgrupdesc, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPDESC, $intbgrupdesc, $comparison);
     }
 
     /**
@@ -441,7 +441,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupsaleacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupsaleacct($intbgrupsaleacct = null, $comparison = null)
     {
@@ -451,7 +451,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSALEACCT, $intbgrupsaleacct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSALEACCT, $intbgrupsaleacct, $comparison);
     }
 
     /**
@@ -466,7 +466,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupivtyacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupivtyacct($intbgrupivtyacct = null, $comparison = null)
     {
@@ -476,7 +476,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPIVTYACCT, $intbgrupivtyacct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPIVTYACCT, $intbgrupivtyacct, $comparison);
     }
 
     /**
@@ -491,7 +491,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupcogsacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupcogsacct($intbgrupcogsacct = null, $comparison = null)
     {
@@ -501,7 +501,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCOGSACCT, $intbgrupcogsacct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOGSACCT, $intbgrupcogsacct, $comparison);
     }
 
     /**
@@ -516,7 +516,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupcredacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupcredacct($intbgrupcredacct = null, $comparison = null)
     {
@@ -526,7 +526,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCREDACCT, $intbgrupcredacct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCREDACCT, $intbgrupcredacct, $comparison);
     }
 
     /**
@@ -541,7 +541,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupwebgrup The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupwebgrup($intbgrupwebgrup = null, $comparison = null)
     {
@@ -551,7 +551,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPWEBGRUP, $intbgrupwebgrup, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPWEBGRUP, $intbgrupwebgrup, $comparison);
     }
 
     /**
@@ -566,7 +566,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupdropacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupdropacct($intbgrupdropacct = null, $comparison = null)
     {
@@ -576,7 +576,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPDROPACCT, $intbgrupdropacct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPDROPACCT, $intbgrupdropacct, $comparison);
     }
 
     /**
@@ -591,7 +591,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupsaleprog The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupsaleprog($intbgrupsaleprog = null, $comparison = null)
     {
@@ -601,7 +601,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSALEPROG, $intbgrupsaleprog, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSALEPROG, $intbgrupsaleprog, $comparison);
     }
 
     /**
@@ -620,18 +620,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupcostpct($intbgrupcostpct = null, $comparison = null)
     {
         if (is_array($intbgrupcostpct)) {
             $useMinMax = false;
             if (isset($intbgrupcostpct['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgrupcostpct['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -642,7 +642,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOSTPCT, $intbgrupcostpct, $comparison);
     }
 
     /**
@@ -657,7 +657,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupcoop The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupcoop($intbgrupcoop = null, $comparison = null)
     {
@@ -667,7 +667,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPCOOP, $intbgrupcoop, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPCOOP, $intbgrupcoop, $comparison);
     }
 
     /**
@@ -682,7 +682,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupusesurchg The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupusesurchg($intbgrupusesurchg = null, $comparison = null)
     {
@@ -692,7 +692,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPUSESURCHG, $intbgrupusesurchg, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPUSESURCHG, $intbgrupusesurchg, $comparison);
     }
 
     /**
@@ -707,7 +707,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupsurchgdollorpct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupsurchgdollorpct($intbgrupsurchgdollorpct = null, $comparison = null)
     {
@@ -717,7 +717,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, $intbgrupsurchgdollorpct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLORPCT, $intbgrupsurchgdollorpct, $comparison);
     }
 
     /**
@@ -736,18 +736,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupsurchgdollamt($intbgrupsurchgdollamt = null, $comparison = null)
     {
         if (is_array($intbgrupsurchgdollamt)) {
             $useMinMax = false;
             if (isset($intbgrupsurchgdollamt['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgrupsurchgdollamt['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -758,7 +758,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGDOLLAMT, $intbgrupsurchgdollamt, $comparison);
     }
 
     /**
@@ -777,18 +777,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupsurchgpct($intbgrupsurchgpct = null, $comparison = null)
     {
         if (is_array($intbgrupsurchgpct)) {
             $useMinMax = false;
             if (isset($intbgrupsurchgpct['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgrupsurchgpct['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -799,7 +799,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPSURCHGPCT, $intbgrupsurchgpct, $comparison);
     }
 
     /**
@@ -814,7 +814,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupfrtgrup The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupfrtgrup($intbgrupfrtgrup = null, $comparison = null)
     {
@@ -824,7 +824,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPFRTGRUP, $intbgrupfrtgrup, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPFRTGRUP, $intbgrupfrtgrup, $comparison);
     }
 
     /**
@@ -839,7 +839,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupprodline The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupprodline($intbgrupprodline = null, $comparison = null)
     {
@@ -849,7 +849,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPPRODLINE, $intbgrupprodline, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPPRODLINE, $intbgrupprodline, $comparison);
     }
 
     /**
@@ -864,7 +864,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgruplmecommdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgruplmecommdesc($intbgruplmecommdesc = null, $comparison = null)
     {
@@ -874,7 +874,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, $intbgruplmecommdesc, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMECOMMDESC, $intbgruplmecommdesc, $comparison);
     }
 
     /**
@@ -893,18 +893,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgruplmmaxqtylrg($intbgruplmmaxqtylrg = null, $comparison = null)
     {
         if (is_array($intbgruplmmaxqtylrg)) {
             $useMinMax = false;
             if (isset($intbgruplmmaxqtylrg['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgruplmmaxqtylrg['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -915,7 +915,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYLRG, $intbgruplmmaxqtylrg, $comparison);
     }
 
     /**
@@ -934,18 +934,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgruplmmaxqtymed($intbgruplmmaxqtymed = null, $comparison = null)
     {
         if (is_array($intbgruplmmaxqtymed)) {
             $useMinMax = false;
             if (isset($intbgruplmmaxqtymed['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgruplmmaxqtymed['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -956,7 +956,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYMED, $intbgruplmmaxqtymed, $comparison);
     }
 
     /**
@@ -975,18 +975,18 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgruplmmaxqtysml($intbgruplmmaxqtysml = null, $comparison = null)
     {
         if (is_array($intbgruplmmaxqtysml)) {
             $useMinMax = false;
             if (isset($intbgruplmmaxqtysml['min'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($intbgruplmmaxqtysml['max'])) {
-                $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -997,7 +997,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPLMMAXQTYSML, $intbgruplmmaxqtysml, $comparison);
     }
 
     /**
@@ -1012,7 +1012,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupacdisc1 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupacdisc1($intbgrupacdisc1 = null, $comparison = null)
     {
@@ -1022,7 +1022,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPACDISC1, $intbgrupacdisc1, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC1, $intbgrupacdisc1, $comparison);
     }
 
     /**
@@ -1037,7 +1037,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupacdisc2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupacdisc2($intbgrupacdisc2 = null, $comparison = null)
     {
@@ -1047,7 +1047,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPACDISC2, $intbgrupacdisc2, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC2, $intbgrupacdisc2, $comparison);
     }
 
     /**
@@ -1062,7 +1062,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupacdisc3 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupacdisc3($intbgrupacdisc3 = null, $comparison = null)
     {
@@ -1072,7 +1072,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPACDISC3, $intbgrupacdisc3, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC3, $intbgrupacdisc3, $comparison);
     }
 
     /**
@@ -1087,7 +1087,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $intbgrupacdisc4 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByIntbgrupacdisc4($intbgrupacdisc4 = null, $comparison = null)
     {
@@ -1097,7 +1097,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUPACDISC4, $intbgrupacdisc4, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUPACDISC4, $intbgrupacdisc4, $comparison);
     }
 
     /**
@@ -1112,7 +1112,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -1122,7 +1122,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -1137,7 +1137,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -1147,7 +1147,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -1162,7 +1162,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -1172,7 +1172,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemGroupCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(InvGroupCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
@@ -1181,13 +1181,13 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param \ItemMasterItem|ObjectCollection $itemMasterItem the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function filterByItemMasterItem($itemMasterItem, $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUP, $itemMasterItem->getIntbgrup(), $comparison);
+                ->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $itemMasterItem->getIntbgrup(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             return $this
                 ->useItemMasterItemQuery()
@@ -1204,7 +1204,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
     public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
@@ -1251,14 +1251,14 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildItemGroupCode $itemGroupCode Object to remove from the list of results
+     * @param   ChildInvGroupCode $invGroupCode Object to remove from the list of results
      *
-     * @return $this|ChildItemGroupCodeQuery The current query, for fluid interface
+     * @return $this|ChildInvGroupCodeQuery The current query, for fluid interface
      */
-    public function prune($itemGroupCode = null)
+    public function prune($invGroupCode = null)
     {
-        if ($itemGroupCode) {
-            $this->addUsingAlias(ItemGroupCodeTableMap::COL_INTBGRUP, $itemGroupCode->getIntbgrup(), Criteria::NOT_EQUAL);
+        if ($invGroupCode) {
+            $this->addUsingAlias(InvGroupCodeTableMap::COL_INTBGRUP, $invGroupCode->getIntbgrup(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -1273,7 +1273,7 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -1284,8 +1284,8 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            ItemGroupCodeTableMap::clearInstancePool();
-            ItemGroupCodeTableMap::clearRelatedInstancePool();
+            InvGroupCodeTableMap::clearInstancePool();
+            InvGroupCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -1303,26 +1303,26 @@ abstract class ItemGroupCodeQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemGroupCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvGroupCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(ItemGroupCodeTableMap::DATABASE_NAME);
+        $criteria->setDbName(InvGroupCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            ItemGroupCodeTableMap::removeInstanceFromPool($criteria);
+            InvGroupCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            ItemGroupCodeTableMap::clearRelatedInstancePool();
+            InvGroupCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // ItemGroupCodeQuery
+} // InvGroupCodeQuery
