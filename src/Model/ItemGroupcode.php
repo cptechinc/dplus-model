@@ -43,11 +43,11 @@ class ItemGroupCode extends BaseItemGroupCode {
 		'time'		               => 'timeupdtd'
 	);
 
-    /**
-     * Return the Maximum of characters allowed for code
-     * @return int
-     */
-    public function get_max_code_length() {
-        return self::MAX_LENGTH_CODE;
-    }
+	/**
+	 * Return the Maximum of characters allowed for code
+	 * @return int
+	 */
+	public function get_max_code_length() {
+		return self::MAX_LENGTH_CODE;
+	}
 }
