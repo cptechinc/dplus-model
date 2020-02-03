@@ -24,6 +24,8 @@ The Model classes under _Model\_ are children of the same-named classes under _M
 however, the Model Classes have extra functionality for the applications
 The Query Model class may have the QueryTraits which provide functionality to be able to use the Propel Methods of `findByXXX()`, `findOneByXXX()`, `requireOneByXXX()`, `filterByXXX()`, `orderByXXX()`, and `groupByXXX()` methods but with the Alias as the XXX so we don't have to clutter up the Model Query class file with a method for each method for each aliase needed, instead we just Add the **QueryTraits** class which will handle grabbing the correct column to provide the functionality requested. 
 
+**Unfortunately, the `findByXXX()`, `findOneByXXX()`, `requireOneByXXX()`, `filterByXXX()`, `orderByXXX()`, and `groupByXXX()` functions only work with single value arguments, currently arrays or objects are not supported **
+
 The Model Query also lets you execute Custom SQL without hassle
 
 
