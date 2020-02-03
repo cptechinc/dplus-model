@@ -526,7 +526,7 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':IntbUomPur',
   ),
 ), null, null, null, false);
-        $this->addRelation('ItemGroupCode', '\\ItemGroupCode', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('InvGroupCode', '\\InvGroupCode', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':IntbGrup',
