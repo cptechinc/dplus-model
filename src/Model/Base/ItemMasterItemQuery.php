@@ -208,25 +208,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvCommissionCode() Adds a RIGHT JOIN clause and with to the query using the InvCommissionCode relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvCommissionCode() Adds a INNER JOIN clause and with to the query using the InvCommissionCode relation
  *
- * @method     ChildItemMasterItemQuery leftJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery rightJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery innerJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery leftJoinItemPricing($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemPricing relation
+ * @method     ChildItemMasterItemQuery rightJoinItemPricing($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemPricing relation
+ * @method     ChildItemMasterItemQuery innerJoinItemPricing($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemPricing relation
  *
- * @method     ChildItemMasterItemQuery joinWithItemPricingRelatedByInititemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemPricingRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery joinWithItemPricing($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemPricing relation
  *
- * @method     ChildItemMasterItemQuery leftJoinWithItemPricingRelatedByInititemnbr() Adds a LEFT JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery rightJoinWithItemPricingRelatedByInititemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery innerJoinWithItemPricingRelatedByInititemnbr() Adds a INNER JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- *
- * @method     ChildItemMasterItemQuery leftJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery rightJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery innerJoinItemPricingRelatedByInititemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
- *
- * @method     ChildItemMasterItemQuery joinWithItemPricingRelatedByInititemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- *
- * @method     ChildItemMasterItemQuery leftJoinWithItemPricingRelatedByInititemnbr() Adds a LEFT JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery rightJoinWithItemPricingRelatedByInititemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
- * @method     ChildItemMasterItemQuery innerJoinWithItemPricingRelatedByInititemnbr() Adds a INNER JOIN clause and with to the query using the ItemPricingRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery leftJoinWithItemPricing() Adds a LEFT JOIN clause and with to the query using the ItemPricing relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemPricing() Adds a RIGHT JOIN clause and with to the query using the ItemPricing relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemPricing() Adds a INNER JOIN clause and with to the query using the ItemPricing relation
  *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
@@ -2922,7 +2912,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByItemPricingRelatedByInititemnbr($itemPricing, $comparison = null)
+    public function filterByItemPricing($itemPricing, $comparison = null)
     {
         if ($itemPricing instanceof \ItemPricing) {
             return $this
@@ -2935,22 +2925,22 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             return $this
                 ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemPricing->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
-            throw new PropelException('filterByItemPricingRelatedByInititemnbr() only accepts arguments of type \ItemPricing or Collection');
+            throw new PropelException('filterByItemPricing() only accepts arguments of type \ItemPricing or Collection');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
+     * Adds a JOIN clause to the query using the ItemPricing relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinItemPricingRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinItemPricing($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('ItemPricingRelatedByInititemnbr');
+        $relationMap = $tableMap->getRelation('ItemPricing');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -2965,14 +2955,14 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'ItemPricingRelatedByInititemnbr');
+            $this->addJoinObject($join, 'ItemPricing');
         }
 
         return $this;
     }
 
     /**
-     * Use the ItemPricingRelatedByInititemnbr relation ItemPricing object
+     * Use the ItemPricing relation ItemPricing object
      *
      * @see useQuery()
      *
@@ -2982,84 +2972,11 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \ItemPricingQuery A secondary query class using the current class as primary query
      */
-    public function useItemPricingRelatedByInititemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useItemPricingQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinItemPricingRelatedByInititemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemPricingRelatedByInititemnbr', '\ItemPricingQuery');
-    }
-
-    /**
-     * Filter the query by a related \ItemPricing object
-     *
-     * @param \ItemPricing|ObjectCollection $itemPricing the related object to use as filter
-     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return ChildItemMasterItemQuery The current query, for fluid interface
-     */
-    public function filterByItemPricingRelatedByInititemnbr($itemPricing, $comparison = null)
-    {
-        if ($itemPricing instanceof \ItemPricing) {
-            return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemPricing->getInititemnbr(), $comparison);
-        } elseif ($itemPricing instanceof ObjectCollection) {
-            return $this
-                ->useItemPricingRelatedByInititemnbrQuery()
-                ->filterByPrimaryKeys($itemPricing->getPrimaryKeys())
-                ->endUse();
-        } else {
-            throw new PropelException('filterByItemPricingRelatedByInititemnbr() only accepts arguments of type \ItemPricing or Collection');
-        }
-    }
-
-    /**
-     * Adds a JOIN clause to the query using the ItemPricingRelatedByInititemnbr relation
-     *
-     * @param     string $relationAlias optional alias for the relation
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
-     */
-    public function joinItemPricingRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('ItemPricingRelatedByInititemnbr');
-
-        // create a ModelJoin object for this join
-        $join = new ModelJoin();
-        $join->setJoinType($joinType);
-        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
-        if ($previousJoin = $this->getPreviousJoin()) {
-            $join->setPreviousJoin($previousJoin);
-        }
-
-        // add the ModelJoin to the current object
-        if ($relationAlias) {
-            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
-            $this->addJoinObject($join, $relationAlias);
-        } else {
-            $this->addJoinObject($join, 'ItemPricingRelatedByInititemnbr');
-        }
-
-        return $this;
-    }
-
-    /**
-     * Use the ItemPricingRelatedByInititemnbr relation ItemPricing object
-     *
-     * @see useQuery()
-     *
-     * @param     string $relationAlias optional alias for the relation,
-     *                                   to be used as main alias in the secondary query
-     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
-     *
-     * @return \ItemPricingQuery A secondary query class using the current class as primary query
-     */
-    public function useItemPricingRelatedByInititemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
-    {
-        return $this
-            ->joinItemPricingRelatedByInititemnbr($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'ItemPricingRelatedByInititemnbr', '\ItemPricingQuery');
+            ->joinItemPricing($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemPricing', '\ItemPricingQuery');
     }
 
     /**

@@ -547,14 +547,7 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':IntbCommGrup',
   ),
 ), null, null, null, false);
-        $this->addRelation('ItemPricingRelatedByInititemnbr', '\\ItemPricing', RelationMap::MANY_TO_ONE, array (
-  0 =>
-  array (
-    0 => ':InitItemNbr',
-    1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('ItemPricingRelatedByInititemnbr', '\\ItemPricing', RelationMap::ONE_TO_ONE, array (
+        $this->addRelation('ItemPricing', '\\ItemPricing', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':InitItemNbr',

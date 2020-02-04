@@ -556,12 +556,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * @var        ChildItemPricing
      */
-    protected $aItemPricingRelatedByInititemnbr;
-
-    /**
-     * @var        ChildItemPricing one-to-one related ChildItemPricing object
-     */
-    protected $singleItemPricingRelatedByInititemnbr;
+    protected $aItemPricing;
 
     /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
@@ -1490,8 +1485,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->modifiedColumns[ItemMasterItemTableMap::COL_INITITEMNBR] = true;
         }
 
-        if ($this->aItemPricingRelatedByInititemnbr !== null && $this->aItemPricingRelatedByInititemnbr->getInititemnbr() !== $v) {
-            $this->aItemPricingRelatedByInititemnbr = null;
+        if ($this->aItemPricing !== null && $this->aItemPricing->getInititemnbr() !== $v) {
+            $this->aItemPricing = null;
         }
 
         return $this;
@@ -3038,8 +3033,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
-        if ($this->aItemPricingRelatedByInititemnbr !== null && $this->inititemnbr !== $this->aItemPricingRelatedByInititemnbr->getInititemnbr()) {
-            $this->aItemPricingRelatedByInititemnbr = null;
+        if ($this->aItemPricing !== null && $this->inititemnbr !== $this->aItemPricing->getInititemnbr()) {
+            $this->aItemPricing = null;
         }
         if ($this->aInvGroupCode !== null && $this->intbgrup !== $this->aInvGroupCode->getIntbgrup()) {
             $this->aInvGroupCode = null;
@@ -3100,9 +3095,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aInvGroupCode = null;
             $this->aInvPriceCode = null;
             $this->aInvCommissionCode = null;
-            $this->aItemPricingRelatedByInititemnbr = null;
-            $this->singleItemPricingRelatedByInititemnbr = null;
-
+            $this->aItemPricing = null;
             $this->collItemXrefUpcs = null;
 
             $this->collItemXrefVendors = null;
@@ -3250,11 +3243,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->setInvCommissionCode($this->aInvCommissionCode);
             }
 
-            if ($this->aItemPricingRelatedByInititemnbr !== null) {
-                if ($this->aItemPricingRelatedByInititemnbr->isModified() || $this->aItemPricingRelatedByInititemnbr->isNew()) {
-                    $affectedRows += $this->aItemPricingRelatedByInititemnbr->save($con);
+            if ($this->aItemPricing !== null) {
+                if ($this->aItemPricing->isModified() || $this->aItemPricing->isNew()) {
+                    $affectedRows += $this->aItemPricing->save($con);
                 }
-                $this->setItemPricingRelatedByInititemnbr($this->aItemPricingRelatedByInititemnbr);
+                $this->setItemPricing($this->aItemPricing);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -3266,12 +3259,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
-            }
-
-            if ($this->singleItemPricingRelatedByInititemnbr !== null) {
-                if (!$this->singleItemPricingRelatedByInititemnbr->isDeleted() && ($this->singleItemPricingRelatedByInititemnbr->isNew() || $this->singleItemPricingRelatedByInititemnbr->isModified())) {
-                    $affectedRows += $this->singleItemPricingRelatedByInititemnbr->save($con);
-                }
             }
 
             if ($this->itemXrefUpcsScheduledForDeletion !== null) {
@@ -4148,7 +4135,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->aInvCommissionCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
-            if (null !== $this->aItemPricingRelatedByInititemnbr) {
+            if (null !== $this->aItemPricing) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
@@ -4161,22 +4148,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                         $key = 'ItemPricing';
                 }
 
-                $result[$key] = $this->aItemPricingRelatedByInititemnbr->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
-            }
-            if (null !== $this->singleItemPricingRelatedByInititemnbr) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'itemPricing';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'inv_item_price';
-                        break;
-                    default:
-                        $key = 'ItemPricing';
-                }
-
-                $result[$key] = $this->singleItemPricingRelatedByInititemnbr->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+                $result[$key] = $this->aItemPricing->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->collItemXrefUpcs) {
 
@@ -4921,7 +4893,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $primaryKeyFKs = [];
 
         //relation pricing to table inv_item_price
-        if ($this->aItemPricingRelatedByInititemnbr && $hash = spl_object_hash($this->aItemPricingRelatedByInititemnbr)) {
+        if ($this->aItemPricing && $hash = spl_object_hash($this->aItemPricing)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -5047,11 +5019,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             // important: temporarily setNew(false) because this affects the behavior of
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
-
-            $relObj = $this->getItemPricingRelatedByInititemnbr();
-            if ($relObj) {
-                $copyObj->setItemPricingRelatedByInititemnbr($relObj->copy($deepCopy));
-            }
 
             foreach ($this->getItemXrefUpcs() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
@@ -5356,7 +5323,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      * @throws PropelException
      */
-    public function setItemPricingRelatedByInititemnbr(ChildItemPricing $v = null)
+    public function setItemPricing(ChildItemPricing $v = null)
     {
         if ($v === null) {
             $this->setInititemnbr('');
@@ -5364,11 +5331,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->setInititemnbr($v->getInititemnbr());
         }
 
-        $this->aItemPricingRelatedByInititemnbr = $v;
+        $this->aItemPricing = $v;
 
         // Add binding for other direction of this 1:1 relationship.
         if ($v !== null) {
-            $v->setItemMasterItemRelatedByInititemnbr($this);
+            $v->setItemMasterItem($this);
         }
 
 
@@ -5383,15 +5350,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @return ChildItemPricing The associated ChildItemPricing object.
      * @throws PropelException
      */
-    public function getItemPricingRelatedByInititemnbr(ConnectionInterface $con = null)
+    public function getItemPricing(ConnectionInterface $con = null)
     {
-        if ($this->aItemPricingRelatedByInititemnbr === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
-            $this->aItemPricingRelatedByInititemnbr = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
+        if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
-            $this->aItemPricingRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr($this);
+            $this->aItemPricing->setItemMasterItem($this);
         }
 
-        return $this->aItemPricingRelatedByInititemnbr;
+        return $this->aItemPricing;
     }
 
 
@@ -5413,42 +5380,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefVendors();
             return;
         }
-    }
-
-    /**
-     * Gets a single ChildItemPricing object, which is related to this object by a one-to-one relationship.
-     *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildItemPricing
-     * @throws PropelException
-     */
-    public function getItemPricingRelatedByInititemnbr(ConnectionInterface $con = null)
-    {
-
-        if ($this->singleItemPricingRelatedByInititemnbr === null && !$this->isNew()) {
-            $this->singleItemPricingRelatedByInititemnbr = ChildItemPricingQuery::create()->findPk($this->getPrimaryKey(), $con);
-        }
-
-        return $this->singleItemPricingRelatedByInititemnbr;
-    }
-
-    /**
-     * Sets a single ChildItemPricing object as related to this object by a one-to-one relationship.
-     *
-     * @param  ChildItemPricing $v ChildItemPricing
-     * @return $this|\ItemMasterItem The current object (for fluent API support)
-     * @throws PropelException
-     */
-    public function setItemPricingRelatedByInititemnbr(ChildItemPricing $v = null)
-    {
-        $this->singleItemPricingRelatedByInititemnbr = $v;
-
-        // Make sure that that the passed-in ChildItemPricing isn't already associated with this object
-        if ($v !== null && $v->getItemMasterItemRelatedByInititemnbr(null, false) === null) {
-            $v->setItemMasterItemRelatedByInititemnbr($this);
-        }
-
-        return $this;
     }
 
     /**
@@ -5979,8 +5910,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (null !== $this->aInvCommissionCode) {
             $this->aInvCommissionCode->removeItemMasterItem($this);
         }
-        if (null !== $this->aItemPricingRelatedByInititemnbr) {
-            $this->aItemPricingRelatedByInititemnbr->removeItemMasterItemRelatedByInititemnbr($this);
+        if (null !== $this->aItemPricing) {
+            $this->aItemPricing->removeItemMasterItem($this);
         }
         $this->inititemnbr = null;
         $this->initdesc1 = null;
@@ -6065,9 +5996,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
-            if ($this->singleItemPricingRelatedByInititemnbr) {
-                $this->singleItemPricingRelatedByInititemnbr->clearAllReferences($deep);
-            }
             if ($this->collItemXrefUpcs) {
                 foreach ($this->collItemXrefUpcs as $o) {
                     $o->clearAllReferences($deep);
@@ -6080,7 +6008,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
         } // if ($deep)
 
-        $this->singleItemPricingRelatedByInititemnbr = null;
         $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;
@@ -6088,7 +6015,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->aInvGroupCode = null;
         $this->aInvPriceCode = null;
         $this->aInvCommissionCode = null;
-        $this->aItemPricingRelatedByInititemnbr = null;
+        $this->aItemPricing = null;
     }
 
     /**

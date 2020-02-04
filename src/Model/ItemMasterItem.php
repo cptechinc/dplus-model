@@ -120,15 +120,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
-	 * Return ItemPricing
-	 *
-	 * @return ItemPricing
-	 */
-	public function getItemPricing() {
-		return $this->getItemPricingRelatedByInititemnbr();
-	}
-
-	/**
 	 * ===================================================================
 	 *
 	 * STATIC LOOKUP FUNCTIONS

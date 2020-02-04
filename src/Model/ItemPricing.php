@@ -93,13 +93,4 @@ class ItemPricing extends BaseItemPricing {
 			return $this->$col_price;
 		}
 	}
-
-	/**
-	 * Return ItemMasterItem
-	 *
-	 * @return ItemMasterItem
-	 */
-	public function getItemMasterItem() {
-		$this->getItemMasterItemRelatedByInititemnbr();
-	}
 }
