@@ -29,6 +29,7 @@ class ItemPricing extends BaseItemPricing {
 		'qty'         => 'inprpricunit',
 		'price'       => 'inprpricpric',
 		'updated'     => 'inprpriclastdate',
+		'item'        => 'itemMasterItem'
 	);
 
 	const QTY_BREAKS = 10;
@@ -91,5 +92,14 @@ class ItemPricing extends BaseItemPricing {
 			$col_price = $colbase_price.$break;
 			return $this->$col_price;
 		}
+	}
+
+	/**
+	 * Return ItemMasterItem
+	 *
+	 * @return ItemMasterItem
+	 */
+	public function getItemMasterItem() {
+		$this->getItemMasterItemRelatedByInititemnbr();
 	}
 }

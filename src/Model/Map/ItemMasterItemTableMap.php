@@ -441,7 +441,7 @@ class ItemMasterItemTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_price', 'InitItemNbr', true, 30, '');
         $this->addColumn('InitDesc1', 'Initdesc1', 'VARCHAR', false, 35, null);
         $this->addColumn('InitDesc2', 'Initdesc2', 'VARCHAR', false, 35, null);
         $this->addForeignKey('IntbGrup', 'Intbgrup', 'VARCHAR', 'inv_grup_code', 'IntbGrup', false, 4, null);
@@ -545,6 +545,20 @@ class ItemMasterItemTableMap extends TableMap
   array (
     0 => ':IntbCommGrup',
     1 => ':IntbCommGrup',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemPricingRelatedByInititemnbr', '\\ItemPricing', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemPricingRelatedByInititemnbr', '\\ItemPricing', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
         $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY, array (

@@ -251,7 +251,7 @@ class ItemPricingTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('InprPricBase', 'Inprpricbase', 'DECIMAL', false, 20, null);
         $this->addColumn('InprPricUnit1', 'Inprpricunit1', 'INTEGER', false, 8, null);
         $this->addColumn('InprPricPric1', 'Inprpricpric1', 'DECIMAL', false, 20, null);
@@ -284,6 +284,20 @@ class ItemPricingTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItemRelatedByInititemnbr', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItemRelatedByInititemnbr', '\\ItemMasterItem', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

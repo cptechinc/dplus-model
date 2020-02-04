@@ -1480,6 +1480,43 @@
     <foreign-key foreignTable="inv_comm_code" name="commissioncode">
       <reference local="IntbCommGrup" foreign="IntbCommGrup"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_item_price" name="pricing">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_item_price" idMethod="native" phpName="ItemPricing">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InprPricBase" phpName="Inprpricbase" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit1" phpName="Inprpricunit1" type="INTEGER" size="8"/>
+    <column name="InprPricPric1" phpName="Inprpricpric1" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit2" phpName="Inprpricunit2" type="INTEGER" size="8"/>
+    <column name="InprPricPric2" phpName="Inprpricpric2" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit3" phpName="Inprpricunit3" type="INTEGER" size="8"/>
+    <column name="InprPricPric3" phpName="Inprpricpric3" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit4" phpName="Inprpricunit4" type="INTEGER" size="8"/>
+    <column name="InprPricPric4" phpName="Inprpricpric4" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit5" phpName="Inprpricunit5" type="INTEGER" size="8"/>
+    <column name="InprPricPric5" phpName="Inprpricpric5" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit6" phpName="Inprpricunit6" type="INTEGER" size="8"/>
+    <column name="InprPricPric6" phpName="Inprpricpric6" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit7" phpName="Inprpricunit7" type="INTEGER" size="8"/>
+    <column name="InprPricPric7" phpName="Inprpricpric7" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit8" phpName="Inprpricunit8" type="INTEGER" size="8"/>
+    <column name="InprPricPric8" phpName="Inprpricpric8" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit9" phpName="Inprpricunit9" type="INTEGER" size="8"/>
+    <column name="InprPricPric9" phpName="Inprpricpric9" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricUnit10" phpName="Inprpricunit10" type="INTEGER" size="8"/>
+    <column name="InprPricPric10" phpName="Inprpricpric10" type="DECIMAL" size="20" scale="7"/>
+    <column name="InprPricLastDate" phpName="Inprpriclastdate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

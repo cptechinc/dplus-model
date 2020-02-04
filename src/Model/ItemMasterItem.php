@@ -50,6 +50,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'vendor_primary'  => 'initvendid',
 		'uom_purchase'    => 'intbuompur',
 		'uom_sale'        => 'intbuomsale',
+		'pricing'         => 'itemPricing',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -116,6 +117,15 @@ class ItemMasterItem extends BaseItemMasterItem {
 	public function get_kititems() {
 		$query = KitItemsQuery::create();
 		return $query->findByKititemid($this->inititemnbr);
+	}
+
+	/**
+	 * Return ItemPricing
+	 *
+	 * @return ItemPricing
+	 */
+	public function getItemPricing() {
+		return $this->getItemPricingRelatedByInititemnbr();
 	}
 
 	/**

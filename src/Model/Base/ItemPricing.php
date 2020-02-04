@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemPricingQuery as ChildItemPricingQuery;
 use \Exception;
 use \PDO;
@@ -241,6 +243,16 @@ abstract class ItemPricing implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItemRelatedByInititemnbr;
+
+    /**
+     * @var        ChildItemMasterItem one-to-one related ChildItemMasterItem object
+     */
+    protected $singleItemMasterItemRelatedByInititemnbr;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -763,6 +775,10 @@ abstract class ItemPricing implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[ItemPricingTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItemRelatedByInititemnbr !== null && $this->aItemMasterItemRelatedByInititemnbr->getInititemnbr() !== $v) {
+            $this->aItemMasterItemRelatedByInititemnbr = null;
         }
 
         return $this;
@@ -1415,6 +1431,9 @@ abstract class ItemPricing implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aItemMasterItemRelatedByInititemnbr !== null && $this->inititemnbr !== $this->aItemMasterItemRelatedByInititemnbr->getInititemnbr()) {
+            $this->aItemMasterItemRelatedByInititemnbr = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1453,6 +1472,9 @@ abstract class ItemPricing implements ActiveRecordInterface
         $this->hydrate($row, 0, true, $dataFetcher->getIndexType()); // rehydrate
 
         if ($deep) {  // also de-associate any related objects?
+
+            $this->aItemMasterItemRelatedByInititemnbr = null;
+            $this->singleItemMasterItemRelatedByInititemnbr = null;
 
         } // if (deep)
     }
@@ -1557,6 +1579,18 @@ abstract class ItemPricing implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aItemMasterItemRelatedByInititemnbr !== null) {
+                if ($this->aItemMasterItemRelatedByInititemnbr->isModified() || $this->aItemMasterItemRelatedByInititemnbr->isNew()) {
+                    $affectedRows += $this->aItemMasterItemRelatedByInititemnbr->save($con);
+                }
+                $this->setItemMasterItemRelatedByInititemnbr($this->aItemMasterItemRelatedByInititemnbr);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -1566,6 +1600,12 @@ abstract class ItemPricing implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->singleItemMasterItemRelatedByInititemnbr !== null) {
+                if (!$this->singleItemMasterItemRelatedByInititemnbr->isDeleted() && ($this->singleItemMasterItemRelatedByInititemnbr->isNew() || $this->singleItemMasterItemRelatedByInititemnbr->isModified())) {
+                    $affectedRows += $this->singleItemMasterItemRelatedByInititemnbr->save($con);
+                }
             }
 
             $this->alreadyInSave = false;
@@ -1907,10 +1947,11 @@ abstract class ItemPricing implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['ItemPricing'][$this->hashCode()])) {
@@ -1951,6 +1992,38 @@ abstract class ItemPricing implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aItemMasterItemRelatedByInititemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItemRelatedByInititemnbr->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->singleItemMasterItemRelatedByInititemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->singleItemMasterItemRelatedByInititemnbr->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -2317,8 +2390,15 @@ abstract class ItemPricing implements ActiveRecordInterface
     {
         $validPk = null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItemRelatedByInititemnbr && $hash = spl_object_hash($this->aItemMasterItemRelatedByInititemnbr)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -2397,6 +2477,19 @@ abstract class ItemPricing implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            $relObj = $this->getItemMasterItemRelatedByInititemnbr();
+            if ($relObj) {
+                $copyObj->setItemMasterItemRelatedByInititemnbr($relObj->copy($deepCopy));
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -2425,12 +2518,109 @@ abstract class ItemPricing implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\ItemPricing The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItemRelatedByInititemnbr(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItemRelatedByInititemnbr = $v;
+
+        // Add binding for other direction of this 1:1 relationship.
+        if ($v !== null) {
+            $v->setItemPricingRelatedByInititemnbr($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItemRelatedByInititemnbr(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItemRelatedByInititemnbr === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItemRelatedByInititemnbr = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
+            $this->aItemMasterItemRelatedByInititemnbr->setItemPricingRelatedByInititemnbr($this);
+        }
+
+        return $this->aItemMasterItemRelatedByInititemnbr;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+    }
+
+    /**
+     * Gets a single ChildItemMasterItem object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildItemMasterItem
+     * @throws PropelException
+     */
+    public function getItemMasterItemRelatedByInititemnbr(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleItemMasterItemRelatedByInititemnbr === null && !$this->isNew()) {
+            $this->singleItemMasterItemRelatedByInititemnbr = ChildItemMasterItemQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleItemMasterItemRelatedByInititemnbr;
+    }
+
+    /**
+     * Sets a single ChildItemMasterItem object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildItemMasterItem $v ChildItemMasterItem
+     * @return $this|\ItemPricing The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItemRelatedByInititemnbr(ChildItemMasterItem $v = null)
+    {
+        $this->singleItemMasterItemRelatedByInititemnbr = $v;
+
+        // Make sure that that the passed-in ChildItemMasterItem isn't already associated with this object
+        if ($v !== null && $v->getItemPricingRelatedByInititemnbr(null, false) === null) {
+            $v->setItemPricingRelatedByInititemnbr($this);
+        }
+
+        return $this;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aItemMasterItemRelatedByInititemnbr) {
+            $this->aItemMasterItemRelatedByInititemnbr->removeItemPricingRelatedByInititemnbr($this);
+        }
         $this->inititemnbr = null;
         $this->inprpricbase = null;
         $this->inprpricunit1 = null;
@@ -2476,8 +2666,13 @@ abstract class ItemPricing implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->singleItemMasterItemRelatedByInititemnbr) {
+                $this->singleItemMasterItemRelatedByInititemnbr->clearAllReferences($deep);
+            }
         } // if ($deep)
 
+        $this->singleItemMasterItemRelatedByInititemnbr = null;
+        $this->aItemMasterItemRelatedByInititemnbr = null;
     }
 
     /**
