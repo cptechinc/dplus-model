@@ -54,4 +54,42 @@ class ItemPricing extends BaseItemPricing {
 		}
 		return $pricebreaks;
 	}
+
+	/**
+	 * Return the Number of Qty Breaks
+	 * @return int
+	 */
+	public function count_qtybreaks() {
+		return self::QTY_BREAKS;
+	}
+
+	/**
+	 * Return Quantity at break
+	 * @param  int    $break Break
+	 * @return float
+	 */
+	public function get_pricebreak_qty(int $break) {
+		if ($break > self::QTY_BREAKS) {
+			return 0;
+		} else{
+			$colbase_qty = 'inprpricunit';
+			$col_qty = $colbase_qty.$break;
+			return $this->$col_qty;
+		}
+	}
+
+	/**
+	 * Return Price at break
+	 * @param  int    $break Break
+	 * @return float
+	 */
+	public function get_pricebreak_price(int $break) {
+		if ($break > self::QTY_BREAKS) {
+			return 0;
+		} else {
+			$colbase_price = 'inprpricpric';
+			$col_price = $colbase_price.$break;
+			return $this->$col_price;
+		}
+	}
 }

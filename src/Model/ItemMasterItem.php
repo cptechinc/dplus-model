@@ -49,7 +49,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'assortmentcode'  => 'initasstcode',
 		'vendor_primary'  => 'initvendid',
 		'uom_purchase'    => 'intbuompur',
-		'uom_SALE'        => 'intbuomsale',
+		'uom_sale'        => 'intbuomsale',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -86,6 +86,16 @@ class ItemMasterItem extends BaseItemMasterItem {
 	public function get_itemtypedescription() {
 		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
 	}
+
+	/**
+	 * self::ITEMTYPE_DESCRIPTIONS
+	 *
+	 * @return array
+	 */
+	public function get_itemtypedescriptions() {
+		return self::ITEMTYPE_DESCRIPTIONS;
+	}
+
 
 	/**
 	 * Returns if this item is a Kit
