@@ -6,14 +6,9 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_item_mast' table.
+ * Class for representing a row from the 'inv_item_mast' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * NOTE: Foreign Key Relationship to UnitofMeasureSale, UnitofMeasurePurchase, ItemPricing
  */
 class ItemMasterItem extends BaseItemMasterItem {
 	use ThrowErrorTrait;
@@ -50,7 +45,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'vendor_primary'  => 'initvendid',
 		'uom_purchase'    => 'intbuompur',
 		'uom_sale'        => 'intbuomsale',
+		'standardcost'    => 'initstancost',
 		'pricing'         => 'itemPricing',
+		'unitofmsale'     => 'unitofMeasureSale',
+		'unitofmpurchase' => 'unitofMeasurePurchase'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
