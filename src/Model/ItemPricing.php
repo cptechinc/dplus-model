@@ -6,14 +6,9 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_item_price' table.
+ * Class for representing a row from the 'inv_item_price' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * NOTE: Foreign Key Relationship to itemMasterItem
  */
 class ItemPricing extends BaseItemPricing {
 	use ThrowErrorTrait;
@@ -73,6 +68,9 @@ class ItemPricing extends BaseItemPricing {
 		if ($break > self::QTY_BREAKS) {
 			return 0;
 		} else{
+			if ($break == 0) {
+				return '';
+			}
 			$colbase_qty = 'inprpricunit';
 			$col_qty = $colbase_qty.$break;
 			return $this->$col_qty;
@@ -88,9 +86,35 @@ class ItemPricing extends BaseItemPricing {
 		if ($break > self::QTY_BREAKS) {
 			return 0;
 		} else {
+			if ($break == 0) {
+				return $this->baseprice;
+			}
 			$colbase_price = 'inprpricpric';
 			$col_price = $colbase_price.$break;
 			return $this->$col_price;
 		}
+	}
+
+	/**
+	 * Return Price at break
+	 * @param  int    $break Break
+	 * @return float
+	 */
+	public function get_pricebreak_margin(int $break) {
+		$item = $this->item;
+		$eachprice = $this->get_eachprice($break);
+
+		if ($eachprice > 0) {
+			$markup = $eachprice - $item->standardcost;
+			return $markup / $eachprice * 100;
+		} else {
+			return 0;
+		}
+	}
+
+	public function get_eachprice(int $break) {
+		$price = $this->get_pricebreak_price($break);
+		$item = $this->item;
+		return $price / $item->unitofmsale->conversion;
 	}
 }
