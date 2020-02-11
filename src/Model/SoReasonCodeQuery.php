@@ -2,6 +2,8 @@
 
 use Base\SoReasonCodeQuery as BaseSoReasonCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'so_reas_code' table.
  *
