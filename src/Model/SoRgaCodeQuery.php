@@ -2,6 +2,8 @@
 
 use Base\SoRgaCodeQuery as BaseSoRgaCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'so_rgas_code' table.
  *
