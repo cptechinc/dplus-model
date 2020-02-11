@@ -6,9 +6,14 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Class for representing a row from the 'inv_item_price' table.
+ * Skeleton subclass for representing a row from the 'inv_item_price' table.
  *
- * NOTE: Foreign Key Relationship to itemMasterItem
+ *
+ *
+ * You should add additional methods to this class to meet the
+ * application requirements.  This class will only be generated as
+ * long as it does not already exist in the output directory.
+ *
  */
 class ItemPricing extends BaseItemPricing {
 	use ThrowErrorTrait;
@@ -112,6 +117,12 @@ class ItemPricing extends BaseItemPricing {
 		}
 	}
 
+	/**
+	 * Returns the Each Price at Qty Break
+	 *
+	 * @param  int $break Qty Break
+	 * @return float
+	 */
 	public function get_eachprice(int $break) {
 		$price = $this->get_pricebreak_price($break);
 		$item = $this->item;
