@@ -6,14 +6,9 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_item_price' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'inv_item_price' table.
+ * 
+ * NOTE: Foreign Key Relationship to ItemMasterItem
  */
 class ItemPricing extends BaseItemPricing {
 	use ThrowErrorTrait;
@@ -76,9 +71,24 @@ class ItemPricing extends BaseItemPricing {
 			if ($break == 0) {
 				return '';
 			}
-			$colbase_qty = 'inprpricunit';
-			$col_qty = $colbase_qty.$break;
-			return $this->$col_qty;
+			$col = self::get_pricebreak_qty_column($break);
+			return $this->$col;
+		}
+	}
+
+	/**
+	 * Return Unit Column at Qty Break
+	 *
+	 * @param  int $break
+	 * @return string
+	 */
+	public static function get_pricebreak_qty_column(int $break) {
+		$col_base = 'inprpricunit';
+
+		if ($break <= self::QTY_BREAKS) {
+			return $col_base . $break;
+		} else {
+			return '';
 		}
 	}
 
@@ -94,9 +104,24 @@ class ItemPricing extends BaseItemPricing {
 			if ($break == 0) {
 				return $this->baseprice;
 			}
-			$colbase_price = 'inprpricpric';
-			$col_price = $colbase_price.$break;
-			return $this->$col_price;
+			$col = self::get_pricebreak_price_column($break);
+			return $this->$col;
+		}
+	}
+
+	/**
+	 * Return Price Column at Qty Break
+	 *
+	 * @param  int $break
+	 * @return string
+	 */
+	public static function get_pricebreak_price_column(int $break) {
+		$col_base = 'inprpricpric';
+
+		if ($break <= self::QTY_BREAKS) {
+			return $col_base . $break;
+		} else {
+			return '';
 		}
 	}
 
