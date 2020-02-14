@@ -1081,6 +1081,37 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="cust_item_xref" idMethod="native" phpName="CustItemXref">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OexrCustItemNbr" phpName="Oexrcustitemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="OexrRetPrice" phpName="Oexrretprice" type="DECIMAL" size="20" scale="2"/>
+    <column name="OexrCustPrice" phpName="Oexrcustprice" type="DECIMAL" size="20" scale="2"/>
+    <column name="OexrQtyPerCase" phpName="Oexrqtypercase" type="INTEGER" size="4"/>
+    <column name="OexrInnerPackQty" phpName="Oexrinnerpackqty" type="INTEGER" size="4"/>
+    <column name="OexrOuterPackQty" phpName="Oexrouterpackqty" type="INTEGER" size="4"/>
+    <column name="OexrRounding" phpName="Oexrrounding" type="VARCHAR" size="1"/>
+    <column name="OexrShipTareQty" phpName="Oexrshiptareqty" type="INTEGER" size="4"/>
+    <column name="OexrCustItemDesc" phpName="Oexrcustitemdesc" type="VARCHAR" size="35"/>
+    <column name="OexrConvert" phpName="Oexrconvert" type="DECIMAL" size="20" scale="5"/>
+    <column name="OexrCustItemDesc2" phpName="Oexrcustitemdesc2" type="VARCHAR" size="30"/>
+    <column name="OexrRevision" phpName="Oexrrevision" type="VARCHAR" size="10"/>
+    <column name="OexrPurchQty" phpName="Oexrpurchqty" type="INTEGER" size="6"/>
+    <column name="OexrCustPricUom" phpName="Oexrcustpricuom" type="VARCHAR" size="4"/>
+    <column name="OexrLabel1PrtFmt" phpName="Oexrlabel1prtfmt" type="VARCHAR" size="8"/>
+    <column name="OexrLabel2PrtFmt" phpName="Oexrlabel2prtfmt" type="VARCHAR" size="8"/>
+    <column name="OexrWght" phpName="Oexrwght" type="DECIMAL" size="20" scale="5"/>
+    <column name="OexrCustUom" phpName="Oexrcustuom" type="VARCHAR" size="4"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="doc_control" idMethod="native" phpName="DocumentFolders">
     <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="DoccFolderDesc" phpName="Doccfolderdesc" type="VARCHAR" size="40"/>
