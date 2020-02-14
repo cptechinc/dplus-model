@@ -1081,7 +1081,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="cust_item_xref" idMethod="native" phpName="CustItemXref">
+  <table name="cust_item_xref" idMethod="native" phpName="ItemXrefCustomer">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="OexrCustItemNbr" phpName="Oexrcustitemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
