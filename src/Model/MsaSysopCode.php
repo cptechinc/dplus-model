@@ -12,7 +12,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const MAX_LENGTH_CODE = 2;
+	const MAX_LENGTH_CODE = 8;
 
 	/**
 	 * Column Aliases to lookup / get properties
