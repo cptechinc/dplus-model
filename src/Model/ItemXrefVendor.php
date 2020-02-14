@@ -81,11 +81,30 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		return self::OPTIONS_POORDERCODE;
 	}
 
+	/**
+	 * Returns the Code used for Primary VXM Item
+	 *
+	 * @return string
+	 */
 	public function getOptionpoordercodePrimary() {
 		return self::POORDERCODE_PRIMARY;
 	}
 
+	/**
+	 * Returns if item is the Primary Item
+	 *
+	 * @return bool
+	 */
 	public function is_po_ordercode_primary() {
+		return $this->po_ordercode == self::POORDERCODE_PRIMARY;
+	}
+
+	/**
+	 * Returns if item is the Primary Item
+	 *
+	 * @return bool
+	 */
+	public function is_primary_vxmitem() {
 		return $this->po_ordercode == self::POORDERCODE_PRIMARY;
 	}
 

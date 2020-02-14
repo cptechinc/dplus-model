@@ -6,13 +6,10 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_item_mast' table.
+ * Class for representing a row from the 'inv_item_mast' table.
  *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * NOTE: Foreign Key Relationship to UnitofMeasurePurchase, UnitofMeasureSale
+ * InvGroupCode, InvCommissionCode, ItemPricing
  *
  */
 class ItemMasterItem extends BaseItemMasterItem {
@@ -47,13 +44,19 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'qtypercase'  => 'initqtypercase',
 		'specialitemcode' => 'initspecitemcd',
 		'assortmentcode'  => 'initasstcode',
+		'assortmentqty'   => 'initasstqty',
 		'vendor_primary'  => 'initvendid',
 		'uom_purchase'    => 'intbuompur',
 		'uom_sale'        => 'intbuomsale',
 		'standardcost'    => 'initstancost',
 		'pricing'         => 'itemPricing',
 		'unitofmsale'     => 'unitofMeasureSale',
-		'unitofmpurchase' => 'unitofMeasurePurchase'
+		'unitofmpurchase' => 'unitofMeasurePurchase',
+		'lastcost'        => 'initlastcost',
+		'date_lastcost'   => 'initlastcostdate',
+		'primaryvxm'      => 'primaryItemXrefVendor',
+		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
+		'allowdiscount'   => 'initgivedisc'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -100,7 +103,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return self::ITEMTYPE_DESCRIPTIONS;
 	}
 
-
 	/**
 	 * Returns if this item is a Kit
 	 *
@@ -120,6 +122,37 @@ class ItemMasterItem extends BaseItemMasterItem {
 	public function get_kititems() {
 		$query = KitItemsQuery::create();
 		return $query->findByKititemid($this->inititemnbr);
+	}
+
+	
+	/**
+	 * Returns the Standard Cost For the Unit of Measurement Sale
+	 *
+	 * @return float
+	 */
+	public function get_standardcost_uom_sale() {
+		return $this->standardcost > 0 ? $this->standardcost * $this->unitofmsale->conversion : $this->standardcost;
+	}
+
+	/**
+	 * Returns the Last Cost For the Unit of Measurement Sale
+	 *
+	 * @return float
+	 */
+	public function get_lastcost_uom_sale() {
+		return $this->lastcost > 0 ? $this->lastcost * $this->unitofmsale->conversion : $this->lastcost;
+	}
+
+	/**
+	 * Returns the Primary ItemXrefVendor for this item
+	 *
+	 * @return ItemXrefVendor
+	 */
+	public function getPrimaryItemXrefVendor() {
+		$q = ItemXrefVendorQuery::create();
+		$q->filterByPo_ordercode(ItemXrefVendor::POORDERCODE_PRIMARY);
+		$q->filterByOuritemid($this->itemid);
+		return $q->findOne();
 	}
 
 	/**
