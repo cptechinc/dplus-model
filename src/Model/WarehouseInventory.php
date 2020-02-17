@@ -6,18 +6,14 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'inv_whse_mast' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * Class for representing a row from the 'inv_whse_mast' table.
  */
 class WarehouseInventory extends BaseWarehouseInventory {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const STATUS_ACTIVE   = 'A';
+	const STATUS_INACTIVE = 'I';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -29,6 +25,16 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'whseID'       => 'intbwhse',
 		'warehouseID'  => 'intbwhse',
 		'warehouseid'  => 'intbwhse',
-		'bin_default'  => 'inwhbin'
+		'bin_default'  => 'inwhbin',
+		'status'       => 'inwhstat'
 	);
+
+	/**
+	 * Returns if Warehouse Item is active
+	 *
+	 * @return bool
+	 */
+	public function is_active() {
+		return $this->status == self::STATUS_ACTIVE;
+	}
 }
