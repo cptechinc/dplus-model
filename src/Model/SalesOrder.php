@@ -43,13 +43,13 @@ class SalesOrder extends BaseSalesOrder {
 		'custid'       => 'arcucustid',
 		'shiptoid'     => 'arstshipid',
 		'custpo'       => 'oehdcustpo',
-		'total_total'  => 'oehdoordrtot',
+		'total_total'  => 'oehdordrtot',
 		'date_ordered' => 'oehdordrdate',
-		'date_requested' => 'oehrqstdate',
-		'date_canceled' => 'oehdcancdate',
-		'date_taken' => 'oehdtakendate',
-		'releasenumber' => 'oehdreleasenbr',
-		'status'       => 'oehdstat',
+		'date_requested'  => 'oehrqstdate',
+		'date_canceled'   => 'oehdcancdate',
+		'date_taken'      => 'oehdtakendate',
+		'releasenumber'   => 'oehdreleasenbr',
+		'status'          => 'oehdstat',
 		'orderstatus'     => 'oehdstat',
 		'subtotal_nontax' => 'OehdNonTaxSub',
 		'total_freight'   => 'OehdFrtTot',
@@ -82,7 +82,8 @@ class SalesOrder extends BaseSalesOrder {
 		'salesperson_1'   => 'arspsaleper1',
 		'salesperson_2'   => 'arspsaleper2',
 		'salesperson_3'   => 'arspsaleper3',
-		'shipcomplete'    => 'oehdshipcomp'
+		'shipcomplete'    => 'oehdshipcomp',
+		'original_total_total'  => 'oehdoordrtot'
 	);
 
 	const LENGTH = 10;
