@@ -137,10 +137,10 @@ class Vendor extends BaseVendor {
 		$ponbrs = $this->get_ponumbers();
 		$q = PurchaseOrderDetailQuery::create();
 		$sql = "SELECT (PodtQtyOrd - ifnull(PordQtyRec, 0)) * PodtCost as amt
-				FROM data3.po_detail
-				LEFT JOIN data3.po_receipt_det
-				ON data3.po_receipt_det.PohdNbr = data3.po_detail.PohdNbr AND data3.po_receipt_det.PodtLine = data3.po_detail.PodtLine
-				WHERE data3.po_detail.PohdNbr IN (:ponbrs)
+				FROM po_detail
+				LEFT JOIN po_receipt_det
+				ON po_receipt_det.PohdNbr = po_detail.PohdNbr AND po_receipt_det.PodtLine = po_detail.PodtLine
+				WHERE po_detail.PohdNbr IN (:ponbrs)
 				AND PodtStat != 'C' AND PodtRel != 'N'";
 		$params = array(':ponbrs' => implode(',', $ponbrs));
 		$results = $q->execute_query($sql, $params);
