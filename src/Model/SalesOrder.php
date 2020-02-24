@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'so_header' table.
  *
- * NOTE: Foreign Key Relationship to Customer, CustomerShipto
+ * NOTE: Foreign Key Relationship to Customer, CustomerShipto, SalesOrderDetail
  */
 class SalesOrder extends BaseSalesOrder {
 	use ThrowErrorTrait;
@@ -83,7 +83,8 @@ class SalesOrder extends BaseSalesOrder {
 		'salesperson_2'   => 'arspsaleper2',
 		'salesperson_3'   => 'arspsaleper3',
 		'shipcomplete'    => 'oehdshipcomp',
-		'original_total_total'  => 'oehdoordrtot'
+		'original_total_total'  => 'oehdoordrtot',
+		'items'           => 'SalesOrderDetails', // NOTE: Used for getting Detaisl via __call()
 	);
 
 	const LENGTH = 10;
@@ -166,23 +167,5 @@ class SalesOrder extends BaseSalesOrder {
 	 */
 	public function count_items() {
 		return SalesOrderDetailQuery::create()->filterByOrdernumber($this->oehdnbr)->count();
-	}
-
-	/**
-	 * Returns Notes for the SalesOrderDetail
-	 *
-	 * @return SalesOrderNotes[]|ObjectCollection [description]
-	 */
-	public function get_notes() {
-		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine(0)->find();
-	}
-
-	/**
-	 * Returns the number of Notes for the SalesOrderDetail
-	 *
-	 * @return int
-	 */
-	public function count_notes() {
-		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine(0)->count();
 	}
 }

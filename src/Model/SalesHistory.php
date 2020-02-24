@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'so_head_hist' table.
  *
- * NOTE: Foreign Key Relationship to Customer, CustomerShipto
+ * NOTE: Foreign Key Relationship to Customer, CustomerShipto, SalesOrderDetail
  */
 class SalesHistory extends BaseSalesHistory {
 	use ThrowErrorTrait;
@@ -58,6 +58,8 @@ class SalesHistory extends BaseSalesHistory {
 		'salesperson_3'   => 'arspsaleper3',
 		'shipcomplete'    => 'oehhshipcomp',
 		'releasenumber'   => 'oehhreleasenbr',
+		'year'            => 'oehhyear',
+		'items'           => 'SalesHistoryDetails', // NOTE: Used for getting Detaisl via __call()
 	);
 
 	const STATUS_DESCRIPTIONS = array(
@@ -77,29 +79,20 @@ class SalesHistory extends BaseSalesHistory {
 	}
 
 	/**
+	 * Returns if Order is Editable
+	 *
+	 * @return bool
+	 */
+	public function is_editable() {
+		return false;
+	}
+
+	/**
 	 * Returns the Number of Details Lines this Sales Order has
 	 *
 	 * @return bool
 	 */
 	public function count_items() {
 		return SalesHistoryDetailQuery::create()->filterByOrdernumber($this->oehhnbr)->count();
-	}
-
-	/**
-	 * Returns Notes for the Sales Order
-	 *
-	 * @return SalesOrderNotes[]|ObjectCollection [description]
-	 */
-	public function get_notes() {
-		return SalesHistoryNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine(0)->find();
-	}
-
-	/**
-	 * Returns the number of Notes for the Sales Order
-	 *
-	 * @return int
-	 */
-	public function count_notes() {
-		return SalesHistoryNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine(0)->count();
 	}
 }
