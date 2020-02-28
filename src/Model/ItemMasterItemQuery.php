@@ -29,7 +29,6 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 		return $this->findOneByInititemnbr($itemID);
 	}
 
-
 	/**
 	 * Filter the query on the InitItemNbr column
 	 *

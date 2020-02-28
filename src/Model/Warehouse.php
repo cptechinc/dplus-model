@@ -21,8 +21,8 @@ class Warehouse extends BaseWarehouse {
 	 * Options for Bin Arragement
 	 */
 	const OPTIONS_ARRANGED = array(
-		'L' => 'list', // LIST
-		'R' => 'range' // RANGE
+		'L' => 'List', // LIST
+		'R' => 'Range' // RANGE
 	);
 
 	/**
@@ -60,6 +60,7 @@ class Warehouse extends BaseWarehouse {
 		'pickdetail'    => 'intbwhsepickdtl',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
+		'cashCustomer'  => 'cashCustomer',
 	);
 
 	/**
@@ -137,5 +138,13 @@ class Warehouse extends BaseWarehouse {
 	 */
 	public function get_arrangement_options() {
 		return self::OPTIONS_ARRANGED;
+	}
+
+	/**
+	 * Return Customer for Cash Customer
+	 * @return Customer
+	 */
+	public function getCashCustomer() {
+		return CustomerQuery::create()->findOneByCustid($this->cash_customer);
 	}
 }

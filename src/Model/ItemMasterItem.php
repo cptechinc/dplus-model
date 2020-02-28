@@ -32,6 +32,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'desc'        => 'initdesc1',
 		'description' => 'initdesc1',
 		'desc2'       => 'initdesc2',
+		'description2'       => 'initdesc2',
 		'itemgroup'   => 'intbgrup',
 		'pricegroup'  => 'intbpricgrup',
 		'pricecode'   => 'intbpricgrup',
@@ -56,7 +57,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'date_lastcost'   => 'initlastcostdate',
 		'primaryvxm'      => 'primaryItemXrefVendor',
 		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
-		'allowdiscount'   => 'initgivedisc'
+		'allowdiscount'   => 'initgivedisc',
+		'revision'        => 'initrevision'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -124,7 +126,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $query->findByKititemid($this->inititemnbr);
 	}
 
-	
+
 	/**
 	 * Returns the Standard Cost For the Unit of Measurement Sale
 	 *

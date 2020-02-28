@@ -6,7 +6,7 @@ use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'cust_item_xref' table.
- * 
+ *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
  * EXAMPLE: findOneByCode()
@@ -14,7 +14,7 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * 
+ *
  * FindOneByXXX()
  *
  * FindByXXX()
@@ -22,4 +22,14 @@ use Dplus\Model\QueryTraits;
  */
 class ItemXrefCustomerQuery extends BaseItemXrefCustomerQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the ArcuCustId column
+	 *
+	 * @param     string $custID The value to use as filter.
+	 * @return $this|ItemXrefCustomerQuery The current query, for fluid interface
+	 */
+	public function filterByCustid($custID) {
+		return $this->filterByArcucustid($custID);
+	}
 }

@@ -6,15 +6,15 @@ use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'ar_cust_mast' table.
- * 
+ *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
  * EXAMPLE: findOneByCustid()
- * 
+ *
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * Filters
- * 
+ *
  * FindOne
  * @method     Customer findOneByCustid(string $custID)     Return the first ItemMasterItem filtered by the Arcucustid column
  *

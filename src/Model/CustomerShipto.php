@@ -42,7 +42,8 @@ class CustomerShipto extends BaseCustomerShipto {
 		'mtd_sales'    => 'arstsalemtd',
 		'mtd_invoices' => 'arstinvmtd',
 		'ytd_sales'    => 'arstsaleytd',
-		'ytd_invoices' => 'arstinvytd'
+		'ytd_invoices' => 'arstinvytd',
+		'warehouse'    => 'intbwhse',
 	);
 
 	/**
@@ -131,6 +132,4 @@ class CustomerShipto extends BaseCustomerShipto {
 		$query->select_sum_ordertotal();
 		return $query->findOne();
 	}
-
-
 }
