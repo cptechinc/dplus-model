@@ -1431,6 +1431,17 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_iarn_code" idMethod="native" phpName="InventoryAdjustmentReason">
+    <column name="IntbIarnCode" phpName="Intbiarncode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="IntbIarnDesc" phpName="Intbiarndesc" type="VARCHAR" size="30"/>
+    <column name="IntbIarnSysDefined" phpName="Intbiarnsysdefined" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_item_mast" idMethod="native" phpName="ItemMasterItem">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35"/>
