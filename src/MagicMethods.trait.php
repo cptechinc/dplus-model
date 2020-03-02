@@ -10,7 +10,8 @@
 		/**
 		 * Properties are protected from modification without function, but
 		 * We want to allow the $column values to be accessed
-		 * @param  string $column The $column trying to be accessed
+		 * 
+		 * @param  string $column  The Column trying to be accessed
 		 * @return mixed		   $column value or Error
 		 */
 		 public function __get($column) {
@@ -37,6 +38,7 @@
 		 /**
 		 * Is used to PHP functions like isset() and empty() get access and see
 		 * if property is set
+		 * 
 		 * @param  string  $column Column Name
 		 * @return bool		       Whether $this->$column is set
 		 */
@@ -55,6 +57,7 @@
 		/**
 		 * We don't want to allow direct modification of properties so we have this function
 		 * look for if $column exists then if it does it will set the value for the $column
+		 * 
 		 * @param string $column   Column Name
 		 * @param mixed  $value    Value of $this->$column
 		 */
@@ -79,6 +82,7 @@
 
 		/**
 		 * Returns the Property Name the alias is aliasing
+		 * 
 		 * @param  string $alias Alias or Property Name
 		 * @return string        The Real Property
 		 */
@@ -90,9 +94,26 @@
 					return self::COLUMN_ALIASES[$alias];
 				}
 			}
-			
+
 			$throwerror = new ThrowError();
 			$throwerror->error(__CLASS__, "This column or alias ($alias) does not exist", debug_backtrace());
+			return false;
+		}
+
+		/**
+		 * Returns if Alias or Property exists for this class
+		 *
+		 * @param string $alias
+		 * @return bool
+		 */
+		public static function aliasproperty_exists($alias) {
+			if (property_exists(__CLASS__, $alias)) {
+				return true;
+			} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
+				if (array_key_exists($alias, self::COLUMN_ALIASES)) {
+					return true;
+				}
+			}
 			return false;
 		}
 
