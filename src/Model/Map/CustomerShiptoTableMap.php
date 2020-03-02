@@ -735,6 +735,30 @@ class CustomerShiptoTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
+        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, 'CstkItems', false);
+        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, 'CstkHeads', false);
         $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

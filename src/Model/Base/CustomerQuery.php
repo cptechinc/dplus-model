@@ -326,6 +326,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithCustomerShipto() Adds a RIGHT JOIN clause and with to the query using the CustomerShipto relation
  * @method     ChildCustomerQuery innerJoinWithCustomerShipto() Adds a INNER JOIN clause and with to the query using the CustomerShipto relation
  *
+ * @method     ChildCustomerQuery leftJoinCstkItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkItem relation
+ * @method     ChildCustomerQuery rightJoinCstkItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkItem relation
+ * @method     ChildCustomerQuery innerJoinCstkItem($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkItem relation
+ *
+ * @method     ChildCustomerQuery joinWithCstkItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkItem relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithCstkItem() Adds a LEFT JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildCustomerQuery rightJoinWithCstkItem() Adds a RIGHT JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildCustomerQuery innerJoinWithCstkItem() Adds a INNER JOIN clause and with to the query using the CstkItem relation
+ *
+ * @method     ChildCustomerQuery leftJoinCstkHead($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkHead relation
+ * @method     ChildCustomerQuery rightJoinCstkHead($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkHead relation
+ * @method     ChildCustomerQuery innerJoinCstkHead($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkHead relation
+ *
+ * @method     ChildCustomerQuery joinWithCstkHead($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkHead relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithCstkHead() Adds a LEFT JOIN clause and with to the query using the CstkHead relation
+ * @method     ChildCustomerQuery rightJoinWithCstkHead() Adds a RIGHT JOIN clause and with to the query using the CstkHead relation
+ * @method     ChildCustomerQuery innerJoinWithCstkHead() Adds a INNER JOIN clause and with to the query using the CstkHead relation
+ *
  * @method     ChildCustomerQuery leftJoinSalesHistory($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistory relation
  * @method     ChildCustomerQuery rightJoinSalesHistory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistory relation
  * @method     ChildCustomerQuery innerJoinSalesHistory($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistory relation
@@ -346,7 +366,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
  * @method     ChildCustomerQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
  *
- * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\CustomerShiptoQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\CustomerShiptoQuery|\CstkItemQuery|\CstkHeadQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -5662,6 +5682,152 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+    }
+
+    /**
+     * Filter the query by a related \CstkItem object
+     *
+     * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByCstkItem($cstkItem, $comparison = null)
+    {
+        if ($cstkItem instanceof \CstkItem) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $cstkItem->getArcucustid(), $comparison);
+        } elseif ($cstkItem instanceof ObjectCollection) {
+            return $this
+                ->useCstkItemQuery()
+                ->filterByPrimaryKeys($cstkItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the CstkItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinCstkItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('CstkItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'CstkItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the CstkItem relation CstkItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CstkItemQuery A secondary query class using the current class as primary query
+     */
+    public function useCstkItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinCstkItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \CstkHead object
+     *
+     * @param \CstkHead|ObjectCollection $cstkHead the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByCstkHead($cstkHead, $comparison = null)
+    {
+        if ($cstkHead instanceof \CstkHead) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $cstkHead->getArcucustid(), $comparison);
+        } elseif ($cstkHead instanceof ObjectCollection) {
+            return $this
+                ->useCstkHeadQuery()
+                ->filterByPrimaryKeys($cstkHead->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByCstkHead() only accepts arguments of type \CstkHead or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the CstkHead relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinCstkHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('CstkHead');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'CstkHead');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the CstkHead relation CstkHead object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \CstkHeadQuery A secondary query class using the current class as primary query
+     */
+    public function useCstkHeadQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinCstkHead($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'CstkHead', '\CstkHeadQuery');
     }
 
     /**

@@ -1112,6 +1112,72 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="cust_stock_det" idMethod="native" phpName="CstkItem">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CskhCell" phpName="Cskhcell" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CskdLine" phpName="Cskdline" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="CskdCustItem" phpName="Cskdcustitem" type="VARCHAR" size="30"/>
+    <column name="CskdBin" phpName="Cskdbin" type="VARCHAR" size="8"/>
+    <column name="CskdEnterDate" phpName="Cskdenterdate" type="VARCHAR" size="8"/>
+    <column name="CskdOnHand" phpName="Cskdonhand" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdUnitPrice" phpName="Cskdunitprice" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdEstUsag" phpName="Cskdestusag" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdOrdPnt" phpName="Cskdordpnt" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdOrdQty" phpName="Cskdordqty" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdMaxQty" phpName="Cskdmaxqty" type="DECIMAL" size="20" scale="2"/>
+    <column name="CskdCountDate" phpName="Cskdcountdate" type="VARCHAR" size="8"/>
+    <column name="CskdUsagLast12" phpName="Cskdusaglast12" type="DECIMAL" size="20" scale="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <foreign-key foreignTable="cust_stock_head" name="cstkhead" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+      <reference local="CskhCell" foreign="CskhCell"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="cust_stock_head" idMethod="native" phpName="CstkHead">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CskhCell" phpName="Cskhcell" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="CskhEnterDate" phpName="Cskhenterdate" type="VARCHAR" size="8"/>
+    <column name="CskhConsign" phpName="Cskhconsign" type="VARCHAR" size="1"/>
+    <column name="CskhReplCnt" phpName="Cskhreplcnt" type="VARCHAR" size="1"/>
+    <column name="CskhLabelFormat" phpName="Cskhlabelformat" type="VARCHAR" size="8"/>
+    <column name="CskhWhse" phpName="Cskhwhse" type="VARCHAR" size="2"/>
+    <column name="CskhApproved" phpName="Cskhapproved" type="VARCHAR" size="1"/>
+    <column name="CskhConsignBinWhse" phpName="Cskhconsignbinwhse" type="VARCHAR" size="8"/>
+    <column name="CskhConsignBinCust" phpName="Cskhconsignbincust" type="VARCHAR" size="8"/>
+    <column name="CskhParkCustName" phpName="Cskhparkcustname" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="doc_control" idMethod="native" phpName="DocumentFolders">
     <column name="DoccFolder" phpName="Doccfolder" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="DoccFolderDesc" phpName="Doccfolderdesc" type="VARCHAR" size="40"/>

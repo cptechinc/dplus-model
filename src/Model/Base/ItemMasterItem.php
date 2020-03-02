@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \CstkItem as ChildCstkItem;
+use \CstkItemQuery as ChildCstkItemQuery;
 use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvGroupCode as ChildInvGroupCode;
@@ -24,6 +26,7 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
+use Map\CstkItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemXrefCustomerTableMap;
 use Map\ItemXrefUpcTableMap;
@@ -568,6 +571,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomersPartial;
 
     /**
+     * @var        ObjectCollection|ChildCstkItem[] Collection to store aggregation of ChildCstkItem objects.
+     */
+    protected $collCstkItems;
+    protected $collCstkItemsPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
      */
     protected $collItemXrefUpcs;
@@ -592,6 +601,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomer[]
      */
     protected $itemXrefCustomersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildCstkItem[]
+     */
+    protected $cstkItemsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3113,6 +3128,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aItemPricing = null;
             $this->collItemXrefCustomers = null;
 
+            $this->collCstkItems = null;
+
             $this->collItemXrefUpcs = null;
 
             $this->collItemXrefVendors = null;
@@ -3290,6 +3307,24 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemXrefCustomers !== null) {
                 foreach ($this->collItemXrefCustomers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->cstkItemsScheduledForDeletion !== null) {
+                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->cstkItemsScheduledForDeletion as $cstkItem) {
+                        // need to save related object because we set the relation to null
+                        $cstkItem->save($con);
+                    }
+                    $this->cstkItemsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collCstkItems !== null) {
+                foreach ($this->collCstkItems as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4200,6 +4235,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collCstkItems) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'cstkItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'cust_stock_dets';
+                        break;
+                    default:
+                        $key = 'CstkItems';
+                }
+
+                $result[$key] = $this->collCstkItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collItemXrefUpcs) {
 
                 switch ($keyType) {
@@ -5076,6 +5126,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getCstkItems() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addCstkItem($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemXrefUpcs() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemXrefUpc($relObj->copy($deepCopy));
@@ -5432,6 +5488,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomers();
             return;
         }
+        if ('CstkItem' == $relationName) {
+            $this->initCstkItems();
+            return;
+        }
         if ('ItemXrefUpc' == $relationName) {
             $this->initItemXrefUpcs();
             return;
@@ -5667,13 +5727,238 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         return $this;
     }
 
+    /**
+     * Clears out the collCstkItems collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addCstkItems()
+     */
+    public function clearCstkItems()
+    {
+        $this->collCstkItems = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collCstkItems collection loaded partially.
+     */
+    public function resetPartialCstkItems($v = true)
+    {
+        $this->collCstkItemsPartial = $v;
+    }
+
+    /**
+     * Initializes the collCstkItems collection.
+     *
+     * By default this just sets the collCstkItems collection to an empty array (like clearcollCstkItems());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initCstkItems($overrideExisting = true)
+    {
+        if (null !== $this->collCstkItems && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = CstkItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collCstkItems = new $collectionClassName;
+        $this->collCstkItems->setModel('\CstkItem');
+    }
+
+    /**
+     * Gets an array of ChildCstkItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     * @throws PropelException
+     */
+    public function getCstkItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
+                // return empty collection
+                $this->initCstkItems();
+            } else {
+                $collCstkItems = ChildCstkItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
+                        $this->initCstkItems(false);
+
+                        foreach ($collCstkItems as $obj) {
+                            if (false == $this->collCstkItems->contains($obj)) {
+                                $this->collCstkItems->append($obj);
+                            }
+                        }
+
+                        $this->collCstkItemsPartial = true;
+                    }
+
+                    return $collCstkItems;
+                }
+
+                if ($partial && $this->collCstkItems) {
+                    foreach ($this->collCstkItems as $obj) {
+                        if ($obj->isNew()) {
+                            $collCstkItems[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collCstkItems = $collCstkItems;
+                $this->collCstkItemsPartial = false;
+            }
+        }
+
+        return $this->collCstkItems;
+    }
+
+    /**
+     * Sets a collection of ChildCstkItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $cstkItems A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setCstkItems(Collection $cstkItems, ConnectionInterface $con = null)
+    {
+        /** @var ChildCstkItem[] $cstkItemsToDelete */
+        $cstkItemsToDelete = $this->getCstkItems(new Criteria(), $con)->diff($cstkItems);
+
+
+        $this->cstkItemsScheduledForDeletion = $cstkItemsToDelete;
+
+        foreach ($cstkItemsToDelete as $cstkItemRemoved) {
+            $cstkItemRemoved->setItemMasterItem(null);
+        }
+
+        $this->collCstkItems = null;
+        foreach ($cstkItems as $cstkItem) {
+            $this->addCstkItem($cstkItem);
+        }
+
+        $this->collCstkItems = $cstkItems;
+        $this->collCstkItemsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related CstkItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related CstkItem objects.
+     * @throws PropelException
+     */
+    public function countCstkItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getCstkItems());
+            }
+
+            $query = ChildCstkItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collCstkItems);
+    }
+
+    /**
+     * Method called to associate a ChildCstkItem object to this object
+     * through the ChildCstkItem foreign key attribute.
+     *
+     * @param  ChildCstkItem $l ChildCstkItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addCstkItem(ChildCstkItem $l)
+    {
+        if ($this->collCstkItems === null) {
+            $this->initCstkItems();
+            $this->collCstkItemsPartial = true;
+        }
+
+        if (!$this->collCstkItems->contains($l)) {
+            $this->doAddCstkItem($l);
+
+            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+                $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildCstkItem $cstkItem The ChildCstkItem object to add.
+     */
+    protected function doAddCstkItem(ChildCstkItem $cstkItem)
+    {
+        $this->collCstkItems[]= $cstkItem;
+        $cstkItem->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildCstkItem $cstkItem The ChildCstkItem object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeCstkItem(ChildCstkItem $cstkItem)
+    {
+        if ($this->getCstkItems()->contains($cstkItem)) {
+            $pos = $this->collCstkItems->search($cstkItem);
+            $this->collCstkItems->remove($pos);
+            if (null === $this->cstkItemsScheduledForDeletion) {
+                $this->cstkItemsScheduledForDeletion = clone $this->collCstkItems;
+                $this->cstkItemsScheduledForDeletion->clear();
+            }
+            $this->cstkItemsScheduledForDeletion[]= $cstkItem;
+            $cstkItem->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
 
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
      * Otherwise if this ItemMasterItem is new, it will return
      * an empty collection; or if this ItemMasterItem has previously
-     * been saved, it will retrieve related ItemXrefCustomers from storage.
+     * been saved, it will retrieve related CstkItems from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -5682,14 +5967,64 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildItemXrefCustomer[] List of ChildItemXrefCustomer objects
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
      */
-    public function getItemXrefCustomersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getCstkItemsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildItemXrefCustomerQuery::create(null, $criteria);
+        $query = ChildCstkItemQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
 
-        return $this->getItemXrefCustomers($query, $con);
+        return $this->getCstkItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related CstkItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     */
+    public function getCstkItemsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getCstkItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related CstkItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     */
+    public function getCstkItemsJoinCstkHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('CstkHead', $joinBehavior);
+
+        return $this->getCstkItems($query, $con);
     }
 
     /**
@@ -6311,6 +6646,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collCstkItems) {
+                foreach ($this->collCstkItems as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemXrefUpcs) {
                 foreach ($this->collItemXrefUpcs as $o) {
                     $o->clearAllReferences($deep);
@@ -6324,6 +6664,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemXrefCustomers = null;
+        $this->collCstkItems = null;
         $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;
