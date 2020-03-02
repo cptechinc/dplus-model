@@ -17,6 +17,8 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
+	 *
+	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
 	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehdnbr',
@@ -28,24 +30,28 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'desc2'        => 'oedtdesc2',
 		'line'         => 'oedtline',
 		'linenbr'      => 'oedtline',
-		'vendorpo'     => 'oedtponbr'
+		'vendorpo'     => 'oedtponbr',
+		'qty_cases'    => 'oedtcntrqty',
+		'item'         => 'item',
 	);
 
 	/**
-	 * Returns Notes for the SalesOrderDetail
+	 * Returns if this Order Line has Notes
 	 *
-	 * @return SalesOrderNotes[]|ObjectCollection [description]
+	 * @return bool
 	 */
-	public function get_notes() {
-		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine($this->oedtline)->find();
+	public function has_notes() {
+		$q = SalesOrderNotesQuery::create();
+		$q->filterByOrdernumber($this->oehdnbr)->filterByLine($this->oedtline);
+		return boolval($q->count());
 	}
 
 	/**
-	 * Returns the number of Notes for the SalesOrderDetail
+	 * Return ItemMasterItem associated with Order Item
 	 *
-	 * @return int
+	 * @return ItemMasterItem
 	 */
-	public function count_notes() {
-		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehdnbr)->filterByLine($this->oedtline)->count();
+	public function getItem() {
+		return ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
 	}
 }

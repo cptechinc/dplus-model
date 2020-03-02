@@ -17,6 +17,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
+	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
 	const COLUMN_ALIASES = array(
 		'ordernumber'  => 'oehhnbr',
@@ -29,24 +30,26 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'desc2'        => 'oedhdesc2',
 		'line'         => 'oedhline',
 		'linenbr'      => 'oedhline',
-		'vendorpo'     => 'oedhponbr'
+		'vendorpo'     => 'oedhponbr',
+		'item'         => 'item',
+		'qty_cases'    => 'oedhcntrqty',
 	);
-
-	/**
-	 * Returns Notes for the SalesHistoryDetail
-	 *
-	 * @return SalesOrderNotes[]|ObjectCollection [description]
-	 */
-	public function get_notes() {
-		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine($this->oedhline)->find();
-	}
 
 	/**
 	 * Returns the number of Notes for the SalesHistoryDetail
 	 *
-	 * @return int
+	 * @return bool
 	 */
-	public function count_notes() {
+	public function has_notes() {
 		return SalesOrderNotesQuery::create()->filterByOrdernumber($this->oehhnbr)->filterByLine($this->oedhline)->count();
+	}
+
+	/**
+	 * Return ItemMasterItem associated with Order Item
+	 *
+	 * @return ItemMasterItem
+	 */
+	public function getItem() {
+		return ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
 	}
 }
