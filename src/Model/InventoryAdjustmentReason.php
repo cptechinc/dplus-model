@@ -12,6 +12,8 @@ class InventoryAdjustmentReason extends BaseInventoryAdjustmentReason {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+    const MAX_LENGTH_CODE = 8;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
