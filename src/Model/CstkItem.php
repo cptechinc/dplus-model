@@ -39,7 +39,7 @@ class CstkItem extends BaseCstkItem {
 		'last12usage'             => 'cskdusaglast12',
 		'countdate'               => 'cskdcountdate',
 		'item'                    => 'itemMasterItem',
-		'date_entered'            => 'cskdenterdate',
+		'date_entered'            => 'cskdenterdate',	
 
 		// PROVALLEY ALIASES USED FOR RE-ORDERING DATA FOR QUOTE, SALES ORDER
 		'proval_lastsale_date'       => 'cskdenterdate',
