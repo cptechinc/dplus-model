@@ -149,13 +149,6 @@ abstract class CstkHead implements ActiveRecordInterface
     protected $cskhconsignbincust;
 
     /**
-     * The value for the cskhparkcustname field.
-     *
-     * @var        string
-     */
-    protected $cskhparkcustname;
-
-    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -557,16 +550,6 @@ abstract class CstkHead implements ActiveRecordInterface
     }
 
     /**
-     * Get the [cskhparkcustname] column value.
-     *
-     * @return string
-     */
-    public function getCskhparkcustname()
-    {
-        return $this->cskhparkcustname;
-    }
-
-    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -829,26 +812,6 @@ abstract class CstkHead implements ActiveRecordInterface
     } // setCskhconsignbincust()
 
     /**
-     * Set the value of [cskhparkcustname] column.
-     *
-     * @param string $v new value
-     * @return $this|\CstkHead The current object (for fluent API support)
-     */
-    public function setCskhparkcustname($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->cskhparkcustname !== $v) {
-            $this->cskhparkcustname = $v;
-            $this->modifiedColumns[CstkHeadTableMap::COL_CSKHPARKCUSTNAME] = true;
-        }
-
-        return $this;
-    } // setCskhparkcustname()
-
-    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -989,16 +952,13 @@ abstract class CstkHead implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CstkHeadTableMap::translateFieldName('Cskhconsignbincust', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cskhconsignbincust = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CstkHeadTableMap::translateFieldName('Cskhparkcustname', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->cskhparkcustname = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CstkHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CstkHeadTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CstkHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CstkHeadTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CstkHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CstkHeadTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1008,7 +968,7 @@ abstract class CstkHead implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = CstkHeadTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 14; // 14 = CstkHeadTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\CstkHead'), 0, $e);
@@ -1287,9 +1247,6 @@ abstract class CstkHead implements ActiveRecordInterface
         if ($this->isColumnModified(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST)) {
             $modifiedColumns[':p' . $index++]  = 'CskhConsignBinCust';
         }
-        if ($this->isColumnModified(CstkHeadTableMap::COL_CSKHPARKCUSTNAME)) {
-            $modifiedColumns[':p' . $index++]  = 'CskhParkCustName';
-        }
         if ($this->isColumnModified(CstkHeadTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1342,9 +1299,6 @@ abstract class CstkHead implements ActiveRecordInterface
                         break;
                     case 'CskhConsignBinCust':
                         $stmt->bindValue($identifier, $this->cskhconsignbincust, PDO::PARAM_STR);
-                        break;
-                    case 'CskhParkCustName':
-                        $stmt->bindValue($identifier, $this->cskhparkcustname, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1444,15 +1398,12 @@ abstract class CstkHead implements ActiveRecordInterface
                 return $this->getCskhconsignbincust();
                 break;
             case 11:
-                return $this->getCskhparkcustname();
-                break;
-            case 12:
                 return $this->getDateupdtd();
                 break;
-            case 13:
+            case 12:
                 return $this->getTimeupdtd();
                 break;
-            case 14:
+            case 13:
                 return $this->getDummy();
                 break;
             default:
@@ -1496,10 +1447,9 @@ abstract class CstkHead implements ActiveRecordInterface
             $keys[8] => $this->getCskhapproved(),
             $keys[9] => $this->getCskhconsignbinwhse(),
             $keys[10] => $this->getCskhconsignbincust(),
-            $keys[11] => $this->getCskhparkcustname(),
-            $keys[12] => $this->getDateupdtd(),
-            $keys[13] => $this->getTimeupdtd(),
-            $keys[14] => $this->getDummy(),
+            $keys[11] => $this->getDateupdtd(),
+            $keys[12] => $this->getTimeupdtd(),
+            $keys[13] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1620,15 +1570,12 @@ abstract class CstkHead implements ActiveRecordInterface
                 $this->setCskhconsignbincust($value);
                 break;
             case 11:
-                $this->setCskhparkcustname($value);
-                break;
-            case 12:
                 $this->setDateupdtd($value);
                 break;
-            case 13:
+            case 12:
                 $this->setTimeupdtd($value);
                 break;
-            case 14:
+            case 13:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1691,16 +1638,13 @@ abstract class CstkHead implements ActiveRecordInterface
             $this->setCskhconsignbincust($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setCskhparkcustname($arr[$keys[11]]);
+            $this->setDateupdtd($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDateupdtd($arr[$keys[12]]);
+            $this->setTimeupdtd($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setTimeupdtd($arr[$keys[13]]);
-        }
-        if (array_key_exists($keys[14], $arr)) {
-            $this->setDummy($arr[$keys[14]]);
+            $this->setDummy($arr[$keys[13]]);
         }
     }
 
@@ -1775,9 +1719,6 @@ abstract class CstkHead implements ActiveRecordInterface
         }
         if ($this->isColumnModified(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST)) {
             $criteria->add(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, $this->cskhconsignbincust);
-        }
-        if ($this->isColumnModified(CstkHeadTableMap::COL_CSKHPARKCUSTNAME)) {
-            $criteria->add(CstkHeadTableMap::COL_CSKHPARKCUSTNAME, $this->cskhparkcustname);
         }
         if ($this->isColumnModified(CstkHeadTableMap::COL_DATEUPDTD)) {
             $criteria->add(CstkHeadTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1911,7 +1852,6 @@ abstract class CstkHead implements ActiveRecordInterface
         $copyObj->setCskhapproved($this->getCskhapproved());
         $copyObj->setCskhconsignbinwhse($this->getCskhconsignbinwhse());
         $copyObj->setCskhconsignbincust($this->getCskhconsignbincust());
-        $copyObj->setCskhparkcustname($this->getCskhparkcustname());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2408,7 +2348,6 @@ abstract class CstkHead implements ActiveRecordInterface
         $this->cskhapproved = null;
         $this->cskhconsignbinwhse = null;
         $this->cskhconsignbincust = null;
-        $this->cskhparkcustname = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

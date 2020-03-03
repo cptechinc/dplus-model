@@ -31,7 +31,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHeadQuery orderByCskhapproved($order = Criteria::ASC) Order by the CskhApproved column
  * @method     ChildCstkHeadQuery orderByCskhconsignbinwhse($order = Criteria::ASC) Order by the CskhConsignBinWhse column
  * @method     ChildCstkHeadQuery orderByCskhconsignbincust($order = Criteria::ASC) Order by the CskhConsignBinCust column
- * @method     ChildCstkHeadQuery orderByCskhparkcustname($order = Criteria::ASC) Order by the CskhParkCustName column
  * @method     ChildCstkHeadQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildCstkHeadQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildCstkHeadQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -47,7 +46,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHeadQuery groupByCskhapproved() Group by the CskhApproved column
  * @method     ChildCstkHeadQuery groupByCskhconsignbinwhse() Group by the CskhConsignBinWhse column
  * @method     ChildCstkHeadQuery groupByCskhconsignbincust() Group by the CskhConsignBinCust column
- * @method     ChildCstkHeadQuery groupByCskhparkcustname() Group by the CskhParkCustName column
  * @method     ChildCstkHeadQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildCstkHeadQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildCstkHeadQuery groupByDummy() Group by the dummy column
@@ -106,7 +104,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHead findOneByCskhapproved(string $CskhApproved) Return the first ChildCstkHead filtered by the CskhApproved column
  * @method     ChildCstkHead findOneByCskhconsignbinwhse(string $CskhConsignBinWhse) Return the first ChildCstkHead filtered by the CskhConsignBinWhse column
  * @method     ChildCstkHead findOneByCskhconsignbincust(string $CskhConsignBinCust) Return the first ChildCstkHead filtered by the CskhConsignBinCust column
- * @method     ChildCstkHead findOneByCskhparkcustname(string $CskhParkCustName) Return the first ChildCstkHead filtered by the CskhParkCustName column
  * @method     ChildCstkHead findOneByDateupdtd(string $DateUpdtd) Return the first ChildCstkHead filtered by the DateUpdtd column
  * @method     ChildCstkHead findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCstkHead filtered by the TimeUpdtd column
  * @method     ChildCstkHead findOneByDummy(string $dummy) Return the first ChildCstkHead filtered by the dummy column *
@@ -125,7 +122,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHead requireOneByCskhapproved(string $CskhApproved) Return the first ChildCstkHead filtered by the CskhApproved column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByCskhconsignbinwhse(string $CskhConsignBinWhse) Return the first ChildCstkHead filtered by the CskhConsignBinWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByCskhconsignbincust(string $CskhConsignBinCust) Return the first ChildCstkHead filtered by the CskhConsignBinCust column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCstkHead requireOneByCskhparkcustname(string $CskhParkCustName) Return the first ChildCstkHead filtered by the CskhParkCustName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCstkHead filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCstkHead filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCstkHead requireOneByDummy(string $dummy) Return the first ChildCstkHead filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -142,7 +138,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCstkHead[]|ObjectCollection findByCskhapproved(string $CskhApproved) Return ChildCstkHead objects filtered by the CskhApproved column
  * @method     ChildCstkHead[]|ObjectCollection findByCskhconsignbinwhse(string $CskhConsignBinWhse) Return ChildCstkHead objects filtered by the CskhConsignBinWhse column
  * @method     ChildCstkHead[]|ObjectCollection findByCskhconsignbincust(string $CskhConsignBinCust) Return ChildCstkHead objects filtered by the CskhConsignBinCust column
- * @method     ChildCstkHead[]|ObjectCollection findByCskhparkcustname(string $CskhParkCustName) Return ChildCstkHead objects filtered by the CskhParkCustName column
  * @method     ChildCstkHead[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCstkHead objects filtered by the DateUpdtd column
  * @method     ChildCstkHead[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCstkHead objects filtered by the TimeUpdtd column
  * @method     ChildCstkHead[]|ObjectCollection findByDummy(string $dummy) Return ChildCstkHead objects filtered by the dummy column
@@ -244,7 +239,7 @@ abstract class CstkHeadQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArstShipId, CskhCell, CskhEnterDate, CskhConsign, CskhReplCnt, CskhLabelFormat, CskhWhse, CskhApproved, CskhConsignBinWhse, CskhConsignBinCust, CskhParkCustName, DateUpdtd, TimeUpdtd, dummy FROM cust_stock_head WHERE ArcuCustId = :p0 AND ArstShipId = :p1 AND CskhCell = :p2';
+        $sql = 'SELECT ArcuCustId, ArstShipId, CskhCell, CskhEnterDate, CskhConsign, CskhReplCnt, CskhLabelFormat, CskhWhse, CskhApproved, CskhConsignBinWhse, CskhConsignBinCust, DateUpdtd, TimeUpdtd, dummy FROM cust_stock_head WHERE ArcuCustId = :p0 AND ArstShipId = :p1 AND CskhCell = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -623,31 +618,6 @@ abstract class CstkHeadQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, $cskhconsignbincust, $comparison);
-    }
-
-    /**
-     * Filter the query on the CskhParkCustName column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByCskhparkcustname('fooValue');   // WHERE CskhParkCustName = 'fooValue'
-     * $query->filterByCskhparkcustname('%fooValue%', Criteria::LIKE); // WHERE CskhParkCustName LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $cskhparkcustname The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildCstkHeadQuery The current query, for fluid interface
-     */
-    public function filterByCskhparkcustname($cskhparkcustname = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($cskhparkcustname)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(CstkHeadTableMap::COL_CSKHPARKCUSTNAME, $cskhparkcustname, $comparison);
     }
 
     /**

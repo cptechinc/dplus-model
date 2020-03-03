@@ -59,7 +59,7 @@ class CstkHeadTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    const NUM_COLUMNS = 14;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class CstkHeadTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    const NUM_HYDRATE_COLUMNS = 14;
 
     /**
      * the column name for the ArcuCustId field
@@ -127,11 +127,6 @@ class CstkHeadTableMap extends TableMap
     const COL_CSKHCONSIGNBINCUST = 'cust_stock_head.CskhConsignBinCust';
 
     /**
-     * the column name for the CskhParkCustName field
-     */
-    const COL_CSKHPARKCUSTNAME = 'cust_stock_head.CskhParkCustName';
-
-    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'cust_stock_head.DateUpdtd';
@@ -158,11 +153,11 @@ class CstkHeadTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Cskhcell', 'Cskhenterdate', 'Cskhconsign', 'Cskhreplcnt', 'Cskhlabelformat', 'Cskhwhse', 'Cskhapproved', 'Cskhconsignbinwhse', 'Cskhconsignbincust', 'Cskhparkcustname', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'cskhcell', 'cskhenterdate', 'cskhconsign', 'cskhreplcnt', 'cskhlabelformat', 'cskhwhse', 'cskhapproved', 'cskhconsignbinwhse', 'cskhconsignbincust', 'cskhparkcustname', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID, CstkHeadTableMap::COL_ARSTSHIPID, CstkHeadTableMap::COL_CSKHCELL, CstkHeadTableMap::COL_CSKHENTERDATE, CstkHeadTableMap::COL_CSKHCONSIGN, CstkHeadTableMap::COL_CSKHREPLCNT, CstkHeadTableMap::COL_CSKHLABELFORMAT, CstkHeadTableMap::COL_CSKHWHSE, CstkHeadTableMap::COL_CSKHAPPROVED, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, CstkHeadTableMap::COL_CSKHPARKCUSTNAME, CstkHeadTableMap::COL_DATEUPDTD, CstkHeadTableMap::COL_TIMEUPDTD, CstkHeadTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'CskhCell', 'CskhEnterDate', 'CskhConsign', 'CskhReplCnt', 'CskhLabelFormat', 'CskhWhse', 'CskhApproved', 'CskhConsignBinWhse', 'CskhConsignBinCust', 'CskhParkCustName', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Cskhcell', 'Cskhenterdate', 'Cskhconsign', 'Cskhreplcnt', 'Cskhlabelformat', 'Cskhwhse', 'Cskhapproved', 'Cskhconsignbinwhse', 'Cskhconsignbincust', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'cskhcell', 'cskhenterdate', 'cskhconsign', 'cskhreplcnt', 'cskhlabelformat', 'cskhwhse', 'cskhapproved', 'cskhconsignbinwhse', 'cskhconsignbincust', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID, CstkHeadTableMap::COL_ARSTSHIPID, CstkHeadTableMap::COL_CSKHCELL, CstkHeadTableMap::COL_CSKHENTERDATE, CstkHeadTableMap::COL_CSKHCONSIGN, CstkHeadTableMap::COL_CSKHREPLCNT, CstkHeadTableMap::COL_CSKHLABELFORMAT, CstkHeadTableMap::COL_CSKHWHSE, CstkHeadTableMap::COL_CSKHAPPROVED, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST, CstkHeadTableMap::COL_DATEUPDTD, CstkHeadTableMap::COL_TIMEUPDTD, CstkHeadTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'CskhCell', 'CskhEnterDate', 'CskhConsign', 'CskhReplCnt', 'CskhLabelFormat', 'CskhWhse', 'CskhApproved', 'CskhConsignBinWhse', 'CskhConsignBinCust', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -172,11 +167,11 @@ class CstkHeadTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Cskhcell' => 2, 'Cskhenterdate' => 3, 'Cskhconsign' => 4, 'Cskhreplcnt' => 5, 'Cskhlabelformat' => 6, 'Cskhwhse' => 7, 'Cskhapproved' => 8, 'Cskhconsignbinwhse' => 9, 'Cskhconsignbincust' => 10, 'Cskhparkcustname' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'cskhcell' => 2, 'cskhenterdate' => 3, 'cskhconsign' => 4, 'cskhreplcnt' => 5, 'cskhlabelformat' => 6, 'cskhwhse' => 7, 'cskhapproved' => 8, 'cskhconsignbinwhse' => 9, 'cskhconsignbincust' => 10, 'cskhparkcustname' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID => 0, CstkHeadTableMap::COL_ARSTSHIPID => 1, CstkHeadTableMap::COL_CSKHCELL => 2, CstkHeadTableMap::COL_CSKHENTERDATE => 3, CstkHeadTableMap::COL_CSKHCONSIGN => 4, CstkHeadTableMap::COL_CSKHREPLCNT => 5, CstkHeadTableMap::COL_CSKHLABELFORMAT => 6, CstkHeadTableMap::COL_CSKHWHSE => 7, CstkHeadTableMap::COL_CSKHAPPROVED => 8, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE => 9, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST => 10, CstkHeadTableMap::COL_CSKHPARKCUSTNAME => 11, CstkHeadTableMap::COL_DATEUPDTD => 12, CstkHeadTableMap::COL_TIMEUPDTD => 13, CstkHeadTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'CskhCell' => 2, 'CskhEnterDate' => 3, 'CskhConsign' => 4, 'CskhReplCnt' => 5, 'CskhLabelFormat' => 6, 'CskhWhse' => 7, 'CskhApproved' => 8, 'CskhConsignBinWhse' => 9, 'CskhConsignBinCust' => 10, 'CskhParkCustName' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Cskhcell' => 2, 'Cskhenterdate' => 3, 'Cskhconsign' => 4, 'Cskhreplcnt' => 5, 'Cskhlabelformat' => 6, 'Cskhwhse' => 7, 'Cskhapproved' => 8, 'Cskhconsignbinwhse' => 9, 'Cskhconsignbincust' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
+        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'cskhcell' => 2, 'cskhenterdate' => 3, 'cskhconsign' => 4, 'cskhreplcnt' => 5, 'cskhlabelformat' => 6, 'cskhwhse' => 7, 'cskhapproved' => 8, 'cskhconsignbinwhse' => 9, 'cskhconsignbincust' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
+        self::TYPE_COLNAME       => array(CstkHeadTableMap::COL_ARCUCUSTID => 0, CstkHeadTableMap::COL_ARSTSHIPID => 1, CstkHeadTableMap::COL_CSKHCELL => 2, CstkHeadTableMap::COL_CSKHENTERDATE => 3, CstkHeadTableMap::COL_CSKHCONSIGN => 4, CstkHeadTableMap::COL_CSKHREPLCNT => 5, CstkHeadTableMap::COL_CSKHLABELFORMAT => 6, CstkHeadTableMap::COL_CSKHWHSE => 7, CstkHeadTableMap::COL_CSKHAPPROVED => 8, CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE => 9, CstkHeadTableMap::COL_CSKHCONSIGNBINCUST => 10, CstkHeadTableMap::COL_DATEUPDTD => 11, CstkHeadTableMap::COL_TIMEUPDTD => 12, CstkHeadTableMap::COL_DUMMY => 13, ),
+        self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'CskhCell' => 2, 'CskhEnterDate' => 3, 'CskhConsign' => 4, 'CskhReplCnt' => 5, 'CskhLabelFormat' => 6, 'CskhWhse' => 7, 'CskhApproved' => 8, 'CskhConsignBinWhse' => 9, 'CskhConsignBinCust' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
     /**
@@ -208,7 +203,6 @@ class CstkHeadTableMap extends TableMap
         $this->addColumn('CskhApproved', 'Cskhapproved', 'VARCHAR', false, 1, null);
         $this->addColumn('CskhConsignBinWhse', 'Cskhconsignbinwhse', 'VARCHAR', false, 8, null);
         $this->addColumn('CskhConsignBinCust', 'Cskhconsignbincust', 'VARCHAR', false, 8, null);
-        $this->addColumn('CskhParkCustName', 'Cskhparkcustname', 'VARCHAR', false, 30, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -476,7 +470,6 @@ class CstkHeadTableMap extends TableMap
             $criteria->addSelectColumn(CstkHeadTableMap::COL_CSKHAPPROVED);
             $criteria->addSelectColumn(CstkHeadTableMap::COL_CSKHCONSIGNBINWHSE);
             $criteria->addSelectColumn(CstkHeadTableMap::COL_CSKHCONSIGNBINCUST);
-            $criteria->addSelectColumn(CstkHeadTableMap::COL_CSKHPARKCUSTNAME);
             $criteria->addSelectColumn(CstkHeadTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(CstkHeadTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(CstkHeadTableMap::COL_DUMMY);
@@ -492,7 +485,6 @@ class CstkHeadTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.CskhApproved');
             $criteria->addSelectColumn($alias . '.CskhConsignBinWhse');
             $criteria->addSelectColumn($alias . '.CskhConsignBinCust');
-            $criteria->addSelectColumn($alias . '.CskhParkCustName');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

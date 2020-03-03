@@ -1163,7 +1163,6 @@
     <column name="CskhApproved" phpName="Cskhapproved" type="VARCHAR" size="1"/>
     <column name="CskhConsignBinWhse" phpName="Cskhconsignbinwhse" type="VARCHAR" size="8"/>
     <column name="CskhConsignBinCust" phpName="Cskhconsignbincust" type="VARCHAR" size="8"/>
-    <column name="CskhParkCustName" phpName="Cskhparkcustname" type="VARCHAR" size="30"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
