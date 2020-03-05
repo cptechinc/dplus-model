@@ -1,6 +1,6 @@
 <?php
 
-use Base\InventoryAdjustmentReasonQuery as BaseInventoryAdjustmentReasonQuery;
+use Base\InvAdjustmentReasonQuery as BaseInvAdjustmentReasonQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  *
  * FindOneByXXX()
- * @method  ApBuyer findOneByCode(string $code)      Return the first ApBuyercode filtered by the aptbuyrcode column
+ * @method  InvAdjustmentReason findOneByCode(string $code)      Return the first InvAdjustmentReasoncode filtered by the intbiarncode column
  *
  * FindByXXX()
  *
  *
  */
-class InventoryAdjustmentReasonQuery extends BaseInventoryAdjustmentReasonQuery {
+class InvAdjustmentReasonQuery extends BaseInvAdjustmentReasonQuery {
 	use QueryTraits;
 }

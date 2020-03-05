@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \InventoryAdjustmentReason as ChildInventoryAdjustmentReason;
-use \InventoryAdjustmentReasonQuery as ChildInventoryAdjustmentReasonQuery;
+use \InvAdjustmentReason as ChildInvAdjustmentReason;
+use \InvAdjustmentReasonQuery as ChildInvAdjustmentReasonQuery;
 use \Exception;
 use \PDO;
-use Map\InventoryAdjustmentReasonTableMap;
+use Map\InvAdjustmentReasonTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,88 +19,88 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildInventoryAdjustmentReasonQuery orderByIntbiarncode($order = Criteria::ASC) Order by the IntbIarnCode column
- * @method     ChildInventoryAdjustmentReasonQuery orderByIntbiarndesc($order = Criteria::ASC) Order by the IntbIarnDesc column
- * @method     ChildInventoryAdjustmentReasonQuery orderByIntbiarnsysdefined($order = Criteria::ASC) Order by the IntbIarnSysDefined column
- * @method     ChildInventoryAdjustmentReasonQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildInventoryAdjustmentReasonQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildInventoryAdjustmentReasonQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildInvAdjustmentReasonQuery orderByIntbiarncode($order = Criteria::ASC) Order by the IntbIarnCode column
+ * @method     ChildInvAdjustmentReasonQuery orderByIntbiarndesc($order = Criteria::ASC) Order by the IntbIarnDesc column
+ * @method     ChildInvAdjustmentReasonQuery orderByIntbiarnsysdefined($order = Criteria::ASC) Order by the IntbIarnSysDefined column
+ * @method     ChildInvAdjustmentReasonQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildInvAdjustmentReasonQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildInvAdjustmentReasonQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildInventoryAdjustmentReasonQuery groupByIntbiarncode() Group by the IntbIarnCode column
- * @method     ChildInventoryAdjustmentReasonQuery groupByIntbiarndesc() Group by the IntbIarnDesc column
- * @method     ChildInventoryAdjustmentReasonQuery groupByIntbiarnsysdefined() Group by the IntbIarnSysDefined column
- * @method     ChildInventoryAdjustmentReasonQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildInventoryAdjustmentReasonQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildInventoryAdjustmentReasonQuery groupByDummy() Group by the dummy column
+ * @method     ChildInvAdjustmentReasonQuery groupByIntbiarncode() Group by the IntbIarnCode column
+ * @method     ChildInvAdjustmentReasonQuery groupByIntbiarndesc() Group by the IntbIarnDesc column
+ * @method     ChildInvAdjustmentReasonQuery groupByIntbiarnsysdefined() Group by the IntbIarnSysDefined column
+ * @method     ChildInvAdjustmentReasonQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildInvAdjustmentReasonQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildInvAdjustmentReasonQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildInventoryAdjustmentReasonQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildInventoryAdjustmentReasonQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildInventoryAdjustmentReasonQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildInvAdjustmentReasonQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildInvAdjustmentReasonQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildInvAdjustmentReasonQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildInventoryAdjustmentReasonQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildInventoryAdjustmentReasonQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildInventoryAdjustmentReasonQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildInvAdjustmentReasonQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildInvAdjustmentReasonQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildInvAdjustmentReasonQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildInventoryAdjustmentReason findOne(ConnectionInterface $con = null) Return the first ChildInventoryAdjustmentReason matching the query
- * @method     ChildInventoryAdjustmentReason findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInventoryAdjustmentReason matching the query, or a new ChildInventoryAdjustmentReason object populated from the query conditions when no match is found
+ * @method     ChildInvAdjustmentReason findOne(ConnectionInterface $con = null) Return the first ChildInvAdjustmentReason matching the query
+ * @method     ChildInvAdjustmentReason findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvAdjustmentReason matching the query, or a new ChildInvAdjustmentReason object populated from the query conditions when no match is found
  *
- * @method     ChildInventoryAdjustmentReason findOneByIntbiarncode(string $IntbIarnCode) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnCode column
- * @method     ChildInventoryAdjustmentReason findOneByIntbiarndesc(string $IntbIarnDesc) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnDesc column
- * @method     ChildInventoryAdjustmentReason findOneByIntbiarnsysdefined(string $IntbIarnSysDefined) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnSysDefined column
- * @method     ChildInventoryAdjustmentReason findOneByDateupdtd(string $DateUpdtd) Return the first ChildInventoryAdjustmentReason filtered by the DateUpdtd column
- * @method     ChildInventoryAdjustmentReason findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInventoryAdjustmentReason filtered by the TimeUpdtd column
- * @method     ChildInventoryAdjustmentReason findOneByDummy(string $dummy) Return the first ChildInventoryAdjustmentReason filtered by the dummy column *
+ * @method     ChildInvAdjustmentReason findOneByIntbiarncode(string $IntbIarnCode) Return the first ChildInvAdjustmentReason filtered by the IntbIarnCode column
+ * @method     ChildInvAdjustmentReason findOneByIntbiarndesc(string $IntbIarnDesc) Return the first ChildInvAdjustmentReason filtered by the IntbIarnDesc column
+ * @method     ChildInvAdjustmentReason findOneByIntbiarnsysdefined(string $IntbIarnSysDefined) Return the first ChildInvAdjustmentReason filtered by the IntbIarnSysDefined column
+ * @method     ChildInvAdjustmentReason findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvAdjustmentReason filtered by the DateUpdtd column
+ * @method     ChildInvAdjustmentReason findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvAdjustmentReason filtered by the TimeUpdtd column
+ * @method     ChildInvAdjustmentReason findOneByDummy(string $dummy) Return the first ChildInvAdjustmentReason filtered by the dummy column *
 
- * @method     ChildInventoryAdjustmentReason requirePk($key, ConnectionInterface $con = null) Return the ChildInventoryAdjustmentReason by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOne(ConnectionInterface $con = null) Return the first ChildInventoryAdjustmentReason matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requirePk($key, ConnectionInterface $con = null) Return the ChildInvAdjustmentReason by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOne(ConnectionInterface $con = null) Return the first ChildInvAdjustmentReason matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInventoryAdjustmentReason requireOneByIntbiarncode(string $IntbIarnCode) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOneByIntbiarndesc(string $IntbIarnDesc) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOneByIntbiarnsysdefined(string $IntbIarnSysDefined) Return the first ChildInventoryAdjustmentReason filtered by the IntbIarnSysDefined column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInventoryAdjustmentReason filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInventoryAdjustmentReason filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInventoryAdjustmentReason requireOneByDummy(string $dummy) Return the first ChildInventoryAdjustmentReason filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByIntbiarncode(string $IntbIarnCode) Return the first ChildInvAdjustmentReason filtered by the IntbIarnCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByIntbiarndesc(string $IntbIarnDesc) Return the first ChildInvAdjustmentReason filtered by the IntbIarnDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByIntbiarnsysdefined(string $IntbIarnSysDefined) Return the first ChildInvAdjustmentReason filtered by the IntbIarnSysDefined column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvAdjustmentReason filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvAdjustmentReason filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvAdjustmentReason requireOneByDummy(string $dummy) Return the first ChildInvAdjustmentReason filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInventoryAdjustmentReason objects based on current ModelCriteria
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByIntbiarncode(string $IntbIarnCode) Return ChildInventoryAdjustmentReason objects filtered by the IntbIarnCode column
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByIntbiarndesc(string $IntbIarnDesc) Return ChildInventoryAdjustmentReason objects filtered by the IntbIarnDesc column
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByIntbiarnsysdefined(string $IntbIarnSysDefined) Return ChildInventoryAdjustmentReason objects filtered by the IntbIarnSysDefined column
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInventoryAdjustmentReason objects filtered by the DateUpdtd column
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInventoryAdjustmentReason objects filtered by the TimeUpdtd column
- * @method     ChildInventoryAdjustmentReason[]|ObjectCollection findByDummy(string $dummy) Return ChildInventoryAdjustmentReason objects filtered by the dummy column
- * @method     ChildInventoryAdjustmentReason[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvAdjustmentReason objects based on current ModelCriteria
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByIntbiarncode(string $IntbIarnCode) Return ChildInvAdjustmentReason objects filtered by the IntbIarnCode column
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByIntbiarndesc(string $IntbIarnDesc) Return ChildInvAdjustmentReason objects filtered by the IntbIarnDesc column
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByIntbiarnsysdefined(string $IntbIarnSysDefined) Return ChildInvAdjustmentReason objects filtered by the IntbIarnSysDefined column
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvAdjustmentReason objects filtered by the DateUpdtd column
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvAdjustmentReason objects filtered by the TimeUpdtd column
+ * @method     ChildInvAdjustmentReason[]|ObjectCollection findByDummy(string $dummy) Return ChildInvAdjustmentReason objects filtered by the dummy column
+ * @method     ChildInvAdjustmentReason[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
+abstract class InvAdjustmentReasonQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\InventoryAdjustmentReasonQuery object.
+     * Initializes internal state of \Base\InvAdjustmentReasonQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\InventoryAdjustmentReason', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\InvAdjustmentReason', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildInventoryAdjustmentReasonQuery object.
+     * Returns a new ChildInvAdjustmentReasonQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildInventoryAdjustmentReasonQuery
+     * @return ChildInvAdjustmentReasonQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildInventoryAdjustmentReasonQuery) {
+        if ($criteria instanceof ChildInvAdjustmentReasonQuery) {
             return $criteria;
         }
-        $query = new ChildInventoryAdjustmentReasonQuery();
+        $query = new ChildInvAdjustmentReasonQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -123,7 +123,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildInventoryAdjustmentReason|array|mixed the result, formatted by the current formatter
+     * @return ChildInvAdjustmentReason|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -132,7 +132,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvAdjustmentReasonTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -145,7 +145,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = InventoryAdjustmentReasonTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = InvAdjustmentReasonTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -162,7 +162,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInventoryAdjustmentReason A model object, or null if the key is not found
+     * @return ChildInvAdjustmentReason A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -177,10 +177,10 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInventoryAdjustmentReason $obj */
-            $obj = new ChildInventoryAdjustmentReason();
+            /** @var ChildInvAdjustmentReason $obj */
+            $obj = new ChildInvAdjustmentReason();
             $obj->hydrate($row);
-            InventoryAdjustmentReasonTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            InvAdjustmentReasonTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -193,7 +193,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildInventoryAdjustmentReason|array|mixed the result, formatted by the current formatter
+     * @return ChildInvAdjustmentReason|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -235,12 +235,12 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -248,12 +248,12 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -268,7 +268,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $intbiarncode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByIntbiarncode($intbiarncode = null, $comparison = null)
     {
@@ -278,7 +278,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $intbiarncode, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, $intbiarncode, $comparison);
     }
 
     /**
@@ -293,7 +293,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $intbiarndesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByIntbiarndesc($intbiarndesc = null, $comparison = null)
     {
@@ -303,7 +303,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC, $intbiarndesc, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNDESC, $intbiarndesc, $comparison);
     }
 
     /**
@@ -318,7 +318,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $intbiarnsysdefined The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByIntbiarnsysdefined($intbiarnsysdefined = null, $comparison = null)
     {
@@ -328,7 +328,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED, $intbiarnsysdefined, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED, $intbiarnsysdefined, $comparison);
     }
 
     /**
@@ -343,7 +343,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -353,7 +353,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -368,7 +368,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -378,7 +378,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -393,7 +393,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -403,20 +403,20 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildInventoryAdjustmentReason $inventoryAdjustmentReason Object to remove from the list of results
+     * @param   ChildInvAdjustmentReason $invAdjustmentReason Object to remove from the list of results
      *
-     * @return $this|ChildInventoryAdjustmentReasonQuery The current query, for fluid interface
+     * @return $this|ChildInvAdjustmentReasonQuery The current query, for fluid interface
      */
-    public function prune($inventoryAdjustmentReason = null)
+    public function prune($invAdjustmentReason = null)
     {
-        if ($inventoryAdjustmentReason) {
-            $this->addUsingAlias(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $inventoryAdjustmentReason->getIntbiarncode(), Criteria::NOT_EQUAL);
+        if ($invAdjustmentReason) {
+            $this->addUsingAlias(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, $invAdjustmentReason->getIntbiarncode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -431,7 +431,7 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvAdjustmentReasonTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -442,8 +442,8 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            InventoryAdjustmentReasonTableMap::clearInstancePool();
-            InventoryAdjustmentReasonTableMap::clearRelatedInstancePool();
+            InvAdjustmentReasonTableMap::clearInstancePool();
+            InvAdjustmentReasonTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -461,26 +461,26 @@ abstract class InventoryAdjustmentReasonQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvAdjustmentReasonTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+        $criteria->setDbName(InvAdjustmentReasonTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            InventoryAdjustmentReasonTableMap::removeInstanceFromPool($criteria);
+            InvAdjustmentReasonTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            InventoryAdjustmentReasonTableMap::clearRelatedInstancePool();
+            InvAdjustmentReasonTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // InventoryAdjustmentReasonQuery
+} // InvAdjustmentReasonQuery

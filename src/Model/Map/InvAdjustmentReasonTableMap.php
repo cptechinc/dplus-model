@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \InventoryAdjustmentReason;
-use \InventoryAdjustmentReasonQuery;
+use \InvAdjustmentReason;
+use \InvAdjustmentReasonQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class InventoryAdjustmentReasonTableMap extends TableMap
+class InvAdjustmentReasonTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InventoryAdjustmentReasonTableMap';
+    const CLASS_NAME = '.Map.InvAdjustmentReasonTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InventoryAdjustmentReason';
+    const OM_CLASS = '\\InvAdjustmentReason';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InventoryAdjustmentReason';
+    const CLASS_DEFAULT = 'InvAdjustmentReason';
 
     /**
      * The total number of columns
@@ -115,7 +115,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Intbiarncode', 'Intbiarndesc', 'Intbiarnsysdefined', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('intbiarncode', 'intbiarndesc', 'intbiarnsysdefined', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC, InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED, InventoryAdjustmentReasonTableMap::COL_DATEUPDTD, InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD, InventoryAdjustmentReasonTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, InvAdjustmentReasonTableMap::COL_INTBIARNDESC, InvAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED, InvAdjustmentReasonTableMap::COL_DATEUPDTD, InvAdjustmentReasonTableMap::COL_TIMEUPDTD, InvAdjustmentReasonTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('IntbIarnCode', 'IntbIarnDesc', 'IntbIarnSysDefined', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
     );
@@ -129,7 +129,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Intbiarncode' => 0, 'Intbiarndesc' => 1, 'Intbiarnsysdefined' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
         self::TYPE_CAMELNAME     => array('intbiarncode' => 0, 'intbiarndesc' => 1, 'intbiarnsysdefined' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE => 0, InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC => 1, InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED => 2, InventoryAdjustmentReasonTableMap::COL_DATEUPDTD => 3, InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD => 4, InventoryAdjustmentReasonTableMap::COL_DUMMY => 5, ),
+        self::TYPE_COLNAME       => array(InvAdjustmentReasonTableMap::COL_INTBIARNCODE => 0, InvAdjustmentReasonTableMap::COL_INTBIARNDESC => 1, InvAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED => 2, InvAdjustmentReasonTableMap::COL_DATEUPDTD => 3, InvAdjustmentReasonTableMap::COL_TIMEUPDTD => 4, InvAdjustmentReasonTableMap::COL_DUMMY => 5, ),
         self::TYPE_FIELDNAME     => array('IntbIarnCode' => 0, 'IntbIarnDesc' => 1, 'IntbIarnSysDefined' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
     );
@@ -145,9 +145,9 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_iarn_code');
-        $this->setPhpName('InventoryAdjustmentReason');
+        $this->setPhpName('InvAdjustmentReason');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\InventoryAdjustmentReason');
+        $this->setClassName('\\InvAdjustmentReason');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -223,7 +223,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? InventoryAdjustmentReasonTableMap::CLASS_DEFAULT : InventoryAdjustmentReasonTableMap::OM_CLASS;
+        return $withPrefix ? InvAdjustmentReasonTableMap::CLASS_DEFAULT : InvAdjustmentReasonTableMap::OM_CLASS;
     }
 
     /**
@@ -237,22 +237,22 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InventoryAdjustmentReason object, last column rank)
+     * @return array           (InvAdjustmentReason object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = InventoryAdjustmentReasonTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = InventoryAdjustmentReasonTableMap::getInstanceFromPool($key))) {
+        $key = InvAdjustmentReasonTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = InvAdjustmentReasonTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + InventoryAdjustmentReasonTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + InvAdjustmentReasonTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = InventoryAdjustmentReasonTableMap::OM_CLASS;
-            /** @var InventoryAdjustmentReason $obj */
+            $cls = InvAdjustmentReasonTableMap::OM_CLASS;
+            /** @var InvAdjustmentReason $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            InventoryAdjustmentReasonTableMap::addInstanceToPool($obj, $key);
+            InvAdjustmentReasonTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -275,18 +275,18 @@ class InventoryAdjustmentReasonTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = InventoryAdjustmentReasonTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = InventoryAdjustmentReasonTableMap::getInstanceFromPool($key))) {
+            $key = InvAdjustmentReasonTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = InvAdjustmentReasonTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var InventoryAdjustmentReason $obj */
+                /** @var InvAdjustmentReason $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                InventoryAdjustmentReasonTableMap::addInstanceToPool($obj, $key);
+                InvAdjustmentReasonTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -307,12 +307,12 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE);
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC);
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED);
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(InventoryAdjustmentReasonTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_INTBIARNCODE);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_INTBIARNDESC);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(InvAdjustmentReasonTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.IntbIarnCode');
             $criteria->addSelectColumn($alias . '.IntbIarnDesc');
@@ -332,7 +332,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(InventoryAdjustmentReasonTableMap::DATABASE_NAME)->getTable(InventoryAdjustmentReasonTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(InvAdjustmentReasonTableMap::DATABASE_NAME)->getTable(InvAdjustmentReasonTableMap::TABLE_NAME);
     }
 
     /**
@@ -340,16 +340,16 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InventoryAdjustmentReasonTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InventoryAdjustmentReasonTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvAdjustmentReasonTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(InvAdjustmentReasonTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new InvAdjustmentReasonTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a InventoryAdjustmentReason or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a InvAdjustmentReason or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InventoryAdjustmentReason object or primary key or array of primary keys
+     * @param mixed               $values Criteria or InvAdjustmentReason object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -360,27 +360,27 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvAdjustmentReasonTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \InventoryAdjustmentReason) { // it's a model object
+        } elseif ($values instanceof \InvAdjustmentReason) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(InvAdjustmentReasonTableMap::DATABASE_NAME);
+            $criteria->add(InvAdjustmentReasonTableMap::COL_INTBIARNCODE, (array) $values, Criteria::IN);
         }
 
-        $query = InventoryAdjustmentReasonQuery::create()->mergeWith($criteria);
+        $query = InvAdjustmentReasonQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            InventoryAdjustmentReasonTableMap::clearInstancePool();
+            InvAdjustmentReasonTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                InventoryAdjustmentReasonTableMap::removeInstanceFromPool($singleval);
+                InvAdjustmentReasonTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -395,13 +395,13 @@ class InventoryAdjustmentReasonTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return InventoryAdjustmentReasonQuery::create()->doDeleteAll($con);
+        return InvAdjustmentReasonQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a InventoryAdjustmentReason or Criteria object.
+     * Performs an INSERT on the database, given a InvAdjustmentReason or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InventoryAdjustmentReason object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or InvAdjustmentReason object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -410,18 +410,18 @@ class InventoryAdjustmentReasonTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvAdjustmentReasonTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from InventoryAdjustmentReason object
+            $criteria = $criteria->buildCriteria(); // build Criteria from InvAdjustmentReason object
         }
 
 
         // Set the correct dbName
-        $query = InventoryAdjustmentReasonQuery::create()->mergeWith($criteria);
+        $query = InvAdjustmentReasonQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -430,7 +430,7 @@ class InventoryAdjustmentReasonTableMap extends TableMap
         });
     }
 
-} // InventoryAdjustmentReasonTableMap
+} // InvAdjustmentReasonTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-InventoryAdjustmentReasonTableMap::buildTableMap();
+InvAdjustmentReasonTableMap::buildTableMap();

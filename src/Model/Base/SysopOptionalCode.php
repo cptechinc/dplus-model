@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \InventoryAdjustmentReasonQuery as ChildInventoryAdjustmentReasonQuery;
+use \SysopOptionalCodeQuery as ChildSysopOptionalCodeQuery;
 use \Exception;
 use \PDO;
-use Map\InventoryAdjustmentReasonTableMap;
+use Map\SysopOptionalCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,18 +19,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'inv_iarn_code' table.
+ * Base class that represents a row from the 'sys_opt_optcode' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class InventoryAdjustmentReason implements ActiveRecordInterface
+abstract class SysopOptionalCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\InventoryAdjustmentReasonTableMap';
+    const TABLE_MAP = '\\Map\\SysopOptionalCodeTableMap';
 
 
     /**
@@ -60,25 +60,42 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the intbiarncode field.
+     * The value for the optnsystem field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $intbiarncode;
+    protected $optnsystem;
 
     /**
-     * The value for the intbiarndesc field.
+     * The value for the optncode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $intbiarndesc;
+    protected $optncode;
 
     /**
-     * The value for the intbiarnsysdefined field.
+     * The value for the optcid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $optcid;
+
+    /**
+     * The value for the optcdesc field.
      *
      * @var        string
      */
-    protected $intbiarnsysdefined;
+    protected $optcdesc;
+
+    /**
+     * The value for the optcdesc2 field.
+     *
+     * @var        string
+     */
+    protected $optcdesc2;
 
     /**
      * The value for the dateupdtd field.
@@ -110,10 +127,25 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\InventoryAdjustmentReason object.
+     * Applies default values to this object.
+     * This method should be called from the object's constructor (or
+     * equivalent initialization method).
+     * @see __construct()
+     */
+    public function applyDefaultValues()
+    {
+        $this->optnsystem = '';
+        $this->optncode = '';
+        $this->optcid = '';
+    }
+
+    /**
+     * Initializes internal state of Base\SysopOptionalCode object.
+     * @see applyDefaults()
      */
     public function __construct()
     {
+        $this->applyDefaultValues();
     }
 
     /**
@@ -205,9 +237,9 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>InventoryAdjustmentReason</code> instance.  If
-     * <code>obj</code> is an instance of <code>InventoryAdjustmentReason</code>, delegates to
-     * <code>equals(InventoryAdjustmentReason)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>SysopOptionalCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>SysopOptionalCode</code>, delegates to
+     * <code>equals(SysopOptionalCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -273,7 +305,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|InventoryAdjustmentReason The current object, for fluid interface
+     * @return $this|SysopOptionalCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -335,33 +367,53 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbiarncode] column value.
+     * Get the [optnsystem] column value.
      *
      * @return string
      */
-    public function getIntbiarncode()
+    public function getOptnsystem()
     {
-        return $this->intbiarncode;
+        return $this->optnsystem;
     }
 
     /**
-     * Get the [intbiarndesc] column value.
+     * Get the [optncode] column value.
      *
      * @return string
      */
-    public function getIntbiarndesc()
+    public function getOptncode()
     {
-        return $this->intbiarndesc;
+        return $this->optncode;
     }
 
     /**
-     * Get the [intbiarnsysdefined] column value.
+     * Get the [optcid] column value.
      *
      * @return string
      */
-    public function getIntbiarnsysdefined()
+    public function getOptcid()
     {
-        return $this->intbiarnsysdefined;
+        return $this->optcid;
+    }
+
+    /**
+     * Get the [optcdesc] column value.
+     *
+     * @return string
+     */
+    public function getOptcdesc()
+    {
+        return $this->optcdesc;
+    }
+
+    /**
+     * Get the [optcdesc2] column value.
+     *
+     * @return string
+     */
+    public function getOptcdesc2()
+    {
+        return $this->optcdesc2;
     }
 
     /**
@@ -395,70 +447,110 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [intbiarncode] column.
+     * Set the value of [optnsystem] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
-    public function setIntbiarncode($v)
+    public function setOptnsystem($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbiarncode !== $v) {
-            $this->intbiarncode = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE] = true;
+        if ($this->optnsystem !== $v) {
+            $this->optnsystem = $v;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_OPTNSYSTEM] = true;
         }
 
         return $this;
-    } // setIntbiarncode()
+    } // setOptnsystem()
 
     /**
-     * Set the value of [intbiarndesc] column.
+     * Set the value of [optncode] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
-    public function setIntbiarndesc($v)
+    public function setOptncode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbiarndesc !== $v) {
-            $this->intbiarndesc = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC] = true;
+        if ($this->optncode !== $v) {
+            $this->optncode = $v;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_OPTNCODE] = true;
         }
 
         return $this;
-    } // setIntbiarndesc()
+    } // setOptncode()
 
     /**
-     * Set the value of [intbiarnsysdefined] column.
+     * Set the value of [optcid] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
-    public function setIntbiarnsysdefined($v)
+    public function setOptcid($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbiarnsysdefined !== $v) {
-            $this->intbiarnsysdefined = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED] = true;
+        if ($this->optcid !== $v) {
+            $this->optcid = $v;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_OPTCID] = true;
         }
 
         return $this;
-    } // setIntbiarnsysdefined()
+    } // setOptcid()
+
+    /**
+     * Set the value of [optcdesc] column.
+     *
+     * @param string $v new value
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
+     */
+    public function setOptcdesc($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->optcdesc !== $v) {
+            $this->optcdesc = $v;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_OPTCDESC] = true;
+        }
+
+        return $this;
+    } // setOptcdesc()
+
+    /**
+     * Set the value of [optcdesc2] column.
+     *
+     * @param string $v new value
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
+     */
+    public function setOptcdesc2($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->optcdesc2 !== $v) {
+            $this->optcdesc2 = $v;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_OPTCDESC2] = true;
+        }
+
+        return $this;
+    } // setOptcdesc2()
 
     /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -468,7 +560,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -478,7 +570,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -488,7 +580,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -498,7 +590,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\InventoryAdjustmentReason The current object (for fluent API support)
+     * @return $this|\SysopOptionalCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -508,7 +600,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[InventoryAdjustmentReasonTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[SysopOptionalCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -524,6 +616,18 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->optnsystem !== '') {
+                return false;
+            }
+
+            if ($this->optncode !== '') {
+                return false;
+            }
+
+            if ($this->optcid !== '') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -550,22 +654,28 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Intbiarncode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbiarncode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Optnsystem', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->optnsystem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Intbiarndesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbiarndesc = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Optncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->optncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Intbiarnsysdefined', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbiarnsysdefined = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Optcid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->optcid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Optcdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->optcdesc = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Optcdesc2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->optcdesc2 = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InventoryAdjustmentReasonTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SysopOptionalCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -575,10 +685,10 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = InventoryAdjustmentReasonTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 8; // 8 = SysopOptionalCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\InventoryAdjustmentReason'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\SysopOptionalCode'), 0, $e);
         }
     }
 
@@ -620,13 +730,13 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildInventoryAdjustmentReasonQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildSysopOptionalCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -645,8 +755,8 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see InventoryAdjustmentReason::setDeleted()
-     * @see InventoryAdjustmentReason::isDeleted()
+     * @see SysopOptionalCode::setDeleted()
+     * @see SysopOptionalCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -655,11 +765,11 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildInventoryAdjustmentReasonQuery::create()
+            $deleteQuery = ChildSysopOptionalCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -694,7 +804,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SysopOptionalCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -713,7 +823,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                InventoryAdjustmentReasonTableMap::addInstanceToPool($this);
+                SysopOptionalCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -772,27 +882,33 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbIarnCode';
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTNSYSTEM)) {
+            $modifiedColumns[':p' . $index++]  = 'OptnSystem';
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbIarnDesc';
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTNCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'OptnCode';
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbIarnSysDefined';
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCID)) {
+            $modifiedColumns[':p' . $index++]  = 'OptcId';
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCDESC)) {
+            $modifiedColumns[':p' . $index++]  = 'OptcDesc';
+        }
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCDESC2)) {
+            $modifiedColumns[':p' . $index++]  = 'OptcDesc2';
+        }
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO inv_iarn_code (%s) VALUES (%s)',
+            'INSERT INTO sys_opt_optcode (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -801,14 +917,20 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'IntbIarnCode':
-                        $stmt->bindValue($identifier, $this->intbiarncode, PDO::PARAM_STR);
+                    case 'OptnSystem':
+                        $stmt->bindValue($identifier, $this->optnsystem, PDO::PARAM_STR);
                         break;
-                    case 'IntbIarnDesc':
-                        $stmt->bindValue($identifier, $this->intbiarndesc, PDO::PARAM_STR);
+                    case 'OptnCode':
+                        $stmt->bindValue($identifier, $this->optncode, PDO::PARAM_STR);
                         break;
-                    case 'IntbIarnSysDefined':
-                        $stmt->bindValue($identifier, $this->intbiarnsysdefined, PDO::PARAM_STR);
+                    case 'OptcId':
+                        $stmt->bindValue($identifier, $this->optcid, PDO::PARAM_STR);
+                        break;
+                    case 'OptcDesc':
+                        $stmt->bindValue($identifier, $this->optcdesc, PDO::PARAM_STR);
+                        break;
+                    case 'OptcDesc2':
+                        $stmt->bindValue($identifier, $this->optcdesc2, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -858,7 +980,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InventoryAdjustmentReasonTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SysopOptionalCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -875,21 +997,27 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getIntbiarncode();
+                return $this->getOptnsystem();
                 break;
             case 1:
-                return $this->getIntbiarndesc();
+                return $this->getOptncode();
                 break;
             case 2:
-                return $this->getIntbiarnsysdefined();
+                return $this->getOptcid();
                 break;
             case 3:
-                return $this->getDateupdtd();
+                return $this->getOptcdesc();
                 break;
             case 4:
-                return $this->getTimeupdtd();
+                return $this->getOptcdesc2();
                 break;
             case 5:
+                return $this->getDateupdtd();
+                break;
+            case 6:
+                return $this->getTimeupdtd();
+                break;
+            case 7:
                 return $this->getDummy();
                 break;
             default:
@@ -915,18 +1043,20 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['InventoryAdjustmentReason'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['SysopOptionalCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['InventoryAdjustmentReason'][$this->hashCode()] = true;
-        $keys = InventoryAdjustmentReasonTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['SysopOptionalCode'][$this->hashCode()] = true;
+        $keys = SysopOptionalCodeTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getIntbiarncode(),
-            $keys[1] => $this->getIntbiarndesc(),
-            $keys[2] => $this->getIntbiarnsysdefined(),
-            $keys[3] => $this->getDateupdtd(),
-            $keys[4] => $this->getTimeupdtd(),
-            $keys[5] => $this->getDummy(),
+            $keys[0] => $this->getOptnsystem(),
+            $keys[1] => $this->getOptncode(),
+            $keys[2] => $this->getOptcid(),
+            $keys[3] => $this->getOptcdesc(),
+            $keys[4] => $this->getOptcdesc2(),
+            $keys[5] => $this->getDateupdtd(),
+            $keys[6] => $this->getTimeupdtd(),
+            $keys[7] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -946,11 +1076,11 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\InventoryAdjustmentReason
+     * @return $this|\SysopOptionalCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InventoryAdjustmentReasonTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SysopOptionalCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -961,27 +1091,33 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\InventoryAdjustmentReason
+     * @return $this|\SysopOptionalCode
      */
     public function setByPosition($pos, $value)
     {
         switch ($pos) {
             case 0:
-                $this->setIntbiarncode($value);
+                $this->setOptnsystem($value);
                 break;
             case 1:
-                $this->setIntbiarndesc($value);
+                $this->setOptncode($value);
                 break;
             case 2:
-                $this->setIntbiarnsysdefined($value);
+                $this->setOptcid($value);
                 break;
             case 3:
-                $this->setDateupdtd($value);
+                $this->setOptcdesc($value);
                 break;
             case 4:
-                $this->setTimeupdtd($value);
+                $this->setOptcdesc2($value);
                 break;
             case 5:
+                $this->setDateupdtd($value);
+                break;
+            case 6:
+                $this->setTimeupdtd($value);
+                break;
+            case 7:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1008,25 +1144,31 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = InventoryAdjustmentReasonTableMap::getFieldNames($keyType);
+        $keys = SysopOptionalCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setIntbiarncode($arr[$keys[0]]);
+            $this->setOptnsystem($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setIntbiarndesc($arr[$keys[1]]);
+            $this->setOptncode($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setIntbiarnsysdefined($arr[$keys[2]]);
+            $this->setOptcid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setDateupdtd($arr[$keys[3]]);
+            $this->setOptcdesc($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setTimeupdtd($arr[$keys[4]]);
+            $this->setOptcdesc2($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setDummy($arr[$keys[5]]);
+            $this->setDateupdtd($arr[$keys[5]]);
+        }
+        if (array_key_exists($keys[6], $arr)) {
+            $this->setTimeupdtd($arr[$keys[6]]);
+        }
+        if (array_key_exists($keys[7], $arr)) {
+            $this->setDummy($arr[$keys[7]]);
         }
     }
 
@@ -1047,7 +1189,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\InventoryAdjustmentReason The current object, for fluid interface
+     * @return $this|\SysopOptionalCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1067,25 +1209,31 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(InventoryAdjustmentReasonTableMap::DATABASE_NAME);
+        $criteria = new Criteria(SysopOptionalCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $this->intbiarncode);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTNSYSTEM)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_OPTNSYSTEM, $this->optnsystem);
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_INTBIARNDESC, $this->intbiarndesc);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTNCODE)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_OPTNCODE, $this->optncode);
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_INTBIARNSYSDEFINED, $this->intbiarnsysdefined);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCID)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_OPTCID, $this->optcid);
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_DATEUPDTD)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCDESC)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_OPTCDESC, $this->optcdesc);
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_OPTCDESC2)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_OPTCDESC2, $this->optcdesc2);
         }
-        if ($this->isColumnModified(InventoryAdjustmentReasonTableMap::COL_DUMMY)) {
-            $criteria->add(InventoryAdjustmentReasonTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        }
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        }
+        if ($this->isColumnModified(SysopOptionalCodeTableMap::COL_DUMMY)) {
+            $criteria->add(SysopOptionalCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1103,8 +1251,10 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildInventoryAdjustmentReasonQuery::create();
-        $criteria->add(InventoryAdjustmentReasonTableMap::COL_INTBIARNCODE, $this->intbiarncode);
+        $criteria = ChildSysopOptionalCodeQuery::create();
+        $criteria->add(SysopOptionalCodeTableMap::COL_OPTNSYSTEM, $this->optnsystem);
+        $criteria->add(SysopOptionalCodeTableMap::COL_OPTNCODE, $this->optncode);
+        $criteria->add(SysopOptionalCodeTableMap::COL_OPTCID, $this->optcid);
 
         return $criteria;
     }
@@ -1117,7 +1267,9 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getIntbiarncode();
+        $validPk = null !== $this->getOptnsystem() &&
+            null !== $this->getOptncode() &&
+            null !== $this->getOptcid();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1132,23 +1284,31 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
     }
 
     /**
-     * Returns the primary key for this object (row).
-     * @return string
+     * Returns the composite primary key for this object.
+     * The array elements will be in same order as specified in XML.
+     * @return array
      */
     public function getPrimaryKey()
     {
-        return $this->getIntbiarncode();
+        $pks = array();
+        $pks[0] = $this->getOptnsystem();
+        $pks[1] = $this->getOptncode();
+        $pks[2] = $this->getOptcid();
+
+        return $pks;
     }
 
     /**
-     * Generic method to set the primary key (intbiarncode column).
+     * Set the [composite] primary key.
      *
-     * @param       string $key Primary key.
+     * @param      array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey($keys)
     {
-        $this->setIntbiarncode($key);
+        $this->setOptnsystem($keys[0]);
+        $this->setOptncode($keys[1]);
+        $this->setOptcid($keys[2]);
     }
 
     /**
@@ -1157,7 +1317,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return null === $this->getIntbiarncode();
+        return (null === $this->getOptnsystem()) && (null === $this->getOptncode()) && (null === $this->getOptcid());
     }
 
     /**
@@ -1166,16 +1326,18 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \InventoryAdjustmentReason (or compatible) type.
+     * @param      object $copyObj An object of \SysopOptionalCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setIntbiarncode($this->getIntbiarncode());
-        $copyObj->setIntbiarndesc($this->getIntbiarndesc());
-        $copyObj->setIntbiarnsysdefined($this->getIntbiarnsysdefined());
+        $copyObj->setOptnsystem($this->getOptnsystem());
+        $copyObj->setOptncode($this->getOptncode());
+        $copyObj->setOptcid($this->getOptcid());
+        $copyObj->setOptcdesc($this->getOptcdesc());
+        $copyObj->setOptcdesc2($this->getOptcdesc2());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1193,7 +1355,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \InventoryAdjustmentReason Clone of current object.
+     * @return \SysopOptionalCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1213,14 +1375,17 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function clear()
     {
-        $this->intbiarncode = null;
-        $this->intbiarndesc = null;
-        $this->intbiarnsysdefined = null;
+        $this->optnsystem = null;
+        $this->optncode = null;
+        $this->optcid = null;
+        $this->optcdesc = null;
+        $this->optcdesc2 = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
+        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
@@ -1248,7 +1413,7 @@ abstract class InventoryAdjustmentReason implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InventoryAdjustmentReasonTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(SysopOptionalCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

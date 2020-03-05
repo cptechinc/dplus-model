@@ -1,6 +1,6 @@
 <?php
 
-use Base\InventoryAdjustmentReason as BaseInventoryAdjustmentReason;
+use Base\InvAdjustmentReason as BaseInvAdjustmentReason;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,11 +8,11 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_iarn_code' table.
  */
-class InventoryAdjustmentReason extends BaseInventoryAdjustmentReason {
+class InvAdjustmentReason extends BaseInvAdjustmentReason {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-    const MAX_LENGTH_CODE = 8;
+	const MAX_LENGTH_CODE = 8;
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -22,7 +22,7 @@ class InventoryAdjustmentReason extends BaseInventoryAdjustmentReason {
 		'id'           => 'intbiarncode',
 		'code'         => 'intbiarncode',
 		'description'  => 'intbiarndesc',
-        'sys_defined'  => 'intbiarnsysdefined',
+		'sys_defined'  => 'intbiarnsysdefined',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
