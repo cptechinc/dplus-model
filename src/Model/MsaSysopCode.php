@@ -15,6 +15,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	const MAX_LENGTH_CODE = 8;
 
 	const SYSTEM_IN = 'IN';
+	const SYSTEM_SO = 'SO';
 
 	/**
 	 * Column Aliases to lookup / get properties
