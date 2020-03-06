@@ -89,6 +89,8 @@ class SalesOrder extends BaseSalesOrder {
 
 	const LENGTH = 10;
 
+	const STATUS_NEW = 'N';
+
 	/**
 	 * Order Statuses and the values for their description
 	 *
