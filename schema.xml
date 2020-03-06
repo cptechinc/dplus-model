@@ -3306,6 +3306,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="sys_login_group" idMethod="native" phpName="SysLoginGroup">
+    <column name="QtblLgrpCode" phpName="Qtbllgrpcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="QtblLgrpDesc" phpName="Qtbllgrpdesc" type="VARCHAR" size="40"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="sys_opt_optcode" idMethod="native" phpName="SysopOptionalCode">
     <column name="OptnSystem" phpName="Optnsystem" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="OptnCode" phpName="Optncode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
