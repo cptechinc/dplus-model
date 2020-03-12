@@ -89,6 +89,8 @@ class SalesOrder extends BaseSalesOrder {
 
 	const LENGTH = 10;
 
+	const STATUS_NEW = 'N';
+
 	/**
 	 * Order Statuses and the values for their description
 	 *
@@ -101,6 +103,11 @@ class SalesOrder extends BaseSalesOrder {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Returns if Order should be Shipped Complete
+	 *
+	 * @return bool
+	 */
 	public function is_shipcomplete() {
 		return $this->shipcomplete == 'Y';
 	}

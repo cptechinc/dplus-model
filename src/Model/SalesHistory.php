@@ -19,7 +19,7 @@ class SalesHistory extends BaseSalesHistory {
 		'custid'          => 'arcucustid',
 		'shiptoid'        => 'arstshipid',
 		'custpo'          => 'oehhcustpo',
-		'total_total'     => 'oehhoordrtot',
+		'total_total'     => 'oehhordrtot',
 		'date_ordered'    => 'oehhordrdate',
 		'status'          => 'oehhstat',
 		'orderstatus'     => 'oehhstat',
