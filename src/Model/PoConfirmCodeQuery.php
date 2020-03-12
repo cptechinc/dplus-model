@@ -2,6 +2,8 @@
 
 use Base\PoConfirmCodeQuery as BasePoConfirmCodeQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
  * Class for performing query and update operations on the 'po_confirm_code' table.
  *
