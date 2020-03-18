@@ -23,7 +23,7 @@ class InvPriceCode extends BaseInvPriceCode {
 		'code'           => 'intbpricgrup',
 		'description'    => 'intbpricdesc',
 		'sales_program'  => 'intbpricsaleprog',
-		'cost_precent'   => 'intbpriccostpct',
+		'cost_percent'   => 'intbpriccostpct',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd'
 	);

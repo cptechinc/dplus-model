@@ -1,11 +1,11 @@
 <?php
 
-use Base\PoConfirmCodeQuery as BasePoConfirmCodeQuery;
+use Base\ShiptoUserCodeQuery as BaseShiptoUserCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
 /**
- * Class for performing query and update operations on the 'po_confirm_code' table.
+ * Class for performing query and update operations on the 'ar_cust_susr' table.
  *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
@@ -22,6 +22,6 @@ use Dplus\Model\QueryTraits;
  *
  *
  */
-class PoConfirmCodeQuery extends BasePoConfirmCodeQuery {
+class ShiptoUserCodeQuery extends BaseShiptoUserCodeQuery {
 	use QueryTraits;
 }

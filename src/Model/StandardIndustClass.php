@@ -1,14 +1,14 @@
 <?php
 
-use Base\PoConfirmCode as BasePoConfirmCode;
+use Base\StandardIndustClass as BaseStandardIndustClass;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Class for representing a row from the 'po_confirm_code' table.
+ * Class for representing a row from the 'ar_cust_sic' table.
  */
-class PoConfirmCode extends BasePoConfirmCode {
+class StandardIndustClass extends BaseStandardIndustClass {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -19,14 +19,14 @@ class PoConfirmCode extends BasePoConfirmCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'potbcnfmcode',
-		'code'         => 'potbcnfmcode',
-		'description'  => 'potbcnfmdesc',
+		'id'           => 'artbsiccode',
+		'code'         => 'artbsiccode',
+		'description'  => 'artbsicdesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
 
-    /**
+	/**
 	 * Return the Max Number of characters allowed for Code
 	 * @return int
 	 */
