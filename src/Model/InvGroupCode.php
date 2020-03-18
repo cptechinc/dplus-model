@@ -39,6 +39,9 @@ class InvGroupCode extends BaseInvGroupCode {
 		'freight_group'            => 'intbgrupfrtgrup',
 		'product_line'             => 'intbgrupprodline',
 		'ecomm_desc'               => 'intbgruplmecommdesc',
+        'max_qty_large'            => 'intbgruplmmaxqtylrg',
+        'max_qty_medium'           => 'intbgruplmmaxqtymed',
+        'max_qty_small'            => 'intbgruplmmaxqtysml',
 		'date'		               => 'dateupdtd',
 		'time'		               => 'timeupdtd'
 	);
