@@ -88,6 +88,15 @@ class SalesHistory extends BaseSalesHistory {
 	}
 
 	/**
+	 * Dummy functon
+	 *
+	 * @return string
+	 */
+	public function getHeldby() {
+		return '';
+	}
+
+	/**
 	 * Returns the Number of Details Lines this Sales Order has
 	 *
 	 * @return bool
