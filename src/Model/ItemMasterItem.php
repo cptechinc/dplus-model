@@ -16,6 +16,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const VALUE_TRUE  = 'Y';
+	const VALUE_FALSE = 'N';
+
 	const ITEMTYPE_SERIALIZED = 'S';
 	const ITEMTYPE_LOTTED     = 'L';
 	const ITEMTYPE_NORMAL     = 'N';
@@ -58,7 +61,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'primaryvxm'      => 'primaryItemXrefVendor',
 		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
 		'allowdiscount'   => 'initgivedisc',
-		'revision'        => 'initrevision'
+		'revision'        => 'initrevision',
+		'inspection'      => 'initinspect',
+		'splitorder'      => 'initsplit',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -126,6 +131,23 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $query->findByKititemid($this->inititemnbr);
 	}
 
+	/**
+	 * Return if Item gets Inspections
+	 *
+	 * @return bool
+	 */
+	public function is_inspection() {
+		return $this->inspection == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if the Item is a Split Order Item
+	 *
+	 * @return bool
+	 */
+	public function is_splitorder() {
+		return $this->splitorder == self::VALUE_TRUE;
+	}
 
 	/**
 	 * Returns the Standard Cost For the Unit of Measurement Sale
