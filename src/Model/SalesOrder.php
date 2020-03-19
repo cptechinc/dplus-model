@@ -103,11 +103,6 @@ class SalesOrder extends BaseSalesOrder {
 		'I' => 'invoiced'
 	);
 
-	/**
-	 * Returns if Order should be Shipped Complete
-	 *
-	 * @return bool
-	 */
 	public function is_shipcomplete() {
 		return $this->shipcomplete == 'Y';
 	}

@@ -69,7 +69,8 @@ class Quote extends BaseQuote {
 		'careof'          => 'qthdcareof',
 		'custpo'          => 'qthdcustpo',
 		'printformat'     => 'qthdprintformat',
-		'deliverto'       => 'qthddeliverydesc'
+		'deliverto'       => 'qthddeliverydesc',
+		'items'           => 'quoteDetails'
 	);
 
 	const FOB_OPTIONS = array('O', 'D');

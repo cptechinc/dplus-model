@@ -12,6 +12,12 @@ class QuoteNotes extends BaseQuoteNotes {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const TYPE = 'QUOT';
+	const DESCRIPTION = 'Quote Header and Detail Notes';
+	const FORM_TRUE = 'Y';
+
+	const KEY2_LINENBR_SIZE = 4;
+
 	const COLUMN_ALIASES = array(
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
@@ -28,4 +34,17 @@ class QuoteNotes extends BaseQuoteNotes {
 		'sequence'        => 'qnseq',
 		'note'            => 'qnnote',
 	);
+
+	/**
+	 * Returns a generated Key2
+	 * NOTE: Key2 = Quote Number padded followed by four digit linenbr
+	 *
+	 * @return string
+	 */
+	public function generateKey2() {
+		$key2_qnbr = str_pad($this->quotenbr, 8, ' ', STR_PAD_RIGHT);
+		$key2_linenbr = str_pad($this->line , self::KEY2_LINENBR_SIZE , "0", STR_PAD_LEFT);
+		$key2 = $key2_qnbr.$key2_linenbr;
+		$this->setKey2($key2);
+	}
 }

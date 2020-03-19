@@ -1224,6 +1224,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ii_options" idMethod="native" phpName="ConfigIi">
+    <column name="IitbOptnCode" phpName="Iitboptncode" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="IitbOptnActAvail" phpName="Iitboptnactavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnActWhse" phpName="Iitboptnactwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnActDet" phpName="Iitboptnactdet" type="VARCHAR" size="1"/>
+    <column name="IitbOptnActDaysBack" phpName="Iitboptnactdaysback" type="INTEGER" size="5"/>
+    <column name="IitbOptnActStrtDate" phpName="Iitboptnactstrtdate" type="VARCHAR" size="8"/>
+    <column name="IitbOptnCostAvail" phpName="Iitboptncostavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnCostWhse" phpName="Iitboptncostwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnCostDet" phpName="Iitboptncostdet" type="VARCHAR" size="1"/>
+    <column name="IitbOptnGenAvail" phpName="Iitboptngenavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnKtAvail" phpName="Iitboptnktavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnPricAvail" phpName="Iitboptnpricavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnPhAvail" phpName="Iitboptnphavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnPhWhse" phpName="Iitboptnphwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnPhDet" phpName="Iitboptnphdet" type="VARCHAR" size="1"/>
+    <column name="IitbOptnPhDaysBack" phpName="Iitboptnphdaysback" type="INTEGER" size="5"/>
+    <column name="IitbOptnPhStrtDate" phpName="Iitboptnphstrtdate" type="VARCHAR" size="8"/>
+    <column name="IitbOptnPoAvail" phpName="Iitboptnpoavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnPoWhse" phpName="Iitboptnpowhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnReqrAvail" phpName="Iitboptnreqravail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnReqrWhse" phpName="Iitboptnreqrwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnReqrView" phpName="Iitboptnreqrview" type="VARCHAR" size="1"/>
+    <column name="IitbOptnShAvail" phpName="Iitboptnshavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnShWhse" phpName="Iitboptnshwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnShDet" phpName="Iitboptnshdet" type="VARCHAR" size="1"/>
+    <column name="IitbOptnShDaysBack" phpName="Iitboptnshdaysback" type="INTEGER" size="5"/>
+    <column name="IitbOptnShStrtDate" phpName="Iitboptnshstrtdate" type="VARCHAR" size="8"/>
+    <column name="IitbOptnSoAvail" phpName="Iitboptnsoavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnSoWhse" phpName="Iitboptnsowhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnSerlotAvail" phpName="Iitboptnserlotavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnStckAvail" phpName="Iitboptnstckavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnStckWhse" phpName="Iitboptnstckwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnStckDet" phpName="Iitboptnstckdet" type="VARCHAR" size="1"/>
+    <column name="IitbOptnSubsupAvail" phpName="Iitboptnsubsupavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnSubsupWhse" phpName="Iitboptnsubsupwhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnLsAvail" phpName="Iitboptnlsavail" type="VARCHAR" size="1"/>
+    <column name="IitbOptnLsWhse" phpName="Iitboptnlswhse" type="VARCHAR" size="2"/>
+    <column name="IitbOptnDesc1Or2" phpName="Iitboptndesc1or2" type="VARCHAR" size="1"/>
+    <column name="IitbOptnDelCerts" phpName="Iitboptndelcerts" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="in_config" idMethod="native" phpName="ConfigIn">
     <column name="IntbConfKey" phpName="Intbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="IntbConfGlIfac" phpName="Intbconfglifac" type="VARCHAR" size="1"/>

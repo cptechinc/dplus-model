@@ -14,6 +14,10 @@ class ConfigIn extends BaseConfigIn {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+
+	const VALUE_TRUE  = 'Y';
+	const VALUE_FALSE = 'N';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -22,6 +26,14 @@ class ConfigIn extends BaseConfigIn {
 		'use_controlbin' => 'intbconfusecntrlbin',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
+		'default_itemgroup' => 'IntbConfGrupDef',
+		'default_pricegroup' => 'IntbConfPricGrupDef',
+		'default_commgroup'  => 'IntbConfCommGrupDef',
+		'default_itemtype'   => 'IntbConfTypeDef',
+		'use_pricegroup'     => 'IntbConfUsePricGrup',
+		'use_commgroup'      => 'IntbConfUseCommGrup',
+		'default_pricegroup_itemgroup' => 'IntbConfPricUseItem',
+		'default_commgroup_itemgroup' => 'IntbConfCommUseItem',
 	);
 
 	/**
@@ -29,6 +41,42 @@ class ConfigIn extends BaseConfigIn {
 	 * @return bool
 	 */
 	public function use_controlbin() {
-		return $this->use_controlbin == 'Y';
+		return $this->use_controlbin == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if Item's Pricegroup should be defaulted to itemgroup
+	 *
+	 * @return bool
+	 */
+	public function use_itemgroup_as_pricegroup() {
+		return $this->default_pricegroup_itemgroup == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if Item's Commgroup should be defaulted to itemgroup
+	 *
+	 * @return bool
+	 */
+	public function use_itemgroup_as_commgroup() {
+		return $this->default_commgroup_itemgroup == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if Company is configured to use Pricegroups
+	 *
+	 * @return bool
+	 */
+	public function use_pricegroup() {
+		return $this->use_pricegroup == self::VALUE_TRUE;
+	}
+	
+	/**
+	 * Return if Company is configured to use Pricegroups
+	 *
+	 * @return bool
+	 */
+	public function use_commgroup() {
+		return $this->use_commgroup == self::VALUE_TRUE;
 	}
 }
