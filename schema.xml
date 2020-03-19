@@ -620,6 +620,26 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_ctax" idMethod="native" phpName="TaxCodeCustomer">
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbCtaxDesc" phpName="Artbctaxdesc" type="VARCHAR" size="20"/>
+    <column name="ArtbCtaxCode1" phpName="Artbctaxcode1" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode2" phpName="Artbctaxcode2" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode3" phpName="Artbctaxcode3" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode4" phpName="Artbctaxcode4" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode5" phpName="Artbctaxcode5" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode6" phpName="Artbctaxcode6" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode7" phpName="Artbctaxcode7" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode8" phpName="Artbctaxcode8" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode9" phpName="Artbctaxcode9" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode10" phpName="Artbctaxcode10" type="VARCHAR" size="6"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_cusr" idMethod="native" phpName="CustomerUserCode">
     <column name="ArtbCusrCode" phpName="Artbcusrcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCusrDesc" phpName="Artbcusrdesc" type="VARCHAR" size="20"/>
