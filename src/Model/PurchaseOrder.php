@@ -60,8 +60,10 @@ class PurchaseOrder extends BasePurchaseOrder {
 	const LENGTH = 8;
 
 	const STATUS_DESCRIPTIONS = array(
-		'N' => 'new',
-		'C' => 'closed'
+		'N' => 'not printed',
+		'C' => 'closed',
+		'O' => 'open',
+		'P' => 'printed'
 	);
 
 	/**
