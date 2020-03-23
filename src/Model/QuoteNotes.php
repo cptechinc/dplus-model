@@ -33,6 +33,12 @@ class QuoteNotes extends BaseQuoteNotes {
 		'acknowledgement' => 'qnquotacknow',
 		'sequence'        => 'qnseq',
 		'note'            => 'qnnote',
+		'form'            => 'qnform',
+		'type'            => 'qntype',
+		'key2'            => 'qnkey2',
+		'description'     => 'qntypedesc',
+		'date'            => 'dateupdtd',
+		'time'            => 'timeupdtd',
 	);
 
 	/**
