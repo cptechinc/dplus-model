@@ -3385,6 +3385,45 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_lot_ser_hist" idMethod="native" phpName="SalesHistoryLotserial">
+    <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="OedhLine" phpName="Oedhline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeshTag" phpName="Oeshtag" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeshLotSer" phpName="Oeshlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeshBin" phpName="Oeshbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeshPlltNbr" phpName="Oeshplltnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OeshCrtnNbr" phpName="Oeshcrtnnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OeshYear" phpName="Oeshyear" type="VARCHAR" size="4"/>
+    <column name="OeshQtyShip" phpName="Oeshqtyship" type="DECIMAL" size="20" scale="7"/>
+    <column name="OeshCntrQty" phpName="Oeshcntrqty" type="DECIMAL" size="20" scale="0"/>
+    <column name="OeshSpecOrdr" phpName="Oeshspecordr" type="VARCHAR" size="1"/>
+    <column name="OeshLotRef" phpName="Oeshlotref" type="VARCHAR" size="20"/>
+    <column name="OeshBatch" phpName="Oeshbatch" type="VARCHAR" size="15"/>
+    <column name="OeshCureDate" phpName="Oeshcuredate" type="VARCHAR" size="10"/>
+    <column name="OeshAcStatus" phpName="Oeshacstatus" type="VARCHAR" size="4"/>
+    <column name="OeshTestLot" phpName="Oeshtestlot" type="VARCHAR" size="4"/>
+    <column name="OeshPlltType" phpName="Oeshpllttype" type="VARCHAR" size="1"/>
+    <column name="OeshTareWght" phpName="Oeshtarewght" type="DECIMAL" size="20" scale="3"/>
+    <column name="OeshUseUp" phpName="Oeshuseup" type="VARCHAR" size="1"/>
+    <column name="OeshLblPrtd" phpName="Oeshlblprtd" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="so_head_hist" name="saleshistory" skipSql="true">
+      <reference local="OehhNbr" foreign="OehhNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="so_det_hist" name="saleshistorydetail" skipSql="true">
+      <reference local="OehhNbr" foreign="OehhNbr"/>
+      <reference local="OedhLine" foreign="OedhLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_lssl_code" idMethod="native" phpName="LostSalesCode">
     <column name="OetbLsslCode" phpName="Oetblsslcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="OetbLsslReasonDesc" phpName="Oetblsslreasondesc" type="VARCHAR" size="20"/>

@@ -561,13 +561,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomers', false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
-), null, null, 'CstkItems', false);
+), null, null, 'SalesHistoryLotserials', false);
         $this->addRelation('ItemXrefUpc', '\\ItemXrefUpc', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
