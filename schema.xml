@@ -3484,6 +3484,43 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="sys_definition" idMethod="native" phpName="SystemDefinition">
+    <column name="CscpCompNbr" phpName="Cscpcompnbr" type="INTEGER" size="2" primaryKey="true" required="true"/>
+    <column name="CscpCompId" phpName="Cscpcompid" type="VARCHAR" size="4"/>
+    <column name="CscpCompName" phpName="Cscpcompname" type="VARCHAR" size="30"/>
+    <column name="CscpDsPermission" phpName="Cscpdspermission" type="VARCHAR" size="1"/>
+    <column name="CscpRaPermission" phpName="Cscprapermission" type="VARCHAR" size="1"/>
+    <column name="CscpSrpPermission" phpName="Cscpsrppermission" type="VARCHAR" size="1"/>
+    <column name="CscpEmailType" phpName="Cscpemailtype" type="VARCHAR" size="1"/>
+    <column name="CscpFaxDir" phpName="Cscpfaxdir" type="VARCHAR" size="40"/>
+    <column name="CscpPrgDir" phpName="Cscpprgdir" type="VARCHAR" size="40"/>
+    <column name="CscpFile1Dir" phpName="Cscpfile1dir" type="VARCHAR" size="40"/>
+    <column name="CscpFile2Dir" phpName="Cscpfile2dir" type="VARCHAR" size="40"/>
+    <column name="CscpFile3Dir" phpName="Cscpfile3dir" type="VARCHAR" size="40"/>
+    <column name="CscpTempDir" phpName="Cscptempdir" type="VARCHAR" size="40"/>
+    <column name="CscpWorkDir" phpName="Cscpworkdir" type="VARCHAR" size="40"/>
+    <column name="CscpReptArchDir" phpName="Cscpreptarchdir" type="VARCHAR" size="40"/>
+    <column name="CscpDocInboxDir" phpName="Cscpdocinboxdir" type="VARCHAR" size="40"/>
+    <column name="CscpDocAutoDir" phpName="Cscpdocautodir" type="VARCHAR" size="40"/>
+    <column name="CscpCertsDir" phpName="Cscpcertsdir" type="VARCHAR" size="40"/>
+    <column name="CscpImgProduct" phpName="Cscpimgproduct" type="VARCHAR" size="40"/>
+    <column name="CscpImgDrawings" phpName="Cscpimgdrawings" type="VARCHAR" size="40"/>
+    <column name="CscpImgSchematic" phpName="Cscpimgschematic" type="VARCHAR" size="40"/>
+    <column name="CscpImgConfirm" phpName="Cscpimgconfirm" type="VARCHAR" size="40"/>
+    <column name="CscpPcchargeDir" phpName="Cscppcchargedir" type="VARCHAR" size="40"/>
+    <column name="CscpDeviceDir" phpName="Cscpdevicedir" type="VARCHAR" size="40"/>
+    <column name="CscpEcommDir" phpName="Cscpecommdir" type="VARCHAR" size="40"/>
+    <column name="CscpBrwzBaseIp" phpName="Cscpbrwzbaseip" type="VARCHAR" size="20"/>
+    <column name="CscpDataBaseName" phpName="Cscpdatabasename" type="VARCHAR" size="16"/>
+    <column name="CscpCompDataBaseName" phpName="Cscpcompdatabasename" type="VARCHAR" size="16"/>
+    <column name="CscpFgrndColor" phpName="Cscpfgrndcolor" type="INTEGER" size="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="sys_login_group" idMethod="native" phpName="SysLoginGroup">
     <column name="QtblLgrpCode" phpName="Qtbllgrpcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="QtblLgrpDesc" phpName="Qtbllgrpdesc" type="VARCHAR" size="40"/>
