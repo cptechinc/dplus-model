@@ -19,19 +19,9 @@ class SystemDefinition extends BaseSystemDefinition {
 	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
 	const COLUMN_ALIASES = array(
-		'ordernumber'  => 'oehhnbr',
-		'qty_ordered'  => 'oedhqtyord',
-		'qty_shipped'  => 'oedhqtyship',
-		'price'        => 'oedhpric',
-		'total_price'  => 'oedhprictot',
-		'itemid'       => 'inititemnbr',
-		'desc1'        => 'oedhdesc',
-		'desc2'        => 'oedhdesc2',
-		'line'         => 'oedhline',
-		'linenbr'      => 'oedhline',
-		'vendorpo'     => 'oedhponbr',
-		'item'         => 'item',
-		'qty_cases'    => 'oedhcntrqty',
+		'company_number'  => 'cscpcompnbr',
+		'company_id'      => 'cscpcompid',
+		'company_name'    => 'cscpcompname',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
 	);
