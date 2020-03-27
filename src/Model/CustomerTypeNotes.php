@@ -16,30 +16,30 @@ class CustomerTypeNotes extends BaseCustomerTypeNotes {
 	 * Note Types
 	 */
 	const TYPES = array(
+		'SCTP',
 		'ICTP',
-		'KCTP',
 		'PCTP',
-		'SCTP'
+		'KCTP'
 	);
 
 	/**
 	 * Note Types
 	 */
 	const TYPE_ALIASES = array(
+		'statement' => 'SCTP',
 		'invoice'   => 'ICTP',
-		'pack'      => 'KCTP',
 		'pick'      => 'PCTP',
-		'statement' => 'SCTP'
+		'pack'      => 'KCTP'
 	);
 
 	/**
 	 * Note Types
 	 */
 	const TYPES_DESCRIPTIONS = array(
+		'SCTP' => 'statement',
 		'ICTP' => 'invoice',
-		'KCTP' => 'pack ticket',
 		'PCTP' => 'pick ticket',
-		'SCTP' => 'statement'
+		'KCTP' => 'pack ticket'
 	);
 
 	/**
