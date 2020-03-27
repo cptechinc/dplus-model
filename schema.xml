@@ -945,6 +945,33 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_saleper1" idMethod="native" phpName="SalesPerson">
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArspName" phpName="Arspname" type="VARCHAR" size="30"/>
+    <column name="ArspMtdSale" phpName="Arspmtdsale" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspYtdSale" phpName="Arspytdsale" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspLtdSale" phpName="Arspltdsale" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspLastSaleDate" phpName="Arsplastsaledate" type="VARCHAR" size="8"/>
+    <column name="ArspMtdCommEarn" phpName="Arspmtdcommearn" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspYtdCommEarn" phpName="Arspytdcommearn" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspLtdCommEarn" phpName="Arspltdcommearn" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspMtdCommPaid" phpName="Arspmtdcommpaid" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspYtdCommPaid" phpName="Arspytdcommpaid" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspLtdCommPaid" phpName="Arspltdcommpaid" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArspCommCycle" phpName="Arspcommcycle" type="VARCHAR" size="2"/>
+    <column name="ArspGrup" phpName="Arspgrup" type="VARCHAR" size="6"/>
+    <column name="ArspLogin" phpName="Arsplogin" type="VARCHAR" size="12"/>
+    <column name="ArspMgr" phpName="Arspmgr" type="VARCHAR" size="1"/>
+    <column name="ArspVendId" phpName="Arspvendid" type="VARCHAR" size="6"/>
+    <column name="ArspRestrictAccess" phpName="Arsprestrictaccess" type="VARCHAR" size="1"/>
+    <column name="ArspEmailAddr" phpName="Arspemailaddr" type="VARCHAR" size="40"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_ship_to" idMethod="native" phpName="CustomerShipto">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
@@ -2420,6 +2447,186 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_by_day_cust" idMethod="native" phpName="BookingDayCustomer">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgcDate" phpName="Bkgcdate" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgcNetAmt" phpName="Bkgcnetamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+   </foreign-key>
+   <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+     <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_by_day_det" idMethod="native" phpName="BookingDayDetail">
+    <column name="BkgdDate" phpName="Bkgddate" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgdOrdrBase" phpName="Bkgdordrbase" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgdOrigLine" phpName="Bkgdorigline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgdOrdrNbr" phpName="Bkgdordrnbr" type="VARCHAR" size="10"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
+    <column name="BkgdB4Qty" phpName="Bkgdb4qty" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkgdB4Pric" phpName="Bkgdb4pric" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkgdB4Uom" phpName="Bkgdb4uom" type="VARCHAR" size="4"/>
+    <column name="BkgdAftQty" phpName="Bkgdaftqty" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkgdAftPric" phpName="Bkgdaftpric" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkgdAftUom" phpName="Bkgdaftuom" type="VARCHAR" size="4"/>
+    <column name="BkgdNetAmt" phpName="Bkgdnetamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+      <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_by_day_rep" idMethod="native" phpName="BookingDayRep">
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkgrDate" phpName="Bkgrdate" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="BkgrNetAmt" phpName="Bkgrnetamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+      <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_by_rep_sumry" idMethod="native" phpName="BookingSummaryRep">
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkrpToday" phpName="Bkrptoday" type="DECIMAL" size="20" scale="2"/>
+    <column name="BkrpWeekToDate" phpName="Bkrpweektodate" type="DECIMAL" size="20" scale="2"/>
+    <column name="BkrpMonthToDate" phpName="Bkrpmonthtodate" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt1" phpName="Bkrp12moamt1" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt2" phpName="Bkrp12moamt2" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt3" phpName="Bkrp12moamt3" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt4" phpName="Bkrp12moamt4" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt5" phpName="Bkrp12moamt5" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt6" phpName="Bkrp12moamt6" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt7" phpName="Bkrp12moamt7" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt8" phpName="Bkrp12moamt8" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt9" phpName="Bkrp12moamt9" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt10" phpName="Bkrp12moamt10" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt11" phpName="Bkrp12moamt11" type="DECIMAL" size="20" scale="2"/>
+    <column name="Bkrp12moAmt12" phpName="Bkrp12moamt12" type="DECIMAL" size="20" scale="2"/>
+    <column name="BkrpLastDate" phpName="Bkrplastdate" type="VARCHAR" size="8"/>
+    <column name="BkrpLastTime" phpName="Bkrplasttime" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+      <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_log_det" idMethod="native" phpName="BookingDetail">
+    <column name="BklhOrdrBase" phpName="Bklhordrbase" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BkldOrigLine" phpName="Bkldorigline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="BkldSeq" phpName="Bkldseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="BkldOrdrNbr" phpName="Bkldordrnbr" type="VARCHAR" size="10"/>
+    <column name="BkldTranDate" phpName="Bkldtrandate" type="VARCHAR" size="8"/>
+    <column name="BkldTranTime" phpName="Bkldtrantime" type="VARCHAR" size="8"/>
+    <column name="BkldLogIn" phpName="Bkldlogin" type="VARCHAR" size="8"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="BkldQty" phpName="Bkldqty" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkldUnitPric" phpName="Bkldunitpric" type="DECIMAL" size="20" scale="7"/>
+    <column name="BkldPgmRef" phpName="Bkldpgmref" type="VARCHAR" size="8"/>
+    <column name="BkldReasCd" phpName="Bkldreascd" type="VARCHAR" size="2"/>
+    <column name="BkldBookDate" phpName="Bkldbookdate" type="VARCHAR" size="8"/>
+    <column name="BkldNsItemDesc1" phpName="Bkldnsitemdesc1" type="VARCHAR" size="35"/>
+    <column name="BkldNsItemGrup" phpName="Bkldnsitemgrup" type="VARCHAR" size="4"/>
+    <column name="BkldNsUom" phpName="Bkldnsuom" type="VARCHAR" size="4"/>
+    <column name="BkldNsVendId" phpName="Bkldnsvendid" type="VARCHAR" size="6"/>
+    <column name="BkldQtyToShip" phpName="Bkldqtytoship" type="DECIMAL" size="20" scale="5"/>
+    <column name="BkldTaxCode" phpName="Bkldtaxcode" type="VARCHAR" size="6"/>
+    <column name="BkldUnitCost" phpName="Bkldunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="BkldAcSuplyWhse" phpName="Bkldacsuplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_book_log_head" idMethod="native" phpName="Booking">
+    <column name="BklhOrdrBase" phpName="Bklhordrbase" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BklhSeq" phpName="Bklhseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="BklhOrdrNbr" phpName="Bklhordrnbr" type="VARCHAR" size="10"/>
+    <column name="BklhTranDate" phpName="Bklhtrandate" type="VARCHAR" size="8"/>
+    <column name="BklhTranTime" phpName="Bklhtrantime" type="VARCHAR" size="8"/>
+    <column name="BklhLogIn" phpName="Bklhlogin" type="VARCHAR" size="8"/>
+    <column name="BklhOrdrDate" phpName="Bklhordrdate" type="VARCHAR" size="8"/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6"/>
+    <column name="BklhShipToStat" phpName="Bklhshiptostat" type="VARCHAR" size="2"/>
+    <column name="BklhOrigWhse" phpName="Bklhorigwhse" type="VARCHAR" size="2"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
+    <column name="BklhSp1Pct" phpName="Bklhsp1pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
+    <column name="BklhSp2Pct" phpName="Bklhsp2pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
+    <column name="BklhSp3Pct" phpName="Bklhsp3pct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
+    <column name="BklhUserCode1" phpName="Bklhusercode1" type="VARCHAR" size="8"/>
+    <column name="BklhUserCode2" phpName="Bklhusercode2" type="VARCHAR" size="8"/>
+    <column name="BklhUserCode3" phpName="Bklhusercode3" type="VARCHAR" size="8"/>
+    <column name="BkldUserCode4" phpName="Bkldusercode4" type="VARCHAR" size="8"/>
+    <column name="BklhPgmRef" phpName="Bklhpgmref" type="VARCHAR" size="8"/>
+    <column name="BklhReasCd" phpName="Bklhreascd" type="VARCHAR" size="2"/>
+    <column name="BklhFrtTot" phpName="Bklhfrttot" type="DECIMAL" size="20" scale="2"/>
+    <column name="BklhMiscTot" phpName="Bklhmisctot" type="DECIMAL" size="20" scale="2"/>
+    <column name="BklhSviaCode" phpName="Bklhsviacode" type="VARCHAR" size="4"/>
+    <column name="BklhCreditMemo" phpName="Bklhcreditmemo" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+      <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
