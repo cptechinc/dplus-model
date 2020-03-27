@@ -328,7 +328,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery rightJoinWithSalesHistory() Adds a RIGHT JOIN clause and with to the query using the SalesHistory relation
  * @method     ChildSalesHistoryDetailQuery innerJoinWithSalesHistory() Adds a INNER JOIN clause and with to the query using the SalesHistory relation
  *
- * @method     \SalesHistoryQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildSalesHistoryDetailQuery leftJoinSalesHistoryLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistoryLotserial relation
+ * @method     ChildSalesHistoryDetailQuery rightJoinSalesHistoryLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistoryLotserial relation
+ * @method     ChildSalesHistoryDetailQuery innerJoinSalesHistoryLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistoryLotserial relation
+ *
+ * @method     ChildSalesHistoryDetailQuery joinWithSalesHistoryLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesHistoryLotserial relation
+ *
+ * @method     ChildSalesHistoryDetailQuery leftJoinWithSalesHistoryLotserial() Adds a LEFT JOIN clause and with to the query using the SalesHistoryLotserial relation
+ * @method     ChildSalesHistoryDetailQuery rightJoinWithSalesHistoryLotserial() Adds a RIGHT JOIN clause and with to the query using the SalesHistoryLotserial relation
+ * @method     ChildSalesHistoryDetailQuery innerJoinWithSalesHistoryLotserial() Adds a INNER JOIN clause and with to the query using the SalesHistoryLotserial relation
+ *
+ * @method     \SalesHistoryQuery|\SalesHistoryLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesHistoryDetail findOne(ConnectionInterface $con = null) Return the first ChildSalesHistoryDetail matching the query
  * @method     ChildSalesHistoryDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesHistoryDetail matching the query, or a new ChildSalesHistoryDetail object populated from the query conditions when no match is found
@@ -5462,6 +5472,75 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
         return $this
             ->joinSalesHistory($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesHistory', '\SalesHistoryQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesHistoryLotserial object
+     *
+     * @param \SalesHistoryLotserial|ObjectCollection $salesHistoryLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesHistoryDetailQuery The current query, for fluid interface
+     */
+    public function filterBySalesHistoryLotserial($salesHistoryLotserial, $comparison = null)
+    {
+        if ($salesHistoryLotserial instanceof \SalesHistoryLotserial) {
+            return $this
+                ->addUsingAlias(SalesHistoryDetailTableMap::COL_OEHHNBR, $salesHistoryLotserial->getOehhnbr(), $comparison)
+                ->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHLINE, $salesHistoryLotserial->getOedhline(), $comparison);
+        } else {
+            throw new PropelException('filterBySalesHistoryLotserial() only accepts arguments of type \SalesHistoryLotserial');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesHistoryLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
+     */
+    public function joinSalesHistoryLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesHistoryLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesHistoryLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesHistoryLotserial relation SalesHistoryLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesHistoryLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesHistoryLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesHistoryLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
     }
 
     /**

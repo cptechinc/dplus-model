@@ -999,6 +999,18 @@ class SalesHistoryDetailTableMap extends TableMap
     1 => ':OehhNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehhNbr',
+    1 => ':OehhNbr',
+  ),
+  1 =>
+  array (
+    0 => ':OedhLine',
+    1 => ':OedhLine',
+  ),
+), null, null, 'SalesHistoryLotserials', false);
     } // buildRelations()
 
     /**

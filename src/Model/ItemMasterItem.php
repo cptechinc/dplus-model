@@ -64,6 +64,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'revision'        => 'initrevision',
 		'inspection'      => 'initinspect',
 		'splitorder'      => 'initsplit',
+		'custid'          => 'initspecificcust',
+		'timefence'       => 'InitTimeFence'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -131,20 +133,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $query->findByKititemid($this->inititemnbr);
 	}
 
-	/**
-	 * Return if Item gets Inspections
-	 *
-	 * @return bool
-	 */
 	public function is_inspection() {
 		return $this->inspection == self::VALUE_TRUE;
 	}
 
-	/**
-	 * Return if the Item is a Split Order Item
-	 *
-	 * @return bool
-	 */
 	public function is_splitorder() {
 		return $this->splitorder == self::VALUE_TRUE;
 	}

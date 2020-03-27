@@ -228,15 +228,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomer relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomer() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomer relation
  *
- * @method     ChildItemMasterItemQuery leftJoinCstkItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkItem relation
- * @method     ChildItemMasterItemQuery rightJoinCstkItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkItem relation
- * @method     ChildItemMasterItemQuery innerJoinCstkItem($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery leftJoinSalesHistoryLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistoryLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinSalesHistoryLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistoryLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinSalesHistoryLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistoryLotserial relation
  *
- * @method     ChildItemMasterItemQuery joinWithCstkItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery joinWithSalesHistoryLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesHistoryLotserial relation
  *
- * @method     ChildItemMasterItemQuery leftJoinWithCstkItem() Adds a LEFT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildItemMasterItemQuery rightJoinWithCstkItem() Adds a RIGHT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildItemMasterItemQuery innerJoinWithCstkItem() Adds a INNER JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildItemMasterItemQuery leftJoinWithSalesHistoryLotserial() Adds a LEFT JOIN clause and with to the query using the SalesHistoryLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinWithSalesHistoryLotserial() Adds a RIGHT JOIN clause and with to the query using the SalesHistoryLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinWithSalesHistoryLotserial() Adds a INNER JOIN clause and with to the query using the SalesHistoryLotserial relation
  *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
@@ -258,7 +258,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\CstkItemQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3073,40 +3073,40 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \CstkItem object
+     * Filter the query by a related \SalesHistoryLotserial object
      *
-     * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
+     * @param \SalesHistoryLotserial|ObjectCollection $salesHistoryLotserial the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByCstkItem($cstkItem, $comparison = null)
+    public function filterBySalesHistoryLotserial($salesHistoryLotserial, $comparison = null)
     {
-        if ($cstkItem instanceof \CstkItem) {
+        if ($salesHistoryLotserial instanceof \SalesHistoryLotserial) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $cstkItem->getInititemnbr(), $comparison);
-        } elseif ($cstkItem instanceof ObjectCollection) {
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesHistoryLotserial->getInititemnbr(), $comparison);
+        } elseif ($salesHistoryLotserial instanceof ObjectCollection) {
             return $this
-                ->useCstkItemQuery()
-                ->filterByPrimaryKeys($cstkItem->getPrimaryKeys())
+                ->useSalesHistoryLotserialQuery()
+                ->filterByPrimaryKeys($salesHistoryLotserial->getPrimaryKeys())
                 ->endUse();
         } else {
-            throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem or Collection');
+            throw new PropelException('filterBySalesHistoryLotserial() only accepts arguments of type \SalesHistoryLotserial or Collection');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the CstkItem relation
+     * Adds a JOIN clause to the query using the SalesHistoryLotserial relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinCstkItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesHistoryLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('CstkItem');
+        $relationMap = $tableMap->getRelation('SalesHistoryLotserial');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -3121,14 +3121,14 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'CstkItem');
+            $this->addJoinObject($join, 'SalesHistoryLotserial');
         }
 
         return $this;
     }
 
     /**
-     * Use the CstkItem relation CstkItem object
+     * Use the SalesHistoryLotserial relation SalesHistoryLotserial object
      *
      * @see useQuery()
      *
@@ -3136,13 +3136,13 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \CstkItemQuery A secondary query class using the current class as primary query
+     * @return \SalesHistoryLotserialQuery A secondary query class using the current class as primary query
      */
-    public function useCstkItemQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSalesHistoryLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinCstkItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+            ->joinSalesHistoryLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
     }
 
     /**

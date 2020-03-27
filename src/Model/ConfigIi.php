@@ -7,7 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'ii_options' table.
- * 
+ *
  * NOTE: The Row is for each user, and there is a System user for a default
  */
 class ConfigIi extends BaseConfigIi {
@@ -24,12 +24,17 @@ class ConfigIi extends BaseConfigIi {
 		'A' => 'Available'
 	);
 
+	const VIEW_REQUIREMENTS_OPTIONS_JSON = array(
+		'R' =>  "REQ",
+		'A' => "AVL"
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'user'              => 'IitbOptnCode',
-		'view_requirements' => 'IitbOptnReqrView'
+		'user'              => 'iitboptncode',
+		'view_requirements' => 'iitboptnreqrview'
 	);
 }

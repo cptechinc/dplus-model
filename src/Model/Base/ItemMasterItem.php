@@ -2,8 +2,6 @@
 
 namespace Base;
 
-use \CstkItem as ChildCstkItem;
-use \CstkItemQuery as ChildCstkItemQuery;
 use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvGroupCode as ChildInvGroupCode;
@@ -20,17 +18,19 @@ use \ItemXrefUpc as ChildItemXrefUpc;
 use \ItemXrefUpcQuery as ChildItemXrefUpcQuery;
 use \ItemXrefVendor as ChildItemXrefVendor;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
+use \SalesHistoryLotserial as ChildSalesHistoryLotserial;
+use \SalesHistoryLotserialQuery as ChildSalesHistoryLotserialQuery;
 use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
 use \UnitofMeasurePurchaseQuery as ChildUnitofMeasurePurchaseQuery;
 use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
-use Map\CstkItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemXrefCustomerTableMap;
 use Map\ItemXrefUpcTableMap;
 use Map\ItemXrefVendorTableMap;
+use Map\SalesHistoryLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -571,10 +571,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomersPartial;
 
     /**
-     * @var        ObjectCollection|ChildCstkItem[] Collection to store aggregation of ChildCstkItem objects.
+     * @var        ObjectCollection|ChildSalesHistoryLotserial[] Collection to store aggregation of ChildSalesHistoryLotserial objects.
      */
-    protected $collCstkItems;
-    protected $collCstkItemsPartial;
+    protected $collSalesHistoryLotserials;
+    protected $collSalesHistoryLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
@@ -604,9 +604,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildCstkItem[]
+     * @var ObjectCollection|ChildSalesHistoryLotserial[]
      */
-    protected $cstkItemsScheduledForDeletion = null;
+    protected $salesHistoryLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3128,7 +3128,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aItemPricing = null;
             $this->collItemXrefCustomers = null;
 
-            $this->collCstkItems = null;
+            $this->collSalesHistoryLotserials = null;
 
             $this->collItemXrefUpcs = null;
 
@@ -3313,18 +3313,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->cstkItemsScheduledForDeletion !== null) {
-                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->cstkItemsScheduledForDeletion as $cstkItem) {
-                        // need to save related object because we set the relation to null
-                        $cstkItem->save($con);
-                    }
-                    $this->cstkItemsScheduledForDeletion = null;
+            if ($this->salesHistoryLotserialsScheduledForDeletion !== null) {
+                if (!$this->salesHistoryLotserialsScheduledForDeletion->isEmpty()) {
+                    \SalesHistoryLotserialQuery::create()
+                        ->filterByPrimaryKeys($this->salesHistoryLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->salesHistoryLotserialsScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collCstkItems !== null) {
-                foreach ($this->collCstkItems as $referrerFK) {
+            if ($this->collSalesHistoryLotserials !== null) {
+                foreach ($this->collSalesHistoryLotserials as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4235,20 +4234,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
-            if (null !== $this->collCstkItems) {
+            if (null !== $this->collSalesHistoryLotserials) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'cstkItems';
+                        $key = 'salesHistoryLotserials';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'cust_stock_dets';
+                        $key = 'so_lot_ser_hists';
                         break;
                     default:
-                        $key = 'CstkItems';
+                        $key = 'SalesHistoryLotserials';
                 }
 
-                $result[$key] = $this->collCstkItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collSalesHistoryLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemXrefUpcs) {
 
@@ -5126,9 +5125,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            foreach ($this->getCstkItems() as $relObj) {
+            foreach ($this->getSalesHistoryLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addCstkItem($relObj->copy($deepCopy));
+                    $copyObj->addSalesHistoryLotserial($relObj->copy($deepCopy));
                 }
             }
 
@@ -5488,8 +5487,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomers();
             return;
         }
-        if ('CstkItem' == $relationName) {
-            $this->initCstkItems();
+        if ('SalesHistoryLotserial' == $relationName) {
+            $this->initSalesHistoryLotserials();
             return;
         }
         if ('ItemXrefUpc' == $relationName) {
@@ -5728,31 +5727,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collCstkItems collection
+     * Clears out the collSalesHistoryLotserials collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addCstkItems()
+     * @see        addSalesHistoryLotserials()
      */
-    public function clearCstkItems()
+    public function clearSalesHistoryLotserials()
     {
-        $this->collCstkItems = null; // important to set this to NULL since that means it is uninitialized
+        $this->collSalesHistoryLotserials = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collCstkItems collection loaded partially.
+     * Reset is the collSalesHistoryLotserials collection loaded partially.
      */
-    public function resetPartialCstkItems($v = true)
+    public function resetPartialSalesHistoryLotserials($v = true)
     {
-        $this->collCstkItemsPartial = $v;
+        $this->collSalesHistoryLotserialsPartial = $v;
     }
 
     /**
-     * Initializes the collCstkItems collection.
+     * Initializes the collSalesHistoryLotserials collection.
      *
-     * By default this just sets the collCstkItems collection to an empty array (like clearcollCstkItems());
+     * By default this just sets the collSalesHistoryLotserials collection to an empty array (like clearcollSalesHistoryLotserials());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -5761,20 +5760,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initCstkItems($overrideExisting = true)
+    public function initSalesHistoryLotserials($overrideExisting = true)
     {
-        if (null !== $this->collCstkItems && !$overrideExisting) {
+        if (null !== $this->collSalesHistoryLotserials && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = CstkItemTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = SalesHistoryLotserialTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collCstkItems = new $collectionClassName;
-        $this->collCstkItems->setModel('\CstkItem');
+        $this->collSalesHistoryLotserials = new $collectionClassName;
+        $this->collSalesHistoryLotserials->setModel('\SalesHistoryLotserial');
     }
 
     /**
-     * Gets an array of ChildCstkItem objects which contain a foreign key that references this object.
+     * Gets an array of ChildSalesHistoryLotserial objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -5784,108 +5783,111 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
      * @throws PropelException
      */
-    public function getCstkItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getSalesHistoryLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collCstkItems) {
+        $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
+        if (null === $this->collSalesHistoryLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistoryLotserials) {
                 // return empty collection
-                $this->initCstkItems();
+                $this->initSalesHistoryLotserials();
             } else {
-                $collCstkItems = ChildCstkItemQuery::create(null, $criteria)
+                $collSalesHistoryLotserials = ChildSalesHistoryLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
-                        $this->initCstkItems(false);
+                    if (false !== $this->collSalesHistoryLotserialsPartial && count($collSalesHistoryLotserials)) {
+                        $this->initSalesHistoryLotserials(false);
 
-                        foreach ($collCstkItems as $obj) {
-                            if (false == $this->collCstkItems->contains($obj)) {
-                                $this->collCstkItems->append($obj);
+                        foreach ($collSalesHistoryLotserials as $obj) {
+                            if (false == $this->collSalesHistoryLotserials->contains($obj)) {
+                                $this->collSalesHistoryLotserials->append($obj);
                             }
                         }
 
-                        $this->collCstkItemsPartial = true;
+                        $this->collSalesHistoryLotserialsPartial = true;
                     }
 
-                    return $collCstkItems;
+                    return $collSalesHistoryLotserials;
                 }
 
-                if ($partial && $this->collCstkItems) {
-                    foreach ($this->collCstkItems as $obj) {
+                if ($partial && $this->collSalesHistoryLotserials) {
+                    foreach ($this->collSalesHistoryLotserials as $obj) {
                         if ($obj->isNew()) {
-                            $collCstkItems[] = $obj;
+                            $collSalesHistoryLotserials[] = $obj;
                         }
                     }
                 }
 
-                $this->collCstkItems = $collCstkItems;
-                $this->collCstkItemsPartial = false;
+                $this->collSalesHistoryLotserials = $collSalesHistoryLotserials;
+                $this->collSalesHistoryLotserialsPartial = false;
             }
         }
 
-        return $this->collCstkItems;
+        return $this->collSalesHistoryLotserials;
     }
 
     /**
-     * Sets a collection of ChildCstkItem objects related by a one-to-many relationship
+     * Sets a collection of ChildSalesHistoryLotserial objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $cstkItems A Propel collection.
+     * @param      Collection $salesHistoryLotserials A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setCstkItems(Collection $cstkItems, ConnectionInterface $con = null)
+    public function setSalesHistoryLotserials(Collection $salesHistoryLotserials, ConnectionInterface $con = null)
     {
-        /** @var ChildCstkItem[] $cstkItemsToDelete */
-        $cstkItemsToDelete = $this->getCstkItems(new Criteria(), $con)->diff($cstkItems);
+        /** @var ChildSalesHistoryLotserial[] $salesHistoryLotserialsToDelete */
+        $salesHistoryLotserialsToDelete = $this->getSalesHistoryLotserials(new Criteria(), $con)->diff($salesHistoryLotserials);
 
 
-        $this->cstkItemsScheduledForDeletion = $cstkItemsToDelete;
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->salesHistoryLotserialsScheduledForDeletion = clone $salesHistoryLotserialsToDelete;
 
-        foreach ($cstkItemsToDelete as $cstkItemRemoved) {
-            $cstkItemRemoved->setItemMasterItem(null);
+        foreach ($salesHistoryLotserialsToDelete as $salesHistoryLotserialRemoved) {
+            $salesHistoryLotserialRemoved->setItemMasterItem(null);
         }
 
-        $this->collCstkItems = null;
-        foreach ($cstkItems as $cstkItem) {
-            $this->addCstkItem($cstkItem);
+        $this->collSalesHistoryLotserials = null;
+        foreach ($salesHistoryLotserials as $salesHistoryLotserial) {
+            $this->addSalesHistoryLotserial($salesHistoryLotserial);
         }
 
-        $this->collCstkItems = $cstkItems;
-        $this->collCstkItemsPartial = false;
+        $this->collSalesHistoryLotserials = $salesHistoryLotserials;
+        $this->collSalesHistoryLotserialsPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related CstkItem objects.
+     * Returns the number of related SalesHistoryLotserial objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related CstkItem objects.
+     * @return int             Count of related SalesHistoryLotserial objects.
      * @throws PropelException
      */
-    public function countCstkItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countSalesHistoryLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collCstkItemsPartial && !$this->isNew();
-        if (null === $this->collCstkItems || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collCstkItems) {
+        $partial = $this->collSalesHistoryLotserialsPartial && !$this->isNew();
+        if (null === $this->collSalesHistoryLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistoryLotserials) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getCstkItems());
+                return count($this->getSalesHistoryLotserials());
             }
 
-            $query = ChildCstkItemQuery::create(null, $criteria);
+            $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -5895,28 +5897,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collCstkItems);
+        return count($this->collSalesHistoryLotserials);
     }
 
     /**
-     * Method called to associate a ChildCstkItem object to this object
-     * through the ChildCstkItem foreign key attribute.
+     * Method called to associate a ChildSalesHistoryLotserial object to this object
+     * through the ChildSalesHistoryLotserial foreign key attribute.
      *
-     * @param  ChildCstkItem $l ChildCstkItem
+     * @param  ChildSalesHistoryLotserial $l ChildSalesHistoryLotserial
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function addCstkItem(ChildCstkItem $l)
+    public function addSalesHistoryLotserial(ChildSalesHistoryLotserial $l)
     {
-        if ($this->collCstkItems === null) {
-            $this->initCstkItems();
-            $this->collCstkItemsPartial = true;
+        if ($this->collSalesHistoryLotserials === null) {
+            $this->initSalesHistoryLotserials();
+            $this->collSalesHistoryLotserialsPartial = true;
         }
 
-        if (!$this->collCstkItems->contains($l)) {
-            $this->doAddCstkItem($l);
+        if (!$this->collSalesHistoryLotserials->contains($l)) {
+            $this->doAddSalesHistoryLotserial($l);
 
-            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
-                $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
+            if ($this->salesHistoryLotserialsScheduledForDeletion and $this->salesHistoryLotserialsScheduledForDeletion->contains($l)) {
+                $this->salesHistoryLotserialsScheduledForDeletion->remove($this->salesHistoryLotserialsScheduledForDeletion->search($l));
             }
         }
 
@@ -5924,29 +5926,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildCstkItem $cstkItem The ChildCstkItem object to add.
+     * @param ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to add.
      */
-    protected function doAddCstkItem(ChildCstkItem $cstkItem)
+    protected function doAddSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
     {
-        $this->collCstkItems[]= $cstkItem;
-        $cstkItem->setItemMasterItem($this);
+        $this->collSalesHistoryLotserials[]= $salesHistoryLotserial;
+        $salesHistoryLotserial->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildCstkItem $cstkItem The ChildCstkItem object to remove.
+     * @param  ChildSalesHistoryLotserial $salesHistoryLotserial The ChildSalesHistoryLotserial object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeCstkItem(ChildCstkItem $cstkItem)
+    public function removeSalesHistoryLotserial(ChildSalesHistoryLotserial $salesHistoryLotserial)
     {
-        if ($this->getCstkItems()->contains($cstkItem)) {
-            $pos = $this->collCstkItems->search($cstkItem);
-            $this->collCstkItems->remove($pos);
-            if (null === $this->cstkItemsScheduledForDeletion) {
-                $this->cstkItemsScheduledForDeletion = clone $this->collCstkItems;
-                $this->cstkItemsScheduledForDeletion->clear();
+        if ($this->getSalesHistoryLotserials()->contains($salesHistoryLotserial)) {
+            $pos = $this->collSalesHistoryLotserials->search($salesHistoryLotserial);
+            $this->collSalesHistoryLotserials->remove($pos);
+            if (null === $this->salesHistoryLotserialsScheduledForDeletion) {
+                $this->salesHistoryLotserialsScheduledForDeletion = clone $this->collSalesHistoryLotserials;
+                $this->salesHistoryLotserialsScheduledForDeletion->clear();
             }
-            $this->cstkItemsScheduledForDeletion[]= $cstkItem;
-            $cstkItem->setItemMasterItem(null);
+            $this->salesHistoryLotserialsScheduledForDeletion[]= clone $salesHistoryLotserial;
+            $salesHistoryLotserial->setItemMasterItem(null);
         }
 
         return $this;
@@ -5958,7 +5960,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * an identical criteria, it returns the collection.
      * Otherwise if this ItemMasterItem is new, it will return
      * an empty collection; or if this ItemMasterItem has previously
-     * been saved, it will retrieve related CstkItems from storage.
+     * been saved, it will retrieve related SalesHistoryLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -5967,14 +5969,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
      */
-    public function getCstkItemsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildCstkItemQuery::create(null, $criteria);
-        $query->joinWith('Customer', $joinBehavior);
+        $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
+        $query->joinWith('SalesHistory', $joinBehavior);
 
-        return $this->getCstkItems($query, $con);
+        return $this->getSalesHistoryLotserials($query, $con);
     }
 
 
@@ -5983,7 +5985,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * an identical criteria, it returns the collection.
      * Otherwise if this ItemMasterItem is new, it will return
      * an empty collection; or if this ItemMasterItem has previously
-     * been saved, it will retrieve related CstkItems from storage.
+     * been saved, it will retrieve related SalesHistoryLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -5992,39 +5994,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     * @return ObjectCollection|ChildSalesHistoryLotserial[] List of ChildSalesHistoryLotserial objects
      */
-    public function getCstkItemsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSalesHistoryLotserialsJoinSalesHistoryDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildCstkItemQuery::create(null, $criteria);
-        $query->joinWith('CustomerShipto', $joinBehavior);
+        $query = ChildSalesHistoryLotserialQuery::create(null, $criteria);
+        $query->joinWith('SalesHistoryDetail', $joinBehavior);
 
-        return $this->getCstkItems($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this ItemMasterItem is new, it will return
-     * an empty collection; or if this ItemMasterItem has previously
-     * been saved, it will retrieve related CstkItems from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in ItemMasterItem.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
-     */
-    public function getCstkItemsJoinCstkHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildCstkItemQuery::create(null, $criteria);
-        $query->joinWith('CstkHead', $joinBehavior);
-
-        return $this->getCstkItems($query, $con);
+        return $this->getSalesHistoryLotserials($query, $con);
     }
 
     /**
@@ -6646,8 +6623,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
-            if ($this->collCstkItems) {
-                foreach ($this->collCstkItems as $o) {
+            if ($this->collSalesHistoryLotserials) {
+                foreach ($this->collSalesHistoryLotserials as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -6664,7 +6641,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemXrefCustomers = null;
-        $this->collCstkItems = null;
+        $this->collSalesHistoryLotserials = null;
         $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;
