@@ -32,8 +32,9 @@ class BookingDayDetail extends BaseBookingDayDetail {
 		'after_qty'     => 'bkgdaftqty',
 		'after_price'   => 'bkgdaftpric',
 		'after_uom'     => 'bkgdaftuom',
-		'netamount'     => 'bkgdneamt',
-		
+		'netamount'     => 'bkgdnetamt',
+		'amount'        => 'bkgdnetamt',
+
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 
@@ -55,5 +56,72 @@ class BookingDayDetail extends BaseBookingDayDetail {
 		} else {
 			return SalesHistoryQuery::create()->findOneByOrdernumber($this->ordernumber);
 		}
+	}
+
+	public function getItemMasterItem() {
+		return ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+	}
+
+	/**
+	 * Returns if Qty Columns are not the same value
+	 *
+	 * @return bool
+	 */
+	public function qty_changed() {
+		return $this->before_qty != $this->after_qty;
+	}
+
+	/**
+	 * Returns if before qty is less than after qty
+	 *
+	 * @return bool
+	 */
+	public function qty_increased() {
+		return $this->before_qty < $this->after_qty;
+	}
+
+	/**
+	 * Returns if before qty is more than after qty
+	 *
+	 * @return bool
+	 */
+	public function qty_decreased() {
+		return $this->before_qty > $this->after_qty;
+	}
+
+	/**
+	 * Returns if before price is different than after price
+	 *
+	 * @return bool
+	 */
+	public function price_changed() {
+		return $this->before_price != $this->after_price;
+	}
+
+	/**
+	 * Returns if before price is less than after price
+	 *
+	 * @return bool
+	 */
+	public function price_increased() {
+		return $this->before_price < $this->after_price;
+	}
+
+	/**
+	 * Returns if before price is more than after price
+	 *
+	 * @return bool
+	 */
+	public function price_decreased() {
+		return $this->before_price > $this->after_price;
+	}
+
+	/**
+	 * Returns if before net amount is less than after net amount
+	 *
+	 * @return bool
+	 */
+	public function netamount_increased() {
+		return $this->netamount > 0;
 	}
 }

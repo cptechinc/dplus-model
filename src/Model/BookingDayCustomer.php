@@ -22,8 +22,10 @@ class BookingDayCustomer extends BaseBookingDayCustomer {
 		'shiptoid'      => 'arstshipid',
 		'bookingdate'   => 'bkgcdate',
 		'salesperson1'  => 'arspsaleper1',
-		'amount'        => 'bkgcnetamt',		
+		'amount'        => 'bkgcnetamt',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
+		// ALIASES for Foreign Keys
+		'shipto'        => 'customerShipto'
 	);
 }

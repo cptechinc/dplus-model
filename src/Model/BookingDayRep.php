@@ -20,7 +20,7 @@ class BookingDayRep extends BaseBookingDayRep {
 	const COLUMN_ALIASES = array(
 		'salesperson1'  => 'arspsaleper1',
 		'bookingdate'   => 'bkgrdate',
-		'netamount'     => 'bkgrnetamt',
+		'amount'     => 'bkgrnetamt',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 
