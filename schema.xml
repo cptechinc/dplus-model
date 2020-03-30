@@ -1339,7 +1339,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ii_options" idMethod="native" phpName="ConfigIi">
+  <table name="ii_options" idMethod="native" phpName="OptionsIi">
     <column name="IitbOptnCode" phpName="Iitboptncode" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="IitbOptnActAvail" phpName="Iitboptnactavail" type="VARCHAR" size="1"/>
     <column name="IitbOptnActWhse" phpName="Iitboptnactwhse" type="VARCHAR" size="2"/>
