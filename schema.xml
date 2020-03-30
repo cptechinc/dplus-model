@@ -1185,6 +1185,52 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ci_config" idMethod="native" phpName="ConfigCi">
+    <column name="CitbConfKey" phpName="Citbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="CitbConfYtdStrtMo" phpName="Citbconfytdstrtmo" type="INTEGER" size="2"/>
+    <column name="CitbConfPaySort" phpName="Citbconfpaysort" type="VARCHAR" size="1"/>
+    <column name="CitbConfShistBy" phpName="Citbconfshistby" type="VARCHAR" size="1"/>
+    <column name="CitbConfShistDate" phpName="Citbconfshistdate" type="VARCHAR" size="8"/>
+    <column name="CitbConfShistDays" phpName="Citbconfshistdays" type="INTEGER" size="4"/>
+    <column name="CitbConfShowZeroHist" phpName="Citbconfshowzerohist" type="VARCHAR" size="1"/>
+    <column name="CitbConfShistNotes" phpName="Citbconfshistnotes" type="VARCHAR" size="1"/>
+    <column name="CitbConfOrderNotes" phpName="Citbconfordernotes" type="VARCHAR" size="1"/>
+    <column name="CitbConfQuoteNotes" phpName="Citbconfquotenotes" type="VARCHAR" size="1"/>
+    <column name="CitbConfConsolGet" phpName="Citbconfconsolget" type="VARCHAR" size="1"/>
+    <column name="CitbConfSsnDays" phpName="Citbconfssndays" type="INTEGER" size="4"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="ci_options" idMethod="native" phpName="OptionsCi">
+    <column name="CitbOptnCode" phpName="Citboptncode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="CitbOptnNoteAvail" phpName="Citboptnnoteavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnGenAvail" phpName="Citboptngenavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnPayAvail" phpName="Citboptnpayavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnCoreAvail" phpName="Citboptncoreavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnCredAvail" phpName="Citboptncredavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnCstkAvail" phpName="Citboptncstkavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnPricAvail" phpName="Citboptnpricavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnStndAvail" phpName="Citboptnstndavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnSoAvail" phpName="Citboptnsoavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnQuotAvail" phpName="Citboptnquotavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnOpenAvail" phpName="Citboptnopenavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnPoAvail" phpName="Citboptnpoavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnPoDaysBack" phpName="Citboptnpodaysback" type="INTEGER" size="4"/>
+    <column name="CitbOptnPoStrtDate" phpName="Citboptnpostrtdate" type="VARCHAR" size="8"/>
+    <column name="CitbOptnShAvail" phpName="Citboptnshavail" type="VARCHAR" size="1"/>
+    <column name="CitbOptnShDaysBack" phpName="Citboptnshdaysback" type="INTEGER" size="4"/>
+    <column name="CitbOptnShStrtDate" phpName="Citboptnshstrtdate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="country_codes" idMethod="native" phpName="CountryCodes">
     <column name="CtryIsoAlpha3" phpName="Ctryisoalpha3" type="VARCHAR" size="3" primaryKey="true" required="true" defaultValue=""/>
     <column name="CtryDesc" phpName="Ctrydesc" type="VARCHAR" size="25"/>
