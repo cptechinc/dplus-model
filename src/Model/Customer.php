@@ -15,6 +15,8 @@ class Customer extends BaseCustomer {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const STATUS_ACTIVE = 'A';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -51,7 +53,8 @@ class Customer extends BaseCustomer {
 		'type'           => 'artbtypecode',
 		'pricecode'      => 'artbpriccode',
 		'credithold'     => 'arcucredhold',
-		'taxexemptcode'  => 'arcutaxexemnbr'
+		'taxexemptcode'  => 'arcutaxexemnbr',
+		'active'         => 'arcuactiveinactive'
 	);
 
 	/**

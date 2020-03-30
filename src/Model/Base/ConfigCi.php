@@ -145,6 +145,13 @@ abstract class ConfigCi implements ActiveRecordInterface
     protected $citbconfssndays;
 
     /**
+     * The value for the citbconfshowinactive field.
+     *
+     * @var        string
+     */
+    protected $citbconfshowinactive;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -532,6 +539,16 @@ abstract class ConfigCi implements ActiveRecordInterface
     }
 
     /**
+     * Get the [citbconfshowinactive] column value.
+     *
+     * @return string
+     */
+    public function getcitbconfshowinactive()
+    {
+        return $this->citbconfshowinactive;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -802,6 +819,26 @@ abstract class ConfigCi implements ActiveRecordInterface
     } // setCitbconfssndays()
 
     /**
+     * Set the value of [citbconfshowinactive] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigCi The current object (for fluent API support)
+     */
+    public function setcitbconfshowinactive($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->citbconfshowinactive !== $v) {
+            $this->citbconfshowinactive = $v;
+            $this->modifiedColumns[ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE] = true;
+        }
+
+        return $this;
+    } // setcitbconfshowinactive()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -937,13 +974,16 @@ abstract class ConfigCi implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigCiTableMap::translateFieldName('Citbconfssndays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->citbconfssndays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigCiTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigCiTableMap::translateFieldName('citbconfshowinactive', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->citbconfshowinactive = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigCiTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigCiTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigCiTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigCiTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigCiTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -953,7 +993,7 @@ abstract class ConfigCi implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = ConfigCiTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 16; // 16 = ConfigCiTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigCi'), 0, $e);
@@ -1186,6 +1226,9 @@ abstract class ConfigCi implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigCiTableMap::COL_CITBCONFSSNDAYS)) {
             $modifiedColumns[':p' . $index++]  = 'CitbConfSsnDays';
         }
+        if ($this->isColumnModified(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE)) {
+            $modifiedColumns[':p' . $index++]  = 'CitbConfShowInactive';
+        }
         if ($this->isColumnModified(ConfigCiTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1241,6 +1284,9 @@ abstract class ConfigCi implements ActiveRecordInterface
                         break;
                     case 'CitbConfSsnDays':
                         $stmt->bindValue($identifier, $this->citbconfssndays, PDO::PARAM_INT);
+                        break;
+                    case 'CitbConfShowInactive':
+                        $stmt->bindValue($identifier, $this->citbconfshowinactive, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1343,12 +1389,15 @@ abstract class ConfigCi implements ActiveRecordInterface
                 return $this->getCitbconfssndays();
                 break;
             case 12:
-                return $this->getDateupdtd();
+                return $this->getcitbconfshowinactive();
                 break;
             case 13:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 14:
+                return $this->getTimeupdtd();
+                break;
+            case 15:
                 return $this->getDummy();
                 break;
             default:
@@ -1392,9 +1441,10 @@ abstract class ConfigCi implements ActiveRecordInterface
             $keys[9] => $this->getCitbconfquotenotes(),
             $keys[10] => $this->getCitbconfconsolget(),
             $keys[11] => $this->getCitbconfssndays(),
-            $keys[12] => $this->getDateupdtd(),
-            $keys[13] => $this->getTimeupdtd(),
-            $keys[14] => $this->getDummy(),
+            $keys[12] => $this->getcitbconfshowinactive(),
+            $keys[13] => $this->getDateupdtd(),
+            $keys[14] => $this->getTimeupdtd(),
+            $keys[15] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1471,12 +1521,15 @@ abstract class ConfigCi implements ActiveRecordInterface
                 $this->setCitbconfssndays($value);
                 break;
             case 12:
-                $this->setDateupdtd($value);
+                $this->setcitbconfshowinactive($value);
                 break;
             case 13:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 14:
+                $this->setTimeupdtd($value);
+                break;
+            case 15:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1542,13 +1595,16 @@ abstract class ConfigCi implements ActiveRecordInterface
             $this->setCitbconfssndays($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDateupdtd($arr[$keys[12]]);
+            $this->setcitbconfshowinactive($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setTimeupdtd($arr[$keys[13]]);
+            $this->setDateupdtd($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setDummy($arr[$keys[14]]);
+            $this->setTimeupdtd($arr[$keys[14]]);
+        }
+        if (array_key_exists($keys[15], $arr)) {
+            $this->setDummy($arr[$keys[15]]);
         }
     }
 
@@ -1626,6 +1682,9 @@ abstract class ConfigCi implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigCiTableMap::COL_CITBCONFSSNDAYS)) {
             $criteria->add(ConfigCiTableMap::COL_CITBCONFSSNDAYS, $this->citbconfssndays);
+        }
+        if ($this->isColumnModified(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE)) {
+            $criteria->add(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, $this->citbconfshowinactive);
         }
         if ($this->isColumnModified(ConfigCiTableMap::COL_DATEUPDTD)) {
             $criteria->add(ConfigCiTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1734,6 +1793,7 @@ abstract class ConfigCi implements ActiveRecordInterface
         $copyObj->setCitbconfquotenotes($this->getCitbconfquotenotes());
         $copyObj->setCitbconfconsolget($this->getCitbconfconsolget());
         $copyObj->setCitbconfssndays($this->getCitbconfssndays());
+        $copyObj->setcitbconfshowinactive($this->getcitbconfshowinactive());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1783,6 +1843,7 @@ abstract class ConfigCi implements ActiveRecordInterface
         $this->citbconfquotenotes = null;
         $this->citbconfconsolget = null;
         $this->citbconfssndays = null;
+        $this->citbconfshowinactive = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

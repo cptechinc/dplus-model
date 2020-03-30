@@ -31,6 +31,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCiQuery orderByCitbconfquotenotes($order = Criteria::ASC) Order by the CitbConfQuoteNotes column
  * @method     ChildConfigCiQuery orderByCitbconfconsolget($order = Criteria::ASC) Order by the CitbConfConsolGet column
  * @method     ChildConfigCiQuery orderByCitbconfssndays($order = Criteria::ASC) Order by the CitbConfSsnDays column
+ * @method     ChildConfigCiQuery orderBycitbconfshowinactive($order = Criteria::ASC) Order by the CitbConfShowInactive column
  * @method     ChildConfigCiQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildConfigCiQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildConfigCiQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -47,6 +48,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCiQuery groupByCitbconfquotenotes() Group by the CitbConfQuoteNotes column
  * @method     ChildConfigCiQuery groupByCitbconfconsolget() Group by the CitbConfConsolGet column
  * @method     ChildConfigCiQuery groupByCitbconfssndays() Group by the CitbConfSsnDays column
+ * @method     ChildConfigCiQuery groupBycitbconfshowinactive() Group by the CitbConfShowInactive column
  * @method     ChildConfigCiQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildConfigCiQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildConfigCiQuery groupByDummy() Group by the dummy column
@@ -74,6 +76,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCi findOneByCitbconfquotenotes(string $CitbConfQuoteNotes) Return the first ChildConfigCi filtered by the CitbConfQuoteNotes column
  * @method     ChildConfigCi findOneByCitbconfconsolget(string $CitbConfConsolGet) Return the first ChildConfigCi filtered by the CitbConfConsolGet column
  * @method     ChildConfigCi findOneByCitbconfssndays(int $CitbConfSsnDays) Return the first ChildConfigCi filtered by the CitbConfSsnDays column
+ * @method     ChildConfigCi findOneBycitbconfshowinactive(string $CitbConfShowInactive) Return the first ChildConfigCi filtered by the CitbConfShowInactive column
  * @method     ChildConfigCi findOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigCi filtered by the DateUpdtd column
  * @method     ChildConfigCi findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigCi filtered by the TimeUpdtd column
  * @method     ChildConfigCi findOneByDummy(string $dummy) Return the first ChildConfigCi filtered by the dummy column *
@@ -93,6 +96,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCi requireOneByCitbconfquotenotes(string $CitbConfQuoteNotes) Return the first ChildConfigCi filtered by the CitbConfQuoteNotes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByCitbconfconsolget(string $CitbConfConsolGet) Return the first ChildConfigCi filtered by the CitbConfConsolGet column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByCitbconfssndays(int $CitbConfSsnDays) Return the first ChildConfigCi filtered by the CitbConfSsnDays column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigCi requireOneBycitbconfshowinactive(string $CitbConfShowInactive) Return the first ChildConfigCi filtered by the CitbConfShowInactive column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByDateupdtd(string $DateUpdtd) Return the first ChildConfigCi filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildConfigCi filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigCi requireOneByDummy(string $dummy) Return the first ChildConfigCi filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -110,6 +114,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigCi[]|ObjectCollection findByCitbconfquotenotes(string $CitbConfQuoteNotes) Return ChildConfigCi objects filtered by the CitbConfQuoteNotes column
  * @method     ChildConfigCi[]|ObjectCollection findByCitbconfconsolget(string $CitbConfConsolGet) Return ChildConfigCi objects filtered by the CitbConfConsolGet column
  * @method     ChildConfigCi[]|ObjectCollection findByCitbconfssndays(int $CitbConfSsnDays) Return ChildConfigCi objects filtered by the CitbConfSsnDays column
+ * @method     ChildConfigCi[]|ObjectCollection findBycitbconfshowinactive(string $CitbConfShowInactive) Return ChildConfigCi objects filtered by the CitbConfShowInactive column
  * @method     ChildConfigCi[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildConfigCi objects filtered by the DateUpdtd column
  * @method     ChildConfigCi[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildConfigCi objects filtered by the TimeUpdtd column
  * @method     ChildConfigCi[]|ObjectCollection findByDummy(string $dummy) Return ChildConfigCi objects filtered by the dummy column
@@ -211,7 +216,7 @@ abstract class ConfigCiQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT CitbConfKey, CitbConfYtdStrtMo, CitbConfPaySort, CitbConfShistBy, CitbConfShistDate, CitbConfShistDays, CitbConfShowZeroHist, CitbConfShistNotes, CitbConfOrderNotes, CitbConfQuoteNotes, CitbConfConsolGet, CitbConfSsnDays, DateUpdtd, TimeUpdtd, dummy FROM ci_config WHERE CitbConfKey = :p0';
+        $sql = 'SELECT CitbConfKey, CitbConfYtdStrtMo, CitbConfPaySort, CitbConfShistBy, CitbConfShistDate, CitbConfShistDays, CitbConfShowZeroHist, CitbConfShistNotes, CitbConfOrderNotes, CitbConfQuoteNotes, CitbConfConsolGet, CitbConfSsnDays, CitbConfShowInactive, DateUpdtd, TimeUpdtd, dummy FROM ci_config WHERE CitbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -663,6 +668,31 @@ abstract class ConfigCiQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSSNDAYS, $citbconfssndays, $comparison);
+    }
+
+    /**
+     * Filter the query on the CitbConfShowInactive column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterBycitbconfshowinactive('fooValue');   // WHERE CitbConfShowInactive = 'fooValue'
+     * $query->filterBycitbconfshowinactive('%fooValue%', Criteria::LIKE); // WHERE CitbConfShowInactive LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $citbconfshowinactive The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigCiQuery The current query, for fluid interface
+     */
+    public function filterBycitbconfshowinactive($citbconfshowinactive = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($citbconfshowinactive)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, $citbconfshowinactive, $comparison);
     }
 
     /**

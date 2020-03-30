@@ -59,7 +59,7 @@ class ConfigCiTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    const NUM_COLUMNS = 16;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ConfigCiTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    const NUM_HYDRATE_COLUMNS = 16;
 
     /**
      * the column name for the CitbConfKey field
@@ -132,6 +132,11 @@ class ConfigCiTableMap extends TableMap
     const COL_CITBCONFSSNDAYS = 'ci_config.CitbConfSsnDays';
 
     /**
+     * the column name for the CitbConfShowInactive field
+     */
+    const COL_CITBCONFSHOWINACTIVE = 'ci_config.CitbConfShowInactive';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'ci_config.DateUpdtd';
@@ -158,11 +163,11 @@ class ConfigCiTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Citbconfkey', 'Citbconfytdstrtmo', 'Citbconfpaysort', 'Citbconfshistby', 'Citbconfshistdate', 'Citbconfshistdays', 'Citbconfshowzerohist', 'Citbconfshistnotes', 'Citbconfordernotes', 'Citbconfquotenotes', 'Citbconfconsolget', 'Citbconfssndays', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('citbconfkey', 'citbconfytdstrtmo', 'citbconfpaysort', 'citbconfshistby', 'citbconfshistdate', 'citbconfshistdays', 'citbconfshowzerohist', 'citbconfshistnotes', 'citbconfordernotes', 'citbconfquotenotes', 'citbconfconsolget', 'citbconfssndays', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ConfigCiTableMap::COL_CITBCONFKEY, ConfigCiTableMap::COL_CITBCONFYTDSTRTMO, ConfigCiTableMap::COL_CITBCONFPAYSORT, ConfigCiTableMap::COL_CITBCONFSHISTBY, ConfigCiTableMap::COL_CITBCONFSHISTDATE, ConfigCiTableMap::COL_CITBCONFSHISTDAYS, ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST, ConfigCiTableMap::COL_CITBCONFSHISTNOTES, ConfigCiTableMap::COL_CITBCONFORDERNOTES, ConfigCiTableMap::COL_CITBCONFQUOTENOTES, ConfigCiTableMap::COL_CITBCONFCONSOLGET, ConfigCiTableMap::COL_CITBCONFSSNDAYS, ConfigCiTableMap::COL_DATEUPDTD, ConfigCiTableMap::COL_TIMEUPDTD, ConfigCiTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('CitbConfKey', 'CitbConfYtdStrtMo', 'CitbConfPaySort', 'CitbConfShistBy', 'CitbConfShistDate', 'CitbConfShistDays', 'CitbConfShowZeroHist', 'CitbConfShistNotes', 'CitbConfOrderNotes', 'CitbConfQuoteNotes', 'CitbConfConsolGet', 'CitbConfSsnDays', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Citbconfkey', 'Citbconfytdstrtmo', 'Citbconfpaysort', 'Citbconfshistby', 'Citbconfshistdate', 'Citbconfshistdays', 'Citbconfshowzerohist', 'Citbconfshistnotes', 'Citbconfordernotes', 'Citbconfquotenotes', 'Citbconfconsolget', 'Citbconfssndays', 'citbconfshowinactive', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('citbconfkey', 'citbconfytdstrtmo', 'citbconfpaysort', 'citbconfshistby', 'citbconfshistdate', 'citbconfshistdays', 'citbconfshowzerohist', 'citbconfshistnotes', 'citbconfordernotes', 'citbconfquotenotes', 'citbconfconsolget', 'citbconfssndays', 'citbconfshowinactive', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ConfigCiTableMap::COL_CITBCONFKEY, ConfigCiTableMap::COL_CITBCONFYTDSTRTMO, ConfigCiTableMap::COL_CITBCONFPAYSORT, ConfigCiTableMap::COL_CITBCONFSHISTBY, ConfigCiTableMap::COL_CITBCONFSHISTDATE, ConfigCiTableMap::COL_CITBCONFSHISTDAYS, ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST, ConfigCiTableMap::COL_CITBCONFSHISTNOTES, ConfigCiTableMap::COL_CITBCONFORDERNOTES, ConfigCiTableMap::COL_CITBCONFQUOTENOTES, ConfigCiTableMap::COL_CITBCONFCONSOLGET, ConfigCiTableMap::COL_CITBCONFSSNDAYS, ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE, ConfigCiTableMap::COL_DATEUPDTD, ConfigCiTableMap::COL_TIMEUPDTD, ConfigCiTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('CitbConfKey', 'CitbConfYtdStrtMo', 'CitbConfPaySort', 'CitbConfShistBy', 'CitbConfShistDate', 'CitbConfShistDays', 'CitbConfShowZeroHist', 'CitbConfShistNotes', 'CitbConfOrderNotes', 'CitbConfQuoteNotes', 'CitbConfConsolGet', 'CitbConfSsnDays', 'CitbConfShowInactive', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -172,11 +177,11 @@ class ConfigCiTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Citbconfkey' => 0, 'Citbconfytdstrtmo' => 1, 'Citbconfpaysort' => 2, 'Citbconfshistby' => 3, 'Citbconfshistdate' => 4, 'Citbconfshistdays' => 5, 'Citbconfshowzerohist' => 6, 'Citbconfshistnotes' => 7, 'Citbconfordernotes' => 8, 'Citbconfquotenotes' => 9, 'Citbconfconsolget' => 10, 'Citbconfssndays' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('citbconfkey' => 0, 'citbconfytdstrtmo' => 1, 'citbconfpaysort' => 2, 'citbconfshistby' => 3, 'citbconfshistdate' => 4, 'citbconfshistdays' => 5, 'citbconfshowzerohist' => 6, 'citbconfshistnotes' => 7, 'citbconfordernotes' => 8, 'citbconfquotenotes' => 9, 'citbconfconsolget' => 10, 'citbconfssndays' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(ConfigCiTableMap::COL_CITBCONFKEY => 0, ConfigCiTableMap::COL_CITBCONFYTDSTRTMO => 1, ConfigCiTableMap::COL_CITBCONFPAYSORT => 2, ConfigCiTableMap::COL_CITBCONFSHISTBY => 3, ConfigCiTableMap::COL_CITBCONFSHISTDATE => 4, ConfigCiTableMap::COL_CITBCONFSHISTDAYS => 5, ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST => 6, ConfigCiTableMap::COL_CITBCONFSHISTNOTES => 7, ConfigCiTableMap::COL_CITBCONFORDERNOTES => 8, ConfigCiTableMap::COL_CITBCONFQUOTENOTES => 9, ConfigCiTableMap::COL_CITBCONFCONSOLGET => 10, ConfigCiTableMap::COL_CITBCONFSSNDAYS => 11, ConfigCiTableMap::COL_DATEUPDTD => 12, ConfigCiTableMap::COL_TIMEUPDTD => 13, ConfigCiTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('CitbConfKey' => 0, 'CitbConfYtdStrtMo' => 1, 'CitbConfPaySort' => 2, 'CitbConfShistBy' => 3, 'CitbConfShistDate' => 4, 'CitbConfShistDays' => 5, 'CitbConfShowZeroHist' => 6, 'CitbConfShistNotes' => 7, 'CitbConfOrderNotes' => 8, 'CitbConfQuoteNotes' => 9, 'CitbConfConsolGet' => 10, 'CitbConfSsnDays' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Citbconfkey' => 0, 'Citbconfytdstrtmo' => 1, 'Citbconfpaysort' => 2, 'Citbconfshistby' => 3, 'Citbconfshistdate' => 4, 'Citbconfshistdays' => 5, 'Citbconfshowzerohist' => 6, 'Citbconfshistnotes' => 7, 'Citbconfordernotes' => 8, 'Citbconfquotenotes' => 9, 'Citbconfconsolget' => 10, 'Citbconfssndays' => 11, 'citbconfshowinactive' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
+        self::TYPE_CAMELNAME     => array('citbconfkey' => 0, 'citbconfytdstrtmo' => 1, 'citbconfpaysort' => 2, 'citbconfshistby' => 3, 'citbconfshistdate' => 4, 'citbconfshistdays' => 5, 'citbconfshowzerohist' => 6, 'citbconfshistnotes' => 7, 'citbconfordernotes' => 8, 'citbconfquotenotes' => 9, 'citbconfconsolget' => 10, 'citbconfssndays' => 11, 'citbconfshowinactive' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_COLNAME       => array(ConfigCiTableMap::COL_CITBCONFKEY => 0, ConfigCiTableMap::COL_CITBCONFYTDSTRTMO => 1, ConfigCiTableMap::COL_CITBCONFPAYSORT => 2, ConfigCiTableMap::COL_CITBCONFSHISTBY => 3, ConfigCiTableMap::COL_CITBCONFSHISTDATE => 4, ConfigCiTableMap::COL_CITBCONFSHISTDAYS => 5, ConfigCiTableMap::COL_CITBCONFSHOWZEROHIST => 6, ConfigCiTableMap::COL_CITBCONFSHISTNOTES => 7, ConfigCiTableMap::COL_CITBCONFORDERNOTES => 8, ConfigCiTableMap::COL_CITBCONFQUOTENOTES => 9, ConfigCiTableMap::COL_CITBCONFCONSOLGET => 10, ConfigCiTableMap::COL_CITBCONFSSNDAYS => 11, ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE => 12, ConfigCiTableMap::COL_DATEUPDTD => 13, ConfigCiTableMap::COL_TIMEUPDTD => 14, ConfigCiTableMap::COL_DUMMY => 15, ),
+        self::TYPE_FIELDNAME     => array('CitbConfKey' => 0, 'CitbConfYtdStrtMo' => 1, 'CitbConfPaySort' => 2, 'CitbConfShistBy' => 3, 'CitbConfShistDate' => 4, 'CitbConfShistDays' => 5, 'CitbConfShowZeroHist' => 6, 'CitbConfShistNotes' => 7, 'CitbConfOrderNotes' => 8, 'CitbConfQuoteNotes' => 9, 'CitbConfConsolGet' => 10, 'CitbConfSsnDays' => 11, 'CitbConfShowInactive' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
 
     /**
@@ -208,6 +213,7 @@ class ConfigCiTableMap extends TableMap
         $this->addColumn('CitbConfQuoteNotes', 'Citbconfquotenotes', 'VARCHAR', false, 1, null);
         $this->addColumn('CitbConfConsolGet', 'Citbconfconsolget', 'VARCHAR', false, 1, null);
         $this->addColumn('CitbConfSsnDays', 'Citbconfssndays', 'INTEGER', false, 4, null);
+        $this->addColumn('CitbConfShowInactive', 'citbconfshowinactive', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -373,6 +379,7 @@ class ConfigCiTableMap extends TableMap
             $criteria->addSelectColumn(ConfigCiTableMap::COL_CITBCONFQUOTENOTES);
             $criteria->addSelectColumn(ConfigCiTableMap::COL_CITBCONFCONSOLGET);
             $criteria->addSelectColumn(ConfigCiTableMap::COL_CITBCONFSSNDAYS);
+            $criteria->addSelectColumn(ConfigCiTableMap::COL_CITBCONFSHOWINACTIVE);
             $criteria->addSelectColumn(ConfigCiTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ConfigCiTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ConfigCiTableMap::COL_DUMMY);
@@ -389,6 +396,7 @@ class ConfigCiTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.CitbConfQuoteNotes');
             $criteria->addSelectColumn($alias . '.CitbConfConsolGet');
             $criteria->addSelectColumn($alias . '.CitbConfSsnDays');
+            $criteria->addSelectColumn($alias . '.CitbConfShowInactive');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
