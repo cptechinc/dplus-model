@@ -44,7 +44,8 @@ class Customer extends BaseCustomer {
 		'ytd_invoices' => 'arcuinvytd',
 		'highestbalance' => 'arcuhighbal',
 		'creditlimit'    => 'arcucredlmt',
-		'financecharge'  => 'arcufinchrg', // Current Finance Charge
+		'has_charge'     => 'arcufinchrg',
+		'financecharge'  => 'arcunewfc', // Current Finance Charge
 		'warehouse'      => 'intbwhse',
 		'taxcode'        => 'artbmtaxcode',
 		'type'           => 'artbtypecode',
