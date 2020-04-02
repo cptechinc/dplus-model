@@ -28,7 +28,7 @@ trait MagicMethodTraits {
 			} else {
 				$this->error("This column and alias ($column) does not exist");
 				return false;
-				}
+			}
 		} else {
 			$this->error("This column and alias ($column) does not exist");
 			return false;
