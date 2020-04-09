@@ -16,6 +16,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 
 	const SYSTEM_IN = 'IN';
 	const SYSTEM_SO = 'SO';
+	const SYSTEM_AP = 'AP';
 
 	/**
 	 * Column Aliases to lookup / get properties
