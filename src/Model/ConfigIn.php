@@ -94,7 +94,7 @@ class ConfigIn extends BaseConfigIn {
 	/**
 	 * Returns if using Liters
 	 *
-	 * @return bol
+	 * @return bool
 	 */
 	public function use_liters() {
 		$this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
@@ -103,7 +103,7 @@ class ConfigIn extends BaseConfigIn {
 	/**
 	 * Returns if using Grams
 	 *
-	 * @return bol
+	 * @return bool
 	 */
 	public function use_grams() {
 		$this->use_grams_or_liters == self::GRAMS_LITERS_GRAMS;
