@@ -26,6 +26,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	const ITEMID_NONSTOCK     = 'N';
 
+	const LENGTH_ITEMID = 30;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
