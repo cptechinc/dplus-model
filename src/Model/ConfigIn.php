@@ -18,6 +18,9 @@ class ConfigIn extends BaseConfigIn {
 	const VALUE_TRUE  = 'Y';
 	const VALUE_FALSE = 'N';
 
+	const GRAMS_LITERS_GRAMS  = 'G';
+	const GRAMS_LITERS_LITERS = 'L';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -26,14 +29,22 @@ class ConfigIn extends BaseConfigIn {
 		'use_controlbin' => 'intbconfusecntrlbin',
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
-		'default_itemgroup' => 'IntbConfGrupDef',
+		'default_itemtype'       => 'IntbConfTypeDef',
+		'default_itemgroup'  => 'IntbConfGrupDef',
 		'default_pricegroup' => 'IntbConfPricGrupDef',
 		'default_commgroup'  => 'IntbConfCommGrupDef',
 		'default_itemtype'   => 'IntbConfTypeDef',
 		'use_pricegroup'     => 'IntbConfUsePricGrup',
 		'use_commgroup'      => 'IntbConfUseCommGrup',
 		'default_pricegroup_itemgroup' => 'IntbConfPricUseItem',
-		'default_commgroup_itemgroup' => 'IntbConfCommUseItem',
+		'default_commgroup_itemgroup'  => 'IntbConfCommUseItem',
+		'use_grams_or_liters'          => 'intbconfusegramsltr',
+		'default_uom_sale'             => 'IntbConfUomSaleDef',
+		'default_uom_purchase'         => 'IntbConfUomSalePur',
+		'default_nafta_pref_code'      => 'IntbConfNaftaPrefCode',
+		'default_nafta_producer'       => 'IntbConfNaftaProducer',
+		'default_nafta_documentation'  => 'IntbConfNaftaDocCode',
+		'default_base_standard_cost'   => 'IntbConfStanBaseDef'
 	);
 
 	/**
@@ -70,7 +81,7 @@ class ConfigIn extends BaseConfigIn {
 	public function use_pricegroup() {
 		return $this->use_pricegroup == self::VALUE_TRUE;
 	}
-	
+
 	/**
 	 * Return if Company is configured to use Pricegroups
 	 *
@@ -78,5 +89,23 @@ class ConfigIn extends BaseConfigIn {
 	 */
 	public function use_commgroup() {
 		return $this->use_commgroup == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Returns if using Liters
+	 *
+	 * @return bool
+	 */
+	public function use_liters() {
+		$this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
+	}
+
+	/**
+	 * Returns if using Grams
+	 *
+	 * @return bool
+	 */
+	public function use_grams() {
+		$this->use_grams_or_liters == self::GRAMS_LITERS_GRAMS;
 	}
 }

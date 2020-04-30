@@ -28,6 +28,7 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'bin_default'  => 'inwhbin',
 		'status'       => 'inwhstat'
 	);
+	
 	/**
 	 * Returns if Warehouse Item is active
 	 *

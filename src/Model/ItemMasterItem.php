@@ -26,6 +26,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	const ITEMID_NONSTOCK     = 'N';
 
+	const LENGTH_ITEMID = 30;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -53,6 +55,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'uom_purchase'    => 'intbuompur',
 		'uom_sale'        => 'intbuomsale',
 		'standardcost'    => 'initstancost',
+		'basestandardcost' => 'initstancostbase',
 		'pricing'         => 'itemPricing',
 		'unitofmsale'     => 'unitofMeasureSale',
 		'unitofmpurchase' => 'unitofMeasurePurchase',
@@ -60,12 +63,17 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'date_lastcost'   => 'initlastcostdate',
 		'primaryvxm'      => 'primaryItemXrefVendor',
 		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
-		'allowdiscount'   => 'initgivedisc',
+		'allow_discount'   => 'initgivedisc',
 		'revision'        => 'initrevision',
 		'inspection'      => 'initinspect',
 		'splitorder'      => 'initsplit',
 		'custid'          => 'initspecificcust',
-		'timefence'       => 'InitTimeFence'
+		'timefence'       => 'inittimefence',
+		'allow_backorder' => 'initbord',
+		'require_freight' => 'initrequirefrt',
+		'cubes'           => 'initcubes',
+		'stockcode'       => 'initstockcode',
+		'core'            => 'InitCoreYN'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -134,11 +142,27 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	public function is_inspection() {
-		return $this->inspection == self::VALUE_TRUE;
+		return $this->is_true('inspection');
 	}
 
 	public function is_splitorder() {
-		return $this->splitorder == self::VALUE_TRUE;
+		return $this->is_true('splitorder');
+	}
+
+	public function allow_backorder() {
+		return $this->is_true('allow_backorder');
+	}
+
+	public function taxable() {
+		return $this->is_true('taxable');
+	}
+
+	public function require_freight() {
+		return $this->is_true('require_freight');
+	}
+
+	public function is_true($property) {
+		return $this->$property == self::VALUE_TRUE;
 	}
 
 	/**

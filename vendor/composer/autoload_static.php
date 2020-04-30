@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit3f927a38659065c5352eea03f725feb9
+class ComposerStaticInit36fe0cf9701df79ce97440792f583469
 {
     public static $classMap = array (
         'ApBuyer' => __DIR__ . '/../..' . '/src/Model/ApBuyer.php',
@@ -113,10 +113,18 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Base\\InvSpecialCodeQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvSpecialCodeQuery.php',
         'Base\\InvStockCode' => __DIR__ . '/../..' . '/src/Model/Base/InvStockCode.php',
         'Base\\InvStockCodeQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvStockCodeQuery.php',
+        'Base\\ItemInspectNote' => __DIR__ . '/../..' . '/src/Model/Base/ItemInspectNote.php',
+        'Base\\ItemInspectNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemInspectNoteQuery.php',
+        'Base\\ItemInternalNote' => __DIR__ . '/../..' . '/src/Model/Base/ItemInternalNote.php',
+        'Base\\ItemInternalNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemInternalNoteQuery.php',
         'Base\\ItemMasterItem' => __DIR__ . '/../..' . '/src/Model/Base/ItemMasterItem.php',
         'Base\\ItemMasterItemQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemMasterItemQuery.php',
+        'Base\\ItemOrderNote' => __DIR__ . '/../..' . '/src/Model/Base/ItemOrderNote.php',
+        'Base\\ItemOrderNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemOrderNoteQuery.php',
         'Base\\ItemPricing' => __DIR__ . '/../..' . '/src/Model/Base/ItemPricing.php',
         'Base\\ItemPricingQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemPricingQuery.php',
+        'Base\\ItemRevisionNote' => __DIR__ . '/../..' . '/src/Model/Base/ItemRevisionNote.php',
+        'Base\\ItemRevisionNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemRevisionNoteQuery.php',
         'Base\\ItemXrefCustomer' => __DIR__ . '/../..' . '/src/Model/Base/ItemXrefCustomer.php',
         'Base\\ItemXrefCustomerQuery' => __DIR__ . '/../..' . '/src/Model/Base/ItemXrefCustomerQuery.php',
         'Base\\ItemXrefUpc' => __DIR__ . '/../..' . '/src/Model/Base/ItemXrefUpc.php',
@@ -310,10 +318,18 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'InvSpecialCodeQuery' => __DIR__ . '/../..' . '/src/Model/InvSpecialCodeQuery.php',
         'InvStockCode' => __DIR__ . '/../..' . '/src/Model/InvStockCode.php',
         'InvStockCodeQuery' => __DIR__ . '/../..' . '/src/Model/InvStockCodeQuery.php',
+        'ItemInspectNote' => __DIR__ . '/../..' . '/src/Model/ItemInspectNote.php',
+        'ItemInspectNoteQuery' => __DIR__ . '/../..' . '/src/Model/ItemInspectNoteQuery.php',
+        'ItemInternalNote' => __DIR__ . '/../..' . '/src/Model/ItemInternalNote.php',
+        'ItemInternalNoteQuery' => __DIR__ . '/../..' . '/src/Model/ItemInternalNoteQuery.php',
         'ItemMasterItem' => __DIR__ . '/../..' . '/src/Model/ItemMasterItem.php',
         'ItemMasterItemQuery' => __DIR__ . '/../..' . '/src/Model/ItemMasterItemQuery.php',
+        'ItemOrderNote' => __DIR__ . '/../..' . '/src/Model/ItemOrderNote.php',
+        'ItemOrderNoteQuery' => __DIR__ . '/../..' . '/src/Model/ItemOrderNoteQuery.php',
         'ItemPricing' => __DIR__ . '/../..' . '/src/Model/ItemPricing.php',
         'ItemPricingQuery' => __DIR__ . '/../..' . '/src/Model/ItemPricingQuery.php',
+        'ItemRevisionNote' => __DIR__ . '/../..' . '/src/Model/ItemRevisionNote.php',
+        'ItemRevisionNoteQuery' => __DIR__ . '/../..' . '/src/Model/ItemRevisionNoteQuery.php',
         'ItemXrefCustomer' => __DIR__ . '/../..' . '/src/Model/ItemXrefCustomer.php',
         'ItemXrefCustomerQuery' => __DIR__ . '/../..' . '/src/Model/ItemXrefCustomerQuery.php',
         'ItemXrefUpc' => __DIR__ . '/../..' . '/src/Model/ItemXrefUpc.php',
@@ -373,8 +389,12 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
         'Map\\InvProductLineCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvProductLineCodeTableMap.php',
         'Map\\InvSpecialCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvSpecialCodeTableMap.php',
         'Map\\InvStockCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvStockCodeTableMap.php',
+        'Map\\ItemInspectNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemInspectNoteTableMap.php',
+        'Map\\ItemInternalNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemInternalNoteTableMap.php',
         'Map\\ItemMasterItemTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemMasterItemTableMap.php',
+        'Map\\ItemOrderNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemOrderNoteTableMap.php',
         'Map\\ItemPricingTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemPricingTableMap.php',
+        'Map\\ItemRevisionNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemRevisionNoteTableMap.php',
         'Map\\ItemXrefCustomerTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemXrefCustomerTableMap.php',
         'Map\\ItemXrefUpcTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemXrefUpcTableMap.php',
         'Map\\ItemXrefVendorTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ItemXrefVendorTableMap.php',
@@ -527,7 +547,7 @@ class ComposerStaticInit3f927a38659065c5352eea03f725feb9
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit3f927a38659065c5352eea03f725feb9::$classMap;
+            $loader->classMap = ComposerStaticInit36fe0cf9701df79ce97440792f583469::$classMap;
 
         }, null, ClassLoader::class);
     }
