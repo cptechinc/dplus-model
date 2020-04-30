@@ -95,27 +95,27 @@ use Dplus\Model\MagicMethodTraits;
          'thru_day1'        => 'artmdaythru1',
          'eom_percent1'     => 'artmeomdiscpct1',
          'eom_day1'         => 'artmeomdiscday1',
-         'eom_months1'      => 'artmeomdiscmonths1',
+         'eom_disc_months1' => 'artmeomdiscmonths1',
          'eom_dueday1'      => 'artmeomdueday1',
          'eom_months1'      => 'artmeomplusmonths1',
          'from_day2'        => 'artmdayfrom2',
          'thru_day2'        => 'artmdaythru2',
          'eom_percent2'     => 'artmeomdiscpct2',
          'eom_day2'         => 'artmeomdiscday2',
-         'eom_months2'      => 'artmeomdiscmonths2',
+         'eom_disc_months2' => 'artmeomdiscmonths2',
          'eom_dueday2'      => 'artmeomdueday2',
          'eom_months2'      => 'artmeomplusmonths2',
          'from_day3'        => 'artmdayfrom3',
          'thru_day3'        => 'artmdaythru3',
          'eom_percent3'     => 'artmeomdiscpct3',
          'eom_day3'         => 'artmeomdiscday3',
-         'eom_months3'      => 'artmeomdiscmonths3',
+         'eom_disc_months3' => 'artmeomdiscmonths3',
          'eom_dueday3'      => 'artmeomdueday3',
          'eom_months3'      => 'artmeomplusmonths3',
          'country'          => 'artmctry',
          'term_group'       => 'artmtermgrup',
- 		'date'		       => 'dateupdtd',
- 		'time'		       => 'timeupdtd'
+ 		 'date'		        => 'dateupdtd',
+ 		 'time'		        => 'timeupdtd'
  	);
 
     /**
