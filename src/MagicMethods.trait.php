@@ -14,7 +14,7 @@ trait MagicMethodTraits {
 	 * @param  string $column  The Column trying to be accessed
 	 * @return mixed		   $column value or Error
 	 */
-		public function __get($column) {
+	public function __get($column) {
 		$method = "get".ucfirst($column);
 
 		if (method_exists($this, $method)) {
@@ -35,7 +35,7 @@ trait MagicMethodTraits {
 		}
 	}
 
-		/**
+	/**
 	 * Is used to PHP functions like isset() and empty() get access and see
 	 * if property is set
 	 * 
@@ -61,7 +61,7 @@ trait MagicMethodTraits {
 	 * @param string $column   Column Name
 	 * @param mixed  $value    Value of $this->$column
 	 */
-		public function set($column, $value) {
+	public function set($column, $value) {
 		if (property_exists($this, $column)) {
 			$method = "set".ucfirst($column);
 			$this->$method($value);
