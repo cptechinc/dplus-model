@@ -14,15 +14,17 @@ class ItemInspectNote extends BaseItemInspectNote {
 
 	const TYPE = 'INSP';
 	const DESC = 'Item Inspection Notes';
+	const FORMAT_NOTEDATE = 'Ymd';
+	const FORMAT_NOTETIME = 'His';
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
- 		'type'          => 'QcnoType',
-		'description'   => 'QcnoTypeDesc',
-		'itemid'        => 'InitItemNbr',
+ 		'type'          => 'qcnotype',
+		'description'   => 'qcnotypedesc',
+		'itemid'        => 'inititemnbr',
 		'user'          => 'qcnouser',
 		'notedate'      => 'qcnodate',
 		'notetime'      => 'qcnotime',
@@ -53,5 +55,40 @@ class ItemInspectNote extends BaseItemInspectNote {
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
 		return $item;
+	}
+
+	/**
+	 * Return Time as a 6 character string
+	 *
+	 * @return string
+	 */
+	public function get_time() {
+		return substr($this->notetime, 0, 6);
+	}
+
+	/**
+	 * Sets the Notetime value
+	 *
+	 * @param  string $time      Time to convert
+	 * @param  string $notedate  Date
+	 * @return ItemInspectNote
+	 */
+	public function set_time($time, $notedate = '') {
+		$notedate = $notedate ? $notedate : $this->notedate;
+		$time_formatted = self::generate_notetime($time, $notedate);
+		$this->setNotetime($time_formatted);
+	}
+
+	/**
+	 * Generates the 8 character string needed to save Time
+	 *
+	 * @param  string $time      Time to convert
+	 * @param  string $notedate  Date
+	 * @return void
+	 */
+	public static function generate_notetime($time, $notedate) {
+		$time_formatted = date(self::FORMAT_NOTETIME, strtotime($notedate.$time));
+		$time_formatted .= '00';
+		return $time_formatted;
 	}
 }

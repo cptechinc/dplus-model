@@ -23,12 +23,13 @@ class ItemInternalNote extends BaseItemInternalNote {
 	const COLUMN_ALIASES = array(
 		'type'          => 'QnType',
 		'description'   => 'QnTypeDesc',
-		'itemid'        => 'InitItemNbr',
+		'itemid'        => 'inititemnbr',
 		'sequence'      => 'qnseq',
 		'note'          => 'qnnote',
-		'key2'          => 'qcnokey2',
+		'key2'          => 'qnkey2',
+		'form'          => 'qnform',
 		'date'          => 'dateupdtd',
-		'time'          => 'timeupdtd'
+		'time'          => 'timeupdtd',
 	);
 
 	/**

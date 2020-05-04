@@ -73,7 +73,11 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'require_freight' => 'initrequirefrt',
 		'cubes'           => 'initcubes',
 		'stockcode'       => 'initstockcode',
-		'core'            => 'InitCoreYN'
+		'core'            => 'InitCoreYN',
+		'preference'      => 'initpreference',
+		'producer'        => 'InitProducer',
+		'documentation'   => 'InitDocumentation',
+		'basestandardcost' => 'InitBaseStanCost',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -90,6 +94,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * ===================================================================
 	 */
+
+	public function get_length_itemid() {
+		return self::LENGTH_ITEMID;
+	}
+
+	public function calculate_grams() {
+		return $this->weight / $this->unitofmsale->conversion * 453.59237;
+	}
 
 	/**
 	 * Return Item Group Code Description

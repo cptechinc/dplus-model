@@ -15,23 +15,27 @@ class ItemRevisionNote extends BaseItemRevisionNote {
 	const TYPE = 'IREV';
 	const DESC = 'Item Revision Notes';
 
+	const FORMAT_NOTEDATE = 'Ymd';
+	const FORMAT_NOTETIME = 'Hi';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'           => 'QnType',
-		'description'    => 'QnTypeDesc',
-		'itemid'         => 'InitItemNbr',
-		'notedate'       => 'itemnotedate',
-		'notetime'       => 'itemnotetime',
+		'type'         => 'ItemNoteType',
+		'description'  => 'ItemNoteTypeDesc',
+		'itemid'       => 'inititemnbr',
+		'notedate'     => 'itemnotedate',
+		'notetime'     => 'itemnotetime',
 		'revision'     => 'itemnoterevision',
-		'sequence'      => 'itemnoteseq',
-		'note'          => 'itemnotenote',
-		'user'          => 'itemnoteuser',
-		'key2'          => 'itemnotekey2',
-		'date'          => 'dateupdtd',
-		'time'          => 'timeupdtd'
+		'sequence'     => 'itemnoteseq',
+		'form'         => 'itemnoteform',
+		'note'         => 'itemnotenote',
+		'user'         => 'itemnoteuser',
+		'key2'         => 'itemnotekey2',
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 
 	/**

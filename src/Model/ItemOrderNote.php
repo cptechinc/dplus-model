@@ -18,26 +18,48 @@ class ItemOrderNote extends BaseItemOrderNote {
 	const FORM_FALSE = 'N';
 	const KEY2_APPEND = 'O';
 
+	const FORMS_LABELS = array(
+		'pickticket'       => 'pick ticket',
+		'packticket'       => 'pack ticket',
+		'invoice'          => 'invoice',
+		'acknowledgement'  => 'acknowledgement',
+		'quote'            => 'quote',
+		'purchaseorder'    => 'purchase order',
+		'ordertransfer'    => 'order transfer',
+		'fabpo'            => 'fab PO',
+	);
+
+	const FORMS_LABELS_SHORT = array(
+		'pickticket'       => 'pick',
+		'packticket'       => 'pack',
+		'invoice'          => 'invc',
+		'acknowledgement'  => 'ack',
+		'quote'            => 'qte',
+		'purchaseorder'    => 'PO',
+		'ordertransfer'    => 'tran',
+		'fabpo'            => 'fab',
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'             => 'QnType',
-		'description'      => 'QnTypeDesc',
-		'itemid'           => 'InitItemNbr',
+		'type'             => 'qntype',
+		'description'      => 'qntypedesc',
+		'itemid'           => 'inititemnbr',
 		'pickticket'       => 'qnordrpickticket',
 		'packticket'       => 'qnordrpackticket',
 		'invoice'          => 'qnordrinvoice',
 		'acknowledgement'  => 'qnordracknow',
 		'quote'            => 'qnordrquote',
 		'purchaseorder'    => 'qnordrpurchordr',
-		'ordertransfer'    => 'qnordrordrtransfer',
-		'fabpo'            => 'qnordrorfabpo',
+		'ordertransfer'    => 'qnordrtransfer',
+		'fabpo'            => 'qnordrfabpo',
 		'form'             => 'qnform',
 		'sequence'      => 'qnseq',
 		'note'          => 'qnnote',
-		'key2'          => 'qcnokey2',
+		'key2'          => 'qnkey2',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
 	);
@@ -51,7 +73,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 	 */
 	public function generateForm() {
 		$form = $this->pickticket.$this->packticket.$this->invoice;
-		$form .= $this->acknowledgment.$this->quote;
+		$form .= $this->acknowledgement.$this->quote;
 		$form .= $this->purchaseorder.$this->ordertransfer.$this->fabpo;
 		$this->setForm($form);
 	}
@@ -77,13 +99,13 @@ class ItemOrderNote extends BaseItemOrderNote {
 		$item = new ItemOrderNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
-		$item->setPickTicket(self::FORM_FALSE);
-		$item->setPackTicket(self::FORM_FALSE);
+		$item->setPickticket(self::FORM_FALSE);
+		$item->setPackticket(self::FORM_FALSE);
 		$item->setInvoice(self::FORM_FALSE);
 		$item->setAcknowledgement(self::FORM_FALSE);
 		$item->setQuote(self::FORM_FALSE);
 		$item->setPurchaseorder(self::FORM_FALSE);
-		$item->setorderTransfer(self::FORM_FALSE);
+		$item->setOrdertransfer(self::FORM_FALSE);
 		$item->generateForm();
 		return $item;
 	}
