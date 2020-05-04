@@ -152,9 +152,9 @@ class WarehouseInventoryTableMap extends TableMap
     const COL_INWHCRTEDATE = 'inv_whse_mast.InwhCrteDate';
 
     /**
-     * the column name for the InwhShipStoreBin field
+     * the column name for the InwhShipBin field
      */
-    const COL_INWHSHIPSTOREBIN = 'inv_whse_mast.InwhShipStoreBin';
+    const COL_INWHSHIPBIN = 'inv_whse_mast.InwhShipBin';
 
     /**
      * the column name for the InwhLastPurchPoNbr field
@@ -162,9 +162,9 @@ class WarehouseInventoryTableMap extends TableMap
     const COL_INWHLASTPURCHPONBR = 'inv_whse_mast.InwhLastPurchPoNbr';
 
     /**
-     * the column name for the LastPurchInvNbr field
+     * the column name for the InwhLastPurchInvNbr field
      */
-    const COL_LASTPURCHINVNBR = 'inv_whse_mast.LastPurchInvNbr';
+    const COL_INWHLASTPURCHINVNBR = 'inv_whse_mast.InwhLastPurchInvNbr';
 
     /**
      * the column name for the InwhSupplyWhse field
@@ -198,10 +198,10 @@ class WarehouseInventoryTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inwhbin', 'Inwhcycl', 'Inwhcntdate', 'Inwhstat', 'Inwhabc', 'Inwhordrpnt', 'Inwhmax', 'Inwhordrqty', 'Inwhspecordr', 'Inwhavail', 'Inwh12motimessold', 'Inwhfrtin', 'Inwhmaxordrqty', 'Inwhcrtedate', 'Inwhshipstorebin', 'Inwhlastpurchponbr', 'Lastpurchinvnbr', 'Inwhsupplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inwhbin', 'inwhcycl', 'inwhcntdate', 'inwhstat', 'inwhabc', 'inwhordrpnt', 'inwhmax', 'inwhordrqty', 'inwhspecordr', 'inwhavail', 'inwh12motimessold', 'inwhfrtin', 'inwhmaxordrqty', 'inwhcrtedate', 'inwhshipstorebin', 'inwhlastpurchponbr', 'lastpurchinvnbr', 'inwhsupplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WarehouseInventoryTableMap::COL_INITITEMNBR, WarehouseInventoryTableMap::COL_INTBWHSE, WarehouseInventoryTableMap::COL_INWHBIN, WarehouseInventoryTableMap::COL_INWHCYCL, WarehouseInventoryTableMap::COL_INWHCNTDATE, WarehouseInventoryTableMap::COL_INWHSTAT, WarehouseInventoryTableMap::COL_INWHABC, WarehouseInventoryTableMap::COL_INWHORDRPNT, WarehouseInventoryTableMap::COL_INWHMAX, WarehouseInventoryTableMap::COL_INWHORDRQTY, WarehouseInventoryTableMap::COL_INWHSPECORDR, WarehouseInventoryTableMap::COL_INWHAVAIL, WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD, WarehouseInventoryTableMap::COL_INWHFRTIN, WarehouseInventoryTableMap::COL_INWHMAXORDRQTY, WarehouseInventoryTableMap::COL_INWHCRTEDATE, WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN, WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, WarehouseInventoryTableMap::COL_LASTPURCHINVNBR, WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE, WarehouseInventoryTableMap::COL_DATEUPDTD, WarehouseInventoryTableMap::COL_TIMEUPDTD, WarehouseInventoryTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InwhBin', 'InwhCycl', 'InwhCntDate', 'InwhStat', 'InwhAbc', 'InwhOrdrPnt', 'InwhMax', 'InwhOrdrQty', 'InwhSpecOrdr', 'InwhAvail', 'Inwh12moTimesSold', 'InwhFrtIn', 'InwhMaxOrdrQty', 'InwhCrteDate', 'InwhShipStoreBin', 'InwhLastPurchPoNbr', 'LastPurchInvNbr', 'InwhSupplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inwhbin', 'Inwhcycl', 'Inwhcntdate', 'Inwhstat', 'Inwhabc', 'Inwhordrpnt', 'Inwhmax', 'Inwhordrqty', 'Inwhspecordr', 'Inwhavail', 'Inwh12motimessold', 'Inwhfrtin', 'Inwhmaxordrqty', 'Inwhcrtedate', 'Inwhshipbin', 'Inwhlastpurchponbr', 'Inwhlastpurchinvnbr', 'Inwhsupplywhse', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inwhbin', 'inwhcycl', 'inwhcntdate', 'inwhstat', 'inwhabc', 'inwhordrpnt', 'inwhmax', 'inwhordrqty', 'inwhspecordr', 'inwhavail', 'inwh12motimessold', 'inwhfrtin', 'inwhmaxordrqty', 'inwhcrtedate', 'inwhshipbin', 'inwhlastpurchponbr', 'inwhlastpurchinvnbr', 'inwhsupplywhse', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(WarehouseInventoryTableMap::COL_INITITEMNBR, WarehouseInventoryTableMap::COL_INTBWHSE, WarehouseInventoryTableMap::COL_INWHBIN, WarehouseInventoryTableMap::COL_INWHCYCL, WarehouseInventoryTableMap::COL_INWHCNTDATE, WarehouseInventoryTableMap::COL_INWHSTAT, WarehouseInventoryTableMap::COL_INWHABC, WarehouseInventoryTableMap::COL_INWHORDRPNT, WarehouseInventoryTableMap::COL_INWHMAX, WarehouseInventoryTableMap::COL_INWHORDRQTY, WarehouseInventoryTableMap::COL_INWHSPECORDR, WarehouseInventoryTableMap::COL_INWHAVAIL, WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD, WarehouseInventoryTableMap::COL_INWHFRTIN, WarehouseInventoryTableMap::COL_INWHMAXORDRQTY, WarehouseInventoryTableMap::COL_INWHCRTEDATE, WarehouseInventoryTableMap::COL_INWHSHIPBIN, WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR, WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE, WarehouseInventoryTableMap::COL_DATEUPDTD, WarehouseInventoryTableMap::COL_TIMEUPDTD, WarehouseInventoryTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InwhBin', 'InwhCycl', 'InwhCntDate', 'InwhStat', 'InwhAbc', 'InwhOrdrPnt', 'InwhMax', 'InwhOrdrQty', 'InwhSpecOrdr', 'InwhAvail', 'Inwh12moTimesSold', 'InwhFrtIn', 'InwhMaxOrdrQty', 'InwhCrteDate', 'InwhShipBin', 'InwhLastPurchPoNbr', 'InwhLastPurchInvNbr', 'InwhSupplyWhse', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
     );
 
@@ -212,10 +212,10 @@ class WarehouseInventoryTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inwhbin' => 2, 'Inwhcycl' => 3, 'Inwhcntdate' => 4, 'Inwhstat' => 5, 'Inwhabc' => 6, 'Inwhordrpnt' => 7, 'Inwhmax' => 8, 'Inwhordrqty' => 9, 'Inwhspecordr' => 10, 'Inwhavail' => 11, 'Inwh12motimessold' => 12, 'Inwhfrtin' => 13, 'Inwhmaxordrqty' => 14, 'Inwhcrtedate' => 15, 'Inwhshipstorebin' => 16, 'Inwhlastpurchponbr' => 17, 'Lastpurchinvnbr' => 18, 'Inwhsupplywhse' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inwhbin' => 2, 'inwhcycl' => 3, 'inwhcntdate' => 4, 'inwhstat' => 5, 'inwhabc' => 6, 'inwhordrpnt' => 7, 'inwhmax' => 8, 'inwhordrqty' => 9, 'inwhspecordr' => 10, 'inwhavail' => 11, 'inwh12motimessold' => 12, 'inwhfrtin' => 13, 'inwhmaxordrqty' => 14, 'inwhcrtedate' => 15, 'inwhshipstorebin' => 16, 'inwhlastpurchponbr' => 17, 'lastpurchinvnbr' => 18, 'inwhsupplywhse' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
-        self::TYPE_COLNAME       => array(WarehouseInventoryTableMap::COL_INITITEMNBR => 0, WarehouseInventoryTableMap::COL_INTBWHSE => 1, WarehouseInventoryTableMap::COL_INWHBIN => 2, WarehouseInventoryTableMap::COL_INWHCYCL => 3, WarehouseInventoryTableMap::COL_INWHCNTDATE => 4, WarehouseInventoryTableMap::COL_INWHSTAT => 5, WarehouseInventoryTableMap::COL_INWHABC => 6, WarehouseInventoryTableMap::COL_INWHORDRPNT => 7, WarehouseInventoryTableMap::COL_INWHMAX => 8, WarehouseInventoryTableMap::COL_INWHORDRQTY => 9, WarehouseInventoryTableMap::COL_INWHSPECORDR => 10, WarehouseInventoryTableMap::COL_INWHAVAIL => 11, WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD => 12, WarehouseInventoryTableMap::COL_INWHFRTIN => 13, WarehouseInventoryTableMap::COL_INWHMAXORDRQTY => 14, WarehouseInventoryTableMap::COL_INWHCRTEDATE => 15, WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN => 16, WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR => 17, WarehouseInventoryTableMap::COL_LASTPURCHINVNBR => 18, WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE => 19, WarehouseInventoryTableMap::COL_DATEUPDTD => 20, WarehouseInventoryTableMap::COL_TIMEUPDTD => 21, WarehouseInventoryTableMap::COL_DUMMY => 22, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InwhBin' => 2, 'InwhCycl' => 3, 'InwhCntDate' => 4, 'InwhStat' => 5, 'InwhAbc' => 6, 'InwhOrdrPnt' => 7, 'InwhMax' => 8, 'InwhOrdrQty' => 9, 'InwhSpecOrdr' => 10, 'InwhAvail' => 11, 'Inwh12moTimesSold' => 12, 'InwhFrtIn' => 13, 'InwhMaxOrdrQty' => 14, 'InwhCrteDate' => 15, 'InwhShipStoreBin' => 16, 'InwhLastPurchPoNbr' => 17, 'LastPurchInvNbr' => 18, 'InwhSupplyWhse' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
+        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inwhbin' => 2, 'Inwhcycl' => 3, 'Inwhcntdate' => 4, 'Inwhstat' => 5, 'Inwhabc' => 6, 'Inwhordrpnt' => 7, 'Inwhmax' => 8, 'Inwhordrqty' => 9, 'Inwhspecordr' => 10, 'Inwhavail' => 11, 'Inwh12motimessold' => 12, 'Inwhfrtin' => 13, 'Inwhmaxordrqty' => 14, 'Inwhcrtedate' => 15, 'Inwhshipbin' => 16, 'Inwhlastpurchponbr' => 17, 'Inwhlastpurchinvnbr' => 18, 'Inwhsupplywhse' => 19, 'Dateupdtd' => 20, 'Timeupdtd' => 21, 'Dummy' => 22, ),
+        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inwhbin' => 2, 'inwhcycl' => 3, 'inwhcntdate' => 4, 'inwhstat' => 5, 'inwhabc' => 6, 'inwhordrpnt' => 7, 'inwhmax' => 8, 'inwhordrqty' => 9, 'inwhspecordr' => 10, 'inwhavail' => 11, 'inwh12motimessold' => 12, 'inwhfrtin' => 13, 'inwhmaxordrqty' => 14, 'inwhcrtedate' => 15, 'inwhshipbin' => 16, 'inwhlastpurchponbr' => 17, 'inwhlastpurchinvnbr' => 18, 'inwhsupplywhse' => 19, 'dateupdtd' => 20, 'timeupdtd' => 21, 'dummy' => 22, ),
+        self::TYPE_COLNAME       => array(WarehouseInventoryTableMap::COL_INITITEMNBR => 0, WarehouseInventoryTableMap::COL_INTBWHSE => 1, WarehouseInventoryTableMap::COL_INWHBIN => 2, WarehouseInventoryTableMap::COL_INWHCYCL => 3, WarehouseInventoryTableMap::COL_INWHCNTDATE => 4, WarehouseInventoryTableMap::COL_INWHSTAT => 5, WarehouseInventoryTableMap::COL_INWHABC => 6, WarehouseInventoryTableMap::COL_INWHORDRPNT => 7, WarehouseInventoryTableMap::COL_INWHMAX => 8, WarehouseInventoryTableMap::COL_INWHORDRQTY => 9, WarehouseInventoryTableMap::COL_INWHSPECORDR => 10, WarehouseInventoryTableMap::COL_INWHAVAIL => 11, WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD => 12, WarehouseInventoryTableMap::COL_INWHFRTIN => 13, WarehouseInventoryTableMap::COL_INWHMAXORDRQTY => 14, WarehouseInventoryTableMap::COL_INWHCRTEDATE => 15, WarehouseInventoryTableMap::COL_INWHSHIPBIN => 16, WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR => 17, WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR => 18, WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE => 19, WarehouseInventoryTableMap::COL_DATEUPDTD => 20, WarehouseInventoryTableMap::COL_TIMEUPDTD => 21, WarehouseInventoryTableMap::COL_DUMMY => 22, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InwhBin' => 2, 'InwhCycl' => 3, 'InwhCntDate' => 4, 'InwhStat' => 5, 'InwhAbc' => 6, 'InwhOrdrPnt' => 7, 'InwhMax' => 8, 'InwhOrdrQty' => 9, 'InwhSpecOrdr' => 10, 'InwhAvail' => 11, 'Inwh12moTimesSold' => 12, 'InwhFrtIn' => 13, 'InwhMaxOrdrQty' => 14, 'InwhCrteDate' => 15, 'InwhShipBin' => 16, 'InwhLastPurchPoNbr' => 17, 'InwhLastPurchInvNbr' => 18, 'InwhSupplyWhse' => 19, 'DateUpdtd' => 20, 'TimeUpdtd' => 21, 'dummy' => 22, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, )
     );
 
@@ -248,16 +248,16 @@ class WarehouseInventoryTableMap extends TableMap
         $this->addColumn('InwhOrdrQty', 'Inwhordrqty', 'DECIMAL', false, 20, null);
         $this->addColumn('InwhSpecOrdr', 'Inwhspecordr', 'VARCHAR', false, 1, null);
         $this->addColumn('InwhAvail', 'Inwhavail', 'DECIMAL', false, 20, null);
-        $this->addColumn('Inwh12moTimesSold', 'Inwh12motimessold', 'VARCHAR', false, 8, null);
+        $this->addColumn('Inwh12moTimesSold', 'Inwh12motimessold', 'INTEGER', false, 8, null);
         $this->addColumn('InwhFrtIn', 'Inwhfrtin', 'DECIMAL', false, 20, null);
         $this->addColumn('InwhMaxOrdrQty', 'Inwhmaxordrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('InwhCrteDate', 'Inwhcrtedate', 'INTEGER', false, 8, null);
-        $this->addColumn('InwhShipStoreBin', 'Inwhshipstorebin', 'VARCHAR', false, 8, null);
-        $this->addColumn('InwhLastPurchPoNbr', 'Inwhlastpurchponbr', 'INTEGER', false, 8, null);
-        $this->addColumn('LastPurchInvNbr', 'Lastpurchinvnbr', 'VARCHAR', false, 15, null);
+        $this->addColumn('InwhCrteDate', 'Inwhcrtedate', 'VARCHAR', false, 8, null);
+        $this->addColumn('InwhShipBin', 'Inwhshipbin', 'VARCHAR', false, 8, null);
+        $this->addColumn('InwhLastPurchPoNbr', 'Inwhlastpurchponbr', 'VARCHAR', false, 8, null);
+        $this->addColumn('InwhLastPurchInvNbr', 'Inwhlastpurchinvnbr', 'VARCHAR', false, 15, null);
         $this->addColumn('InwhSupplyWhse', 'Inwhsupplywhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'INTEGER', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'INTEGER', false, 8, null);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
     } // initialize()
 
@@ -487,9 +487,9 @@ class WarehouseInventoryTableMap extends TableMap
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHFRTIN);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHMAXORDRQTY);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHCRTEDATE);
-            $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN);
+            $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHSHIPBIN);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR);
-            $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_LASTPURCHINVNBR);
+            $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(WarehouseInventoryTableMap::COL_TIMEUPDTD);
@@ -511,9 +511,9 @@ class WarehouseInventoryTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.InwhFrtIn');
             $criteria->addSelectColumn($alias . '.InwhMaxOrdrQty');
             $criteria->addSelectColumn($alias . '.InwhCrteDate');
-            $criteria->addSelectColumn($alias . '.InwhShipStoreBin');
+            $criteria->addSelectColumn($alias . '.InwhShipBin');
             $criteria->addSelectColumn($alias . '.InwhLastPurchPoNbr');
-            $criteria->addSelectColumn($alias . '.LastPurchInvNbr');
+            $criteria->addSelectColumn($alias . '.InwhLastPurchInvNbr');
             $criteria->addSelectColumn($alias . '.InwhSupplyWhse');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');

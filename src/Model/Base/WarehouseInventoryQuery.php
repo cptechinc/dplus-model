@@ -35,9 +35,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventoryQuery orderByInwhfrtin($order = Criteria::ASC) Order by the InwhFrtIn column
  * @method     ChildWarehouseInventoryQuery orderByInwhmaxordrqty($order = Criteria::ASC) Order by the InwhMaxOrdrQty column
  * @method     ChildWarehouseInventoryQuery orderByInwhcrtedate($order = Criteria::ASC) Order by the InwhCrteDate column
- * @method     ChildWarehouseInventoryQuery orderByInwhshipstorebin($order = Criteria::ASC) Order by the InwhShipStoreBin column
+ * @method     ChildWarehouseInventoryQuery orderByInwhshipbin($order = Criteria::ASC) Order by the InwhShipBin column
  * @method     ChildWarehouseInventoryQuery orderByInwhlastpurchponbr($order = Criteria::ASC) Order by the InwhLastPurchPoNbr column
- * @method     ChildWarehouseInventoryQuery orderByLastpurchinvnbr($order = Criteria::ASC) Order by the LastPurchInvNbr column
+ * @method     ChildWarehouseInventoryQuery orderByInwhlastpurchinvnbr($order = Criteria::ASC) Order by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventoryQuery orderByInwhsupplywhse($order = Criteria::ASC) Order by the InwhSupplyWhse column
  * @method     ChildWarehouseInventoryQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildWarehouseInventoryQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
@@ -59,9 +59,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventoryQuery groupByInwhfrtin() Group by the InwhFrtIn column
  * @method     ChildWarehouseInventoryQuery groupByInwhmaxordrqty() Group by the InwhMaxOrdrQty column
  * @method     ChildWarehouseInventoryQuery groupByInwhcrtedate() Group by the InwhCrteDate column
- * @method     ChildWarehouseInventoryQuery groupByInwhshipstorebin() Group by the InwhShipStoreBin column
+ * @method     ChildWarehouseInventoryQuery groupByInwhshipbin() Group by the InwhShipBin column
  * @method     ChildWarehouseInventoryQuery groupByInwhlastpurchponbr() Group by the InwhLastPurchPoNbr column
- * @method     ChildWarehouseInventoryQuery groupByLastpurchinvnbr() Group by the LastPurchInvNbr column
+ * @method     ChildWarehouseInventoryQuery groupByInwhlastpurchinvnbr() Group by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventoryQuery groupByInwhsupplywhse() Group by the InwhSupplyWhse column
  * @method     ChildWarehouseInventoryQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildWarehouseInventoryQuery groupByTimeupdtd() Group by the TimeUpdtd column
@@ -90,16 +90,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory findOneByInwhordrqty(string $InwhOrdrQty) Return the first ChildWarehouseInventory filtered by the InwhOrdrQty column
  * @method     ChildWarehouseInventory findOneByInwhspecordr(string $InwhSpecOrdr) Return the first ChildWarehouseInventory filtered by the InwhSpecOrdr column
  * @method     ChildWarehouseInventory findOneByInwhavail(string $InwhAvail) Return the first ChildWarehouseInventory filtered by the InwhAvail column
- * @method     ChildWarehouseInventory findOneByInwh12motimessold(string $Inwh12moTimesSold) Return the first ChildWarehouseInventory filtered by the Inwh12moTimesSold column
+ * @method     ChildWarehouseInventory findOneByInwh12motimessold(int $Inwh12moTimesSold) Return the first ChildWarehouseInventory filtered by the Inwh12moTimesSold column
  * @method     ChildWarehouseInventory findOneByInwhfrtin(string $InwhFrtIn) Return the first ChildWarehouseInventory filtered by the InwhFrtIn column
  * @method     ChildWarehouseInventory findOneByInwhmaxordrqty(string $InwhMaxOrdrQty) Return the first ChildWarehouseInventory filtered by the InwhMaxOrdrQty column
- * @method     ChildWarehouseInventory findOneByInwhcrtedate(int $InwhCrteDate) Return the first ChildWarehouseInventory filtered by the InwhCrteDate column
- * @method     ChildWarehouseInventory findOneByInwhshipstorebin(string $InwhShipStoreBin) Return the first ChildWarehouseInventory filtered by the InwhShipStoreBin column
- * @method     ChildWarehouseInventory findOneByInwhlastpurchponbr(int $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column
- * @method     ChildWarehouseInventory findOneByLastpurchinvnbr(string $LastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the LastPurchInvNbr column
+ * @method     ChildWarehouseInventory findOneByInwhcrtedate(string $InwhCrteDate) Return the first ChildWarehouseInventory filtered by the InwhCrteDate column
+ * @method     ChildWarehouseInventory findOneByInwhshipbin(string $InwhShipBin) Return the first ChildWarehouseInventory filtered by the InwhShipBin column
+ * @method     ChildWarehouseInventory findOneByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column
+ * @method     ChildWarehouseInventory findOneByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventory findOneByInwhsupplywhse(string $InwhSupplyWhse) Return the first ChildWarehouseInventory filtered by the InwhSupplyWhse column
- * @method     ChildWarehouseInventory findOneByDateupdtd(int $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column
- * @method     ChildWarehouseInventory findOneByTimeupdtd(int $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column
+ * @method     ChildWarehouseInventory findOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column
+ * @method     ChildWarehouseInventory findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column
  * @method     ChildWarehouseInventory findOneByDummy(string $dummy) Return the first ChildWarehouseInventory filtered by the dummy column *
 
  * @method     ChildWarehouseInventory requirePk($key, ConnectionInterface $con = null) Return the ChildWarehouseInventory by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -117,16 +117,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory requireOneByInwhordrqty(string $InwhOrdrQty) Return the first ChildWarehouseInventory filtered by the InwhOrdrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhspecordr(string $InwhSpecOrdr) Return the first ChildWarehouseInventory filtered by the InwhSpecOrdr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhavail(string $InwhAvail) Return the first ChildWarehouseInventory filtered by the InwhAvail column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByInwh12motimessold(string $Inwh12moTimesSold) Return the first ChildWarehouseInventory filtered by the Inwh12moTimesSold column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwh12motimessold(int $Inwh12moTimesSold) Return the first ChildWarehouseInventory filtered by the Inwh12moTimesSold column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhfrtin(string $InwhFrtIn) Return the first ChildWarehouseInventory filtered by the InwhFrtIn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhmaxordrqty(string $InwhMaxOrdrQty) Return the first ChildWarehouseInventory filtered by the InwhMaxOrdrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByInwhcrtedate(int $InwhCrteDate) Return the first ChildWarehouseInventory filtered by the InwhCrteDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByInwhshipstorebin(string $InwhShipStoreBin) Return the first ChildWarehouseInventory filtered by the InwhShipStoreBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByInwhlastpurchponbr(int $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByLastpurchinvnbr(string $LastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the LastPurchInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwhcrtedate(string $InwhCrteDate) Return the first ChildWarehouseInventory filtered by the InwhCrteDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwhshipbin(string $InwhShipBin) Return the first ChildWarehouseInventory filtered by the InwhShipBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhsupplywhse(string $InwhSupplyWhse) Return the first ChildWarehouseInventory filtered by the InwhSupplyWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByDateupdtd(int $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWarehouseInventory requireOneByTimeupdtd(int $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByDummy(string $dummy) Return the first ChildWarehouseInventory filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildWarehouseInventory[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWarehouseInventory objects based on current ModelCriteria
@@ -142,16 +142,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhordrqty(string $InwhOrdrQty) Return ChildWarehouseInventory objects filtered by the InwhOrdrQty column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhspecordr(string $InwhSpecOrdr) Return ChildWarehouseInventory objects filtered by the InwhSpecOrdr column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhavail(string $InwhAvail) Return ChildWarehouseInventory objects filtered by the InwhAvail column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByInwh12motimessold(string $Inwh12moTimesSold) Return ChildWarehouseInventory objects filtered by the Inwh12moTimesSold column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwh12motimessold(int $Inwh12moTimesSold) Return ChildWarehouseInventory objects filtered by the Inwh12moTimesSold column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhfrtin(string $InwhFrtIn) Return ChildWarehouseInventory objects filtered by the InwhFrtIn column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhmaxordrqty(string $InwhMaxOrdrQty) Return ChildWarehouseInventory objects filtered by the InwhMaxOrdrQty column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhcrtedate(int $InwhCrteDate) Return ChildWarehouseInventory objects filtered by the InwhCrteDate column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhshipstorebin(string $InwhShipStoreBin) Return ChildWarehouseInventory objects filtered by the InwhShipStoreBin column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhlastpurchponbr(int $InwhLastPurchPoNbr) Return ChildWarehouseInventory objects filtered by the InwhLastPurchPoNbr column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByLastpurchinvnbr(string $LastPurchInvNbr) Return ChildWarehouseInventory objects filtered by the LastPurchInvNbr column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhcrtedate(string $InwhCrteDate) Return ChildWarehouseInventory objects filtered by the InwhCrteDate column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhshipbin(string $InwhShipBin) Return ChildWarehouseInventory objects filtered by the InwhShipBin column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return ChildWarehouseInventory objects filtered by the InwhLastPurchPoNbr column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return ChildWarehouseInventory objects filtered by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhsupplywhse(string $InwhSupplyWhse) Return ChildWarehouseInventory objects filtered by the InwhSupplyWhse column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByDateupdtd(int $DateUpdtd) Return ChildWarehouseInventory objects filtered by the DateUpdtd column
- * @method     ChildWarehouseInventory[]|ObjectCollection findByTimeupdtd(int $TimeUpdtd) Return ChildWarehouseInventory objects filtered by the TimeUpdtd column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildWarehouseInventory objects filtered by the DateUpdtd column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildWarehouseInventory objects filtered by the TimeUpdtd column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByDummy(string $dummy) Return ChildWarehouseInventory objects filtered by the dummy column
  * @method     ChildWarehouseInventory[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
@@ -251,7 +251,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, IntbWhse, InwhBin, InwhCycl, InwhCntDate, InwhStat, InwhAbc, InwhOrdrPnt, InwhMax, InwhOrdrQty, InwhSpecOrdr, InwhAvail, Inwh12moTimesSold, InwhFrtIn, InwhMaxOrdrQty, InwhCrteDate, InwhShipStoreBin, InwhLastPurchPoNbr, LastPurchInvNbr, InwhSupplyWhse, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_mast WHERE InitItemNbr = :p0 AND IntbWhse = :p1';
+        $sql = 'SELECT InitItemNbr, IntbWhse, InwhBin, InwhCycl, InwhCntDate, InwhStat, InwhAbc, InwhOrdrPnt, InwhMax, InwhOrdrQty, InwhSpecOrdr, InwhAvail, Inwh12moTimesSold, InwhFrtIn, InwhMaxOrdrQty, InwhCrteDate, InwhShipBin, InwhLastPurchPoNbr, InwhLastPurchInvNbr, InwhSupplyWhse, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_mast WHERE InitItemNbr = :p0 AND IntbWhse = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -722,19 +722,35 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByInwh12motimessold('fooValue');   // WHERE Inwh12moTimesSold = 'fooValue'
-     * $query->filterByInwh12motimessold('%fooValue%', Criteria::LIKE); // WHERE Inwh12moTimesSold LIKE '%fooValue%'
+     * $query->filterByInwh12motimessold(1234); // WHERE Inwh12moTimesSold = 1234
+     * $query->filterByInwh12motimessold(array(12, 34)); // WHERE Inwh12moTimesSold IN (12, 34)
+     * $query->filterByInwh12motimessold(array('min' => 12)); // WHERE Inwh12moTimesSold > 12
      * </code>
      *
-     * @param     string $inwh12motimessold The value to use as filter.
+     * @param     mixed $inwh12motimessold The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
     public function filterByInwh12motimessold($inwh12motimessold = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($inwh12motimessold)) {
+        if (is_array($inwh12motimessold)) {
+            $useMinMax = false;
+            if (isset($inwh12motimessold['min'])) {
+                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD, $inwh12motimessold['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($inwh12motimessold['max'])) {
+                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWH12MOTIMESSOLD, $inwh12motimessold['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -829,35 +845,19 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByInwhcrtedate(1234); // WHERE InwhCrteDate = 1234
-     * $query->filterByInwhcrtedate(array(12, 34)); // WHERE InwhCrteDate IN (12, 34)
-     * $query->filterByInwhcrtedate(array('min' => 12)); // WHERE InwhCrteDate > 12
+     * $query->filterByInwhcrtedate('fooValue');   // WHERE InwhCrteDate = 'fooValue'
+     * $query->filterByInwhcrtedate('%fooValue%', Criteria::LIKE); // WHERE InwhCrteDate LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $inwhcrtedate The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $inwhcrtedate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
     public function filterByInwhcrtedate($inwhcrtedate = null, $comparison = null)
     {
-        if (is_array($inwhcrtedate)) {
-            $useMinMax = false;
-            if (isset($inwhcrtedate['min'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHCRTEDATE, $inwhcrtedate['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($inwhcrtedate['max'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHCRTEDATE, $inwhcrtedate['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($inwhcrtedate)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -866,28 +866,28 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the InwhShipStoreBin column
+     * Filter the query on the InwhShipBin column
      *
      * Example usage:
      * <code>
-     * $query->filterByInwhshipstorebin('fooValue');   // WHERE InwhShipStoreBin = 'fooValue'
-     * $query->filterByInwhshipstorebin('%fooValue%', Criteria::LIKE); // WHERE InwhShipStoreBin LIKE '%fooValue%'
+     * $query->filterByInwhshipbin('fooValue');   // WHERE InwhShipBin = 'fooValue'
+     * $query->filterByInwhshipbin('%fooValue%', Criteria::LIKE); // WHERE InwhShipBin LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $inwhshipstorebin The value to use as filter.
+     * @param     string $inwhshipbin The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
-    public function filterByInwhshipstorebin($inwhshipstorebin = null, $comparison = null)
+    public function filterByInwhshipbin($inwhshipbin = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($inwhshipstorebin)) {
+            if (is_array($inwhshipbin)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN, $inwhshipstorebin, $comparison);
+        return $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSHIPBIN, $inwhshipbin, $comparison);
     }
 
     /**
@@ -895,35 +895,19 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByInwhlastpurchponbr(1234); // WHERE InwhLastPurchPoNbr = 1234
-     * $query->filterByInwhlastpurchponbr(array(12, 34)); // WHERE InwhLastPurchPoNbr IN (12, 34)
-     * $query->filterByInwhlastpurchponbr(array('min' => 12)); // WHERE InwhLastPurchPoNbr > 12
+     * $query->filterByInwhlastpurchponbr('fooValue');   // WHERE InwhLastPurchPoNbr = 'fooValue'
+     * $query->filterByInwhlastpurchponbr('%fooValue%', Criteria::LIKE); // WHERE InwhLastPurchPoNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $inwhlastpurchponbr The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $inwhlastpurchponbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
     public function filterByInwhlastpurchponbr($inwhlastpurchponbr = null, $comparison = null)
     {
-        if (is_array($inwhlastpurchponbr)) {
-            $useMinMax = false;
-            if (isset($inwhlastpurchponbr['min'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, $inwhlastpurchponbr['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($inwhlastpurchponbr['max'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, $inwhlastpurchponbr['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($inwhlastpurchponbr)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -932,28 +916,28 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the LastPurchInvNbr column
+     * Filter the query on the InwhLastPurchInvNbr column
      *
      * Example usage:
      * <code>
-     * $query->filterByLastpurchinvnbr('fooValue');   // WHERE LastPurchInvNbr = 'fooValue'
-     * $query->filterByLastpurchinvnbr('%fooValue%', Criteria::LIKE); // WHERE LastPurchInvNbr LIKE '%fooValue%'
+     * $query->filterByInwhlastpurchinvnbr('fooValue');   // WHERE InwhLastPurchInvNbr = 'fooValue'
+     * $query->filterByInwhlastpurchinvnbr('%fooValue%', Criteria::LIKE); // WHERE InwhLastPurchInvNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $lastpurchinvnbr The value to use as filter.
+     * @param     string $inwhlastpurchinvnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
-    public function filterByLastpurchinvnbr($lastpurchinvnbr = null, $comparison = null)
+    public function filterByInwhlastpurchinvnbr($inwhlastpurchinvnbr = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($lastpurchinvnbr)) {
+            if (is_array($inwhlastpurchinvnbr)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(WarehouseInventoryTableMap::COL_LASTPURCHINVNBR, $lastpurchinvnbr, $comparison);
+        return $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR, $inwhlastpurchinvnbr, $comparison);
     }
 
     /**
@@ -986,35 +970,19 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByDateupdtd(1234); // WHERE DateUpdtd = 1234
-     * $query->filterByDateupdtd(array(12, 34)); // WHERE DateUpdtd IN (12, 34)
-     * $query->filterByDateupdtd(array('min' => 12)); // WHERE DateUpdtd > 12
+     * $query->filterByDateupdtd('fooValue');   // WHERE DateUpdtd = 'fooValue'
+     * $query->filterByDateupdtd('%fooValue%', Criteria::LIKE); // WHERE DateUpdtd LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $dateupdtd The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
-        if (is_array($dateupdtd)) {
-            $useMinMax = false;
-            if (isset($dateupdtd['min'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_DATEUPDTD, $dateupdtd['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($dateupdtd['max'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_DATEUPDTD, $dateupdtd['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($dateupdtd)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1027,35 +995,19 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByTimeupdtd(1234); // WHERE TimeUpdtd = 1234
-     * $query->filterByTimeupdtd(array(12, 34)); // WHERE TimeUpdtd IN (12, 34)
-     * $query->filterByTimeupdtd(array('min' => 12)); // WHERE TimeUpdtd > 12
+     * $query->filterByTimeupdtd('fooValue');   // WHERE TimeUpdtd = 'fooValue'
+     * $query->filterByTimeupdtd('%fooValue%', Criteria::LIKE); // WHERE TimeUpdtd LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $timeupdtd The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
-        if (is_array($timeupdtd)) {
-            $useMinMax = false;
-            if (isset($timeupdtd['min'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_TIMEUPDTD, $timeupdtd['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($timeupdtd['max'])) {
-                $this->addUsingAlias(WarehouseInventoryTableMap::COL_TIMEUPDTD, $timeupdtd['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($timeupdtd)) {
                 $comparison = Criteria::IN;
             }
         }

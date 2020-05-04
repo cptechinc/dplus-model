@@ -148,7 +148,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwh12motimessold field.
      *
-     * @var        string
+     * @var        int
      */
     protected $inwh12motimessold;
 
@@ -169,30 +169,30 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhcrtedate field.
      *
-     * @var        int
+     * @var        string
      */
     protected $inwhcrtedate;
 
     /**
-     * The value for the inwhshipstorebin field.
+     * The value for the inwhshipbin field.
      *
      * @var        string
      */
-    protected $inwhshipstorebin;
+    protected $inwhshipbin;
 
     /**
      * The value for the inwhlastpurchponbr field.
      *
-     * @var        int
+     * @var        string
      */
     protected $inwhlastpurchponbr;
 
     /**
-     * The value for the lastpurchinvnbr field.
+     * The value for the inwhlastpurchinvnbr field.
      *
      * @var        string
      */
-    protected $lastpurchinvnbr;
+    protected $inwhlastpurchinvnbr;
 
     /**
      * The value for the inwhsupplywhse field.
@@ -204,14 +204,14 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
-     * @var        int
+     * @var        string
      */
     protected $dateupdtd;
 
     /**
      * The value for the timeupdtd field.
      *
-     * @var        int
+     * @var        string
      */
     protected $timeupdtd;
 
@@ -592,7 +592,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Get the [inwh12motimessold] column value.
      *
-     * @return string
+     * @return int
      */
     public function getInwh12motimessold()
     {
@@ -622,7 +622,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Get the [inwhcrtedate] column value.
      *
-     * @return int
+     * @return string
      */
     public function getInwhcrtedate()
     {
@@ -630,19 +630,19 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     }
 
     /**
-     * Get the [inwhshipstorebin] column value.
+     * Get the [inwhshipbin] column value.
      *
      * @return string
      */
-    public function getInwhshipstorebin()
+    public function getInwhshipbin()
     {
-        return $this->inwhshipstorebin;
+        return $this->inwhshipbin;
     }
 
     /**
      * Get the [inwhlastpurchponbr] column value.
      *
-     * @return int
+     * @return string
      */
     public function getInwhlastpurchponbr()
     {
@@ -650,13 +650,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     }
 
     /**
-     * Get the [lastpurchinvnbr] column value.
+     * Get the [inwhlastpurchinvnbr] column value.
      *
      * @return string
      */
-    public function getLastpurchinvnbr()
+    public function getInwhlastpurchinvnbr()
     {
-        return $this->lastpurchinvnbr;
+        return $this->inwhlastpurchinvnbr;
     }
 
     /**
@@ -672,7 +672,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Get the [dateupdtd] column value.
      *
-     * @return int
+     * @return string
      */
     public function getDateupdtd()
     {
@@ -682,7 +682,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Get the [timeupdtd] column value.
      *
-     * @return int
+     * @return string
      */
     public function getTimeupdtd()
     {
@@ -942,13 +942,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Set the value of [inwh12motimessold] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
     public function setInwh12motimessold($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->inwh12motimessold !== $v) {
@@ -1002,13 +1002,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Set the value of [inwhcrtedate] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
     public function setInwhcrtedate($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->inwhcrtedate !== $v) {
@@ -1020,35 +1020,35 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     } // setInwhcrtedate()
 
     /**
-     * Set the value of [inwhshipstorebin] column.
+     * Set the value of [inwhshipbin] column.
      *
      * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
-    public function setInwhshipstorebin($v)
+    public function setInwhshipbin($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inwhshipstorebin !== $v) {
-            $this->inwhshipstorebin = $v;
-            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN] = true;
+        if ($this->inwhshipbin !== $v) {
+            $this->inwhshipbin = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHSHIPBIN] = true;
         }
 
         return $this;
-    } // setInwhshipstorebin()
+    } // setInwhshipbin()
 
     /**
      * Set the value of [inwhlastpurchponbr] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
     public function setInwhlastpurchponbr($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->inwhlastpurchponbr !== $v) {
@@ -1060,24 +1060,24 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     } // setInwhlastpurchponbr()
 
     /**
-     * Set the value of [lastpurchinvnbr] column.
+     * Set the value of [inwhlastpurchinvnbr] column.
      *
      * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
-    public function setLastpurchinvnbr($v)
+    public function setInwhlastpurchinvnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->lastpurchinvnbr !== $v) {
-            $this->lastpurchinvnbr = $v;
-            $this->modifiedColumns[WarehouseInventoryTableMap::COL_LASTPURCHINVNBR] = true;
+        if ($this->inwhlastpurchinvnbr !== $v) {
+            $this->inwhlastpurchinvnbr = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR] = true;
         }
 
         return $this;
-    } // setLastpurchinvnbr()
+    } // setInwhlastpurchinvnbr()
 
     /**
      * Set the value of [inwhsupplywhse] column.
@@ -1102,13 +1102,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Set the value of [dateupdtd] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->dateupdtd !== $v) {
@@ -1122,13 +1122,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * Set the value of [timeupdtd] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\WarehouseInventory The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->timeupdtd !== $v) {
@@ -1240,7 +1240,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $this->inwhavail = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwh12motimessold', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inwh12motimessold = (null !== $col) ? (string) $col : null;
+            $this->inwh12motimessold = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhfrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inwhfrtin = (null !== $col) ? (string) $col : null;
@@ -1249,25 +1249,25 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $this->inwhmaxordrqty = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhcrtedate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inwhcrtedate = (null !== $col) ? (int) $col : null;
+            $this->inwhcrtedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhshipstorebin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inwhshipstorebin = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhshipbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhshipbin = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlastpurchponbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inwhlastpurchponbr = (null !== $col) ? (int) $col : null;
+            $this->inwhlastpurchponbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WarehouseInventoryTableMap::translateFieldName('Lastpurchinvnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->lastpurchinvnbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlastpurchinvnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhlastpurchinvnbr = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhsupplywhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inwhsupplywhse = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->dateupdtd = (null !== $col) ? (int) $col : null;
+            $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WarehouseInventoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->timeupdtd = (null !== $col) ? (int) $col : null;
+            $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
@@ -1524,14 +1524,14 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHCRTEDATE)) {
             $modifiedColumns[':p' . $index++]  = 'InwhCrteDate';
         }
-        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'InwhShipStoreBin';
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSHIPBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhShipBin';
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR)) {
             $modifiedColumns[':p' . $index++]  = 'InwhLastPurchPoNbr';
         }
-        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_LASTPURCHINVNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'LastPurchInvNbr';
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhLastPurchInvNbr';
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'InwhSupplyWhse';
@@ -1593,7 +1593,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->inwhavail, PDO::PARAM_STR);
                         break;
                     case 'Inwh12moTimesSold':
-                        $stmt->bindValue($identifier, $this->inwh12motimessold, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->inwh12motimessold, PDO::PARAM_INT);
                         break;
                     case 'InwhFrtIn':
                         $stmt->bindValue($identifier, $this->inwhfrtin, PDO::PARAM_STR);
@@ -1602,25 +1602,25 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->inwhmaxordrqty, PDO::PARAM_STR);
                         break;
                     case 'InwhCrteDate':
-                        $stmt->bindValue($identifier, $this->inwhcrtedate, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->inwhcrtedate, PDO::PARAM_STR);
                         break;
-                    case 'InwhShipStoreBin':
-                        $stmt->bindValue($identifier, $this->inwhshipstorebin, PDO::PARAM_STR);
+                    case 'InwhShipBin':
+                        $stmt->bindValue($identifier, $this->inwhshipbin, PDO::PARAM_STR);
                         break;
                     case 'InwhLastPurchPoNbr':
-                        $stmt->bindValue($identifier, $this->inwhlastpurchponbr, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->inwhlastpurchponbr, PDO::PARAM_STR);
                         break;
-                    case 'LastPurchInvNbr':
-                        $stmt->bindValue($identifier, $this->lastpurchinvnbr, PDO::PARAM_STR);
+                    case 'InwhLastPurchInvNbr':
+                        $stmt->bindValue($identifier, $this->inwhlastpurchinvnbr, PDO::PARAM_STR);
                         break;
                     case 'InwhSupplyWhse':
                         $stmt->bindValue($identifier, $this->inwhsupplywhse, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
-                        $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
                         break;
                     case 'TimeUpdtd':
-                        $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
                         break;
                     case 'dummy':
                         $stmt->bindValue($identifier, $this->dummy, PDO::PARAM_STR);
@@ -1729,13 +1729,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 return $this->getInwhcrtedate();
                 break;
             case 16:
-                return $this->getInwhshipstorebin();
+                return $this->getInwhshipbin();
                 break;
             case 17:
                 return $this->getInwhlastpurchponbr();
                 break;
             case 18:
-                return $this->getLastpurchinvnbr();
+                return $this->getInwhlastpurchinvnbr();
                 break;
             case 19:
                 return $this->getInwhsupplywhse();
@@ -1794,9 +1794,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $keys[13] => $this->getInwhfrtin(),
             $keys[14] => $this->getInwhmaxordrqty(),
             $keys[15] => $this->getInwhcrtedate(),
-            $keys[16] => $this->getInwhshipstorebin(),
+            $keys[16] => $this->getInwhshipbin(),
             $keys[17] => $this->getInwhlastpurchponbr(),
-            $keys[18] => $this->getLastpurchinvnbr(),
+            $keys[18] => $this->getInwhlastpurchinvnbr(),
             $keys[19] => $this->getInwhsupplywhse(),
             $keys[20] => $this->getDateupdtd(),
             $keys[21] => $this->getTimeupdtd(),
@@ -1889,13 +1889,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 $this->setInwhcrtedate($value);
                 break;
             case 16:
-                $this->setInwhshipstorebin($value);
+                $this->setInwhshipbin($value);
                 break;
             case 17:
                 $this->setInwhlastpurchponbr($value);
                 break;
             case 18:
-                $this->setLastpurchinvnbr($value);
+                $this->setInwhlastpurchinvnbr($value);
                 break;
             case 19:
                 $this->setInwhsupplywhse($value);
@@ -1984,13 +1984,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $this->setInwhcrtedate($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setInwhshipstorebin($arr[$keys[16]]);
+            $this->setInwhshipbin($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
             $this->setInwhlastpurchponbr($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setLastpurchinvnbr($arr[$keys[18]]);
+            $this->setInwhlastpurchinvnbr($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
             $this->setInwhsupplywhse($arr[$keys[19]]);
@@ -2093,14 +2093,14 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHCRTEDATE)) {
             $criteria->add(WarehouseInventoryTableMap::COL_INWHCRTEDATE, $this->inwhcrtedate);
         }
-        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN)) {
-            $criteria->add(WarehouseInventoryTableMap::COL_INWHSHIPSTOREBIN, $this->inwhshipstorebin);
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSHIPBIN)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHSHIPBIN, $this->inwhshipbin);
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR)) {
             $criteria->add(WarehouseInventoryTableMap::COL_INWHLASTPURCHPONBR, $this->inwhlastpurchponbr);
         }
-        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_LASTPURCHINVNBR)) {
-            $criteria->add(WarehouseInventoryTableMap::COL_LASTPURCHINVNBR, $this->lastpurchinvnbr);
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHLASTPURCHINVNBR, $this->inwhlastpurchinvnbr);
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE)) {
             $criteria->add(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE, $this->inwhsupplywhse);
@@ -2224,9 +2224,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $copyObj->setInwhfrtin($this->getInwhfrtin());
         $copyObj->setInwhmaxordrqty($this->getInwhmaxordrqty());
         $copyObj->setInwhcrtedate($this->getInwhcrtedate());
-        $copyObj->setInwhshipstorebin($this->getInwhshipstorebin());
+        $copyObj->setInwhshipbin($this->getInwhshipbin());
         $copyObj->setInwhlastpurchponbr($this->getInwhlastpurchponbr());
-        $copyObj->setLastpurchinvnbr($this->getLastpurchinvnbr());
+        $copyObj->setInwhlastpurchinvnbr($this->getInwhlastpurchinvnbr());
         $copyObj->setInwhsupplywhse($this->getInwhsupplywhse());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
@@ -2281,9 +2281,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $this->inwhfrtin = null;
         $this->inwhmaxordrqty = null;
         $this->inwhcrtedate = null;
-        $this->inwhshipstorebin = null;
+        $this->inwhshipbin = null;
         $this->inwhlastpurchponbr = null;
-        $this->lastpurchinvnbr = null;
+        $this->inwhlastpurchinvnbr = null;
         $this->inwhsupplywhse = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
