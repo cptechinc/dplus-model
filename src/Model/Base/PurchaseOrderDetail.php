@@ -337,6 +337,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     protected $podtdelivereddate;
 
     /**
+     * The value for the podtlandcost field.
+     *
+     * @var        string
+     */
+    protected $podtlandcost;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -997,6 +1004,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function getPodtdelivereddate()
     {
         return $this->podtdelivereddate;
+    }
+
+    /**
+     * Get the [podtlandcost] column value.
+     *
+     * @return string
+     */
+    public function getPodtlandcost()
+    {
+        return $this->podtlandcost;
     }
 
     /**
@@ -1814,6 +1831,26 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     } // setPodtdelivereddate()
 
     /**
+     * Set the value of [podtlandcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPodtlandcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->podtlandcost !== $v) {
+            $this->podtlandcost = $v;
+            $this->modifiedColumns[PurchaseOrderDetailTableMap::COL_PODTLANDCOST] = true;
+        }
+
+        return $this;
+    } // setPodtlandcost()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -2034,13 +2071,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtdelivereddate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtdelivereddate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Podtlandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->podtlandcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : PurchaseOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -2050,7 +2090,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 42; // 42 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 43; // 43 = PurchaseOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderDetail'), 0, $e);
@@ -2380,6 +2420,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE)) {
             $modifiedColumns[':p' . $index++]  = 'PodtDeliveredDate';
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTLANDCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'PodtLandCost';
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -2516,6 +2559,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                         break;
                     case 'PodtDeliveredDate':
                         $stmt->bindValue($identifier, $this->podtdelivereddate, PDO::PARAM_STR);
+                        break;
+                    case 'PodtLandCost':
+                        $stmt->bindValue($identifier, $this->podtlandcost, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2699,12 +2745,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 return $this->getPodtdelivereddate();
                 break;
             case 39:
-                return $this->getDateupdtd();
+                return $this->getPodtlandcost();
                 break;
             case 40:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 41:
+                return $this->getTimeupdtd();
+                break;
+            case 42:
                 return $this->getDummy();
                 break;
             default:
@@ -2776,9 +2825,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $keys[36] => $this->getPodtboldate(),
             $keys[37] => $this->getPodtlistpric(),
             $keys[38] => $this->getPodtdelivereddate(),
-            $keys[39] => $this->getDateupdtd(),
-            $keys[40] => $this->getTimeupdtd(),
-            $keys[41] => $this->getDummy(),
+            $keys[39] => $this->getPodtlandcost(),
+            $keys[40] => $this->getDateupdtd(),
+            $keys[41] => $this->getTimeupdtd(),
+            $keys[42] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2953,12 +3003,15 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->setPodtdelivereddate($value);
                 break;
             case 39:
-                $this->setDateupdtd($value);
+                $this->setPodtlandcost($value);
                 break;
             case 40:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 41:
+                $this->setTimeupdtd($value);
+                break;
+            case 42:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3105,13 +3158,16 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
             $this->setPodtdelivereddate($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setDateupdtd($arr[$keys[39]]);
+            $this->setPodtlandcost($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setTimeupdtd($arr[$keys[40]]);
+            $this->setDateupdtd($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setDummy($arr[$keys[41]]);
+            $this->setTimeupdtd($arr[$keys[41]]);
+        }
+        if (array_key_exists($keys[42], $arr)) {
+            $this->setDummy($arr[$keys[42]]);
         }
     }
 
@@ -3271,6 +3327,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_PODTDELIVEREDDATE, $this->podtdelivereddate);
         }
+        if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_PODTLANDCOST)) {
+            $criteria->add(PurchaseOrderDetailTableMap::COL_PODTLANDCOST, $this->podtlandcost);
+        }
         if ($this->isColumnModified(PurchaseOrderDetailTableMap::COL_DATEUPDTD)) {
             $criteria->add(PurchaseOrderDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -3420,6 +3479,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $copyObj->setPodtboldate($this->getPodtboldate());
         $copyObj->setPodtlistpric($this->getPodtlistpric());
         $copyObj->setPodtdelivereddate($this->getPodtdelivereddate());
+        $copyObj->setPodtlandcost($this->getPodtlandcost());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -3550,6 +3610,7 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $this->podtboldate = null;
         $this->podtlistpric = null;
         $this->podtdelivereddate = null;
+        $this->podtlandcost = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
