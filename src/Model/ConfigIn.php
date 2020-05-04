@@ -19,6 +19,7 @@ class ConfigIn extends BaseConfigIn {
 	const VALUE_FALSE = 'N';
 
 	const GRAMS_LITERS_GRAMS  = 'G';
+	const GRAMS_LITERS_GRAMS_ALT = 'N';
 	const GRAMS_LITERS_LITERS = 'L';
 
 	/**
@@ -40,11 +41,12 @@ class ConfigIn extends BaseConfigIn {
 		'default_commgroup_itemgroup'  => 'IntbConfCommUseItem',
 		'use_grams_or_liters'          => 'intbconfusegramsltr',
 		'default_uom_sale'             => 'IntbConfUomSaleDef',
-		'default_uom_purchase'         => 'IntbConfUomSalePur',
+		'default_uom_purchase'         => 'IntbConfUomPurDef',
 		'default_nafta_pref_code'      => 'IntbConfNaftaPrefCode',
 		'default_nafta_producer'       => 'IntbConfNaftaProducer',
 		'default_nafta_documentation'  => 'IntbConfNaftaDocCode',
-		'default_base_standard_cost'   => 'IntbConfStanBaseDef'
+		'default_base_standard_cost'   => 'IntbConfStanBaseDef',
+		'columns_notes_internal'       => 'intbconfitemcols'
 	);
 
 	/**
@@ -97,7 +99,7 @@ class ConfigIn extends BaseConfigIn {
 	 * @return bool
 	 */
 	public function use_liters() {
-		$this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
+		return $this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
 	}
 
 	/**
@@ -106,6 +108,6 @@ class ConfigIn extends BaseConfigIn {
 	 * @return bool
 	 */
 	public function use_grams() {
-		$this->use_grams_or_liters == self::GRAMS_LITERS_GRAMS;
+		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_GRAMS, self::GRAMS_LITERS_GRAMS_ALT]);
 	}
 }
