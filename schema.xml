@@ -620,6 +620,23 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_cust_crcd" idMethod="native" phpName="CreditCardDigitGet">
+    <column name="ArtbCrcdCode" phpName="Artbcrcdcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtbCrcdName" phpName="Artbcrcdname" type="VARCHAR" size="20"/>
+    <column name="ArtbCrcdGlAcct" phpName="Artbcrcdglacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCrcdCustId" phpName="Artbcrcdcustid" type="VARCHAR" size="6"/>
+    <column name="ArtbCrcdChrgGlAcct" phpName="Artbcrcdchrgglacct" type="VARCHAR" size="9"/>
+    <column name="ArtbCrcdChrgRate" phpName="Artbcrcdchrgrate" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbCrcdChrgTranCost" phpName="Artbcrcdchrgtrancost" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbCrcdCcSurchgPct" phpName="Artbcrcdccsurchgpct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArtbCrcdLmCcSurchgPct" phpName="Artbcrcdlmccsurchgpct" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cust_ctax" idMethod="native" phpName="TaxCodeCustomer">
     <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCtaxDesc" phpName="Artbctaxdesc" type="VARCHAR" size="20"/>
