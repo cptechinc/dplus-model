@@ -12,9 +12,31 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const TYPE = 'ITWH';
+	const DESC = 'Item/Whse Order Notes';
 	const FORM_TRUE  = 'Y';
 	const FORM_FALSE = 'N';
 	const KEY2_APPEND = 'O';
+
+	const FORMS_LABELS = array(
+		'pickticket'       => 'pick ticket',
+		'packticket'       => 'pack ticket',
+		'invoice'          => 'invoice',
+		'acknowledgement'  => 'acknowledgement',
+		'quote'            => 'quote',
+		'purchaseorder'    => 'purchase order',
+		'ordertransfer'    => 'order transfer'
+	);
+
+	const FORMS_LABELS_SHORT = array(
+		'pickticket'       => 'pick',
+		'packticket'       => 'pack',
+		'invoice'          => 'invc',
+		'acknowledgement'  => 'ack',
+		'quote'            => 'qte',
+		'purchaseorder'    => 'PO',
+		'ordertransfer'    => 'tran'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -24,7 +46,7 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 		'type'             => 'qntype',
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
-		'warehouseid'      => 'intbwarehouse',
+		'warehouseid'      => 'intbwhse',
 		'pickticket'       => 'qnordrpickticket',
 		'packticket'       => 'qnordrpackticket',
 		'invoice'          => 'qnordrinvoice',
@@ -32,7 +54,6 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 		'quote'            => 'qnordrquote',
 		'purchaseorder'    => 'qnordrpurchordr',
 		'ordertransfer'    => 'qnordrtransfer',
-		'fabpo'            => 'qnordrfabpo',
 		'form'             => 'qnform',
 		'sequence'      => 'qnseq',
 		'note'          => 'qnnote',
@@ -51,7 +72,7 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 	public function generateForm() {
 		$form = $this->pickticket.$this->packticket.$this->invoice;
 		$form .= $this->acknowledgement.$this->quote;
-		$form .= $this->purchaseorder.$this->ordertransfer.$this->fabpo;
+		$form .= $this->purchaseorder.$this->ordertransfer;
 		$this->setForm($form);
 	}
 
@@ -72,7 +93,7 @@ class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 	 * @return void
 	 */
 	public static function new() {
-		$item = new ItemOrderNote();
+		$item = new ItemWhseOrderNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
 		$item->setPickticket(self::FORM_FALSE);

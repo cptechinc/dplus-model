@@ -106,6 +106,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 		$item->setQuote(self::FORM_FALSE);
 		$item->setPurchaseorder(self::FORM_FALSE);
 		$item->setOrdertransfer(self::FORM_FALSE);
+		$item->setFabpo(self::FORM_FALSE);
 		$item->generateForm();
 		return $item;
 	}

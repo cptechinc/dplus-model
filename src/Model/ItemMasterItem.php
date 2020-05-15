@@ -61,6 +61,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'unitofmpurchase' => 'unitofMeasurePurchase',
 		'lastcost'        => 'initlastcost',
 		'date_lastcost'   => 'initlastcostdate',
+		'date_laststandardcost'   => 'initstancostlastdate',
 		'primaryvxm'      => 'primaryItemXrefVendor',
 		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
 		'allow_discount'   => 'initgivedisc',
@@ -75,9 +76,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'stockcode'       => 'initstockcode',
 		'core'            => 'InitCoreYN',
 		'preference'      => 'initpreference',
-		'producer'        => 'InitProducer',
-		'documentation'   => 'InitDocumentation',
-		'basestandardcost' => 'InitBaseStanCost',
+		'producer'        => 'initproducer',
+		'documentation'   => 'initdocumentation',
+		'basestandardcost' => 'initbasestancost',
+		'minmargin'        => 'initminmarg'
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -94,7 +96,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * ===================================================================
 	 */
-
 	public function get_length_itemid() {
 		return self::LENGTH_ITEMID;
 	}
