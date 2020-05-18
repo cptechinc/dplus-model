@@ -28,6 +28,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	const LENGTH_ITEMID = 30;
 
+	const STANDARDCOST_BASE_OPTIONS = array(
+		'A' => 'Average Cost',
+		'H' => 'High',
+		'L' => 'Last Cost',
+		'M' => 'Manual',
+		'R' => 'Replacement'
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -55,7 +63,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'uom_purchase'    => 'intbuompur',
 		'uom_sale'        => 'intbuomsale',
 		'standardcost'    => 'initstancost',
-		'basestandardcost' => 'initstancostbase',
+		'standardcostbasedon' => 'initstancostbase',
 		'pricing'         => 'itemPricing',
 		'unitofmsale'     => 'unitofMeasureSale',
 		'unitofmpurchase' => 'unitofMeasurePurchase',
@@ -79,7 +87,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'producer'        => 'initproducer',
 		'documentation'   => 'initdocumentation',
 		'basestandardcost' => 'initbasestancost',
-		'minmargin'        => 'initminmarg'
+		'minmargin'        => 'initminmarg',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -141,7 +149,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 */
 	public function is_kit() {
 		$query = KitQuery::create();
-		return $query->is_kit($this->inititemnbr);
+		return $query->is_kit($this->itemid);
 	}
 
 	/**
@@ -178,6 +186,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $this->$property == self::VALUE_TRUE;
 	}
 
+	public function is_superceded() {
+		return boolval(strlen($this->supercede));
+	}
+
 	/**
 	 * Returns the Standard Cost For the Unit of Measurement Sale
 	 *
@@ -205,6 +217,30 @@ class ItemMasterItem extends BaseItemMasterItem {
 		$q = ItemXrefVendorQuery::create();
 		$q->filterByPo_ordercode(ItemXrefVendor::POORDERCODE_PRIMARY);
 		$q->filterByOuritemid($this->itemid);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Item that Supercedes this
+	 * @return ItemMasterItem
+	 */
+	public function getSupercedeItem() {
+		$q = ItemMasterItemQuery::create();
+		$q->filterByItemid($this->supercede);
+		return $q->findOne();
+	}
+
+	public function getItemXrefCustomerItem($itemID, $custID) {
+		$q = ItemXrefCustomerQuery::create();
+		$q->filterByItemid($this->itemid);
+		$q->filterByCustid($this->itemid);
+		return $q->findOne();
+	}
+
+	public function getItemXrefUpcPrimary($itemID) {
+		$q = ItemXrefUpcQuery::create();
+		$q->filterByItemid($this->itemid);
+		$q->filterPrimary(ItemXrefUpc::PRIMARY_TRUE);
 		return $q->findOne();
 	}
 
