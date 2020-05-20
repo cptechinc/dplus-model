@@ -561,6 +561,48 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomers', false);
+        $this->addRelation('ItemAddonItemRelatedByInititemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemAddonItemsRelatedByInititemnbr', false);
+        $this->addRelation('ItemAddonItemRelatedByAdonadditemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':AdonAddItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemAddonItemsRelatedByAdonadditemnbr', false);
+        $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemSubstitutesRelatedByInititemnbr', false);
+        $this->addRelation('ItemSubstituteRelatedByInsisubitemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InsiSubItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemSubstitutesRelatedByInsisubitemnbr', false);
+        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemXrefManufacturers', false);
+        $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'BookingDetails', false);
         $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

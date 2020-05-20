@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_item_mast' table.
  *
- * NOTE: Foreign Key Relationship to UnitofMeasurePurchase, UnitofMeasureSale
+ * RELATIONSHIPS: UnitofMeasurePurchase, UnitofMeasureSale
  * InvGroupCode, InvCommissionCode, ItemPricing
  *
  */
@@ -113,17 +113,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
-	 * Return Item Group Code Description
-	 *
-	 * @return string
-	 */
-	public function get_itemgroupdescription() {
-		$query = InvGroupCodeQuery::create();
-		$query->select(InvGroupCode::get_aliasproperty('description'));
-		return $query->findOneByItemgroup($this->intbgrup);
-	}
-
-	/**
 	 * Return Description for Item Type
 	 *
 	 * @return string
@@ -139,27 +128,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 */
 	public function get_itemtypedescriptions() {
 		return self::ITEMTYPE_DESCRIPTIONS;
-	}
-
-	/**
-	 * Returns if this item is a Kit
-	 *
-	 * @param  string $itemID
-	 * @return bool
-	 */
-	public function is_kit() {
-		$query = KitQuery::create();
-		return $query->is_kit($this->itemid);
-	}
-
-	/**
-	 * Return KitItems objects for this Kit
-	 *
-	 * @return ChildKitItems[]|ObjectCollection
-	 */
-	public function get_kititems() {
-		$query = KitItemsQuery::create();
-		return $query->findByKititemid($this->inititemnbr);
 	}
 
 	public function is_inspection() {
@@ -208,6 +176,47 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $this->lastcost > 0 ? $this->lastcost * $this->unitofmsale->conversion : $this->lastcost;
 	}
 
+	
+	/**
+	 * ===================================================================
+	 *
+	 * FOREIGN KEY RELATIONSHIP FUNCTIONS
+	 *
+	 * ===================================================================
+	 */
+
+	 /**
+	 * Return Item Group Code Description
+	 *
+	 * @return string
+	 */
+	public function get_itemgroupdescription() {
+		$query = InvGroupCodeQuery::create();
+		$query->select(InvGroupCode::get_aliasproperty('description'));
+		return $query->findOneByItemgroup($this->intbgrup);
+	}
+
+	 /**
+	 * Returns if this item is a Kit
+	 *
+	 * @param  string $itemID
+	 * @return bool
+	 */
+	public function is_kit() {
+		$query = KitQuery::create();
+		return $query->is_kit($this->itemid);
+	}
+
+	/**
+	 * Return KitItems objects for this Kit
+	 *
+	 * @return ChildKitItems[]|ObjectCollection
+	 */
+	public function get_kititems() {
+		$query = KitItemsQuery::create();
+		return $query->findByKititemid($this->inititemnbr);
+	}
+
 	/**
 	 * Returns the Primary ItemXrefVendor for this item
 	 *
@@ -230,6 +239,13 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $q->findOne();
 	}
 
+	/**
+	 * Return the First ItemXrefCustomer that matches
+	 *
+	 * @param  string $itemID  Item ID
+	 * @param  string $custID  Customer ID
+	 * @return ItemXrefCustomer
+	 */
 	public function getItemXrefCustomerItem($itemID, $custID) {
 		$q = ItemXrefCustomerQuery::create();
 		$q->filterByItemid($this->itemid);
@@ -237,12 +253,127 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $q->findOne();
 	}
 
-	public function getItemXrefUpcPrimary($itemID) {
+	/**
+	 * Return the Primary  ItemXrefUpc for this Item
+	 *
+	 * @param  string $itemID  Item ID
+	 * @return ItemXrefUpc
+	 */
+	public function getItemXrefUpcPrimary() {
 		$q = ItemXrefUpcQuery::create();
 		$q->filterByItemid($this->itemid);
 		$q->filterPrimary(ItemXrefUpc::PRIMARY_TRUE);
 		return $q->findOne();
 	}
+
+	/**
+	 * Return if Item has Substitutes
+	 *
+	 * @return bool
+	 */
+	public function has_subtitutes() {
+		return boolval($this->countItemSubstitutesRelatedByInititemnbr());
+	}
+
+	/**
+	 * Return the number of Substitutes this Item has
+	 *
+	 * @return int
+	 */
+	public function count_subtitutes() {
+		return $this->countItemSubstitutesRelatedByInititemnbr();
+	}
+
+	/**
+	 * Return Substitutes this Item has
+	 *
+	 * @return ItemSubstitute[]|Object Array
+	 */
+	public function get_subtitutes() {
+		return $this->getItemSubstitutesRelatedByInititemnbr();
+	}
+
+	/**
+	 * Return if Item is a subsitute
+	 *
+	 * @return bool
+	 */
+	public function is_subtitute() {
+		return boolval($this->countItemSubstitutesRelatedByInsisubitemnbr());
+	}
+
+	/**
+	 * Return the number of Item this Item is a substitute for
+	 *
+	 * @return int
+	 */
+	public function count_subtitutes_for() {
+		return $this->countItemSubstitutesRelatedByInsisubitemnbr();
+	}
+
+	/**
+	 * Return Items this item substitutes for
+	 *
+	 * @return ItemSubstitute[]|Object Array
+	 */
+	public function get_subtitutes_for() {
+		return $this->getItemSubstitutesRelatedByInsisubitemnbr();
+	}
+
+	/**
+	 * Returns if this Item has Addon Items
+	 *
+	 * @return bool
+	 */
+	public function has_addon_items() {
+		return boolval($this->countItemAddonItemsRelatedByInititemnbr());
+	}
+
+	/**
+	 * Returns the number of Addon Items
+	 *
+	 * @return int
+	 */
+	public function count_addonitems() {
+		return $this->countItemAddonItemsRelatedByInititemnbr();
+	}
+
+	/**
+	 * Return the Addon Items for this Item
+	 *
+	 * @return ItemAddonItems[]|ObjectCollection
+	 */
+	public function get_addonitems() {
+		return $this->getItemAddonItemsRelatedByInititemnbr();
+	}
+
+	/**
+	 * Returns if this Item is an Addon Item
+	 *
+	 * @return bool
+	 */
+	public function is_addonitem() {
+		return boolval($this->countItemAddonItemsRelatedByAdonadditemnbr());
+	}
+
+	/**
+	 * Returns the number of Items this Item is an Addon to
+	 *
+	 * @return int
+	 */
+	public function count_addonitem_for() {
+		return $this->countItemAddonItemsRelatedByAdonadditemnbr();
+	}
+
+	/**
+	 * Returns the Items this Item is an Addon to
+	 *
+	 * @return int
+	 */
+	public function get_addonitem_for() {
+		return $this->getItemAddonItemsRelatedByAdonadditemnbr();
+	}
+
 
 	/**
 	 * ===================================================================
