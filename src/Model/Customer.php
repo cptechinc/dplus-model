@@ -57,22 +57,8 @@ class Customer extends BaseCustomer {
 		'active'         => 'arcuactiveinactive'
 	);
 
-	/**
-	 * Returns if Customer is Active
-	 *
-	 * @return bool
-	 */
 	public function is_active() {
 		return $this->active == self::STATUS_ACTIVE;
-	}
-
-	/**
-	 * Returns if Customer is Tax Exempt
-	 *
-	 * @return bool
-	 */
-	public function is_taxexempt() {
-		return !empty($this->arcutaxexemnbr);
 	}
 
 	/**
@@ -137,6 +123,15 @@ class Customer extends BaseCustomer {
 	public function get_24monthinvoicecount($monthsback = 1) {
 		$property = "arcuinv24mo$monthsback";
 		return $this->$property;
+	}
+
+	/**
+	 * Returns if Customer is Tax Exempt
+	 *
+	 * @return bool
+	 */
+	public function is_taxexempt() {
+		return !empty($this->arcutaxexemnbr);
 	}
 
 	/**

@@ -124,6 +124,25 @@ class Warehouse extends BaseWarehouse {
 	}
 
 	/**
+	 * Return Bin Record Count
+	 * @return int
+	 */
+	public function count_bins() {
+		return WarehouseBinQuery::create()->filterByWarehouse($this->IntbWhse)->count();
+	}
+
+
+
+	/**
+	 * Return WarehouseBins for this Warehouse
+	 *
+	 * @return WarehouseBinQuery[]|ObjectCollection
+	 */
+	public function get_warehousebins() {
+		return WarehouseBinQuery::create()->get_warehousebins($this->IntbWhse);
+	}
+
+	/**
 	 * Returns description of bin arrangement
 	 *
 	 * @return string list | range

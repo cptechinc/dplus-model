@@ -1,19 +1,19 @@
 <?php
 
-use Base\ItemOrderNote as BaseItemOrderNote;
+use Base\ItemWhseOrderNote as BaseItemWhseOrderNote;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Class for representing a row from the 'notes_item_order' table.
+ * Class for representing a row from the 'notes_item_wh_order' table.
  */
-class ItemOrderNote extends BaseItemOrderNote {
+class ItemWhseOrderNote extends BaseItemWhseOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const TYPE = 'ITEM';
-	const DESC = 'Item Order Notes';
+	const TYPE = 'ITWH';
+	const DESC = 'Item/Whse Order Notes';
 	const FORM_TRUE  = 'Y';
 	const FORM_FALSE = 'N';
 	const KEY2_APPEND = 'O';
@@ -25,8 +25,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'acknowledgement'  => 'acknowledgement',
 		'quote'            => 'quote',
 		'purchaseorder'    => 'purchase order',
-		'ordertransfer'    => 'order transfer',
-		'fabpo'            => 'fab PO',
+		'ordertransfer'    => 'order transfer'
 	);
 
 	const FORMS_LABELS_SHORT = array(
@@ -36,8 +35,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'acknowledgement'  => 'ack',
 		'quote'            => 'qte',
 		'purchaseorder'    => 'PO',
-		'ordertransfer'    => 'tran',
-		'fabpo'            => 'fab',
+		'ordertransfer'    => 'tran'
 	);
 
 	/**
@@ -48,6 +46,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'type'             => 'qntype',
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
+		'warehouseid'      => 'intbwhse',
 		'pickticket'       => 'qnordrpickticket',
 		'packticket'       => 'qnordrpackticket',
 		'invoice'          => 'qnordrinvoice',
@@ -55,7 +54,6 @@ class ItemOrderNote extends BaseItemOrderNote {
 		'quote'            => 'qnordrquote',
 		'purchaseorder'    => 'qnordrpurchordr',
 		'ordertransfer'    => 'qnordrtransfer',
-		'fabpo'            => 'qnordrfabpo',
 		'form'             => 'qnform',
 		'sequence'      => 'qnseq',
 		'note'          => 'qnnote',
@@ -74,7 +72,7 @@ class ItemOrderNote extends BaseItemOrderNote {
 	public function generateForm() {
 		$form = $this->pickticket.$this->packticket.$this->invoice;
 		$form .= $this->acknowledgement.$this->quote;
-		$form .= $this->purchaseorder.$this->ordertransfer.$this->fabpo;
+		$form .= $this->purchaseorder.$this->ordertransfer;
 		$this->setForm($form);
 	}
 
@@ -86,17 +84,16 @@ class ItemOrderNote extends BaseItemOrderNote {
 	 */
 	public function generateKey2() {
 		$key2_itemID = str_pad($this->itemid , ItemMasterItem::LENGTH_ITEMID, " ", STR_PAD_RIGHT);
-		$key2 = $key2_itemID.self::KEY2_APPEND;
+		$key2 = $key2_itemID.$this->warehouseid.self::KEY2_APPEND;
 		$this->setKey2($key2);
 	}
-
 	/**
 	 * Return new ItemOrderNote
 	 *
 	 * @return void
 	 */
 	public static function new() {
-		$item = new ItemOrderNote();
+		$item = new ItemWhseOrderNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
 		$item->setPickticket(self::FORM_FALSE);
@@ -106,7 +103,6 @@ class ItemOrderNote extends BaseItemOrderNote {
 		$item->setQuote(self::FORM_FALSE);
 		$item->setPurchaseorder(self::FORM_FALSE);
 		$item->setOrdertransfer(self::FORM_FALSE);
-		$item->setFabpo(self::FORM_FALSE);
 		$item->generateForm();
 		return $item;
 	}

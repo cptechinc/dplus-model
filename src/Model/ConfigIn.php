@@ -46,7 +46,15 @@ class ConfigIn extends BaseConfigIn {
 		'default_nafta_producer'       => 'IntbConfNaftaProducer',
 		'default_nafta_documentation'  => 'IntbConfNaftaDocCode',
 		'default_base_standard_cost'   => 'IntbConfStanBaseDef',
-		'columns_notes_internal'       => 'intbconfitemcols'
+		'columns_notes_internal'       => 'intbconfitemcols',
+		'default_bin'                  => 'intbconfbindef',
+		'default_notes_pick'           => 'intbconfdefpick',
+		'default_notes_pack'           => 'intbconfdefpack',
+		'default_notes_invoice'        => 'intbconfdefinvc',
+		'default_notes_acknowledgement' => 'intbconfdefack',
+		'default_notes_quote'           => 'intbconfdefquote',
+		'default_notes_po'              => 'intbconfdefpo',
+		'default_notes_transfer'        => 'intbconfdeftrans',
 	);
 
 	/**

@@ -16,9 +16,25 @@ class WarehouseInventory extends BaseWarehouseInventory {
 	const STATUS_INACTIVE = 'I';
 	const STATUS_DELETE   = 'D';
 
+	const VALUE_TRUE = 'Y';
+
 	const SPECIALORDER_SPECIAL  = 'S';
 	const SPECIALORDER_NORMAL   = 'N';
 	const SPECIALORDER_DROPSHIP = 'D';
+
+	const MAX_LENGTH_CYCLECODE = 2;
+	
+	const STATUS_DESCRIPTIONS = array(
+		'A' => 'active',
+		'I' => 'inactive',
+		'D' => 'delete'
+	);
+
+	const SPECIALORDER_DESCRIPTIONS = array(
+		'S' => 'Special',
+		'N' => 'Normal',
+		'D' => 'Dropship'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -37,7 +53,13 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'maxqty'       => 'inwhmax',
 		'countdate'    => 'inwhcntdate',
 		'whsesupply'   => 'inwhsupplywhse',
-		'specialorder' => 'inwhspecordr'
+		'specialorder' => 'inwhspecordr',
+		'cyclecode'    => 'inwhcycl',
+		'codeabc'      => 'inwhabc',
+		'maxorderqty'  => 'inwhmaxordrqty',
+		'freightin'    => 'inwhfrtin',
+
+		// NOTE: Used for getting  via __call()
 	);
 
 	/**
@@ -56,5 +78,13 @@ class WarehouseInventory extends BaseWarehouseInventory {
 	 */
 	public function is_specialorder() {
 		return $this->specialorder == self::SPECIALORDER_SPECIAL;
+	}
+
+	/**
+	 * Returns Warehouse
+	 * @return Warehouse
+	 */
+	public function getWarehouse() {
+		return WarehouseQuery::create()->findOneById($this->warehouseid);
 	}
 }

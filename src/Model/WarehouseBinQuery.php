@@ -35,7 +35,7 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 	}
 
 	/**
-	 * Return Bincntl objects filtered by warehouse column
+	 * Return WarehouseBin objects filtered by warehouse column
 	 *
 	 * @return WarehouseBinQuery[]|ObjectCollection
 	 */

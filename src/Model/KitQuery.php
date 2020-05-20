@@ -21,6 +21,6 @@ class KitQuery extends BaseKitQuery {
 	 * @return bool
 	 */
 	public function is_kit($itemID) {
-		return boolval($this->filterByInititemnbr($itemID)->count());
+		return boolval($this->filterByItemid($itemID)->count());
 	}
 }

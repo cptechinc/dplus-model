@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_kit_head' table.
  */
-class Kits extends BaseKit {
+class Kit extends BaseKit {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

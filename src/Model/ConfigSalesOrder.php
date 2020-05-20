@@ -33,7 +33,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'request_catalog' => 'oetbconfrqstcatlg'
+		'request_catalog' => 'oetbconfrqstcatlg',
+		'freightin'       => 'oetbconffrtin'
 	);
 
 	/**
@@ -42,5 +43,13 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	public function is_request_program() {
 		return strtoupper($this->request_catalog) == 'P';
+	}
+
+	/**
+	 * Returns if Freight in
+	 * @return bool
+	 */
+	public function is_freightin() {
+		return strtoupper($this->freightin) == 'Y';
 	}
 }
