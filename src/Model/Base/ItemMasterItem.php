@@ -2,18 +2,26 @@
 
 namespace Base;
 
+use \BookingDetail as ChildBookingDetail;
+use \BookingDetailQuery as ChildBookingDetailQuery;
 use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvGroupCode as ChildInvGroupCode;
 use \InvGroupCodeQuery as ChildInvGroupCodeQuery;
 use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
+use \ItemAddonItem as ChildItemAddonItem;
+use \ItemAddonItemQuery as ChildItemAddonItemQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemPricing as ChildItemPricing;
 use \ItemPricingQuery as ChildItemPricingQuery;
+use \ItemSubstitute as ChildItemSubstitute;
+use \ItemSubstituteQuery as ChildItemSubstituteQuery;
 use \ItemXrefCustomer as ChildItemXrefCustomer;
 use \ItemXrefCustomerQuery as ChildItemXrefCustomerQuery;
+use \ItemXrefManufacturer as ChildItemXrefManufacturer;
+use \ItemXrefManufacturerQuery as ChildItemXrefManufacturerQuery;
 use \ItemXrefUpc as ChildItemXrefUpc;
 use \ItemXrefUpcQuery as ChildItemXrefUpcQuery;
 use \ItemXrefVendor as ChildItemXrefVendor;
@@ -26,8 +34,12 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
+use Map\BookingDetailTableMap;
+use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
+use Map\ItemSubstituteTableMap;
 use Map\ItemXrefCustomerTableMap;
+use Map\ItemXrefManufacturerTableMap;
 use Map\ItemXrefUpcTableMap;
 use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
@@ -571,6 +583,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomersPartial;
 
     /**
+     * @var        ObjectCollection|ChildItemAddonItem[] Collection to store aggregation of ChildItemAddonItem objects.
+     */
+    protected $collItemAddonItemsRelatedByInititemnbr;
+    protected $collItemAddonItemsRelatedByInititemnbrPartial;
+
+    /**
+     * @var        ObjectCollection|ChildItemAddonItem[] Collection to store aggregation of ChildItemAddonItem objects.
+     */
+    protected $collItemAddonItemsRelatedByAdonadditemnbr;
+    protected $collItemAddonItemsRelatedByAdonadditemnbrPartial;
+
+    /**
+     * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
+     */
+    protected $collItemSubstitutesRelatedByInititemnbr;
+    protected $collItemSubstitutesRelatedByInititemnbrPartial;
+
+    /**
+     * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
+     */
+    protected $collItemSubstitutesRelatedByInsisubitemnbr;
+    protected $collItemSubstitutesRelatedByInsisubitemnbrPartial;
+
+    /**
+     * @var        ObjectCollection|ChildItemXrefManufacturer[] Collection to store aggregation of ChildItemXrefManufacturer objects.
+     */
+    protected $collItemXrefManufacturers;
+    protected $collItemXrefManufacturersPartial;
+
+    /**
+     * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
+     */
+    protected $collBookingDetails;
+    protected $collBookingDetailsPartial;
+
+    /**
      * @var        ObjectCollection|ChildSalesHistoryLotserial[] Collection to store aggregation of ChildSalesHistoryLotserial objects.
      */
     protected $collSalesHistoryLotserials;
@@ -601,6 +649,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomer[]
      */
     protected $itemXrefCustomersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemAddonItem[]
+     */
+    protected $itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemAddonItem[]
+     */
+    protected $itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemSubstitute[]
+     */
+    protected $itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemSubstitute[]
+     */
+    protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefManufacturer[]
+     */
+    protected $itemXrefManufacturersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildBookingDetail[]
+     */
+    protected $bookingDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3128,6 +3212,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aItemPricing = null;
             $this->collItemXrefCustomers = null;
 
+            $this->collItemAddonItemsRelatedByInititemnbr = null;
+
+            $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
+
+            $this->collItemSubstitutesRelatedByInititemnbr = null;
+
+            $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
+
+            $this->collItemXrefManufacturers = null;
+
+            $this->collBookingDetails = null;
+
             $this->collSalesHistoryLotserials = null;
 
             $this->collItemXrefUpcs = null;
@@ -3307,6 +3403,109 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemXrefCustomers !== null) {
                 foreach ($this->collItemXrefCustomers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion !== null) {
+                if (!$this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
+                    \ItemAddonItemQuery::create()
+                        ->filterByPrimaryKeys($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemAddonItemsRelatedByInititemnbr !== null) {
+                foreach ($this->collItemAddonItemsRelatedByInititemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion !== null) {
+                if (!$this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->isEmpty()) {
+                    \ItemAddonItemQuery::create()
+                        ->filterByPrimaryKeys($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemAddonItemsRelatedByAdonadditemnbr !== null) {
+                foreach ($this->collItemAddonItemsRelatedByAdonadditemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion !== null) {
+                if (!$this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->isEmpty()) {
+                    \ItemSubstituteQuery::create()
+                        ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemSubstitutesRelatedByInititemnbr !== null) {
+                foreach ($this->collItemSubstitutesRelatedByInititemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion !== null) {
+                if (!$this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->isEmpty()) {
+                    \ItemSubstituteQuery::create()
+                        ->filterByPrimaryKeys($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemSubstitutesRelatedByInsisubitemnbr !== null) {
+                foreach ($this->collItemSubstitutesRelatedByInsisubitemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemXrefManufacturersScheduledForDeletion !== null) {
+                if (!$this->itemXrefManufacturersScheduledForDeletion->isEmpty()) {
+                    \ItemXrefManufacturerQuery::create()
+                        ->filterByPrimaryKeys($this->itemXrefManufacturersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemXrefManufacturersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefManufacturers !== null) {
+                foreach ($this->collItemXrefManufacturers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->bookingDetailsScheduledForDeletion !== null) {
+                if (!$this->bookingDetailsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->bookingDetailsScheduledForDeletion as $bookingDetail) {
+                        // need to save related object because we set the relation to null
+                        $bookingDetail->save($con);
+                    }
+                    $this->bookingDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collBookingDetails !== null) {
+                foreach ($this->collBookingDetails as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4234,6 +4433,96 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collItemAddonItemsRelatedByInititemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemAddonItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_addons';
+                        break;
+                    default:
+                        $key = 'ItemAddonItems';
+                }
+
+                $result[$key] = $this->collItemAddonItemsRelatedByInititemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemAddonItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_addons';
+                        break;
+                    default:
+                        $key = 'ItemAddonItems';
+                }
+
+                $result[$key] = $this->collItemAddonItemsRelatedByAdonadditemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collItemSubstitutesRelatedByInititemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemSubstitutes';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_subs';
+                        break;
+                    default:
+                        $key = 'ItemSubstitutes';
+                }
+
+                $result[$key] = $this->collItemSubstitutesRelatedByInititemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemSubstitutes';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_subs';
+                        break;
+                    default:
+                        $key = 'ItemSubstitutes';
+                }
+
+                $result[$key] = $this->collItemSubstitutesRelatedByInsisubitemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collItemXrefManufacturers) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefManufacturers';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'mfcp_item_xrefs';
+                        break;
+                    default:
+                        $key = 'ItemXrefManufacturers';
+                }
+
+                $result[$key] = $this->collItemXrefManufacturers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collBookingDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'bookingDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_book_log_dets';
+                        break;
+                    default:
+                        $key = 'BookingDetails';
+                }
+
+                $result[$key] = $this->collBookingDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collSalesHistoryLotserials) {
 
                 switch ($keyType) {
@@ -5125,6 +5414,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getItemAddonItemsRelatedByInititemnbr() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemAddonItemRelatedByInititemnbr($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getItemAddonItemsRelatedByAdonadditemnbr() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemAddonItemRelatedByAdonadditemnbr($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getItemSubstitutesRelatedByInititemnbr() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemSubstituteRelatedByInititemnbr($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getItemSubstitutesRelatedByInsisubitemnbr() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemSubstituteRelatedByInsisubitemnbr($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getItemXrefManufacturers() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefManufacturer($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getBookingDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addBookingDetail($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getSalesHistoryLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addSalesHistoryLotserial($relObj->copy($deepCopy));
@@ -5487,6 +5812,30 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomers();
             return;
         }
+        if ('ItemAddonItemRelatedByInititemnbr' == $relationName) {
+            $this->initItemAddonItemsRelatedByInititemnbr();
+            return;
+        }
+        if ('ItemAddonItemRelatedByAdonadditemnbr' == $relationName) {
+            $this->initItemAddonItemsRelatedByAdonadditemnbr();
+            return;
+        }
+        if ('ItemSubstituteRelatedByInititemnbr' == $relationName) {
+            $this->initItemSubstitutesRelatedByInititemnbr();
+            return;
+        }
+        if ('ItemSubstituteRelatedByInsisubitemnbr' == $relationName) {
+            $this->initItemSubstitutesRelatedByInsisubitemnbr();
+            return;
+        }
+        if ('ItemXrefManufacturer' == $relationName) {
+            $this->initItemXrefManufacturers();
+            return;
+        }
+        if ('BookingDetail' == $relationName) {
+            $this->initBookingDetails();
+            return;
+        }
         if ('SalesHistoryLotserial' == $relationName) {
             $this->initSalesHistoryLotserials();
             return;
@@ -5721,6 +6070,1396 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             $this->itemXrefCustomersScheduledForDeletion[]= $itemXrefCustomer;
             $itemXrefCustomer->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collItemAddonItemsRelatedByInititemnbr collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemAddonItemsRelatedByInititemnbr()
+     */
+    public function clearItemAddonItemsRelatedByInititemnbr()
+    {
+        $this->collItemAddonItemsRelatedByInititemnbr = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemAddonItemsRelatedByInititemnbr collection loaded partially.
+     */
+    public function resetPartialItemAddonItemsRelatedByInititemnbr($v = true)
+    {
+        $this->collItemAddonItemsRelatedByInititemnbrPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemAddonItemsRelatedByInititemnbr collection.
+     *
+     * By default this just sets the collItemAddonItemsRelatedByInititemnbr collection to an empty array (like clearcollItemAddonItemsRelatedByInititemnbr());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemAddonItemsRelatedByInititemnbr($overrideExisting = true)
+    {
+        if (null !== $this->collItemAddonItemsRelatedByInititemnbr && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemAddonItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemAddonItemsRelatedByInititemnbr = new $collectionClassName;
+        $this->collItemAddonItemsRelatedByInititemnbr->setModel('\ItemAddonItem');
+    }
+
+    /**
+     * Gets an array of ChildItemAddonItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemAddonItem[] List of ChildItemAddonItem objects
+     * @throws PropelException
+     */
+    public function getItemAddonItemsRelatedByInititemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
+        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByInititemnbr) {
+                // return empty collection
+                $this->initItemAddonItemsRelatedByInititemnbr();
+            } else {
+                $collItemAddonItemsRelatedByInititemnbr = ChildItemAddonItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByInititemnbr($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemAddonItemsRelatedByInititemnbrPartial && count($collItemAddonItemsRelatedByInititemnbr)) {
+                        $this->initItemAddonItemsRelatedByInititemnbr(false);
+
+                        foreach ($collItemAddonItemsRelatedByInititemnbr as $obj) {
+                            if (false == $this->collItemAddonItemsRelatedByInititemnbr->contains($obj)) {
+                                $this->collItemAddonItemsRelatedByInititemnbr->append($obj);
+                            }
+                        }
+
+                        $this->collItemAddonItemsRelatedByInititemnbrPartial = true;
+                    }
+
+                    return $collItemAddonItemsRelatedByInititemnbr;
+                }
+
+                if ($partial && $this->collItemAddonItemsRelatedByInititemnbr) {
+                    foreach ($this->collItemAddonItemsRelatedByInititemnbr as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemAddonItemsRelatedByInititemnbr[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemAddonItemsRelatedByInititemnbr = $collItemAddonItemsRelatedByInititemnbr;
+                $this->collItemAddonItemsRelatedByInititemnbrPartial = false;
+            }
+        }
+
+        return $this->collItemAddonItemsRelatedByInititemnbr;
+    }
+
+    /**
+     * Sets a collection of ChildItemAddonItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemAddonItemsRelatedByInititemnbr A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemAddonItemsRelatedByInititemnbr(Collection $itemAddonItemsRelatedByInititemnbr, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemAddonItem[] $itemAddonItemsRelatedByInititemnbrToDelete */
+        $itemAddonItemsRelatedByInititemnbrToDelete = $this->getItemAddonItemsRelatedByInititemnbr(new Criteria(), $con)->diff($itemAddonItemsRelatedByInititemnbr);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = clone $itemAddonItemsRelatedByInititemnbrToDelete;
+
+        foreach ($itemAddonItemsRelatedByInititemnbrToDelete as $itemAddonItemRelatedByInititemnbrRemoved) {
+            $itemAddonItemRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr(null);
+        }
+
+        $this->collItemAddonItemsRelatedByInititemnbr = null;
+        foreach ($itemAddonItemsRelatedByInititemnbr as $itemAddonItemRelatedByInititemnbr) {
+            $this->addItemAddonItemRelatedByInititemnbr($itemAddonItemRelatedByInititemnbr);
+        }
+
+        $this->collItemAddonItemsRelatedByInititemnbr = $itemAddonItemsRelatedByInititemnbr;
+        $this->collItemAddonItemsRelatedByInititemnbrPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemAddonItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemAddonItem objects.
+     * @throws PropelException
+     */
+    public function countItemAddonItemsRelatedByInititemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemAddonItemsRelatedByInititemnbrPartial && !$this->isNew();
+        if (null === $this->collItemAddonItemsRelatedByInititemnbr || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByInititemnbr) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemAddonItemsRelatedByInititemnbr());
+            }
+
+            $query = ChildItemAddonItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByInititemnbr($this)
+                ->count($con);
+        }
+
+        return count($this->collItemAddonItemsRelatedByInititemnbr);
+    }
+
+    /**
+     * Method called to associate a ChildItemAddonItem object to this object
+     * through the ChildItemAddonItem foreign key attribute.
+     *
+     * @param  ChildItemAddonItem $l ChildItemAddonItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $l)
+    {
+        if ($this->collItemAddonItemsRelatedByInititemnbr === null) {
+            $this->initItemAddonItemsRelatedByInititemnbr();
+            $this->collItemAddonItemsRelatedByInititemnbrPartial = true;
+        }
+
+        if (!$this->collItemAddonItemsRelatedByInititemnbr->contains($l)) {
+            $this->doAddItemAddonItemRelatedByInititemnbr($l);
+
+            if ($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion and $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->contains($l)) {
+                $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->remove($this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemAddonItem $itemAddonItemRelatedByInititemnbr The ChildItemAddonItem object to add.
+     */
+    protected function doAddItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $itemAddonItemRelatedByInititemnbr)
+    {
+        $this->collItemAddonItemsRelatedByInititemnbr[]= $itemAddonItemRelatedByInititemnbr;
+        $itemAddonItemRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr($this);
+    }
+
+    /**
+     * @param  ChildItemAddonItem $itemAddonItemRelatedByInititemnbr The ChildItemAddonItem object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemAddonItemRelatedByInititemnbr(ChildItemAddonItem $itemAddonItemRelatedByInititemnbr)
+    {
+        if ($this->getItemAddonItemsRelatedByInititemnbr()->contains($itemAddonItemRelatedByInititemnbr)) {
+            $pos = $this->collItemAddonItemsRelatedByInititemnbr->search($itemAddonItemRelatedByInititemnbr);
+            $this->collItemAddonItemsRelatedByInititemnbr->remove($pos);
+            if (null === $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion) {
+                $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion = clone $this->collItemAddonItemsRelatedByInititemnbr;
+                $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion->clear();
+            }
+            $this->itemAddonItemsRelatedByInititemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByInititemnbr;
+            $itemAddonItemRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collItemAddonItemsRelatedByAdonadditemnbr collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemAddonItemsRelatedByAdonadditemnbr()
+     */
+    public function clearItemAddonItemsRelatedByAdonadditemnbr()
+    {
+        $this->collItemAddonItemsRelatedByAdonadditemnbr = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemAddonItemsRelatedByAdonadditemnbr collection loaded partially.
+     */
+    public function resetPartialItemAddonItemsRelatedByAdonadditemnbr($v = true)
+    {
+        $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemAddonItemsRelatedByAdonadditemnbr collection.
+     *
+     * By default this just sets the collItemAddonItemsRelatedByAdonadditemnbr collection to an empty array (like clearcollItemAddonItemsRelatedByAdonadditemnbr());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemAddonItemsRelatedByAdonadditemnbr($overrideExisting = true)
+    {
+        if (null !== $this->collItemAddonItemsRelatedByAdonadditemnbr && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemAddonItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemAddonItemsRelatedByAdonadditemnbr = new $collectionClassName;
+        $this->collItemAddonItemsRelatedByAdonadditemnbr->setModel('\ItemAddonItem');
+    }
+
+    /**
+     * Gets an array of ChildItemAddonItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemAddonItem[] List of ChildItemAddonItem objects
+     * @throws PropelException
+     */
+    public function getItemAddonItemsRelatedByAdonadditemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
+        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+                // return empty collection
+                $this->initItemAddonItemsRelatedByAdonadditemnbr();
+            } else {
+                $collItemAddonItemsRelatedByAdonadditemnbr = ChildItemAddonItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByAdonadditemnbr($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && count($collItemAddonItemsRelatedByAdonadditemnbr)) {
+                        $this->initItemAddonItemsRelatedByAdonadditemnbr(false);
+
+                        foreach ($collItemAddonItemsRelatedByAdonadditemnbr as $obj) {
+                            if (false == $this->collItemAddonItemsRelatedByAdonadditemnbr->contains($obj)) {
+                                $this->collItemAddonItemsRelatedByAdonadditemnbr->append($obj);
+                            }
+                        }
+
+                        $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = true;
+                    }
+
+                    return $collItemAddonItemsRelatedByAdonadditemnbr;
+                }
+
+                if ($partial && $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+                    foreach ($this->collItemAddonItemsRelatedByAdonadditemnbr as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemAddonItemsRelatedByAdonadditemnbr[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemAddonItemsRelatedByAdonadditemnbr = $collItemAddonItemsRelatedByAdonadditemnbr;
+                $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = false;
+            }
+        }
+
+        return $this->collItemAddonItemsRelatedByAdonadditemnbr;
+    }
+
+    /**
+     * Sets a collection of ChildItemAddonItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemAddonItemsRelatedByAdonadditemnbr A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemAddonItemsRelatedByAdonadditemnbr(Collection $itemAddonItemsRelatedByAdonadditemnbr, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemAddonItem[] $itemAddonItemsRelatedByAdonadditemnbrToDelete */
+        $itemAddonItemsRelatedByAdonadditemnbrToDelete = $this->getItemAddonItemsRelatedByAdonadditemnbr(new Criteria(), $con)->diff($itemAddonItemsRelatedByAdonadditemnbr);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = clone $itemAddonItemsRelatedByAdonadditemnbrToDelete;
+
+        foreach ($itemAddonItemsRelatedByAdonadditemnbrToDelete as $itemAddonItemRelatedByAdonadditemnbrRemoved) {
+            $itemAddonItemRelatedByAdonadditemnbrRemoved->setItemMasterItemRelatedByAdonadditemnbr(null);
+        }
+
+        $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
+        foreach ($itemAddonItemsRelatedByAdonadditemnbr as $itemAddonItemRelatedByAdonadditemnbr) {
+            $this->addItemAddonItemRelatedByAdonadditemnbr($itemAddonItemRelatedByAdonadditemnbr);
+        }
+
+        $this->collItemAddonItemsRelatedByAdonadditemnbr = $itemAddonItemsRelatedByAdonadditemnbr;
+        $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemAddonItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemAddonItem objects.
+     * @throws PropelException
+     */
+    public function countItemAddonItemsRelatedByAdonadditemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemAddonItemsRelatedByAdonadditemnbrPartial && !$this->isNew();
+        if (null === $this->collItemAddonItemsRelatedByAdonadditemnbr || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemAddonItemsRelatedByAdonadditemnbr) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemAddonItemsRelatedByAdonadditemnbr());
+            }
+
+            $query = ChildItemAddonItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByAdonadditemnbr($this)
+                ->count($con);
+        }
+
+        return count($this->collItemAddonItemsRelatedByAdonadditemnbr);
+    }
+
+    /**
+     * Method called to associate a ChildItemAddonItem object to this object
+     * through the ChildItemAddonItem foreign key attribute.
+     *
+     * @param  ChildItemAddonItem $l ChildItemAddonItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $l)
+    {
+        if ($this->collItemAddonItemsRelatedByAdonadditemnbr === null) {
+            $this->initItemAddonItemsRelatedByAdonadditemnbr();
+            $this->collItemAddonItemsRelatedByAdonadditemnbrPartial = true;
+        }
+
+        if (!$this->collItemAddonItemsRelatedByAdonadditemnbr->contains($l)) {
+            $this->doAddItemAddonItemRelatedByAdonadditemnbr($l);
+
+            if ($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion and $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->contains($l)) {
+                $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->remove($this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr The ChildItemAddonItem object to add.
+     */
+    protected function doAddItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr)
+    {
+        $this->collItemAddonItemsRelatedByAdonadditemnbr[]= $itemAddonItemRelatedByAdonadditemnbr;
+        $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr($this);
+    }
+
+    /**
+     * @param  ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr The ChildItemAddonItem object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemAddonItemRelatedByAdonadditemnbr(ChildItemAddonItem $itemAddonItemRelatedByAdonadditemnbr)
+    {
+        if ($this->getItemAddonItemsRelatedByAdonadditemnbr()->contains($itemAddonItemRelatedByAdonadditemnbr)) {
+            $pos = $this->collItemAddonItemsRelatedByAdonadditemnbr->search($itemAddonItemRelatedByAdonadditemnbr);
+            $this->collItemAddonItemsRelatedByAdonadditemnbr->remove($pos);
+            if (null === $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion) {
+                $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion = clone $this->collItemAddonItemsRelatedByAdonadditemnbr;
+                $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion->clear();
+            }
+            $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByAdonadditemnbr;
+            $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collItemSubstitutesRelatedByInititemnbr collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemSubstitutesRelatedByInititemnbr()
+     */
+    public function clearItemSubstitutesRelatedByInititemnbr()
+    {
+        $this->collItemSubstitutesRelatedByInititemnbr = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemSubstitutesRelatedByInititemnbr collection loaded partially.
+     */
+    public function resetPartialItemSubstitutesRelatedByInititemnbr($v = true)
+    {
+        $this->collItemSubstitutesRelatedByInititemnbrPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemSubstitutesRelatedByInititemnbr collection.
+     *
+     * By default this just sets the collItemSubstitutesRelatedByInititemnbr collection to an empty array (like clearcollItemSubstitutesRelatedByInititemnbr());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemSubstitutesRelatedByInititemnbr($overrideExisting = true)
+    {
+        if (null !== $this->collItemSubstitutesRelatedByInititemnbr && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemSubstituteTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemSubstitutesRelatedByInititemnbr = new $collectionClassName;
+        $this->collItemSubstitutesRelatedByInititemnbr->setModel('\ItemSubstitute');
+    }
+
+    /**
+     * Gets an array of ChildItemSubstitute objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemSubstitute[] List of ChildItemSubstitute objects
+     * @throws PropelException
+     */
+    public function getItemSubstitutesRelatedByInititemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
+        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInititemnbr) {
+                // return empty collection
+                $this->initItemSubstitutesRelatedByInititemnbr();
+            } else {
+                $collItemSubstitutesRelatedByInititemnbr = ChildItemSubstituteQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByInititemnbr($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemSubstitutesRelatedByInititemnbrPartial && count($collItemSubstitutesRelatedByInititemnbr)) {
+                        $this->initItemSubstitutesRelatedByInititemnbr(false);
+
+                        foreach ($collItemSubstitutesRelatedByInititemnbr as $obj) {
+                            if (false == $this->collItemSubstitutesRelatedByInititemnbr->contains($obj)) {
+                                $this->collItemSubstitutesRelatedByInititemnbr->append($obj);
+                            }
+                        }
+
+                        $this->collItemSubstitutesRelatedByInititemnbrPartial = true;
+                    }
+
+                    return $collItemSubstitutesRelatedByInititemnbr;
+                }
+
+                if ($partial && $this->collItemSubstitutesRelatedByInititemnbr) {
+                    foreach ($this->collItemSubstitutesRelatedByInititemnbr as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemSubstitutesRelatedByInititemnbr[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemSubstitutesRelatedByInititemnbr = $collItemSubstitutesRelatedByInititemnbr;
+                $this->collItemSubstitutesRelatedByInititemnbrPartial = false;
+            }
+        }
+
+        return $this->collItemSubstitutesRelatedByInititemnbr;
+    }
+
+    /**
+     * Sets a collection of ChildItemSubstitute objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemSubstitutesRelatedByInititemnbr A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemSubstitutesRelatedByInititemnbr(Collection $itemSubstitutesRelatedByInititemnbr, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemSubstitute[] $itemSubstitutesRelatedByInititemnbrToDelete */
+        $itemSubstitutesRelatedByInititemnbrToDelete = $this->getItemSubstitutesRelatedByInititemnbr(new Criteria(), $con)->diff($itemSubstitutesRelatedByInititemnbr);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = clone $itemSubstitutesRelatedByInititemnbrToDelete;
+
+        foreach ($itemSubstitutesRelatedByInititemnbrToDelete as $itemSubstituteRelatedByInititemnbrRemoved) {
+            $itemSubstituteRelatedByInititemnbrRemoved->setItemMasterItemRelatedByInititemnbr(null);
+        }
+
+        $this->collItemSubstitutesRelatedByInititemnbr = null;
+        foreach ($itemSubstitutesRelatedByInititemnbr as $itemSubstituteRelatedByInititemnbr) {
+            $this->addItemSubstituteRelatedByInititemnbr($itemSubstituteRelatedByInititemnbr);
+        }
+
+        $this->collItemSubstitutesRelatedByInititemnbr = $itemSubstitutesRelatedByInititemnbr;
+        $this->collItemSubstitutesRelatedByInititemnbrPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemSubstitute objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemSubstitute objects.
+     * @throws PropelException
+     */
+    public function countItemSubstitutesRelatedByInititemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemSubstitutesRelatedByInititemnbrPartial && !$this->isNew();
+        if (null === $this->collItemSubstitutesRelatedByInititemnbr || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInititemnbr) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemSubstitutesRelatedByInititemnbr());
+            }
+
+            $query = ChildItemSubstituteQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByInititemnbr($this)
+                ->count($con);
+        }
+
+        return count($this->collItemSubstitutesRelatedByInititemnbr);
+    }
+
+    /**
+     * Method called to associate a ChildItemSubstitute object to this object
+     * through the ChildItemSubstitute foreign key attribute.
+     *
+     * @param  ChildItemSubstitute $l ChildItemSubstitute
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $l)
+    {
+        if ($this->collItemSubstitutesRelatedByInititemnbr === null) {
+            $this->initItemSubstitutesRelatedByInititemnbr();
+            $this->collItemSubstitutesRelatedByInititemnbrPartial = true;
+        }
+
+        if (!$this->collItemSubstitutesRelatedByInititemnbr->contains($l)) {
+            $this->doAddItemSubstituteRelatedByInititemnbr($l);
+
+            if ($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion and $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->contains($l)) {
+                $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->remove($this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemSubstitute $itemSubstituteRelatedByInititemnbr The ChildItemSubstitute object to add.
+     */
+    protected function doAddItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $itemSubstituteRelatedByInititemnbr)
+    {
+        $this->collItemSubstitutesRelatedByInititemnbr[]= $itemSubstituteRelatedByInititemnbr;
+        $itemSubstituteRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr($this);
+    }
+
+    /**
+     * @param  ChildItemSubstitute $itemSubstituteRelatedByInititemnbr The ChildItemSubstitute object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemSubstituteRelatedByInititemnbr(ChildItemSubstitute $itemSubstituteRelatedByInititemnbr)
+    {
+        if ($this->getItemSubstitutesRelatedByInititemnbr()->contains($itemSubstituteRelatedByInititemnbr)) {
+            $pos = $this->collItemSubstitutesRelatedByInititemnbr->search($itemSubstituteRelatedByInititemnbr);
+            $this->collItemSubstitutesRelatedByInititemnbr->remove($pos);
+            if (null === $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion) {
+                $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion = clone $this->collItemSubstitutesRelatedByInititemnbr;
+                $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion->clear();
+            }
+            $this->itemSubstitutesRelatedByInititemnbrScheduledForDeletion[]= clone $itemSubstituteRelatedByInititemnbr;
+            $itemSubstituteRelatedByInititemnbr->setItemMasterItemRelatedByInititemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collItemSubstitutesRelatedByInsisubitemnbr collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemSubstitutesRelatedByInsisubitemnbr()
+     */
+    public function clearItemSubstitutesRelatedByInsisubitemnbr()
+    {
+        $this->collItemSubstitutesRelatedByInsisubitemnbr = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemSubstitutesRelatedByInsisubitemnbr collection loaded partially.
+     */
+    public function resetPartialItemSubstitutesRelatedByInsisubitemnbr($v = true)
+    {
+        $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemSubstitutesRelatedByInsisubitemnbr collection.
+     *
+     * By default this just sets the collItemSubstitutesRelatedByInsisubitemnbr collection to an empty array (like clearcollItemSubstitutesRelatedByInsisubitemnbr());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemSubstitutesRelatedByInsisubitemnbr($overrideExisting = true)
+    {
+        if (null !== $this->collItemSubstitutesRelatedByInsisubitemnbr && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemSubstituteTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemSubstitutesRelatedByInsisubitemnbr = new $collectionClassName;
+        $this->collItemSubstitutesRelatedByInsisubitemnbr->setModel('\ItemSubstitute');
+    }
+
+    /**
+     * Gets an array of ChildItemSubstitute objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemSubstitute[] List of ChildItemSubstitute objects
+     * @throws PropelException
+     */
+    public function getItemSubstitutesRelatedByInsisubitemnbr(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
+        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+                // return empty collection
+                $this->initItemSubstitutesRelatedByInsisubitemnbr();
+            } else {
+                $collItemSubstitutesRelatedByInsisubitemnbr = ChildItemSubstituteQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByInsisubitemnbr($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && count($collItemSubstitutesRelatedByInsisubitemnbr)) {
+                        $this->initItemSubstitutesRelatedByInsisubitemnbr(false);
+
+                        foreach ($collItemSubstitutesRelatedByInsisubitemnbr as $obj) {
+                            if (false == $this->collItemSubstitutesRelatedByInsisubitemnbr->contains($obj)) {
+                                $this->collItemSubstitutesRelatedByInsisubitemnbr->append($obj);
+                            }
+                        }
+
+                        $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = true;
+                    }
+
+                    return $collItemSubstitutesRelatedByInsisubitemnbr;
+                }
+
+                if ($partial && $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+                    foreach ($this->collItemSubstitutesRelatedByInsisubitemnbr as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemSubstitutesRelatedByInsisubitemnbr[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemSubstitutesRelatedByInsisubitemnbr = $collItemSubstitutesRelatedByInsisubitemnbr;
+                $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = false;
+            }
+        }
+
+        return $this->collItemSubstitutesRelatedByInsisubitemnbr;
+    }
+
+    /**
+     * Sets a collection of ChildItemSubstitute objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemSubstitutesRelatedByInsisubitemnbr A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemSubstitutesRelatedByInsisubitemnbr(Collection $itemSubstitutesRelatedByInsisubitemnbr, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemSubstitute[] $itemSubstitutesRelatedByInsisubitemnbrToDelete */
+        $itemSubstitutesRelatedByInsisubitemnbrToDelete = $this->getItemSubstitutesRelatedByInsisubitemnbr(new Criteria(), $con)->diff($itemSubstitutesRelatedByInsisubitemnbr);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = clone $itemSubstitutesRelatedByInsisubitemnbrToDelete;
+
+        foreach ($itemSubstitutesRelatedByInsisubitemnbrToDelete as $itemSubstituteRelatedByInsisubitemnbrRemoved) {
+            $itemSubstituteRelatedByInsisubitemnbrRemoved->setItemMasterItemRelatedByInsisubitemnbr(null);
+        }
+
+        $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
+        foreach ($itemSubstitutesRelatedByInsisubitemnbr as $itemSubstituteRelatedByInsisubitemnbr) {
+            $this->addItemSubstituteRelatedByInsisubitemnbr($itemSubstituteRelatedByInsisubitemnbr);
+        }
+
+        $this->collItemSubstitutesRelatedByInsisubitemnbr = $itemSubstitutesRelatedByInsisubitemnbr;
+        $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemSubstitute objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemSubstitute objects.
+     * @throws PropelException
+     */
+    public function countItemSubstitutesRelatedByInsisubitemnbr(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemSubstitutesRelatedByInsisubitemnbrPartial && !$this->isNew();
+        if (null === $this->collItemSubstitutesRelatedByInsisubitemnbr || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemSubstitutesRelatedByInsisubitemnbr) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemSubstitutesRelatedByInsisubitemnbr());
+            }
+
+            $query = ChildItemSubstituteQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByInsisubitemnbr($this)
+                ->count($con);
+        }
+
+        return count($this->collItemSubstitutesRelatedByInsisubitemnbr);
+    }
+
+    /**
+     * Method called to associate a ChildItemSubstitute object to this object
+     * through the ChildItemSubstitute foreign key attribute.
+     *
+     * @param  ChildItemSubstitute $l ChildItemSubstitute
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $l)
+    {
+        if ($this->collItemSubstitutesRelatedByInsisubitemnbr === null) {
+            $this->initItemSubstitutesRelatedByInsisubitemnbr();
+            $this->collItemSubstitutesRelatedByInsisubitemnbrPartial = true;
+        }
+
+        if (!$this->collItemSubstitutesRelatedByInsisubitemnbr->contains($l)) {
+            $this->doAddItemSubstituteRelatedByInsisubitemnbr($l);
+
+            if ($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion and $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->contains($l)) {
+                $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->remove($this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr The ChildItemSubstitute object to add.
+     */
+    protected function doAddItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr)
+    {
+        $this->collItemSubstitutesRelatedByInsisubitemnbr[]= $itemSubstituteRelatedByInsisubitemnbr;
+        $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr($this);
+    }
+
+    /**
+     * @param  ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr The ChildItemSubstitute object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemSubstituteRelatedByInsisubitemnbr(ChildItemSubstitute $itemSubstituteRelatedByInsisubitemnbr)
+    {
+        if ($this->getItemSubstitutesRelatedByInsisubitemnbr()->contains($itemSubstituteRelatedByInsisubitemnbr)) {
+            $pos = $this->collItemSubstitutesRelatedByInsisubitemnbr->search($itemSubstituteRelatedByInsisubitemnbr);
+            $this->collItemSubstitutesRelatedByInsisubitemnbr->remove($pos);
+            if (null === $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion) {
+                $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = clone $this->collItemSubstitutesRelatedByInsisubitemnbr;
+                $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion->clear();
+            }
+            $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion[]= clone $itemSubstituteRelatedByInsisubitemnbr;
+            $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collItemXrefManufacturers collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefManufacturers()
+     */
+    public function clearItemXrefManufacturers()
+    {
+        $this->collItemXrefManufacturers = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefManufacturers collection loaded partially.
+     */
+    public function resetPartialItemXrefManufacturers($v = true)
+    {
+        $this->collItemXrefManufacturersPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefManufacturers collection.
+     *
+     * By default this just sets the collItemXrefManufacturers collection to an empty array (like clearcollItemXrefManufacturers());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefManufacturers($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefManufacturers && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefManufacturerTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefManufacturers = new $collectionClassName;
+        $this->collItemXrefManufacturers->setModel('\ItemXrefManufacturer');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefManufacturer objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
+     * @throws PropelException
+     */
+    public function getItemXrefManufacturers(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
+        if (null === $this->collItemXrefManufacturers || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefManufacturers) {
+                // return empty collection
+                $this->initItemXrefManufacturers();
+            } else {
+                $collItemXrefManufacturers = ChildItemXrefManufacturerQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefManufacturersPartial && count($collItemXrefManufacturers)) {
+                        $this->initItemXrefManufacturers(false);
+
+                        foreach ($collItemXrefManufacturers as $obj) {
+                            if (false == $this->collItemXrefManufacturers->contains($obj)) {
+                                $this->collItemXrefManufacturers->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefManufacturersPartial = true;
+                    }
+
+                    return $collItemXrefManufacturers;
+                }
+
+                if ($partial && $this->collItemXrefManufacturers) {
+                    foreach ($this->collItemXrefManufacturers as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefManufacturers[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefManufacturers = $collItemXrefManufacturers;
+                $this->collItemXrefManufacturersPartial = false;
+            }
+        }
+
+        return $this->collItemXrefManufacturers;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefManufacturer objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefManufacturers A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefManufacturers(Collection $itemXrefManufacturers, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefManufacturer[] $itemXrefManufacturersToDelete */
+        $itemXrefManufacturersToDelete = $this->getItemXrefManufacturers(new Criteria(), $con)->diff($itemXrefManufacturers);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemXrefManufacturersScheduledForDeletion = clone $itemXrefManufacturersToDelete;
+
+        foreach ($itemXrefManufacturersToDelete as $itemXrefManufacturerRemoved) {
+            $itemXrefManufacturerRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefManufacturers = null;
+        foreach ($itemXrefManufacturers as $itemXrefManufacturer) {
+            $this->addItemXrefManufacturer($itemXrefManufacturer);
+        }
+
+        $this->collItemXrefManufacturers = $itemXrefManufacturers;
+        $this->collItemXrefManufacturersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefManufacturer objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefManufacturer objects.
+     * @throws PropelException
+     */
+    public function countItemXrefManufacturers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefManufacturersPartial && !$this->isNew();
+        if (null === $this->collItemXrefManufacturers || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefManufacturers) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefManufacturers());
+            }
+
+            $query = ChildItemXrefManufacturerQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefManufacturers);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefManufacturer object to this object
+     * through the ChildItemXrefManufacturer foreign key attribute.
+     *
+     * @param  ChildItemXrefManufacturer $l ChildItemXrefManufacturer
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefManufacturer(ChildItemXrefManufacturer $l)
+    {
+        if ($this->collItemXrefManufacturers === null) {
+            $this->initItemXrefManufacturers();
+            $this->collItemXrefManufacturersPartial = true;
+        }
+
+        if (!$this->collItemXrefManufacturers->contains($l)) {
+            $this->doAddItemXrefManufacturer($l);
+
+            if ($this->itemXrefManufacturersScheduledForDeletion and $this->itemXrefManufacturersScheduledForDeletion->contains($l)) {
+                $this->itemXrefManufacturersScheduledForDeletion->remove($this->itemXrefManufacturersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to add.
+     */
+    protected function doAddItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
+    {
+        $this->collItemXrefManufacturers[]= $itemXrefManufacturer;
+        $itemXrefManufacturer->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefManufacturer $itemXrefManufacturer The ChildItemXrefManufacturer object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefManufacturer(ChildItemXrefManufacturer $itemXrefManufacturer)
+    {
+        if ($this->getItemXrefManufacturers()->contains($itemXrefManufacturer)) {
+            $pos = $this->collItemXrefManufacturers->search($itemXrefManufacturer);
+            $this->collItemXrefManufacturers->remove($pos);
+            if (null === $this->itemXrefManufacturersScheduledForDeletion) {
+                $this->itemXrefManufacturersScheduledForDeletion = clone $this->collItemXrefManufacturers;
+                $this->itemXrefManufacturersScheduledForDeletion->clear();
+            }
+            $this->itemXrefManufacturersScheduledForDeletion[]= clone $itemXrefManufacturer;
+            $itemXrefManufacturer->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefManufacturers from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefManufacturer[] List of ChildItemXrefManufacturer objects
+     */
+    public function getItemXrefManufacturersJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefManufacturerQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getItemXrefManufacturers($query, $con);
+    }
+
+    /**
+     * Clears out the collBookingDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addBookingDetails()
+     */
+    public function clearBookingDetails()
+    {
+        $this->collBookingDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collBookingDetails collection loaded partially.
+     */
+    public function resetPartialBookingDetails($v = true)
+    {
+        $this->collBookingDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collBookingDetails collection.
+     *
+     * By default this just sets the collBookingDetails collection to an empty array (like clearcollBookingDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initBookingDetails($overrideExisting = true)
+    {
+        if (null !== $this->collBookingDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = BookingDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collBookingDetails = new $collectionClassName;
+        $this->collBookingDetails->setModel('\BookingDetail');
+    }
+
+    /**
+     * Gets an array of ChildBookingDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildBookingDetail[] List of ChildBookingDetail objects
+     * @throws PropelException
+     */
+    public function getBookingDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collBookingDetailsPartial && !$this->isNew();
+        if (null === $this->collBookingDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collBookingDetails) {
+                // return empty collection
+                $this->initBookingDetails();
+            } else {
+                $collBookingDetails = ChildBookingDetailQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collBookingDetailsPartial && count($collBookingDetails)) {
+                        $this->initBookingDetails(false);
+
+                        foreach ($collBookingDetails as $obj) {
+                            if (false == $this->collBookingDetails->contains($obj)) {
+                                $this->collBookingDetails->append($obj);
+                            }
+                        }
+
+                        $this->collBookingDetailsPartial = true;
+                    }
+
+                    return $collBookingDetails;
+                }
+
+                if ($partial && $this->collBookingDetails) {
+                    foreach ($this->collBookingDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collBookingDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collBookingDetails = $collBookingDetails;
+                $this->collBookingDetailsPartial = false;
+            }
+        }
+
+        return $this->collBookingDetails;
+    }
+
+    /**
+     * Sets a collection of ChildBookingDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $bookingDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setBookingDetails(Collection $bookingDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildBookingDetail[] $bookingDetailsToDelete */
+        $bookingDetailsToDelete = $this->getBookingDetails(new Criteria(), $con)->diff($bookingDetails);
+
+
+        $this->bookingDetailsScheduledForDeletion = $bookingDetailsToDelete;
+
+        foreach ($bookingDetailsToDelete as $bookingDetailRemoved) {
+            $bookingDetailRemoved->setItemMasterItem(null);
+        }
+
+        $this->collBookingDetails = null;
+        foreach ($bookingDetails as $bookingDetail) {
+            $this->addBookingDetail($bookingDetail);
+        }
+
+        $this->collBookingDetails = $bookingDetails;
+        $this->collBookingDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related BookingDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related BookingDetail objects.
+     * @throws PropelException
+     */
+    public function countBookingDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collBookingDetailsPartial && !$this->isNew();
+        if (null === $this->collBookingDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collBookingDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getBookingDetails());
+            }
+
+            $query = ChildBookingDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collBookingDetails);
+    }
+
+    /**
+     * Method called to associate a ChildBookingDetail object to this object
+     * through the ChildBookingDetail foreign key attribute.
+     *
+     * @param  ChildBookingDetail $l ChildBookingDetail
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addBookingDetail(ChildBookingDetail $l)
+    {
+        if ($this->collBookingDetails === null) {
+            $this->initBookingDetails();
+            $this->collBookingDetailsPartial = true;
+        }
+
+        if (!$this->collBookingDetails->contains($l)) {
+            $this->doAddBookingDetail($l);
+
+            if ($this->bookingDetailsScheduledForDeletion and $this->bookingDetailsScheduledForDeletion->contains($l)) {
+                $this->bookingDetailsScheduledForDeletion->remove($this->bookingDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildBookingDetail $bookingDetail The ChildBookingDetail object to add.
+     */
+    protected function doAddBookingDetail(ChildBookingDetail $bookingDetail)
+    {
+        $this->collBookingDetails[]= $bookingDetail;
+        $bookingDetail->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildBookingDetail $bookingDetail The ChildBookingDetail object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeBookingDetail(ChildBookingDetail $bookingDetail)
+    {
+        if ($this->getBookingDetails()->contains($bookingDetail)) {
+            $pos = $this->collBookingDetails->search($bookingDetail);
+            $this->collBookingDetails->remove($pos);
+            if (null === $this->bookingDetailsScheduledForDeletion) {
+                $this->bookingDetailsScheduledForDeletion = clone $this->collBookingDetails;
+                $this->bookingDetailsScheduledForDeletion->clear();
+            }
+            $this->bookingDetailsScheduledForDeletion[]= $bookingDetail;
+            $bookingDetail->setItemMasterItem(null);
         }
 
         return $this;
@@ -6623,6 +8362,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collItemAddonItemsRelatedByInititemnbr) {
+                foreach ($this->collItemAddonItemsRelatedByInititemnbr as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collItemAddonItemsRelatedByAdonadditemnbr) {
+                foreach ($this->collItemAddonItemsRelatedByAdonadditemnbr as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collItemSubstitutesRelatedByInititemnbr) {
+                foreach ($this->collItemSubstitutesRelatedByInititemnbr as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collItemSubstitutesRelatedByInsisubitemnbr) {
+                foreach ($this->collItemSubstitutesRelatedByInsisubitemnbr as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collItemXrefManufacturers) {
+                foreach ($this->collItemXrefManufacturers as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collBookingDetails) {
+                foreach ($this->collBookingDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collSalesHistoryLotserials) {
                 foreach ($this->collSalesHistoryLotserials as $o) {
                     $o->clearAllReferences($deep);
@@ -6641,6 +8410,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemXrefCustomers = null;
+        $this->collItemAddonItemsRelatedByInititemnbr = null;
+        $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
+        $this->collItemSubstitutesRelatedByInititemnbr = null;
+        $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
+        $this->collItemXrefManufacturers = null;
+        $this->collBookingDetails = null;
         $this->collSalesHistoryLotserials = null;
         $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;

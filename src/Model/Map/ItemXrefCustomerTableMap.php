@@ -236,7 +236,7 @@ class ItemXrefCustomerTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_cust_mast', 'ArcuCustId', true, 6, '');
+        $this->addPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR', true, 6, '');
         $this->addPrimaryKey('OexrCustItemNbr', 'Oexrcustitemnbr', 'VARCHAR', true, 30, '');
         $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
         $this->addColumn('OexrRetPrice', 'Oexrretprice', 'DECIMAL', false, 20, null);
@@ -271,13 +271,6 @@ class ItemXrefCustomerTableMap extends TableMap
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
-  ),
-), null, null, null, false);
-        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
-  0 =>
-  array (
-    0 => ':ArcuCustId',
-    1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
     } // buildRelations()

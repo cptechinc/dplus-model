@@ -1672,6 +1672,39 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_inv_addon" idMethod="native" phpName="ItemAddonItem">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="AdonAddItemNbr" phpName="Adonadditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="addonitem">
+      <reference local="AdonAddItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_inv_sub" idMethod="native" phpName="ItemSubstitute">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InsiSubItemNbr" phpName="Insisubitemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InsiSameLike" phpName="Insisamelike" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="subitem">
+      <reference local="InsiSubItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_item_mast" idMethod="native" phpName="ItemMasterItem">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35"/>
@@ -1976,6 +2009,28 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="mfcp_item_xref" idMethod="native" phpName="ItemXrefManufacturer">
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="McxrVendItemNbr" phpName="Mcxrvenditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="McxrUom" phpName="Mcxruom" type="VARCHAR" size="4"/>
+    <column name="McxrPrice" phpName="Mcxrprice" type="DECIMAL" size="20" scale="5"/>
+    <column name="McxrCost" phpName="Mcxrcost" type="DECIMAL" size="20" scale="5"/>
+    <column name="McxrAvail" phpName="Mcxravail" type="DECIMAL" size="20" scale="5"/>
+    <column name="McxrChgDate" phpName="Mcxrchgdate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -2481,6 +2536,16 @@
     <column name="PotsExpireDateCd" phpName="Potsexpiredatecd" type="VARCHAR" size="1"/>
     <column name="PotsExpireDate" phpName="Potsexpiredate" type="VARCHAR" size="8"/>
     <column name="PotsTariffCost" phpName="Potstariffcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pr_bmat_head" idMethod="native" phpName="BillOfMaterial">
+    <column name="BomhProdItem" phpName="Bomhproditem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BomhLevel" phpName="Bomhlevel" type="INTEGER" size="2"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

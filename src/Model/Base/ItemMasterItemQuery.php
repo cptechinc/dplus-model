@@ -228,6 +228,66 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomer relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomer() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomer relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemAddonItemRelatedByInititemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemAddonItemRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemAddonItemRelatedByInititemnbr() Adds a LEFT JOIN clause and with to the query using the ItemAddonItemRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemAddonItemRelatedByInititemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemAddonItemRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemAddonItemRelatedByInititemnbr() Adds a INNER JOIN clause and with to the query using the ItemAddonItemRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinItemAddonItemRelatedByAdonadditemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinItemAddonItemRelatedByAdonadditemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinItemAddonItemRelatedByAdonadditemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemAddonItemRelatedByAdonadditemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemAddonItemRelatedByAdonadditemnbr() Adds a LEFT JOIN clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemAddonItemRelatedByAdonadditemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemAddonItemRelatedByAdonadditemnbr() Adds a INNER JOIN clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinItemSubstituteRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinItemSubstituteRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinItemSubstituteRelatedByInititemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemSubstituteRelatedByInititemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemSubstituteRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemSubstituteRelatedByInititemnbr() Adds a LEFT JOIN clause and with to the query using the ItemSubstituteRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemSubstituteRelatedByInititemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemSubstituteRelatedByInititemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemSubstituteRelatedByInititemnbr() Adds a INNER JOIN clause and with to the query using the ItemSubstituteRelatedByInititemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinItemSubstituteRelatedByInsisubitemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinItemSubstituteRelatedByInsisubitemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinItemSubstituteRelatedByInsisubitemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemSubstituteRelatedByInsisubitemnbr($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a LEFT JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a INNER JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinItemXrefManufacturer($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefManufacturer relation
+ * @method     ChildItemMasterItemQuery rightJoinItemXrefManufacturer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefManufacturer relation
+ * @method     ChildItemMasterItemQuery innerJoinItemXrefManufacturer($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefManufacturer relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemXrefManufacturer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemXrefManufacturer relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemXrefManufacturer() Adds a LEFT JOIN clause and with to the query using the ItemXrefManufacturer relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemXrefManufacturer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefManufacturer relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemXrefManufacturer() Adds a INNER JOIN clause and with to the query using the ItemXrefManufacturer relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinBookingDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinBookingDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinBookingDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDetail relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithBookingDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the BookingDetail relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithBookingDetail() Adds a LEFT JOIN clause and with to the query using the BookingDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinWithBookingDetail() Adds a RIGHT JOIN clause and with to the query using the BookingDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinWithBookingDetail() Adds a INNER JOIN clause and with to the query using the BookingDetail relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinSalesHistoryLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistoryLotserial relation
  * @method     ChildItemMasterItemQuery rightJoinSalesHistoryLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistoryLotserial relation
  * @method     ChildItemMasterItemQuery innerJoinSalesHistoryLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistoryLotserial relation
@@ -258,7 +318,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3070,6 +3130,444 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemXrefCustomer($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomer', '\ItemXrefCustomerQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemAddonItem object
+     *
+     * @param \ItemAddonItem|ObjectCollection $itemAddonItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemAddonItemRelatedByInititemnbr($itemAddonItem, $comparison = null)
+    {
+        if ($itemAddonItem instanceof \ItemAddonItem) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemAddonItem->getInititemnbr(), $comparison);
+        } elseif ($itemAddonItem instanceof ObjectCollection) {
+            return $this
+                ->useItemAddonItemRelatedByInititemnbrQuery()
+                ->filterByPrimaryKeys($itemAddonItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemAddonItemRelatedByInititemnbr() only accepts arguments of type \ItemAddonItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemAddonItemRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemAddonItemRelatedByInititemnbr');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemAddonItemRelatedByInititemnbr');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByInititemnbr relation ItemAddonItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemAddonItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemAddonItemRelatedByInititemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemAddonItemRelatedByInititemnbr($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemAddonItemRelatedByInititemnbr', '\ItemAddonItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemAddonItem object
+     *
+     * @param \ItemAddonItem|ObjectCollection $itemAddonItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemAddonItemRelatedByAdonadditemnbr($itemAddonItem, $comparison = null)
+    {
+        if ($itemAddonItem instanceof \ItemAddonItem) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemAddonItem->getAdonadditemnbr(), $comparison);
+        } elseif ($itemAddonItem instanceof ObjectCollection) {
+            return $this
+                ->useItemAddonItemRelatedByAdonadditemnbrQuery()
+                ->filterByPrimaryKeys($itemAddonItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemAddonItemRelatedByAdonadditemnbr() only accepts arguments of type \ItemAddonItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemAddonItemRelatedByAdonadditemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemAddonItemRelatedByAdonadditemnbr');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemAddonItemRelatedByAdonadditemnbr');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemAddonItemRelatedByAdonadditemnbr relation ItemAddonItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemAddonItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemAddonItemRelatedByAdonadditemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemAddonItemRelatedByAdonadditemnbr($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemAddonItemRelatedByAdonadditemnbr', '\ItemAddonItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemSubstitute object
+     *
+     * @param \ItemSubstitute|ObjectCollection $itemSubstitute the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemSubstituteRelatedByInititemnbr($itemSubstitute, $comparison = null)
+    {
+        if ($itemSubstitute instanceof \ItemSubstitute) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemSubstitute->getInititemnbr(), $comparison);
+        } elseif ($itemSubstitute instanceof ObjectCollection) {
+            return $this
+                ->useItemSubstituteRelatedByInititemnbrQuery()
+                ->filterByPrimaryKeys($itemSubstitute->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemSubstituteRelatedByInititemnbr() only accepts arguments of type \ItemSubstitute or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemSubstituteRelatedByInititemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemSubstituteRelatedByInititemnbr');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemSubstituteRelatedByInititemnbr');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInititemnbr relation ItemSubstitute object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemSubstituteQuery A secondary query class using the current class as primary query
+     */
+    public function useItemSubstituteRelatedByInititemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemSubstituteRelatedByInititemnbr($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInititemnbr', '\ItemSubstituteQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemSubstitute object
+     *
+     * @param \ItemSubstitute|ObjectCollection $itemSubstitute the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemSubstituteRelatedByInsisubitemnbr($itemSubstitute, $comparison = null)
+    {
+        if ($itemSubstitute instanceof \ItemSubstitute) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemSubstitute->getInsisubitemnbr(), $comparison);
+        } elseif ($itemSubstitute instanceof ObjectCollection) {
+            return $this
+                ->useItemSubstituteRelatedByInsisubitemnbrQuery()
+                ->filterByPrimaryKeys($itemSubstitute->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemSubstituteRelatedByInsisubitemnbr() only accepts arguments of type \ItemSubstitute or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemSubstituteRelatedByInsisubitemnbr($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemSubstituteRelatedByInsisubitemnbr');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemSubstituteRelatedByInsisubitemnbr');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemSubstituteRelatedByInsisubitemnbr relation ItemSubstitute object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemSubstituteQuery A secondary query class using the current class as primary query
+     */
+    public function useItemSubstituteRelatedByInsisubitemnbrQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemSubstituteRelatedByInsisubitemnbr($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInsisubitemnbr', '\ItemSubstituteQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemXrefManufacturer object
+     *
+     * @param \ItemXrefManufacturer|ObjectCollection $itemXrefManufacturer the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemXrefManufacturer($itemXrefManufacturer, $comparison = null)
+    {
+        if ($itemXrefManufacturer instanceof \ItemXrefManufacturer) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefManufacturer->getInititemnbr(), $comparison);
+        } elseif ($itemXrefManufacturer instanceof ObjectCollection) {
+            return $this
+                ->useItemXrefManufacturerQuery()
+                ->filterByPrimaryKeys($itemXrefManufacturer->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemXrefManufacturer() only accepts arguments of type \ItemXrefManufacturer or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemXrefManufacturer relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemXrefManufacturer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemXrefManufacturer');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemXrefManufacturer');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemXrefManufacturer relation ItemXrefManufacturer object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemXrefManufacturerQuery A secondary query class using the current class as primary query
+     */
+    public function useItemXrefManufacturerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemXrefManufacturer($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefManufacturer', '\ItemXrefManufacturerQuery');
+    }
+
+    /**
+     * Filter the query by a related \BookingDetail object
+     *
+     * @param \BookingDetail|ObjectCollection $bookingDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByBookingDetail($bookingDetail, $comparison = null)
+    {
+        if ($bookingDetail instanceof \BookingDetail) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bookingDetail->getInititemnbr(), $comparison);
+        } elseif ($bookingDetail instanceof ObjectCollection) {
+            return $this
+                ->useBookingDetailQuery()
+                ->filterByPrimaryKeys($bookingDetail->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByBookingDetail() only accepts arguments of type \BookingDetail or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the BookingDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinBookingDetail($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('BookingDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'BookingDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the BookingDetail relation BookingDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \BookingDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useBookingDetailQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinBookingDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'BookingDetail', '\BookingDetailQuery');
     }
 
     /**
