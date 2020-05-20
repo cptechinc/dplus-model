@@ -130,14 +130,6 @@ use Dplus\Model\MagicMethodTraits;
 		return self::MAX_LENGTH_CODE;
 	}
 
-    public function get_standard_terms_split() {
-		return self::STANDARD_TERMS_SPLIT;
-	}
-
-    public function get_eom_terms_split() {
-		return self::EOM_TERMS_SPLIT;
-	}
-
 	public function order_percent($index) {
 		if ($index > self::STANDARD_TERMS_SPLIT) {
 			$this->error("There are only " . self::STANDARD_TERMS_SPLIT . " splits allowed");
