@@ -11,7 +11,7 @@ use Dplus\Model\MagicMethodTraits;
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const MAX_LENGTH_CODE = 6;
+	const MAX_LENGTH_CODE = 4;
 
 	const STANDARD_TERMS_SPLIT = 6;
 
@@ -29,6 +29,8 @@ use Dplus\Model\MagicMethodTraits;
 		 'type'             => 'artmtype',
 		 'hold'             => 'artmhold',
 		 'exp_date'         => 'artmexpiredate',
+         'freight_allow'    => 'artmfrtallow',
+         'cc_prefix'        => 'artmccprefix',
 		 'split1'           => 'artmsplit1',
 		 'order_percent1'   => 'artmorderpct1',
 		 'percent1'         => 'artmdiscpct1',
