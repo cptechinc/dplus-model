@@ -53,9 +53,11 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'itemtype'    => 'inittype',
 		'taxable'     => 'inittax',
 		'supercede'   => 'initsupritemnbr',
+		'supercededby' => 'initsupritemnbr',
 		'weight'      => 'initwght',
 		'liters'      => 'initliters',
 		'qtypercase'  => 'initqtypercase',
+		'qty_percase'     => 'initqtypercase',
 		'specialitemcode' => 'initspecitemcd',
 		'assortmentcode'  => 'initasstcode',
 		'assortmentqty'   => 'initasstqty',
@@ -88,6 +90,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'documentation'   => 'initdocumentation',
 		'basestandardcost' => 'initbasestancost',
 		'minmargin'        => 'initminmarg',
+		'qty_pack_inner'  => 'initinnerpackqty',
+		'qty_pack_outer'  => 'initouterpackqty',
+		'qty_tare'        => 'initshiptareqty',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -176,7 +181,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $this->lastcost > 0 ? $this->lastcost * $this->unitofmsale->conversion : $this->lastcost;
 	}
 
-	
+
 	/**
 	 * ===================================================================
 	 *
@@ -271,7 +276,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return bool
 	 */
-	public function has_subtitutes() {
+	public function has_substitutes() {
 		return boolval($this->countItemSubstitutesRelatedByInititemnbr());
 	}
 
@@ -280,7 +285,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return int
 	 */
-	public function count_subtitutes() {
+	public function count_substitutes() {
 		return $this->countItemSubstitutesRelatedByInititemnbr();
 	}
 
@@ -289,7 +294,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return ItemSubstitute[]|Object Array
 	 */
-	public function get_subtitutes() {
+	public function get_substitutes() {
 		return $this->getItemSubstitutesRelatedByInititemnbr();
 	}
 
@@ -298,7 +303,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return bool
 	 */
-	public function is_subtitute() {
+	public function is_substitute() {
 		return boolval($this->countItemSubstitutesRelatedByInsisubitemnbr());
 	}
 
@@ -307,7 +312,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return int
 	 */
-	public function count_subtitutes_for() {
+	public function count_substitutes_for() {
 		return $this->countItemSubstitutesRelatedByInsisubitemnbr();
 	}
 
@@ -316,7 +321,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 *
 	 * @return ItemSubstitute[]|Object Array
 	 */
-	public function get_subtitutes_for() {
+	public function get_substitutes_for() {
 		return $this->getItemSubstitutesRelatedByInsisubitemnbr();
 	}
 

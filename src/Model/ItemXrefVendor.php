@@ -25,6 +25,9 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'R' => 'Restricted'
 	);
 
+	const APPROVALCODE_APPROVED = 'A';
+	const APPROVALCODE_RESTRICTED = 'R';
+
 	const OPTIONS_POORDERCODE = array(
 		'C' => 'Costing',
 		'P' => 'Primary',
@@ -205,7 +208,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * @return float
 	 */
 	public function getEachlistprice() {
-		if (empty($this->listprice)) {
+		if (empty($this->listprice) || empty($this->uompurchase)) {
 			return 0;
 		}
 		return $this->listprice / $this->uompurchase->conversion;
@@ -285,5 +288,13 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		$q->filterByOuritemid($this->ouritemid);
 		$q->filterByVendoritemid($this->vendoritemID, Criteria::NOT_IN);
 		return $q->findOne();
+	}
+
+	public static function new() {
+		$item = new ItemXrefVendor();
+		$item->setQty_percase(1);
+		$item->setPo_ordercode(self::POORDERCODE_SECONDARY);
+		$item->setApprovalcode(self::APPROVALCODE_APPROVED);
+		return $item;
 	}
 }
