@@ -15,8 +15,12 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const ROUNDING_TRUE  = 'Y';
-	const ROUNDING_FALSE = 'N';
+	const ROUNDING_DEFAULT = 'N';
+	const ROUNDING_OPTIONS = array(
+		'D' => 'down',
+		'U' => 'up',
+		'N' => 'normal'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -80,11 +84,6 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		return $this->price_customer / $itmitem->qtypercase * $uom_pricing->conversion;
 	}
 
-	/**
-	 * Return UnitofMeasureSale for the UoM pricing code
-	 *
-	 * @return UnitofMeasureSale
-	 */
 	public function getUnitofMeasurePricing() {
 		return UnitofMeasureSaleQuery::create()->findOneByCode($this->uom_pricing);
 	}
@@ -100,7 +99,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		$item->setConvert(0.000);
 		$item->setPrice_retail(0.000);
 		$item->setPrice_customer(0.000);
-		$item->setRounding(self::ROUNDING_FALSE);
+		$item->setRounding(self::ROUNDING_DEFUALT);
 		$item->setWeight(0.00000);
 		return $item;
 	}
