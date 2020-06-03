@@ -35,6 +35,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		'revision'        => 'oexrrevision',
 		'price_customer'  => 'oexrcustprice',
 		'price_retail'    => 'oexrretprice',
+		'price_retail'    => 'oexrretprice',
 		'qty_percase'     => 'oexrqtypercase',
 		'qty_pack_inner'  => 'oexrinnerpackqty',
 		'qty_pack_outer'  => 'oexrouterpackqty',
@@ -55,6 +56,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 
 	/**
 	 * Return Pricing Per UoM
+	 * priceuom = custprice / qtypercase * conversion
 	 * @return [type] [description]
 	 */
 	public function get_pricing_peruom() {
@@ -67,6 +69,22 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		}
 	}
 
+	/**
+	 * Return Pricing Per UoM
+	 * priceuom = custprice / qtypercase * conversion
+	 * @return float
+	 */
+	public function get_pricing_customer() {
+		$itmitem = $this->getItemMasterItem();
+		$uom_pricing = $this->getUnitofMeasurePricing();
+		return $this->price_customer / $itmitem->qtypercase * $uom_pricing->conversion;
+	}
+
+	/**
+	 * Return UnitofMeasureSale for the UoM pricing code
+	 *
+	 * @return UnitofMeasureSale
+	 */
 	public function getUnitofMeasurePricing() {
 		return UnitofMeasureSaleQuery::create()->findOneByCode($this->uom_pricing);
 	}
