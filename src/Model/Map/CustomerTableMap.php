@@ -947,20 +947,34 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, 'CustomerShiptos', false);
-        $this->addRelation('CstkItem', '\\CstkItem', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
   ),
-), null, null, 'CstkItems', false);
-        $this->addRelation('CstkHead', '\\CstkHead', RelationMap::ONE_TO_MANY, array (
+), null, null, 'ItemXrefCustomerNotes', false);
+        $this->addRelation('BookingDayCustomer', '\\BookingDayCustomer', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':ArcuCustId',
     1 => ':ArcuCustId',
   ),
-), null, null, 'CstkHeads', false);
+), null, null, 'BookingDayCustomers', false);
+        $this->addRelation('BookingDayDetail', '\\BookingDayDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'BookingDayDetails', false);
+        $this->addRelation('Booking', '\\Booking', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'Bookings', false);
         $this->addRelation('SalesHistory', '\\SalesHistory', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

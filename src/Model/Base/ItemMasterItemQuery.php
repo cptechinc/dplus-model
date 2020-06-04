@@ -278,6 +278,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefManufacturer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefManufacturer relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefManufacturer() Adds a INNER JOIN clause and with to the query using the ItemXrefManufacturer relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemXrefCustomerNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefCustomerNote relation
+ * @method     ChildItemMasterItemQuery rightJoinItemXrefCustomerNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefCustomerNote relation
+ * @method     ChildItemMasterItemQuery innerJoinItemXrefCustomerNote($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefCustomerNote relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemXrefCustomerNote($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemXrefCustomerNote relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemXrefCustomerNote() Adds a LEFT JOIN clause and with to the query using the ItemXrefCustomerNote relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomerNote() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomerNote relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomerNote() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomerNote relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinBookingDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery rightJoinBookingDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery innerJoinBookingDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDetail relation
@@ -318,7 +328,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3495,6 +3505,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemXrefManufacturer($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefManufacturer', '\ItemXrefManufacturerQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemXrefCustomerNote object
+     *
+     * @param \ItemXrefCustomerNote|ObjectCollection $itemXrefCustomerNote the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemXrefCustomerNote($itemXrefCustomerNote, $comparison = null)
+    {
+        if ($itemXrefCustomerNote instanceof \ItemXrefCustomerNote) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefCustomerNote->getInititemnbr(), $comparison);
+        } elseif ($itemXrefCustomerNote instanceof ObjectCollection) {
+            return $this
+                ->useItemXrefCustomerNoteQuery()
+                ->filterByPrimaryKeys($itemXrefCustomerNote->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemXrefCustomerNote() only accepts arguments of type \ItemXrefCustomerNote or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemXrefCustomerNote relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemXrefCustomerNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemXrefCustomerNote');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemXrefCustomerNote');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemXrefCustomerNote relation ItemXrefCustomerNote object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemXrefCustomerNoteQuery A secondary query class using the current class as primary query
+     */
+    public function useItemXrefCustomerNoteQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinItemXrefCustomerNote($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomerNote', '\ItemXrefCustomerNoteQuery');
     }
 
     /**

@@ -596,6 +596,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefManufacturers', false);
+        $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemXrefCustomerNotes', false);
         $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

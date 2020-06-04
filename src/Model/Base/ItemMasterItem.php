@@ -19,6 +19,8 @@ use \ItemPricingQuery as ChildItemPricingQuery;
 use \ItemSubstitute as ChildItemSubstitute;
 use \ItemSubstituteQuery as ChildItemSubstituteQuery;
 use \ItemXrefCustomer as ChildItemXrefCustomer;
+use \ItemXrefCustomerNote as ChildItemXrefCustomerNote;
+use \ItemXrefCustomerNoteQuery as ChildItemXrefCustomerNoteQuery;
 use \ItemXrefCustomerQuery as ChildItemXrefCustomerQuery;
 use \ItemXrefManufacturer as ChildItemXrefManufacturer;
 use \ItemXrefManufacturerQuery as ChildItemXrefManufacturerQuery;
@@ -38,6 +40,7 @@ use Map\BookingDetailTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemSubstituteTableMap;
+use Map\ItemXrefCustomerNoteTableMap;
 use Map\ItemXrefCustomerTableMap;
 use Map\ItemXrefManufacturerTableMap;
 use Map\ItemXrefUpcTableMap;
@@ -613,6 +616,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefManufacturersPartial;
 
     /**
+     * @var        ObjectCollection|ChildItemXrefCustomerNote[] Collection to store aggregation of ChildItemXrefCustomerNote objects.
+     */
+    protected $collItemXrefCustomerNotes;
+    protected $collItemXrefCustomerNotesPartial;
+
+    /**
      * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
      */
     protected $collBookingDetails;
@@ -679,6 +688,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefManufacturer[]
      */
     protected $itemXrefManufacturersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefCustomerNote[]
+     */
+    protected $itemXrefCustomerNotesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3222,6 +3237,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemXrefManufacturers = null;
 
+            $this->collItemXrefCustomerNotes = null;
+
             $this->collBookingDetails = null;
 
             $this->collSalesHistoryLotserials = null;
@@ -3488,6 +3505,24 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemXrefManufacturers !== null) {
                 foreach ($this->collItemXrefManufacturers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemXrefCustomerNotesScheduledForDeletion !== null) {
+                if (!$this->itemXrefCustomerNotesScheduledForDeletion->isEmpty()) {
+                    foreach ($this->itemXrefCustomerNotesScheduledForDeletion as $itemXrefCustomerNote) {
+                        // need to save related object because we set the relation to null
+                        $itemXrefCustomerNote->save($con);
+                    }
+                    $this->itemXrefCustomerNotesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefCustomerNotes !== null) {
+                foreach ($this->collItemXrefCustomerNotes as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4508,6 +4543,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefManufacturers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collItemXrefCustomerNotes) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefCustomerNotes';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_item_cust_xrefs';
+                        break;
+                    default:
+                        $key = 'ItemXrefCustomerNotes';
+                }
+
+                $result[$key] = $this->collItemXrefCustomerNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collBookingDetails) {
 
                 switch ($keyType) {
@@ -5444,6 +5494,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getItemXrefCustomerNotes() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefCustomerNote($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getBookingDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addBookingDetail($relObj->copy($deepCopy));
@@ -5830,6 +5886,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemXrefManufacturer' == $relationName) {
             $this->initItemXrefManufacturers();
+            return;
+        }
+        if ('ItemXrefCustomerNote' == $relationName) {
+            $this->initItemXrefCustomerNotes();
             return;
         }
         if ('BookingDetail' == $relationName) {
@@ -7241,6 +7301,256 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collItemXrefCustomerNotes collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefCustomerNotes()
+     */
+    public function clearItemXrefCustomerNotes()
+    {
+        $this->collItemXrefCustomerNotes = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefCustomerNotes collection loaded partially.
+     */
+    public function resetPartialItemXrefCustomerNotes($v = true)
+    {
+        $this->collItemXrefCustomerNotesPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefCustomerNotes collection.
+     *
+     * By default this just sets the collItemXrefCustomerNotes collection to an empty array (like clearcollItemXrefCustomerNotes());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefCustomerNotes($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefCustomerNotes && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefCustomerNoteTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefCustomerNotes = new $collectionClassName;
+        $this->collItemXrefCustomerNotes->setModel('\ItemXrefCustomerNote');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefCustomerNote objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefCustomerNote[] List of ChildItemXrefCustomerNote objects
+     * @throws PropelException
+     */
+    public function getItemXrefCustomerNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
+        if (null === $this->collItemXrefCustomerNotes || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefCustomerNotes) {
+                // return empty collection
+                $this->initItemXrefCustomerNotes();
+            } else {
+                $collItemXrefCustomerNotes = ChildItemXrefCustomerNoteQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefCustomerNotesPartial && count($collItemXrefCustomerNotes)) {
+                        $this->initItemXrefCustomerNotes(false);
+
+                        foreach ($collItemXrefCustomerNotes as $obj) {
+                            if (false == $this->collItemXrefCustomerNotes->contains($obj)) {
+                                $this->collItemXrefCustomerNotes->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefCustomerNotesPartial = true;
+                    }
+
+                    return $collItemXrefCustomerNotes;
+                }
+
+                if ($partial && $this->collItemXrefCustomerNotes) {
+                    foreach ($this->collItemXrefCustomerNotes as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefCustomerNotes[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefCustomerNotes = $collItemXrefCustomerNotes;
+                $this->collItemXrefCustomerNotesPartial = false;
+            }
+        }
+
+        return $this->collItemXrefCustomerNotes;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefCustomerNote objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefCustomerNotes A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefCustomerNotes(Collection $itemXrefCustomerNotes, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefCustomerNote[] $itemXrefCustomerNotesToDelete */
+        $itemXrefCustomerNotesToDelete = $this->getItemXrefCustomerNotes(new Criteria(), $con)->diff($itemXrefCustomerNotes);
+
+
+        $this->itemXrefCustomerNotesScheduledForDeletion = $itemXrefCustomerNotesToDelete;
+
+        foreach ($itemXrefCustomerNotesToDelete as $itemXrefCustomerNoteRemoved) {
+            $itemXrefCustomerNoteRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefCustomerNotes = null;
+        foreach ($itemXrefCustomerNotes as $itemXrefCustomerNote) {
+            $this->addItemXrefCustomerNote($itemXrefCustomerNote);
+        }
+
+        $this->collItemXrefCustomerNotes = $itemXrefCustomerNotes;
+        $this->collItemXrefCustomerNotesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefCustomerNote objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefCustomerNote objects.
+     * @throws PropelException
+     */
+    public function countItemXrefCustomerNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefCustomerNotesPartial && !$this->isNew();
+        if (null === $this->collItemXrefCustomerNotes || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefCustomerNotes) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefCustomerNotes());
+            }
+
+            $query = ChildItemXrefCustomerNoteQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefCustomerNotes);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefCustomerNote object to this object
+     * through the ChildItemXrefCustomerNote foreign key attribute.
+     *
+     * @param  ChildItemXrefCustomerNote $l ChildItemXrefCustomerNote
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefCustomerNote(ChildItemXrefCustomerNote $l)
+    {
+        if ($this->collItemXrefCustomerNotes === null) {
+            $this->initItemXrefCustomerNotes();
+            $this->collItemXrefCustomerNotesPartial = true;
+        }
+
+        if (!$this->collItemXrefCustomerNotes->contains($l)) {
+            $this->doAddItemXrefCustomerNote($l);
+
+            if ($this->itemXrefCustomerNotesScheduledForDeletion and $this->itemXrefCustomerNotesScheduledForDeletion->contains($l)) {
+                $this->itemXrefCustomerNotesScheduledForDeletion->remove($this->itemXrefCustomerNotesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefCustomerNote $itemXrefCustomerNote The ChildItemXrefCustomerNote object to add.
+     */
+    protected function doAddItemXrefCustomerNote(ChildItemXrefCustomerNote $itemXrefCustomerNote)
+    {
+        $this->collItemXrefCustomerNotes[]= $itemXrefCustomerNote;
+        $itemXrefCustomerNote->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefCustomerNote $itemXrefCustomerNote The ChildItemXrefCustomerNote object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefCustomerNote(ChildItemXrefCustomerNote $itemXrefCustomerNote)
+    {
+        if ($this->getItemXrefCustomerNotes()->contains($itemXrefCustomerNote)) {
+            $pos = $this->collItemXrefCustomerNotes->search($itemXrefCustomerNote);
+            $this->collItemXrefCustomerNotes->remove($pos);
+            if (null === $this->itemXrefCustomerNotesScheduledForDeletion) {
+                $this->itemXrefCustomerNotesScheduledForDeletion = clone $this->collItemXrefCustomerNotes;
+                $this->itemXrefCustomerNotesScheduledForDeletion->clear();
+            }
+            $this->itemXrefCustomerNotesScheduledForDeletion[]= $itemXrefCustomerNote;
+            $itemXrefCustomerNote->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefCustomerNotes from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefCustomerNote[] List of ChildItemXrefCustomerNote objects
+     */
+    public function getItemXrefCustomerNotesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefCustomerNoteQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getItemXrefCustomerNotes($query, $con);
+    }
+
+    /**
      * Clears out the collBookingDetails collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -8387,6 +8697,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collItemXrefCustomerNotes) {
+                foreach ($this->collItemXrefCustomerNotes as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collBookingDetails) {
                 foreach ($this->collBookingDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -8415,6 +8730,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
         $this->collItemXrefManufacturers = null;
+        $this->collItemXrefCustomerNotes = null;
         $this->collBookingDetails = null;
         $this->collSalesHistoryLotserials = null;
         $this->collItemXrefUpcs = null;
