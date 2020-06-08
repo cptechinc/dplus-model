@@ -304,10 +304,10 @@ use Dplus\Model\MagicMethodTraits;
 	 */
 	public static function new() {
 		$termscode = new CustomerTermsCode();
-		$termcode->setMethod(self::DEFAULT_METHOD);
-		$termcode->setType(self::DEFAULT_TYPE);
-		$termcode->setHold(self::DEFAULT_HOLD);
-		$termcode->setFreight_allow(self::DEFAULT_FREIGHT_ALLOWED);
+		$termscode->setMethod(self::DEFAULT_METHOD);
+		$termscode->setType(self::DEFAULT_TYPE);
+		$termscode->setHold(self::DEFAULT_HOLD);
+		$termscode->setFreight_allow(self::DEFAULT_FREIGHT_ALLOWED);
 	}
 
 }
