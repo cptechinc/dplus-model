@@ -603,6 +603,20 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomerNotes', false);
+        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PontVxrdItem',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemXrefVendorNoteDetails', false);
+        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PontIntvItem',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'ItemXrefVendorNoteInternals', false);
         $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
