@@ -17,6 +17,11 @@ use Dplus\Model\MagicMethodTraits;
 
     const EOM_TERMS_SPLIT = 3;
 
+    const DEFAULT_METHOD = 'S';
+	const DEFAULT_TYPE   = 'STD';
+	const DEFAULT_HOLD   = 'N';
+	const DEFAULT_FREIGHT_ALLOWED = 'N';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -291,6 +296,18 @@ use Dplus\Model\MagicMethodTraits;
 			$col = "eom_months$index";
 			return $this->$col;
 		}
+	}
+
+    /**
+	 * Returns Instance with Defaults set
+	 * @return CustomerTermsCode
+	 */
+	public static function new() {
+		$termscode = new CustomerTermsCode();
+		$termcode->setMethod(self::DEFAULT_METHOD);
+		$termcode->setType(self::DEFAULT_TYPE);
+		$termcode->setHold(self::DEFAULT_HOLD);
+		$termcode->setFreight_allow(self::DEFAULT_FREIGHT_ALLOWED);
 	}
 
 }

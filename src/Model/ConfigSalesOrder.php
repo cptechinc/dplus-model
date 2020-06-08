@@ -34,7 +34,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	const COLUMN_ALIASES = array(
 		'request_catalog' => 'oetbconfrqstcatlg',
-		'freightin'       => 'oetbconffrtin'
+		'freightin'       => 'oetbconffrtin',
+		'freight_amt'     => 'oetbcon2frtallowamt'
 	);
 
 	/**
@@ -51,5 +52,13 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	public function is_freightin() {
 		return strtoupper($this->freightin) == 'Y';
+	}
+
+	/**
+	 * Returns if the Freight Allowed In Amt
+	 * @return bool
+	 */
+	public function get_freight_allowed_amt() {
+		return $this->freight_amt;
 	}
 }
