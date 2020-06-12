@@ -27,6 +27,10 @@ use \ItemXrefManufacturerQuery as ChildItemXrefManufacturerQuery;
 use \ItemXrefUpc as ChildItemXrefUpc;
 use \ItemXrefUpcQuery as ChildItemXrefUpcQuery;
 use \ItemXrefVendor as ChildItemXrefVendor;
+use \ItemXrefVendorNoteDetail as ChildItemXrefVendorNoteDetail;
+use \ItemXrefVendorNoteDetailQuery as ChildItemXrefVendorNoteDetailQuery;
+use \ItemXrefVendorNoteInternal as ChildItemXrefVendorNoteInternal;
+use \ItemXrefVendorNoteInternalQuery as ChildItemXrefVendorNoteInternalQuery;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
 use \SalesHistoryLotserial as ChildSalesHistoryLotserial;
 use \SalesHistoryLotserialQuery as ChildSalesHistoryLotserialQuery;
@@ -44,6 +48,8 @@ use Map\ItemXrefCustomerNoteTableMap;
 use Map\ItemXrefCustomerTableMap;
 use Map\ItemXrefManufacturerTableMap;
 use Map\ItemXrefUpcTableMap;
+use Map\ItemXrefVendorNoteDetailTableMap;
+use Map\ItemXrefVendorNoteInternalTableMap;
 use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
 use Propel\Runtime\Propel;
@@ -622,6 +628,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomerNotesPartial;
 
     /**
+     * @var        ObjectCollection|ChildItemXrefVendorNoteDetail[] Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
+     */
+    protected $collItemXrefVendorNoteDetails;
+    protected $collItemXrefVendorNoteDetailsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildItemXrefVendorNoteInternal[] Collection to store aggregation of ChildItemXrefVendorNoteInternal objects.
+     */
+    protected $collItemXrefVendorNoteInternals;
+    protected $collItemXrefVendorNoteInternalsPartial;
+
+    /**
      * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
      */
     protected $collBookingDetails;
@@ -694,6 +712,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomerNote[]
      */
     protected $itemXrefCustomerNotesScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefVendorNoteDetail[]
+     */
+    protected $itemXrefVendorNoteDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
+     */
+    protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3239,6 +3269,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemXrefCustomerNotes = null;
 
+            $this->collItemXrefVendorNoteDetails = null;
+
+            $this->collItemXrefVendorNoteInternals = null;
+
             $this->collBookingDetails = null;
 
             $this->collSalesHistoryLotserials = null;
@@ -3523,6 +3557,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemXrefCustomerNotes !== null) {
                 foreach ($this->collItemXrefCustomerNotes as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion !== null) {
+                if (!$this->itemXrefVendorNoteDetailsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->itemXrefVendorNoteDetailsScheduledForDeletion as $itemXrefVendorNoteDetail) {
+                        // need to save related object because we set the relation to null
+                        $itemXrefVendorNoteDetail->save($con);
+                    }
+                    $this->itemXrefVendorNoteDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefVendorNoteDetails !== null) {
+                foreach ($this->collItemXrefVendorNoteDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion !== null) {
+                if (!$this->itemXrefVendorNoteInternalsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->itemXrefVendorNoteInternalsScheduledForDeletion as $itemXrefVendorNoteInternal) {
+                        // need to save related object because we set the relation to null
+                        $itemXrefVendorNoteInternal->save($con);
+                    }
+                    $this->itemXrefVendorNoteInternalsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefVendorNoteInternals !== null) {
+                foreach ($this->collItemXrefVendorNoteInternals as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4558,6 +4628,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomerNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collItemXrefVendorNoteDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefVendorNoteDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_vend_xref_dets';
+                        break;
+                    default:
+                        $key = 'ItemXrefVendorNoteDetails';
+                }
+
+                $result[$key] = $this->collItemXrefVendorNoteDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collItemXrefVendorNoteInternals) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefVendorNoteInternals';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_vend_xref_internals';
+                        break;
+                    default:
+                        $key = 'ItemXrefVendorNoteInternals';
+                }
+
+                $result[$key] = $this->collItemXrefVendorNoteInternals->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collBookingDetails) {
 
                 switch ($keyType) {
@@ -5500,6 +5600,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getItemXrefVendorNoteDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefVendorNoteDetail($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getItemXrefVendorNoteInternals() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefVendorNoteInternal($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getBookingDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addBookingDetail($relObj->copy($deepCopy));
@@ -5890,6 +6002,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemXrefCustomerNote' == $relationName) {
             $this->initItemXrefCustomerNotes();
+            return;
+        }
+        if ('ItemXrefVendorNoteDetail' == $relationName) {
+            $this->initItemXrefVendorNoteDetails();
+            return;
+        }
+        if ('ItemXrefVendorNoteInternal' == $relationName) {
+            $this->initItemXrefVendorNoteInternals();
             return;
         }
         if ('BookingDetail' == $relationName) {
@@ -7551,6 +7671,506 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collItemXrefVendorNoteDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefVendorNoteDetails()
+     */
+    public function clearItemXrefVendorNoteDetails()
+    {
+        $this->collItemXrefVendorNoteDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefVendorNoteDetails collection loaded partially.
+     */
+    public function resetPartialItemXrefVendorNoteDetails($v = true)
+    {
+        $this->collItemXrefVendorNoteDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefVendorNoteDetails collection.
+     *
+     * By default this just sets the collItemXrefVendorNoteDetails collection to an empty array (like clearcollItemXrefVendorNoteDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefVendorNoteDetails($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefVendorNoteDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefVendorNoteDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefVendorNoteDetails = new $collectionClassName;
+        $this->collItemXrefVendorNoteDetails->setModel('\ItemXrefVendorNoteDetail');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefVendorNoteDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
+     * @throws PropelException
+     */
+    public function getItemXrefVendorNoteDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
+                // return empty collection
+                $this->initItemXrefVendorNoteDetails();
+            } else {
+                $collItemXrefVendorNoteDetails = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefVendorNoteDetailsPartial && count($collItemXrefVendorNoteDetails)) {
+                        $this->initItemXrefVendorNoteDetails(false);
+
+                        foreach ($collItemXrefVendorNoteDetails as $obj) {
+                            if (false == $this->collItemXrefVendorNoteDetails->contains($obj)) {
+                                $this->collItemXrefVendorNoteDetails->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefVendorNoteDetailsPartial = true;
+                    }
+
+                    return $collItemXrefVendorNoteDetails;
+                }
+
+                if ($partial && $this->collItemXrefVendorNoteDetails) {
+                    foreach ($this->collItemXrefVendorNoteDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefVendorNoteDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefVendorNoteDetails = $collItemXrefVendorNoteDetails;
+                $this->collItemXrefVendorNoteDetailsPartial = false;
+            }
+        }
+
+        return $this->collItemXrefVendorNoteDetails;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefVendorNoteDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefVendorNoteDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefVendorNoteDetails(Collection $itemXrefVendorNoteDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefVendorNoteDetail[] $itemXrefVendorNoteDetailsToDelete */
+        $itemXrefVendorNoteDetailsToDelete = $this->getItemXrefVendorNoteDetails(new Criteria(), $con)->diff($itemXrefVendorNoteDetails);
+
+
+        $this->itemXrefVendorNoteDetailsScheduledForDeletion = $itemXrefVendorNoteDetailsToDelete;
+
+        foreach ($itemXrefVendorNoteDetailsToDelete as $itemXrefVendorNoteDetailRemoved) {
+            $itemXrefVendorNoteDetailRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefVendorNoteDetails = null;
+        foreach ($itemXrefVendorNoteDetails as $itemXrefVendorNoteDetail) {
+            $this->addItemXrefVendorNoteDetail($itemXrefVendorNoteDetail);
+        }
+
+        $this->collItemXrefVendorNoteDetails = $itemXrefVendorNoteDetails;
+        $this->collItemXrefVendorNoteDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefVendorNoteDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefVendorNoteDetail objects.
+     * @throws PropelException
+     */
+    public function countItemXrefVendorNoteDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorNoteDetailsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendorNoteDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendorNoteDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefVendorNoteDetails());
+            }
+
+            $query = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefVendorNoteDetails);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefVendorNoteDetail object to this object
+     * through the ChildItemXrefVendorNoteDetail foreign key attribute.
+     *
+     * @param  ChildItemXrefVendorNoteDetail $l ChildItemXrefVendorNoteDetail
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $l)
+    {
+        if ($this->collItemXrefVendorNoteDetails === null) {
+            $this->initItemXrefVendorNoteDetails();
+            $this->collItemXrefVendorNoteDetailsPartial = true;
+        }
+
+        if (!$this->collItemXrefVendorNoteDetails->contains($l)) {
+            $this->doAddItemXrefVendorNoteDetail($l);
+
+            if ($this->itemXrefVendorNoteDetailsScheduledForDeletion and $this->itemXrefVendorNoteDetailsScheduledForDeletion->contains($l)) {
+                $this->itemXrefVendorNoteDetailsScheduledForDeletion->remove($this->itemXrefVendorNoteDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to add.
+     */
+    protected function doAddItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
+    {
+        $this->collItemXrefVendorNoteDetails[]= $itemXrefVendorNoteDetail;
+        $itemXrefVendorNoteDetail->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail The ChildItemXrefVendorNoteDetail object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefVendorNoteDetail(ChildItemXrefVendorNoteDetail $itemXrefVendorNoteDetail)
+    {
+        if ($this->getItemXrefVendorNoteDetails()->contains($itemXrefVendorNoteDetail)) {
+            $pos = $this->collItemXrefVendorNoteDetails->search($itemXrefVendorNoteDetail);
+            $this->collItemXrefVendorNoteDetails->remove($pos);
+            if (null === $this->itemXrefVendorNoteDetailsScheduledForDeletion) {
+                $this->itemXrefVendorNoteDetailsScheduledForDeletion = clone $this->collItemXrefVendorNoteDetails;
+                $this->itemXrefVendorNoteDetailsScheduledForDeletion->clear();
+            }
+            $this->itemXrefVendorNoteDetailsScheduledForDeletion[]= $itemXrefVendorNoteDetail;
+            $itemXrefVendorNoteDetail->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefVendorNoteDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefVendorNoteDetail[] List of ChildItemXrefVendorNoteDetail objects
+     */
+    public function getItemXrefVendorNoteDetailsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefVendorNoteDetailQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getItemXrefVendorNoteDetails($query, $con);
+    }
+
+    /**
+     * Clears out the collItemXrefVendorNoteInternals collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefVendorNoteInternals()
+     */
+    public function clearItemXrefVendorNoteInternals()
+    {
+        $this->collItemXrefVendorNoteInternals = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefVendorNoteInternals collection loaded partially.
+     */
+    public function resetPartialItemXrefVendorNoteInternals($v = true)
+    {
+        $this->collItemXrefVendorNoteInternalsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefVendorNoteInternals collection.
+     *
+     * By default this just sets the collItemXrefVendorNoteInternals collection to an empty array (like clearcollItemXrefVendorNoteInternals());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefVendorNoteInternals($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefVendorNoteInternals && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefVendorNoteInternalTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefVendorNoteInternals = new $collectionClassName;
+        $this->collItemXrefVendorNoteInternals->setModel('\ItemXrefVendorNoteInternal');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefVendorNoteInternal objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
+     * @throws PropelException
+     */
+    public function getItemXrefVendorNoteInternals(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
+                // return empty collection
+                $this->initItemXrefVendorNoteInternals();
+            } else {
+                $collItemXrefVendorNoteInternals = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefVendorNoteInternalsPartial && count($collItemXrefVendorNoteInternals)) {
+                        $this->initItemXrefVendorNoteInternals(false);
+
+                        foreach ($collItemXrefVendorNoteInternals as $obj) {
+                            if (false == $this->collItemXrefVendorNoteInternals->contains($obj)) {
+                                $this->collItemXrefVendorNoteInternals->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefVendorNoteInternalsPartial = true;
+                    }
+
+                    return $collItemXrefVendorNoteInternals;
+                }
+
+                if ($partial && $this->collItemXrefVendorNoteInternals) {
+                    foreach ($this->collItemXrefVendorNoteInternals as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefVendorNoteInternals[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefVendorNoteInternals = $collItemXrefVendorNoteInternals;
+                $this->collItemXrefVendorNoteInternalsPartial = false;
+            }
+        }
+
+        return $this->collItemXrefVendorNoteInternals;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefVendorNoteInternal objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefVendorNoteInternals A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setItemXrefVendorNoteInternals(Collection $itemXrefVendorNoteInternals, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefVendorNoteInternal[] $itemXrefVendorNoteInternalsToDelete */
+        $itemXrefVendorNoteInternalsToDelete = $this->getItemXrefVendorNoteInternals(new Criteria(), $con)->diff($itemXrefVendorNoteInternals);
+
+
+        $this->itemXrefVendorNoteInternalsScheduledForDeletion = $itemXrefVendorNoteInternalsToDelete;
+
+        foreach ($itemXrefVendorNoteInternalsToDelete as $itemXrefVendorNoteInternalRemoved) {
+            $itemXrefVendorNoteInternalRemoved->setItemMasterItem(null);
+        }
+
+        $this->collItemXrefVendorNoteInternals = null;
+        foreach ($itemXrefVendorNoteInternals as $itemXrefVendorNoteInternal) {
+            $this->addItemXrefVendorNoteInternal($itemXrefVendorNoteInternal);
+        }
+
+        $this->collItemXrefVendorNoteInternals = $itemXrefVendorNoteInternals;
+        $this->collItemXrefVendorNoteInternalsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefVendorNoteInternal objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefVendorNoteInternal objects.
+     * @throws PropelException
+     */
+    public function countItemXrefVendorNoteInternals(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefVendorNoteInternalsPartial && !$this->isNew();
+        if (null === $this->collItemXrefVendorNoteInternals || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefVendorNoteInternals) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefVendorNoteInternals());
+            }
+
+            $query = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefVendorNoteInternals);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefVendorNoteInternal object to this object
+     * through the ChildItemXrefVendorNoteInternal foreign key attribute.
+     *
+     * @param  ChildItemXrefVendorNoteInternal $l ChildItemXrefVendorNoteInternal
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $l)
+    {
+        if ($this->collItemXrefVendorNoteInternals === null) {
+            $this->initItemXrefVendorNoteInternals();
+            $this->collItemXrefVendorNoteInternalsPartial = true;
+        }
+
+        if (!$this->collItemXrefVendorNoteInternals->contains($l)) {
+            $this->doAddItemXrefVendorNoteInternal($l);
+
+            if ($this->itemXrefVendorNoteInternalsScheduledForDeletion and $this->itemXrefVendorNoteInternalsScheduledForDeletion->contains($l)) {
+                $this->itemXrefVendorNoteInternalsScheduledForDeletion->remove($this->itemXrefVendorNoteInternalsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to add.
+     */
+    protected function doAddItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
+    {
+        $this->collItemXrefVendorNoteInternals[]= $itemXrefVendorNoteInternal;
+        $itemXrefVendorNoteInternal->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal The ChildItemXrefVendorNoteInternal object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeItemXrefVendorNoteInternal(ChildItemXrefVendorNoteInternal $itemXrefVendorNoteInternal)
+    {
+        if ($this->getItemXrefVendorNoteInternals()->contains($itemXrefVendorNoteInternal)) {
+            $pos = $this->collItemXrefVendorNoteInternals->search($itemXrefVendorNoteInternal);
+            $this->collItemXrefVendorNoteInternals->remove($pos);
+            if (null === $this->itemXrefVendorNoteInternalsScheduledForDeletion) {
+                $this->itemXrefVendorNoteInternalsScheduledForDeletion = clone $this->collItemXrefVendorNoteInternals;
+                $this->itemXrefVendorNoteInternalsScheduledForDeletion->clear();
+            }
+            $this->itemXrefVendorNoteInternalsScheduledForDeletion[]= $itemXrefVendorNoteInternal;
+            $itemXrefVendorNoteInternal->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related ItemXrefVendorNoteInternals from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefVendorNoteInternal[] List of ChildItemXrefVendorNoteInternal objects
+     */
+    public function getItemXrefVendorNoteInternalsJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefVendorNoteInternalQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getItemXrefVendorNoteInternals($query, $con);
+    }
+
+    /**
      * Clears out the collBookingDetails collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -8702,6 +9322,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collItemXrefVendorNoteDetails) {
+                foreach ($this->collItemXrefVendorNoteDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collItemXrefVendorNoteInternals) {
+                foreach ($this->collItemXrefVendorNoteInternals as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collBookingDetails) {
                 foreach ($this->collBookingDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -8731,6 +9361,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;
+        $this->collItemXrefVendorNoteDetails = null;
+        $this->collItemXrefVendorNoteInternals = null;
         $this->collBookingDetails = null;
         $this->collSalesHistoryLotserials = null;
         $this->collItemXrefUpcs = null;

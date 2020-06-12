@@ -2307,6 +2307,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="notes_vend_xref_det" idMethod="native" phpName="ItemXrefVendorNoteDetail">
+    <column name="PontType" phpName="Ponttype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PontTypeDesc" phpName="Ponttypedesc" type="VARCHAR" size="40"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6"/>
+    <column name="PontVxrdItem" phpName="Pontvxrditem" type="VARCHAR" size="30"/>
+    <column name="PontForm" phpName="Pontform" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PontSeq" phpName="Pontseq" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PontNote" phpName="Pontnote" type="VARCHAR" size="150"/>
+    <column name="PontKey2" phpName="Pontkey2" type="VARCHAR" size="75" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="PontVxrdItem" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="notes_vend_xref_internal" idMethod="native" phpName="ItemXrefVendorNoteInternal">
+    <column name="PontType" phpName="Ponttype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PontTypeDesc" phpName="Ponttypedesc" type="VARCHAR" size="40"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6"/>
+    <column name="PontIntvItem" phpName="Pontintvitem" type="VARCHAR" size="30"/>
+    <column name="PontIntvDate" phpName="Pontintvdate" type="VARCHAR" size="8"/>
+    <column name="PontIntvTime" phpName="Pontintvtime" type="VARCHAR" size="8"/>
+    <column name="PontIntvUser" phpName="Pontintvuser" type="VARCHAR" size="8"/>
+    <column name="PontForm" phpName="Pontform" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PontSeq" phpName="Pontseq" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PontNote" phpName="Pontnote" type="VARCHAR" size="150"/>
+    <column name="PontKey2" phpName="Pontkey2" type="VARCHAR" size="75" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="PontIntvItem" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="notes_whse_invc_stmt" idMethod="native" phpName="WarehouseNote">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
@@ -2573,6 +2620,25 @@
   <table name="pr_bmat_head" idMethod="native" phpName="BillOfMaterial">
     <column name="BomhProdItem" phpName="Bomhproditem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="BomhLevel" phpName="Bomhlevel" type="INTEGER" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="printer_control" idMethod="native" phpName="Printer">
+    <column name="PrctPrinterId" phpName="Prctprinterid" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PrctDesc" phpName="Prctdesc" type="VARCHAR" size="30"/>
+    <column name="PrctPrtrType" phpName="Prctprtrtype" type="VARCHAR" size="1"/>
+    <column name="PrctTypeDesc" phpName="Prcttypedesc" type="VARCHAR" size="20"/>
+    <column name="PrctForm" phpName="Prctform" type="VARCHAR" size="12"/>
+    <column name="PrctPitch10" phpName="Prctpitch10" type="VARCHAR" size="1"/>
+    <column name="PrctPitch12" phpName="Prctpitch12" type="VARCHAR" size="1"/>
+    <column name="PrctPitch17" phpName="Prctpitch17" type="VARCHAR" size="1"/>
+    <column name="PrctWhse" phpName="Prctwhse" type="VARCHAR" size="2"/>
+    <column name="PrctSelectList" phpName="Prctselectlist" type="VARCHAR" size="1"/>
+    <column name="PrctAssgndCart" phpName="Prctassgndcart" type="VARCHAR" size="8"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
@@ -4073,6 +4139,24 @@
     <column name="OptnDocStorFolder" phpName="Optndocstorfolder" type="VARCHAR" size="8"/>
     <column name="OptnWebValidate" phpName="Optnwebvalidate" type="VARCHAR" size="1"/>
     <column name="OptnWebForce" phpName="Optnwebforce" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="thermal_label_head" idMethod="native" phpName="ThermalLabelFormat">
+    <column name="TllhFormat" phpName="Tllhformat" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="TllhDesc" phpName="Tllhdesc" type="VARCHAR" size="50"/>
+    <column name="TllhSrc" phpName="Tllhsrc" type="VARCHAR" size="2"/>
+    <column name="TllhPrtrModl" phpName="Tllhprtrmodl" type="VARCHAR" size="10"/>
+    <column name="TllhPrtrSplr" phpName="Tllhprtrsplr" type="VARCHAR" size="12"/>
+    <column name="TllhWidth" phpName="Tllhwidth" type="DECIMAL" size="20" scale="2"/>
+    <column name="TllhLength" phpName="Tllhlength" type="DECIMAL" size="20" scale="2"/>
+    <column name="TllhLock" phpName="Tllhlock" type="VARCHAR" size="1"/>
+    <column name="TllhSortBy" phpName="Tllhsortby" type="INTEGER" size="1"/>
+    <column name="TllhType" phpName="Tllhtype" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
