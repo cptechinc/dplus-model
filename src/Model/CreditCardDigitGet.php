@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'ar_cust_crcd' table.
  */
 class CreditCardDigitGet extends BaseCreditCardDigitGet {
-    use ThrowErrorTrait;
+	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 1;
@@ -24,15 +24,24 @@ class CreditCardDigitGet extends BaseCreditCardDigitGet {
 		'description'             => 'artbcrcdname',
 		'name'                    => 'artbcrcdname',
 		'gl_account'              => 'artbcrcdglacct',
-        'custid'                  => 'artbcrcdcustid',
-        'charge_gl_account'       => 'artbcrcdchrgglacct',
-        'charge_rate'             => 'artbcrcdchrgrate',
-        'trans_cost'              => 'artbcrcdchrgtrancost',
-        'cc_surcharge_percent'    => 'artbcrcdccsurchgpct',
-        'lmcc_surcharge_percent'  => 'artbcrcdlmccsurchgpct',
+		'custid'                  => 'artbcrcdcustid',
+		'charge_gl_account'       => 'artbcrcdchrgglacct',
+		'charge_rate'             => 'artbcrcdchrgrate',
+		'trans_cost'              => 'artbcrcdchrgtrancost',
+		'cc_surcharge_percent'    => 'artbcrcdccsurchgpct',
+		'lmcc_surcharge_percent'  => 'artbcrcdlmccsurchgpct',
 		'date'		              => 'dateupdtd',
-		'time'		              => 'timeupdtd'
+		'time'		              => 'timeupdtd',
+		'customer_name'			  => 'customer_name'
 	);
+
+	/**
+	 * Return Customer for Cash Customer
+	 * @return Customer
+	 */
+	public function getCustomer_name() {
+		return CustomerQuery::create()->findOneByCustid($this->custid);
+	}
 
 	/**
 	 * Return the Max Number of characters allowed for Code
