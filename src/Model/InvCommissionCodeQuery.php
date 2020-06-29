@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  *
  * FindOneByXXX()
- * @method  InvCommissionCode findOneByCode(string $code)      Return the first InvCommissionCode filtered by the aptbuyrcode column
+ * @method  InvCommissionCode findOneByCode(string $code)      Return the first InvCommissionCode filtered by the IntbCommGrup column
  *
  * FindByXXX()
  *
  *
  */
 class InvCommissionCodeQuery extends BaseInvCommissionCodeQuery {
-    use QueryTraits;
+	use QueryTraits;
 }
