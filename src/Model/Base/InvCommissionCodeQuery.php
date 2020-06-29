@@ -22,14 +22,12 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildInvCommissionCodeQuery orderByIntbcommgrup($order = Criteria::ASC) Order by the IntbCommGrup column
  * @method     ChildInvCommissionCodeQuery orderByIntbcommdesc($order = Criteria::ASC) Order by the IntbCommDesc column
- * @method     ChildInvCommissionCodeQuery orderByIntbcommmarkup($order = Criteria::ASC) Order by the IntbCommMarkup column
  * @method     ChildInvCommissionCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildInvCommissionCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildInvCommissionCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
  * @method     ChildInvCommissionCodeQuery groupByIntbcommgrup() Group by the IntbCommGrup column
  * @method     ChildInvCommissionCodeQuery groupByIntbcommdesc() Group by the IntbCommDesc column
- * @method     ChildInvCommissionCodeQuery groupByIntbcommmarkup() Group by the IntbCommMarkup column
  * @method     ChildInvCommissionCodeQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildInvCommissionCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildInvCommissionCodeQuery groupByDummy() Group by the dummy column
@@ -59,7 +57,6 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildInvCommissionCode findOneByIntbcommgrup(string $IntbCommGrup) Return the first ChildInvCommissionCode filtered by the IntbCommGrup column
  * @method     ChildInvCommissionCode findOneByIntbcommdesc(string $IntbCommDesc) Return the first ChildInvCommissionCode filtered by the IntbCommDesc column
- * @method     ChildInvCommissionCode findOneByIntbcommmarkup(string $IntbCommMarkup) Return the first ChildInvCommissionCode filtered by the IntbCommMarkup column
  * @method     ChildInvCommissionCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvCommissionCode filtered by the DateUpdtd column
  * @method     ChildInvCommissionCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvCommissionCode filtered by the TimeUpdtd column
  * @method     ChildInvCommissionCode findOneByDummy(string $dummy) Return the first ChildInvCommissionCode filtered by the dummy column *
@@ -69,7 +66,6 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildInvCommissionCode requireOneByIntbcommgrup(string $IntbCommGrup) Return the first ChildInvCommissionCode filtered by the IntbCommGrup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvCommissionCode requireOneByIntbcommdesc(string $IntbCommDesc) Return the first ChildInvCommissionCode filtered by the IntbCommDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvCommissionCode requireOneByIntbcommmarkup(string $IntbCommMarkup) Return the first ChildInvCommissionCode filtered by the IntbCommMarkup column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvCommissionCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvCommissionCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvCommissionCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvCommissionCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvCommissionCode requireOneByDummy(string $dummy) Return the first ChildInvCommissionCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -77,7 +73,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvCommissionCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvCommissionCode objects based on current ModelCriteria
  * @method     ChildInvCommissionCode[]|ObjectCollection findByIntbcommgrup(string $IntbCommGrup) Return ChildInvCommissionCode objects filtered by the IntbCommGrup column
  * @method     ChildInvCommissionCode[]|ObjectCollection findByIntbcommdesc(string $IntbCommDesc) Return ChildInvCommissionCode objects filtered by the IntbCommDesc column
- * @method     ChildInvCommissionCode[]|ObjectCollection findByIntbcommmarkup(string $IntbCommMarkup) Return ChildInvCommissionCode objects filtered by the IntbCommMarkup column
  * @method     ChildInvCommissionCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvCommissionCode objects filtered by the DateUpdtd column
  * @method     ChildInvCommissionCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvCommissionCode objects filtered by the TimeUpdtd column
  * @method     ChildInvCommissionCode[]|ObjectCollection findByDummy(string $dummy) Return ChildInvCommissionCode objects filtered by the dummy column
@@ -179,7 +174,7 @@ abstract class InvCommissionCodeQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT IntbCommGrup, IntbCommDesc, IntbCommMarkup, DateUpdtd, TimeUpdtd, dummy FROM inv_comm_code WHERE IntbCommGrup = :p0';
+        $sql = 'SELECT IntbCommGrup, IntbCommDesc, DateUpdtd, TimeUpdtd, dummy FROM inv_comm_code WHERE IntbCommGrup = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -317,47 +312,6 @@ abstract class InvCommissionCodeQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(InvCommissionCodeTableMap::COL_INTBCOMMDESC, $intbcommdesc, $comparison);
-    }
-
-    /**
-     * Filter the query on the IntbCommMarkup column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByIntbcommmarkup(1234); // WHERE IntbCommMarkup = 1234
-     * $query->filterByIntbcommmarkup(array(12, 34)); // WHERE IntbCommMarkup IN (12, 34)
-     * $query->filterByIntbcommmarkup(array('min' => 12)); // WHERE IntbCommMarkup > 12
-     * </code>
-     *
-     * @param     mixed $intbcommmarkup The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildInvCommissionCodeQuery The current query, for fluid interface
-     */
-    public function filterByIntbcommmarkup($intbcommmarkup = null, $comparison = null)
-    {
-        if (is_array($intbcommmarkup)) {
-            $useMinMax = false;
-            if (isset($intbcommmarkup['min'])) {
-                $this->addUsingAlias(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP, $intbcommmarkup['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($intbcommmarkup['max'])) {
-                $this->addUsingAlias(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP, $intbcommmarkup['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP, $intbcommmarkup, $comparison);
     }
 
     /**

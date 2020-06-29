@@ -59,7 +59,7 @@ class InvCommissionCodeTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    const NUM_COLUMNS = 5;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class InvCommissionCodeTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    const NUM_HYDRATE_COLUMNS = 5;
 
     /**
      * the column name for the IntbCommGrup field
@@ -80,11 +80,6 @@ class InvCommissionCodeTableMap extends TableMap
      * the column name for the IntbCommDesc field
      */
     const COL_INTBCOMMDESC = 'inv_comm_code.IntbCommDesc';
-
-    /**
-     * the column name for the IntbCommMarkup field
-     */
-    const COL_INTBCOMMMARKUP = 'inv_comm_code.IntbCommMarkup';
 
     /**
      * the column name for the DateUpdtd field
@@ -113,11 +108,11 @@ class InvCommissionCodeTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbcommgrup', 'Intbcommdesc', 'Intbcommmarkup', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbcommgrup', 'intbcommdesc', 'intbcommmarkup', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvCommissionCodeTableMap::COL_INTBCOMMGRUP, InvCommissionCodeTableMap::COL_INTBCOMMDESC, InvCommissionCodeTableMap::COL_INTBCOMMMARKUP, InvCommissionCodeTableMap::COL_DATEUPDTD, InvCommissionCodeTableMap::COL_TIMEUPDTD, InvCommissionCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbCommGrup', 'IntbCommDesc', 'IntbCommMarkup', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Intbcommgrup', 'Intbcommdesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('intbcommgrup', 'intbcommdesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvCommissionCodeTableMap::COL_INTBCOMMGRUP, InvCommissionCodeTableMap::COL_INTBCOMMDESC, InvCommissionCodeTableMap::COL_DATEUPDTD, InvCommissionCodeTableMap::COL_TIMEUPDTD, InvCommissionCodeTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('IntbCommGrup', 'IntbCommDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
 
     /**
@@ -127,11 +122,11 @@ class InvCommissionCodeTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbcommgrup' => 0, 'Intbcommdesc' => 1, 'Intbcommmarkup' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('intbcommgrup' => 0, 'intbcommdesc' => 1, 'intbcommmarkup' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(InvCommissionCodeTableMap::COL_INTBCOMMGRUP => 0, InvCommissionCodeTableMap::COL_INTBCOMMDESC => 1, InvCommissionCodeTableMap::COL_INTBCOMMMARKUP => 2, InvCommissionCodeTableMap::COL_DATEUPDTD => 3, InvCommissionCodeTableMap::COL_TIMEUPDTD => 4, InvCommissionCodeTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('IntbCommGrup' => 0, 'IntbCommDesc' => 1, 'IntbCommMarkup' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Intbcommgrup' => 0, 'Intbcommdesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
+        self::TYPE_CAMELNAME     => array('intbcommgrup' => 0, 'intbcommdesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
+        self::TYPE_COLNAME       => array(InvCommissionCodeTableMap::COL_INTBCOMMGRUP => 0, InvCommissionCodeTableMap::COL_INTBCOMMDESC => 1, InvCommissionCodeTableMap::COL_DATEUPDTD => 2, InvCommissionCodeTableMap::COL_TIMEUPDTD => 3, InvCommissionCodeTableMap::COL_DUMMY => 4, ),
+        self::TYPE_FIELDNAME     => array('IntbCommGrup' => 0, 'IntbCommDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
 
     /**
@@ -153,7 +148,6 @@ class InvCommissionCodeTableMap extends TableMap
         // columns
         $this->addPrimaryKey('IntbCommGrup', 'Intbcommgrup', 'VARCHAR', true, 8, null);
         $this->addColumn('IntbCommDesc', 'Intbcommdesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('IntbCommMarkup', 'Intbcommmarkup', 'DECIMAL', false, 20, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -316,14 +310,12 @@ class InvCommissionCodeTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_INTBCOMMGRUP);
             $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_INTBCOMMDESC);
-            $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP);
             $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(InvCommissionCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.IntbCommGrup');
             $criteria->addSelectColumn($alias . '.IntbCommDesc');
-            $criteria->addSelectColumn($alias . '.IntbCommMarkup');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

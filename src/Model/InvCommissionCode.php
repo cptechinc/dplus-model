@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'inv_comm_code' table.
  */
 class InvCommissionCode extends BaseInvCommissionCode {
-	use ThrowErrorTrait;
+    use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 8;
@@ -19,10 +19,9 @@ class InvCommissionCode extends BaseInvCommissionCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'		   => 'intbcommgrup',
-		'code'		   => 'intbcommgrup',
-		'description'  => 'intbcommdesc',
-		'markup'	   => 'intbcommmarkup',
+		'id'           => 'IntbCommGrup',
+		'code'         => 'IntbCommGrup',
+		'description'  => 'IntbCommDesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);

@@ -79,13 +79,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     protected $intbcommdesc;
 
     /**
-     * The value for the intbcommmarkup field.
-     *
-     * @var        string
-     */
-    protected $intbcommmarkup;
-
-    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -372,16 +365,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbcommmarkup] column value.
-     *
-     * @return string
-     */
-    public function getIntbcommmarkup()
-    {
-        return $this->intbcommmarkup;
-    }
-
-    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -450,26 +433,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
 
         return $this;
     } // setIntbcommdesc()
-
-    /**
-     * Set the value of [intbcommmarkup] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvCommissionCode The current object (for fluent API support)
-     */
-    public function setIntbcommmarkup($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->intbcommmarkup !== $v) {
-            $this->intbcommmarkup = $v;
-            $this->modifiedColumns[InvCommissionCodeTableMap::COL_INTBCOMMMARKUP] = true;
-        }
-
-        return $this;
-    } // setIntbcommmarkup()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -573,16 +536,13 @@ abstract class InvCommissionCode implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvCommissionCodeTableMap::translateFieldName('Intbcommdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbcommdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvCommissionCodeTableMap::translateFieldName('Intbcommmarkup', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbcommmarkup = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -592,7 +552,7 @@ abstract class InvCommissionCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = InvCommissionCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = InvCommissionCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\InvCommissionCode'), 0, $e);
@@ -815,9 +775,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         if ($this->isColumnModified(InvCommissionCodeTableMap::COL_INTBCOMMDESC)) {
             $modifiedColumns[':p' . $index++]  = 'IntbCommDesc';
         }
-        if ($this->isColumnModified(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbCommMarkup';
-        }
         if ($this->isColumnModified(InvCommissionCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -843,9 +800,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
                         break;
                     case 'IntbCommDesc':
                         $stmt->bindValue($identifier, $this->intbcommdesc, PDO::PARAM_STR);
-                        break;
-                    case 'IntbCommMarkup':
-                        $stmt->bindValue($identifier, $this->intbcommmarkup, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -918,15 +872,12 @@ abstract class InvCommissionCode implements ActiveRecordInterface
                 return $this->getIntbcommdesc();
                 break;
             case 2:
-                return $this->getIntbcommmarkup();
-                break;
-            case 3:
                 return $this->getDateupdtd();
                 break;
-            case 4:
+            case 3:
                 return $this->getTimeupdtd();
                 break;
-            case 5:
+            case 4:
                 return $this->getDummy();
                 break;
             default:
@@ -961,10 +912,9 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         $result = array(
             $keys[0] => $this->getIntbcommgrup(),
             $keys[1] => $this->getIntbcommdesc(),
-            $keys[2] => $this->getIntbcommmarkup(),
-            $keys[3] => $this->getDateupdtd(),
-            $keys[4] => $this->getTimeupdtd(),
-            $keys[5] => $this->getDummy(),
+            $keys[2] => $this->getDateupdtd(),
+            $keys[3] => $this->getTimeupdtd(),
+            $keys[4] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1028,15 +978,12 @@ abstract class InvCommissionCode implements ActiveRecordInterface
                 $this->setIntbcommdesc($value);
                 break;
             case 2:
-                $this->setIntbcommmarkup($value);
-                break;
-            case 3:
                 $this->setDateupdtd($value);
                 break;
-            case 4:
+            case 3:
                 $this->setTimeupdtd($value);
                 break;
-            case 5:
+            case 4:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1072,16 +1019,13 @@ abstract class InvCommissionCode implements ActiveRecordInterface
             $this->setIntbcommdesc($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setIntbcommmarkup($arr[$keys[2]]);
+            $this->setDateupdtd($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setDateupdtd($arr[$keys[3]]);
+            $this->setTimeupdtd($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setTimeupdtd($arr[$keys[4]]);
-        }
-        if (array_key_exists($keys[5], $arr)) {
-            $this->setDummy($arr[$keys[5]]);
+            $this->setDummy($arr[$keys[4]]);
         }
     }
 
@@ -1129,9 +1073,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         }
         if ($this->isColumnModified(InvCommissionCodeTableMap::COL_INTBCOMMDESC)) {
             $criteria->add(InvCommissionCodeTableMap::COL_INTBCOMMDESC, $this->intbcommdesc);
-        }
-        if ($this->isColumnModified(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP)) {
-            $criteria->add(InvCommissionCodeTableMap::COL_INTBCOMMMARKUP, $this->intbcommmarkup);
         }
         if ($this->isColumnModified(InvCommissionCodeTableMap::COL_DATEUPDTD)) {
             $criteria->add(InvCommissionCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1230,7 +1171,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     {
         $copyObj->setIntbcommgrup($this->getIntbcommgrup());
         $copyObj->setIntbcommdesc($this->getIntbcommdesc());
-        $copyObj->setIntbcommmarkup($this->getIntbcommmarkup());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1617,6 +1557,31 @@ abstract class InvCommissionCode implements ActiveRecordInterface
         return $this->getItemMasterItems($query, $con);
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvCommissionCode is new, it will return
+     * an empty collection; or if this InvCommissionCode has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvCommissionCode.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinItemPricing(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('ItemPricing', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -1626,7 +1591,6 @@ abstract class InvCommissionCode implements ActiveRecordInterface
     {
         $this->intbcommgrup = null;
         $this->intbcommdesc = null;
-        $this->intbcommmarkup = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
