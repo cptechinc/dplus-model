@@ -18,19 +18,19 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 	const FORM_FALSE = 'N';
 
 	const FORMS_LABELS = array(
+		'quote'            => 'quote',
 		'pickticket'       => 'pick ticket',
 		'packticket'       => 'pack ticket',
 		'invoice'          => 'invoice',
 		'acknowledgement'  => 'acknowledgement',
-		'quote'            => 'quote',
 	);
 
 	const FORMS_LABELS_SHORT = array(
+		'quote'            => 'qte',
 		'pickticket'       => 'pick',
 		'packticket'       => 'pack',
 		'invoice'          => 'invc',
 		'acknowledgement'  => 'ack',
-		'quote'            => 'qte',
 	);
 
 	/**
@@ -38,14 +38,14 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'             => 'qnicxmtype',
-		'description'      => 'qnicxmtypedesc',
+		'type'             => 'qntype',
+		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
 		'custid'           => 'arcucustid',
-		'pickticket'       => 'qnicxmordrpickticket',
-		'packticket'       => 'qnicxmordrpackticket',
-		'invoice'          => 'qnicxmordrinvoice',
-		'acknowledgement'  => 'qnicxmordracknow',
+		'pickticket'       => 'qnicxmpickticket',
+		'packticket'       => 'qnicxmpackticket',
+		'invoice'          => 'qnicxminvoice',
+		'acknowledgement'  => 'qnicxmacknow',
 		'quote'            => 'qnicxmquote',
 		'form'             => 'qnform',
 		'sequence'      => 'qnseq',
@@ -85,7 +85,7 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 	 * @return void
 	 */
 	public static function new() {
-		$item = new ItemWhseOrderNote();
+		$item = new ItemXrefCustomerNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
 		$item->setPickticket(self::FORM_FALSE);
