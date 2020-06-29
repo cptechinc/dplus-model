@@ -19,9 +19,9 @@ class InvCommissionCode extends BaseInvCommissionCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'           => 'IntbCommGrup',
-		'code'         => 'IntbCommGrup',
-		'description'  => 'IntbCommDesc',
+		'id'           => 'intbcommgrup',
+		'code'         => 'intbcommgrup',
+		'description'  => 'intbcommgesc',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
