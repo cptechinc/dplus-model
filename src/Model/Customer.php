@@ -82,6 +82,18 @@ class Customer extends BaseCustomer {
 	}
 
 	/**
+	 * Return CustomerShipto
+	 *
+	 * @param string $shiptoid
+	 * @return CustomerShipto
+	 */
+	public function get_shipto($shiptoid) {
+		$query = new CustomerShiptoQuery();
+		$query->filterByCustid($this->id);
+		return $query->findOne();
+	}
+
+	/**
 	 * Returns the total Sales Amount of the last specified months
 	 *
 	 * @param  int  $months Number of Months Back
