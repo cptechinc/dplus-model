@@ -33,9 +33,13 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'request_catalog' => 'oetbconfrqstcatlg',
-		'freightin'       => 'oetbconffrtin',
-		'freight_amt'     => 'oetbcon2frtallowamt'
+		'request_catalog'   => 'oetbconfrqstcatlg',
+		'freightin'         => 'oetbconffrtin',
+		'freight_amt'       => 'oetbcon2frtallowamt',
+		'note_default_pick' => 'oetbconfdefpick',
+		'note_default_pack' => 'oetbconfdefpack',
+		'note_default_invoice' => 'oetbconfdefinvc',
+		'note_default_acknowledgement' => 'oetbconfdefack',
 	);
 
 	/**
