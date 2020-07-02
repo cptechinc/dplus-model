@@ -87,9 +87,9 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
     const COL_APVEVENDID = 'notes_vend_xref_det.ApveVendId';
 
     /**
-     * the column name for the PontVxrdItem field
+     * the column name for the InitItemNbr field
      */
-    const COL_PONTVXRDITEM = 'notes_vend_xref_det.PontVxrdItem';
+    const COL_INITITEMNBR = 'notes_vend_xref_det.InitItemNbr';
 
     /**
      * the column name for the PontForm field
@@ -138,10 +138,10 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Apvevendid', 'Pontvxrditem', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'apvevendid', 'pontvxrditem', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPE, ItemXrefVendorNoteDetailTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID, ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM, ItemXrefVendorNoteDetailTableMap::COL_PONTFORM, ItemXrefVendorNoteDetailTableMap::COL_PONTSEQ, ItemXrefVendorNoteDetailTableMap::COL_PONTNOTE, ItemXrefVendorNoteDetailTableMap::COL_PONTKEY2, ItemXrefVendorNoteDetailTableMap::COL_DATEUPDTD, ItemXrefVendorNoteDetailTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteDetailTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'ApveVendId', 'PontVxrdItem', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Apvevendid', 'InitItemNbr', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'apvevendid', 'initItemNbr', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPE, ItemXrefVendorNoteDetailTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID, ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR, ItemXrefVendorNoteDetailTableMap::COL_PONTFORM, ItemXrefVendorNoteDetailTableMap::COL_PONTSEQ, ItemXrefVendorNoteDetailTableMap::COL_PONTNOTE, ItemXrefVendorNoteDetailTableMap::COL_PONTKEY2, ItemXrefVendorNoteDetailTableMap::COL_DATEUPDTD, ItemXrefVendorNoteDetailTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteDetailTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'ApveVendId', 'InitItemNbr', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
@@ -152,10 +152,10 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'Pontvxrditem' => 3, 'Pontform' => 4, 'Pontseq' => 5, 'Pontnote' => 6, 'Pontkey2' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'pontvxrditem' => 3, 'pontform' => 4, 'pontseq' => 5, 'pontnote' => 6, 'pontkey2' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteDetailTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM => 3, ItemXrefVendorNoteDetailTableMap::COL_PONTFORM => 4, ItemXrefVendorNoteDetailTableMap::COL_PONTSEQ => 5, ItemXrefVendorNoteDetailTableMap::COL_PONTNOTE => 6, ItemXrefVendorNoteDetailTableMap::COL_PONTKEY2 => 7, ItemXrefVendorNoteDetailTableMap::COL_DATEUPDTD => 8, ItemXrefVendorNoteDetailTableMap::COL_TIMEUPDTD => 9, ItemXrefVendorNoteDetailTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'PontVxrdItem' => 3, 'PontForm' => 4, 'PontSeq' => 5, 'PontNote' => 6, 'PontKey2' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'InitItemNbr' => 3, 'Pontform' => 4, 'Pontseq' => 5, 'Pontnote' => 6, 'Pontkey2' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
+        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'initItemNbr' => 3, 'pontform' => 4, 'pontseq' => 5, 'pontnote' => 6, 'pontkey2' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_COLNAME       => array(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteDetailTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR => 3, ItemXrefVendorNoteDetailTableMap::COL_PONTFORM => 4, ItemXrefVendorNoteDetailTableMap::COL_PONTSEQ => 5, ItemXrefVendorNoteDetailTableMap::COL_PONTNOTE => 6, ItemXrefVendorNoteDetailTableMap::COL_PONTKEY2 => 7, ItemXrefVendorNoteDetailTableMap::COL_DATEUPDTD => 8, ItemXrefVendorNoteDetailTableMap::COL_TIMEUPDTD => 9, ItemXrefVendorNoteDetailTableMap::COL_DUMMY => 10, ),
+        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'InitItemNbr' => 3, 'PontForm' => 4, 'PontSeq' => 5, 'PontNote' => 6, 'PontKey2' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
@@ -179,7 +179,7 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
         $this->addPrimaryKey('PontType', 'Ponttype', 'VARCHAR', true, 4, '');
         $this->addColumn('PontTypeDesc', 'Ponttypedesc', 'VARCHAR', false, 40, null);
         $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6, null);
-        $this->addForeignKey('PontVxrdItem', 'Pontvxrditem', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
+        $this->addForeignKey('InitItemNbr', 'InitItemNbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
         $this->addPrimaryKey('PontForm', 'Pontform', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('PontSeq', 'Pontseq', 'INTEGER', true, 8, 0);
         $this->addColumn('PontNote', 'Pontnote', 'VARCHAR', false, 150, null);
@@ -204,7 +204,7 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
-    0 => ':PontVxrdItem',
+    0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
@@ -426,7 +426,7 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPE);
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTTYPEDESC);
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID);
-            $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM);
+            $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR);
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTFORM);
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTSEQ);
             $criteria->addSelectColumn(ItemXrefVendorNoteDetailTableMap::COL_PONTNOTE);
@@ -438,7 +438,7 @@ class ItemXrefVendorNoteDetailTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PontType');
             $criteria->addSelectColumn($alias . '.PontTypeDesc');
             $criteria->addSelectColumn($alias . '.ApveVendId');
-            $criteria->addSelectColumn($alias . '.PontVxrdItem');
+            $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.PontForm');
             $criteria->addSelectColumn($alias . '.PontSeq');
             $criteria->addSelectColumn($alias . '.PontNote');

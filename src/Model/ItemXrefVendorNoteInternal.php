@@ -26,8 +26,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'type'         => 'ponttype',
 		'description'  => 'ponttypedesc',
 		'vendorid'     => 'apvevendid',
-		'itemid'       => 'pontintvitem',
-		'vendoritemid' => 'pontintvitem',
+		'itemid'       => 'inititemnbr',
 		'form'         => 'pontform',
 		'sequence'     => 'pontseq',
 		'notedate'     => 'pontintvdate',
@@ -36,6 +35,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'key2'         => 'pontkey2',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
+
 		'item'         => 'itemMasterItem',
 	);
 
@@ -72,5 +72,4 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		$note->setNotetime(date(self::FORMAT_NOTETIME));
 		return $note;
 	}
-
 }

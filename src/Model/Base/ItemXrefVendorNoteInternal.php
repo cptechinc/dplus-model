@@ -86,11 +86,11 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
     protected $apvevendid;
 
     /**
-     * The value for the pontintvitem field.
+     * The value for the inititemnbr field.
      *
      * @var        string
      */
-    protected $pontintvitem;
+    protected $inititemnbr;
 
     /**
      * The value for the pontintvdate field.
@@ -455,13 +455,13 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
     }
 
     /**
-     * Get the [pontintvitem] column value.
+     * Get the [inititemnbr] column value.
      *
      * @return string
      */
-    public function getPontintvitem()
+    public function getInitItemNbr()
     {
-        return $this->pontintvitem;
+        return $this->inititemnbr;
     }
 
     /**
@@ -629,20 +629,20 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
     } // setApvevendid()
 
     /**
-     * Set the value of [pontintvitem] column.
+     * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
      * @return $this|\ItemXrefVendorNoteInternal The current object (for fluent API support)
      */
-    public function setPontintvitem($v)
+    public function setInitItemNbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->pontintvitem !== $v) {
-            $this->pontintvitem = $v;
-            $this->modifiedColumns[ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM] = true;
+        if ($this->inititemnbr !== $v) {
+            $this->inititemnbr = $v;
+            $this->modifiedColumns[ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -650,7 +650,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPontintvitem()
+    } // setInitItemNbr()
 
     /**
      * Set the value of [pontintvdate] column.
@@ -913,8 +913,8 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemXrefVendorNoteInternalTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemXrefVendorNoteInternalTableMap::translateFieldName('Pontintvitem', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->pontintvitem = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemXrefVendorNoteInternalTableMap::translateFieldName('InitItemNbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemXrefVendorNoteInternalTableMap::translateFieldName('Pontintvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontintvdate = (null !== $col) ? (string) $col : null;
@@ -978,7 +978,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
         }
-        if ($this->aItemMasterItem !== null && $this->pontintvitem !== $this->aItemMasterItem->getInititemnbr()) {
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
     } // ensureConsistency
@@ -1186,8 +1186,8 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'ApveVendId';
         }
-        if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM)) {
-            $modifiedColumns[':p' . $index++]  = 'PontIntvItem';
+        if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
         if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE)) {
             $modifiedColumns[':p' . $index++]  = 'PontIntvDate';
@@ -1239,8 +1239,8 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
                     case 'ApveVendId':
                         $stmt->bindValue($identifier, $this->apvevendid, PDO::PARAM_STR);
                         break;
-                    case 'PontIntvItem':
-                        $stmt->bindValue($identifier, $this->pontintvitem, PDO::PARAM_STR);
+                    case 'InitItemNbr':
+                        $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
                     case 'PontIntvDate':
                         $stmt->bindValue($identifier, $this->pontintvdate, PDO::PARAM_STR);
@@ -1337,7 +1337,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
                 return $this->getApvevendid();
                 break;
             case 3:
-                return $this->getPontintvitem();
+                return $this->getInitItemNbr();
                 break;
             case 4:
                 return $this->getPontintvdate();
@@ -1402,7 +1402,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
             $keys[0] => $this->getPonttype(),
             $keys[1] => $this->getPonttypedesc(),
             $keys[2] => $this->getApvevendid(),
-            $keys[3] => $this->getPontintvitem(),
+            $keys[3] => $this->getInitItemNbr(),
             $keys[4] => $this->getPontintvdate(),
             $keys[5] => $this->getPontintvtime(),
             $keys[6] => $this->getPontintvuser(),
@@ -1494,7 +1494,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
                 $this->setApvevendid($value);
                 break;
             case 3:
-                $this->setPontintvitem($value);
+                $this->setInitItemNbr($value);
                 break;
             case 4:
                 $this->setPontintvdate($value);
@@ -1562,7 +1562,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
             $this->setApvevendid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setPontintvitem($arr[$keys[3]]);
+            $this->setInitItemNbr($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
             $this->setPontintvdate($arr[$keys[4]]);
@@ -1644,8 +1644,8 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID)) {
             $criteria->add(ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID, $this->apvevendid);
         }
-        if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM)) {
-            $criteria->add(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM, $this->pontintvitem);
+        if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR)) {
+            $criteria->add(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
         if ($this->isColumnModified(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE)) {
             $criteria->add(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE, $this->pontintvdate);
@@ -1782,7 +1782,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         $copyObj->setPonttype($this->getPonttype());
         $copyObj->setPonttypedesc($this->getPonttypedesc());
         $copyObj->setApvevendid($this->getApvevendid());
-        $copyObj->setPontintvitem($this->getPontintvitem());
+        $copyObj->setInitItemNbr($this->getInitItemNbr());
         $copyObj->setPontintvdate($this->getPontintvdate());
         $copyObj->setPontintvtime($this->getPontintvtime());
         $copyObj->setPontintvuser($this->getPontintvuser());
@@ -1881,9 +1881,9 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
         if ($v === null) {
-            $this->setPontintvitem(NULL);
+            $this->setInitItemNbr(NULL);
         } else {
-            $this->setPontintvitem($v->getInititemnbr());
+            $this->setInitItemNbr($v->getInititemnbr());
         }
 
         $this->aItemMasterItem = $v;
@@ -1908,8 +1908,8 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
      */
     public function getItemMasterItem(ConnectionInterface $con = null)
     {
-        if ($this->aItemMasterItem === null && (($this->pontintvitem !== "" && $this->pontintvitem !== null))) {
-            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->pontintvitem, $con);
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -1938,7 +1938,7 @@ abstract class ItemXrefVendorNoteInternal implements ActiveRecordInterface
         $this->ponttype = null;
         $this->ponttypedesc = null;
         $this->apvevendid = null;
-        $this->pontintvitem = null;
+        $this->inititemnbr = null;
         $this->pontintvdate = null;
         $this->pontintvtime = null;
         $this->pontintvuser = null;

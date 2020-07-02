@@ -23,7 +23,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteDetailQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
  * @method     ChildItemXrefVendorNoteDetailQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteDetailQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
- * @method     ChildItemXrefVendorNoteDetailQuery orderByPontvxrditem($order = Criteria::ASC) Order by the PontVxrdItem column
+ * @method     ChildItemXrefVendorNoteDetailQuery orderByInitItemNbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteDetailQuery orderByPontform($order = Criteria::ASC) Order by the PontForm column
  * @method     ChildItemXrefVendorNoteDetailQuery orderByPontseq($order = Criteria::ASC) Order by the PontSeq column
  * @method     ChildItemXrefVendorNoteDetailQuery orderByPontnote($order = Criteria::ASC) Order by the PontNote column
@@ -35,7 +35,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteDetailQuery groupByPonttype() Group by the PontType column
  * @method     ChildItemXrefVendorNoteDetailQuery groupByPonttypedesc() Group by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteDetailQuery groupByApvevendid() Group by the ApveVendId column
- * @method     ChildItemXrefVendorNoteDetailQuery groupByPontvxrditem() Group by the PontVxrdItem column
+ * @method     ChildItemXrefVendorNoteDetailQuery groupByInitItemNbr() Group by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteDetailQuery groupByPontform() Group by the PontForm column
  * @method     ChildItemXrefVendorNoteDetailQuery groupByPontseq() Group by the PontSeq column
  * @method     ChildItemXrefVendorNoteDetailQuery groupByPontnote() Group by the PontNote column
@@ -80,7 +80,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteDetail findOneByPonttype(string $PontType) Return the first ChildItemXrefVendorNoteDetail filtered by the PontType column
  * @method     ChildItemXrefVendorNoteDetail findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildItemXrefVendorNoteDetail filtered by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteDetail findOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendorNoteDetail filtered by the ApveVendId column
- * @method     ChildItemXrefVendorNoteDetail findOneByPontvxrditem(string $PontVxrdItem) Return the first ChildItemXrefVendorNoteDetail filtered by the PontVxrdItem column
+ * @method     ChildItemXrefVendorNoteDetail findOneByInitItemNbr(string $InitItemNbr) Return the first ChildItemXrefVendorNoteDetail filtered by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteDetail findOneByPontform(string $PontForm) Return the first ChildItemXrefVendorNoteDetail filtered by the PontForm column
  * @method     ChildItemXrefVendorNoteDetail findOneByPontseq(int $PontSeq) Return the first ChildItemXrefVendorNoteDetail filtered by the PontSeq column
  * @method     ChildItemXrefVendorNoteDetail findOneByPontnote(string $PontNote) Return the first ChildItemXrefVendorNoteDetail filtered by the PontNote column
@@ -95,7 +95,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteDetail requireOneByPonttype(string $PontType) Return the first ChildItemXrefVendorNoteDetail filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteDetail requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildItemXrefVendorNoteDetail filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteDetail requireOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendorNoteDetail filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefVendorNoteDetail requireOneByPontvxrditem(string $PontVxrdItem) Return the first ChildItemXrefVendorNoteDetail filtered by the PontVxrdItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefVendorNoteDetail requireOneByInitItemNbr(string $InitItemNbr) Return the first ChildItemXrefVendorNoteDetail filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteDetail requireOneByPontform(string $PontForm) Return the first ChildItemXrefVendorNoteDetail filtered by the PontForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteDetail requireOneByPontseq(int $PontSeq) Return the first ChildItemXrefVendorNoteDetail filtered by the PontSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteDetail requireOneByPontnote(string $PontNote) Return the first ChildItemXrefVendorNoteDetail filtered by the PontNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -108,7 +108,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPonttype(string $PontType) Return ChildItemXrefVendorNoteDetail objects filtered by the PontType column
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildItemXrefVendorNoteDetail objects filtered by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildItemXrefVendorNoteDetail objects filtered by the ApveVendId column
- * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPontvxrditem(string $PontVxrdItem) Return ChildItemXrefVendorNoteDetail objects filtered by the PontVxrdItem column
+ * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByInitItemNbr(string $InitItemNbr) Return ChildItemXrefVendorNoteDetail objects filtered by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPontform(string $PontForm) Return ChildItemXrefVendorNoteDetail objects filtered by the PontForm column
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPontseq(int $PontSeq) Return ChildItemXrefVendorNoteDetail objects filtered by the PontSeq column
  * @method     ChildItemXrefVendorNoteDetail[]|ObjectCollection findByPontnote(string $PontNote) Return ChildItemXrefVendorNoteDetail objects filtered by the PontNote column
@@ -214,7 +214,7 @@ abstract class ItemXrefVendorNoteDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PontType, PontTypeDesc, ApveVendId, PontVxrdItem, PontForm, PontSeq, PontNote, PontKey2, DateUpdtd, TimeUpdtd, dummy FROM notes_vend_xref_det WHERE PontType = :p0 AND PontForm = :p1 AND PontSeq = :p2 AND PontKey2 = :p3';
+        $sql = 'SELECT PontType, PontTypeDesc, ApveVendId, InitItemNbr, PontForm, PontSeq, PontNote, PontKey2, DateUpdtd, TimeUpdtd, dummy FROM notes_vend_xref_det WHERE PontType = :p0 AND PontForm = :p1 AND PontSeq = :p2 AND PontKey2 = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -400,28 +400,28 @@ abstract class ItemXrefVendorNoteDetailQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the PontVxrdItem column
+     * Filter the query on the InitItemNbr column
      *
      * Example usage:
      * <code>
-     * $query->filterByPontvxrditem('fooValue');   // WHERE PontVxrdItem = 'fooValue'
-     * $query->filterByPontvxrditem('%fooValue%', Criteria::LIKE); // WHERE PontVxrdItem LIKE '%fooValue%'
+     * $query->filterByInitItemNbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
+     * $query->filterByInitItemNbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $pontvxrditem The value to use as filter.
+     * @param     string $initItemNbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildItemXrefVendorNoteDetailQuery The current query, for fluid interface
      */
-    public function filterByPontvxrditem($pontvxrditem = null, $comparison = null)
+    public function filterByInitItemNbr($initItemNbr = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($pontvxrditem)) {
+            if (is_array($initItemNbr)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM, $pontvxrditem, $comparison);
+        return $this->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR, $initItemNbr, $comparison);
     }
 
     /**
@@ -706,14 +706,14 @@ abstract class ItemXrefVendorNoteDetailQuery extends ModelCriteria
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM, $itemMasterItem->getInititemnbr(), $comparison);
+                ->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+                ->addUsingAlias(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }

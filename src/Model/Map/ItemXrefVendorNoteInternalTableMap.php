@@ -87,9 +87,9 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
     const COL_APVEVENDID = 'notes_vend_xref_internal.ApveVendId';
 
     /**
-     * the column name for the PontIntvItem field
+     * the column name for the InitItemNbr field
      */
-    const COL_PONTINTVITEM = 'notes_vend_xref_internal.PontIntvItem';
+    const COL_INITITEMNBR = 'notes_vend_xref_internal.InitItemNbr';
 
     /**
      * the column name for the PontIntvDate field
@@ -153,10 +153,10 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Apvevendid', 'Pontintvitem', 'Pontintvdate', 'Pontintvtime', 'Pontintvuser', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'apvevendid', 'pontintvitem', 'pontintvdate', 'pontintvtime', 'pontintvuser', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'ApveVendId', 'PontIntvItem', 'PontIntvDate', 'PontIntvTime', 'PontIntvUser', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Apvevendid', 'InitItemNbr', 'Pontintvdate', 'Pontintvtime', 'Pontintvuser', 'Pontform', 'Pontseq', 'Pontnote', 'Pontkey2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'apvevendid', 'initItemNbr', 'pontintvdate', 'pontintvtime', 'pontintvuser', 'pontform', 'pontseq', 'pontnote', 'pontkey2', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD, ItemXrefVendorNoteInternalTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'ApveVendId', 'InitItemNbr', 'PontIntvDate', 'PontIntvTime', 'PontIntvUser', 'PontForm', 'PontSeq', 'PontNote', 'PontKey2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
@@ -167,10 +167,10 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'Pontintvitem' => 3, 'Pontintvdate' => 4, 'Pontintvtime' => 5, 'Pontintvuser' => 6, 'Pontform' => 7, 'Pontseq' => 8, 'Pontnote' => 9, 'Pontkey2' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'pontintvitem' => 3, 'pontintvdate' => 4, 'pontintvtime' => 5, 'pontintvuser' => 6, 'pontform' => 7, 'pontseq' => 8, 'pontnote' => 9, 'pontkey2' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
-        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM => 3, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE => 4, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME => 5, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER => 6, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM => 7, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ => 8, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE => 9, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2 => 10, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD => 11, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD => 12, ItemXrefVendorNoteInternalTableMap::COL_DUMMY => 13, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'PontIntvItem' => 3, 'PontIntvDate' => 4, 'PontIntvTime' => 5, 'PontIntvUser' => 6, 'PontForm' => 7, 'PontSeq' => 8, 'PontNote' => 9, 'PontKey2' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
+        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Apvevendid' => 2, 'InitItemNbr' => 3, 'Pontintvdate' => 4, 'Pontintvtime' => 5, 'Pontintvuser' => 6, 'Pontform' => 7, 'Pontseq' => 8, 'Pontnote' => 9, 'Pontkey2' => 10, 'Dateupdtd' => 11, 'Timeupdtd' => 12, 'Dummy' => 13, ),
+        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'apvevendid' => 2, 'initItemNbr' => 3, 'pontintvdate' => 4, 'pontintvtime' => 5, 'pontintvuser' => 6, 'pontform' => 7, 'pontseq' => 8, 'pontnote' => 9, 'pontkey2' => 10, 'dateupdtd' => 11, 'timeupdtd' => 12, 'dummy' => 13, ),
+        self::TYPE_COLNAME       => array(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE => 0, ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC => 1, ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID => 2, ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR => 3, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE => 4, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME => 5, ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER => 6, ItemXrefVendorNoteInternalTableMap::COL_PONTFORM => 7, ItemXrefVendorNoteInternalTableMap::COL_PONTSEQ => 8, ItemXrefVendorNoteInternalTableMap::COL_PONTNOTE => 9, ItemXrefVendorNoteInternalTableMap::COL_PONTKEY2 => 10, ItemXrefVendorNoteInternalTableMap::COL_DATEUPDTD => 11, ItemXrefVendorNoteInternalTableMap::COL_TIMEUPDTD => 12, ItemXrefVendorNoteInternalTableMap::COL_DUMMY => 13, ),
+        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'ApveVendId' => 2, 'InitItemNbr' => 3, 'PontIntvDate' => 4, 'PontIntvTime' => 5, 'PontIntvUser' => 6, 'PontForm' => 7, 'PontSeq' => 8, 'PontNote' => 9, 'PontKey2' => 10, 'DateUpdtd' => 11, 'TimeUpdtd' => 12, 'dummy' => 13, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, )
     );
 
@@ -194,7 +194,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
         $this->addPrimaryKey('PontType', 'Ponttype', 'VARCHAR', true, 4, '');
         $this->addColumn('PontTypeDesc', 'Ponttypedesc', 'VARCHAR', false, 40, null);
         $this->addForeignKey('ApveVendId', 'Apvevendid', 'VARCHAR', 'ap_vend_mast', 'ApveVendId', false, 6, null);
-        $this->addForeignKey('PontIntvItem', 'Pontintvitem', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
+        $this->addForeignKey('InitItemNbr', 'InitItemNbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
         $this->addColumn('PontIntvDate', 'Pontintvdate', 'VARCHAR', false, 8, null);
         $this->addColumn('PontIntvTime', 'Pontintvtime', 'VARCHAR', false, 8, null);
         $this->addColumn('PontIntvUser', 'Pontintvuser', 'VARCHAR', false, 8, null);
@@ -222,7 +222,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
         $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
-    0 => ':PontIntvItem',
+    0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
@@ -444,7 +444,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPE);
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTTYPEDESC);
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_APVEVENDID);
-            $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM);
+            $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR);
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVDATE);
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVTIME);
             $criteria->addSelectColumn(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVUSER);
@@ -459,7 +459,7 @@ class ItemXrefVendorNoteInternalTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PontType');
             $criteria->addSelectColumn($alias . '.PontTypeDesc');
             $criteria->addSelectColumn($alias . '.ApveVendId');
-            $criteria->addSelectColumn($alias . '.PontIntvItem');
+            $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.PontIntvDate');
             $criteria->addSelectColumn($alias . '.PontIntvTime');
             $criteria->addSelectColumn($alias . '.PontIntvUser');

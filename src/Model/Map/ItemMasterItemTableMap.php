@@ -606,14 +606,14 @@ class ItemMasterItemTableMap extends TableMap
         $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
-    0 => ':PontVxrdItem',
+    0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefVendorNoteDetails', false);
         $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
-    0 => ':PontIntvItem',
+    0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefVendorNoteInternals', false);

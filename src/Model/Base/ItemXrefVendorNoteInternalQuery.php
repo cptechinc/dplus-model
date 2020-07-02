@@ -23,7 +23,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteInternalQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
  * @method     ChildItemXrefVendorNoteInternalQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteInternalQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
- * @method     ChildItemXrefVendorNoteInternalQuery orderByPontintvitem($order = Criteria::ASC) Order by the PontIntvItem column
+ * @method     ChildItemXrefVendorNoteInternalQuery orderByInitItemNbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteInternalQuery orderByPontintvdate($order = Criteria::ASC) Order by the PontIntvDate column
  * @method     ChildItemXrefVendorNoteInternalQuery orderByPontintvtime($order = Criteria::ASC) Order by the PontIntvTime column
  * @method     ChildItemXrefVendorNoteInternalQuery orderByPontintvuser($order = Criteria::ASC) Order by the PontIntvUser column
@@ -38,7 +38,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteInternalQuery groupByPonttype() Group by the PontType column
  * @method     ChildItemXrefVendorNoteInternalQuery groupByPonttypedesc() Group by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteInternalQuery groupByApvevendid() Group by the ApveVendId column
- * @method     ChildItemXrefVendorNoteInternalQuery groupByPontintvitem() Group by the PontIntvItem column
+ * @method     ChildItemXrefVendorNoteInternalQuery groupByInitItemNbr() Group by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteInternalQuery groupByPontintvdate() Group by the PontIntvDate column
  * @method     ChildItemXrefVendorNoteInternalQuery groupByPontintvtime() Group by the PontIntvTime column
  * @method     ChildItemXrefVendorNoteInternalQuery groupByPontintvuser() Group by the PontIntvUser column
@@ -86,7 +86,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteInternal findOneByPonttype(string $PontType) Return the first ChildItemXrefVendorNoteInternal filtered by the PontType column
  * @method     ChildItemXrefVendorNoteInternal findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildItemXrefVendorNoteInternal filtered by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteInternal findOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendorNoteInternal filtered by the ApveVendId column
- * @method     ChildItemXrefVendorNoteInternal findOneByPontintvitem(string $PontIntvItem) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvItem column
+ * @method     ChildItemXrefVendorNoteInternal findOneByInitItemNbr(string $InitItemNbr) Return the first ChildItemXrefVendorNoteInternal filtered by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteInternal findOneByPontintvdate(string $PontIntvDate) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvDate column
  * @method     ChildItemXrefVendorNoteInternal findOneByPontintvtime(string $PontIntvTime) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvTime column
  * @method     ChildItemXrefVendorNoteInternal findOneByPontintvuser(string $PontIntvUser) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvUser column
@@ -104,7 +104,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteInternal requireOneByPonttype(string $PontType) Return the first ChildItemXrefVendorNoteInternal filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteInternal requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildItemXrefVendorNoteInternal filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteInternal requireOneByApvevendid(string $ApveVendId) Return the first ChildItemXrefVendorNoteInternal filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefVendorNoteInternal requireOneByPontintvitem(string $PontIntvItem) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemXrefVendorNoteInternal requireOneByInitItemNbr(string $InitItemNbr) Return the first ChildItemXrefVendorNoteInternal filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteInternal requireOneByPontintvdate(string $PontIntvDate) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteInternal requireOneByPontintvtime(string $PontIntvTime) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvTime column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendorNoteInternal requireOneByPontintvuser(string $PontIntvUser) Return the first ChildItemXrefVendorNoteInternal filtered by the PontIntvUser column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -120,7 +120,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPonttype(string $PontType) Return ChildItemXrefVendorNoteInternal objects filtered by the PontType column
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildItemXrefVendorNoteInternal objects filtered by the PontTypeDesc column
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildItemXrefVendorNoteInternal objects filtered by the ApveVendId column
- * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPontintvitem(string $PontIntvItem) Return ChildItemXrefVendorNoteInternal objects filtered by the PontIntvItem column
+ * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByInitItemNbr(string $InitItemNbr) Return ChildItemXrefVendorNoteInternal objects filtered by the InitItemNbr column
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPontintvdate(string $PontIntvDate) Return ChildItemXrefVendorNoteInternal objects filtered by the PontIntvDate column
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPontintvtime(string $PontIntvTime) Return ChildItemXrefVendorNoteInternal objects filtered by the PontIntvTime column
  * @method     ChildItemXrefVendorNoteInternal[]|ObjectCollection findByPontintvuser(string $PontIntvUser) Return ChildItemXrefVendorNoteInternal objects filtered by the PontIntvUser column
@@ -229,7 +229,7 @@ abstract class ItemXrefVendorNoteInternalQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PontType, PontTypeDesc, ApveVendId, PontIntvItem, PontIntvDate, PontIntvTime, PontIntvUser, PontForm, PontSeq, PontNote, PontKey2, DateUpdtd, TimeUpdtd, dummy FROM notes_vend_xref_internal WHERE PontType = :p0 AND PontForm = :p1 AND PontSeq = :p2 AND PontKey2 = :p3';
+        $sql = 'SELECT PontType, PontTypeDesc, ApveVendId, InitItemNbr, PontIntvDate, PontIntvTime, PontIntvUser, PontForm, PontSeq, PontNote, PontKey2, DateUpdtd, TimeUpdtd, dummy FROM notes_vend_xref_internal WHERE PontType = :p0 AND PontForm = :p1 AND PontSeq = :p2 AND PontKey2 = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -415,28 +415,28 @@ abstract class ItemXrefVendorNoteInternalQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the PontIntvItem column
+     * Filter the query on the InitItemNbr column
      *
      * Example usage:
      * <code>
-     * $query->filterByPontintvitem('fooValue');   // WHERE PontIntvItem = 'fooValue'
-     * $query->filterByPontintvitem('%fooValue%', Criteria::LIKE); // WHERE PontIntvItem LIKE '%fooValue%'
+     * $query->filterByInitItemNbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
+     * $query->filterByInitItemNbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $pontintvitem The value to use as filter.
+     * @param     string $initItemNbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildItemXrefVendorNoteInternalQuery The current query, for fluid interface
      */
-    public function filterByPontintvitem($pontintvitem = null, $comparison = null)
+    public function filterByInitItemNbr($initItemNbr = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($pontintvitem)) {
+            if (is_array($initItemNbr)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM, $pontintvitem, $comparison);
+        return $this->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, $initItemNbr, $comparison);
     }
 
     /**
@@ -796,14 +796,14 @@ abstract class ItemXrefVendorNoteInternalQuery extends ModelCriteria
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM, $itemMasterItem->getInititemnbr(), $comparison);
+                ->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_PONTINTVITEM, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+                ->addUsingAlias(ItemXrefVendorNoteInternalTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }

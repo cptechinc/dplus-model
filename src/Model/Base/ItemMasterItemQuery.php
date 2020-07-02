@@ -3612,7 +3612,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         if ($itemXrefVendorNoteDetail instanceof \ItemXrefVendorNoteDetail) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteDetail->getPontvxrditem(), $comparison);
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteDetail->getInitItemNbr(), $comparison);
         } elseif ($itemXrefVendorNoteDetail instanceof ObjectCollection) {
             return $this
                 ->useItemXrefVendorNoteDetailQuery()
@@ -3685,7 +3685,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     {
         if ($itemXrefVendorNoteInternal instanceof \ItemXrefVendorNoteInternal) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteInternal->getPontintvitem(), $comparison);
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemXrefVendorNoteInternal->getInitItemNbr(), $comparison);
         } elseif ($itemXrefVendorNoteInternal instanceof ObjectCollection) {
             return $this
                 ->useItemXrefVendorNoteInternalQuery()

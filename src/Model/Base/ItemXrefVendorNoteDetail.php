@@ -86,11 +86,11 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
     protected $apvevendid;
 
     /**
-     * The value for the pontvxrditem field.
+     * The value for the inititemnbr field.
      *
      * @var        string
      */
-    protected $pontvxrditem;
+    protected $inititemnbr;
 
     /**
      * The value for the pontform field.
@@ -434,13 +434,13 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [pontvxrditem] column value.
+     * Get the [inititemnbr] column value.
      *
      * @return string
      */
-    public function getPontvxrditem()
+    public function getInitItemNbr()
     {
-        return $this->pontvxrditem;
+        return $this->inititemnbr;
     }
 
     /**
@@ -578,20 +578,20 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
     } // setApvevendid()
 
     /**
-     * Set the value of [pontvxrditem] column.
+     * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
      * @return $this|\ItemXrefVendorNoteDetail The current object (for fluent API support)
      */
-    public function setPontvxrditem($v)
+    public function setInitItemNbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->pontvxrditem !== $v) {
-            $this->pontvxrditem = $v;
-            $this->modifiedColumns[ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM] = true;
+        if ($this->inititemnbr !== $v) {
+            $this->inititemnbr = $v;
+            $this->modifiedColumns[ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -599,7 +599,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         }
 
         return $this;
-    } // setPontvxrditem()
+    } // setInitItemNbr()
 
     /**
      * Set the value of [pontform] column.
@@ -802,8 +802,8 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemXrefVendorNoteDetailTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemXrefVendorNoteDetailTableMap::translateFieldName('Pontvxrditem', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->pontvxrditem = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemXrefVendorNoteDetailTableMap::translateFieldName('InitItemNbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemXrefVendorNoteDetailTableMap::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontform = (null !== $col) ? (string) $col : null;
@@ -858,7 +858,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         if ($this->aVendor !== null && $this->apvevendid !== $this->aVendor->getApvevendid()) {
             $this->aVendor = null;
         }
-        if ($this->aItemMasterItem !== null && $this->pontvxrditem !== $this->aItemMasterItem->getInititemnbr()) {
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
     } // ensureConsistency
@@ -1066,8 +1066,8 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'ApveVendId';
         }
-        if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM)) {
-            $modifiedColumns[':p' . $index++]  = 'PontVxrdItem';
+        if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
         if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_PONTFORM)) {
             $modifiedColumns[':p' . $index++]  = 'PontForm';
@@ -1110,8 +1110,8 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
                     case 'ApveVendId':
                         $stmt->bindValue($identifier, $this->apvevendid, PDO::PARAM_STR);
                         break;
-                    case 'PontVxrdItem':
-                        $stmt->bindValue($identifier, $this->pontvxrditem, PDO::PARAM_STR);
+                    case 'InitItemNbr':
+                        $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
                     case 'PontForm':
                         $stmt->bindValue($identifier, $this->pontform, PDO::PARAM_STR);
@@ -1199,7 +1199,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
                 return $this->getApvevendid();
                 break;
             case 3:
-                return $this->getPontvxrditem();
+                return $this->getInitItemNbr();
                 break;
             case 4:
                 return $this->getPontform();
@@ -1255,7 +1255,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
             $keys[0] => $this->getPonttype(),
             $keys[1] => $this->getPonttypedesc(),
             $keys[2] => $this->getApvevendid(),
-            $keys[3] => $this->getPontvxrditem(),
+            $keys[3] => $this->getInitItemNbr(),
             $keys[4] => $this->getPontform(),
             $keys[5] => $this->getPontseq(),
             $keys[6] => $this->getPontnote(),
@@ -1344,7 +1344,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
                 $this->setApvevendid($value);
                 break;
             case 3:
-                $this->setPontvxrditem($value);
+                $this->setInitItemNbr($value);
                 break;
             case 4:
                 $this->setPontform($value);
@@ -1403,7 +1403,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
             $this->setApvevendid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setPontvxrditem($arr[$keys[3]]);
+            $this->setInitItemNbr($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
             $this->setPontform($arr[$keys[4]]);
@@ -1476,8 +1476,8 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID)) {
             $criteria->add(ItemXrefVendorNoteDetailTableMap::COL_APVEVENDID, $this->apvevendid);
         }
-        if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM)) {
-            $criteria->add(ItemXrefVendorNoteDetailTableMap::COL_PONTVXRDITEM, $this->pontvxrditem);
+        if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR)) {
+            $criteria->add(ItemXrefVendorNoteDetailTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
         if ($this->isColumnModified(ItemXrefVendorNoteDetailTableMap::COL_PONTFORM)) {
             $criteria->add(ItemXrefVendorNoteDetailTableMap::COL_PONTFORM, $this->pontform);
@@ -1605,7 +1605,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         $copyObj->setPonttype($this->getPonttype());
         $copyObj->setPonttypedesc($this->getPonttypedesc());
         $copyObj->setApvevendid($this->getApvevendid());
-        $copyObj->setPontvxrditem($this->getPontvxrditem());
+        $copyObj->setInitItemNbr($this->getInitItemNbr());
         $copyObj->setPontform($this->getPontform());
         $copyObj->setPontseq($this->getPontseq());
         $copyObj->setPontnote($this->getPontnote());
@@ -1701,9 +1701,9 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
     public function setItemMasterItem(ChildItemMasterItem $v = null)
     {
         if ($v === null) {
-            $this->setPontvxrditem(NULL);
+            $this->setInitItemNbr(NULL);
         } else {
-            $this->setPontvxrditem($v->getInititemnbr());
+            $this->setInitItemNbr($v->getInititemnbr());
         }
 
         $this->aItemMasterItem = $v;
@@ -1728,8 +1728,8 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
      */
     public function getItemMasterItem(ConnectionInterface $con = null)
     {
-        if ($this->aItemMasterItem === null && (($this->pontvxrditem !== "" && $this->pontvxrditem !== null))) {
-            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->pontvxrditem, $con);
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -1758,7 +1758,7 @@ abstract class ItemXrefVendorNoteDetail implements ActiveRecordInterface
         $this->ponttype = null;
         $this->ponttypedesc = null;
         $this->apvevendid = null;
-        $this->pontvxrditem = null;
+        $this->inititemnbr = null;
         $this->pontform = null;
         $this->pontseq = null;
         $this->pontnote = null;
