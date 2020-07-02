@@ -27,6 +27,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'description'  => 'ponttypedesc',
 		'vendorid'     => 'apvevendid',
 		'itemid'       => 'pontintvitem',
+		'vendoritemid' => 'pontintvitem',
 		'form'         => 'pontform',
 		'sequence'     => 'pontseq',
 		'notedate'     => 'pontintvdate',
@@ -35,7 +36,6 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'key2'         => 'pontkey2',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-		
 		'item'         => 'itemMasterItem',
 	);
 
