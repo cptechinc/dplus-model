@@ -362,7 +362,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      *
      * @return string
      */
-    public function getArcuCustId()
+    public function getArcucustid()
     {
         return $this->arcucustid;
     }
@@ -372,7 +372,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      *
      * @return string
      */
-    public function getArstShipId()
+    public function getArstshipid()
     {
         return $this->arstshipid;
     }
@@ -433,7 +433,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      * @param string $v new value
      * @return $this|\CustomerExternalRef The current object (for fluent API support)
      */
-    public function setArcuCustId($v)
+    public function setArcucustid($v)
     {
         if ($v !== null) {
             $v = (string) $v;
@@ -445,7 +445,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArcuCustId()
+    } // setArcucustid()
 
     /**
      * Set the value of [arstshipid] column.
@@ -453,7 +453,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      * @param string $v new value
      * @return $this|\CustomerExternalRef The current object (for fluent API support)
      */
-    public function setArstShipId($v)
+    public function setArstshipid($v)
     {
         if ($v !== null) {
             $v = (string) $v;
@@ -465,7 +465,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
         }
 
         return $this;
-    } // setArstShipId()
+    } // setArstshipid()
 
     /**
      * Set the value of [cslklinkcustid] column.
@@ -611,10 +611,10 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerExternalRefTableMap::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerExternalRefTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerExternalRefTableMap::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerExternalRefTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerExternalRefTableMap::translateFieldName('Cslklinkcustid', TableMap::TYPE_PHPNAME, $indexType)];
@@ -945,10 +945,10 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getArcuCustId();
+                return $this->getArcucustid();
                 break;
             case 1:
-                return $this->getArstShipId();
+                return $this->getArstshipid();
                 break;
             case 2:
                 return $this->getCslklinkcustid();
@@ -994,8 +994,8 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
         $alreadyDumpedObjects['CustomerExternalRef'][$this->hashCode()] = true;
         $keys = CustomerExternalRefTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getArcuCustId(),
-            $keys[1] => $this->getArstShipId(),
+            $keys[0] => $this->getArcucustid(),
+            $keys[1] => $this->getArstshipid(),
             $keys[2] => $this->getCslklinkcustid(),
             $keys[3] => $this->getCslklinkshipid(),
             $keys[4] => $this->getDateupdtd(),
@@ -1041,10 +1041,10 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setArcuCustId($value);
+                $this->setArcucustid($value);
                 break;
             case 1:
-                $this->setArstShipId($value);
+                $this->setArstshipid($value);
                 break;
             case 2:
                 $this->setCslklinkcustid($value);
@@ -1088,10 +1088,10 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
         $keys = CustomerExternalRefTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setArcuCustId($arr[$keys[0]]);
+            $this->setArcucustid($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setArstShipId($arr[$keys[1]]);
+            $this->setArstshipid($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
             $this->setCslklinkcustid($arr[$keys[2]]);
@@ -1201,8 +1201,8 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getArcuCustId() &&
-            null !== $this->getArstShipId();
+        $validPk = null !== $this->getArcucustid() &&
+            null !== $this->getArstshipid();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1224,8 +1224,8 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getArcuCustId();
-        $pks[1] = $this->getArstShipId();
+        $pks[0] = $this->getArcucustid();
+        $pks[1] = $this->getArstshipid();
 
         return $pks;
     }
@@ -1238,8 +1238,8 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setArcuCustId($keys[0]);
-        $this->setArstShipId($keys[1]);
+        $this->setArcucustid($keys[0]);
+        $this->setArstshipid($keys[1]);
     }
 
     /**
@@ -1248,7 +1248,7 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getArcuCustId()) && (null === $this->getArstShipId());
+        return (null === $this->getArcucustid()) && (null === $this->getArstshipid());
     }
 
     /**
@@ -1264,8 +1264,8 @@ abstract class CustomerExternalRef implements ActiveRecordInterface
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setArcuCustId($this->getArcuCustId());
-        $copyObj->setArstShipId($this->getArstShipId());
+        $copyObj->setArcucustid($this->getArcucustid());
+        $copyObj->setArstshipid($this->getArstshipid());
         $copyObj->setCslklinkcustid($this->getCslklinkcustid());
         $copyObj->setCslklinkshipid($this->getCslklinkshipid());
         $copyObj->setDateupdtd($this->getDateupdtd());

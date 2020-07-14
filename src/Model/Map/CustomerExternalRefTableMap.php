@@ -118,8 +118,8 @@ class CustomerExternalRefTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('ArcuCustId', 'ArstShipId', 'Cslklinkcustid', 'Cslklinkshipid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('arcuCustId', 'arstShipId', 'cslklinkcustid', 'cslklinkshipid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Cslklinkcustid', 'Cslklinkshipid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'cslklinkcustid', 'cslklinkshipid', 'dateupdtd', 'timeupdtd', 'dummy', ),
         self::TYPE_COLNAME       => array(CustomerExternalRefTableMap::COL_ARCUCUSTID, CustomerExternalRefTableMap::COL_ARSTSHIPID, CustomerExternalRefTableMap::COL_CSLKLINKCUSTID, CustomerExternalRefTableMap::COL_CSLKLINKSHIPID, CustomerExternalRefTableMap::COL_DATEUPDTD, CustomerExternalRefTableMap::COL_TIMEUPDTD, CustomerExternalRefTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'CslkLinkCustId', 'CslkLinkShipId', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
@@ -132,8 +132,8 @@ class CustomerExternalRefTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'Cslklinkcustid' => 2, 'Cslklinkshipid' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
-        self::TYPE_CAMELNAME     => array('arcuCustId' => 0, 'arstShipId' => 1, 'cslklinkcustid' => 2, 'cslklinkshipid' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
+        self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Cslklinkcustid' => 2, 'Cslklinkshipid' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
+        self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'cslklinkcustid' => 2, 'cslklinkshipid' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
         self::TYPE_COLNAME       => array(CustomerExternalRefTableMap::COL_ARCUCUSTID => 0, CustomerExternalRefTableMap::COL_ARSTSHIPID => 1, CustomerExternalRefTableMap::COL_CSLKLINKCUSTID => 2, CustomerExternalRefTableMap::COL_CSLKLINKSHIPID => 3, CustomerExternalRefTableMap::COL_DATEUPDTD => 4, CustomerExternalRefTableMap::COL_TIMEUPDTD => 5, CustomerExternalRefTableMap::COL_DUMMY => 6, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'CslkLinkCustId' => 2, 'CslkLinkShipId' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
@@ -156,8 +156,8 @@ class CustomerExternalRefTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ArcuCustId', 'ArcuCustId', 'VARCHAR', true, 6, '');
-        $this->addPrimaryKey('ArstShipId', 'ArstShipId', 'VARCHAR', true, 6, '');
+        $this->addPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR', true, 6, '');
+        $this->addPrimaryKey('ArstShipId', 'Arstshipid', 'VARCHAR', true, 6, '');
         $this->addColumn('CslkLinkCustId', 'Cslklinkcustid', 'VARCHAR', false, 20, null);
         $this->addColumn('CslkLinkShipId', 'Cslklinkshipid', 'VARCHAR', false, 20, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
@@ -187,7 +187,7 @@ class CustomerExternalRefTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getArcuCustId() || is_scalar($obj->getArcuCustId()) || is_callable([$obj->getArcuCustId(), '__toString']) ? (string) $obj->getArcuCustId() : $obj->getArcuCustId()), (null === $obj->getArstShipId() || is_scalar($obj->getArstShipId()) || is_callable([$obj->getArstShipId(), '__toString']) ? (string) $obj->getArstShipId() : $obj->getArstShipId())]);
+                $key = serialize([(null === $obj->getArcucustid() || is_scalar($obj->getArcucustid()) || is_callable([$obj->getArcucustid(), '__toString']) ? (string) $obj->getArcucustid() : $obj->getArcucustid()), (null === $obj->getArstshipid() || is_scalar($obj->getArstshipid()) || is_callable([$obj->getArstshipid(), '__toString']) ? (string) $obj->getArstshipid() : $obj->getArstshipid())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -207,7 +207,7 @@ class CustomerExternalRefTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \CustomerExternalRef) {
-                $key = serialize([(null === $value->getArcuCustId() || is_scalar($value->getArcuCustId()) || is_callable([$value->getArcuCustId(), '__toString']) ? (string) $value->getArcuCustId() : $value->getArcuCustId()), (null === $value->getArstShipId() || is_scalar($value->getArstShipId()) || is_callable([$value->getArstShipId(), '__toString']) ? (string) $value->getArstShipId() : $value->getArstShipId())]);
+                $key = serialize([(null === $value->getArcucustid() || is_scalar($value->getArcucustid()) || is_callable([$value->getArcucustid(), '__toString']) ? (string) $value->getArcucustid() : $value->getArcucustid()), (null === $value->getArstshipid() || is_scalar($value->getArstshipid()) || is_callable([$value->getArstshipid(), '__toString']) ? (string) $value->getArstshipid() : $value->getArstshipid())]);
 
             } elseif (is_array($value) && count($value) === 2) {
                 // assume we've been passed a primary key";
@@ -241,11 +241,11 @@ class CustomerExternalRefTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -267,12 +267,12 @@ class CustomerExternalRefTableMap extends TableMap
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
-                : self::translateFieldName('ArcuCustId', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 1 + $offset
-                : self::translateFieldName('ArstShipId', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
         return $pks;

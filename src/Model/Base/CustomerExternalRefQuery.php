@@ -19,16 +19,16 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCustomerExternalRefQuery orderByArcuCustId($order = Criteria::ASC) Order by the ArcuCustId column
- * @method     ChildCustomerExternalRefQuery orderByArstShipId($order = Criteria::ASC) Order by the ArstShipId column
+ * @method     ChildCustomerExternalRefQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
+ * @method     ChildCustomerExternalRefQuery orderByArstshipid($order = Criteria::ASC) Order by the ArstShipId column
  * @method     ChildCustomerExternalRefQuery orderByCslklinkcustid($order = Criteria::ASC) Order by the CslkLinkCustId column
  * @method     ChildCustomerExternalRefQuery orderByCslklinkshipid($order = Criteria::ASC) Order by the CslkLinkShipId column
  * @method     ChildCustomerExternalRefQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildCustomerExternalRefQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildCustomerExternalRefQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCustomerExternalRefQuery groupByArcuCustId() Group by the ArcuCustId column
- * @method     ChildCustomerExternalRefQuery groupByArstShipId() Group by the ArstShipId column
+ * @method     ChildCustomerExternalRefQuery groupByArcucustid() Group by the ArcuCustId column
+ * @method     ChildCustomerExternalRefQuery groupByArstshipid() Group by the ArstShipId column
  * @method     ChildCustomerExternalRefQuery groupByCslklinkcustid() Group by the CslkLinkCustId column
  * @method     ChildCustomerExternalRefQuery groupByCslklinkshipid() Group by the CslkLinkShipId column
  * @method     ChildCustomerExternalRefQuery groupByDateupdtd() Group by the DateUpdtd column
@@ -46,8 +46,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerExternalRef findOne(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query
  * @method     ChildCustomerExternalRef findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query, or a new ChildCustomerExternalRef object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerExternalRef findOneByArcuCustId(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column
- * @method     ChildCustomerExternalRef findOneByArstShipId(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column
+ * @method     ChildCustomerExternalRef findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column
+ * @method     ChildCustomerExternalRef findOneByArstshipid(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column
  * @method     ChildCustomerExternalRef findOneByCslklinkcustid(string $CslkLinkCustId) Return the first ChildCustomerExternalRef filtered by the CslkLinkCustId column
  * @method     ChildCustomerExternalRef findOneByCslklinkshipid(string $CslkLinkShipId) Return the first ChildCustomerExternalRef filtered by the CslkLinkShipId column
  * @method     ChildCustomerExternalRef findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerExternalRef filtered by the DateUpdtd column
@@ -57,8 +57,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerExternalRef requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerExternalRef by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOne(ConnectionInterface $con = null) Return the first ChildCustomerExternalRef matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerExternalRef requireOneByArcuCustId(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerExternalRef requireOneByArstShipId(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerExternalRef requireOneByArcucustid(string $ArcuCustId) Return the first ChildCustomerExternalRef filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerExternalRef requireOneByArstshipid(string $ArstShipId) Return the first ChildCustomerExternalRef filtered by the ArstShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOneByCslklinkcustid(string $CslkLinkCustId) Return the first ChildCustomerExternalRef filtered by the CslkLinkCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOneByCslklinkshipid(string $CslkLinkShipId) Return the first ChildCustomerExternalRef filtered by the CslkLinkShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerExternalRef requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerExternalRef filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -66,8 +66,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerExternalRef requireOneByDummy(string $dummy) Return the first ChildCustomerExternalRef filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomerExternalRef[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerExternalRef objects based on current ModelCriteria
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByArcuCustId(string $ArcuCustId) Return ChildCustomerExternalRef objects filtered by the ArcuCustId column
- * @method     ChildCustomerExternalRef[]|ObjectCollection findByArstShipId(string $ArstShipId) Return ChildCustomerExternalRef objects filtered by the ArstShipId column
+ * @method     ChildCustomerExternalRef[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCustomerExternalRef objects filtered by the ArcuCustId column
+ * @method     ChildCustomerExternalRef[]|ObjectCollection findByArstshipid(string $ArstShipId) Return ChildCustomerExternalRef objects filtered by the ArstShipId column
  * @method     ChildCustomerExternalRef[]|ObjectCollection findByCslklinkcustid(string $CslkLinkCustId) Return ChildCustomerExternalRef objects filtered by the CslkLinkCustId column
  * @method     ChildCustomerExternalRef[]|ObjectCollection findByCslklinkshipid(string $CslkLinkShipId) Return ChildCustomerExternalRef objects filtered by the CslkLinkShipId column
  * @method     ChildCustomerExternalRef[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerExternalRef objects filtered by the DateUpdtd column
@@ -278,24 +278,24 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByArcuCustId('fooValue');   // WHERE ArcuCustId = 'fooValue'
-     * $query->filterByArcuCustId('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+     * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
+     * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $arcuCustId The value to use as filter.
+     * @param     string $arcucustid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
      */
-    public function filterByArcuCustId($arcuCustId = null, $comparison = null)
+    public function filterByArcucustid($arcucustid = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($arcuCustId)) {
+            if (is_array($arcucustid)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARCUCUSTID, $arcuCustId, $comparison);
+        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARCUCUSTID, $arcucustid, $comparison);
     }
 
     /**
@@ -303,24 +303,24 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByArstShipId('fooValue');   // WHERE ArstShipId = 'fooValue'
-     * $query->filterByArstShipId('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
+     * $query->filterByArstshipid('fooValue');   // WHERE ArstShipId = 'fooValue'
+     * $query->filterByArstshipid('%fooValue%', Criteria::LIKE); // WHERE ArstShipId LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $arstShipId The value to use as filter.
+     * @param     string $arstshipid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerExternalRefQuery The current query, for fluid interface
      */
-    public function filterByArstShipId($arstShipId = null, $comparison = null)
+    public function filterByArstshipid($arstshipid = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($arstShipId)) {
+            if (is_array($arstshipid)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARSTSHIPID, $arstShipId, $comparison);
+        return $this->addUsingAlias(CustomerExternalRefTableMap::COL_ARSTSHIPID, $arstshipid, $comparison);
     }
 
     /**
@@ -458,8 +458,8 @@ abstract class CustomerExternalRefQuery extends ModelCriteria
     public function prune($customerExternalRef = null)
     {
         if ($customerExternalRef) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(CustomerExternalRefTableMap::COL_ARCUCUSTID), $customerExternalRef->getArcuCustId(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(CustomerExternalRefTableMap::COL_ARSTSHIPID), $customerExternalRef->getArstShipId(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond0', $this->getAliasedColName(CustomerExternalRefTableMap::COL_ARCUCUSTID), $customerExternalRef->getArcucustid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(CustomerExternalRefTableMap::COL_ARSTSHIPID), $customerExternalRef->getArstshipid(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 

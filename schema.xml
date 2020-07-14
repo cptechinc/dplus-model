@@ -1296,8 +1296,8 @@
     </vendor>
   </table>
   <table name="cust_ship_link" idMethod="native" phpName="CustomerExternalRef">
-    <column name="ArcuCustId" phpName="ArcuCustId" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
-    <column name="ArstShipId" phpName="ArstShipId" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="CslkLinkCustId" phpName="Cslklinkcustid" type="VARCHAR" size="20"/>
     <column name="CslkLinkShipId" phpName="Cslklinkshipid" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>

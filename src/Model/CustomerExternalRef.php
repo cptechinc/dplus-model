@@ -20,7 +20,7 @@ class CustomerExternalRef extends BaseCustomerExternalRef {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'custid'        => 'arcucustId',
+		'custid'        => 'arcucustid',
 		'shiptoid'      => 'arstshipid',
 		'custid_ext'    => 'cslklinkcustid',
 		'shiptoid_ext'  => 'cslklinkshipid',
