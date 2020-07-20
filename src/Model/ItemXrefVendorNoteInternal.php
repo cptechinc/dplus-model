@@ -64,8 +64,10 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 	 * @return string
 	 */
 	public function generateKey2() {
-		$key2_itemID = str_pad($this->itemid , ItemMasterItem::LENGTH_ITEMID, " ", STR_PAD_RIGHT);
-		$this->setKey2($this->vendorid.$key2_itemID.$this->notedate.$this->notetime.$this->userid);
+		$itemID = str_pad($this->itemid, ItemMasterItem::LENGTH_ITEMID, " ", STR_PAD_RIGHT);
+		$vendorID = str_pad($this->vendorid, Vendor::LENGTH_VENDORID, " ", STR_PAD_RIGHT);
+		$userID = str_pad($this->userid, DplusUser::LENGTH_USERID, " ", STR_PAD_RIGHT);
+		$this->setKey2($vendorID.$itemID.$this->notedate.$this->notetime.$userID);
 	}
 
 	/**
