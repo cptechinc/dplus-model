@@ -4136,6 +4136,54 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="sys_login" idMethod="native" phpName="DplusUser">
+    <column name="UsrcId" phpName="Usrcid" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="UsrcLoginName" phpName="Usrcloginname" type="VARCHAR" size="20"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="UsrcDefCmpy" phpName="Usrcdefcmpy" type="VARCHAR" size="3"/>
+    <column name="UsrcAdmin" phpName="Usrcadmin" type="VARCHAR" size="1"/>
+    <column name="UsrcFront" phpName="Usrcfront" type="VARCHAR" size="1"/>
+    <column name="UsrcCityDesk" phpName="Usrccitydesk" type="VARCHAR" size="1"/>
+    <column name="UsrcReptAdmin" phpName="Usrcreptadmin" type="VARCHAR" size="1"/>
+    <column name="UsrcPrinter" phpName="Usrcprinter" type="VARCHAR" size="12"/>
+    <column name="UsrcPitch" phpName="Usrcpitch" type="VARCHAR" size="2"/>
+    <column name="UsrcBrowsePrinter" phpName="Usrcbrowseprinter" type="VARCHAR" size="12"/>
+    <column name="UsrcWhseDisplaySeq" phpName="Usrcwhsedisplayseq" type="VARCHAR" size="1"/>
+    <column name="UsrcActiveItemsOnly" phpName="Usrcactiveitemsonly" type="VARCHAR" size="1"/>
+    <column name="UsrcRestrictAccess" phpName="Usrcrestrictaccess" type="VARCHAR" size="1"/>
+    <column name="UsrcLoginGroup" phpName="Usrclogingroup" type="VARCHAR" size="8"/>
+    <column name="UsrcLoginRole" phpName="Usrcloginrole" type="VARCHAR" size="6"/>
+    <column name="UsrcAllowProcRemoval" phpName="Usrcallowprocremoval" type="VARCHAR" size="1"/>
+    <column name="UsrcAcAllowWarrEdit" phpName="Usrcacallowwarredit" type="VARCHAR" size="1"/>
+    <column name="UsrcIsProdMgr" phpName="Usrcisprodmgr" type="VARCHAR" size="1"/>
+    <column name="UsrcLmAllowCrossWhse" phpName="Usrclmallowcrosswhse" type="VARCHAR" size="1"/>
+    <column name="UsrcPswd" phpName="Usrcpswd" type="VARCHAR" size="50"/>
+    <column name="UsrcFaxName" phpName="Usrcfaxname" type="VARCHAR" size="30"/>
+    <column name="UsrcFaxCompany" phpName="Usrcfaxcompany" type="VARCHAR" size="30"/>
+    <column name="UsrcFaxArea" phpName="Usrcfaxarea" type="VARCHAR" size="3"/>
+    <column name="UsrcFaxFrst3" phpName="Usrcfaxfrst3" type="VARCHAR" size="3"/>
+    <column name="UsrcFaxLast4" phpName="Usrcfaxlast4" type="VARCHAR" size="4"/>
+    <column name="UsrcPhoneArea" phpName="Usrcphonearea" type="VARCHAR" size="3"/>
+    <column name="UsrcPhoneFrst3" phpName="Usrcphonefrst3" type="VARCHAR" size="3"/>
+    <column name="UsrcPhoneLast4" phpName="Usrcphonelast4" type="VARCHAR" size="4"/>
+    <column name="UsrcPhoneExt" phpName="Usrcphoneext" type="VARCHAR" size="7"/>
+    <column name="UsrcSendTime" phpName="Usrcsendtime" type="VARCHAR" size="1"/>
+    <column name="UsrcCoverSheet" phpName="Usrccoversheet" type="VARCHAR" size="8"/>
+    <column name="UsrcSubject" phpName="Usrcsubject" type="VARCHAR" size="40"/>
+    <column name="UsrcNotifyS" phpName="Usrcnotifys" type="VARCHAR" size="1"/>
+    <column name="UsrcNotifyF" phpName="Usrcnotifyf" type="VARCHAR" size="1"/>
+    <column name="UsrcEmailAddr" phpName="Usrcemailaddr" type="VARCHAR" size="50"/>
+    <column name="UsrcScaleWhseId" phpName="Usrcscalewhseid" type="VARCHAR" size="2"/>
+    <column name="UsrcScaleDevNbr" phpName="Usrcscaledevnbr" type="VARCHAR" size="2"/>
+    <column name="UsrcCcscanWhseId" phpName="Usrcccscanwhseid" type="VARCHAR" size="2"/>
+    <column name="UsrcCcscanDevNbr" phpName="Usrcccscandevnbr" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="sys_opt_optcode" idMethod="native" phpName="SysopOptionalCode">
     <column name="OptnSystem" phpName="Optnsystem" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="OptnCode" phpName="Optncode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
