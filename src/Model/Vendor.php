@@ -14,6 +14,8 @@ class Vendor extends BaseVendor {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const LENGTH_VENDORID = 6;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
