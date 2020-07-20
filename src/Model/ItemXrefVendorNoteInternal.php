@@ -26,13 +26,14 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 		'type'         => 'ponttype',
 		'description'  => 'ponttypedesc',
 		'vendorid'     => 'apvevendid',
-		'itemid'       => 'inititemnbr',
+		'itemid'       => 'initItemNbr',
 		'form'         => 'pontform',
 		'sequence'     => 'pontseq',
 		'notedate'     => 'pontintvdate',
 		'notetime'     => 'pontintvtime',
 		'note'         => 'pontnote',
 		'key2'         => 'pontkey2',
+		'userid'       => 'pontintvuser',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 
@@ -49,6 +50,14 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 	}
 
 	/**
+	 * Gets 6 character time
+	 * @return string
+	 */
+	public function notetime() {
+		return substr($this->notetime, 0, 6);
+	}
+
+	/**
 	 * Sets generated Key2
 	 * NOTE: Key2 = vendorID + itemID + notedate + notetime
 	 *
@@ -56,7 +65,7 @@ class ItemXrefVendorNoteInternal extends BaseItemXrefVendorNoteInternal {
 	 */
 	public function generateKey2() {
 		$key2_itemID = str_pad($this->itemid , ItemMasterItem::LENGTH_ITEMID, " ", STR_PAD_RIGHT);
-		$this->setKey2($this->vendorid.$key2_itemID.$this->notedate.$this->notetime);
+		$this->setKey2($this->vendorid.$key2_itemID.$this->notedate.$this->notetime.$this->userid);
 	}
 
 	/**
