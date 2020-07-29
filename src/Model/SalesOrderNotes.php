@@ -50,4 +50,11 @@ class SalesOrderNotes extends BaseSalesOrderNotes {
 		$key2 = $this->ordernumber.$key2_linenbr;
 		$this->setKey2($key2);
 	}
+
+	public static function new() {
+		$note = new SalesOrderNotes();
+		$note->setType(self::TYPE); // PK
+		$note->setDescription(self::DESCRIPTION);
+		return $note;
+	}
 }
