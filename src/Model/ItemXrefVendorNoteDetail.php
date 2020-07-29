@@ -23,14 +23,14 @@ class ItemXrefVendorNoteDetail extends BaseItemXrefVendorNoteDetail {
 		'type'         => 'ponttype',
 		'description'  => 'ponttypedesc',
 		'vendorid'     => 'apvevendid',
-		'itemid'       => 'inititemnbr',
+		'itemid'       => 'InitItemNbr',
 		'form'         => 'pontform',
 		'sequence'     => 'pontseq',
 		'note'         => 'pontnote',
 		'key2'         => 'pontkey2',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-		
+
 		'item'         => 'itemMasterItem',
 	);
 
