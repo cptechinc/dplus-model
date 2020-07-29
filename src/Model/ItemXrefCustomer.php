@@ -88,6 +88,11 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		return UnitofMeasureSaleQuery::create()->findOneByCode($this->uom_pricing);
 	}
 
+	/**
+	 * Returns new ItemXrefCustomer with defaults
+	 *
+	 * @return ItemXrefCustomer
+	 */
 	public static function new() {
 		$item = new ItemXrefCustomer();
 		$item->setPrice_customer(0.00);
@@ -99,7 +104,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		$item->setConvert(0.000);
 		$item->setPrice_retail(0.000);
 		$item->setPrice_customer(0.000);
-		$item->setRounding(self::ROUNDING_DEFUALT);
+		$item->setRounding(self::ROUNDING_DEFAULT);
 		$item->setWeight(0.00000);
 		return $item;
 	}
