@@ -14,6 +14,18 @@ class PurchaseOrder extends BasePurchaseOrder {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const LENGTH = 8;
+
+	const STATUS_DESCRIPTIONS = array(
+		'N' => 'not printed',
+		'C' => 'closed',
+		'O' => 'open',
+		'P' => 'printed'
+	);
+
+	const STATUS_OPEN   = 'O';
+	const STATUS_CLOSED = 'C';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -57,15 +69,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'tax_exempt'         => 'pohdtaxexem'
 	);
 
-	const LENGTH = 8;
-
-	const STATUS_DESCRIPTIONS = array(
-		'N' => 'not printed',
-		'C' => 'closed',
-		'O' => 'open',
-		'P' => 'printed'
-	);
-
 	/**
 	 * Adds Leading Zeroes to Sales Order Number
 	 *
@@ -83,6 +86,14 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 */
 	public function status() {
 		return self::STATUS_DESCRIPTIONS[$this->status];
+	}
+
+	/**
+	 * Returns if PO is in a closed status
+	 * @return bool
+	 */
+	public function is_closed() {
+		return $this->status == self::STATUS_CLOSED;
 	}
 
 	/**

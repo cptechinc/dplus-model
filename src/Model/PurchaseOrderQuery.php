@@ -70,11 +70,12 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 
 	/**
 	 * Filter the Query on the Pohdstat Column
-	 * @param  mixed $status string|array
+	 * @param  mixed  $status string|array
+	 * @param  string $comparison        Database Comparison Operator e.g. <=
 	 * @return $this|PurchaseOrderQuery  The current query, for fluid interface
 	 */
-	public function filterByStatus($status) {
-		$this->filterByPohdstat($status);
+	public function filterByStatus($status, $comparison = null) {
+		$this->filterByPohdstat($status, $comparison);
 		return $this;
 	}
 }
