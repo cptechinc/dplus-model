@@ -156,10 +156,10 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Return Notes for the Purchase Order Notes
-	 * @return PurchaseOrderNotes[]|ObjectCollection
+	 * @return PurchaseOrderNote[]|ObjectCollection
 	 */
 	public function get_notes() {
-		$q = PurchaseOrderNotesQuery::create();
+		$q = PurchaseOrderNoteQuery::create();
 		$q->filterByPonbr($this->pohdnbr);
 		$q->filterHeader();
 		return $q->find();

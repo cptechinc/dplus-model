@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'notes_po_head_det' table.
  * 
  */
-class PurchaseOrderNotes extends BasePurchaseOrderNote {
+class PurchaseOrderNote extends BasePurchaseOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

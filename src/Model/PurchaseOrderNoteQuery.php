@@ -21,7 +21,7 @@ use Dplus\Model\QueryTraits;
  * FindBy
  *
  */
-class PurchaseOrderNotesQuery extends BasePurchaseOrderNoteQuery {
+class PurchaseOrderNoteQuery extends BasePurchaseOrderNoteQuery {
 	use QueryTraits;
 
 	public function filterHeader() {
