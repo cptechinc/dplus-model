@@ -26,10 +26,11 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 	 */
 	const COLUMN_ALIASES = array(
 		'invoicenumber' => 'apidinvnbr',
-		'vendorid' => 'apvevendid',
-		'linenbr' => 'apidline',
-		'price' => 'apidamt',
-		'itemid' => 'inititemnbr',
-		'qty_received' => 'apidqtyrec'
+		'vendorid'      => 'apvevendid',
+		'linenbr'       => 'apidline',
+		'price'         => 'apidamt',
+		'itemid'        => 'inititemnbr',
+		'qty_received'  => 'apidqtyrec',
+		'ponbr'         => 'apidponbr'
 	);
 }
