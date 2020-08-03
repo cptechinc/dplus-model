@@ -1,6 +1,6 @@
 <?php
 
-use Base\PurchaseOrderNotes as BasePurchaseOrderNotes;
+use Base\PurchaseOrderNote as BasePurchaseOrderNote;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'notes_po_head_det' table.
  * 
  */
-class PurchaseOrderNotes extends BasePurchaseOrderNotes {
+class PurchaseOrderNotes extends BasePurchaseOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

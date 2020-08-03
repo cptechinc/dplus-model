@@ -1,6 +1,6 @@
 <?php
 
-use Base\PurchaseOrderNotesQuery as BasePurchaseOrderNotesQuery;
+use Base\PurchaseOrderNoteQuery as BasePurchaseOrderNoteQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -21,7 +21,7 @@ use Dplus\Model\QueryTraits;
  * FindBy
  *
  */
-class PurchaseOrderNotesQuery extends BasePurchaseOrderNotesQuery {
+class PurchaseOrderNotesQuery extends BasePurchaseOrderNoteQuery {
 	use QueryTraits;
 
 	public function filterHeader() {

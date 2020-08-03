@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \PurchaseOrderNotesQuery as ChildPurchaseOrderNotesQuery;
+use \PurchaseOrderNoteQuery as ChildPurchaseOrderNoteQuery;
 use \Exception;
 use \PDO;
-use Map\PurchaseOrderNotesTableMap;
+use Map\PurchaseOrderNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class PurchaseOrderNotes implements ActiveRecordInterface
+abstract class PurchaseOrderNote implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\PurchaseOrderNotesTableMap';
+    const TABLE_MAP = '\\Map\\PurchaseOrderNoteTableMap';
 
 
     /**
@@ -170,7 +170,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\PurchaseOrderNotes object.
+     * Initializes internal state of Base\PurchaseOrderNote object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -267,9 +267,9 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>PurchaseOrderNotes</code> instance.  If
-     * <code>obj</code> is an instance of <code>PurchaseOrderNotes</code>, delegates to
-     * <code>equals(PurchaseOrderNotes)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>PurchaseOrderNote</code> instance.  If
+     * <code>obj</code> is an instance of <code>PurchaseOrderNote</code>, delegates to
+     * <code>equals(PurchaseOrderNote)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -335,7 +335,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|PurchaseOrderNotes The current object, for fluid interface
+     * @return $this|PurchaseOrderNote The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -520,7 +520,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [ponttype] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPonttype($v)
     {
@@ -530,7 +530,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->ponttype !== $v) {
             $this->ponttype = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTTYPE] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTTYPE] = true;
         }
 
         return $this;
@@ -540,7 +540,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [ponttypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPonttypedesc($v)
     {
@@ -550,7 +550,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->ponttypedesc !== $v) {
             $this->ponttypedesc = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTTYPEDESC] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTTYPEDESC] = true;
         }
 
         return $this;
@@ -560,7 +560,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pohdnbr] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPohdnbr($v)
     {
@@ -570,7 +570,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pohdnbr !== $v) {
             $this->pohdnbr = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_POHDNBR] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_POHDNBR] = true;
         }
 
         return $this;
@@ -580,7 +580,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [podtline] column.
      *
      * @param int $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPodtline($v)
     {
@@ -590,7 +590,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->podtline !== $v) {
             $this->podtline = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PODTLINE] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PODTLINE] = true;
         }
 
         return $this;
@@ -600,7 +600,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pontpordeditorview] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPontpordeditorview($v)
     {
@@ -610,7 +610,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pontpordeditorview !== $v) {
             $this->pontpordeditorview = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTPORDEDITORVIEW] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW] = true;
         }
 
         return $this;
@@ -620,7 +620,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pontform] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPontform($v)
     {
@@ -630,7 +630,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pontform !== $v) {
             $this->pontform = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTFORM] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTFORM] = true;
         }
 
         return $this;
@@ -640,7 +640,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pontseq] column.
      *
      * @param int $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPontseq($v)
     {
@@ -650,7 +650,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pontseq !== $v) {
             $this->pontseq = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTSEQ] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTSEQ] = true;
         }
 
         return $this;
@@ -660,7 +660,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pontnote] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPontnote($v)
     {
@@ -670,7 +670,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pontnote !== $v) {
             $this->pontnote = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTNOTE] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTNOTE] = true;
         }
 
         return $this;
@@ -680,7 +680,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [pontkey2] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setPontkey2($v)
     {
@@ -690,7 +690,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->pontkey2 !== $v) {
             $this->pontkey2 = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_PONTKEY2] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_PONTKEY2] = true;
         }
 
         return $this;
@@ -700,7 +700,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -710,7 +710,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -720,7 +720,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -730,7 +730,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -740,7 +740,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\PurchaseOrderNotes The current object (for fluent API support)
+     * @return $this|\PurchaseOrderNote The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -750,7 +750,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[PurchaseOrderNotesTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[PurchaseOrderNoteTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -808,40 +808,40 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ponttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Ponttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Ponttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ponttypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pohdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pohdnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Podtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->podtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pontpordeditorview', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pontpordeditorview', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontpordeditorview = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pontnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pontnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PurchaseOrderNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : PurchaseOrderNoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -851,10 +851,10 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 12; // 12 = PurchaseOrderNotesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 12; // 12 = PurchaseOrderNoteTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderNotes'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\PurchaseOrderNote'), 0, $e);
         }
     }
 
@@ -896,13 +896,13 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(PurchaseOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(PurchaseOrderNoteTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildPurchaseOrderNotesQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildPurchaseOrderNoteQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -921,8 +921,8 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see PurchaseOrderNotes::setDeleted()
-     * @see PurchaseOrderNotes::isDeleted()
+     * @see PurchaseOrderNote::setDeleted()
+     * @see PurchaseOrderNote::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -931,11 +931,11 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildPurchaseOrderNotesQuery::create()
+            $deleteQuery = ChildPurchaseOrderNoteQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -970,7 +970,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(PurchaseOrderNoteTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -989,7 +989,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                PurchaseOrderNotesTableMap::addInstanceToPool($this);
+                PurchaseOrderNoteTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1048,40 +1048,40 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTTYPE)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'PontType';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTTYPEDESC)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'PontTypeDesc';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_POHDNBR)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_POHDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'PohdNbr';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PODTLINE)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PODTLINE)) {
             $modifiedColumns[':p' . $index++]  = 'PodtLine';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTPORDEDITORVIEW)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW)) {
             $modifiedColumns[':p' . $index++]  = 'PontPordEditOrView';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTFORM)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTFORM)) {
             $modifiedColumns[':p' . $index++]  = 'PontForm';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTSEQ)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'PontSeq';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTNOTE)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'PontNote';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTKEY2)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'PontKey2';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1170,7 +1170,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = PurchaseOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = PurchaseOrderNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1245,11 +1245,11 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['PurchaseOrderNotes'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['PurchaseOrderNote'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['PurchaseOrderNotes'][$this->hashCode()] = true;
-        $keys = PurchaseOrderNotesTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['PurchaseOrderNote'][$this->hashCode()] = true;
+        $keys = PurchaseOrderNoteTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getPonttype(),
             $keys[1] => $this->getPonttypedesc(),
@@ -1282,11 +1282,11 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\PurchaseOrderNotes
+     * @return $this|\PurchaseOrderNote
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = PurchaseOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = PurchaseOrderNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1297,7 +1297,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\PurchaseOrderNotes
+     * @return $this|\PurchaseOrderNote
      */
     public function setByPosition($pos, $value)
     {
@@ -1362,7 +1362,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = PurchaseOrderNotesTableMap::getFieldNames($keyType);
+        $keys = PurchaseOrderNoteTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setPonttype($arr[$keys[0]]);
@@ -1419,7 +1419,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\PurchaseOrderNotes The current object, for fluid interface
+     * @return $this|\PurchaseOrderNote The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1439,43 +1439,43 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(PurchaseOrderNotesTableMap::DATABASE_NAME);
+        $criteria = new Criteria(PurchaseOrderNoteTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTTYPE)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTTYPE, $this->ponttype);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTTYPE)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTTYPE, $this->ponttype);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTTYPEDESC)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTTYPEDESC, $this->ponttypedesc);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTTYPEDESC)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTTYPEDESC, $this->ponttypedesc);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_POHDNBR)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_POHDNBR, $this->pohdnbr);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_POHDNBR)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_POHDNBR, $this->pohdnbr);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PODTLINE)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PODTLINE, $this->podtline);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PODTLINE)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PODTLINE, $this->podtline);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTPORDEDITORVIEW)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTPORDEDITORVIEW, $this->pontpordeditorview);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTPORDEDITORVIEW, $this->pontpordeditorview);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTFORM)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTFORM, $this->pontform);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTFORM)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTFORM, $this->pontform);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTSEQ)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTSEQ, $this->pontseq);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTSEQ)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTSEQ, $this->pontseq);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTNOTE)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTNOTE, $this->pontnote);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTNOTE)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTNOTE, $this->pontnote);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_PONTKEY2)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_PONTKEY2, $this->pontkey2);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_PONTKEY2)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_PONTKEY2, $this->pontkey2);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_DATEUPDTD)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_DATEUPDTD)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(PurchaseOrderNotesTableMap::COL_DUMMY)) {
-            $criteria->add(PurchaseOrderNotesTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(PurchaseOrderNoteTableMap::COL_DUMMY)) {
+            $criteria->add(PurchaseOrderNoteTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1493,11 +1493,11 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildPurchaseOrderNotesQuery::create();
-        $criteria->add(PurchaseOrderNotesTableMap::COL_PONTTYPE, $this->ponttype);
-        $criteria->add(PurchaseOrderNotesTableMap::COL_PONTFORM, $this->pontform);
-        $criteria->add(PurchaseOrderNotesTableMap::COL_PONTSEQ, $this->pontseq);
-        $criteria->add(PurchaseOrderNotesTableMap::COL_PONTKEY2, $this->pontkey2);
+        $criteria = ChildPurchaseOrderNoteQuery::create();
+        $criteria->add(PurchaseOrderNoteTableMap::COL_PONTTYPE, $this->ponttype);
+        $criteria->add(PurchaseOrderNoteTableMap::COL_PONTFORM, $this->pontform);
+        $criteria->add(PurchaseOrderNoteTableMap::COL_PONTSEQ, $this->pontseq);
+        $criteria->add(PurchaseOrderNoteTableMap::COL_PONTKEY2, $this->pontkey2);
 
         return $criteria;
     }
@@ -1572,7 +1572,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \PurchaseOrderNotes (or compatible) type.
+     * @param      object $copyObj An object of \PurchaseOrderNote (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1605,7 +1605,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \PurchaseOrderNotes Clone of current object.
+     * @return \PurchaseOrderNote Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1667,7 +1667,7 @@ abstract class PurchaseOrderNotes implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(PurchaseOrderNotesTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(PurchaseOrderNoteTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
