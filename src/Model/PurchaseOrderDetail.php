@@ -8,11 +8,13 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'po_detail' table.
  *
- * NOTE: Foreign Key Relationship to PurchaseOrder 
+ * NOTE: Foreign Key Relationship to PurchaseOrder
  */
 class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const PONBR_BLANK = '00000000';
 
 	/**
 	 * Column Aliases to lookup / get properties

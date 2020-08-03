@@ -14,6 +14,8 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const PONBR_BLANK = '00000000';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
