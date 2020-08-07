@@ -20,6 +20,7 @@ class InvLot extends BaseInvLot {
 		'itemid'        => 'inititemnbr',
 		'whse'          => 'intbwhse',
 		'lotserial'     => 'inltlotser',
+		'qty'           => 'inltonhand',
 		'bin'           => 'inltbin',
 		'date_lot'      => 'inltdate',
 		'date_written'  => 'inltdatewrite',
