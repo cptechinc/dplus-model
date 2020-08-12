@@ -40,6 +40,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'note_default_pack' => 'oetbconfdefpack',
 		'note_default_invoice' => 'oetbconfdefinvc',
 		'note_default_acknowledgement' => 'oetbconfdefack',
+		'decimal_places'       => 'oetbconfdecplaces',
 	);
 
 	/**
