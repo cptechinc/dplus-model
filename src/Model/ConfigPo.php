@@ -2,17 +2,22 @@
 
 use Base\ConfigPo as BaseConfigPo;
 
-/**
- * Skeleton subclass for representing a row from the 'po_config' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class ConfigPo extends BaseConfigPo
-{
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
+/**
+ * Class for representing a row from the 'po_config' table.
+ */
+class ConfigPo extends BaseConfigPo {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'decimal_places_cost'  => 'potbconfvxmroundpos',
+		'allow_change_cost'    => 'potbconfallowchgcost',
+	);
 }
