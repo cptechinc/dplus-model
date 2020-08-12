@@ -6,13 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Skeleton subclass for representing a row from the 'so_config' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * Class for representing a row from the 'so_config' table.
  *
  */
 class ConfigSalesOrder extends BaseConfigSalesOrder {
@@ -42,6 +36,9 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'note_default_acknowledgement' => 'oetbconfdefack',
 		'decimal_places'           => 'oetbconfdecplaces',
 		'decimal_places_qty'       => 'oetbconfdecplaces',
+		'decimal_places_price'     => 'oetbconfdecordrpric',
+		'decimal_places_price'     => 'oetbconfdecordrpric',
+		'allow_change_price'       => 'oetbconfchgpric'
 	);
 
 	/**
