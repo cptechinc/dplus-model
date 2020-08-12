@@ -2477,6 +2477,100 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="po_config" idMethod="native" phpName="ConfigPo">
+    <column name="PotbConfKey" phpName="Potbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PotbConfSortPo" phpName="Potbconfsortpo" type="VARCHAR" size="1"/>
+    <column name="PotbConfCancOrRshpDate" phpName="Potbconfcancorrshpdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfAckOrEtaDate" phpName="Potbconfackoretadate" type="VARCHAR" size="1"/>
+    <column name="PotbConfEditShipDate" phpName="Potbconfeditshipdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfEditExptDate" phpName="Potbconfeditexptdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfEditCancDate" phpName="Potbconfeditcancdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfEditAckDate" phpName="Potbconfeditackdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfExptDateDef" phpName="Potbconfexptdatedef" type="VARCHAR" size="1"/>
+    <column name="PotbConfHeadGetDef" phpName="Potbconfheadgetdef" type="INTEGER" size="1"/>
+    <column name="PotbConfReseq" phpName="Potbconfreseq" type="VARCHAR" size="1"/>
+    <column name="PotbConfForceVxref" phpName="Potbconfforcevxref" type="VARCHAR" size="1"/>
+    <column name="PotbConfQtyDue" phpName="Potbconfqtydue" type="VARCHAR" size="1"/>
+    <column name="PotbConfWarnDup" phpName="Potbconfwarndup" type="VARCHAR" size="1"/>
+    <column name="PotbConfForcePoRef" phpName="Potbconfforceporef" type="VARCHAR" size="1"/>
+    <column name="PotbConfDestWhse" phpName="Potbconfdestwhse" type="VARCHAR" size="1"/>
+    <column name="PotbConfEditPoItemNotes" phpName="Potbconfeditpoitemnotes" type="VARCHAR" size="1"/>
+    <column name="PotbConfLoadPoVxmNotes" phpName="Potbconfloadpovxmnotes" type="VARCHAR" size="1"/>
+    <column name="PotbConfEpoUpdLastCost" phpName="Potbconfepoupdlastcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfOneTwoLine" phpName="Potbconfonetwoline" type="INTEGER" size="1"/>
+    <column name="PotbConfUseOrdrAs" phpName="Potbconfuseordras" type="VARCHAR" size="1"/>
+    <column name="PotbConfAprvVendOnly" phpName="Potbconfaprvvendonly" type="VARCHAR" size="1"/>
+    <column name="PotbConfRecAll" phpName="Potbconfrecall" type="VARCHAR" size="1"/>
+    <column name="PotbConfRecAllAsk" phpName="Potbconfrecallask" type="VARCHAR" size="1"/>
+    <column name="PotbConfReceiveCost" phpName="Potbconfreceivecost" type="VARCHAR" size="1"/>
+    <column name="PotbConfProcVari" phpName="Potbconfprocvari" type="VARCHAR" size="1"/>
+    <column name="PotbConfCostRcvryAcct" phpName="Potbconfcostrcvryacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfInvtyVariAcct" phpName="Potbconfinvtyvariacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfAllowChgCost" phpName="Potbconfallowchgcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfWarnRcptQty" phpName="Potbconfwarnrcptqty" type="VARCHAR" size="1"/>
+    <column name="PotbConfErDispDate" phpName="Potbconferdispdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfProvideLpo" phpName="Potbconfprovidelpo" type="VARCHAR" size="1"/>
+    <column name="PotbConfWarnDiffWhse" phpName="Potbconfwarndiffwhse" type="VARCHAR" size="1"/>
+    <column name="PotbConfAllocRcvd" phpName="Potbconfallocrcvd" type="VARCHAR" size="1"/>
+    <column name="PotbConfAskClose" phpName="Potbconfaskclose" type="VARCHAR" size="1"/>
+    <column name="PotbConfTariffGlAcct" phpName="Potbconftariffglacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfShopGlAcct" phpName="Potbconfshopglacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfShopRate" phpName="Potbconfshoprate" type="DECIMAL" size="20" scale="2"/>
+    <column name="PotbConfUsePrime" phpName="Potbconfuseprime" type="VARCHAR" size="1"/>
+    <column name="PotbConfUseWatch" phpName="Potbconfusewatch" type="VARCHAR" size="1"/>
+    <column name="PotbConfPrtPowSugg" phpName="Potbconfprtpowsugg" type="VARCHAR" size="1"/>
+    <column name="PotbConfPowSlctYes" phpName="Potbconfpowslctyes" type="VARCHAR" size="1"/>
+    <column name="PotbConfPowgVendRpt" phpName="Potbconfpowgvendrpt" type="VARCHAR" size="1"/>
+    <column name="PotbConfPowgWipStatus" phpName="Potbconfpowgwipstatus" type="VARCHAR" size="1"/>
+    <column name="PotbConfPowgWipAutoGen" phpName="Potbconfpowgwipautogen" type="VARCHAR" size="1"/>
+    <column name="PotbConfBuyerControl" phpName="Potbconfbuyercontrol" type="VARCHAR" size="1"/>
+    <column name="PotbConfPowgOqMethod" phpName="Potbconfpowgoqmethod" type="INTEGER" size="1"/>
+    <column name="PotbConfFxPo" phpName="Potbconffxpo" type="VARCHAR" size="1"/>
+    <column name="PotbConfFxInv" phpName="Potbconffxinv" type="VARCHAR" size="1"/>
+    <column name="PotbConfUseLandCost" phpName="Potbconfuselandcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfBaseLandAmtQty" phpName="Potbconfbaselandamtqty" type="VARCHAR" size="1"/>
+    <column name="PotbConfLandGlAcct" phpName="Potbconflandglacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfWarnLandInEr" phpName="Potbconfwarnlandiner" type="VARCHAR" size="1"/>
+    <column name="PotbConfLandAmtMultWght" phpName="Potbconflandamtmultwght" type="VARCHAR" size="1"/>
+    <column name="PotbConfLandErEdit" phpName="Potbconflanderedit" type="VARCHAR" size="1"/>
+    <column name="PotbConfHistCmplFab" phpName="Potbconfhistcmplfab" type="VARCHAR" size="1"/>
+    <column name="PotbConfUpDateVendCost" phpName="Potbconfupdatevendcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfAskUpDate" phpName="Potbconfaskupdate" type="VARCHAR" size="1"/>
+    <column name="PotbConfVxmRoundPos" phpName="Potbconfvxmroundpos" type="INTEGER" size="1"/>
+    <column name="PotbConfXrefMaint" phpName="Potbconfxrefmaint" type="VARCHAR" size="1"/>
+    <column name="PotbConfUseIdOpts" phpName="Potbconfuseidopts" type="VARCHAR" size="1"/>
+    <column name="PotbConfSrchVxmFirst" phpName="Potbconfsrchvxmfirst" type="VARCHAR" size="1"/>
+    <column name="PotbConfOpenLineOnly" phpName="Potbconfopenlineonly" type="VARCHAR" size="1"/>
+    <column name="PotbConfItemDesc" phpName="Potbconfitemdesc" type="VARCHAR" size="1"/>
+    <column name="PotbConfOpenBalOnly" phpName="Potbconfopenbalonly" type="VARCHAR" size="1"/>
+    <column name="PotbConfPrtWhseDtl" phpName="Potbconfprtwhsedtl" type="VARCHAR" size="1"/>
+    <column name="PotbConfAutoRcpt" phpName="Potbconfautorcpt" type="VARCHAR" size="1"/>
+    <column name="PotbConfDispItemCost" phpName="Potbconfdispitemcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfDispCaseQty" phpName="Potbconfdispcaseqty" type="VARCHAR" size="1"/>
+    <column name="PotbConfUseFab" phpName="Potbconfusefab" type="VARCHAR" size="1"/>
+    <column name="PotbConfShowItem" phpName="Potbconfshowitem" type="VARCHAR" size="1"/>
+    <column name="PotbConfScrapAcct" phpName="Potbconfscrapacct" type="VARCHAR" size="9"/>
+    <column name="PotbConfScrapVariPct" phpName="Potbconfscrapvaripct" type="DECIMAL" size="20" scale="2"/>
+    <column name="PotbConfLifoFifo" phpName="Potbconflifofifo" type="VARCHAR" size="1"/>
+    <column name="PotbConfFabBomOrKit" phpName="Potbconffabbomorkit" type="VARCHAR" size="1"/>
+    <column name="PotbConfAllocEpoEr" phpName="Potbconfallocepoer" type="VARCHAR" size="1"/>
+    <column name="PotbConfFabPrealloc" phpName="Potbconffabprealloc" type="VARCHAR" size="1"/>
+    <column name="PotbConfForceFabEpo" phpName="Potbconfforcefabepo" type="VARCHAR" size="1"/>
+    <column name="PotbConfPreviewCompList" phpName="Potbconfpreviewcomplist" type="VARCHAR" size="1"/>
+    <column name="PotbConfNegCompUsage" phpName="Potbconfnegcompusage" type="VARCHAR" size="1"/>
+    <column name="PotbConfAutoSelectComp" phpName="Potbconfautoselectcomp" type="VARCHAR" size="1"/>
+    <column name="PotbConfBinFromVendor" phpName="Potbconfbinfromvendor" type="VARCHAR" size="1"/>
+    <column name="PotbConfDfltStckCd" phpName="Potbconfdfltstckcd" type="VARCHAR" size="1"/>
+    <column name="PotbConfUseRemain" phpName="Potbconfuseremain" type="VARCHAR" size="1"/>
+    <column name="PotbConfSameCompCost" phpName="Potbconfsamecompcost" type="VARCHAR" size="1"/>
+    <column name="PotbConfPassCode" phpName="Potbconfpasscode" type="VARCHAR" size="6"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="po_confirm_code" idMethod="native" phpName="PoConfirmCode">
     <column name="PotbCnfmCode" phpName="Potbcnfmcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="PotbCnfmDesc" phpName="Potbcnfmdesc" type="VARCHAR" size="20"/>
