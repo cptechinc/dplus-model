@@ -22,6 +22,7 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	 const COLUMN_ALIASES = array(
 		'ponbr'      => 'pohdnbr',
 		'linenbr'    => 'podtline',
+		'line'       => 'podtline',
 		'editable'   => 'pontpordeditorview',
 		'sequence'   => 'pontseq',
 		'note'       => 'pontnote',
