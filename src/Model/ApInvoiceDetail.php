@@ -29,6 +29,7 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 		'vendorid'      => 'apvevendid',
 		'linenbr'       => 'apidline',
 		'price'         => 'apidamt',
+		'price_total'   => 'apidamt',
 		'itemid'        => 'inititemnbr',
 		'qty_received'  => 'apidqtyrec',
 		'ponbr'         => 'apidponbr'
