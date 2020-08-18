@@ -32,6 +32,7 @@ class ApInvoiceDetail extends BaseApInvoiceDetail {
 		'price_total'   => 'apidamt',
 		'itemid'        => 'inititemnbr',
 		'qty_received'  => 'apidqtyrec',
-		'ponbr'         => 'apidponbr'
+		'ponbr'         => 'apidponbr',
+		'description'   => 'apiddesc'
 	);
 }
