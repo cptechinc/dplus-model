@@ -11,6 +11,91 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ap_config" idMethod="native" phpName="ConfigAp">
+    <column name="AptbConfKey" phpName="Aptbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="AptbConfGlIfac" phpName="Aptbconfglifac" type="VARCHAR" size="1"/>
+    <column name="AptbConfInIfac" phpName="Aptbconfinifac" type="VARCHAR" size="1"/>
+    <column name="AptbConfSoIfac" phpName="Aptbconfsoifac" type="VARCHAR" size="1"/>
+    <column name="AptbConfPoIfac" phpName="Aptbconfpoifac" type="VARCHAR" size="1"/>
+    <column name="AptbConfFrtAcct" phpName="Aptbconffrtacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfMiscAcct" phpName="Aptbconfmiscacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfApAcct" phpName="Aptbconfapacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfCashAcct" phpName="Aptbconfcashacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfDiscAcct" phpName="Aptbconfdiscacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfTaxAcct" phpName="Aptbconftaxacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfPurAcct" phpName="Aptbconfpuracct" type="VARCHAR" size="9"/>
+    <column name="AptbConfVarAcct" phpName="Aptbconfvaracct" type="VARCHAR" size="9"/>
+    <column name="AptbConfVendDisc" phpName="Aptbconfvenddisc" type="VARCHAR" size="9"/>
+    <column name="AptbConfApInvVarAcct" phpName="Aptbconfapinvvaracct" type="VARCHAR" size="9"/>
+    <column name="AptbConfUseRoyal" phpName="Aptbconfuseroyal" type="VARCHAR" size="1"/>
+    <column name="AptbConfDefBuyrCode" phpName="Aptbconfdefbuyrcode" type="VARCHAR" size="6"/>
+    <column name="AptbConfDefTermCode" phpName="Aptbconfdeftermcode" type="VARCHAR" size="4"/>
+    <column name="AptbConfDefSviaCode" phpName="Aptbconfdefsviacode" type="VARCHAR" size="4"/>
+    <column name="AptbConfDefTypeCode" phpName="Aptbconfdeftypecode" type="VARCHAR" size="4"/>
+    <column name="AptbConfVendLine" phpName="Aptbconfvendline" type="INTEGER" size="2"/>
+    <column name="AptbConfVendCols" phpName="Aptbconfvendcols" type="INTEGER" size="2"/>
+    <column name="AptbConfPoLine" phpName="Aptbconfpoline" type="INTEGER" size="2"/>
+    <column name="AptbConfPoCols" phpName="Aptbconfpocols" type="INTEGER" size="2"/>
+    <column name="AptbConfVendGetOpt" phpName="Aptbconfvendgetopt" type="INTEGER" size="1"/>
+    <column name="AptbConfPaytoShipfr" phpName="Aptbconfpaytoshipfr" type="VARCHAR" size="1"/>
+    <column name="AptbConfHoldStat" phpName="Aptbconfholdstat" type="VARCHAR" size="1"/>
+    <column name="AptbConfDiscRet" phpName="Aptbconfdiscret" type="VARCHAR" size="1"/>
+    <column name="AptbConfStopVendChg" phpName="Aptbconfstopvendchg" type="INTEGER" size="4"/>
+    <column name="AptbConfReqDate2" phpName="Aptbconfreqdate2" type="INTEGER" size="3"/>
+    <column name="AptbConfReqDate3" phpName="Aptbconfreqdate3" type="INTEGER" size="3"/>
+    <column name="AptbConfReqDate4" phpName="Aptbconfreqdate4" type="INTEGER" size="3"/>
+    <column name="AptbConf1099Name" phpName="Aptbconf1099name" type="VARCHAR" size="30"/>
+    <column name="AptbConf1099Adr1" phpName="Aptbconf1099adr1" type="VARCHAR" size="30"/>
+    <column name="AptbConf1099Adr2" phpName="Aptbconf1099adr2" type="VARCHAR" size="30"/>
+    <column name="AptbConf1099Adr3" phpName="Aptbconf1099adr3" type="VARCHAR" size="30"/>
+    <column name="AptbConf1099City" phpName="Aptbconf1099city" type="VARCHAR" size="16"/>
+    <column name="AptbConf1099Stat" phpName="Aptbconf1099stat" type="VARCHAR" size="2"/>
+    <column name="AptbConf1099ZipCode" phpName="Aptbconf1099zipcode" type="VARCHAR" size="10"/>
+    <column name="AptbConf1099Id" phpName="Aptbconf1099id" type="VARCHAR" size="15"/>
+    <column name="AptbConfStubSort" phpName="Aptbconfstubsort" type="VARCHAR" size="1"/>
+    <column name="AptbConfOver1" phpName="Aptbconfover1" type="INTEGER" size="3"/>
+    <column name="AptbConfOver2" phpName="Aptbconfover2" type="INTEGER" size="3"/>
+    <column name="AptbConfPrtChk" phpName="Aptbconfprtchk" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiUnrecQty" phpName="Aptbconfeiunrecqty" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiRecQtyAsk" phpName="Aptbconfeirecqtyask" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiRecQtyDef" phpName="Aptbconfeirecqtydef" type="VARCHAR" size="1"/>
+    <column name="AptbConfAllowMultPos" phpName="Aptbconfallowmultpos" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiByClerk" phpName="Aptbconfeibyclerk" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiBatchProc" phpName="Aptbconfeibatchproc" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiDispStanCost" phpName="Aptbconfeidispstancost" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiAssetAcctChg" phpName="Aptbconfeiassetacctchg" type="VARCHAR" size="1"/>
+    <column name="AptbConfAllowDupInvc" phpName="Aptbconfallowdupinvc" type="VARCHAR" size="1"/>
+    <column name="AptbConfPrtSoRept" phpName="Aptbconfprtsorept" type="VARCHAR" size="1"/>
+    <column name="AptbConfEiCheckHist" phpName="Aptbconfeicheckhist" type="VARCHAR" size="1"/>
+    <column name="AptbConfSummGl" phpName="Aptbconfsummgl" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmUserLabel" phpName="Aptbconfvxmuserlabel" type="VARCHAR" size="8"/>
+    <column name="AptbConfVendCostBreaks" phpName="Aptbconfvendcostbreaks" type="VARCHAR" size="1"/>
+    <column name="AptbConfMyeClrClosPo" phpName="Aptbconfmyeclrclospo" type="VARCHAR" size="1"/>
+    <column name="AptbConfMyeClrClosDate" phpName="Aptbconfmyeclrclosdate" type="VARCHAR" size="8"/>
+    <column name="AptbConfMyeClrPoHist" phpName="Aptbconfmyeclrpohist" type="VARCHAR" size="1"/>
+    <column name="AptbConfMyeClrPoDate" phpName="Aptbconfmyeclrpodate" type="VARCHAR" size="8"/>
+    <column name="AptbConfMyeClrCkHist" phpName="Aptbconfmyeclrckhist" type="VARCHAR" size="1"/>
+    <column name="AptbConfMyeClrCkDate" phpName="Aptbconfmyeclrckdate" type="VARCHAR" size="8"/>
+    <column name="AptbConfMyeClrOpenCk" phpName="Aptbconfmyeclropenck" type="VARCHAR" size="1"/>
+    <column name="AptbConfLead" phpName="Aptbconflead" type="VARCHAR" size="1"/>
+    <column name="AptbConfVrReworkItem" phpName="Aptbconfvrreworkitem" type="VARCHAR" size="30"/>
+    <column name="AptbConfVrqcWhse" phpName="Aptbconfvrqcwhse" type="VARCHAR" size="2"/>
+    <column name="AptbConfVrGlAcct" phpName="Aptbconfvrglacct" type="VARCHAR" size="9"/>
+    <column name="AptbConfVxmListPc" phpName="Aptbconfvxmlistpc" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmListItemUpd" phpName="Aptbconfvxmlistitemupd" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmGrossLc" phpName="Aptbconfvxmgrosslc" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmCostLp" phpName="Aptbconfvxmcostlp" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmCostItemUpd" phpName="Aptbconfvxmcostitemupd" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmCostRMesg" phpName="Aptbconfvxmcostrmesg" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmCostItemUpdM" phpName="Aptbconfvxmcostitemupdm" type="VARCHAR" size="1"/>
+    <column name="AptbConfVxmCostMMesg" phpName="Aptbconfvxmcostmmesg" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ap_invoice_det" idMethod="native" phpName="ApInvoiceDetail">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ApidPayToKey" phpName="Apidpaytokey" type="VARCHAR" size="180" primaryKey="true" required="true" defaultValue=""/>
