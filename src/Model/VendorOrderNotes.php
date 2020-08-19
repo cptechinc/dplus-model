@@ -20,10 +20,8 @@ class VendorOrderNotes extends BaseVendorOrderNotes {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'qnnbr'       => 'qnhdnbr',
-		'linenbr'     => 'qndtline',
-		'line'        => 'qndtline',
-		'editable'    => 'qnqnrdeditorview',
+		'vendorid'    => 'apvevendid',
+		'shipfromid'  => 'apfmshipid',
 		'sequence'    => 'qnseq',
 		'note'        => 'qnnote',
 		'form'        => 'qnform',
