@@ -13,7 +13,7 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	CONST EDITABLE = 'E';
+	const EDITABLE = 'E';
 
 	const TYPE = 'PORD';
 	const DESC = 'Purchase Order Header and Detail Notes';

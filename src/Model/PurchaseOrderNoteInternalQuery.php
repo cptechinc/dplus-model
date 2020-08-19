@@ -1,11 +1,11 @@
 <?php
 
-use Base\PurchaseOrderNoteQuery as BasePurchaseOrderNoteQuery;
+use Base\PurchaseOrderNoteInternalQuery as BasePurchaseOrderNoteInternalQuery;
 
 use Dplus\Model\QueryTraits;
 
 /**
- * Class for performing query and update operations on the 'notes_po_head_det' table.
+ * Class for performing query and update operations on the 'notes_po_internal' table.
  *
  * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
  * methods with an alias
@@ -19,9 +19,8 @@ use Dplus\Model\QueryTraits;
  * FindOneByXXX()
  *
  * FindByXXX()
- *
  */
-class PurchaseOrderNoteQuery extends BasePurchaseOrderNoteQuery {
+class PurchaseOrderNoteInternalQuery extends BasePurchaseOrderNoteInternalQuery {
 	use QueryTraits;
 
 	public function filterHeader() {
