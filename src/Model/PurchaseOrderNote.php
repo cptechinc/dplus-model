@@ -24,13 +24,18 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	 * @var array
 	 */
 	 const COLUMN_ALIASES = array(
-		'ponbr'      => 'pohdnbr',
-		'linenbr'    => 'podtline',
-		'line'       => 'podtline',
-		'editable'   => 'pontpordeditorview',
-		'sequence'   => 'pontseq',
-		'note'       => 'pontnote',
-		'form'       => 'pontform',
+		'ponbr'       => 'pohdnbr',
+		'linenbr'     => 'podtline',
+		'line'        => 'podtline',
+		'editable'    => 'pontpordeditorview',
+		'sequence'    => 'pontseq',
+		'note'        => 'pontnote',
+		'form'        => 'pontform',
+		'type'        => 'ponttype',
+		'description' => 'ponttypedesc',
+		'key2'        => 'pontkey2',
+		'date'        => 'dateupdtd',
+		'time'        => 'timeupdtd'
 	);
 
 	public function editable() {
