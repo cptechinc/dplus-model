@@ -30,8 +30,8 @@ class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 		'qty_received'    => 'potdqtyrec',
 		'date_transfered' => 'potdtrandate',
 		'vendoritemid'    => 'potdvenditemnbr',
-		'cost'            => 'potdtpurchunitcost',
-		'cost_total'      => 'potdtpurchtotcost',
+		'cost'            => 'potdpurchunitcost',
+		'cost_total'      => 'potdpurchtotcost',
 	);
 
 	/**
