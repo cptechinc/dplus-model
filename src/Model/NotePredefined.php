@@ -18,6 +18,7 @@ class NotePredefined extends BaseNotePredefined {
 
 	const FORMAT_NOTEDATE = 'Ymd';
 	const FORMAT_NOTETIME = 'His';
+	const MAX_LENGTH_CODE = 8;
 
 	/**
 	 * Column Aliases to lookup / get properties
