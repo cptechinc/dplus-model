@@ -1,6 +1,6 @@
 <?php
 
-use Base\VendorOrderNotesQuery as BaseVendorOrderNotesQuery;
+use Base\VendorOrderNoteQuery as BaseVendorOrderNoteQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -18,9 +18,9 @@ use Dplus\Model\QueryTraits;
  * FindOne()
  * 
  * FindByXXX()
- * @method  VendorShipfrom[]|Objectcollection findByVendorid(string $vendorID)     Return the VendorShipfrom Objects filtered by the ApveVendId column
+ * @method  VendorOrderNote[]|Objectcollection findByVendorid(string $vendorID)     Return the VendorShipfrom Objects filtered by the ApveVendId column
  * 
  */
-class VendorOrderNotesQuery extends BaseVendorOrderNotesQuery {
+class VendorOrderNoteQuery extends BaseVendorOrderNoteQuery {
 	use QueryTraits;
 }

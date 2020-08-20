@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \VendorOrderNotes as ChildVendorOrderNotes;
-use \VendorOrderNotesQuery as ChildVendorOrderNotesQuery;
+use \VendorOrderNote as ChildVendorOrderNote;
+use \VendorOrderNoteQuery as ChildVendorOrderNoteQuery;
 use \Exception;
 use \PDO;
-use Map\VendorOrderNotesTableMap;
+use Map\VendorOrderNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,113 +19,113 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildVendorOrderNotesQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
- * @method     ChildVendorOrderNotesQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
- * @method     ChildVendorOrderNotesQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
- * @method     ChildVendorOrderNotesQuery orderByApfmshipid($order = Criteria::ASC) Order by the ApfmShipId column
- * @method     ChildVendorOrderNotesQuery orderByQnseq($order = Criteria::ASC) Order by the QnSeq column
- * @method     ChildVendorOrderNotesQuery orderByQnnote($order = Criteria::ASC) Order by the QnNote column
- * @method     ChildVendorOrderNotesQuery orderByQnkey2($order = Criteria::ASC) Order by the QnKey2 column
- * @method     ChildVendorOrderNotesQuery orderByQnform($order = Criteria::ASC) Order by the QnForm column
- * @method     ChildVendorOrderNotesQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildVendorOrderNotesQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildVendorOrderNotesQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildVendorOrderNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
+ * @method     ChildVendorOrderNoteQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
+ * @method     ChildVendorOrderNoteQuery orderByApvevendid($order = Criteria::ASC) Order by the ApveVendId column
+ * @method     ChildVendorOrderNoteQuery orderByApfmshipid($order = Criteria::ASC) Order by the ApfmShipId column
+ * @method     ChildVendorOrderNoteQuery orderByQnseq($order = Criteria::ASC) Order by the QnSeq column
+ * @method     ChildVendorOrderNoteQuery orderByQnnote($order = Criteria::ASC) Order by the QnNote column
+ * @method     ChildVendorOrderNoteQuery orderByQnkey2($order = Criteria::ASC) Order by the QnKey2 column
+ * @method     ChildVendorOrderNoteQuery orderByQnform($order = Criteria::ASC) Order by the QnForm column
+ * @method     ChildVendorOrderNoteQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildVendorOrderNoteQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildVendorOrderNoteQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildVendorOrderNotesQuery groupByQntype() Group by the QnType column
- * @method     ChildVendorOrderNotesQuery groupByQntypedesc() Group by the QnTypeDesc column
- * @method     ChildVendorOrderNotesQuery groupByApvevendid() Group by the ApveVendId column
- * @method     ChildVendorOrderNotesQuery groupByApfmshipid() Group by the ApfmShipId column
- * @method     ChildVendorOrderNotesQuery groupByQnseq() Group by the QnSeq column
- * @method     ChildVendorOrderNotesQuery groupByQnnote() Group by the QnNote column
- * @method     ChildVendorOrderNotesQuery groupByQnkey2() Group by the QnKey2 column
- * @method     ChildVendorOrderNotesQuery groupByQnform() Group by the QnForm column
- * @method     ChildVendorOrderNotesQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildVendorOrderNotesQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildVendorOrderNotesQuery groupByDummy() Group by the dummy column
+ * @method     ChildVendorOrderNoteQuery groupByQntype() Group by the QnType column
+ * @method     ChildVendorOrderNoteQuery groupByQntypedesc() Group by the QnTypeDesc column
+ * @method     ChildVendorOrderNoteQuery groupByApvevendid() Group by the ApveVendId column
+ * @method     ChildVendorOrderNoteQuery groupByApfmshipid() Group by the ApfmShipId column
+ * @method     ChildVendorOrderNoteQuery groupByQnseq() Group by the QnSeq column
+ * @method     ChildVendorOrderNoteQuery groupByQnnote() Group by the QnNote column
+ * @method     ChildVendorOrderNoteQuery groupByQnkey2() Group by the QnKey2 column
+ * @method     ChildVendorOrderNoteQuery groupByQnform() Group by the QnForm column
+ * @method     ChildVendorOrderNoteQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildVendorOrderNoteQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildVendorOrderNoteQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildVendorOrderNotesQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildVendorOrderNotesQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildVendorOrderNotesQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildVendorOrderNoteQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildVendorOrderNoteQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildVendorOrderNoteQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildVendorOrderNotesQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildVendorOrderNotesQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildVendorOrderNotesQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildVendorOrderNoteQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildVendorOrderNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildVendorOrderNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildVendorOrderNotes findOne(ConnectionInterface $con = null) Return the first ChildVendorOrderNotes matching the query
- * @method     ChildVendorOrderNotes findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendorOrderNotes matching the query, or a new ChildVendorOrderNotes object populated from the query conditions when no match is found
+ * @method     ChildVendorOrderNote findOne(ConnectionInterface $con = null) Return the first ChildVendorOrderNote matching the query
+ * @method     ChildVendorOrderNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendorOrderNote matching the query, or a new ChildVendorOrderNote object populated from the query conditions when no match is found
  *
- * @method     ChildVendorOrderNotes findOneByQntype(string $QnType) Return the first ChildVendorOrderNotes filtered by the QnType column
- * @method     ChildVendorOrderNotes findOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorOrderNotes filtered by the QnTypeDesc column
- * @method     ChildVendorOrderNotes findOneByApvevendid(string $ApveVendId) Return the first ChildVendorOrderNotes filtered by the ApveVendId column
- * @method     ChildVendorOrderNotes findOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorOrderNotes filtered by the ApfmShipId column
- * @method     ChildVendorOrderNotes findOneByQnseq(int $QnSeq) Return the first ChildVendorOrderNotes filtered by the QnSeq column
- * @method     ChildVendorOrderNotes findOneByQnnote(string $QnNote) Return the first ChildVendorOrderNotes filtered by the QnNote column
- * @method     ChildVendorOrderNotes findOneByQnkey2(string $QnKey2) Return the first ChildVendorOrderNotes filtered by the QnKey2 column
- * @method     ChildVendorOrderNotes findOneByQnform(string $QnForm) Return the first ChildVendorOrderNotes filtered by the QnForm column
- * @method     ChildVendorOrderNotes findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorOrderNotes filtered by the DateUpdtd column
- * @method     ChildVendorOrderNotes findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorOrderNotes filtered by the TimeUpdtd column
- * @method     ChildVendorOrderNotes findOneByDummy(string $dummy) Return the first ChildVendorOrderNotes filtered by the dummy column *
+ * @method     ChildVendorOrderNote findOneByQntype(string $QnType) Return the first ChildVendorOrderNote filtered by the QnType column
+ * @method     ChildVendorOrderNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorOrderNote filtered by the QnTypeDesc column
+ * @method     ChildVendorOrderNote findOneByApvevendid(string $ApveVendId) Return the first ChildVendorOrderNote filtered by the ApveVendId column
+ * @method     ChildVendorOrderNote findOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorOrderNote filtered by the ApfmShipId column
+ * @method     ChildVendorOrderNote findOneByQnseq(int $QnSeq) Return the first ChildVendorOrderNote filtered by the QnSeq column
+ * @method     ChildVendorOrderNote findOneByQnnote(string $QnNote) Return the first ChildVendorOrderNote filtered by the QnNote column
+ * @method     ChildVendorOrderNote findOneByQnkey2(string $QnKey2) Return the first ChildVendorOrderNote filtered by the QnKey2 column
+ * @method     ChildVendorOrderNote findOneByQnform(string $QnForm) Return the first ChildVendorOrderNote filtered by the QnForm column
+ * @method     ChildVendorOrderNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorOrderNote filtered by the DateUpdtd column
+ * @method     ChildVendorOrderNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorOrderNote filtered by the TimeUpdtd column
+ * @method     ChildVendorOrderNote findOneByDummy(string $dummy) Return the first ChildVendorOrderNote filtered by the dummy column *
 
- * @method     ChildVendorOrderNotes requirePk($key, ConnectionInterface $con = null) Return the ChildVendorOrderNotes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOne(ConnectionInterface $con = null) Return the first ChildVendorOrderNotes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requirePk($key, ConnectionInterface $con = null) Return the ChildVendorOrderNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOne(ConnectionInterface $con = null) Return the first ChildVendorOrderNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVendorOrderNotes requireOneByQntype(string $QnType) Return the first ChildVendorOrderNotes filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorOrderNotes filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByApvevendid(string $ApveVendId) Return the first ChildVendorOrderNotes filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorOrderNotes filtered by the ApfmShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByQnseq(int $QnSeq) Return the first ChildVendorOrderNotes filtered by the QnSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByQnnote(string $QnNote) Return the first ChildVendorOrderNotes filtered by the QnNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByQnkey2(string $QnKey2) Return the first ChildVendorOrderNotes filtered by the QnKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByQnform(string $QnForm) Return the first ChildVendorOrderNotes filtered by the QnForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorOrderNotes filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorOrderNotes filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildVendorOrderNotes requireOneByDummy(string $dummy) Return the first ChildVendorOrderNotes filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQntype(string $QnType) Return the first ChildVendorOrderNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildVendorOrderNote filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByApvevendid(string $ApveVendId) Return the first ChildVendorOrderNote filtered by the ApveVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByApfmshipid(string $ApfmShipId) Return the first ChildVendorOrderNote filtered by the ApfmShipId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQnseq(int $QnSeq) Return the first ChildVendorOrderNote filtered by the QnSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQnnote(string $QnNote) Return the first ChildVendorOrderNote filtered by the QnNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQnkey2(string $QnKey2) Return the first ChildVendorOrderNote filtered by the QnKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByQnform(string $QnForm) Return the first ChildVendorOrderNote filtered by the QnForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByDateupdtd(string $DateUpdtd) Return the first ChildVendorOrderNote filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildVendorOrderNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildVendorOrderNote requireOneByDummy(string $dummy) Return the first ChildVendorOrderNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildVendorOrderNotes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVendorOrderNotes objects based on current ModelCriteria
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQntype(string $QnType) Return ChildVendorOrderNotes objects filtered by the QnType column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildVendorOrderNotes objects filtered by the QnTypeDesc column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildVendorOrderNotes objects filtered by the ApveVendId column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByApfmshipid(string $ApfmShipId) Return ChildVendorOrderNotes objects filtered by the ApfmShipId column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildVendorOrderNotes objects filtered by the QnSeq column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQnnote(string $QnNote) Return ChildVendorOrderNotes objects filtered by the QnNote column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildVendorOrderNotes objects filtered by the QnKey2 column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByQnform(string $QnForm) Return ChildVendorOrderNotes objects filtered by the QnForm column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildVendorOrderNotes objects filtered by the DateUpdtd column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildVendorOrderNotes objects filtered by the TimeUpdtd column
- * @method     ChildVendorOrderNotes[]|ObjectCollection findByDummy(string $dummy) Return ChildVendorOrderNotes objects filtered by the dummy column
- * @method     ChildVendorOrderNotes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildVendorOrderNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildVendorOrderNote objects based on current ModelCriteria
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQntype(string $QnType) Return ChildVendorOrderNote objects filtered by the QnType column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildVendorOrderNote objects filtered by the QnTypeDesc column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByApvevendid(string $ApveVendId) Return ChildVendorOrderNote objects filtered by the ApveVendId column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByApfmshipid(string $ApfmShipId) Return ChildVendorOrderNote objects filtered by the ApfmShipId column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildVendorOrderNote objects filtered by the QnSeq column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildVendorOrderNote objects filtered by the QnNote column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildVendorOrderNote objects filtered by the QnKey2 column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildVendorOrderNote objects filtered by the QnForm column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildVendorOrderNote objects filtered by the DateUpdtd column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildVendorOrderNote objects filtered by the TimeUpdtd column
+ * @method     ChildVendorOrderNote[]|ObjectCollection findByDummy(string $dummy) Return ChildVendorOrderNote objects filtered by the dummy column
+ * @method     ChildVendorOrderNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class VendorOrderNotesQuery extends ModelCriteria
+abstract class VendorOrderNoteQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\VendorOrderNotesQuery object.
+     * Initializes internal state of \Base\VendorOrderNoteQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\VendorOrderNotes', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\VendorOrderNote', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildVendorOrderNotesQuery object.
+     * Returns a new ChildVendorOrderNoteQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildVendorOrderNotesQuery
+     * @return ChildVendorOrderNoteQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildVendorOrderNotesQuery) {
+        if ($criteria instanceof ChildVendorOrderNoteQuery) {
             return $criteria;
         }
-        $query = new ChildVendorOrderNotesQuery();
+        $query = new ChildVendorOrderNoteQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -148,7 +148,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param array[$QnType, $QnSeq, $QnKey2, $QnForm] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildVendorOrderNotes|array|mixed the result, formatted by the current formatter
+     * @return ChildVendorOrderNote|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -157,7 +157,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -170,7 +170,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = VendorOrderNotesTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
+        if ((null !== ($obj = VendorOrderNoteTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -187,7 +187,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildVendorOrderNotes A model object, or null if the key is not found
+     * @return ChildVendorOrderNote A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -205,10 +205,10 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildVendorOrderNotes $obj */
-            $obj = new ChildVendorOrderNotes();
+            /** @var ChildVendorOrderNote $obj */
+            $obj = new ChildVendorOrderNote();
             $obj->hydrate($row);
-            VendorOrderNotesTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
+            VendorOrderNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
         }
         $stmt->closeCursor();
 
@@ -221,7 +221,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildVendorOrderNotes|array|mixed the result, formatted by the current formatter
+     * @return ChildVendorOrderNote|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -263,14 +263,14 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
-        $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
 
         return $this;
     }
@@ -280,7 +280,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -288,12 +288,12 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(VendorOrderNotesTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(VendorOrderNotesTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(VendorOrderNoteTableMap::COL_QNTYPE, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(VendorOrderNoteTableMap::COL_QNSEQ, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(VendorOrderNotesTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(VendorOrderNoteTableMap::COL_QNKEY2, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
-            $cton3 = $this->getNewCriterion(VendorOrderNotesTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
+            $cton3 = $this->getNewCriterion(VendorOrderNoteTableMap::COL_QNFORM, $key[3], Criteria::EQUAL);
             $cton0->addAnd($cton3);
             $this->addOr($cton0);
         }
@@ -313,7 +313,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $qntype The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQntype($qntype = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNTYPE, $qntype, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNTYPE, $qntype, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $qntypedesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQntypedesc($qntypedesc = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $apvevendid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByApvevendid($apvevendid = null, $comparison = null)
     {
@@ -373,7 +373,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_APVEVENDID, $apvevendid, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_APVEVENDID, $apvevendid, $comparison);
     }
 
     /**
@@ -388,7 +388,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $apfmshipid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByApfmshipid($apfmshipid = null, $comparison = null)
     {
@@ -398,7 +398,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_APFMSHIPID, $apfmshipid, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_APFMSHIPID, $apfmshipid, $comparison);
     }
 
     /**
@@ -417,18 +417,18 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQnseq($qnseq = null, $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
             if (isset($qnseq['min'])) {
-                $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNSEQ, $qnseq['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNSEQ, $qnseq['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($qnseq['max'])) {
-                $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNSEQ, $qnseq['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNSEQ, $qnseq['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -439,7 +439,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNSEQ, $qnseq, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
     }
 
     /**
@@ -454,7 +454,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $qnnote The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQnnote($qnnote = null, $comparison = null)
     {
@@ -464,7 +464,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNNOTE, $qnnote, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
     }
 
     /**
@@ -479,7 +479,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $qnkey2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQnkey2($qnkey2 = null, $comparison = null)
     {
@@ -489,7 +489,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
     }
 
     /**
@@ -504,7 +504,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $qnform The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByQnform($qnform = null, $comparison = null)
     {
@@ -514,7 +514,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_QNFORM, $qnform, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_QNFORM, $qnform, $comparison);
     }
 
     /**
@@ -529,7 +529,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -539,7 +539,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -554,7 +554,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -564,7 +564,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -579,7 +579,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -589,23 +589,23 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(VendorOrderNotesTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(VendorOrderNoteTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildVendorOrderNotes $vendorOrderNotes Object to remove from the list of results
+     * @param   ChildVendorOrderNote $VendorOrderNote Object to remove from the list of results
      *
-     * @return $this|ChildVendorOrderNotesQuery The current query, for fluid interface
+     * @return $this|ChildVendorOrderNoteQuery The current query, for fluid interface
      */
-    public function prune($vendorOrderNotes = null)
+    public function prune($VendorOrderNote = null)
     {
-        if ($vendorOrderNotes) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(VendorOrderNotesTableMap::COL_QNTYPE), $vendorOrderNotes->getQntype(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(VendorOrderNotesTableMap::COL_QNSEQ), $vendorOrderNotes->getQnseq(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(VendorOrderNotesTableMap::COL_QNKEY2), $vendorOrderNotes->getQnkey2(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(VendorOrderNotesTableMap::COL_QNFORM), $vendorOrderNotes->getQnform(), Criteria::NOT_EQUAL);
+        if ($VendorOrderNote) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(VendorOrderNoteTableMap::COL_QNTYPE), $VendorOrderNote->getQntype(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(VendorOrderNoteTableMap::COL_QNSEQ), $VendorOrderNote->getQnseq(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(VendorOrderNoteTableMap::COL_QNKEY2), $VendorOrderNote->getQnkey2(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(VendorOrderNoteTableMap::COL_QNFORM), $VendorOrderNote->getQnform(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
         }
 
@@ -621,7 +621,7 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -632,8 +632,8 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            VendorOrderNotesTableMap::clearInstancePool();
-            VendorOrderNotesTableMap::clearRelatedInstancePool();
+            VendorOrderNoteTableMap::clearInstancePool();
+            VendorOrderNoteTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -651,26 +651,26 @@ abstract class VendorOrderNotesQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(VendorOrderNotesTableMap::DATABASE_NAME);
+        $criteria->setDbName(VendorOrderNoteTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            VendorOrderNotesTableMap::removeInstanceFromPool($criteria);
+            VendorOrderNoteTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            VendorOrderNotesTableMap::clearRelatedInstancePool();
+            VendorOrderNoteTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // VendorOrderNotesQuery
+} // VendorOrderNoteQuery

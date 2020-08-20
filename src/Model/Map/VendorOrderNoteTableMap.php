@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \VendorOrderNotes;
-use \VendorOrderNotesQuery;
+use \VendorOrderNote;
+use \VendorOrderNoteQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class VendorOrderNotesTableMap extends TableMap
+class VendorOrderNoteTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class VendorOrderNotesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.VendorOrderNotesTableMap';
+    const CLASS_NAME = '.Map.VendorOrderNoteTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class VendorOrderNotesTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\VendorOrderNotes';
+    const OM_CLASS = '\\VendorOrderNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'VendorOrderNotes';
+    const CLASS_DEFAULT = 'VendorOrderNote';
 
     /**
      * The total number of columns
@@ -140,7 +140,7 @@ class VendorOrderNotesTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Apvevendid', 'Apfmshipid', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'apvevendid', 'apfmshipid', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(VendorOrderNotesTableMap::COL_QNTYPE, VendorOrderNotesTableMap::COL_QNTYPEDESC, VendorOrderNotesTableMap::COL_APVEVENDID, VendorOrderNotesTableMap::COL_APFMSHIPID, VendorOrderNotesTableMap::COL_QNSEQ, VendorOrderNotesTableMap::COL_QNNOTE, VendorOrderNotesTableMap::COL_QNKEY2, VendorOrderNotesTableMap::COL_QNFORM, VendorOrderNotesTableMap::COL_DATEUPDTD, VendorOrderNotesTableMap::COL_TIMEUPDTD, VendorOrderNotesTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(VendorOrderNoteTableMap::COL_QNTYPE, VendorOrderNoteTableMap::COL_QNTYPEDESC, VendorOrderNoteTableMap::COL_APVEVENDID, VendorOrderNoteTableMap::COL_APFMSHIPID, VendorOrderNoteTableMap::COL_QNSEQ, VendorOrderNoteTableMap::COL_QNNOTE, VendorOrderNoteTableMap::COL_QNKEY2, VendorOrderNoteTableMap::COL_QNFORM, VendorOrderNoteTableMap::COL_DATEUPDTD, VendorOrderNoteTableMap::COL_TIMEUPDTD, VendorOrderNoteTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'ApveVendId', 'ApfmShipId', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -154,7 +154,7 @@ class VendorOrderNotesTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Apvevendid' => 2, 'Apfmshipid' => 3, 'Qnseq' => 4, 'Qnnote' => 5, 'Qnkey2' => 6, 'Qnform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
         self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'apvevendid' => 2, 'apfmshipid' => 3, 'qnseq' => 4, 'qnnote' => 5, 'qnkey2' => 6, 'qnform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(VendorOrderNotesTableMap::COL_QNTYPE => 0, VendorOrderNotesTableMap::COL_QNTYPEDESC => 1, VendorOrderNotesTableMap::COL_APVEVENDID => 2, VendorOrderNotesTableMap::COL_APFMSHIPID => 3, VendorOrderNotesTableMap::COL_QNSEQ => 4, VendorOrderNotesTableMap::COL_QNNOTE => 5, VendorOrderNotesTableMap::COL_QNKEY2 => 6, VendorOrderNotesTableMap::COL_QNFORM => 7, VendorOrderNotesTableMap::COL_DATEUPDTD => 8, VendorOrderNotesTableMap::COL_TIMEUPDTD => 9, VendorOrderNotesTableMap::COL_DUMMY => 10, ),
+        self::TYPE_COLNAME       => array(VendorOrderNoteTableMap::COL_QNTYPE => 0, VendorOrderNoteTableMap::COL_QNTYPEDESC => 1, VendorOrderNoteTableMap::COL_APVEVENDID => 2, VendorOrderNoteTableMap::COL_APFMSHIPID => 3, VendorOrderNoteTableMap::COL_QNSEQ => 4, VendorOrderNoteTableMap::COL_QNNOTE => 5, VendorOrderNoteTableMap::COL_QNKEY2 => 6, VendorOrderNoteTableMap::COL_QNFORM => 7, VendorOrderNoteTableMap::COL_DATEUPDTD => 8, VendorOrderNoteTableMap::COL_TIMEUPDTD => 9, VendorOrderNoteTableMap::COL_DUMMY => 10, ),
         self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'ApveVendId' => 2, 'ApfmShipId' => 3, 'QnSeq' => 4, 'QnNote' => 5, 'QnKey2' => 6, 'QnForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -170,9 +170,9 @@ class VendorOrderNotesTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_vend_ship_order');
-        $this->setPhpName('VendorOrderNotes');
+        $this->setPhpName('VendorOrderNote');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\VendorOrderNotes');
+        $this->setClassName('\\VendorOrderNote');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -204,7 +204,7 @@ class VendorOrderNotesTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \VendorOrderNotes $obj A \VendorOrderNotes object.
+     * @param \VendorOrderNote $obj A \VendorOrderNote object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -225,12 +225,12 @@ class VendorOrderNotesTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \VendorOrderNotes object or a primary key value.
+     * @param mixed $value A \VendorOrderNote object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \VendorOrderNotes) {
+            if (is_object($value) && $value instanceof \VendorOrderNote) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -241,7 +241,7 @@ class VendorOrderNotesTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \VendorOrderNotes object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \VendorOrderNote object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -325,7 +325,7 @@ class VendorOrderNotesTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? VendorOrderNotesTableMap::CLASS_DEFAULT : VendorOrderNotesTableMap::OM_CLASS;
+        return $withPrefix ? VendorOrderNoteTableMap::CLASS_DEFAULT : VendorOrderNoteTableMap::OM_CLASS;
     }
 
     /**
@@ -339,22 +339,22 @@ class VendorOrderNotesTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (VendorOrderNotes object, last column rank)
+     * @return array           (VendorOrderNote object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = VendorOrderNotesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = VendorOrderNotesTableMap::getInstanceFromPool($key))) {
+        $key = VendorOrderNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = VendorOrderNoteTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + VendorOrderNotesTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + VendorOrderNoteTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = VendorOrderNotesTableMap::OM_CLASS;
-            /** @var VendorOrderNotes $obj */
+            $cls = VendorOrderNoteTableMap::OM_CLASS;
+            /** @var VendorOrderNote $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            VendorOrderNotesTableMap::addInstanceToPool($obj, $key);
+            VendorOrderNoteTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -377,18 +377,18 @@ class VendorOrderNotesTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = VendorOrderNotesTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = VendorOrderNotesTableMap::getInstanceFromPool($key))) {
+            $key = VendorOrderNoteTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = VendorOrderNoteTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var VendorOrderNotes $obj */
+                /** @var VendorOrderNote $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                VendorOrderNotesTableMap::addInstanceToPool($obj, $key);
+                VendorOrderNoteTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -409,17 +409,17 @@ class VendorOrderNotesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_APVEVENDID);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_APFMSHIPID);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(VendorOrderNotesTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_APVEVENDID);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_APFMSHIPID);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(VendorOrderNoteTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnType');
             $criteria->addSelectColumn($alias . '.QnTypeDesc');
@@ -444,7 +444,7 @@ class VendorOrderNotesTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(VendorOrderNotesTableMap::DATABASE_NAME)->getTable(VendorOrderNotesTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(VendorOrderNoteTableMap::DATABASE_NAME)->getTable(VendorOrderNoteTableMap::TABLE_NAME);
     }
 
     /**
@@ -452,16 +452,16 @@ class VendorOrderNotesTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(VendorOrderNotesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(VendorOrderNotesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new VendorOrderNotesTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(VendorOrderNoteTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(VendorOrderNoteTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new VendorOrderNoteTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a VendorOrderNotes or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a VendorOrderNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or VendorOrderNotes object or primary key or array of primary keys
+     * @param mixed               $values Criteria or VendorOrderNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -472,17 +472,17 @@ class VendorOrderNotesTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \VendorOrderNotes) { // it's a model object
+        } elseif ($values instanceof \VendorOrderNote) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(VendorOrderNotesTableMap::DATABASE_NAME);
+            $criteria = new Criteria(VendorOrderNoteTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -490,21 +490,21 @@ class VendorOrderNotesTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(VendorOrderNotesTableMap::COL_QNTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNotesTableMap::COL_QNSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNotesTableMap::COL_QNKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNotesTableMap::COL_QNFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(VendorOrderNoteTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNoteTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNoteTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(VendorOrderNoteTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = VendorOrderNotesQuery::create()->mergeWith($criteria);
+        $query = VendorOrderNoteQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            VendorOrderNotesTableMap::clearInstancePool();
+            VendorOrderNoteTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                VendorOrderNotesTableMap::removeInstanceFromPool($singleval);
+                VendorOrderNoteTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -519,13 +519,13 @@ class VendorOrderNotesTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return VendorOrderNotesQuery::create()->doDeleteAll($con);
+        return VendorOrderNoteQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a VendorOrderNotes or Criteria object.
+     * Performs an INSERT on the database, given a VendorOrderNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or VendorOrderNotes object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or VendorOrderNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -534,18 +534,18 @@ class VendorOrderNotesTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from VendorOrderNotes object
+            $criteria = $criteria->buildCriteria(); // build Criteria from VendorOrderNote object
         }
 
 
         // Set the correct dbName
-        $query = VendorOrderNotesQuery::create()->mergeWith($criteria);
+        $query = VendorOrderNoteQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -554,7 +554,7 @@ class VendorOrderNotesTableMap extends TableMap
         });
     }
 
-} // VendorOrderNotesTableMap
+} // VendorOrderNoteTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-VendorOrderNotesTableMap::buildTableMap();
+VendorOrderNoteTableMap::buildTableMap();

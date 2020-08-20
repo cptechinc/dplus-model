@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \VendorOrderNotesQuery as ChildVendorOrderNotesQuery;
+use \VendorOrderNoteQuery as ChildVendorOrderNoteQuery;
 use \Exception;
 use \PDO;
-use Map\VendorOrderNotesTableMap;
+use Map\VendorOrderNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class VendorOrderNotes implements ActiveRecordInterface
+abstract class VendorOrderNote implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\VendorOrderNotesTableMap';
+    const TABLE_MAP = '\\Map\\VendorOrderNoteTableMap';
 
 
     /**
@@ -163,7 +163,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\VendorOrderNotes object.
+     * Initializes internal state of Base\VendorOrderNote object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -260,9 +260,9 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>VendorOrderNotes</code> instance.  If
-     * <code>obj</code> is an instance of <code>VendorOrderNotes</code>, delegates to
-     * <code>equals(VendorOrderNotes)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>VendorOrderNote</code> instance.  If
+     * <code>obj</code> is an instance of <code>VendorOrderNote</code>, delegates to
+     * <code>equals(VendorOrderNote)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -328,7 +328,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|VendorOrderNotes The current object, for fluid interface
+     * @return $this|VendorOrderNote The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -503,7 +503,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qntype] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQntype($v)
     {
@@ -513,7 +513,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qntype !== $v) {
             $this->qntype = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNTYPE] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNTYPE] = true;
         }
 
         return $this;
@@ -523,7 +523,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qntypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQntypedesc($v)
     {
@@ -533,7 +533,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qntypedesc !== $v) {
             $this->qntypedesc = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNTYPEDESC] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNTYPEDESC] = true;
         }
 
         return $this;
@@ -543,7 +543,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [apvevendid] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setApvevendid($v)
     {
@@ -553,7 +553,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->apvevendid !== $v) {
             $this->apvevendid = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_APVEVENDID] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_APVEVENDID] = true;
         }
 
         return $this;
@@ -563,7 +563,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [apfmshipid] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setApfmshipid($v)
     {
@@ -573,7 +573,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->apfmshipid !== $v) {
             $this->apfmshipid = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_APFMSHIPID] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_APFMSHIPID] = true;
         }
 
         return $this;
@@ -583,7 +583,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qnseq] column.
      *
      * @param int $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQnseq($v)
     {
@@ -593,7 +593,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qnseq !== $v) {
             $this->qnseq = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNSEQ] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNSEQ] = true;
         }
 
         return $this;
@@ -603,7 +603,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qnnote] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQnnote($v)
     {
@@ -613,7 +613,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qnnote !== $v) {
             $this->qnnote = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNNOTE] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNNOTE] = true;
         }
 
         return $this;
@@ -623,7 +623,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qnkey2] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQnkey2($v)
     {
@@ -633,7 +633,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qnkey2 !== $v) {
             $this->qnkey2 = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNKEY2] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNKEY2] = true;
         }
 
         return $this;
@@ -643,7 +643,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [qnform] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setQnform($v)
     {
@@ -653,7 +653,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->qnform !== $v) {
             $this->qnform = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_QNFORM] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_QNFORM] = true;
         }
 
         return $this;
@@ -663,7 +663,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -673,7 +673,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -683,7 +683,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -693,7 +693,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -703,7 +703,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\VendorOrderNotes The current object (for fluent API support)
+     * @return $this|\VendorOrderNote The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -713,7 +713,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[VendorOrderNotesTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[VendorOrderNoteTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -771,37 +771,37 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VendorOrderNotesTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VendorOrderNoteTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VendorOrderNotesTableMap::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VendorOrderNoteTableMap::translateFieldName('Apfmshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apfmshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VendorOrderNotesTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VendorOrderNoteTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VendorOrderNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VendorOrderNoteTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VendorOrderNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VendorOrderNoteTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VendorOrderNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VendorOrderNoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -811,10 +811,10 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = VendorOrderNotesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 11; // 11 = VendorOrderNoteTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\VendorOrderNotes'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\VendorOrderNote'), 0, $e);
         }
     }
 
@@ -856,13 +856,13 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildVendorOrderNotesQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildVendorOrderNoteQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -881,8 +881,8 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see VendorOrderNotes::setDeleted()
-     * @see VendorOrderNotes::isDeleted()
+     * @see VendorOrderNote::setDeleted()
+     * @see VendorOrderNote::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -891,11 +891,11 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildVendorOrderNotesQuery::create()
+            $deleteQuery = ChildVendorOrderNoteQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -930,7 +930,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(VendorOrderNoteTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -949,7 +949,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                VendorOrderNotesTableMap::addInstanceToPool($this);
+                VendorOrderNoteTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1008,37 +1008,37 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNTYPE)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'QnType';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNTYPEDESC)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'QnTypeDesc';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_APVEVENDID)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_APVEVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'ApveVendId';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_APFMSHIPID)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_APFMSHIPID)) {
             $modifiedColumns[':p' . $index++]  = 'ApfmShipId';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNSEQ)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'QnSeq';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNNOTE)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'QnNote';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNKEY2)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'QnKey2';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNFORM)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNFORM)) {
             $modifiedColumns[':p' . $index++]  = 'QnForm';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1124,7 +1124,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = VendorOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = VendorOrderNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1196,11 +1196,11 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['VendorOrderNotes'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['VendorOrderNote'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['VendorOrderNotes'][$this->hashCode()] = true;
-        $keys = VendorOrderNotesTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['VendorOrderNote'][$this->hashCode()] = true;
+        $keys = VendorOrderNoteTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getQntype(),
             $keys[1] => $this->getQntypedesc(),
@@ -1232,11 +1232,11 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\VendorOrderNotes
+     * @return $this|\VendorOrderNote
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = VendorOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = VendorOrderNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1247,7 +1247,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\VendorOrderNotes
+     * @return $this|\VendorOrderNote
      */
     public function setByPosition($pos, $value)
     {
@@ -1309,7 +1309,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = VendorOrderNotesTableMap::getFieldNames($keyType);
+        $keys = VendorOrderNoteTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setQntype($arr[$keys[0]]);
@@ -1363,7 +1363,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\VendorOrderNotes The current object, for fluid interface
+     * @return $this|\VendorOrderNote The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1383,40 +1383,40 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(VendorOrderNotesTableMap::DATABASE_NAME);
+        $criteria = new Criteria(VendorOrderNoteTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNTYPE)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNTYPE, $this->qntype);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNTYPE)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNTYPE, $this->qntype);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNTYPEDESC)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNTYPEDESC, $this->qntypedesc);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNTYPEDESC)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNTYPEDESC, $this->qntypedesc);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_APVEVENDID)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_APVEVENDID, $this->apvevendid);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_APVEVENDID)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_APVEVENDID, $this->apvevendid);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_APFMSHIPID)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_APFMSHIPID, $this->apfmshipid);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_APFMSHIPID)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_APFMSHIPID, $this->apfmshipid);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNSEQ)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNSEQ)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNSEQ, $this->qnseq);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNNOTE)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNNOTE, $this->qnnote);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNNOTE)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNNOTE, $this->qnnote);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNKEY2)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNKEY2)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNKEY2, $this->qnkey2);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_QNFORM)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_QNFORM, $this->qnform);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_QNFORM)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_QNFORM, $this->qnform);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_DATEUPDTD)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_DATEUPDTD)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(VendorOrderNotesTableMap::COL_DUMMY)) {
-            $criteria->add(VendorOrderNotesTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(VendorOrderNoteTableMap::COL_DUMMY)) {
+            $criteria->add(VendorOrderNoteTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1434,11 +1434,11 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildVendorOrderNotesQuery::create();
-        $criteria->add(VendorOrderNotesTableMap::COL_QNTYPE, $this->qntype);
-        $criteria->add(VendorOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
-        $criteria->add(VendorOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
-        $criteria->add(VendorOrderNotesTableMap::COL_QNFORM, $this->qnform);
+        $criteria = ChildVendorOrderNoteQuery::create();
+        $criteria->add(VendorOrderNoteTableMap::COL_QNTYPE, $this->qntype);
+        $criteria->add(VendorOrderNoteTableMap::COL_QNSEQ, $this->qnseq);
+        $criteria->add(VendorOrderNoteTableMap::COL_QNKEY2, $this->qnkey2);
+        $criteria->add(VendorOrderNoteTableMap::COL_QNFORM, $this->qnform);
 
         return $criteria;
     }
@@ -1513,7 +1513,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \VendorOrderNotes (or compatible) type.
+     * @param      object $copyObj An object of \VendorOrderNote (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1545,7 +1545,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \VendorOrderNotes Clone of current object.
+     * @return \VendorOrderNote Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1606,7 +1606,7 @@ abstract class VendorOrderNotes implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(VendorOrderNotesTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(VendorOrderNoteTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

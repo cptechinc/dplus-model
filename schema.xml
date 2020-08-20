@@ -2488,7 +2488,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_vend_ship_order" idMethod="native" phpName="VendorOrderNotes">
+  <table name="notes_vend_ship_order" idMethod="native" phpName="VendorOrderNote">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6"/>

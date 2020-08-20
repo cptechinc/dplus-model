@@ -1,6 +1,6 @@
 <?php
 
-use Base\VendorOrderNotes as BaseVendorOrderNotes;
+use Base\VendorOrderNote as BaseVendorOrderNote;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'notes_vend_ship_order' table.
  */
-class VendorOrderNotes extends BaseVendorOrderNotes {
+class VendorOrderNote extends BaseVendorOrderNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
