@@ -596,11 +596,11 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     protected $oedtlmcontractpric;
 
     /**
-     * The value for the oedtwght field.
+     * The value for the oedtwghttot field.
      *
      * @var        string
      */
-    protected $oedtwght;
+    protected $oedtwghttot;
 
     /**
      * The value for the oedtordras field.
@@ -2063,13 +2063,13 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [oedtwght] column value.
+     * Get the [oedtwghttot] column value.
      *
      * @return string
      */
-    public function getOedtwght()
+    public function getOedtWghtTot()
     {
-        return $this->oedtwght;
+        return $this->oedtwghttot;
     }
 
     /**
@@ -4237,24 +4237,24 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     } // setOedtlmcontractpric()
 
     /**
-     * Set the value of [oedtwght] column.
+     * Set the value of [oedtwghttot] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
-    public function setOedtwght($v)
+    public function setOedtWghtTot($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oedtwght !== $v) {
-            $this->oedtwght = $v;
-            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGHT] = true;
+        if ($this->oedtwghttot !== $v) {
+            $this->oedtwghttot = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTWGHTTOT] = true;
         }
 
         return $this;
-    } // setOedtwght()
+    } // setOedtWghtTot()
 
     /**
      * Set the value of [oedtordras] column.
@@ -5808,8 +5808,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtlmcontractpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtlmcontractpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtwght', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oedtwght = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtWghtTot', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtwghttot = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtordras = (null !== $col) ? (string) $col : null;
@@ -6451,8 +6451,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLmContractPric';
         }
-        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHT)) {
-            $modifiedColumns[':p' . $index++]  = 'OedtWght';
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHTTOT)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtWghtTot';
         }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRAS)) {
             $modifiedColumns[':p' . $index++]  = 'OedtOrdrAs';
@@ -6885,8 +6885,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                     case 'OedtLmContractPric':
                         $stmt->bindValue($identifier, $this->oedtlmcontractpric, PDO::PARAM_STR);
                         break;
-                    case 'OedtWght':
-                        $stmt->bindValue($identifier, $this->oedtwght, PDO::PARAM_STR);
+                    case 'OedtWghtTot':
+                        $stmt->bindValue($identifier, $this->oedtwghttot, PDO::PARAM_STR);
                         break;
                     case 'OedtOrdrAs':
                         $stmt->bindValue($identifier, $this->oedtordras, PDO::PARAM_STR);
@@ -7364,7 +7364,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 return $this->getOedtlmcontractpric();
                 break;
             case 76:
-                return $this->getOedtwght();
+                return $this->getOedtWghtTot();
                 break;
             case 77:
                 return $this->getOedtordras();
@@ -7664,7 +7664,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $keys[73] => $this->getOedtlmmtrxpkgpric(),
             $keys[74] => $this->getOedtlmmtrxbulkpric(),
             $keys[75] => $this->getOedtlmcontractpric(),
-            $keys[76] => $this->getOedtwght(),
+            $keys[76] => $this->getOedtWghtTot(),
             $keys[77] => $this->getOedtordras(),
             $keys[78] => $this->getOedtpodetlinenbr(),
             $keys[79] => $this->getOedtqtytoship(),
@@ -8014,7 +8014,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 $this->setOedtlmcontractpric($value);
                 break;
             case 76:
-                $this->setOedtwght($value);
+                $this->setOedtWghtTot($value);
                 break;
             case 77:
                 $this->setOedtordras($value);
@@ -8463,7 +8463,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $this->setOedtlmcontractpric($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setOedtwght($arr[$keys[76]]);
+            $this->setOedtWghtTot($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
             $this->setOedtordras($arr[$keys[77]]);
@@ -8926,8 +8926,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC)) {
             $criteria->add(SalesOrderDetailTableMap::COL_OEDTLMCONTRACTPRIC, $this->oedtlmcontractpric);
         }
-        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHT)) {
-            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGHT, $this->oedtwght);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTWGHTTOT)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTWGHTTOT, $this->oedtwghttot);
         }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORDRAS)) {
             $criteria->add(SalesOrderDetailTableMap::COL_OEDTORDRAS, $this->oedtordras);
@@ -9298,7 +9298,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $copyObj->setOedtlmmtrxpkgpric($this->getOedtlmmtrxpkgpric());
         $copyObj->setOedtlmmtrxbulkpric($this->getOedtlmmtrxbulkpric());
         $copyObj->setOedtlmcontractpric($this->getOedtlmcontractpric());
-        $copyObj->setOedtwght($this->getOedtwght());
+        $copyObj->setOedtWghtTot($this->getOedtWghtTot());
         $copyObj->setOedtordras($this->getOedtordras());
         $copyObj->setOedtpodetlinenbr($this->getOedtpodetlinenbr());
         $copyObj->setOedtqtytoship($this->getOedtqtytoship());
@@ -9527,7 +9527,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $this->oedtlmmtrxpkgpric = null;
         $this->oedtlmmtrxbulkpric = null;
         $this->oedtlmcontractpric = null;
-        $this->oedtwght = null;
+        $this->oedtwghttot = null;
         $this->oedtordras = null;
         $this->oedtpodetlinenbr = null;
         $this->oedtqtytoship = null;

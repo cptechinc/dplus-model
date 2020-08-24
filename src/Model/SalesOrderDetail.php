@@ -23,18 +23,19 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	 * NOTE: @ Provalley use qty_ordered for weight, qty_cases for boxes
 	 */
 	const COLUMN_ALIASES = array(
-		'ordernumber'  => 'oehdnbr',
-		'qty_ordered'  => 'oedtqtyord',
-		'price'        => 'oedtpric',
-		'total_price'  => 'oedtprictot',
-		'itemid'       => 'inititemnbr',
-		'desc1'        => 'oedtdesc',
-		'desc2'        => 'oedtdesc2',
-		'line'         => 'oedtline',
-		'linenbr'      => 'oedtline',
-		'vendorpo'     => 'oedtponbr',
-		'qty_cases'    => 'oedtcntrqty',
-		'item'         => 'item',
+		'ordernumber'   => 'oehdnbr',
+		'qty_ordered'   => 'oedtqtyord',
+		'price'         => 'oedtpric',
+		'total_price'   => 'oedtprictot',
+		'itemid'        => 'inititemnbr',
+		'desc1'         => 'oedtdesc',
+		'desc2'         => 'oedtdesc2',
+		'line'          => 'oedtline',
+		'linenbr'       => 'oedtline',
+		'vendorpo'      => 'oedtponbr',
+		'qty_cases'     => 'oedtcntrqty',
+		'item'          => 'item',
+		'weight_total'  => 'oedtwghttot',
 	);
 
 	/**

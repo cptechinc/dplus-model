@@ -3598,7 +3598,7 @@
     <column name="OedhLmMtrxPkgPric" phpName="Oedhlmmtrxpkgpric" type="DECIMAL" size="20" scale="2"/>
     <column name="OedhLmMtrxBulkPric" phpName="Oedhlmmtrxbulkpric" type="DECIMAL" size="20" scale="2"/>
     <column name="OedhLmContractPric" phpName="Oedhlmcontractpric" type="DECIMAL" size="20" scale="2"/>
-    <column name="OedhWght" phpName="Oedhwght" type="DECIMAL" size="20" scale="7"/>
+    <column name="OedhWghtTot" phpName="OedhwghtTot" type="DECIMAL" size="20" scale="7"/>
     <column name="OedhOrdrAs" phpName="Oedhordras" type="VARCHAR" size="2"/>
     <column name="OedhPoDetLineNbr" phpName="Oedhpodetlinenbr" type="INTEGER" size="6"/>
     <column name="OedhQtyToShip" phpName="Oedhqtytoship" type="DECIMAL" size="20" scale="7"/>
@@ -3749,7 +3749,7 @@
     <column name="OedtLmMtrxPkgPric" phpName="Oedtlmmtrxpkgpric" type="DECIMAL" size="20" scale="2"/>
     <column name="OedtLmMtrxBulkPric" phpName="Oedtlmmtrxbulkpric" type="DECIMAL" size="20" scale="2"/>
     <column name="OedtLmContractPric" phpName="Oedtlmcontractpric" type="DECIMAL" size="20" scale="2"/>
-    <column name="OedtWght" phpName="Oedtwght" type="DECIMAL" size="20" scale="7"/>
+    <column name="OedtWghtTot" phpName="OedtWghtTot" type="DECIMAL" size="20" scale="7"/>
     <column name="OedtOrdrAs" phpName="Oedtordras" type="VARCHAR" size="2"/>
     <column name="OedtPoDetLineNbr" phpName="Oedtpodetlinenbr" type="INTEGER" size="6"/>
     <column name="OedtQtyToShip" phpName="Oedtqtytoship" type="DECIMAL" size="20" scale="7"/>
