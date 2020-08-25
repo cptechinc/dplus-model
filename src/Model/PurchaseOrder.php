@@ -26,6 +26,19 @@ class PurchaseOrder extends BasePurchaseOrder {
 	const STATUS_OPEN   = 'O';
 	const STATUS_CLOSED = 'C';
 
+	const FREIGHTPAIDBY_DESCRIPTIONS = array(
+		'C' => 'collect',
+		'P' => 'prepaid',
+		'A' => 'prepaid + add',
+		'T' => 'third party'
+	);
+
+	const FOB_DESCRIPTIONS = array(
+		'D' => 'destination',
+		'O' => 'origin',
+		'P' => 'prepaid + add'
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -50,6 +63,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'date_expected'      => 'pohdexptdate',
 		'date_shipped'       => 'pohdshipdate',
 		'date_cancelled'     => 'pohdcancdate',
+		'date_acknowledged'  => 'pohdackdate',
 		'shipvia'            => 'artbsviacode',
 		'phone'              => 'pohdtelenbr',
 		'phone_intl'         => 'pohdteleintl',
@@ -66,7 +80,12 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'shipfrom_state'     => 'pohdptstat',
 		'shipfrom_zip'       => 'pohdptzipcode',
 		'fob'                => 'pohdfob',
-		'tax_exempt'         => 'pohdtaxexem'
+		'tax_exempt'         => 'pohdtaxexem',
+		'releasenbr'         => 'pohdreleasenbr',
+		'freightpaidby'      => 'pohdcolppd',
+		'termscode'          => 'aptmtermcode',
+		'futurebuy'          => 'pohdfuturebuy',
+		'landedcost'         => 'pohdlandcost',
 	);
 
 	/**
@@ -87,6 +106,49 @@ class PurchaseOrder extends BasePurchaseOrder {
 	public function status() {
 		return self::STATUS_DESCRIPTIONS[$this->status];
 	}
+
+	/**
+	 * Return Freight Paid By Description
+	 * @return string
+	 */
+	public function freightpaidby() {
+		return self::FREIGHTPAIDBY_DESCRIPTIONS[$this->freightpaidby];
+	}
+
+	/**
+	 * Return FOB descriptions
+	 * @return string
+	 */
+	public function fob() {
+		return self::FOB_DESCRIPTIONS[$this->fob];
+	}
+
+	/**
+	 * Return termcode descriptions
+	 * @return string
+	 */
+	public function termscode() {
+		return ApTermsCodeQuery::create()->findOneByCode($this->termscode)->description;
+	}
+
+	/**
+	 * Return Options for Freight Paid By
+	 * @return array
+	 */
+	public function get_options_freightpaidby() {
+		return self::FREIGHTPAIDBY_DESCRIPTIONS;
+	}
+
+	/**
+	 * Return Options for FOB
+	 * @return array
+	 */
+	public function get_options_fob() {
+		return self::FOB_DESCRIPTIONS;
+	}
+
+
+
 
 	/**
 	 * Returns if PO is in a closed status
