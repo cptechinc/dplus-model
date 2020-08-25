@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'country_codes' table.
  */
 class CountryCodes extends BaseCountryCodes {
-    use ThrowErrorTrait;
+	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	/**
@@ -22,10 +22,10 @@ class CountryCodes extends BaseCountryCodes {
 		'description'   => 'ctrydesc',
 		'alpha2'        => 'ctryisoalpha2',
 		'numeric'       => 'ctryisonumeric',
-        'custom_code'   => 'ctrycustomcode',
-        'exchange_rate' => 'ctryexchrate',
-        'country_date'  => 'ctrydate',
-        'date'          => 'dateupdtd',
-        'time'          => 'timeupdtd'
+		'custom_code'   => 'ctrycustomcode',
+		'exchange_rate' => 'ctryexchrate',
+		'country_date'  => 'ctrydate',
+		'date'          => 'dateupdtd',
+		'time'          => 'timeupdtd'
 	);
 }
