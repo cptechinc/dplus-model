@@ -1,12 +1,12 @@
 <?php
 
-use Base\CountryCodesQuery as BaseCountryCodesQuery;
+use Base\CountryCodeQuery as BaseCountryCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'country_codes' table.
  */
-class CountryCodesQuery extends BaseCountryCodesQuery {
+class CountryCodeQuery extends BaseCountryCodeQuery {
 	use QueryTraits;
 }
