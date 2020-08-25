@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \CountryCodes as ChildCountryCodes;
-use \CountryCodesQuery as ChildCountryCodesQuery;
+use \CountryCode as ChildCountryCode;
+use \CountryCodeQuery as ChildCountryCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CountryCodesTableMap;
+use Map\CountryCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,108 +19,108 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCountryCodesQuery orderByCtryisoalpha3($order = Criteria::ASC) Order by the CtryIsoAlpha3 column
- * @method     ChildCountryCodesQuery orderByCtrydesc($order = Criteria::ASC) Order by the CtryDesc column
- * @method     ChildCountryCodesQuery orderByCtryisoalpha2($order = Criteria::ASC) Order by the CtryIsoAlpha2 column
- * @method     ChildCountryCodesQuery orderByCtryisonumeric($order = Criteria::ASC) Order by the CtryIsoNumeric column
- * @method     ChildCountryCodesQuery orderByCtrycustomcode($order = Criteria::ASC) Order by the CtryCustomCode column
- * @method     ChildCountryCodesQuery orderByCtryexchrate($order = Criteria::ASC) Order by the CtryExchRate column
- * @method     ChildCountryCodesQuery orderByCtrydate($order = Criteria::ASC) Order by the CtryDate column
- * @method     ChildCountryCodesQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildCountryCodesQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildCountryCodesQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildCountryCodeQuery orderByCtryisoalpha3($order = Criteria::ASC) Order by the CtryIsoAlpha3 column
+ * @method     ChildCountryCodeQuery orderByCtrydesc($order = Criteria::ASC) Order by the CtryDesc column
+ * @method     ChildCountryCodeQuery orderByCtryisoalpha2($order = Criteria::ASC) Order by the CtryIsoAlpha2 column
+ * @method     ChildCountryCodeQuery orderByCtryisonumeric($order = Criteria::ASC) Order by the CtryIsoNumeric column
+ * @method     ChildCountryCodeQuery orderByCtrycustomcode($order = Criteria::ASC) Order by the CtryCustomCode column
+ * @method     ChildCountryCodeQuery orderByCtryexchrate($order = Criteria::ASC) Order by the CtryExchRate column
+ * @method     ChildCountryCodeQuery orderByCtrydate($order = Criteria::ASC) Order by the CtryDate column
+ * @method     ChildCountryCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildCountryCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildCountryCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCountryCodesQuery groupByCtryisoalpha3() Group by the CtryIsoAlpha3 column
- * @method     ChildCountryCodesQuery groupByCtrydesc() Group by the CtryDesc column
- * @method     ChildCountryCodesQuery groupByCtryisoalpha2() Group by the CtryIsoAlpha2 column
- * @method     ChildCountryCodesQuery groupByCtryisonumeric() Group by the CtryIsoNumeric column
- * @method     ChildCountryCodesQuery groupByCtrycustomcode() Group by the CtryCustomCode column
- * @method     ChildCountryCodesQuery groupByCtryexchrate() Group by the CtryExchRate column
- * @method     ChildCountryCodesQuery groupByCtrydate() Group by the CtryDate column
- * @method     ChildCountryCodesQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildCountryCodesQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildCountryCodesQuery groupByDummy() Group by the dummy column
+ * @method     ChildCountryCodeQuery groupByCtryisoalpha3() Group by the CtryIsoAlpha3 column
+ * @method     ChildCountryCodeQuery groupByCtrydesc() Group by the CtryDesc column
+ * @method     ChildCountryCodeQuery groupByCtryisoalpha2() Group by the CtryIsoAlpha2 column
+ * @method     ChildCountryCodeQuery groupByCtryisonumeric() Group by the CtryIsoNumeric column
+ * @method     ChildCountryCodeQuery groupByCtrycustomcode() Group by the CtryCustomCode column
+ * @method     ChildCountryCodeQuery groupByCtryexchrate() Group by the CtryExchRate column
+ * @method     ChildCountryCodeQuery groupByCtrydate() Group by the CtryDate column
+ * @method     ChildCountryCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildCountryCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildCountryCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildCountryCodesQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildCountryCodesQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildCountryCodesQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildCountryCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildCountryCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildCountryCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildCountryCodesQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildCountryCodesQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildCountryCodesQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildCountryCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildCountryCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildCountryCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCountryCodes findOne(ConnectionInterface $con = null) Return the first ChildCountryCodes matching the query
- * @method     ChildCountryCodes findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCountryCodes matching the query, or a new ChildCountryCodes object populated from the query conditions when no match is found
+ * @method     ChildCountryCode findOne(ConnectionInterface $con = null) Return the first ChildCountryCode matching the query
+ * @method     ChildCountryCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCountryCode matching the query, or a new ChildCountryCode object populated from the query conditions when no match is found
  *
- * @method     ChildCountryCodes findOneByCtryisoalpha3(string $CtryIsoAlpha3) Return the first ChildCountryCodes filtered by the CtryIsoAlpha3 column
- * @method     ChildCountryCodes findOneByCtrydesc(string $CtryDesc) Return the first ChildCountryCodes filtered by the CtryDesc column
- * @method     ChildCountryCodes findOneByCtryisoalpha2(string $CtryIsoAlpha2) Return the first ChildCountryCodes filtered by the CtryIsoAlpha2 column
- * @method     ChildCountryCodes findOneByCtryisonumeric(int $CtryIsoNumeric) Return the first ChildCountryCodes filtered by the CtryIsoNumeric column
- * @method     ChildCountryCodes findOneByCtrycustomcode(string $CtryCustomCode) Return the first ChildCountryCodes filtered by the CtryCustomCode column
- * @method     ChildCountryCodes findOneByCtryexchrate(string $CtryExchRate) Return the first ChildCountryCodes filtered by the CtryExchRate column
- * @method     ChildCountryCodes findOneByCtrydate(string $CtryDate) Return the first ChildCountryCodes filtered by the CtryDate column
- * @method     ChildCountryCodes findOneByDateupdtd(string $DateUpdtd) Return the first ChildCountryCodes filtered by the DateUpdtd column
- * @method     ChildCountryCodes findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCountryCodes filtered by the TimeUpdtd column
- * @method     ChildCountryCodes findOneByDummy(string $dummy) Return the first ChildCountryCodes filtered by the dummy column *
+ * @method     ChildCountryCode findOneByCtryisoalpha3(string $CtryIsoAlpha3) Return the first ChildCountryCode filtered by the CtryIsoAlpha3 column
+ * @method     ChildCountryCode findOneByCtrydesc(string $CtryDesc) Return the first ChildCountryCode filtered by the CtryDesc column
+ * @method     ChildCountryCode findOneByCtryisoalpha2(string $CtryIsoAlpha2) Return the first ChildCountryCode filtered by the CtryIsoAlpha2 column
+ * @method     ChildCountryCode findOneByCtryisonumeric(int $CtryIsoNumeric) Return the first ChildCountryCode filtered by the CtryIsoNumeric column
+ * @method     ChildCountryCode findOneByCtrycustomcode(string $CtryCustomCode) Return the first ChildCountryCode filtered by the CtryCustomCode column
+ * @method     ChildCountryCode findOneByCtryexchrate(string $CtryExchRate) Return the first ChildCountryCode filtered by the CtryExchRate column
+ * @method     ChildCountryCode findOneByCtrydate(string $CtryDate) Return the first ChildCountryCode filtered by the CtryDate column
+ * @method     ChildCountryCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildCountryCode filtered by the DateUpdtd column
+ * @method     ChildCountryCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCountryCode filtered by the TimeUpdtd column
+ * @method     ChildCountryCode findOneByDummy(string $dummy) Return the first ChildCountryCode filtered by the dummy column *
 
- * @method     ChildCountryCodes requirePk($key, ConnectionInterface $con = null) Return the ChildCountryCodes by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOne(ConnectionInterface $con = null) Return the first ChildCountryCodes matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requirePk($key, ConnectionInterface $con = null) Return the ChildCountryCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOne(ConnectionInterface $con = null) Return the first ChildCountryCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCountryCodes requireOneByCtryisoalpha3(string $CtryIsoAlpha3) Return the first ChildCountryCodes filtered by the CtryIsoAlpha3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtrydesc(string $CtryDesc) Return the first ChildCountryCodes filtered by the CtryDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtryisoalpha2(string $CtryIsoAlpha2) Return the first ChildCountryCodes filtered by the CtryIsoAlpha2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtryisonumeric(int $CtryIsoNumeric) Return the first ChildCountryCodes filtered by the CtryIsoNumeric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtrycustomcode(string $CtryCustomCode) Return the first ChildCountryCodes filtered by the CtryCustomCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtryexchrate(string $CtryExchRate) Return the first ChildCountryCodes filtered by the CtryExchRate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByCtrydate(string $CtryDate) Return the first ChildCountryCodes filtered by the CtryDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCountryCodes filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCountryCodes filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCountryCodes requireOneByDummy(string $dummy) Return the first ChildCountryCodes filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtryisoalpha3(string $CtryIsoAlpha3) Return the first ChildCountryCode filtered by the CtryIsoAlpha3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtrydesc(string $CtryDesc) Return the first ChildCountryCode filtered by the CtryDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtryisoalpha2(string $CtryIsoAlpha2) Return the first ChildCountryCode filtered by the CtryIsoAlpha2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtryisonumeric(int $CtryIsoNumeric) Return the first ChildCountryCode filtered by the CtryIsoNumeric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtrycustomcode(string $CtryCustomCode) Return the first ChildCountryCode filtered by the CtryCustomCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtryexchrate(string $CtryExchRate) Return the first ChildCountryCode filtered by the CtryExchRate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByCtrydate(string $CtryDate) Return the first ChildCountryCode filtered by the CtryDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCountryCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCountryCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCountryCode requireOneByDummy(string $dummy) Return the first ChildCountryCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCountryCodes[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCountryCodes objects based on current ModelCriteria
- * @method     ChildCountryCodes[]|ObjectCollection findByCtryisoalpha3(string $CtryIsoAlpha3) Return ChildCountryCodes objects filtered by the CtryIsoAlpha3 column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtrydesc(string $CtryDesc) Return ChildCountryCodes objects filtered by the CtryDesc column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtryisoalpha2(string $CtryIsoAlpha2) Return ChildCountryCodes objects filtered by the CtryIsoAlpha2 column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtryisonumeric(int $CtryIsoNumeric) Return ChildCountryCodes objects filtered by the CtryIsoNumeric column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtrycustomcode(string $CtryCustomCode) Return ChildCountryCodes objects filtered by the CtryCustomCode column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtryexchrate(string $CtryExchRate) Return ChildCountryCodes objects filtered by the CtryExchRate column
- * @method     ChildCountryCodes[]|ObjectCollection findByCtrydate(string $CtryDate) Return ChildCountryCodes objects filtered by the CtryDate column
- * @method     ChildCountryCodes[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCountryCodes objects filtered by the DateUpdtd column
- * @method     ChildCountryCodes[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCountryCodes objects filtered by the TimeUpdtd column
- * @method     ChildCountryCodes[]|ObjectCollection findByDummy(string $dummy) Return ChildCountryCodes objects filtered by the dummy column
- * @method     ChildCountryCodes[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildCountryCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCountryCode objects based on current ModelCriteria
+ * @method     ChildCountryCode[]|ObjectCollection findByCtryisoalpha3(string $CtryIsoAlpha3) Return ChildCountryCode objects filtered by the CtryIsoAlpha3 column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtrydesc(string $CtryDesc) Return ChildCountryCode objects filtered by the CtryDesc column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtryisoalpha2(string $CtryIsoAlpha2) Return ChildCountryCode objects filtered by the CtryIsoAlpha2 column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtryisonumeric(int $CtryIsoNumeric) Return ChildCountryCode objects filtered by the CtryIsoNumeric column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtrycustomcode(string $CtryCustomCode) Return ChildCountryCode objects filtered by the CtryCustomCode column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtryexchrate(string $CtryExchRate) Return ChildCountryCode objects filtered by the CtryExchRate column
+ * @method     ChildCountryCode[]|ObjectCollection findByCtrydate(string $CtryDate) Return ChildCountryCode objects filtered by the CtryDate column
+ * @method     ChildCountryCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCountryCode objects filtered by the DateUpdtd column
+ * @method     ChildCountryCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCountryCode objects filtered by the TimeUpdtd column
+ * @method     ChildCountryCode[]|ObjectCollection findByDummy(string $dummy) Return ChildCountryCode objects filtered by the dummy column
+ * @method     ChildCountryCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class CountryCodesQuery extends ModelCriteria
+abstract class CountryCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\CountryCodesQuery object.
+     * Initializes internal state of \Base\CountryCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\CountryCodes', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\CountryCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildCountryCodesQuery object.
+     * Returns a new ChildCountryCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildCountryCodesQuery
+     * @return ChildCountryCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildCountryCodesQuery) {
+        if ($criteria instanceof ChildCountryCodeQuery) {
             return $criteria;
         }
-        $query = new ChildCountryCodesQuery();
+        $query = new ChildCountryCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -143,7 +143,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildCountryCodes|array|mixed the result, formatted by the current formatter
+     * @return ChildCountryCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -152,7 +152,7 @@ abstract class CountryCodesQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -165,7 +165,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = CountryCodesTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = CountryCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -182,7 +182,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCountryCodes A model object, or null if the key is not found
+     * @return ChildCountryCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -197,10 +197,10 @@ abstract class CountryCodesQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCountryCodes $obj */
-            $obj = new ChildCountryCodes();
+            /** @var ChildCountryCode $obj */
+            $obj = new ChildCountryCode();
             $obj->hydrate($row);
-            CountryCodesTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            CountryCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -213,7 +213,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildCountryCodes|array|mixed the result, formatted by the current formatter
+     * @return ChildCountryCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -255,12 +255,12 @@ abstract class CountryCodesQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISOALPHA3, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA3, $key, Criteria::EQUAL);
     }
 
     /**
@@ -268,12 +268,12 @@ abstract class CountryCodesQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISOALPHA3, $keys, Criteria::IN);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA3, $keys, Criteria::IN);
     }
 
     /**
@@ -288,7 +288,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $ctryisoalpha3 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtryisoalpha3($ctryisoalpha3 = null, $comparison = null)
     {
@@ -298,7 +298,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISOALPHA3, $ctryisoalpha3, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA3, $ctryisoalpha3, $comparison);
     }
 
     /**
@@ -313,7 +313,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $ctrydesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtrydesc($ctrydesc = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYDESC, $ctrydesc, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYDESC, $ctrydesc, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $ctryisoalpha2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtryisoalpha2($ctryisoalpha2 = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISOALPHA2, $ctryisoalpha2, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA2, $ctryisoalpha2, $comparison);
     }
 
     /**
@@ -367,18 +367,18 @@ abstract class CountryCodesQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtryisonumeric($ctryisonumeric = null, $comparison = null)
     {
         if (is_array($ctryisonumeric)) {
             $useMinMax = false;
             if (isset($ctryisonumeric['min'])) {
-                $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISONUMERIC, $ctryisonumeric['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISONUMERIC, $ctryisonumeric['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($ctryisonumeric['max'])) {
-                $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISONUMERIC, $ctryisonumeric['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISONUMERIC, $ctryisonumeric['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -389,7 +389,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISONUMERIC, $ctryisonumeric, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISONUMERIC, $ctryisonumeric, $comparison);
     }
 
     /**
@@ -404,7 +404,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $ctrycustomcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtrycustomcode($ctrycustomcode = null, $comparison = null)
     {
@@ -414,7 +414,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYCUSTOMCODE, $ctrycustomcode, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYCUSTOMCODE, $ctrycustomcode, $comparison);
     }
 
     /**
@@ -433,18 +433,18 @@ abstract class CountryCodesQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtryexchrate($ctryexchrate = null, $comparison = null)
     {
         if (is_array($ctryexchrate)) {
             $useMinMax = false;
             if (isset($ctryexchrate['min'])) {
-                $this->addUsingAlias(CountryCodesTableMap::COL_CTRYEXCHRATE, $ctryexchrate['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(CountryCodeTableMap::COL_CTRYEXCHRATE, $ctryexchrate['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($ctryexchrate['max'])) {
-                $this->addUsingAlias(CountryCodesTableMap::COL_CTRYEXCHRATE, $ctryexchrate['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(CountryCodeTableMap::COL_CTRYEXCHRATE, $ctryexchrate['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -455,7 +455,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYEXCHRATE, $ctryexchrate, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYEXCHRATE, $ctryexchrate, $comparison);
     }
 
     /**
@@ -470,7 +470,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $ctrydate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByCtrydate($ctrydate = null, $comparison = null)
     {
@@ -480,7 +480,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_CTRYDATE, $ctrydate, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_CTRYDATE, $ctrydate, $comparison);
     }
 
     /**
@@ -495,7 +495,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -505,7 +505,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -520,7 +520,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -530,7 +530,7 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -545,7 +545,7 @@ abstract class CountryCodesQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -555,20 +555,20 @@ abstract class CountryCodesQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CountryCodesTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(CountryCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCountryCodes $countryCodes Object to remove from the list of results
+     * @param   ChildCountryCode $countryCode Object to remove from the list of results
      *
-     * @return $this|ChildCountryCodesQuery The current query, for fluid interface
+     * @return $this|ChildCountryCodeQuery The current query, for fluid interface
      */
-    public function prune($countryCodes = null)
+    public function prune($countryCode = null)
     {
-        if ($countryCodes) {
-            $this->addUsingAlias(CountryCodesTableMap::COL_CTRYISOALPHA3, $countryCodes->getCtryisoalpha3(), Criteria::NOT_EQUAL);
+        if ($countryCode) {
+            $this->addUsingAlias(CountryCodeTableMap::COL_CTRYISOALPHA3, $countryCode->getCtryisoalpha3(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -583,7 +583,7 @@ abstract class CountryCodesQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -594,8 +594,8 @@ abstract class CountryCodesQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            CountryCodesTableMap::clearInstancePool();
-            CountryCodesTableMap::clearRelatedInstancePool();
+            CountryCodeTableMap::clearInstancePool();
+            CountryCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -613,26 +613,26 @@ abstract class CountryCodesQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(CountryCodesTableMap::DATABASE_NAME);
+        $criteria->setDbName(CountryCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            CountryCodesTableMap::removeInstanceFromPool($criteria);
+            CountryCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            CountryCodesTableMap::clearRelatedInstancePool();
+            CountryCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // CountryCodesQuery
+} // CountryCodeQuery

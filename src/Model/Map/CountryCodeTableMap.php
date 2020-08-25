@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CountryCodes;
-use \CountryCodesQuery;
+use \CountryCode;
+use \CountryCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CountryCodesTableMap extends TableMap
+class CountryCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CountryCodesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CountryCodesTableMap';
+    const CLASS_NAME = '.Map.CountryCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CountryCodesTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CountryCodes';
+    const OM_CLASS = '\\CountryCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CountryCodes';
+    const CLASS_DEFAULT = 'CountryCode';
 
     /**
      * The total number of columns
@@ -135,7 +135,7 @@ class CountryCodesTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Ctryisoalpha3', 'Ctrydesc', 'Ctryisoalpha2', 'Ctryisonumeric', 'Ctrycustomcode', 'Ctryexchrate', 'Ctrydate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('ctryisoalpha3', 'ctrydesc', 'ctryisoalpha2', 'ctryisonumeric', 'ctrycustomcode', 'ctryexchrate', 'ctrydate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CountryCodesTableMap::COL_CTRYISOALPHA3, CountryCodesTableMap::COL_CTRYDESC, CountryCodesTableMap::COL_CTRYISOALPHA2, CountryCodesTableMap::COL_CTRYISONUMERIC, CountryCodesTableMap::COL_CTRYCUSTOMCODE, CountryCodesTableMap::COL_CTRYEXCHRATE, CountryCodesTableMap::COL_CTRYDATE, CountryCodesTableMap::COL_DATEUPDTD, CountryCodesTableMap::COL_TIMEUPDTD, CountryCodesTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(CountryCodeTableMap::COL_CTRYISOALPHA3, CountryCodeTableMap::COL_CTRYDESC, CountryCodeTableMap::COL_CTRYISOALPHA2, CountryCodeTableMap::COL_CTRYISONUMERIC, CountryCodeTableMap::COL_CTRYCUSTOMCODE, CountryCodeTableMap::COL_CTRYEXCHRATE, CountryCodeTableMap::COL_CTRYDATE, CountryCodeTableMap::COL_DATEUPDTD, CountryCodeTableMap::COL_TIMEUPDTD, CountryCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('CtryIsoAlpha3', 'CtryDesc', 'CtryIsoAlpha2', 'CtryIsoNumeric', 'CtryCustomCode', 'CtryExchRate', 'CtryDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -149,7 +149,7 @@ class CountryCodesTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Ctryisoalpha3' => 0, 'Ctrydesc' => 1, 'Ctryisoalpha2' => 2, 'Ctryisonumeric' => 3, 'Ctrycustomcode' => 4, 'Ctryexchrate' => 5, 'Ctrydate' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
         self::TYPE_CAMELNAME     => array('ctryisoalpha3' => 0, 'ctrydesc' => 1, 'ctryisoalpha2' => 2, 'ctryisonumeric' => 3, 'ctrycustomcode' => 4, 'ctryexchrate' => 5, 'ctrydate' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(CountryCodesTableMap::COL_CTRYISOALPHA3 => 0, CountryCodesTableMap::COL_CTRYDESC => 1, CountryCodesTableMap::COL_CTRYISOALPHA2 => 2, CountryCodesTableMap::COL_CTRYISONUMERIC => 3, CountryCodesTableMap::COL_CTRYCUSTOMCODE => 4, CountryCodesTableMap::COL_CTRYEXCHRATE => 5, CountryCodesTableMap::COL_CTRYDATE => 6, CountryCodesTableMap::COL_DATEUPDTD => 7, CountryCodesTableMap::COL_TIMEUPDTD => 8, CountryCodesTableMap::COL_DUMMY => 9, ),
+        self::TYPE_COLNAME       => array(CountryCodeTableMap::COL_CTRYISOALPHA3 => 0, CountryCodeTableMap::COL_CTRYDESC => 1, CountryCodeTableMap::COL_CTRYISOALPHA2 => 2, CountryCodeTableMap::COL_CTRYISONUMERIC => 3, CountryCodeTableMap::COL_CTRYCUSTOMCODE => 4, CountryCodeTableMap::COL_CTRYEXCHRATE => 5, CountryCodeTableMap::COL_CTRYDATE => 6, CountryCodeTableMap::COL_DATEUPDTD => 7, CountryCodeTableMap::COL_TIMEUPDTD => 8, CountryCodeTableMap::COL_DUMMY => 9, ),
         self::TYPE_FIELDNAME     => array('CtryIsoAlpha3' => 0, 'CtryDesc' => 1, 'CtryIsoAlpha2' => 2, 'CtryIsoNumeric' => 3, 'CtryCustomCode' => 4, 'CtryExchRate' => 5, 'CtryDate' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -165,9 +165,9 @@ class CountryCodesTableMap extends TableMap
     {
         // attributes
         $this->setName('country_codes');
-        $this->setPhpName('CountryCodes');
+        $this->setPhpName('CountryCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CountryCodes');
+        $this->setClassName('\\CountryCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -247,7 +247,7 @@ class CountryCodesTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CountryCodesTableMap::CLASS_DEFAULT : CountryCodesTableMap::OM_CLASS;
+        return $withPrefix ? CountryCodeTableMap::CLASS_DEFAULT : CountryCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -261,22 +261,22 @@ class CountryCodesTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CountryCodes object, last column rank)
+     * @return array           (CountryCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CountryCodesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CountryCodesTableMap::getInstanceFromPool($key))) {
+        $key = CountryCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = CountryCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CountryCodesTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + CountryCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CountryCodesTableMap::OM_CLASS;
-            /** @var CountryCodes $obj */
+            $cls = CountryCodeTableMap::OM_CLASS;
+            /** @var CountryCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CountryCodesTableMap::addInstanceToPool($obj, $key);
+            CountryCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -299,18 +299,18 @@ class CountryCodesTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CountryCodesTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CountryCodesTableMap::getInstanceFromPool($key))) {
+            $key = CountryCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = CountryCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CountryCodes $obj */
+                /** @var CountryCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CountryCodesTableMap::addInstanceToPool($obj, $key);
+                CountryCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -331,16 +331,16 @@ class CountryCodesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYISOALPHA3);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYDESC);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYISOALPHA2);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYISONUMERIC);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYCUSTOMCODE);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYEXCHRATE);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_CTRYDATE);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CountryCodesTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYISOALPHA3);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYDESC);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYISOALPHA2);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYISONUMERIC);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYCUSTOMCODE);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYEXCHRATE);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_CTRYDATE);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(CountryCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.CtryIsoAlpha3');
             $criteria->addSelectColumn($alias . '.CtryDesc');
@@ -364,7 +364,7 @@ class CountryCodesTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CountryCodesTableMap::DATABASE_NAME)->getTable(CountryCodesTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(CountryCodeTableMap::DATABASE_NAME)->getTable(CountryCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -372,16 +372,16 @@ class CountryCodesTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CountryCodesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CountryCodesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CountryCodesTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CountryCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(CountryCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new CountryCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CountryCodes or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a CountryCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CountryCodes object or primary key or array of primary keys
+     * @param mixed               $values Criteria or CountryCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -392,27 +392,27 @@ class CountryCodesTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CountryCodes) { // it's a model object
+        } elseif ($values instanceof \CountryCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CountryCodesTableMap::DATABASE_NAME);
-            $criteria->add(CountryCodesTableMap::COL_CTRYISOALPHA3, (array) $values, Criteria::IN);
+            $criteria = new Criteria(CountryCodeTableMap::DATABASE_NAME);
+            $criteria->add(CountryCodeTableMap::COL_CTRYISOALPHA3, (array) $values, Criteria::IN);
         }
 
-        $query = CountryCodesQuery::create()->mergeWith($criteria);
+        $query = CountryCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CountryCodesTableMap::clearInstancePool();
+            CountryCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CountryCodesTableMap::removeInstanceFromPool($singleval);
+                CountryCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -427,13 +427,13 @@ class CountryCodesTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CountryCodesQuery::create()->doDeleteAll($con);
+        return CountryCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CountryCodes or Criteria object.
+     * Performs an INSERT on the database, given a CountryCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CountryCodes object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or CountryCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -442,18 +442,18 @@ class CountryCodesTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CountryCodes object
+            $criteria = $criteria->buildCriteria(); // build Criteria from CountryCode object
         }
 
 
         // Set the correct dbName
-        $query = CountryCodesQuery::create()->mergeWith($criteria);
+        $query = CountryCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -462,7 +462,7 @@ class CountryCodesTableMap extends TableMap
         });
     }
 
-} // CountryCodesTableMap
+} // CountryCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CountryCodesTableMap::buildTableMap();
+CountryCodeTableMap::buildTableMap();

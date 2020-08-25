@@ -1334,7 +1334,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="country_codes" idMethod="native" phpName="CountryCodes">
+  <table name="country_codes" idMethod="native" phpName="CountryCode">
     <column name="CtryIsoAlpha3" phpName="Ctryisoalpha3" type="VARCHAR" size="3" primaryKey="true" required="true" defaultValue=""/>
     <column name="CtryDesc" phpName="Ctrydesc" type="VARCHAR" size="25"/>
     <column name="CtryIsoAlpha2" phpName="Ctryisoalpha2" type="VARCHAR" size="2"/>

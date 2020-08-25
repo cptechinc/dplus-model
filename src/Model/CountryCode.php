@@ -1,6 +1,6 @@
 <?php
 
-use Base\CountryCodes as BaseCountryCodes;
+use Base\CountryCode as BaseCountryCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'country_codes' table.
  */
-class CountryCodes extends BaseCountryCodes {
+class CountryCode extends BaseCountryCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -19,8 +19,10 @@ class CountryCodes extends BaseCountryCodes {
 	const COLUMN_ALIASES = array(
 		'id'            => 'ctryisoalpha3',
 		'code'          => 'ctryisoalpha3',
+		'iso3'          => 'ctryisoalpha3',
 		'description'   => 'ctrydesc',
 		'alpha2'        => 'ctryisoalpha2',
+		'iso2'          => 'ctryisoalpha2',
 		'numeric'       => 'ctryisonumeric',
 		'custom_code'   => 'ctrycustomcode',
 		'exchange_rate' => 'ctryexchrate',

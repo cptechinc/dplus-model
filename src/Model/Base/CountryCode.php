@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CountryCodesQuery as ChildCountryCodesQuery;
+use \CountryCodeQuery as ChildCountryCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CountryCodesTableMap;
+use Map\CountryCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CountryCodes implements ActiveRecordInterface
+abstract class CountryCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CountryCodesTableMap';
+    const TABLE_MAP = '\\Map\\CountryCodeTableMap';
 
 
     /**
@@ -150,7 +150,7 @@ abstract class CountryCodes implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CountryCodes object.
+     * Initializes internal state of Base\CountryCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -247,9 +247,9 @@ abstract class CountryCodes implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CountryCodes</code> instance.  If
-     * <code>obj</code> is an instance of <code>CountryCodes</code>, delegates to
-     * <code>equals(CountryCodes)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>CountryCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>CountryCode</code>, delegates to
+     * <code>equals(CountryCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -315,7 +315,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CountryCodes The current object, for fluid interface
+     * @return $this|CountryCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -480,7 +480,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctryisoalpha3] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtryisoalpha3($v)
     {
@@ -490,7 +490,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctryisoalpha3 !== $v) {
             $this->ctryisoalpha3 = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYISOALPHA3] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYISOALPHA3] = true;
         }
 
         return $this;
@@ -500,7 +500,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctrydesc] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtrydesc($v)
     {
@@ -510,7 +510,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctrydesc !== $v) {
             $this->ctrydesc = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYDESC] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYDESC] = true;
         }
 
         return $this;
@@ -520,7 +520,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctryisoalpha2] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtryisoalpha2($v)
     {
@@ -530,7 +530,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctryisoalpha2 !== $v) {
             $this->ctryisoalpha2 = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYISOALPHA2] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYISOALPHA2] = true;
         }
 
         return $this;
@@ -540,7 +540,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctryisonumeric] column.
      *
      * @param int $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtryisonumeric($v)
     {
@@ -550,7 +550,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctryisonumeric !== $v) {
             $this->ctryisonumeric = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYISONUMERIC] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYISONUMERIC] = true;
         }
 
         return $this;
@@ -560,7 +560,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctrycustomcode] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtrycustomcode($v)
     {
@@ -570,7 +570,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctrycustomcode !== $v) {
             $this->ctrycustomcode = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYCUSTOMCODE] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYCUSTOMCODE] = true;
         }
 
         return $this;
@@ -580,7 +580,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctryexchrate] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtryexchrate($v)
     {
@@ -590,7 +590,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctryexchrate !== $v) {
             $this->ctryexchrate = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYEXCHRATE] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYEXCHRATE] = true;
         }
 
         return $this;
@@ -600,7 +600,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [ctrydate] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setCtrydate($v)
     {
@@ -610,7 +610,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->ctrydate !== $v) {
             $this->ctrydate = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_CTRYDATE] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_CTRYDATE] = true;
         }
 
         return $this;
@@ -620,7 +620,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -630,7 +630,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -640,7 +640,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -650,7 +650,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -660,7 +660,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CountryCodes The current object (for fluent API support)
+     * @return $this|\CountryCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -670,7 +670,7 @@ abstract class CountryCodes implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CountryCodesTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[CountryCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -716,34 +716,34 @@ abstract class CountryCodes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CountryCodesTableMap::translateFieldName('Ctryisoalpha3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CountryCodeTableMap::translateFieldName('Ctryisoalpha3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctryisoalpha3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CountryCodesTableMap::translateFieldName('Ctrydesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CountryCodeTableMap::translateFieldName('Ctrydesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctrydesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CountryCodesTableMap::translateFieldName('Ctryisoalpha2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CountryCodeTableMap::translateFieldName('Ctryisoalpha2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctryisoalpha2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CountryCodesTableMap::translateFieldName('Ctryisonumeric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CountryCodeTableMap::translateFieldName('Ctryisonumeric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctryisonumeric = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CountryCodesTableMap::translateFieldName('Ctrycustomcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CountryCodeTableMap::translateFieldName('Ctrycustomcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctrycustomcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CountryCodesTableMap::translateFieldName('Ctryexchrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CountryCodeTableMap::translateFieldName('Ctryexchrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctryexchrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CountryCodesTableMap::translateFieldName('Ctrydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CountryCodeTableMap::translateFieldName('Ctrydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ctrydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CountryCodesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CountryCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CountryCodesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CountryCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CountryCodesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CountryCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -753,10 +753,10 @@ abstract class CountryCodes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 10; // 10 = CountryCodesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 10; // 10 = CountryCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CountryCodes'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\CountryCode'), 0, $e);
         }
     }
 
@@ -798,13 +798,13 @@ abstract class CountryCodes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCountryCodesQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildCountryCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -823,8 +823,8 @@ abstract class CountryCodes implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CountryCodes::setDeleted()
-     * @see CountryCodes::isDeleted()
+     * @see CountryCode::setDeleted()
+     * @see CountryCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -833,11 +833,11 @@ abstract class CountryCodes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCountryCodesQuery::create()
+            $deleteQuery = ChildCountryCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -872,7 +872,7 @@ abstract class CountryCodes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(CountryCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -891,7 +891,7 @@ abstract class CountryCodes implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CountryCodesTableMap::addInstanceToPool($this);
+                CountryCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -950,34 +950,34 @@ abstract class CountryCodes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISOALPHA3)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISOALPHA3)) {
             $modifiedColumns[':p' . $index++]  = 'CtryIsoAlpha3';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYDESC)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYDESC)) {
             $modifiedColumns[':p' . $index++]  = 'CtryDesc';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISOALPHA2)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISOALPHA2)) {
             $modifiedColumns[':p' . $index++]  = 'CtryIsoAlpha2';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISONUMERIC)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISONUMERIC)) {
             $modifiedColumns[':p' . $index++]  = 'CtryIsoNumeric';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYCUSTOMCODE)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYCUSTOMCODE)) {
             $modifiedColumns[':p' . $index++]  = 'CtryCustomCode';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYEXCHRATE)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYEXCHRATE)) {
             $modifiedColumns[':p' . $index++]  = 'CtryExchRate';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYDATE)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYDATE)) {
             $modifiedColumns[':p' . $index++]  = 'CtryDate';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(CountryCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1060,7 +1060,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CountryCodesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = CountryCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1129,11 +1129,11 @@ abstract class CountryCodes implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CountryCodes'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['CountryCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CountryCodes'][$this->hashCode()] = true;
-        $keys = CountryCodesTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['CountryCode'][$this->hashCode()] = true;
+        $keys = CountryCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getCtryisoalpha3(),
             $keys[1] => $this->getCtrydesc(),
@@ -1164,11 +1164,11 @@ abstract class CountryCodes implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CountryCodes
+     * @return $this|\CountryCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CountryCodesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = CountryCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1179,7 +1179,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CountryCodes
+     * @return $this|\CountryCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1238,7 +1238,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CountryCodesTableMap::getFieldNames($keyType);
+        $keys = CountryCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setCtryisoalpha3($arr[$keys[0]]);
@@ -1289,7 +1289,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CountryCodes The current object, for fluid interface
+     * @return $this|\CountryCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1309,37 +1309,37 @@ abstract class CountryCodes implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CountryCodesTableMap::DATABASE_NAME);
+        $criteria = new Criteria(CountryCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISOALPHA3)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYISOALPHA3, $this->ctryisoalpha3);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISOALPHA3)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYISOALPHA3, $this->ctryisoalpha3);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYDESC)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYDESC, $this->ctrydesc);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYDESC)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYDESC, $this->ctrydesc);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISOALPHA2)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYISOALPHA2, $this->ctryisoalpha2);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISOALPHA2)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYISOALPHA2, $this->ctryisoalpha2);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYISONUMERIC)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYISONUMERIC, $this->ctryisonumeric);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYISONUMERIC)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYISONUMERIC, $this->ctryisonumeric);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYCUSTOMCODE)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYCUSTOMCODE, $this->ctrycustomcode);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYCUSTOMCODE)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYCUSTOMCODE, $this->ctrycustomcode);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYEXCHRATE)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYEXCHRATE, $this->ctryexchrate);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYEXCHRATE)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYEXCHRATE, $this->ctryexchrate);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_CTRYDATE)) {
-            $criteria->add(CountryCodesTableMap::COL_CTRYDATE, $this->ctrydate);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_CTRYDATE)) {
+            $criteria->add(CountryCodeTableMap::COL_CTRYDATE, $this->ctrydate);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CountryCodesTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(CountryCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CountryCodesTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(CountryCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CountryCodesTableMap::COL_DUMMY)) {
-            $criteria->add(CountryCodesTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(CountryCodeTableMap::COL_DUMMY)) {
+            $criteria->add(CountryCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1357,8 +1357,8 @@ abstract class CountryCodes implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCountryCodesQuery::create();
-        $criteria->add(CountryCodesTableMap::COL_CTRYISOALPHA3, $this->ctryisoalpha3);
+        $criteria = ChildCountryCodeQuery::create();
+        $criteria->add(CountryCodeTableMap::COL_CTRYISOALPHA3, $this->ctryisoalpha3);
 
         return $criteria;
     }
@@ -1420,7 +1420,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CountryCodes (or compatible) type.
+     * @param      object $copyObj An object of \CountryCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1451,7 +1451,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CountryCodes Clone of current object.
+     * @return \CountryCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1511,7 +1511,7 @@ abstract class CountryCodes implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CountryCodesTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(CountryCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
