@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'so_head_hist' table.
  *
- * NOTE: Foreign Key Relationship to Customer, CustomerShipto, SalesOrderDetail
+ * NOTE: Foreign Key Relationship to Customer, CustomerShipto, SalesHistoryDetail
  */
 class SalesHistory extends BaseSalesHistory {
 	use ThrowErrorTrait;
@@ -103,5 +103,57 @@ class SalesHistory extends BaseSalesHistory {
 	 */
 	public function count_items() {
 		return SalesHistoryDetailQuery::create()->filterByOrdernumber($this->oehhnbr)->count();
+	}
+
+	/**
+	 * Return the number of cases for this order
+	 *
+	 * @return int
+	 */
+	public function count_cases() {
+		$q = SalesHistoryDetailQuery::create();
+		$q->withColumn('SUM('.SalesHistoryDetail::get_aliasproperty('qty_cases').')', 'cases');
+		$q->select('cases');
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return the total weight of items
+	 *
+	 * @return float
+	 */
+	public function total_weight() {
+		$itemIDs = $this->itemids();
+		$q = ItemMasterItemQuery::create();
+		$q->withColumn('SUM('.ItemMasterItem::get_aliasproperty('weight').')', 'total');
+		$q->select('total');
+		$q->filterByItemid($itemIDs);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return the itemIDs found on the sales order
+	 *
+	 * @return array
+	 */
+	public function itemids() {
+		$q = SalesHistoryDetailQuery::create();
+		$q->select(SalesHistoryDetail::get_aliasproperty('itemid'));
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->find()->toArray();
+	}
+
+	/**
+	 * Return the total number of qtys for order
+	 *
+	 * @return float
+	 */
+	public function sum_qty() {
+		$q = SalesHistoryDetailQuery::create();
+		$q->withColumn('SUM('.SalesHistoryDetail::get_aliasproperty('qty_ordered').')', 'sum');
+		$q->select('sum');
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->findOne();
 	}
 }

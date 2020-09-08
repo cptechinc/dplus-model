@@ -170,4 +170,56 @@ class SalesOrder extends BaseSalesOrder {
 	public function count_items() {
 		return SalesOrderDetailQuery::create()->filterByOrdernumber($this->oehdnbr)->count();
 	}
+
+	/**
+	 * Return the number of cases for this order
+	 *
+	 * @return int
+	 */
+	public function count_cases() {
+		$q = SalesOrderDetailQuery::create();
+		$q->withColumn('SUM('.SalesOrderDetail::get_aliasproperty('qty_cases').')', 'cases');
+		$q->select('cases');
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return the total weight of items
+	 *
+	 * @return float
+	 */
+	public function total_weight() {
+		$itemIDs = $this->itemids();
+		$q = ItemMasterItemQuery::create();
+		$q->withColumn('SUM('.ItemMasterItem::get_aliasproperty('weight').')', 'total');
+		$q->select('total');
+		$q->filterByItemid($itemIDs);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return the itemIDs found on the sales order
+	 *
+	 * @return array
+	 */
+	public function itemids() {
+		$q = SalesOrderDetailQuery::create();
+		$q->select(SalesOrderDetail::get_aliasproperty('itemid'));
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->find()->toArray();
+	}
+
+	/**
+	 * Return the total number of qtys for order
+	 *
+	 * @return float
+	 */
+	public function sum_qty() {
+		$q = SalesOrderDetailQuery::create();
+		$q->withColumn('SUM('.SalesOrderDetail::get_aliasproperty('qty_ordered').')', 'sum');
+		$q->select('sum');
+		$q->filterByOrdernumber($this->oehdnbr);
+		return $q->findOne();
+	}
 }
