@@ -14,7 +14,17 @@ class PurchaseOrder extends BasePurchaseOrder {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	/**
+	 * Purchase Order Number character length
+	 * @var int
+	 */
 	const LENGTH = 8;
+
+	/**
+	 * PHP Date Format for dates
+	 * @var string
+	 */
+	const FORMAT_DATE = 'Ymd';
 
 	const STATUS_DESCRIPTIONS = array(
 		'N' => 'not printed',
@@ -47,6 +57,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'ponbr'              => 'pohdnbr',
 		'status'             => 'pohdstat',
 		'poref'              => 'pohdref',
+		'reference'          => 'pohdref',
 		'vendorID'           => 'apvevendid',
 		'vendorid'           => 'apvevendid',
 		'shipto_name'        => 'pohdtoname',
@@ -62,7 +73,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'date_ordered'       => 'pohdordrdate',
 		'date_expected'      => 'pohdexptdate',
 		'date_shipped'       => 'pohdshipdate',
-		'date_cancelled'     => 'pohdcancdate',
+		'date_cancel'        => 'pohdcancdate',
 		'date_acknowledged'  => 'pohdackdate',
 		'shipvia'            => 'artbsviacode',
 		'phone'              => 'pohdtelenbr',
@@ -71,14 +82,14 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'fax'                => 'pohdfaxnbr',
 		'fax_intl'           => 'pohdfaxintl',
 		'shipfromid'         => 'apfmshipid',
-		'shipfrom_name'      => 'pohdptname',
-		'shipfrom_address'   => 'pohdptadr1',
-		'shipfrom_address2'  => 'pohdptadr2',
-		'shipfrom_address3'  => 'pohdptadr3',
-		'shipfrom_country'   => 'pohdptctry',
-		'shipfrom_city'      => 'pohdptcity',
-		'shipfrom_state'     => 'pohdptstat',
-		'shipfrom_zip'       => 'pohdptzipcode',
+		'payto_name'      => 'pohdptname',
+		'payto_address'   => 'pohdptadr1',
+		'payto_address2'  => 'pohdptadr2',
+		'payto_address3'  => 'pohdptadr3',
+		'payto_country'   => 'pohdptctry',
+		'payto_city'      => 'pohdptcity',
+		'payto_state'     => 'pohdptstat',
+		'payto_zip'       => 'pohdptzipcode',
 		'fob'                => 'pohdfob',
 		'tax_exempt'         => 'pohdtaxexem',
 		'releasenbr'         => 'pohdreleasenbr',
@@ -86,11 +97,12 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'termscode'          => 'aptmtermcode',
 		'futurebuy'          => 'pohdfuturebuy',
 		'landedcost'         => 'pohdlandcost',
+		'exchange_country'   => 'pohdexchctry',
+		'exchange_rate'      => 'pohdexchrate'
 	);
 
 	/**
 	 * Adds Leading Zeroes to Sales Order Number
-	 *
 	 * @param  string $ordn Sales Order Number ex.    4290100
 	 * @return string       Sales Order Number ex. 0004290100
 	 */
@@ -100,7 +112,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 
 	/**
 	 * Returns Description for the status
-	 *
 	 * @return string
 	 */
 	public function status() {
@@ -146,9 +157,6 @@ class PurchaseOrder extends BasePurchaseOrder {
 	public function get_options_fob() {
 		return self::FOB_DESCRIPTIONS;
 	}
-
-
-
 
 	/**
 	 * Returns if PO is in a closed status

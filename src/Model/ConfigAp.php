@@ -23,7 +23,8 @@ class ConfigAp extends BaseConfigAp {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'                  => 'aptbconfkey',
-		'columns_notes_pord'  => 'aptbconfpocols'
+		'columns_notes_pord'  => 'aptbconfpocols',
+		'default_termscode'   => 'aptbconfdeftermcode',
 	);
 
 }

@@ -16,6 +16,16 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 
 	const PONBR_BLANK = '00000000';
 
+	const STATUS_DESCRIPTIONS = array(
+		'N' => 'not printed',
+		'C' => 'closed',
+		'O' => 'open',
+		'P' => 'printed'
+	);
+
+	const STATUS_OPEN   = 'O';
+	const STATUS_CLOSED = 'C';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -83,5 +93,13 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		$q->filterByPonbr($this->pohdnbr);
 		$q->filterByLinenbr($this->podtline);
 		return $q->count();
+	}
+
+	/**
+	 * Returns if PO is in a closed status
+	 * @return bool
+	 */
+	public function is_closed() {
+		return $this->status == self::STATUS_CLOSED;
 	}
 }

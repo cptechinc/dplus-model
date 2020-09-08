@@ -23,10 +23,10 @@ class ConfigPo extends BaseConfigPo {
 		'E' => 'ETA'
 	);
 
-	const DATE_CANCELED_CANCEL = 'C';
-	const DATE_CANCELED_REVISED = 'R';
-	const DATE_CANCELED_DESCRIPTIONS = array(
-		'C' => 'canceled',
+	const DATE_CANCEL_CANCEL = 'C';
+	const DATE_CANCEL_REVISED = 'R';
+	const DATE_CANCEL_DESCRIPTIONS = array(
+		'C' => 'cancel',
 		'R' => 'revised'
 	);
 
@@ -45,6 +45,7 @@ class ConfigPo extends BaseConfigPo {
 		'edit_date_expect_head_det' => 'potbconfeditexptdate',
 		'edit_date_cancel_head_det' => 'potbconfeditcancdate',
 		'edit_date_ack_head_det'    => 'potbconfeditackdate',
+		'force_po_reference'        => 'potbconfforceporef'
 	);
 
 	/**
@@ -59,8 +60,8 @@ class ConfigPo extends BaseConfigPo {
 	 * Returns Description (label) for what Cancel Date means
 	 * @return string
 	 */
-	public function description_date_canceled() {
-		return self::DATE_CANCELED_DESCRIPTIONS[$this->date_cancel_or_revised];
+	public function description_date_cancel() {
+		return self::DATE_CANCEL_DESCRIPTIONS[$this->date_cancel_or_revised];
 	}
 
 	/**
@@ -91,7 +92,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if Date Canceled is edited on Detail
 	 * @return bool
 	 */
-	public function edit_date_canceled_detail() {
+	public function edit_date_cancel_detail() {
 		return $this->edit_date_cancel_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
 	}
 
@@ -101,5 +102,13 @@ class ConfigPo extends BaseConfigPo {
 	 */
 	public function edit_date_shipped_detail() {
 		return $this->edit_date_ship_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
+	}
+
+	/**
+	 * Return if PO Reference is required
+	 * @return bool
+	 */
+	public function force_po_reference() {
+		return $this->force_po_reference == self::VALUE_TRUE;
 	}
 }
