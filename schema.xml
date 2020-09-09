@@ -3520,6 +3520,23 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_controls" idMethod="native" phpName="SoEditPermissions">
+    <column name="OetbCperCode" phpName="Oetbcpercode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OetbCperName" phpName="Oetbcpername" type="VARCHAR" size="20"/>
+    <column name="OetbCperCanc" phpName="Oetbcpercanc" type="VARCHAR" size="1"/>
+    <column name="OetbCperNew" phpName="Oetbcpernew" type="VARCHAR" size="1"/>
+    <column name="OetbCperPick" phpName="Oetbcperpick" type="VARCHAR" size="1"/>
+    <column name="OetbCperVer" phpName="Oetbcperver" type="VARCHAR" size="1"/>
+    <column name="OetbCperInv" phpName="Oetbcperinv" type="VARCHAR" size="1"/>
+    <column name="OetbCperAdvcData" phpName="Oetbcperadvcdata" type="VARCHAR" size="1"/>
+    <column name="OetbCperPosAdmin" phpName="Oetbcperposadmin" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_det_hist" idMethod="native" phpName="SalesHistoryDetail">
     <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="OedhLine" phpName="Oedhline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
