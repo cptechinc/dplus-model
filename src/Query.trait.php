@@ -110,10 +110,22 @@
 			return constant("$mapclass::$tablemap_column");
 		}
 
+		/**
+		 * Add WildCard Characters to query
+		 *
+		 * @param  string $q
+		 * @return string          '%{search}%';
+		 */
 		public function wildcardify($q) {
 			return '%' . str_replace(' ', '%', $q) . '%';
 		}
 
+		/**
+		 * Return a list of TableMap columns with comma & space separator
+		 *
+		 * @param  array $columns
+		 * @return array          TableMap Columns "COL_COL1, COL_COL2"
+		 */
 		public function implode_columns($columns) {
 			$columns_tb = $this->tablemap_columns($columns);
 			return implode(", ' ', " , $columns_tb);
