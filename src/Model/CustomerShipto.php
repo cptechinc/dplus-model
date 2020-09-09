@@ -14,6 +14,9 @@ class CustomerShipto extends BaseCustomerShipto {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const YN_TRUE  = 'Y';
+	const YN_FALSE = 'N';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -44,7 +47,16 @@ class CustomerShipto extends BaseCustomerShipto {
 		'ytd_sales'    => 'arstsaleytd',
 		'ytd_invoices' => 'arstinvytd',
 		'warehouse'    => 'intbwhse',
+		'require_po'   => 'arstcustpopram'
 	);
+
+	/**
+	 * Return if This Customer is Required to have a PO
+	 * @return bool
+	 */
+	public function require_po() {
+		return $this->require_po == self::YN_TRUE;
+	}
 
 	/**
 	 * Return Sales Amount for $months back

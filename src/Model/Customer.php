@@ -16,6 +16,8 @@ class Customer extends BaseCustomer {
 	use MagicMethodTraits;
 
 	const STATUS_ACTIVE = 'A';
+	const YN_TRUE  = 'Y';
+	const YN_FALSE = 'N';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -54,11 +56,24 @@ class Customer extends BaseCustomer {
 		'pricecode'      => 'artbpriccode',
 		'credithold'     => 'arcucredhold',
 		'taxexemptcode'  => 'arcutaxexemnbr',
-		'active'         => 'arcuactiveinactive'
+		'active'         => 'arcuactiveinactive',
+		'require_po'     => 'arcucustpoparam',
 	);
 
+	/**
+	 * Return if Customer Is Active
+	 * @return bool
+	 */
 	public function is_active() {
 		return $this->active == self::STATUS_ACTIVE;
+	}
+
+	/**
+	 * Return if This Customer is Required to have a PO
+	 * @return bool
+	 */
+	public function require_po() {
+		return $this->require_po == self::YN_TRUE;
 	}
 
 	/**
