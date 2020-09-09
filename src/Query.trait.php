@@ -42,30 +42,81 @@
 		}
 
 		/**
-		 * Adds a LIKE Filter for each column
+		 * Adds a LIKE filter for each column, and one for the concatenated columns
 		 * @param  array         $columns        Array of Table Column Names
 		 * @param  string        $q              Search Query to Match
-		 * @return ModelCriteria          $this
+		 * @return ModelCriteria                 $this
 		 */
 		public function search_filter(array $columns, $q) {
+			$query = $this->wildcardify($q);
+
 			foreach ($columns as $column) {
-				$tablecolumn = $this->get_tablecolumn($column);
-				$this->condition($column, "$tablecolumn LIKE ?", "%$q%");
+				$tablecol = $this->tablemap_column($column);
+				$this->condition_like($column, $tablecol, $query);
 			}
+			$this->condition_like_concat($columns, $q);
+			$columns[] = 'concat';
 			$this->where($columns, Criteria::LOGICAL_OR);
 			return $this;
 		}
 
 		/**
-		 * Returns Table Map Column
-		 *
-		 * @param  string $prop  Property to lookup column
-		 * @return string        column
+		 * Add a LIKE condition to Query
+		 * @param  string $name     Condition Name
+		 * @param  string $pattern  Pattern to match against e.g. col1, or CONCAT(col1, col2)
+		 * @param  string $query    Search Query to match 
+		 * @return self
 		 */
-		public function get_tablecolumn($prop) {
-			$tablemap_column = "COL_".strtoupper($prop);
+		public function condition_like($name, $pattern, $query) {
+			$this->condition($name, "$pattern LIKE ?", $query);
+			return $this;
+		}
+		
+		/**
+		 * Add a Concatenated Column Like Condition
+		 * @param array   $columns  Columns, not TableMap columns
+		 * @param string  $q        Search Query to match 
+		 * @return self
+		 */
+		public function condition_like_concat(array $columns, $q) {
+			$query = $this->wildcardify($q);
+			$concat = $this->implode_columns($columns);
+			$this->condition_like('concat', "CONCAT($concat)", $query);
+			return $this;
+		}
+
+		/**
+		 * Return TableMap column names
+		 * @param  array $columns
+		 * @return array
+		 */
+		public function tablemap_columns($columns) {
+			$cols = array();
+			foreach ($columns as $column) {
+				$cols[] = $this->tablemap_column($column);
+			}
+			return $cols;
+		}
+
+		/**
+		 * Return TableMap Column name
+		 *
+		 * @param  string $column 
+		 * @return void
+		 */
+		public function tablemap_column($column) {
+			$tablemap_column = "COL_".strtoupper($column);
 			$mapclass = get_class($this->tableMap);
 			return constant("$mapclass::$tablemap_column");
+		}
+
+		public function wildcardify($q) {
+			return '%' . str_replace(' ', '%', $q) . '%';
+		}
+
+		public function implode_columns($columns) {
+			$columns_tb = $this->tablemap_columns($columns);
+			return implode(", ' ', " , $columns_tb);
 		}
 
 		/**
