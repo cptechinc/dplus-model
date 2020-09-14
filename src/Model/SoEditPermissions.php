@@ -23,7 +23,7 @@ class SoEditPermissions extends BaseSoEditPermissions {
 		'userid'       => 'oetbcpercode',
 		'name'         => 'oetbcpername',
 		'canceled'     => 'oetbcpercanc',
-		'new'          => 'oetbcpernew',
+		'newnew'       => 'oetbcpernew',
 		'picked'       => 'oetbcperpick',
 		'verified'     => 'oetbcperver',
 		'invoiced'     => 'oetbcperinv',
@@ -34,7 +34,7 @@ class SoEditPermissions extends BaseSoEditPermissions {
 	public function allow($status) {
 		$func = "allow_$status";
 		if (method_exists($this, $func)) {
-			return $this->$func;
+			return $this->$func();
 		}
 		return false;
 	}
@@ -52,7 +52,7 @@ class SoEditPermissions extends BaseSoEditPermissions {
 	 * @return bool
 	 */
 	public function allow_new() {
-		return $this->new == self::YN_TRUE;
+		return $this->newnew == self::YN_TRUE;
 	}
 
 	/**

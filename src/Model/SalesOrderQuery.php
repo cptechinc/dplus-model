@@ -125,7 +125,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 * @return $this|SalesOrderQuery The current query, for fluid interface
 	 */
 	public function select_sum_ordertotal() {
-		$col_total = $this->get_tablecolumn(SalesOrder::get_aliasproperty('total_total'));
+		$col_total = $this->tablemap_column(SalesOrder::get_aliasproperty('total_total'));
 		$this->addAsColumn('amount', "SUM($col_total)");
 		$this->select('amount');
 		return $this;
@@ -139,7 +139,7 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	 */
 	public function get_custid($ordn) {
 		$this->clear();
-		$this->select($this->get_tablecolumn(SalesOrder::get_aliasproperty('custid')));
+		$this->select(SalesOrder::get_aliasproperty('custid'));
 		$this->filterByOrdernumber($ordn);
 		return $this->findOne();
 	}

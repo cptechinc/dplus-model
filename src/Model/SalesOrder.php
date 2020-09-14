@@ -162,6 +162,10 @@ class SalesOrder extends BaseSalesOrder {
 		return strlen($this->heldby) == 0;
 	}
 
+	public function is_locked() {
+		return strlen($this->heldby) > 0;
+	}
+
 	/**
 	 * Returns the Number of Details Lines this Sales Order has
 	 *
