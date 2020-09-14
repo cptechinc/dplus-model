@@ -30,6 +30,12 @@ class ConfigPo extends BaseConfigPo {
 		'R' => 'revised'
 	);
 
+	const CONTROL_BUYER_VENDOR = 'V';
+	const CONTROL_BUYER_ITEM = 'I';
+	const CONTROL_BUYER_OPTIONS = array(
+		'V' => 'vendor',
+		'I' => 'item'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -45,7 +51,8 @@ class ConfigPo extends BaseConfigPo {
 		'edit_date_expect_head_det' => 'potbconfeditexptdate',
 		'edit_date_cancel_head_det' => 'potbconfeditcancdate',
 		'edit_date_ack_head_det'    => 'potbconfeditackdate',
-		'force_po_reference'        => 'potbconfforceporef'
+		'force_po_reference'        => 'potbconfforceporef',
+		'controlbuyer'              => 'potbconfbuyercontrol'
 	);
 
 	/**
