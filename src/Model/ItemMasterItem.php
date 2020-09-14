@@ -93,6 +93,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'qty_pack_inner'  => 'initinnerpackqty',
 		'qty_pack_outer'  => 'initouterpackqty',
 		'qty_tare'        => 'initshiptareqty',
+		'buyer'           => 'aptbbuyrcode',
+		'qty_purchase_carton'  => 'initpurchcrtnqty',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
