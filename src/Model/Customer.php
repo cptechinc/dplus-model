@@ -19,6 +19,16 @@ class Customer extends BaseCustomer {
 	const YN_TRUE  = 'Y';
 	const YN_FALSE = 'N';
 
+	const REQUIRE_PO_DESCRIPTIONS = array(
+		'N' => 'PO not forced - duplicates ok',
+		'O' => 'PO not forced - no duplicates',
+		'F' => 'PO forced - duplicates ok',
+		'V' => 'PO forced - no duplicates',
+	);
+
+	const REQUIRE_PO_FORCED = array('F', 'V');
+	const REQUIRE_PO_DUPLICATES_ALLOWED = array('N', 'F');
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -69,11 +79,11 @@ class Customer extends BaseCustomer {
 	}
 
 	/**
-	 * Return if This Customer is Required to have a PO
+	 * Return if PO is required
 	 * @return bool
 	 */
 	public function require_po() {
-		return $this->require_po == self::YN_TRUE;
+		return in_array($this->require_po, self::REQUIRE_PO_FORCED);
 	}
 
 	/**

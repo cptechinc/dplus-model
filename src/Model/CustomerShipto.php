@@ -51,11 +51,11 @@ class CustomerShipto extends BaseCustomerShipto {
 	);
 
 	/**
-	 * Return if This Customer is Required to have a PO
+	 * Return if PO is required
 	 * @return bool
 	 */
 	public function require_po() {
-		return $this->require_po == self::YN_TRUE;
+		return in_array($this->require_po, Customer::REQUIRE_PO_FORCED);
 	}
 
 	/**
