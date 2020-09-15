@@ -318,6 +318,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendorNoteInternal() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendorNoteInternal relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendorNoteInternal() Adds a INNER JOIN clause and with to the query using the ItemXrefVendorNoteInternal relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinBomComponent($relationAlias = null) Adds a LEFT JOIN clause to the query using the BomComponent relation
+ * @method     ChildItemMasterItemQuery rightJoinBomComponent($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BomComponent relation
+ * @method     ChildItemMasterItemQuery innerJoinBomComponent($relationAlias = null) Adds a INNER JOIN clause to the query using the BomComponent relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithBomComponent($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the BomComponent relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithBomComponent() Adds a LEFT JOIN clause and with to the query using the BomComponent relation
+ * @method     ChildItemMasterItemQuery rightJoinWithBomComponent() Adds a RIGHT JOIN clause and with to the query using the BomComponent relation
+ * @method     ChildItemMasterItemQuery innerJoinWithBomComponent() Adds a INNER JOIN clause and with to the query using the BomComponent relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinBomItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the BomItem relation
+ * @method     ChildItemMasterItemQuery rightJoinBomItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BomItem relation
+ * @method     ChildItemMasterItemQuery innerJoinBomItem($relationAlias = null) Adds a INNER JOIN clause to the query using the BomItem relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithBomItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the BomItem relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithBomItem() Adds a LEFT JOIN clause and with to the query using the BomItem relation
+ * @method     ChildItemMasterItemQuery rightJoinWithBomItem() Adds a RIGHT JOIN clause and with to the query using the BomItem relation
+ * @method     ChildItemMasterItemQuery innerJoinWithBomItem() Adds a INNER JOIN clause and with to the query using the BomItem relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinBookingDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery rightJoinBookingDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery innerJoinBookingDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDetail relation
@@ -358,7 +378,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvLotQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvLotQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3827,6 +3847,152 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemXrefVendorNoteInternal($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefVendorNoteInternal', '\ItemXrefVendorNoteInternalQuery');
+    }
+
+    /**
+     * Filter the query by a related \BomComponent object
+     *
+     * @param \BomComponent|ObjectCollection $bomComponent the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByBomComponent($bomComponent, $comparison = null)
+    {
+        if ($bomComponent instanceof \BomComponent) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bomComponent->getBomdusagitem(), $comparison);
+        } elseif ($bomComponent instanceof ObjectCollection) {
+            return $this
+                ->useBomComponentQuery()
+                ->filterByPrimaryKeys($bomComponent->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByBomComponent() only accepts arguments of type \BomComponent or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the BomComponent relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinBomComponent($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('BomComponent');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'BomComponent');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the BomComponent relation BomComponent object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \BomComponentQuery A secondary query class using the current class as primary query
+     */
+    public function useBomComponentQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinBomComponent($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'BomComponent', '\BomComponentQuery');
+    }
+
+    /**
+     * Filter the query by a related \BomItem object
+     *
+     * @param \BomItem|ObjectCollection $bomItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByBomItem($bomItem, $comparison = null)
+    {
+        if ($bomItem instanceof \BomItem) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $bomItem->getBomhproditem(), $comparison);
+        } elseif ($bomItem instanceof ObjectCollection) {
+            return $this
+                ->useBomItemQuery()
+                ->filterByPrimaryKeys($bomItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByBomItem() only accepts arguments of type \BomItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the BomItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinBomItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('BomItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'BomItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the BomItem relation BomItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \BomItemQuery A secondary query class using the current class as primary query
+     */
+    public function useBomItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinBomItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'BomItem', '\BomItemQuery');
     }
 
     /**

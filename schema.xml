@@ -2908,12 +2908,35 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="pr_bmat_head" idMethod="native" phpName="BillOfMaterial">
+  <table name="pr_bmat_det" idMethod="native" phpName="BomComponent">
+    <column name="BomhProdItem" phpName="Bomhproditem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BomdLine" phpName="Bomdline" type="INTEGER" size="6" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="BomdUsagItem" phpName="Bomdusagitem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BomdUsagQty" phpName="Bomdusagqty" type="DECIMAL" size="20" scale="4"/>
+    <column name="BomdScrap" phpName="Bomdscrap" type="VARCHAR" size="1"/>
+    <column name="BomdSerialBase" phpName="Bomdserialbase" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="pr_bmat_head" name="bomfinished" skipSql="true">
+      <reference local="BomhProdItem" foreign="BomhProdItem"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="useageitem" skipSql="true">
+      <reference local="BomdUsagItem" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pr_bmat_head" idMethod="native" phpName="BomItem">
     <column name="BomhProdItem" phpName="Bomhproditem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="BomhLevel" phpName="Bomhlevel" type="INTEGER" size="2"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="BomhProdItem" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

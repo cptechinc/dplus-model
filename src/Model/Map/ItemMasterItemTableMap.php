@@ -575,6 +575,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemAddonItemsRelatedByAdonadditemnbr', false);
+        $this->addRelation('InvLot', '\\InvLot', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvLots', false);
         $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -617,6 +624,20 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefVendorNoteInternals', false);
+        $this->addRelation('BomComponent', '\\BomComponent', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':BomdUsagItem',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'BomComponents', false);
+        $this->addRelation('BomItem', '\\BomItem', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':BomhProdItem',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
         $this->addRelation('BookingDetail', '\\BookingDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

@@ -2,6 +2,10 @@
 
 namespace Base;
 
+use \BomComponent as ChildBomComponent;
+use \BomComponentQuery as ChildBomComponentQuery;
+use \BomItem as ChildBomItem;
+use \BomItemQuery as ChildBomItemQuery;
 use \BookingDetail as ChildBookingDetail;
 use \BookingDetailQuery as ChildBookingDetailQuery;
 use \InvCommissionCode as ChildInvCommissionCode;
@@ -42,6 +46,7 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
+use Map\BomComponentTableMap;
 use Map\BookingDetailTableMap;
 use Map\InvLotTableMap;
 use Map\ItemAddonItemTableMap;
@@ -649,6 +654,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefVendorNoteInternalsPartial;
 
     /**
+     * @var        ObjectCollection|ChildBomComponent[] Collection to store aggregation of ChildBomComponent objects.
+     */
+    protected $collBomComponents;
+    protected $collBomComponentsPartial;
+
+    /**
+     * @var        ChildBomItem one-to-one related ChildBomItem object
+     */
+    protected $singleBomItem;
+
+    /**
      * @var        ObjectCollection|ChildBookingDetail[] Collection to store aggregation of ChildBookingDetail objects.
      */
     protected $collBookingDetails;
@@ -739,6 +755,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefVendorNoteInternal[]
      */
     protected $itemXrefVendorNoteInternalsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildBomComponent[]
+     */
+    protected $bomComponentsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3290,6 +3312,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemXrefVendorNoteInternals = null;
 
+            $this->collBomComponents = null;
+
+            $this->singleBomItem = null;
+
             $this->collBookingDetails = null;
 
             $this->collSalesHistoryLotserials = null;
@@ -3630,6 +3656,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
+                }
+            }
+
+            if ($this->bomComponentsScheduledForDeletion !== null) {
+                if (!$this->bomComponentsScheduledForDeletion->isEmpty()) {
+                    \BomComponentQuery::create()
+                        ->filterByPrimaryKeys($this->bomComponentsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->bomComponentsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collBomComponents !== null) {
+                foreach ($this->collBomComponents as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->singleBomItem !== null) {
+                if (!$this->singleBomItem->isDeleted() && ($this->singleBomItem->isNew() || $this->singleBomItem->isModified())) {
+                    $affectedRows += $this->singleBomItem->save($con);
                 }
             }
 
@@ -4707,6 +4756,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefVendorNoteInternals->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collBomComponents) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'bomComponents';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'pr_bmat_dets';
+                        break;
+                    default:
+                        $key = 'BomComponents';
+                }
+
+                $result[$key] = $this->collBomComponents->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->singleBomItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'bomItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'pr_bmat_head';
+                        break;
+                    default:
+                        $key = 'BomItem';
+                }
+
+                $result[$key] = $this->singleBomItem->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collBookingDetails) {
 
                 switch ($keyType) {
@@ -5667,6 +5746,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getBomComponents() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addBomComponent($relObj->copy($deepCopy));
+                }
+            }
+
+            $relObj = $this->getBomItem();
+            if ($relObj) {
+                $copyObj->setBomItem($relObj->copy($deepCopy));
+            }
+
             foreach ($this->getBookingDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addBookingDetail($relObj->copy($deepCopy));
@@ -6069,6 +6159,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemXrefVendorNoteInternal' == $relationName) {
             $this->initItemXrefVendorNoteInternals();
+            return;
+        }
+        if ('BomComponent' == $relationName) {
+            $this->initBomComponents();
             return;
         }
         if ('BookingDetail' == $relationName) {
@@ -8458,6 +8552,295 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collBomComponents collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addBomComponents()
+     */
+    public function clearBomComponents()
+    {
+        $this->collBomComponents = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collBomComponents collection loaded partially.
+     */
+    public function resetPartialBomComponents($v = true)
+    {
+        $this->collBomComponentsPartial = $v;
+    }
+
+    /**
+     * Initializes the collBomComponents collection.
+     *
+     * By default this just sets the collBomComponents collection to an empty array (like clearcollBomComponents());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initBomComponents($overrideExisting = true)
+    {
+        if (null !== $this->collBomComponents && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = BomComponentTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collBomComponents = new $collectionClassName;
+        $this->collBomComponents->setModel('\BomComponent');
+    }
+
+    /**
+     * Gets an array of ChildBomComponent objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildBomComponent[] List of ChildBomComponent objects
+     * @throws PropelException
+     */
+    public function getBomComponents(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collBomComponentsPartial && !$this->isNew();
+        if (null === $this->collBomComponents || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collBomComponents) {
+                // return empty collection
+                $this->initBomComponents();
+            } else {
+                $collBomComponents = ChildBomComponentQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collBomComponentsPartial && count($collBomComponents)) {
+                        $this->initBomComponents(false);
+
+                        foreach ($collBomComponents as $obj) {
+                            if (false == $this->collBomComponents->contains($obj)) {
+                                $this->collBomComponents->append($obj);
+                            }
+                        }
+
+                        $this->collBomComponentsPartial = true;
+                    }
+
+                    return $collBomComponents;
+                }
+
+                if ($partial && $this->collBomComponents) {
+                    foreach ($this->collBomComponents as $obj) {
+                        if ($obj->isNew()) {
+                            $collBomComponents[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collBomComponents = $collBomComponents;
+                $this->collBomComponentsPartial = false;
+            }
+        }
+
+        return $this->collBomComponents;
+    }
+
+    /**
+     * Sets a collection of ChildBomComponent objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $bomComponents A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setBomComponents(Collection $bomComponents, ConnectionInterface $con = null)
+    {
+        /** @var ChildBomComponent[] $bomComponentsToDelete */
+        $bomComponentsToDelete = $this->getBomComponents(new Criteria(), $con)->diff($bomComponents);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->bomComponentsScheduledForDeletion = clone $bomComponentsToDelete;
+
+        foreach ($bomComponentsToDelete as $bomComponentRemoved) {
+            $bomComponentRemoved->setItemMasterItem(null);
+        }
+
+        $this->collBomComponents = null;
+        foreach ($bomComponents as $bomComponent) {
+            $this->addBomComponent($bomComponent);
+        }
+
+        $this->collBomComponents = $bomComponents;
+        $this->collBomComponentsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related BomComponent objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related BomComponent objects.
+     * @throws PropelException
+     */
+    public function countBomComponents(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collBomComponentsPartial && !$this->isNew();
+        if (null === $this->collBomComponents || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collBomComponents) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getBomComponents());
+            }
+
+            $query = ChildBomComponentQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collBomComponents);
+    }
+
+    /**
+     * Method called to associate a ChildBomComponent object to this object
+     * through the ChildBomComponent foreign key attribute.
+     *
+     * @param  ChildBomComponent $l ChildBomComponent
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addBomComponent(ChildBomComponent $l)
+    {
+        if ($this->collBomComponents === null) {
+            $this->initBomComponents();
+            $this->collBomComponentsPartial = true;
+        }
+
+        if (!$this->collBomComponents->contains($l)) {
+            $this->doAddBomComponent($l);
+
+            if ($this->bomComponentsScheduledForDeletion and $this->bomComponentsScheduledForDeletion->contains($l)) {
+                $this->bomComponentsScheduledForDeletion->remove($this->bomComponentsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildBomComponent $bomComponent The ChildBomComponent object to add.
+     */
+    protected function doAddBomComponent(ChildBomComponent $bomComponent)
+    {
+        $this->collBomComponents[]= $bomComponent;
+        $bomComponent->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildBomComponent $bomComponent The ChildBomComponent object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeBomComponent(ChildBomComponent $bomComponent)
+    {
+        if ($this->getBomComponents()->contains($bomComponent)) {
+            $pos = $this->collBomComponents->search($bomComponent);
+            $this->collBomComponents->remove($pos);
+            if (null === $this->bomComponentsScheduledForDeletion) {
+                $this->bomComponentsScheduledForDeletion = clone $this->collBomComponents;
+                $this->bomComponentsScheduledForDeletion->clear();
+            }
+            $this->bomComponentsScheduledForDeletion[]= clone $bomComponent;
+            $bomComponent->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related BomComponents from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildBomComponent[] List of ChildBomComponent objects
+     */
+    public function getBomComponentsJoinBomItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildBomComponentQuery::create(null, $criteria);
+        $query->joinWith('BomItem', $joinBehavior);
+
+        return $this->getBomComponents($query, $con);
+    }
+
+    /**
+     * Gets a single ChildBomItem object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildBomItem
+     * @throws PropelException
+     */
+    public function getBomItem(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleBomItem === null && !$this->isNew()) {
+            $this->singleBomItem = ChildBomItemQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleBomItem;
+    }
+
+    /**
+     * Sets a single ChildBomItem object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildBomItem $v ChildBomItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setBomItem(ChildBomItem $v = null)
+    {
+        $this->singleBomItem = $v;
+
+        // Make sure that that the passed-in ChildBomItem isn't already associated with this object
+        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+            $v->setItemMasterItem($this);
+        }
+
+        return $this;
+    }
+
+    /**
      * Clears out the collBookingDetails collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -9624,6 +10007,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collBomComponents) {
+                foreach ($this->collBomComponents as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->singleBomItem) {
+                $this->singleBomItem->clearAllReferences($deep);
+            }
             if ($this->collBookingDetails) {
                 foreach ($this->collBookingDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -9656,6 +10047,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemXrefCustomerNotes = null;
         $this->collItemXrefVendorNoteDetails = null;
         $this->collItemXrefVendorNoteInternals = null;
+        $this->collBomComponents = null;
+        $this->singleBomItem = null;
         $this->collBookingDetails = null;
         $this->collSalesHistoryLotserials = null;
         $this->collItemXrefUpcs = null;
