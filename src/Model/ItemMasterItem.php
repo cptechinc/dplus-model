@@ -66,14 +66,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'uom_sale'        => 'intbuomsale',
 		'standardcost'    => 'initstancost',
 		'standardcostbasedon' => 'initstancostbase',
-		'pricing'         => 'itemPricing',
-		'unitofmsale'     => 'unitofMeasureSale',
-		'unitofmpurchase' => 'unitofMeasurePurchase',
 		'lastcost'        => 'initlastcost',
 		'date_lastcost'   => 'initlastcostdate',
 		'date_laststandardcost'   => 'initstancostlastdate',
-		'primaryvxm'      => 'primaryItemXrefVendor',
-		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
 		'allow_discount'   => 'initgivedisc',
 		'revision'        => 'initrevision',
 		'inspection'      => 'initinspect',
@@ -95,6 +90,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'qty_tare'        => 'initshiptareqty',
 		'buyer'           => 'aptbbuyrcode',
 		'qty_purchase_carton'  => 'initpurchcrtnqty',
+
+		// Foreign Key Aliases
+		'primaryvxm'      => 'primaryItemXrefVendor',
+		'primary_item_xref_vendor' => 'primaryItemXrefVendor',
+		'pricing'         => 'itemPricing',
+		'unitofmsale'     => 'unitofMeasureSale',
+		'unitofmpurchase' => 'unitofMeasurePurchase',
+		'invgroup'        => 'invgroupcode',
 	);
 
 	const ITEMTYPE_DESCRIPTIONS = array(
@@ -184,25 +187,9 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 
-	/**
-	 * ===================================================================
-	 *
-	 * FOREIGN KEY RELATIONSHIP FUNCTIONS
-	 *
-	 * ===================================================================
-	 */
-
-	 /**
-	 * Return Item Group Code Description
-	 *
-	 * @return string
-	 */
-	public function get_itemgroupdescription() {
-		$query = InvGroupCodeQuery::create();
-		$query->select(InvGroupCode::get_aliasproperty('description'));
-		return $query->findOneByItemgroup($this->intbgrup);
-	}
-
+/* =============================================================
+	Foreign Key Relationship Functions
+============================================================= */
 	 /**
 	 * Returns if this item is a Kit
 	 *
@@ -216,12 +203,21 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return KitItems objects for this Kit
-	 *
 	 * @return ChildKitItems[]|ObjectCollection
 	 */
 	public function get_kititems() {
 		$query = KitItemsQuery::create();
 		return $query->findByKititemid($this->inititemnbr);
+	}
+
+	/**
+	 * Returns if Item is a BoM produced Item
+	 * @return bool
+	 */
+	public function is_bom_item() {
+		$q = BomItemQuery::create();
+		$q->filterByItemid($this->itemid);
+		return boolval($q->count());
 	}
 
 	/**
@@ -275,16 +271,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return if Item has Substitutes
-	 *
 	 * @return bool
 	 */
 	public function has_substitutes() {
-		return boolval($this->countItemSubstitutesRelatedByInititemnbr());
+		return boolval($this->count_substitutes());
 	}
 
 	/**
 	 * Return the number of Substitutes this Item has
-	 *
 	 * @return int
 	 */
 	public function count_substitutes() {
@@ -292,8 +286,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
-	 * Return Substitutes this Item has
-	 *
+	 * Return Item's Substitutes
 	 * @return ItemSubstitute[]|Object Array
 	 */
 	public function get_substitutes() {
@@ -302,7 +295,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return if Item is a subsitute
-	 *
 	 * @return bool
 	 */
 	public function is_substitute() {
@@ -310,8 +302,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
-	 * Return the number of Item this Item is a substitute for
-	 *
+	 * Return the number of Items this Item is a substitute for
 	 * @return int
 	 */
 	public function count_substitutes_for() {
@@ -320,7 +311,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return Items this item substitutes for
-	 *
 	 * @return ItemSubstitute[]|Object Array
 	 */
 	public function get_substitutes_for() {
@@ -329,7 +319,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if this Item has Addon Items
-	 *
 	 * @return bool
 	 */
 	public function has_addon_items() {
@@ -338,7 +327,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns the number of Addon Items
-	 *
 	 * @return int
 	 */
 	public function count_addonitems() {
@@ -347,7 +335,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return the Addon Items for this Item
-	 *
 	 * @return ItemAddonItems[]|ObjectCollection
 	 */
 	public function get_addonitems() {
@@ -356,7 +343,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if this Item is an Addon Item
-	 *
 	 * @return bool
 	 */
 	public function is_addonitem() {
@@ -365,7 +351,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns the number of Items this Item is an Addon to
-	 *
 	 * @return int
 	 */
 	public function count_addonitem_for() {
@@ -374,7 +359,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns the Items this Item is an Addon to
-	 *
 	 * @return int
 	 */
 	public function get_addonitem_for() {
