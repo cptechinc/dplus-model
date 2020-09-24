@@ -25,6 +25,24 @@ class CustomerQuery extends BaseCustomerQuery {
 	use QueryTraits;
 
 	/**
+	 * Filter the query on the ArcuCustId column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
+	 * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param     string $arcucustid The value to use as filter.
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return $this|CustomerQuery The current query, for fluid interface
+	 */
+	public function filterByCustid($custID = null, $comparison = null) {
+		return $this->filterByArcucustid($custID, $comparison);
+	}
+
+	/**
 	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
 	 *
 	 * @param  string  $custID Customer ID to filter on

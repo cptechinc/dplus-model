@@ -16,13 +16,31 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  *
  * FindOne()
- * @method  Vendor findOneByVendorid(string $vendorID)     Return the first Vendor filtered by the ApveVendId column
+ * @method	Vendor findOneByVendorid(string $vendorID)	   Return the first Vendor filtered by the ApveVendId column
  *
  * FindByXXX()
  *
  */
 class VendorQuery extends BaseVendorQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the ApveVendId column
+	 *
+	 * Example usage:
+	 * <code>
+	 * $query->filterByApvevendid('fooValue');	 // WHERE ApveVendId = 'fooValue'
+	 * $query->filterByApvevendid('%fooValue%', Criteria::LIKE); // WHERE ApveVendId LIKE '%fooValue%'
+	 * </code>
+	 *
+	 * @param	  string $apvevendid The value to use as filter.
+	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return $this|VendorQuery The current query, for fluid interface
+	 */
+	public function filterByVendorid($apvevendid = null, $comparison = null) {
+		return $this->filterByApvevendid($apvevendid, $comparison);
+	}
 
 	public function get_months_sum($vendorID, $basecolumn, int $months = 1) {
 		for ($i = 1; $i < $months + 1; $i++) {
@@ -38,8 +56,8 @@ class VendorQuery extends BaseVendorQuery {
 
 	/**
 	 * Return the number of Purchases in the last X Months for a Vendor
-	 * @param  string    $vendorID   Vendor ID
-	 * @param  int       $monthsback Number of Months to go back
+	 * @param  string	 $vendorID	 Vendor ID
+	 * @param  int		 $monthsback Number of Months to go back
 	 * @return int
 	 */
 	public function count_last_x_months_purchases($vendorID, int $months = 1) {
@@ -49,8 +67,8 @@ class VendorQuery extends BaseVendorQuery {
 
 	/**
 	 * Return the total of Purchases in the last X Months for a Vendor
-	 * @param  string    $vendorID   Vendor ID
-	 * @param  int       $monthsback Number of Months to go back
+	 * @param  string	 $vendorID	 Vendor ID
+	 * @param  int		 $monthsback Number of Months to go back
 	 * @return int
 	 */
 	public function get_last_x_months_purchases_amt($vendorID, int $months = 1) {
@@ -60,8 +78,8 @@ class VendorQuery extends BaseVendorQuery {
 
 	/**
 	 * Return the number of Invoices in the last X Months for a Vendor
-	 * @param  string    $vendorID   Vendor ID
-	 * @param  int       $monthsback Number of Months to go back
+	 * @param  string  $vendorID	 Vendor ID
+	 * @param  int     $monthsback Number of Months to go back
 	 * @return int
 	 */
 	public function count_last_x_months_invoices($vendorID, int $months = 1) {
@@ -71,8 +89,8 @@ class VendorQuery extends BaseVendorQuery {
 
 	/**
 	 * Return the total of Invoices in the last X Months for a Vendor
-	 * @param  string    $vendorID   Vendor ID
-	 * @param  int       $monthsback Number of Months to go back
+	 * @param  string     $vendorID	 Vendor ID
+	 * @param  int        $monthsback Number of Months to go back
 	 * @return int
 	 */
 	public function get_last_x_months_invoices_amt($vendorID, int $months = 1) {
