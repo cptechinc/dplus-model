@@ -7,6 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'pr_bmat_det' table.
+ * 
  * PURPOSE: BoM Component
  * RELATIONSHIPS: ItemMasterItem, BomItem
  */
