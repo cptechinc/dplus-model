@@ -22,6 +22,8 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		'N' => 'normal'
 	);
 
+	const LENGTH_CUSTITEMID = 30;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -61,7 +63,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	/**
 	 * Return Pricing Per UoM
 	 * priceuom = custprice / qtypercase * conversion
-	 * @return [type] [description]
+	 * @return float
 	 */
 	public function get_pricing_peruom() {
 		if ($this->uom_pricing == '') {
@@ -90,7 +92,6 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 
 	/**
 	 * Returns new ItemXrefCustomer with defaults
-	 *
 	 * @return ItemXrefCustomer
 	 */
 	public static function new() {
