@@ -2960,6 +2960,41 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="qt_config" idMethod="native" phpName="ConfigQt">
+    <column name="QttbConfKey" phpName="Qttbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="QttbConfAutoGen" phpName="Qttbconfautogen" type="VARCHAR" size="1"/>
+    <column name="QttbConfVendLine" phpName="Qttbconfvendline" type="INTEGER" size="2"/>
+    <column name="QttbConfVendCols" phpName="Qttbconfvendcols" type="INTEGER" size="2"/>
+    <column name="QttbConfExpDays" phpName="Qttbconfexpdays" type="INTEGER" size="4"/>
+    <column name="QttbConfPricWind" phpName="Qttbconfpricwind" type="VARCHAR" size="1"/>
+    <column name="QttbConfDispNotes" phpName="Qttbconfdispnotes" type="VARCHAR" size="1"/>
+    <column name="QttbConfHeadGetDef" phpName="Qttbconfheadgetdef" type="INTEGER" size="1"/>
+    <column name="QttbConfShowMarg" phpName="Qttbconfshowmarg" type="VARCHAR" size="1"/>
+    <column name="QttbConfShowSp" phpName="Qttbconfshowsp" type="VARCHAR" size="1"/>
+    <column name="QttbConfLoadPric" phpName="Qttbconfloadpric" type="VARCHAR" size="1"/>
+    <column name="QttbConfPricFromQty" phpName="Qttbconfpricfromqty" type="VARCHAR" size="1"/>
+    <column name="QttbConfLoadCost" phpName="Qttbconfloadcost" type="VARCHAR" size="1"/>
+    <column name="QttbConfDfltContactInfo" phpName="Qttbconfdfltcontactinfo" type="VARCHAR" size="1"/>
+    <column name="QttbConfEnterUom" phpName="Qttbconfenteruom" type="VARCHAR" size="1"/>
+    <column name="QttbConfReviewDays" phpName="Qttbconfreviewdays" type="INTEGER" size="3"/>
+    <column name="QttbConfCrteSlsOrdr" phpName="Qttbconfcrteslsordr" type="VARCHAR" size="1"/>
+    <column name="QttbConfCrteQtyZero" phpName="Qttbconfcrteqtyzero" type="VARCHAR" size="1"/>
+    <column name="QttbConfAutoNonStock" phpName="Qttbconfautononstock" type="VARCHAR" size="1"/>
+    <column name="QttbConfMarkupMargin" phpName="Qttbconfmarkupmargin" type="VARCHAR" size="1"/>
+    <column name="QttbConfUseQtyBrks" phpName="Qttbconfuseqtybrks" type="VARCHAR" size="1"/>
+    <column name="QttbConfWghtEnterCalc" phpName="Qttbconfwghtentercalc" type="VARCHAR" size="1"/>
+    <column name="QttbConfDefQuot" phpName="Qttbconfdefquot" type="VARCHAR" size="1"/>
+    <column name="QttbConfDefPick" phpName="Qttbconfdefpick" type="VARCHAR" size="1"/>
+    <column name="QttbConfDefPack" phpName="Qttbconfdefpack" type="VARCHAR" size="1"/>
+    <column name="QttbConfDefInvc" phpName="Qttbconfdefinvc" type="VARCHAR" size="1"/>
+    <column name="QttbConfDefAck" phpName="Qttbconfdefack" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="quote_detail" idMethod="native" phpName="QuoteDetail">
     <column name="QthdId" phpName="Qthdid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="QtdtLine" phpName="Qtdtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
