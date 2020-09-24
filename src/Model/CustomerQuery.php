@@ -16,7 +16,7 @@ use Dplus\Model\QueryTraits;
  * Filters
  *
  * FindOne
- * @method     Customer findOneByCustid(string $custID)     Return the first ItemMasterItem filtered by the Arcucustid column
+ * @method	   Customer findOneByCustid(string $custID) 	Return the first ItemMasterItem filtered by the Arcucustid column
  *
  * Find
  *
@@ -29,12 +29,12 @@ class CustomerQuery extends BaseCustomerQuery {
 	 *
 	 * Example usage:
 	 * <code>
-	 * $query->filterByArcucustid('fooValue');   // WHERE ArcuCustId = 'fooValue'
+	 * $query->filterByArcucustid('fooValue');	 // WHERE ArcuCustId = 'fooValue'
 	 * $query->filterByArcucustid('%fooValue%', Criteria::LIKE); // WHERE ArcuCustId LIKE '%fooValue%'
 	 * </code>
 	 *
-	 * @param     string $arcucustid The value to use as filter.
-	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @param	  string $arcucustid The value to use as filter.
+	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
 	 * @return $this|CustomerQuery The current query, for fluid interface
 	 */
@@ -46,8 +46,8 @@ class CustomerQuery extends BaseCustomerQuery {
 	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
 	 *
 	 * @param  string  $custID Customer ID to filter on
-	 * @param  int     $months Number of Months to go back
-	 * @return float           Total Sales Amount
+	 * @param  int	   $months Number of Months to go back
+	 * @return float		   Total Sales Amount
 	 */
 	public function get_lastxmonthsamount($custID, int $months = 1) {
 		$basecolumn = 'ArcuSale24mo';
@@ -67,8 +67,8 @@ class CustomerQuery extends BaseCustomerQuery {
 	 * Returns the Total Sum of the Sales Amounts going back x months for a customer
 	 *
 	 * @param  string  $custID Customer ID to filter on
-	 * @param  int     $months Number of Months to go back
-	 * @return float           Total Sales Amount
+	 * @param  int	   $months Number of Months to go back
+	 * @return float		   Total Sales Amount
 	 */
 	public function get_lastxmonthscount($custID, int $months = 1) {
 		$basecolumn = 'ArcuInv24mo';
