@@ -88,8 +88,8 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 		$item = new ItemXrefCustomerNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
-		$item->setpick(self::FORM_FALSE);
-		$item->setpack(self::FORM_FALSE);
+		$item->setPick(self::FORM_FALSE);
+		$item->setPack(self::FORM_FALSE);
 		$item->setInvoice(self::FORM_FALSE);
 		$item->setAcknowledgement(self::FORM_FALSE);
 		$item->setQuote(self::FORM_FALSE);
