@@ -4394,6 +4394,52 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_price_discount" idMethod="native" phpName="ItemPricingDiscount">
+    <column name="OepcType" phpName="Oepctype" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcTblType" phpName="Oepctbltype" type="INTEGER" size="2" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OepcStrtDate" phpName="Oepcstrtdate" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OepcCustId" phpName="Oepccustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcCustCode" phpName="Oepccustcode" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcItemNbr" phpName="Oepcitemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcItemGrup" phpName="Oepcitemgrup" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcSp" phpName="Oepcsp" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepcMeth" phpName="Oepcmeth" type="VARCHAR" size="1"/>
+    <column name="OepcCode" phpName="Oepccode" type="VARCHAR" size="1"/>
+    <column name="OepcPcnt" phpName="Oepcpcnt" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricBase" phpName="Oepcpricbase" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUnit1" phpName="Oepcpricunit1" type="INTEGER" size="5"/>
+    <column name="OepcPricPric1" phpName="Oepcpricpric1" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUom1" phpName="Oepcpricuom1" type="VARCHAR" size="5"/>
+    <column name="OepcPricUnit2" phpName="Oepcpricunit2" type="INTEGER" size="5"/>
+    <column name="OepcPricPric2" phpName="Oepcpricpric2" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUom2" phpName="Oepcpricuom2" type="VARCHAR" size="5"/>
+    <column name="OepcPricUnit3" phpName="Oepcpricunit3" type="INTEGER" size="5"/>
+    <column name="OepcPricPric3" phpName="Oepcpricpric3" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUom3" phpName="Oepcpricuom3" type="VARCHAR" size="5"/>
+    <column name="OepcPricUnit4" phpName="Oepcpricunit4" type="INTEGER" size="5"/>
+    <column name="OepcPricPric4" phpName="Oepcpricpric4" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUom4" phpName="Oepcpricuom4" type="VARCHAR" size="5"/>
+    <column name="OepcPricUnit5" phpName="Oepcpricunit5" type="INTEGER" size="5"/>
+    <column name="OepcPricPric5" phpName="Oepcpricpric5" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcPricUom5" phpName="Oepcpricuom5" type="VARCHAR" size="5"/>
+    <column name="OepcStanCost" phpName="Oepcstancost" type="DECIMAL" size="20" scale="7"/>
+    <column name="OepcEndDate" phpName="Oepcenddate" type="VARCHAR" size="8"/>
+    <column name="OepcQtyBrk" phpName="Oepcqtybrk" type="VARCHAR" size="1"/>
+    <column name="OepcContCost" phpName="Oepccontcost" type="DECIMAL" size="20" scale="3"/>
+    <column name="OepcLastChgDate" phpName="Oepclastchgdate" type="VARCHAR" size="8"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="OepcItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="OepcCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_reas_code" idMethod="native" phpName="SoReasonCode">
     <column name="OetbReasCode" phpName="Oetbreascode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="OetbReasDesc" phpName="Oetbreasdesc" type="VARCHAR" size="30"/>
