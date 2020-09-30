@@ -14,6 +14,8 @@ use \CustomerCommissionCodeQuery as ChildCustomerCommissionCodeQuery;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
+use \ItemPricingDiscount as ChildItemPricingDiscount;
+use \ItemPricingDiscountQuery as ChildItemPricingDiscountQuery;
 use \ItemXrefCustomerNote as ChildItemXrefCustomerNote;
 use \ItemXrefCustomerNoteQuery as ChildItemXrefCustomerNoteQuery;
 use \SalesHistory as ChildSalesHistory;
@@ -29,6 +31,7 @@ use Map\BookingDayDetailTableMap;
 use Map\BookingTableMap;
 use Map\CustomerShiptoTableMap;
 use Map\CustomerTableMap;
+use Map\ItemPricingDiscountTableMap;
 use Map\ItemXrefCustomerNoteTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
@@ -1071,6 +1074,12 @@ abstract class Customer implements ActiveRecordInterface
     protected $collSalesOrdersPartial;
 
     /**
+     * @var        ObjectCollection|ChildItemPricingDiscount[] Collection to store aggregation of ChildItemPricingDiscount objects.
+     */
+    protected $collItemPricingDiscounts;
+    protected $collItemPricingDiscountsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -1119,6 +1128,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var ObjectCollection|ChildSalesOrder[]
      */
     protected $salesOrdersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemPricingDiscount[]
+     */
+    protected $itemPricingDiscountsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -5885,6 +5900,8 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->collSalesOrders = null;
 
+            $this->collItemPricingDiscounts = null;
+
         } // if (deep)
     }
 
@@ -6135,6 +6152,23 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->collSalesOrders !== null) {
                 foreach ($this->collSalesOrders as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemPricingDiscountsScheduledForDeletion !== null) {
+                if (!$this->itemPricingDiscountsScheduledForDeletion->isEmpty()) {
+                    \ItemPricingDiscountQuery::create()
+                        ->filterByPrimaryKeys($this->itemPricingDiscountsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemPricingDiscountsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemPricingDiscounts !== null) {
+                foreach ($this->collItemPricingDiscounts as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -7731,6 +7765,21 @@ abstract class Customer implements ActiveRecordInterface
 
                 $result[$key] = $this->collSalesOrders->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collItemPricingDiscounts) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemPricingDiscounts';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_price_discounts';
+                        break;
+                    default:
+                        $key = 'ItemPricingDiscounts';
+                }
+
+                $result[$key] = $this->collItemPricingDiscounts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
         }
 
         return $result;
@@ -9296,6 +9345,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getItemPricingDiscounts() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemPricingDiscount($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -9464,6 +9519,10 @@ abstract class Customer implements ActiveRecordInterface
         }
         if ('SalesOrder' == $relationName) {
             $this->initSalesOrders();
+            return;
+        }
+        if ('ItemPricingDiscount' == $relationName) {
+            $this->initItemPricingDiscounts();
             return;
         }
     }
@@ -11278,6 +11337,259 @@ abstract class Customer implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collItemPricingDiscounts collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemPricingDiscounts()
+     */
+    public function clearItemPricingDiscounts()
+    {
+        $this->collItemPricingDiscounts = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemPricingDiscounts collection loaded partially.
+     */
+    public function resetPartialItemPricingDiscounts($v = true)
+    {
+        $this->collItemPricingDiscountsPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemPricingDiscounts collection.
+     *
+     * By default this just sets the collItemPricingDiscounts collection to an empty array (like clearcollItemPricingDiscounts());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemPricingDiscounts($overrideExisting = true)
+    {
+        if (null !== $this->collItemPricingDiscounts && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemPricingDiscountTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemPricingDiscounts = new $collectionClassName;
+        $this->collItemPricingDiscounts->setModel('\ItemPricingDiscount');
+    }
+
+    /**
+     * Gets an array of ChildItemPricingDiscount objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemPricingDiscount[] List of ChildItemPricingDiscount objects
+     * @throws PropelException
+     */
+    public function getItemPricingDiscounts(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
+        if (null === $this->collItemPricingDiscounts || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemPricingDiscounts) {
+                // return empty collection
+                $this->initItemPricingDiscounts();
+            } else {
+                $collItemPricingDiscounts = ChildItemPricingDiscountQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemPricingDiscountsPartial && count($collItemPricingDiscounts)) {
+                        $this->initItemPricingDiscounts(false);
+
+                        foreach ($collItemPricingDiscounts as $obj) {
+                            if (false == $this->collItemPricingDiscounts->contains($obj)) {
+                                $this->collItemPricingDiscounts->append($obj);
+                            }
+                        }
+
+                        $this->collItemPricingDiscountsPartial = true;
+                    }
+
+                    return $collItemPricingDiscounts;
+                }
+
+                if ($partial && $this->collItemPricingDiscounts) {
+                    foreach ($this->collItemPricingDiscounts as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemPricingDiscounts[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemPricingDiscounts = $collItemPricingDiscounts;
+                $this->collItemPricingDiscountsPartial = false;
+            }
+        }
+
+        return $this->collItemPricingDiscounts;
+    }
+
+    /**
+     * Sets a collection of ChildItemPricingDiscount objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemPricingDiscounts A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setItemPricingDiscounts(Collection $itemPricingDiscounts, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemPricingDiscount[] $itemPricingDiscountsToDelete */
+        $itemPricingDiscountsToDelete = $this->getItemPricingDiscounts(new Criteria(), $con)->diff($itemPricingDiscounts);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemPricingDiscountsScheduledForDeletion = clone $itemPricingDiscountsToDelete;
+
+        foreach ($itemPricingDiscountsToDelete as $itemPricingDiscountRemoved) {
+            $itemPricingDiscountRemoved->setCustomer(null);
+        }
+
+        $this->collItemPricingDiscounts = null;
+        foreach ($itemPricingDiscounts as $itemPricingDiscount) {
+            $this->addItemPricingDiscount($itemPricingDiscount);
+        }
+
+        $this->collItemPricingDiscounts = $itemPricingDiscounts;
+        $this->collItemPricingDiscountsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemPricingDiscount objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemPricingDiscount objects.
+     * @throws PropelException
+     */
+    public function countItemPricingDiscounts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemPricingDiscountsPartial && !$this->isNew();
+        if (null === $this->collItemPricingDiscounts || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemPricingDiscounts) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemPricingDiscounts());
+            }
+
+            $query = ChildItemPricingDiscountQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collItemPricingDiscounts);
+    }
+
+    /**
+     * Method called to associate a ChildItemPricingDiscount object to this object
+     * through the ChildItemPricingDiscount foreign key attribute.
+     *
+     * @param  ChildItemPricingDiscount $l ChildItemPricingDiscount
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addItemPricingDiscount(ChildItemPricingDiscount $l)
+    {
+        if ($this->collItemPricingDiscounts === null) {
+            $this->initItemPricingDiscounts();
+            $this->collItemPricingDiscountsPartial = true;
+        }
+
+        if (!$this->collItemPricingDiscounts->contains($l)) {
+            $this->doAddItemPricingDiscount($l);
+
+            if ($this->itemPricingDiscountsScheduledForDeletion and $this->itemPricingDiscountsScheduledForDeletion->contains($l)) {
+                $this->itemPricingDiscountsScheduledForDeletion->remove($this->itemPricingDiscountsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemPricingDiscount $itemPricingDiscount The ChildItemPricingDiscount object to add.
+     */
+    protected function doAddItemPricingDiscount(ChildItemPricingDiscount $itemPricingDiscount)
+    {
+        $this->collItemPricingDiscounts[]= $itemPricingDiscount;
+        $itemPricingDiscount->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildItemPricingDiscount $itemPricingDiscount The ChildItemPricingDiscount object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeItemPricingDiscount(ChildItemPricingDiscount $itemPricingDiscount)
+    {
+        if ($this->getItemPricingDiscounts()->contains($itemPricingDiscount)) {
+            $pos = $this->collItemPricingDiscounts->search($itemPricingDiscount);
+            $this->collItemPricingDiscounts->remove($pos);
+            if (null === $this->itemPricingDiscountsScheduledForDeletion) {
+                $this->itemPricingDiscountsScheduledForDeletion = clone $this->collItemPricingDiscounts;
+                $this->itemPricingDiscountsScheduledForDeletion->clear();
+            }
+            $this->itemPricingDiscountsScheduledForDeletion[]= clone $itemPricingDiscount;
+            $itemPricingDiscount->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related ItemPricingDiscounts from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemPricingDiscount[] List of ChildItemPricingDiscount objects
+     */
+    public function getItemPricingDiscountsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemPricingDiscountQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getItemPricingDiscounts($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -11477,6 +11789,11 @@ abstract class Customer implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collItemPricingDiscounts) {
+                foreach ($this->collItemPricingDiscounts as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collCustomerShiptos = null;
@@ -11486,6 +11803,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collBookings = null;
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
+        $this->collItemPricingDiscounts = null;
         $this->aCustomerCommissionCode = null;
         $this->aShipvia = null;
     }

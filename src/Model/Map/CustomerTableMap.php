@@ -989,6 +989,13 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, 'SalesOrders', false);
+        $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OepcCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ItemPricingDiscounts', false);
     } // buildRelations()
 
     /**

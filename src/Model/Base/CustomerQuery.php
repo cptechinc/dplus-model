@@ -386,7 +386,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
  * @method     ChildCustomerQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
  *
- * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildCustomerQuery leftJoinItemPricingDiscount($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemPricingDiscount relation
+ * @method     ChildCustomerQuery rightJoinItemPricingDiscount($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemPricingDiscount relation
+ * @method     ChildCustomerQuery innerJoinItemPricingDiscount($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemPricingDiscount relation
+ *
+ * @method     ChildCustomerQuery joinWithItemPricingDiscount($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemPricingDiscount relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithItemPricingDiscount() Adds a LEFT JOIN clause and with to the query using the ItemPricingDiscount relation
+ * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
+ * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
+ *
+ * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -6140,6 +6150,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemPricingDiscount object
+     *
+     * @param \ItemPricingDiscount|ObjectCollection $itemPricingDiscount the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByItemPricingDiscount($itemPricingDiscount, $comparison = null)
+    {
+        if ($itemPricingDiscount instanceof \ItemPricingDiscount) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $itemPricingDiscount->getOepccustid(), $comparison);
+        } elseif ($itemPricingDiscount instanceof ObjectCollection) {
+            return $this
+                ->useItemPricingDiscountQuery()
+                ->filterByPrimaryKeys($itemPricingDiscount->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemPricingDiscount() only accepts arguments of type \ItemPricingDiscount or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemPricingDiscount relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinItemPricingDiscount($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemPricingDiscount');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemPricingDiscount');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemPricingDiscount relation ItemPricingDiscount object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemPricingDiscountQuery A secondary query class using the current class as primary query
+     */
+    public function useItemPricingDiscountQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemPricingDiscount($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemPricingDiscount', '\ItemPricingDiscountQuery');
     }
 
     /**

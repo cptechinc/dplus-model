@@ -358,6 +358,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithSalesHistoryLotserial() Adds a RIGHT JOIN clause and with to the query using the SalesHistoryLotserial relation
  * @method     ChildItemMasterItemQuery innerJoinWithSalesHistoryLotserial() Adds a INNER JOIN clause and with to the query using the SalesHistoryLotserial relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemPricingDiscount($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemPricingDiscount relation
+ * @method     ChildItemMasterItemQuery rightJoinItemPricingDiscount($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemPricingDiscount relation
+ * @method     ChildItemMasterItemQuery innerJoinItemPricingDiscount($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemPricingDiscount relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemPricingDiscount($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemPricingDiscount relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemPricingDiscount() Adds a LEFT JOIN clause and with to the query using the ItemPricingDiscount relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefUpc($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefUpc($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefUpc relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefUpc($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefUpc relation
@@ -378,7 +388,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvLotQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvLotQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -4139,6 +4149,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinSalesHistoryLotserial($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesHistoryLotserial', '\SalesHistoryLotserialQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemPricingDiscount object
+     *
+     * @param \ItemPricingDiscount|ObjectCollection $itemPricingDiscount the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemPricingDiscount($itemPricingDiscount, $comparison = null)
+    {
+        if ($itemPricingDiscount instanceof \ItemPricingDiscount) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemPricingDiscount->getOepcitemnbr(), $comparison);
+        } elseif ($itemPricingDiscount instanceof ObjectCollection) {
+            return $this
+                ->useItemPricingDiscountQuery()
+                ->filterByPrimaryKeys($itemPricingDiscount->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemPricingDiscount() only accepts arguments of type \ItemPricingDiscount or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemPricingDiscount relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemPricingDiscount($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemPricingDiscount');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemPricingDiscount');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemPricingDiscount relation ItemPricingDiscount object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemPricingDiscountQuery A secondary query class using the current class as primary query
+     */
+    public function useItemPricingDiscountQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemPricingDiscount($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemPricingDiscount', '\ItemPricingDiscountQuery');
     }
 
     /**

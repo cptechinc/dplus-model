@@ -8,6 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'so_price_discount' table.
  * PURPOSE: Item Pricing for Customer
+ * RELATIONSHIPS: ItemMasterItem, Customer
  */
 class ItemPricingDiscount extends BaseItemPricingDiscount {
 	use ThrowErrorTrait;
