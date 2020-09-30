@@ -19,16 +19,16 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 
 	const FORMS_LABELS = array(
 		'quote'            => 'quote',
-		'pickticket'       => 'pick ticket',
-		'packticket'       => 'pack ticket',
+		'pick'       => 'pick ticket',
+		'pack'       => 'pack ticket',
 		'invoice'          => 'invoice',
 		'acknowledgement'  => 'acknowledgement',
 	);
 
 	const FORMS_LABELS_SHORT = array(
 		'quote'            => 'qte',
-		'pickticket'       => 'pick',
-		'packticket'       => 'pack',
+		'pick'       => 'pick',
+		'pack'       => 'pack',
 		'invoice'          => 'invc',
 		'acknowledgement'  => 'ack',
 	);
@@ -42,8 +42,8 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 		'description'      => 'qntypedesc',
 		'itemid'           => 'inititemnbr',
 		'custid'           => 'arcucustid',
-		'pickticket'       => 'qnicxmpickticket',
-		'packticket'       => 'qnicxmpackticket',
+		'pick'       => 'qnicxmpickticket',
+		'pack'       => 'qnicxmpackticket',
 		'invoice'          => 'qnicxminvoice',
 		'acknowledgement'  => 'qnicxmacknow',
 		'quote'            => 'qnicxmquote',
@@ -57,13 +57,13 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 
 	/**
 	 * Sets Form
-	 * NOTE: Form = pickticket + packticket + invoice + acknowledgement +
+	 * NOTE: Form = pick + pack + invoice + acknowledgement +
 	 *  quote + purchaseorder + ordertransfer + fabpo
 	 *
 	 * @return string
 	 */
 	public function generateForm() {
-		$form = $this->quote.$this->pickticket.$this->packticket;
+		$form = $this->quote.$this->pick.$this->pack;
 		$form .= $this->invoice.$this->acknowledgement;
 		$this->setForm($form);
 	}
@@ -88,8 +88,8 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 		$item = new ItemXrefCustomerNote();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
-		$item->setPickticket(self::FORM_FALSE);
-		$item->setPackticket(self::FORM_FALSE);
+		$item->setpick(self::FORM_FALSE);
+		$item->setpack(self::FORM_FALSE);
 		$item->setInvoice(self::FORM_FALSE);
 		$item->setAcknowledgement(self::FORM_FALSE);
 		$item->setQuote(self::FORM_FALSE);
