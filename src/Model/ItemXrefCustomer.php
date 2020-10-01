@@ -86,9 +86,54 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		return $this->price_customer / $itmitem->qtypercase * $uom_pricing->conversion;
 	}
 
+	/**
+	 * Return Unit of Measure Sale for the pricing
+	 * @return UnitofMeasureSale
+	 */
 	public function getUnitofMeasurePricing() {
 		return UnitofMeasureSaleQuery::create()->findOneByCode($this->uom_pricing);
 	}
+
+	/**
+	 * Return ItemPricingDiscount for this CXM item
+	 * @return ItemPricingDiscount
+	 */
+	public function getCustomerPricing() {
+		$q = $this->getCustomerPricingQuery();
+		return $q->findOne();
+	}
+
+	/**
+	 * Return if ItemPricingDiscount records exist for this CXM item
+	 * @return bool
+	 */
+	public function has_customerpricing() {
+		$q = $this->getCustomerPricingQuery();
+		return boolval($q->count());
+	}
+
+	/**
+	 * Return ItemPricingDiscountQuery filtered for this CXM Item
+	 * @return ItemPricingDiscountQuery
+	 */
+	protected function getCustomerPricingQuery() {
+		$q = $this->getItemPricingDiscountQuery();
+		$q->filterByType(ItemPricingDiscount::TYPE_PRICEDISCOUNT);
+		$q->filterByTable(ItemPricingDiscount::TABLE_CUSTID_ITEMID);
+		$q->filterByCustid($this->custid);
+		$q->filterByItemid($this->itemid);
+		return $q;
+	}
+	
+	/**
+	 * Return ItemPricingDiscountQuery
+	 * @return ItemPricingDiscountQuery
+	 */
+	protected function getItemPricingDiscountQuery() {
+		return ItemPricingDiscountQuery::create();
+	}
+
+
 
 	/**
 	 * Returns new ItemXrefCustomer with defaults

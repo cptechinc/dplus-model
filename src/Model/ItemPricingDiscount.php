@@ -14,6 +14,9 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const TYPE_PRICEDISCOUNT = 'PD';
+	const TABLE_CUSTID_ITEMID = 3;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
