@@ -134,7 +134,6 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	}
 
 
-
 	/**
 	 * Returns new ItemXrefCustomer with defaults
 	 * @return ItemXrefCustomer

@@ -7,11 +7,12 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'so_config' table.
- *
  */
 class ConfigSalesOrder extends BaseConfigSalesOrder {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	const YN_TRUE = 'Y';
 
 	/**
 	 * Request Catalog Code
