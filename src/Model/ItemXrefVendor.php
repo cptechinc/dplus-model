@@ -29,6 +29,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	const APPROVALCODE_RESTRICTED = 'R';
 
 	const OPTIONS_POORDERCODE = array(
+		''  => 'No Preference',
 		'C' => 'Costing',
 		'P' => 'Primary',
 		'Y' => 'Secondary'
