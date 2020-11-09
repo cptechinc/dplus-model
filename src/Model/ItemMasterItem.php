@@ -36,6 +36,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'R' => 'Replacement'
 	);
 
+	const OPTIONS_PRODUCER = ['Y' => 'Yes', 'N' => 'No'];
+	const OPTIONS_PREFERENCE = ['A', 'B', 'C', 'D', 'E', 'F'];
+	const OPTIONS_DOCUMENTATION = [1, 2, 3];
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -90,6 +94,10 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'qty_tare'        => 'initshiptareqty',
 		'buyer'           => 'aptbbuyrcode',
 		'qty_purchase_carton'  => 'initpurchcrtnqty',
+		'tariffcode'  => 'IntbTariffCode',
+		'msdscode'    => 'IntbMsdsCode',
+		'freightcode' => 'InitMfrtCode',
+		'origincountry' => 'InitCntryOfOrigin',
 
 		// Foreign Key Aliases
 		'primaryvxm'      => 'primaryItemXrefVendor',
@@ -106,71 +114,109 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'S' => 'serialized',
 		'P' => 'price only'
 	);
-
+	
+/* =============================================================
+	Instance Constants Functions
+============================================================= */
 	/**
-	 * ===================================================================
-	 *
-	 * CLASS OBJECT FUNCTIONS
-	 *
-	 * ===================================================================
+	 * Return ItemID Max Length
+	 * @return int
 	 */
 	public function get_length_itemid() {
 		return self::LENGTH_ITEMID;
 	}
 
-	public function calculate_grams() {
-		return $this->weight / $this->unitofmsale->conversion * 453.59237;
-	}
-
 	/**
-	 * Return Description for Item Type
-	 *
-	 * @return string
-	 */
-	public function get_itemtypedescription() {
-		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
-	}
-
-	/**
-	 * self::ITEMTYPE_DESCRIPTIONS
-	 *
+	 * Return Item Type Descriptions
 	 * @return array
 	 */
 	public function get_itemtypedescriptions() {
 		return self::ITEMTYPE_DESCRIPTIONS;
 	}
 
+	/**
+	 * Return Options available for Producer property
+	 * @return array
+	 */
+	public function get_options_producer() {
+		return self::OPTIONS_PRODUCER;
+	}
+
+	/**
+	 * Return Options available for Preference property
+	 * @return array
+	 */
+	public function get_options_preference() {
+		return self::OPTIONS_PREFERENCE;
+	}
+
+	/**
+	 * Return Options available for Documentation property
+	 * @return array
+	 */
+	public function get_options_documentation() {
+		return self::OPTIONS_DOCUMENTATION;
+	}
+
+/* =============================================================
+	Class Property Functions
+============================================================= */
+	/**
+	 * Return Description for Item Type
+	 * @return string
+	 */
+	public function get_itemtypedescription() {
+		return self::ITEMTYPE_DESCRIPTIONS[$this->inittype];
+	}
+
+	/** @return bool is Item an Inspection item? */
 	public function is_inspection() {
-		return $this->is_true('inspection');
+		return $this->ynbool('inspection');
 	}
 
+	/** @return bool can item Split Order if needed? */
 	public function is_splitorder() {
-		return $this->is_true('splitorder');
+		return $this->ynbool('splitorder');
 	}
 
+	/** @return bool Allow Item to be backordered? */
 	public function allow_backorder() {
-		return $this->is_true('allow_backorder');
+		return $this->ynbool('allow_backorder');
 	}
 
+	/** @return bool is Item taxable? */
 	public function taxable() {
-		return $this->is_true('taxable');
+		return $this->ynbool('taxable');
 	}
 
+	/** @return bool does this item require freight? */
 	public function require_freight() {
-		return $this->is_true('require_freight');
+		return $this->ynbool('require_freight');
 	}
 
-	public function is_true($property) {
+	/** @return bool does Item property have a value of 'Y'? */
+	public function ynbool($property) {
 		return $this->$property == self::VALUE_TRUE;
 	}
 
+	/** @return bool does this item have a supercede? */
 	public function is_superceded() {
 		return boolval(strlen($this->supercede));
 	}
 
+/* =============================================================
+	Class Calculated Functions
+============================================================= */	
+	/**
+	 * Return the Weight in Grams
+	 * @return float
+	 */
+	public function calculate_grams() {
+		return $this->weight / $this->unitofmsale->conversion * 453.59237;
+	}
+
 	/**
 	 * Returns the Standard Cost For the Unit of Measurement Sale
-	 *
 	 * @return float
 	 */
 	public function get_standardcost_uom_sale() {
@@ -179,20 +225,17 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns the Last Cost For the Unit of Measurement Sale
-	 *
 	 * @return float
 	 */
 	public function get_lastcost_uom_sale() {
 		return $this->lastcost > 0 ? $this->lastcost * $this->unitofmsale->conversion : $this->lastcost;
 	}
 
-
 /* =============================================================
 	Foreign Key Relationship Functions
 ============================================================= */
 	 /**
 	 * Returns if this item is a Kit
-	 *
 	 * @param  string $itemID
 	 * @return bool
 	 */
@@ -222,7 +265,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns the Primary ItemXrefVendor for this item
-	 *
 	 * @return ItemXrefVendor
 	 */
 	public function getPrimaryItemXrefVendor() {
@@ -244,7 +286,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return the First ItemXrefCustomer that matches
-	 *
 	 * @param  string $itemID  Item ID
 	 * @param  string $custID  Customer ID
 	 * @return ItemXrefCustomer
@@ -257,8 +298,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
-	 * Return the Primary  ItemXrefUpc for this Item
-	 *
+	 * Return the Primary ItemXrefUpc for this Item
 	 * @param  string $itemID  Item ID
 	 * @return ItemXrefUpc
 	 */
@@ -365,18 +405,43 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $this->getItemAddonItemsRelatedByAdonadditemnbr();
 	}
 
+	/**
+	 * Return TariffCode associated with this Item
+	 * @return TariffCode
+	 */
+	public function getCodeTariff() {
+		return TariffCodeQuery::create()->findOneByCode($this->intbtariffcode);
+	}
 
 	/**
-	 * ===================================================================
-	 *
-	 * STATIC LOOKUP FUNCTIONS
-	 *
-	 * ===================================================================
+	 * Return CountryCode associated with this Item's Origin Country Code
+	 * @return CountryCode
 	 */
+	public function getCodeOriginCountry() {
+		return CountryCodeQuery::create()->findOneByCode($this->initcntryoforigin);
+	}
 
+	/**
+	 * Return MsdsCode associated with this Item
+	 * @return MsdsCode 
+	 */
+	public function getCodeMsds() {
+		return MsdsCodeQuery::create()->findOneByCode($this->intbmsdscode);
+	}
+
+	/**
+	 * Return FreightCode associated with this Item
+	 * @return MotorFreightCode
+	 */
+	public function getCodeFreight() {
+		return MotorFreightCodeQuery::create()->findOneByCode($this->initmfrtcode);
+	}
+
+/* =============================================================
+	STATIC Lookup Functions
+============================================================= */
 	/**
 	 * Return if the Item ID provided is a NON-STOCK Item ID
-	 *
 	 * @param  string $itemID
 	 * @return bool
 	 */
@@ -386,7 +451,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if provided Item Type is Serialized
-	 *
 	 * @param  string $itemtype Item Type S
 	 * @return bool             Is Item Type Serialized
 	 */
@@ -396,7 +460,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if provided Item Type is Lotted
-	 *
 	 * @param  string $itemtype Item Type L
 	 * @return bool             Is Item Type Lotted
 	 */
@@ -406,7 +469,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if provided Item Type is Normal
-	 *
 	 * @param  string $itemtype Item Type N
 	 * @return bool             Is Item Type Normal
 	 */
@@ -416,7 +478,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Returns if provided Item Type is Price Only
-	 *
 	 * @param  string $itemtype Item Type P
 	 * @return bool             Is Item Type Price Only
 	 */
