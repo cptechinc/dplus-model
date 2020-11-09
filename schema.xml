@@ -1784,6 +1784,25 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_inv_hazmat" idMethod="native" phpName="InvHazmatItem">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InhzDot1" phpName="Inhzdot1" type="VARCHAR" size="35"/>
+    <column name="InhzDot2" phpName="Inhzdot2" type="VARCHAR" size="35"/>
+    <column name="InhzClass" phpName="Inhzclass" type="VARCHAR" size="3"/>
+    <column name="InhzUnNbr" phpName="Inhzunnbr" type="VARCHAR" size="6"/>
+    <column name="InhzPackGrup" phpName="Inhzpackgrup" type="VARCHAR" size="3"/>
+    <column name="InhzLabel" phpName="Inhzlabel" type="VARCHAR" size="35"/>
+    <column name="InhzAirYn" phpName="Inhzairyn" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_inv_lot" idMethod="native" phpName="InvLot">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>

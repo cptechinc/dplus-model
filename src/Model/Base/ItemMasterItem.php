@@ -12,6 +12,8 @@ use \InvCommissionCode as ChildInvCommissionCode;
 use \InvCommissionCodeQuery as ChildInvCommissionCodeQuery;
 use \InvGroupCode as ChildInvGroupCode;
 use \InvGroupCodeQuery as ChildInvGroupCodeQuery;
+use \InvHazmatItem as ChildInvHazmatItem;
+use \InvHazmatItemQuery as ChildInvHazmatItemQuery;
 use \InvLot as ChildInvLot;
 use \InvLotQuery as ChildInvLotQuery;
 use \InvPriceCode as ChildInvPriceCode;
@@ -613,6 +615,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     protected $collItemAddonItemsRelatedByAdonadditemnbr;
     protected $collItemAddonItemsRelatedByAdonadditemnbrPartial;
+
+    /**
+     * @var        ChildInvHazmatItem one-to-one related ChildInvHazmatItem object
+     */
+    protected $singleInvHazmatItem;
 
     /**
      * @var        ObjectCollection|ChildInvLot[] Collection to store aggregation of ChildInvLot objects.
@@ -3313,6 +3320,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
 
+            $this->singleInvHazmatItem = null;
+
             $this->collInvLots = null;
 
             $this->collItemSubstitutesRelatedByInititemnbr = null;
@@ -3551,6 +3560,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
+                }
+            }
+
+            if ($this->singleInvHazmatItem !== null) {
+                if (!$this->singleInvHazmatItem->isDeleted() && ($this->singleInvHazmatItem->isNew() || $this->singleInvHazmatItem->isModified())) {
+                    $affectedRows += $this->singleInvHazmatItem->save($con);
                 }
             }
 
@@ -4685,6 +4700,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemAddonItemsRelatedByAdonadditemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->singleInvHazmatItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invHazmatItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_hazmat';
+                        break;
+                    default:
+                        $key = 'InvHazmatItem';
+                }
+
+                $result[$key] = $this->singleInvHazmatItem->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
             if (null !== $this->collInvLots) {
 
                 switch ($keyType) {
@@ -5751,6 +5781,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemAddonItemRelatedByAdonadditemnbr($relObj->copy($deepCopy));
                 }
+            }
+
+            $relObj = $this->getInvHazmatItem();
+            if ($relObj) {
+                $copyObj->setInvHazmatItem($relObj->copy($deepCopy));
             }
 
             foreach ($this->getInvLots() as $relObj) {
@@ -6918,6 +6953,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByAdonadditemnbr;
             $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets a single ChildInvHazmatItem object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildInvHazmatItem
+     * @throws PropelException
+     */
+    public function getInvHazmatItem(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleInvHazmatItem === null && !$this->isNew()) {
+            $this->singleInvHazmatItem = ChildInvHazmatItemQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleInvHazmatItem;
+    }
+
+    /**
+     * Sets a single ChildInvHazmatItem object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildInvHazmatItem $v ChildInvHazmatItem
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvHazmatItem(ChildInvHazmatItem $v = null)
+    {
+        $this->singleInvHazmatItem = $v;
+
+        // Make sure that that the passed-in ChildInvHazmatItem isn't already associated with this object
+        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+            $v->setItemMasterItem($this);
         }
 
         return $this;
@@ -10284,6 +10355,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->singleInvHazmatItem) {
+                $this->singleInvHazmatItem->clearAllReferences($deep);
+            }
             if ($this->collInvLots) {
                 foreach ($this->collInvLots as $o) {
                     $o->clearAllReferences($deep);
@@ -10357,6 +10431,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemXrefCustomers = null;
         $this->collItemAddonItemsRelatedByInititemnbr = null;
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
+        $this->singleInvHazmatItem = null;
         $this->collInvLots = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
