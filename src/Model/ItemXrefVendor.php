@@ -27,9 +27,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	const APPROVALCODE_APPROVED = 'A';
 	const APPROVALCODE_RESTRICTED = 'R';
+	const APPROVALCODE_NONE = '';
 
 	const OPTIONS_POORDERCODE = array(
-		''  => 'No Preference',
+		''  => '',
 		'C' => 'Costing',
 		'P' => 'Primary',
 		'Y' => 'Secondary'
@@ -222,7 +223,11 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	public function init() {
 		if ($this->listprice == 0) {
 			$itemprice = ItemPricingQuery::create()->filterByItemid($this->ouritemid)->findOne();
-			$this->listprice = $itemprice->baseprice;
+			if ($itemprice) {
+				$this->listprice = $itemprice->baseprice;
+			} else {
+				$this->listprice = 0;
+			}
 		}
 
 		if (empty($this->uom_purchase)) {
@@ -239,7 +244,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		if ($this->listprice == 0 || empty($this->uom_purchase)) {
 			$this->init();
 		}
-		return ($this->getEachlistprice()) * $this->imitem->UnitofMeasureSale->conversion;
+		if ($this->imitem->UnitofMeasureSale) {
+			return ($this->getEachlistprice()) * $this->imitem->UnitofMeasureSale->conversion;
+		}
+		return 0;
 	}
 
 	/**
@@ -294,7 +302,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	public static function new() {
 		$item = new ItemXrefVendor();
 		$item->setQty_percase(1);
-		$item->setPo_ordercode(self::POORDERCODE_SECONDARY);
+		$item->setPo_ordercode(self::APPROVALCODE_NONE);
 		$item->setApprovalcode(self::APPROVALCODE_APPROVED);
 		return $item;
 	}
