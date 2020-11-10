@@ -39,7 +39,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'decimal_places_qty'       => 'oetbconfdecplaces',
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'decimal_places_price'     => 'oetbconfdecordrpric',
-		'allow_change_price'       => 'oetbconfchgpric'
+		'allow_change_price'       => 'oetbconfchgpric',
+		'use_core_items'           => 'oetbcon2usecore'
 	);
 
 	/**
@@ -64,5 +65,13 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	public function get_freight_allowed_amt() {
 		return $this->freight_amt;
+	}
+
+	/**
+	 * Returns if Core Items Are Allowed
+	 * @return bool
+	 */
+	public function use_core_items() {
+		return strtoupper($this->use_core_items) == 'Y';
 	}
 }
