@@ -20,6 +20,8 @@ class InvHazmatItem extends BaseInvHazmatItem {
 	const MAX_LENGTH_LABEL = 35;
 	const MAX_LENGTH_UNNBR = 6;
 
+	const OPTIONS_PACKGROUP = ['I', 'II', 'III'];
+
 	const YN_TRUE = 'Y';
 
 	/**
