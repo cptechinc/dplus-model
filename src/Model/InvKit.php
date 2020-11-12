@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_kit_head' table.
  * 
- * RELATIONSHIPS: ItemMasterItem
+ * RELATIONSHIPS: ItemMasterItem, InvKitComponents
  */
 class InvKit extends BaseInvKit {
 	use ThrowErrorTrait;
@@ -23,6 +23,7 @@ class InvKit extends BaseInvKit {
 		'dateupdated' => 'dateupdtd',
 		'timeupdated' => 'timeupdtd',
 		// FOREIGN KEY Relationship
-		'item'        => 'itemMasterItem'
+		'item'        => 'itemMasterItem',
+		'components'  => 'invKitComponents'
 	);
 }

@@ -2,7 +2,11 @@
 
 namespace Base;
 
+use \InvKit as ChildInvKit;
 use \InvKitComponentQuery as ChildInvKitComponentQuery;
+use \InvKitQuery as ChildInvKitQuery;
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Exception;
 use \PDO;
 use Map\InvKitComponentTableMap;
@@ -130,6 +134,16 @@ abstract class InvKitComponent implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
+
+    /**
+     * @var        ChildInvKit
+     */
+    protected $aInvKit;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -495,6 +509,10 @@ abstract class InvKitComponent implements ActiveRecordInterface
             $this->modifiedColumns[InvKitComponentTableMap::COL_KTDTKEY1] = true;
         }
 
+        if ($this->aInvKit !== null && $this->aInvKit->getInititemnbr() !== $v) {
+            $this->aInvKit = null;
+        }
+
         return $this;
     } // setKtdtkey1()
 
@@ -513,6 +531,10 @@ abstract class InvKitComponent implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[InvKitComponentTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -781,6 +803,12 @@ abstract class InvKitComponent implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aInvKit !== null && $this->ktdtkey1 !== $this->aInvKit->getInititemnbr()) {
+            $this->aInvKit = null;
+        }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -820,6 +848,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aItemMasterItem = null;
+            $this->aInvKit = null;
         } // if (deep)
     }
 
@@ -922,6 +952,25 @@ abstract class InvKitComponent implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aInvKit !== null) {
+                if ($this->aInvKit->isModified() || $this->aInvKit->isNew()) {
+                    $affectedRows += $this->aInvKit->save($con);
+                }
+                $this->setInvKit($this->aInvKit);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1129,10 +1178,11 @@ abstract class InvKitComponent implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['InvKitComponent'][$this->hashCode()])) {
@@ -1157,6 +1207,38 @@ abstract class InvKitComponent implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aInvKit) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invKit';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_kit_head';
+                        break;
+                    default:
+                        $key = 'InvKit';
+                }
+
+                $result[$key] = $this->aInvKit->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1381,8 +1463,22 @@ abstract class InvKitComponent implements ActiveRecordInterface
         $validPk = null !== $this->getKtdtkey1() &&
             null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation head to table inv_kit_head
+        if ($this->aInvKit && $hash = spl_object_hash($this->aInvKit)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1479,12 +1575,120 @@ abstract class InvKitComponent implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\InvKitComponent The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addInvKitComponent($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addInvKitComponents($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+    /**
+     * Declares an association between this object and a ChildInvKit object.
+     *
+     * @param  ChildInvKit $v
+     * @return $this|\InvKitComponent The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvKit(ChildInvKit $v = null)
+    {
+        if ($v === null) {
+            $this->setKtdtkey1('');
+        } else {
+            $this->setKtdtkey1($v->getInititemnbr());
+        }
+
+        $this->aInvKit = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvKit object, it will not be re-added.
+        if ($v !== null) {
+            $v->addInvKitComponent($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvKit object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvKit The associated ChildInvKit object.
+     * @throws PropelException
+     */
+    public function getInvKit(ConnectionInterface $con = null)
+    {
+        if ($this->aInvKit === null && (($this->ktdtkey1 !== "" && $this->ktdtkey1 !== null))) {
+            $this->aInvKit = ChildInvKitQuery::create()->findPk($this->ktdtkey1, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvKit->addInvKitComponents($this);
+             */
+        }
+
+        return $this->aInvKit;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeInvKitComponent($this);
+        }
+        if (null !== $this->aInvKit) {
+            $this->aInvKit->removeInvKitComponent($this);
+        }
         $this->ktdtkey1 = null;
         $this->inititemnbr = null;
         $this->ktdtuom = null;
@@ -1516,6 +1720,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aItemMasterItem = null;
+        $this->aInvKit = null;
     }
 
     /**

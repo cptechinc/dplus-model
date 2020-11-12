@@ -171,8 +171,8 @@ class InvKitComponentTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('KtdtKey1', 'Ktdtkey1', 'VARCHAR', true, 30, '');
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('KtdtKey1', 'Ktdtkey1', 'VARCHAR' , 'inv_kit_head', 'InitItemNbr', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('KtdtUom', 'Ktdtuom', 'VARCHAR', false, 4, null);
         $this->addColumn('KtdtUsagRate', 'Ktdtusagrate', 'DECIMAL', false, 20, null);
         $this->addColumn('KtdtVendSupply', 'Ktdtvendsupply', 'VARCHAR', false, 1, null);
@@ -188,6 +188,20 @@ class InvKitComponentTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvKit', '\\InvKit', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':KtdtKey1',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

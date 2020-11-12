@@ -7,7 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_kit_detail' table.
- * RELATIONSHIPS: ItemMasterItem
+ * 
+ * RELATIONSHIPS: ItemMasterItem InvKit
  */
 class InvKitComponent extends BaseInvKitComponent{
 	use ThrowErrorTrait;
@@ -28,7 +29,8 @@ class InvKitComponent extends BaseInvKitComponent{
 		'usage'       => 'ktdtusagrate',
 		'is_free'     => 'ktdtfreegoods',
 		// FOREIGNKEY RELATIONSHIP
-		'item'        => 'itemMasterItem'
+		'item'        => 'itemMasterItem',
+		'kit'         => 'invKit'
 	);
 
 	/**

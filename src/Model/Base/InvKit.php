@@ -2,15 +2,22 @@
 
 namespace Base;
 
+use \InvKit as ChildInvKit;
+use \InvKitComponent as ChildInvKitComponent;
+use \InvKitComponentQuery as ChildInvKitComponentQuery;
 use \InvKitQuery as ChildInvKitQuery;
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Exception;
 use \PDO;
+use Map\InvKitComponentTableMap;
 use Map\InvKitTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -89,12 +96,29 @@ abstract class InvKit implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
+
+    /**
+     * @var        ObjectCollection|ChildInvKitComponent[] Collection to store aggregation of ChildInvKitComponent objects.
+     */
+    protected $collInvKitComponents;
+    protected $collInvKitComponentsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvKitComponent[]
+     */
+    protected $invKitComponentsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -391,6 +415,10 @@ abstract class InvKit implements ActiveRecordInterface
             $this->modifiedColumns[InvKitTableMap::COL_INITITEMNBR] = true;
         }
 
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
+        }
+
         return $this;
     } // setInititemnbr()
 
@@ -535,6 +563,9 @@ abstract class InvKit implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -573,6 +604,9 @@ abstract class InvKit implements ActiveRecordInterface
         $this->hydrate($row, 0, true, $dataFetcher->getIndexType()); // rehydrate
 
         if ($deep) {  // also de-associate any related objects?
+
+            $this->aItemMasterItem = null;
+            $this->collInvKitComponents = null;
 
         } // if (deep)
     }
@@ -677,6 +711,18 @@ abstract class InvKit implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -686,6 +732,23 @@ abstract class InvKit implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->invKitComponentsScheduledForDeletion !== null) {
+                if (!$this->invKitComponentsScheduledForDeletion->isEmpty()) {
+                    \InvKitComponentQuery::create()
+                        ->filterByPrimaryKeys($this->invKitComponentsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invKitComponentsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvKitComponents !== null) {
+                foreach ($this->collInvKitComponents as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -829,10 +892,11 @@ abstract class InvKit implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['InvKit'][$this->hashCode()])) {
@@ -851,6 +915,38 @@ abstract class InvKit implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collInvKitComponents) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invKitComponents';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_kit_details';
+                        break;
+                    default:
+                        $key = 'InvKitComponents';
+                }
+
+                $result[$key] = $this->collInvKitComponents->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -1019,8 +1115,15 @@ abstract class InvKit implements ActiveRecordInterface
     {
         $validPk = null !== $this->getInititemnbr();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1077,6 +1180,20 @@ abstract class InvKit implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getInvKitComponents() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvKitComponent($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1105,12 +1222,330 @@ abstract class InvKit implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\InvKit The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this 1:1 relationship.
+        if ($v !== null) {
+            $v->setInvKit($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
+            $this->aItemMasterItem->setInvKit($this);
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('InvKitComponent' == $relationName) {
+            $this->initInvKitComponents();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collInvKitComponents collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvKitComponents()
+     */
+    public function clearInvKitComponents()
+    {
+        $this->collInvKitComponents = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvKitComponents collection loaded partially.
+     */
+    public function resetPartialInvKitComponents($v = true)
+    {
+        $this->collInvKitComponentsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvKitComponents collection.
+     *
+     * By default this just sets the collInvKitComponents collection to an empty array (like clearcollInvKitComponents());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvKitComponents($overrideExisting = true)
+    {
+        if (null !== $this->collInvKitComponents && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvKitComponentTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvKitComponents = new $collectionClassName;
+        $this->collInvKitComponents->setModel('\InvKitComponent');
+    }
+
+    /**
+     * Gets an array of ChildInvKitComponent objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvKit is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvKitComponent[] List of ChildInvKitComponent objects
+     * @throws PropelException
+     */
+    public function getInvKitComponents(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvKitComponentsPartial && !$this->isNew();
+        if (null === $this->collInvKitComponents || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvKitComponents) {
+                // return empty collection
+                $this->initInvKitComponents();
+            } else {
+                $collInvKitComponents = ChildInvKitComponentQuery::create(null, $criteria)
+                    ->filterByInvKit($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvKitComponentsPartial && count($collInvKitComponents)) {
+                        $this->initInvKitComponents(false);
+
+                        foreach ($collInvKitComponents as $obj) {
+                            if (false == $this->collInvKitComponents->contains($obj)) {
+                                $this->collInvKitComponents->append($obj);
+                            }
+                        }
+
+                        $this->collInvKitComponentsPartial = true;
+                    }
+
+                    return $collInvKitComponents;
+                }
+
+                if ($partial && $this->collInvKitComponents) {
+                    foreach ($this->collInvKitComponents as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvKitComponents[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvKitComponents = $collInvKitComponents;
+                $this->collInvKitComponentsPartial = false;
+            }
+        }
+
+        return $this->collInvKitComponents;
+    }
+
+    /**
+     * Sets a collection of ChildInvKitComponent objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invKitComponents A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvKit The current object (for fluent API support)
+     */
+    public function setInvKitComponents(Collection $invKitComponents, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvKitComponent[] $invKitComponentsToDelete */
+        $invKitComponentsToDelete = $this->getInvKitComponents(new Criteria(), $con)->diff($invKitComponents);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invKitComponentsScheduledForDeletion = clone $invKitComponentsToDelete;
+
+        foreach ($invKitComponentsToDelete as $invKitComponentRemoved) {
+            $invKitComponentRemoved->setInvKit(null);
+        }
+
+        $this->collInvKitComponents = null;
+        foreach ($invKitComponents as $invKitComponent) {
+            $this->addInvKitComponent($invKitComponent);
+        }
+
+        $this->collInvKitComponents = $invKitComponents;
+        $this->collInvKitComponentsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvKitComponent objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvKitComponent objects.
+     * @throws PropelException
+     */
+    public function countInvKitComponents(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvKitComponentsPartial && !$this->isNew();
+        if (null === $this->collInvKitComponents || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvKitComponents) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvKitComponents());
+            }
+
+            $query = ChildInvKitComponentQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvKit($this)
+                ->count($con);
+        }
+
+        return count($this->collInvKitComponents);
+    }
+
+    /**
+     * Method called to associate a ChildInvKitComponent object to this object
+     * through the ChildInvKitComponent foreign key attribute.
+     *
+     * @param  ChildInvKitComponent $l ChildInvKitComponent
+     * @return $this|\InvKit The current object (for fluent API support)
+     */
+    public function addInvKitComponent(ChildInvKitComponent $l)
+    {
+        if ($this->collInvKitComponents === null) {
+            $this->initInvKitComponents();
+            $this->collInvKitComponentsPartial = true;
+        }
+
+        if (!$this->collInvKitComponents->contains($l)) {
+            $this->doAddInvKitComponent($l);
+
+            if ($this->invKitComponentsScheduledForDeletion and $this->invKitComponentsScheduledForDeletion->contains($l)) {
+                $this->invKitComponentsScheduledForDeletion->remove($this->invKitComponentsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvKitComponent $invKitComponent The ChildInvKitComponent object to add.
+     */
+    protected function doAddInvKitComponent(ChildInvKitComponent $invKitComponent)
+    {
+        $this->collInvKitComponents[]= $invKitComponent;
+        $invKitComponent->setInvKit($this);
+    }
+
+    /**
+     * @param  ChildInvKitComponent $invKitComponent The ChildInvKitComponent object to remove.
+     * @return $this|ChildInvKit The current object (for fluent API support)
+     */
+    public function removeInvKitComponent(ChildInvKitComponent $invKitComponent)
+    {
+        if ($this->getInvKitComponents()->contains($invKitComponent)) {
+            $pos = $this->collInvKitComponents->search($invKitComponent);
+            $this->collInvKitComponents->remove($pos);
+            if (null === $this->invKitComponentsScheduledForDeletion) {
+                $this->invKitComponentsScheduledForDeletion = clone $this->collInvKitComponents;
+                $this->invKitComponentsScheduledForDeletion->clear();
+            }
+            $this->invKitComponentsScheduledForDeletion[]= clone $invKitComponent;
+            $invKitComponent->setInvKit(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvKit is new, it will return
+     * an empty collection; or if this InvKit has previously
+     * been saved, it will retrieve related InvKitComponents from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvKit.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvKitComponent[] List of ChildInvKitComponent objects
+     */
+    public function getInvKitComponentsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvKitComponentQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvKitComponents($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeInvKit($this);
+        }
         $this->inititemnbr = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
@@ -1134,8 +1569,15 @@ abstract class InvKit implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collInvKitComponents) {
+                foreach ($this->collInvKitComponents as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collInvKitComponents = null;
+        $this->aItemMasterItem = null;
     }
 
     /**

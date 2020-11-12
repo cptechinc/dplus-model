@@ -288,6 +288,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a INNER JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvKitComponent($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvKitComponent relation
+ * @method     ChildItemMasterItemQuery rightJoinInvKitComponent($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvKitComponent relation
+ * @method     ChildItemMasterItemQuery innerJoinInvKitComponent($relationAlias = null) Adds a INNER JOIN clause to the query using the InvKitComponent relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvKitComponent($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvKitComponent relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvKitComponent() Adds a LEFT JOIN clause and with to the query using the InvKitComponent relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvKitComponent() Adds a RIGHT JOIN clause and with to the query using the InvKitComponent relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvKitComponent() Adds a INNER JOIN clause and with to the query using the InvKitComponent relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvKit($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvKit relation
+ * @method     ChildItemMasterItemQuery rightJoinInvKit($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvKit relation
+ * @method     ChildItemMasterItemQuery innerJoinInvKit($relationAlias = null) Adds a INNER JOIN clause to the query using the InvKit relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvKit($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvKit relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvKit() Adds a LEFT JOIN clause and with to the query using the InvKit relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvKit() Adds a RIGHT JOIN clause and with to the query using the InvKit relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvKit() Adds a INNER JOIN clause and with to the query using the InvKit relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefManufacturer($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefManufacturer relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefManufacturer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefManufacturer relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefManufacturer($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefManufacturer relation
@@ -398,7 +418,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3648,6 +3668,152 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemSubstituteRelatedByInsisubitemnbr($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInsisubitemnbr', '\ItemSubstituteQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvKitComponent object
+     *
+     * @param \InvKitComponent|ObjectCollection $invKitComponent the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvKitComponent($invKitComponent, $comparison = null)
+    {
+        if ($invKitComponent instanceof \InvKitComponent) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invKitComponent->getInititemnbr(), $comparison);
+        } elseif ($invKitComponent instanceof ObjectCollection) {
+            return $this
+                ->useInvKitComponentQuery()
+                ->filterByPrimaryKeys($invKitComponent->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvKitComponent() only accepts arguments of type \InvKitComponent or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvKitComponent relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvKitComponent($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvKitComponent');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvKitComponent');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvKitComponent relation InvKitComponent object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvKitComponentQuery A secondary query class using the current class as primary query
+     */
+    public function useInvKitComponentQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvKitComponent($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvKitComponent', '\InvKitComponentQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvKit object
+     *
+     * @param \InvKit|ObjectCollection $invKit the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvKit($invKit, $comparison = null)
+    {
+        if ($invKit instanceof \InvKit) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invKit->getInititemnbr(), $comparison);
+        } elseif ($invKit instanceof ObjectCollection) {
+            return $this
+                ->useInvKitQuery()
+                ->filterByPrimaryKeys($invKit->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvKit() only accepts arguments of type \InvKit or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvKit relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvKit($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvKit');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvKit');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvKit relation InvKit object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvKitQuery A secondary query class using the current class as primary query
+     */
+    public function useInvKitQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvKit($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvKit', '\InvKitQuery');
     }
 
     /**
