@@ -140,7 +140,6 @@ trait MagicMethodTraits {
 
 				if (!property_exists($class_model, $property)) {
 					$class_column = $class_model::get_aliasproperty($property);
-
 					$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
 				}
 				return $this->$name($arguments[0]);
