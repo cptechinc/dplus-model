@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_inv_hazmat' table.
- * 
+ *
  * RELATIONSHIPS: ItemMasterItem
  */
 class InvHazmatItem extends BaseInvHazmatItem {
@@ -19,6 +19,7 @@ class InvHazmatItem extends BaseInvHazmatItem {
 	const MAX_LENGTH_DOT2  = 35;
 	const MAX_LENGTH_LABEL = 35;
 	const MAX_LENGTH_UNNBR = 6;
+	const MAX_LENGTH_CLASS = 3;
 
 	const OPTIONS_PACKGROUP = ['I', 'II', 'III'];
 
@@ -34,8 +35,10 @@ class InvHazmatItem extends BaseInvHazmatItem {
 		'dot2'   => 'inhzdot1',
 		'class'  => 'inhzclass',
 		'unnbr'  => 'inhzunnbr',
+		'packgroup' => 'inhzpackgrup',
 		'label'  => 'inhzlabel',
 		'air'    => 'inhzairyn',
+		'allowair' => 'inhzairyn',
 		'date'   => 'dateupdtd',
 		'time'   => 'timeupdtd'
 	);
