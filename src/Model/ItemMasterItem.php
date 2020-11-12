@@ -10,7 +10,6 @@ use Dplus\Model\MagicMethodTraits;
  *
  * RELATIONSHIPS: UnitofMeasurePurchase, UnitofMeasureSale
  * InvGroupCode, InvCommissionCode, ItemPricing
- *
  */
 class ItemMasterItem extends BaseItemMasterItem {
 	use ThrowErrorTrait;
@@ -27,6 +26,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 	const ITEMID_NONSTOCK     = 'N';
 
 	const LENGTH_ITEMID = 30;
+	const MAX_LENGTH_ITEMID = 30;
 
 	const STANDARDCOST_BASE_OPTIONS = array(
 		'A' => 'Average Cost',
@@ -114,7 +114,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'S' => 'serialized',
 		'P' => 'price only'
 	);
-	
+
 /* =============================================================
 	Instance Constants Functions
 ============================================================= */
@@ -206,7 +206,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 /* =============================================================
 	Class Calculated Functions
-============================================================= */	
+============================================================= */
 	/**
 	 * Return the Weight in Grams
 	 * @return float
@@ -423,7 +423,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 
 	/**
 	 * Return MsdsCode associated with this Item
-	 * @return MsdsCode 
+	 * @return MsdsCode
 	 */
 	public function getCodeMsds() {
 		return MsdsCodeQuery::create()->findOneByCode($this->intbmsdscode);
@@ -435,6 +435,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 */
 	public function getCodeFreight() {
 		return MotorFreightCodeQuery::create()->findOneByCode($this->initmfrtcode);
+	}
+
+	public function has_hazmat() {
+		return boolval(InvHazmatItemQuery::create()->filterByItemid($this->itemid)->count());
+	}
+
+	public function get_hazmat() {
+		return $this->getInvHazmatItem();
 	}
 
 /* =============================================================
