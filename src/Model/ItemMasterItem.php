@@ -240,16 +240,16 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 * @return bool
 	 */
 	public function is_kit() {
-		$query = KitQuery::create();
+		$query = InvKitQuery::create();
 		return $query->is_kit($this->itemid);
 	}
 
 	/**
-	 * Return KitItems objects for this Kit
-	 * @return ChildKitItems[]|ObjectCollection
+	 * Return InvKitComponent objects for this Kit
+	 * @return InvKitComponent[]|ObjectCollection
 	 */
 	public function get_kititems() {
-		$query = KitItemsQuery::create();
+		$query = InvKitComponentQuery::create();
 		return $query->findByKititemid($this->inititemnbr);
 	}
 
