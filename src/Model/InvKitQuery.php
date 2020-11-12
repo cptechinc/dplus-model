@@ -1,6 +1,6 @@
 <?php
 
-use Base\KitQuery as BaseKitQuery;
+use Base\InvKitQuery as BaseInvKitQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -11,12 +11,11 @@ use Dplus\Model\QueryTraits;
  * methods with an alias
  * EXAMPLE: findOneByItemid()
  */
-class KitQuery extends BaseKitQuery {
+class InvKitQuery extends BaseInvKitQuery {
 	use QueryTraits;
 	
 	/**
 	 * Returns if the Item ID exists in the Kits table
-	 *
 	 * @param  string $itemID
 	 * @return bool
 	 */

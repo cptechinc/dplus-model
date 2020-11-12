@@ -1,14 +1,16 @@
 <?php
 
-use Base\Kit as BaseKit;
+use Base\InvKit as BaseInvKit;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_kit_head' table.
+ * 
+ * RELATIONSHIPS: ItemMasterItem
  */
-class Kit extends BaseKit {
+class InvKit extends BaseInvKit {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -20,5 +22,7 @@ class Kit extends BaseKit {
 		'itemid'      => 'inititemnbr',
 		'dateupdated' => 'dateupdtd',
 		'timeupdated' => 'timeupdtd',
+		// FOREIGN KEY Relationship
+		'item'        => 'itemMasterItem'
 	);
 }

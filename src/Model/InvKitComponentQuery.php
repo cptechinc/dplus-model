@@ -1,6 +1,6 @@
 <?php
 
-use Base\KitItemsQuery as BaseKitItemsQuery;
+use Base\InvKitComponentQuery as BaseInvKitComponentQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -14,9 +14,9 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * Filters
- * @method     KitItemsQuery filterByKititemid(string $itemID) Filter the query on the ktdtkey1 column
+ * @method     InvKitComponentQuery filterByItemid(string $itemID) Filter the query on the ktdtkey1 column
  *
  */
-class KitItemsQuery extends BaseKitItemsQuery {
+class InvKitComponentQuery extends BaseInvKitComponentQuery {
 	use QueryTraits;
 }

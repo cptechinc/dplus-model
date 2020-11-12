@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \KitItems;
-use \KitItemsQuery;
+use \InvKitComponent;
+use \InvKitComponentQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class KitItemsTableMap extends TableMap
+class InvKitComponentTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class KitItemsTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.KitItemsTableMap';
+    const CLASS_NAME = '.Map.InvKitComponentTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class KitItemsTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\KitItems';
+    const OM_CLASS = '\\InvKitComponent';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'KitItems';
+    const CLASS_DEFAULT = 'InvKitComponent';
 
     /**
      * The total number of columns
@@ -135,7 +135,7 @@ class KitItemsTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Ktdtkey1', 'Inititemnbr', 'Ktdtuom', 'Ktdtusagrate', 'Ktdtvendsupply', 'Ktdtfreegoods', 'Ktdtprntseq', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('ktdtkey1', 'inititemnbr', 'ktdtuom', 'ktdtusagrate', 'ktdtvendsupply', 'ktdtfreegoods', 'ktdtprntseq', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(KitItemsTableMap::COL_KTDTKEY1, KitItemsTableMap::COL_INITITEMNBR, KitItemsTableMap::COL_KTDTUOM, KitItemsTableMap::COL_KTDTUSAGRATE, KitItemsTableMap::COL_KTDTVENDSUPPLY, KitItemsTableMap::COL_KTDTFREEGOODS, KitItemsTableMap::COL_KTDTPRNTSEQ, KitItemsTableMap::COL_DATEUPDTD, KitItemsTableMap::COL_TIMEUPDTD, KitItemsTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1, InvKitComponentTableMap::COL_INITITEMNBR, InvKitComponentTableMap::COL_KTDTUOM, InvKitComponentTableMap::COL_KTDTUSAGRATE, InvKitComponentTableMap::COL_KTDTVENDSUPPLY, InvKitComponentTableMap::COL_KTDTFREEGOODS, InvKitComponentTableMap::COL_KTDTPRNTSEQ, InvKitComponentTableMap::COL_DATEUPDTD, InvKitComponentTableMap::COL_TIMEUPDTD, InvKitComponentTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('KtdtKey1', 'InitItemNbr', 'KtdtUom', 'KtdtUsagRate', 'KtdtVendSupply', 'KtdtFreeGoods', 'KtdtPrntSeq', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -149,7 +149,7 @@ class KitItemsTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Ktdtkey1' => 0, 'Inititemnbr' => 1, 'Ktdtuom' => 2, 'Ktdtusagrate' => 3, 'Ktdtvendsupply' => 4, 'Ktdtfreegoods' => 5, 'Ktdtprntseq' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
         self::TYPE_CAMELNAME     => array('ktdtkey1' => 0, 'inititemnbr' => 1, 'ktdtuom' => 2, 'ktdtusagrate' => 3, 'ktdtvendsupply' => 4, 'ktdtfreegoods' => 5, 'ktdtprntseq' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(KitItemsTableMap::COL_KTDTKEY1 => 0, KitItemsTableMap::COL_INITITEMNBR => 1, KitItemsTableMap::COL_KTDTUOM => 2, KitItemsTableMap::COL_KTDTUSAGRATE => 3, KitItemsTableMap::COL_KTDTVENDSUPPLY => 4, KitItemsTableMap::COL_KTDTFREEGOODS => 5, KitItemsTableMap::COL_KTDTPRNTSEQ => 6, KitItemsTableMap::COL_DATEUPDTD => 7, KitItemsTableMap::COL_TIMEUPDTD => 8, KitItemsTableMap::COL_DUMMY => 9, ),
+        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1 => 0, InvKitComponentTableMap::COL_INITITEMNBR => 1, InvKitComponentTableMap::COL_KTDTUOM => 2, InvKitComponentTableMap::COL_KTDTUSAGRATE => 3, InvKitComponentTableMap::COL_KTDTVENDSUPPLY => 4, InvKitComponentTableMap::COL_KTDTFREEGOODS => 5, InvKitComponentTableMap::COL_KTDTPRNTSEQ => 6, InvKitComponentTableMap::COL_DATEUPDTD => 7, InvKitComponentTableMap::COL_TIMEUPDTD => 8, InvKitComponentTableMap::COL_DUMMY => 9, ),
         self::TYPE_FIELDNAME     => array('KtdtKey1' => 0, 'InitItemNbr' => 1, 'KtdtUom' => 2, 'KtdtUsagRate' => 3, 'KtdtVendSupply' => 4, 'KtdtFreeGoods' => 5, 'KtdtPrntSeq' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -165,9 +165,9 @@ class KitItemsTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_kit_detail');
-        $this->setPhpName('KitItems');
+        $this->setPhpName('InvKitComponent');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\KitItems');
+        $this->setClassName('\\InvKitComponent');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -198,7 +198,7 @@ class KitItemsTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \KitItems $obj A \KitItems object.
+     * @param \InvKitComponent $obj A \InvKitComponent object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -219,12 +219,12 @@ class KitItemsTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \KitItems object or a primary key value.
+     * @param mixed $value A \InvKitComponent object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \KitItems) {
+            if (is_object($value) && $value instanceof \InvKitComponent) {
                 $key = serialize([(null === $value->getKtdtkey1() || is_scalar($value->getKtdtkey1()) || is_callable([$value->getKtdtkey1(), '__toString']) ? (string) $value->getKtdtkey1() : $value->getKtdtkey1()), (null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -235,7 +235,7 @@ class KitItemsTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \KitItems object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \InvKitComponent object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -309,7 +309,7 @@ class KitItemsTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? KitItemsTableMap::CLASS_DEFAULT : KitItemsTableMap::OM_CLASS;
+        return $withPrefix ? InvKitComponentTableMap::CLASS_DEFAULT : InvKitComponentTableMap::OM_CLASS;
     }
 
     /**
@@ -323,22 +323,22 @@ class KitItemsTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (KitItems object, last column rank)
+     * @return array           (InvKitComponent object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = KitItemsTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = KitItemsTableMap::getInstanceFromPool($key))) {
+        $key = InvKitComponentTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = InvKitComponentTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + KitItemsTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + InvKitComponentTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = KitItemsTableMap::OM_CLASS;
-            /** @var KitItems $obj */
+            $cls = InvKitComponentTableMap::OM_CLASS;
+            /** @var InvKitComponent $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            KitItemsTableMap::addInstanceToPool($obj, $key);
+            InvKitComponentTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -361,18 +361,18 @@ class KitItemsTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = KitItemsTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = KitItemsTableMap::getInstanceFromPool($key))) {
+            $key = InvKitComponentTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = InvKitComponentTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var KitItems $obj */
+                /** @var InvKitComponent $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                KitItemsTableMap::addInstanceToPool($obj, $key);
+                InvKitComponentTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -393,16 +393,16 @@ class KitItemsTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTKEY1);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTUOM);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTUSAGRATE);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTVENDSUPPLY);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTFREEGOODS);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_KTDTPRNTSEQ);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(KitItemsTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTKEY1);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTUOM);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTUSAGRATE);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTVENDSUPPLY);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTFREEGOODS);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTPRNTSEQ);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.KtdtKey1');
             $criteria->addSelectColumn($alias . '.InitItemNbr');
@@ -426,7 +426,7 @@ class KitItemsTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(KitItemsTableMap::DATABASE_NAME)->getTable(KitItemsTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(InvKitComponentTableMap::DATABASE_NAME)->getTable(InvKitComponentTableMap::TABLE_NAME);
     }
 
     /**
@@ -434,16 +434,16 @@ class KitItemsTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(KitItemsTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(KitItemsTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new KitItemsTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvKitComponentTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(InvKitComponentTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new InvKitComponentTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a KitItems or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a InvKitComponent or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or KitItems object or primary key or array of primary keys
+     * @param mixed               $values Criteria or InvKitComponent object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -454,17 +454,17 @@ class KitItemsTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitItemsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \KitItems) { // it's a model object
+        } elseif ($values instanceof \InvKitComponent) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(KitItemsTableMap::DATABASE_NAME);
+            $criteria = new Criteria(InvKitComponentTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -472,19 +472,19 @@ class KitItemsTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(KitItemsTableMap::COL_KTDTKEY1, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(KitItemsTableMap::COL_INITITEMNBR, $value[1]));
+                $criterion = $criteria->getNewCriterion(InvKitComponentTableMap::COL_KTDTKEY1, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(InvKitComponentTableMap::COL_INITITEMNBR, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = KitItemsQuery::create()->mergeWith($criteria);
+        $query = InvKitComponentQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            KitItemsTableMap::clearInstancePool();
+            InvKitComponentTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                KitItemsTableMap::removeInstanceFromPool($singleval);
+                InvKitComponentTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -499,13 +499,13 @@ class KitItemsTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return KitItemsQuery::create()->doDeleteAll($con);
+        return InvKitComponentQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a KitItems or Criteria object.
+     * Performs an INSERT on the database, given a InvKitComponent or Criteria object.
      *
-     * @param mixed               $criteria Criteria or KitItems object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or InvKitComponent object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -514,18 +514,18 @@ class KitItemsTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(KitItemsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvKitComponentTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from KitItems object
+            $criteria = $criteria->buildCriteria(); // build Criteria from InvKitComponent object
         }
 
 
         // Set the correct dbName
-        $query = KitItemsQuery::create()->mergeWith($criteria);
+        $query = InvKitComponentQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -534,7 +534,7 @@ class KitItemsTableMap extends TableMap
         });
     }
 
-} // KitItemsTableMap
+} // InvKitComponentTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-KitItemsTableMap::buildTableMap();
+InvKitComponentTableMap::buildTableMap();

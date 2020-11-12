@@ -1,15 +1,15 @@
 <?php
 
-use Base\KitItems as BaseKitItems;
+use Base\InvKitComponent as BaseInvKitComponent;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_kit_detail' table.
- *
+ * RELATIONSHIPS: ItemMasterItem
  */
-class KitItems extends BaseKitItems {
+class InvKitComponent extends BaseInvKitComponent{
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -27,11 +27,12 @@ class KitItems extends BaseKitItems {
 		'uom'         => 'kitdtUom',
 		'usage'       => 'ktdtusagrate',
 		'is_free'     => 'ktdtfreegoods',
+		// FOREIGNKEY RELATIONSHIP
+		'item'        => 'itemMasterItem'
 	);
 
 	/**
 	 * Returns if Kit Item has usage
-	 *
 	 * @return bool
 	 */
 	public function has_usage() {
@@ -40,11 +41,9 @@ class KitItems extends BaseKitItems {
 
 	/**
 	 * Return Item Description
-	 *
 	 * @return string
 	 */
 	public function get_description() {
-		$q = ItemMasterItemQuery::create();
-		return $q->get_itemdescription($this->inititemnbr);
+		$this->item->description;
 	}
 }
