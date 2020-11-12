@@ -26,7 +26,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvKitComponentQuery orderByKtdtusagrate($order = Criteria::ASC) Order by the KtdtUsagRate column
  * @method     ChildInvKitComponentQuery orderByKtdtvendsupply($order = Criteria::ASC) Order by the KtdtVendSupply column
  * @method     ChildInvKitComponentQuery orderByKtdtfreegoods($order = Criteria::ASC) Order by the KtdtFreeGoods column
- * @method     ChildInvKitComponentQuery orderByKtdtprntseq($order = Criteria::ASC) Order by the KtdtPrntSeq column
+ * @method     ChildInvKitComponentQuery orderByKtdtUsagTag($order = Criteria::ASC) Order by the KtdtUsagTag column
  * @method     ChildInvKitComponentQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildInvKitComponentQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildInvKitComponentQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -37,7 +37,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvKitComponentQuery groupByKtdtusagrate() Group by the KtdtUsagRate column
  * @method     ChildInvKitComponentQuery groupByKtdtvendsupply() Group by the KtdtVendSupply column
  * @method     ChildInvKitComponentQuery groupByKtdtfreegoods() Group by the KtdtFreeGoods column
- * @method     ChildInvKitComponentQuery groupByKtdtprntseq() Group by the KtdtPrntSeq column
+ * @method     ChildInvKitComponentQuery groupByKtdtUsagTag() Group by the KtdtUsagTag column
  * @method     ChildInvKitComponentQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildInvKitComponentQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildInvKitComponentQuery groupByDummy() Group by the dummy column
@@ -81,7 +81,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvKitComponent findOneByKtdtusagrate(string $KtdtUsagRate) Return the first ChildInvKitComponent filtered by the KtdtUsagRate column
  * @method     ChildInvKitComponent findOneByKtdtvendsupply(string $KtdtVendSupply) Return the first ChildInvKitComponent filtered by the KtdtVendSupply column
  * @method     ChildInvKitComponent findOneByKtdtfreegoods(string $KtdtFreeGoods) Return the first ChildInvKitComponent filtered by the KtdtFreeGoods column
- * @method     ChildInvKitComponent findOneByKtdtprntseq(int $KtdtPrntSeq) Return the first ChildInvKitComponent filtered by the KtdtPrntSeq column
+ * @method     ChildInvKitComponent findOneByKtdtUsagTag(string $KtdtUsagTag) Return the first ChildInvKitComponent filtered by the KtdtUsagTag column
  * @method     ChildInvKitComponent findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvKitComponent filtered by the DateUpdtd column
  * @method     ChildInvKitComponent findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvKitComponent filtered by the TimeUpdtd column
  * @method     ChildInvKitComponent findOneByDummy(string $dummy) Return the first ChildInvKitComponent filtered by the dummy column *
@@ -95,7 +95,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvKitComponent requireOneByKtdtusagrate(string $KtdtUsagRate) Return the first ChildInvKitComponent filtered by the KtdtUsagRate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKitComponent requireOneByKtdtvendsupply(string $KtdtVendSupply) Return the first ChildInvKitComponent filtered by the KtdtVendSupply column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKitComponent requireOneByKtdtfreegoods(string $KtdtFreeGoods) Return the first ChildInvKitComponent filtered by the KtdtFreeGoods column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvKitComponent requireOneByKtdtprntseq(int $KtdtPrntSeq) Return the first ChildInvKitComponent filtered by the KtdtPrntSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvKitComponent requireOneByKtdtUsagTag(string $KtdtUsagTag) Return the first ChildInvKitComponent filtered by the KtdtUsagTag column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKitComponent requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvKitComponent filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKitComponent requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvKitComponent filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvKitComponent requireOneByDummy(string $dummy) Return the first ChildInvKitComponent filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -107,7 +107,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvKitComponent[]|ObjectCollection findByKtdtusagrate(string $KtdtUsagRate) Return ChildInvKitComponent objects filtered by the KtdtUsagRate column
  * @method     ChildInvKitComponent[]|ObjectCollection findByKtdtvendsupply(string $KtdtVendSupply) Return ChildInvKitComponent objects filtered by the KtdtVendSupply column
  * @method     ChildInvKitComponent[]|ObjectCollection findByKtdtfreegoods(string $KtdtFreeGoods) Return ChildInvKitComponent objects filtered by the KtdtFreeGoods column
- * @method     ChildInvKitComponent[]|ObjectCollection findByKtdtprntseq(int $KtdtPrntSeq) Return ChildInvKitComponent objects filtered by the KtdtPrntSeq column
+ * @method     ChildInvKitComponent[]|ObjectCollection findByKtdtUsagTag(string $KtdtUsagTag) Return ChildInvKitComponent objects filtered by the KtdtUsagTag column
  * @method     ChildInvKitComponent[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvKitComponent objects filtered by the DateUpdtd column
  * @method     ChildInvKitComponent[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvKitComponent objects filtered by the TimeUpdtd column
  * @method     ChildInvKitComponent[]|ObjectCollection findByDummy(string $dummy) Return ChildInvKitComponent objects filtered by the dummy column
@@ -209,7 +209,7 @@ abstract class InvKitComponentQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT KtdtKey1, InitItemNbr, KtdtUom, KtdtUsagRate, KtdtVendSupply, KtdtFreeGoods, KtdtPrntSeq, DateUpdtd, TimeUpdtd, dummy FROM inv_kit_detail WHERE KtdtKey1 = :p0 AND InitItemNbr = :p1';
+        $sql = 'SELECT KtdtKey1, InitItemNbr, KtdtUom, KtdtUsagRate, KtdtVendSupply, KtdtFreeGoods, KtdtUsagTag, DateUpdtd, TimeUpdtd, dummy FROM inv_kit_detail WHERE KtdtKey1 = :p0 AND InitItemNbr = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -478,44 +478,28 @@ abstract class InvKitComponentQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the KtdtPrntSeq column
+     * Filter the query on the KtdtUsagTag column
      *
      * Example usage:
      * <code>
-     * $query->filterByKtdtprntseq(1234); // WHERE KtdtPrntSeq = 1234
-     * $query->filterByKtdtprntseq(array(12, 34)); // WHERE KtdtPrntSeq IN (12, 34)
-     * $query->filterByKtdtprntseq(array('min' => 12)); // WHERE KtdtPrntSeq > 12
+     * $query->filterByKtdtUsagTag('fooValue');   // WHERE KtdtUsagTag = 'fooValue'
+     * $query->filterByKtdtUsagTag('%fooValue%', Criteria::LIKE); // WHERE KtdtUsagTag LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $ktdtprntseq The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $ktdtUsagTag The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildInvKitComponentQuery The current query, for fluid interface
      */
-    public function filterByKtdtprntseq($ktdtprntseq = null, $comparison = null)
+    public function filterByKtdtUsagTag($ktdtUsagTag = null, $comparison = null)
     {
-        if (is_array($ktdtprntseq)) {
-            $useMinMax = false;
-            if (isset($ktdtprntseq['min'])) {
-                $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTPRNTSEQ, $ktdtprntseq['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($ktdtprntseq['max'])) {
-                $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTPRNTSEQ, $ktdtprntseq['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($ktdtUsagTag)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTPRNTSEQ, $ktdtprntseq, $comparison);
+        return $this->addUsingAlias(InvKitComponentTableMap::COL_KTDTUSAGTAG, $ktdtUsagTag, $comparison);
     }
 
     /**

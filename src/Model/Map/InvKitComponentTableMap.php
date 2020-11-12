@@ -102,9 +102,9 @@ class InvKitComponentTableMap extends TableMap
     const COL_KTDTFREEGOODS = 'inv_kit_detail.KtdtFreeGoods';
 
     /**
-     * the column name for the KtdtPrntSeq field
+     * the column name for the KtdtUsagTag field
      */
-    const COL_KTDTPRNTSEQ = 'inv_kit_detail.KtdtPrntSeq';
+    const COL_KTDTUSAGTAG = 'inv_kit_detail.KtdtUsagTag';
 
     /**
      * the column name for the DateUpdtd field
@@ -133,10 +133,10 @@ class InvKitComponentTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ktdtkey1', 'Inititemnbr', 'Ktdtuom', 'Ktdtusagrate', 'Ktdtvendsupply', 'Ktdtfreegoods', 'Ktdtprntseq', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ktdtkey1', 'inititemnbr', 'ktdtuom', 'ktdtusagrate', 'ktdtvendsupply', 'ktdtfreegoods', 'ktdtprntseq', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1, InvKitComponentTableMap::COL_INITITEMNBR, InvKitComponentTableMap::COL_KTDTUOM, InvKitComponentTableMap::COL_KTDTUSAGRATE, InvKitComponentTableMap::COL_KTDTVENDSUPPLY, InvKitComponentTableMap::COL_KTDTFREEGOODS, InvKitComponentTableMap::COL_KTDTPRNTSEQ, InvKitComponentTableMap::COL_DATEUPDTD, InvKitComponentTableMap::COL_TIMEUPDTD, InvKitComponentTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('KtdtKey1', 'InitItemNbr', 'KtdtUom', 'KtdtUsagRate', 'KtdtVendSupply', 'KtdtFreeGoods', 'KtdtPrntSeq', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Ktdtkey1', 'Inititemnbr', 'Ktdtuom', 'Ktdtusagrate', 'Ktdtvendsupply', 'Ktdtfreegoods', 'KtdtUsagTag', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('ktdtkey1', 'inititemnbr', 'ktdtuom', 'ktdtusagrate', 'ktdtvendsupply', 'ktdtfreegoods', 'ktdtUsagTag', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1, InvKitComponentTableMap::COL_INITITEMNBR, InvKitComponentTableMap::COL_KTDTUOM, InvKitComponentTableMap::COL_KTDTUSAGRATE, InvKitComponentTableMap::COL_KTDTVENDSUPPLY, InvKitComponentTableMap::COL_KTDTFREEGOODS, InvKitComponentTableMap::COL_KTDTUSAGTAG, InvKitComponentTableMap::COL_DATEUPDTD, InvKitComponentTableMap::COL_TIMEUPDTD, InvKitComponentTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('KtdtKey1', 'InitItemNbr', 'KtdtUom', 'KtdtUsagRate', 'KtdtVendSupply', 'KtdtFreeGoods', 'KtdtUsagTag', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
 
@@ -147,10 +147,10 @@ class InvKitComponentTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ktdtkey1' => 0, 'Inititemnbr' => 1, 'Ktdtuom' => 2, 'Ktdtusagrate' => 3, 'Ktdtvendsupply' => 4, 'Ktdtfreegoods' => 5, 'Ktdtprntseq' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
-        self::TYPE_CAMELNAME     => array('ktdtkey1' => 0, 'inititemnbr' => 1, 'ktdtuom' => 2, 'ktdtusagrate' => 3, 'ktdtvendsupply' => 4, 'ktdtfreegoods' => 5, 'ktdtprntseq' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1 => 0, InvKitComponentTableMap::COL_INITITEMNBR => 1, InvKitComponentTableMap::COL_KTDTUOM => 2, InvKitComponentTableMap::COL_KTDTUSAGRATE => 3, InvKitComponentTableMap::COL_KTDTVENDSUPPLY => 4, InvKitComponentTableMap::COL_KTDTFREEGOODS => 5, InvKitComponentTableMap::COL_KTDTPRNTSEQ => 6, InvKitComponentTableMap::COL_DATEUPDTD => 7, InvKitComponentTableMap::COL_TIMEUPDTD => 8, InvKitComponentTableMap::COL_DUMMY => 9, ),
-        self::TYPE_FIELDNAME     => array('KtdtKey1' => 0, 'InitItemNbr' => 1, 'KtdtUom' => 2, 'KtdtUsagRate' => 3, 'KtdtVendSupply' => 4, 'KtdtFreeGoods' => 5, 'KtdtPrntSeq' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
+        self::TYPE_PHPNAME       => array('Ktdtkey1' => 0, 'Inititemnbr' => 1, 'Ktdtuom' => 2, 'Ktdtusagrate' => 3, 'Ktdtvendsupply' => 4, 'Ktdtfreegoods' => 5, 'KtdtUsagTag' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
+        self::TYPE_CAMELNAME     => array('ktdtkey1' => 0, 'inititemnbr' => 1, 'ktdtuom' => 2, 'ktdtusagrate' => 3, 'ktdtvendsupply' => 4, 'ktdtfreegoods' => 5, 'ktdtUsagTag' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
+        self::TYPE_COLNAME       => array(InvKitComponentTableMap::COL_KTDTKEY1 => 0, InvKitComponentTableMap::COL_INITITEMNBR => 1, InvKitComponentTableMap::COL_KTDTUOM => 2, InvKitComponentTableMap::COL_KTDTUSAGRATE => 3, InvKitComponentTableMap::COL_KTDTVENDSUPPLY => 4, InvKitComponentTableMap::COL_KTDTFREEGOODS => 5, InvKitComponentTableMap::COL_KTDTUSAGTAG => 6, InvKitComponentTableMap::COL_DATEUPDTD => 7, InvKitComponentTableMap::COL_TIMEUPDTD => 8, InvKitComponentTableMap::COL_DUMMY => 9, ),
+        self::TYPE_FIELDNAME     => array('KtdtKey1' => 0, 'InitItemNbr' => 1, 'KtdtUom' => 2, 'KtdtUsagRate' => 3, 'KtdtVendSupply' => 4, 'KtdtFreeGoods' => 5, 'KtdtUsagTag' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
 
@@ -177,7 +177,7 @@ class InvKitComponentTableMap extends TableMap
         $this->addColumn('KtdtUsagRate', 'Ktdtusagrate', 'DECIMAL', false, 20, null);
         $this->addColumn('KtdtVendSupply', 'Ktdtvendsupply', 'VARCHAR', false, 1, null);
         $this->addColumn('KtdtFreeGoods', 'Ktdtfreegoods', 'VARCHAR', false, 1, null);
-        $this->addColumn('KtdtPrntSeq', 'Ktdtprntseq', 'INTEGER', false, 4, null);
+        $this->addColumn('KtdtUsagTag', 'KtdtUsagTag', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -413,7 +413,7 @@ class InvKitComponentTableMap extends TableMap
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTUSAGRATE);
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTVENDSUPPLY);
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTFREEGOODS);
-            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTPRNTSEQ);
+            $criteria->addSelectColumn(InvKitComponentTableMap::COL_KTDTUSAGTAG);
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(InvKitComponentTableMap::COL_DUMMY);
@@ -424,7 +424,7 @@ class InvKitComponentTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.KtdtUsagRate');
             $criteria->addSelectColumn($alias . '.KtdtVendSupply');
             $criteria->addSelectColumn($alias . '.KtdtFreeGoods');
-            $criteria->addSelectColumn($alias . '.KtdtPrntSeq');
+            $criteria->addSelectColumn($alias . '.KtdtUsagTag');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

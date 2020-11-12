@@ -1996,7 +1996,7 @@
     <column name="KtdtUsagRate" phpName="Ktdtusagrate" type="DECIMAL" size="20" scale="7"/>
     <column name="KtdtVendSupply" phpName="Ktdtvendsupply" type="VARCHAR" size="1"/>
     <column name="KtdtFreeGoods" phpName="Ktdtfreegoods" type="VARCHAR" size="1"/>
-    <column name="KtdtPrntSeq" phpName="Ktdtprntseq" type="INTEGER" size="4"/>
+    <column name="KtdtUsagTag" phpName="KtdtUsagTag" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

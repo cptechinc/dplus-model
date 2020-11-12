@@ -108,11 +108,11 @@ abstract class InvKitComponent implements ActiveRecordInterface
     protected $ktdtfreegoods;
 
     /**
-     * The value for the ktdtprntseq field.
+     * The value for the ktdtusagtag field.
      *
-     * @var        int
+     * @var        string
      */
-    protected $ktdtprntseq;
+    protected $ktdtusagtag;
 
     /**
      * The value for the dateupdtd field.
@@ -453,13 +453,13 @@ abstract class InvKitComponent implements ActiveRecordInterface
     }
 
     /**
-     * Get the [ktdtprntseq] column value.
+     * Get the [ktdtusagtag] column value.
      *
-     * @return int
+     * @return string
      */
-    public function getKtdtprntseq()
+    public function getKtdtUsagTag()
     {
-        return $this->ktdtprntseq;
+        return $this->ktdtusagtag;
     }
 
     /**
@@ -621,24 +621,24 @@ abstract class InvKitComponent implements ActiveRecordInterface
     } // setKtdtfreegoods()
 
     /**
-     * Set the value of [ktdtprntseq] column.
+     * Set the value of [ktdtusagtag] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\InvKitComponent The current object (for fluent API support)
      */
-    public function setKtdtprntseq($v)
+    public function setKtdtUsagTag($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
-        if ($this->ktdtprntseq !== $v) {
-            $this->ktdtprntseq = $v;
-            $this->modifiedColumns[InvKitComponentTableMap::COL_KTDTPRNTSEQ] = true;
+        if ($this->ktdtusagtag !== $v) {
+            $this->ktdtusagtag = $v;
+            $this->modifiedColumns[InvKitComponentTableMap::COL_KTDTUSAGTAG] = true;
         }
 
         return $this;
-    } // setKtdtprntseq()
+    } // setKtdtUsagTag()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -762,8 +762,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvKitComponentTableMap::translateFieldName('Ktdtfreegoods', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ktdtfreegoods = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvKitComponentTableMap::translateFieldName('Ktdtprntseq', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->ktdtprntseq = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvKitComponentTableMap::translateFieldName('KtdtUsagTag', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->ktdtusagtag = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvKitComponentTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
@@ -1023,8 +1023,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
         if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTFREEGOODS)) {
             $modifiedColumns[':p' . $index++]  = 'KtdtFreeGoods';
         }
-        if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTPRNTSEQ)) {
-            $modifiedColumns[':p' . $index++]  = 'KtdtPrntSeq';
+        if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTUSAGTAG)) {
+            $modifiedColumns[':p' . $index++]  = 'KtdtUsagTag';
         }
         if ($this->isColumnModified(InvKitComponentTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
@@ -1064,8 +1064,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
                     case 'KtdtFreeGoods':
                         $stmt->bindValue($identifier, $this->ktdtfreegoods, PDO::PARAM_STR);
                         break;
-                    case 'KtdtPrntSeq':
-                        $stmt->bindValue($identifier, $this->ktdtprntseq, PDO::PARAM_INT);
+                    case 'KtdtUsagTag':
+                        $stmt->bindValue($identifier, $this->ktdtusagtag, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1150,7 +1150,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
                 return $this->getKtdtfreegoods();
                 break;
             case 6:
-                return $this->getKtdtprntseq();
+                return $this->getKtdtUsagTag();
                 break;
             case 7:
                 return $this->getDateupdtd();
@@ -1197,7 +1197,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
             $keys[3] => $this->getKtdtusagrate(),
             $keys[4] => $this->getKtdtvendsupply(),
             $keys[5] => $this->getKtdtfreegoods(),
-            $keys[6] => $this->getKtdtprntseq(),
+            $keys[6] => $this->getKtdtUsagTag(),
             $keys[7] => $this->getDateupdtd(),
             $keys[8] => $this->getTimeupdtd(),
             $keys[9] => $this->getDummy(),
@@ -1291,7 +1291,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
                 $this->setKtdtfreegoods($value);
                 break;
             case 6:
-                $this->setKtdtprntseq($value);
+                $this->setKtdtUsagTag($value);
                 break;
             case 7:
                 $this->setDateupdtd($value);
@@ -1347,7 +1347,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
             $this->setKtdtfreegoods($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setKtdtprntseq($arr[$keys[6]]);
+            $this->setKtdtUsagTag($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
             $this->setDateupdtd($arr[$keys[7]]);
@@ -1417,8 +1417,8 @@ abstract class InvKitComponent implements ActiveRecordInterface
         if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTFREEGOODS)) {
             $criteria->add(InvKitComponentTableMap::COL_KTDTFREEGOODS, $this->ktdtfreegoods);
         }
-        if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTPRNTSEQ)) {
-            $criteria->add(InvKitComponentTableMap::COL_KTDTPRNTSEQ, $this->ktdtprntseq);
+        if ($this->isColumnModified(InvKitComponentTableMap::COL_KTDTUSAGTAG)) {
+            $criteria->add(InvKitComponentTableMap::COL_KTDTUSAGTAG, $this->ktdtusagtag);
         }
         if ($this->isColumnModified(InvKitComponentTableMap::COL_DATEUPDTD)) {
             $criteria->add(InvKitComponentTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1543,7 +1543,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
         $copyObj->setKtdtusagrate($this->getKtdtusagrate());
         $copyObj->setKtdtvendsupply($this->getKtdtvendsupply());
         $copyObj->setKtdtfreegoods($this->getKtdtfreegoods());
-        $copyObj->setKtdtprntseq($this->getKtdtprntseq());
+        $copyObj->setKtdtUsagTag($this->getKtdtUsagTag());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1695,7 +1695,7 @@ abstract class InvKitComponent implements ActiveRecordInterface
         $this->ktdtusagrate = null;
         $this->ktdtvendsupply = null;
         $this->ktdtfreegoods = null;
-        $this->ktdtprntseq = null;
+        $this->ktdtusagtag = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
