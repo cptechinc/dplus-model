@@ -59,7 +59,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'is_kit'        => 'vexrprtkitdet',
 		'approvalcode'  => 'vexraprvcode',
 		'date_changed'  => 'vexrcostlastdate',
-		'uom_purchase' => 'intbuompur',
+		'uom_purchase'  => 'intbuompur',
 		'listprice'     => 'vexrlistprice',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
