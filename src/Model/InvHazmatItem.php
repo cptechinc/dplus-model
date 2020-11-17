@@ -32,7 +32,7 @@ class InvHazmatItem extends BaseInvHazmatItem {
 	const COLUMN_ALIASES = array(
 		'itemid' => 'inititemnbr',
 		'dot1'   => 'inhzdot1',
-		'dot2'   => 'inhzdot1',
+		'dot2'   => 'inhzdot2',
 		'class'  => 'inhzclass',
 		'unnbr'  => 'inhzunnbr',
 		'packgroup' => 'inhzpackgrup',
