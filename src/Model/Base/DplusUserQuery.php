@@ -10,6 +10,7 @@ use Map\DplusUserTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -114,6 +115,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUserQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildDplusUserQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildDplusUserQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildDplusUserQuery leftJoinUserPermissionsItm($relationAlias = null) Adds a LEFT JOIN clause to the query using the UserPermissionsItm relation
+ * @method     ChildDplusUserQuery rightJoinUserPermissionsItm($relationAlias = null) Adds a RIGHT JOIN clause to the query using the UserPermissionsItm relation
+ * @method     ChildDplusUserQuery innerJoinUserPermissionsItm($relationAlias = null) Adds a INNER JOIN clause to the query using the UserPermissionsItm relation
+ *
+ * @method     ChildDplusUserQuery joinWithUserPermissionsItm($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the UserPermissionsItm relation
+ *
+ * @method     ChildDplusUserQuery leftJoinWithUserPermissionsItm() Adds a LEFT JOIN clause and with to the query using the UserPermissionsItm relation
+ * @method     ChildDplusUserQuery rightJoinWithUserPermissionsItm() Adds a RIGHT JOIN clause and with to the query using the UserPermissionsItm relation
+ * @method     ChildDplusUserQuery innerJoinWithUserPermissionsItm() Adds a INNER JOIN clause and with to the query using the UserPermissionsItm relation
+ *
+ * @method     \UserPermissionsItmQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildDplusUser findOne(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query
  * @method     ChildDplusUser findOneOrCreate(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query, or a new ChildDplusUser object populated from the query conditions when no match is found
@@ -1514,6 +1527,79 @@ abstract class DplusUserQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(DplusUserTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \UserPermissionsItm object
+     *
+     * @param \UserPermissionsItm|ObjectCollection $userPermissionsItm the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function filterByUserPermissionsItm($userPermissionsItm, $comparison = null)
+    {
+        if ($userPermissionsItm instanceof \UserPermissionsItm) {
+            return $this
+                ->addUsingAlias(DplusUserTableMap::COL_USRCID, $userPermissionsItm->getItmpuserid(), $comparison);
+        } elseif ($userPermissionsItm instanceof ObjectCollection) {
+            return $this
+                ->useUserPermissionsItmQuery()
+                ->filterByPrimaryKeys($userPermissionsItm->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByUserPermissionsItm() only accepts arguments of type \UserPermissionsItm or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the UserPermissionsItm relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function joinUserPermissionsItm($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('UserPermissionsItm');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'UserPermissionsItm');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the UserPermissionsItm relation UserPermissionsItm object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \UserPermissionsItmQuery A secondary query class using the current class as primary query
+     */
+    public function useUserPermissionsItmQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinUserPermissionsItm($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'UserPermissionsItm', '\UserPermissionsItmQuery');
     }
 
     /**

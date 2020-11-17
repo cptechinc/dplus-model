@@ -386,6 +386,13 @@ class DplusUserTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('UserPermissionsItm', '\\UserPermissionsItm', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ItmpUserId',
+    1 => ':UsrcId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

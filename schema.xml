@@ -1989,6 +1989,25 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_itm_perm" idMethod="native" phpName="UserPermissionsItm">
+    <column name="ItmpUserId" phpName="Itmpuserid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ItmpWhse" phpName="Itmpwhse" type="VARCHAR" size="1"/>
+    <column name="ItmpPrices" phpName="Itmpprices" type="VARCHAR" size="1"/>
+    <column name="ItmpCosts" phpName="Itmpcosts" type="VARCHAR" size="1"/>
+    <column name="ItmpXrefs" phpName="Itmpxrefs" type="VARCHAR" size="1"/>
+    <column name="ItmpMisc" phpName="Itmpmisc" type="VARCHAR" size="1"/>
+    <column name="ItmpPkg" phpName="Itmppkg" type="VARCHAR" size="1"/>
+    <column name="ItmpOptions" phpName="Itmpoptions" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="sys_login" name="logm">
+      <reference local="ItmpUserId" foreign="UsrcId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_kit_detail" idMethod="native" phpName="InvKitComponent">
     <column name="KtdtKey1" phpName="Ktdtkey1" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>

@@ -3,6 +3,8 @@
 namespace Base;
 
 use \DplusUserQuery as ChildDplusUserQuery;
+use \UserPermissionsItm as ChildUserPermissionsItm;
+use \UserPermissionsItmQuery as ChildUserPermissionsItmQuery;
 use \Exception;
 use \PDO;
 use Map\DplusUserTableMap;
@@ -359,6 +361,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildUserPermissionsItm one-to-one related ChildUserPermissionsItm object
+     */
+    protected $singleUserPermissionsItm;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -2116,6 +2123,8 @@ abstract class DplusUser implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->singleUserPermissionsItm = null;
+
         } // if (deep)
     }
 
@@ -2228,6 +2237,12 @@ abstract class DplusUser implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->singleUserPermissionsItm !== null) {
+                if (!$this->singleUserPermissionsItm->isDeleted() && ($this->singleUserPermissionsItm->isNew() || $this->singleUserPermissionsItm->isModified())) {
+                    $affectedRows += $this->singleUserPermissionsItm->save($con);
+                }
             }
 
             $this->alreadyInSave = false;
@@ -2722,10 +2737,11 @@ abstract class DplusUser implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['DplusUser'][$this->hashCode()])) {
@@ -2783,6 +2799,23 @@ abstract class DplusUser implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->singleUserPermissionsItm) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'userPermissionsItm';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_itm_perm';
+                        break;
+                    default:
+                        $key = 'UserPermissionsItm';
+                }
+
+                $result[$key] = $this->singleUserPermissionsItm->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -3399,6 +3432,19 @@ abstract class DplusUser implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            $relObj = $this->getUserPermissionsItm();
+            if ($relObj) {
+                $copyObj->setUserPermissionsItm($relObj->copy($deepCopy));
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -3424,6 +3470,55 @@ abstract class DplusUser implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+    }
+
+    /**
+     * Gets a single ChildUserPermissionsItm object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildUserPermissionsItm
+     * @throws PropelException
+     */
+    public function getUserPermissionsItm(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleUserPermissionsItm === null && !$this->isNew()) {
+            $this->singleUserPermissionsItm = ChildUserPermissionsItmQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleUserPermissionsItm;
+    }
+
+    /**
+     * Sets a single ChildUserPermissionsItm object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildUserPermissionsItm $v ChildUserPermissionsItm
+     * @return $this|\DplusUser The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setUserPermissionsItm(ChildUserPermissionsItm $v = null)
+    {
+        $this->singleUserPermissionsItm = $v;
+
+        // Make sure that that the passed-in ChildUserPermissionsItm isn't already associated with this object
+        if ($v !== null && $v->getDplusUser(null, false) === null) {
+            $v->setDplusUser($this);
+        }
+
+        return $this;
     }
 
     /**
@@ -3494,8 +3589,12 @@ abstract class DplusUser implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->singleUserPermissionsItm) {
+                $this->singleUserPermissionsItm->clearAllReferences($deep);
+            }
         } // if ($deep)
 
+        $this->singleUserPermissionsItm = null;
     }
 
     /**

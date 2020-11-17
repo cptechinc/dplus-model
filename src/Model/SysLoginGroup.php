@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'sys_login_group' table.
  */
 class SysLoginGroup extends BaseSysLoginGroup {
-    use ThrowErrorTrait;
+	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 8;
@@ -22,11 +22,11 @@ class SysLoginGroup extends BaseSysLoginGroup {
 		'id'           => 'qtbllgrpcode',
 		'code'         => 'qtbllgrpcode',
 		'description'  => 'qtbllgrpdesc',
-		'date'		   => 'dateupdtd',
-		'time'		   => 'timeupdtd'
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 
-    /**
+	/**
 	 * Return the Max Number of characters allowed for Code
 	 * @return int
 	 */
