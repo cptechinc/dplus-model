@@ -2,17 +2,25 @@
 
 use Base\UserPermissionsItmQuery as BaseUserPermissionsItmQuery;
 
+use Dplus\Model\QueryTraits;
+
 /**
- * Skeleton subclass for performing query and update operations on the 'inv_itm_perm' table.
+ * Class for performing query and update operations on the 'inv_itm_perm' table.
+ * 
+ * NOTE: you can use the findByXXX(), findOneByXXX(), requireOneByXXX(), filterByXXX(), orderByXXX(), and groupByXXX()
+ * methods with an alias
+ * EXAMPLE: findOneByUserid()
  *
+ * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
+ * -----------------------------------------------------------------------------------------
+ * FilterByXXX()
+ * 
+ * FindOneByXXX()
+ * @method  UserPermissionsItm findOneByUserid(string $userID)      Return the first UserPermissionsItm filtered by the itmpuserid column
  *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
+ * FindByXXX()
  *
  */
-class UserPermissionsItmQuery extends BaseUserPermissionsItmQuery
-{
-
+class UserPermissionsItmQuery extends BaseUserPermissionsItmQuery {
+	use QueryTraits;
 }
