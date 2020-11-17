@@ -7,27 +7,46 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_kit_detail' table.
- * 
+ *
  * RELATIONSHIPS: ItemMasterItem InvKit
  */
 class InvKitComponent extends BaseInvKitComponent{
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const FORMAT_DATE = 'Ymd';
+	const FORMAT_TIME = 'His';
+
+	const OPTIONS_SUPPLIEDBY = array(
+		'S' => 'Stocking Bin',
+		'B' => 'Fab Bin',
+		'V' => 'Vendor Supply'
+	);
+
+	const OPTIONS_USAGETAG = array(
+		'B' => 'Base Item',
+		'A' => 'Add-on',
+		'S' => 'Subtract'
+	);
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'kitid'       => 'ktdtkey1',
 		'kititemid'   => 'ktdtkey1',
 		'kititem'     => 'ktdtkey1',
 		'kititemID'   => 'ktdtkey1',
-		'kit'         => 'ktdtkey1',
 		'itemid'      => 'inititemnbr',
 		'itemID'      => 'inititemnbr',
 		'uom'         => 'kitdtUom',
 		'usage'       => 'ktdtusagrate',
 		'is_free'     => 'ktdtfreegoods',
+		'usagetag'    => 'ktdtusagtag',
+		'suppliedby'  => 'ktdtvendsupply',
+		'date'        => 'dateupdtd',
+		'time'        => 'timeupdtd',
 		// FOREIGNKEY RELATIONSHIP
 		'item'        => 'itemMasterItem',
 		'kit'         => 'invKit'
