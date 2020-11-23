@@ -166,4 +166,14 @@ trait MagicMethodTraits {
 		}
 		return parent::__call($name, $arguments);
 	}
+
+	/**
+	 * Add Original Value to Original Values Array
+	 * @param  string $col    Column
+	 * @param  mixed $value  Original Value
+	 * @return void
+	 */
+	public function add_originalvalue($col, $value) {
+		$this->originalvalues[$col] = $value;
+	}
 }
