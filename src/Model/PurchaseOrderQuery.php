@@ -25,9 +25,8 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	use QueryTraits;
 
 	/**
-	* Filter the query on the Oehdnbr column
-	*
-	* @param  mixed  $ordn	            string|array
+	* Filter the query on the Pohdnbr column
+	* @param  mixed  $ponbr             string|array
 	* @param  string $comparison        Database Comparison Operator e.g. <=
 	* @return $this|PurchaseOrderQuery  The current query, for fluid interface
 	*/
@@ -36,8 +35,7 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	}
 
 	/**
-	* Filter the query on the Arcucustid column
-	*
+	* Filter the query on the Apvevendid column
 	* @param  mixed  $vendid	        string|array
 	* @param  string $comparison        Database Comparison Operator e.g. <=
 	* @return $this|PurchaseOrderQuery  The current query, for fluid interface
@@ -47,8 +45,17 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	}
 
 	/**
+	* Filter the query on the Apfmshipid column
+	* @param  mixed  $vendid	        string|array
+	* @param  string $comparison        Database Comparison Operator e.g. <=
+	* @return $this|PurchaseOrderQuery  The current query, for fluid interface
+	*/
+	public function filterByShipfromid($vendid, $comparison = null) {
+		return $this->filterByApfmshipid($vendid, $comparison);
+	}
+
+	/**
 	* Filter the query on the Oehdordrdate column
-	*
 	* @param  mixed  $orderdate	        string|array
 	* @param  string $comparison        Database Comparison Operator e.g. <=
 	* @return $this|PurchaseOrderQuery  The current query, for fluid interface
@@ -58,8 +65,7 @@ class PurchaseOrderQuery extends BasePurchaseOrderQuery {
 	}
 
 	/**
-	* Filter the query on the Oehdordrdate column
-	*
+	* Filter the query on the Pohdexptdatecolumn
 	* @param  mixed  $orderdate	        string|array
 	* @param  string $comparison        Database Comparison Operator e.g. <=
 	* @return $this|PurchaseOrderQuery  The current query, for fluid interface
