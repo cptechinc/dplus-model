@@ -22,7 +22,7 @@ class DplusUser extends BaseDplusUser {
 	const COLUMN_ALIASES = array(
 		'id'           => 'usrcid',
 		'userid'       => 'usrcid',
-		'name'         => 'name',
+		'name'         => 'usrcname',
 		'whseid'       => 'intbwhse',
 		'group'        => 'usrclogingroup',
 		'role'         => 'usrcloginrole',
