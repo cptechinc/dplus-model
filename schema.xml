@@ -2207,6 +2207,21 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="kt_config" idMethod="native" phpName="ConfigKt">
+    <column name="KttbConfKey" phpName="Kttbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="KttbConfEditSo" phpName="Kttbconfeditso" type="VARCHAR" size="1"/>
+    <column name="KttbConfValu" phpName="Kttbconfvalu" type="VARCHAR" size="1"/>
+    <column name="KttbConfEntryDecPos" phpName="Kttbconfentrydecpos" type="INTEGER" size="1"/>
+    <column name="KttbConfAllowKitInKit" phpName="Kttbconfallowkitinkit" type="VARCHAR" size="1"/>
+    <column name="KttbConfBackordrKitComp" phpName="Kttbconfbackordrkitcomp" type="VARCHAR" size="1"/>
+    <column name="KttbConfFreeOrTag" phpName="Kttbconffreeortag" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="mfcp_item_xref" idMethod="native" phpName="ItemXrefManufacturer">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="McxrVendItemNbr" phpName="Mcxrvenditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
