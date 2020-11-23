@@ -19,13 +19,14 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'userid'     => 'imtpuserid',
-		'whse'       => 'imtpwhse',
+		'userid'     => 'itmpuserid',
+		'loginid'    => 'itmpuserid',
+		'whse'       => 'itmpwhse',
 		'pricing'    => 'itmpprices',
 		'costing'    => 'itmpcosts',
 		'xrefs'      => 'itmpxrefs',
 		'misc'       => 'itmpmisc',
-		'packaging'  => 'itmppgk',
+		'packaging'  => 'itmppkg',
 		'options'    => 'itmpoptions',
 		'date'       => 'dateupdtd',
 		'time'       => 'timeupdtd'
@@ -104,15 +105,12 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 		return $this->is_true('options');
 	}
 
-
-
 	/**
 	 * Return Array of Permitted Functions
 	 * @return array
 	 */
 	public function permitted() {
-		$permitted = array_filter(self::PERMISSIONS, 'is_true');
+		$permitted = array_filter(self::PERMISSIONS, array($this, 'is_true'));
 		return $permitted;
 	}
-
 }
