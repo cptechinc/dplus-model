@@ -110,7 +110,6 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 	 * @return array
 	 */
 	public function permitted() {
-		$permitted = array_filter(self::PERMISSIONS, array($this, 'is_true'));
-		return $permitted;
+		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
 	}
 }
