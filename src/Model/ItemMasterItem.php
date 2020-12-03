@@ -437,12 +437,28 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return MotorFreightCodeQuery::create()->findOneByCode($this->initmfrtcode);
 	}
 
+	/**
+	 * Return if Hazmat Record exists for this itemid
+	 * @return bool
+	 */
 	public function has_hazmat() {
 		return boolval(InvHazmatItemQuery::create()->filterByItemid($this->itemid)->count());
 	}
 
+	/**
+	 * Return Hazmat Record exists for this itemid
+	 * @return InvHazmatItem
+	 */
 	public function get_hazmat() {
 		return $this->getInvHazmatItem();
+	}
+
+	/**
+	 * Return if Item ID exists on a Sales Order
+	 * @return bool
+	 */
+	public function is_ordered() {
+		return boolval(SalesOrderDetailQuery::create()->filterByItemid($this->itemid)->count());
 	}
 
 /* =============================================================
