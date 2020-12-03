@@ -1260,7 +1260,6 @@ abstract class InvKit implements ActiveRecordInterface
         if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
-            $this->aItemMasterItem->setInvKit($this);
         }
 
         return $this->aItemMasterItem;
