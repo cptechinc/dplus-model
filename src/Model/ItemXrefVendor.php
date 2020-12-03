@@ -51,6 +51,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'theiritemID'   => 'vexrvenditemnbr',
 		'ouritemID'     => 'inititemnbr',
 		'ouritemid'     => 'inititemnbr',
+		'itemid'        => 'inititemnbr',
 		'description'   => 'vexrvenditemdesc',
 		'po_ordercode'  => 'vexrpoordercode',
 		'qty_percase'   => 'vexrcaseqty',
@@ -70,7 +71,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return the number of Units Available to save
-	 *
 	 * @return int
 	 */
 	public function get_unitsavailable() {
@@ -79,7 +79,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Purchase Order Code Options
-	 *
 	 * @return array
 	 */
 	public function get_po_ordercodeoptions() {
@@ -88,7 +87,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns the Code used for Primary VXM Item
-	 *
 	 * @return string
 	 */
 	public function getOptionpoordercodePrimary() {
@@ -97,7 +95,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns if item is the Primary Item
-	 *
 	 * @return bool
 	 */
 	public function is_po_ordercode_primary() {
@@ -106,7 +103,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns if item is the Primary Item
-	 *
 	 * @return bool
 	 */
 	public function is_primary_vxmitem() {
@@ -115,7 +111,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Approval Code Options
-	 *
 	 * @return array
 	 */
 	public function get_approvalcodeoptions() {
@@ -124,13 +119,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return the Units at the Qty Posiition
-	 *
 	 * @param  int $unit  E.g. 1
 	 * @return int
 	 */
 	public function get_unitqty(int $unit) {
-		$col_base = 'vexrunitunit';
-
 		if ($unit <= self::UNITS_AVAILABLE) {
 			$col = self::get_unitqty_column($unit);
 			return $this->$col;
@@ -141,7 +133,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return the Units at the Qty Posiition
-	 *
 	 * @param  int $unit  E.g. 1
 	 * @return string
 	 */
@@ -157,7 +148,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Unit Cost at Qty Position
-	 *
 	 * @param  int   $unit
 	 * @return float
 	 */
@@ -177,7 +167,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Unit Cost at Qty Position
-	 *
 	 * @param  int   $unit
 	 * @return float
 	 */
@@ -263,7 +252,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns Primary VXM item for Our Item ID
-	 *
 	 * @return ItemXrefVendor
 	 */
 	public function get_other_primary_vxm_item() {
@@ -275,7 +263,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns Primary VXM item's Vendor Item ID
-	 *
 	 * @return string
 	 */
 	public function other_primary_poordercode_itemid() {
@@ -288,7 +275,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns Primary VXM item's Vendor ID
-	 *
 	 * @return string
 	 */
 	public function other_primary_poordercode_vendorid() {
@@ -299,6 +285,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		return $q->findOne();
 	}
 
+	/**
+	 * Return Instance with default values
+	 * @return ItemXrefVendor
+	 */
 	public static function new() {
 		$item = new ItemXrefVendor();
 		$item->setQty_percase(1);
