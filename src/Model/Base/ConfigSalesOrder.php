@@ -803,13 +803,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     protected $oetbcon3askchgprcwqty;
 
     /**
-     * The value for the oetbcon3zeroprcitmpdm field.
-     *
-     * @var        string
-     */
-    protected $oetbcon3zeroprcitmpdm;
-
-    /**
      * The value for the oetbcon3tenqtybrks field.
      *
      * @var        string
@@ -2911,16 +2904,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     public function getOetbcon3askchgprcwqty()
     {
         return $this->oetbcon3askchgprcwqty;
-    }
-
-    /**
-     * Get the [oetbcon3zeroprcitmpdm] column value.
-     *
-     * @return string
-     */
-    public function getOetbcon3zeroprcitmpdm()
-    {
-        return $this->oetbcon3zeroprcitmpdm;
     }
 
     /**
@@ -6184,26 +6167,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
     } // setOetbcon3askchgprcwqty()
 
     /**
-     * Set the value of [oetbcon3zeroprcitmpdm] column.
-     *
-     * @param string $v new value
-     * @return $this|\ConfigSalesOrder The current object (for fluent API support)
-     */
-    public function setOetbcon3zeroprcitmpdm($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oetbcon3zeroprcitmpdm !== $v) {
-            $this->oetbcon3zeroprcitmpdm = $v;
-            $this->modifiedColumns[ConfigSalesOrderTableMap::COL_OETBCON3ZEROPRCITMPDM] = true;
-        }
-
-        return $this;
-    } // setOetbcon3zeroprcitmpdm()
-
-    /**
      * Set the value of [oetbcon3tenqtybrks] column.
      *
      * @param string $v new value
@@ -8841,349 +8804,346 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3askchgprcwqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3askchgprcwqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3zeroprcitmpdm', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oetbcon3zeroprcitmpdm = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3tenqtybrks', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3tenqtybrks', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3tenqtybrks = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecordrpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdecordrpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdecordrpric = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2provlostsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2provlostsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2provlostsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2askreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2askreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2askreasoncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasoncode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreasoncode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2bordcntl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2bordcntl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2bordcntl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreabocode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreabocode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreabocode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2numdayssavls', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2numdayssavls', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2numdayssavls = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2callbacknotif', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2callbacknotif', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2callbacknotif = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defdayswhenin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defdayswhenin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defdayswhenin = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addsubsls', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addsubsls', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2addsubsls = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasubscode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defreasubscode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defreasubscode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypnorm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypnorm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtypnorm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtyprep', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtyprep', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtyprep = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypserv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ordtypserv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ordtypserv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defordtyp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defordtyp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defordtyp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfchgpric', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfchgpric', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfchgpric = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2spordpricezero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2spordpricezero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2spordpricezero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinactpricezero', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinactpricezero', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinactpricezero = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2reseq = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseqby', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2reseqby', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2reseqby = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2minqtysales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2minqtysales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2minqtysales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chgorder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chgorder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2chgorder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2vercomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2vercomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2vercomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtinv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2prtinv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2prtinv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicpicktick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicpicktick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2dynamicpicktick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicinvoice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2dynamicinvoice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2dynamicinvoice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2edidefinvoice', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2edidefinvoice', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2edidefinvoice = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowccpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowccpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowccpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccwind', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccwind', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autoccwind = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccupdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autoccupdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autoccupdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowapvdccchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowapvdccchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowapvdccchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3apvdbckordclear', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3apvdbckordclear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3apvdbckordclear = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2polwhichcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2polwhichcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2polwhichcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2revhazard', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2revhazard', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2revhazard = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showdisclist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showdisclist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showdisclist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chglist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2chglist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2chglist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2maillist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2maillist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2maillist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2nameformat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2nameformat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2nameformat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2mailidtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2mailidtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2mailidtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2cashdrawerpswd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2cashdrawerpswd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2cashdrawerpswd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2upsonline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2upsonline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2upsonline = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2picorver', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2picorver', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2picorver = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2combback = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2frtallowamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2frtallowamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2frtallowamt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2usedept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedivision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2usedivision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2usedivision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defmfecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2defmfecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2defmfecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showavgcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showavgcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showavgcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2fedex', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2fedex', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2fedex = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3deffrghtgrup', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3deffrghtgrup', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3deffrghtgrup = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsmysqldbname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsmysqldbname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3upsmysqldbname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseoptcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseoptcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseoptcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfscn4opt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfscn4opt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfscn4opt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbylogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbylogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbylogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2takenbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2takenbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickedbyproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickedbyproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2packedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2packedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2packedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyuse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbyuse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbylogin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbylogin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbylogin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2verifiedbyforce', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2verifiedbyforce = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode1force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode1force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode1force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode2force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode2force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode2force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode3force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 176 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode3force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode3force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 177 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfoptlabl4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfoptlabl4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode4force', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 178 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2ucode4force', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2ucode4force = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverifyafterpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 179 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfverifyafterpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfverifyafterpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhistyrsback', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 180 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfhistyrsback', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfhistyrsback = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstcatlg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 181 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfrqstcatlg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfrqstcatlg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2conpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2conpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2conpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowpick', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowpick', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowpick = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combinesame', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2combinesame', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2combinesame = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autovernitems', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3autovernitems', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3autovernitems = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowzeroqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowzeroqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowzeroqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowinvalidwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2allowinvalidwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2allowinvalidwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showediinfo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2showediinfo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2showediinfo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 190 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2addonsales', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2addonsales = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 191 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 190 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2forcedbkord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2forcedbkord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 192 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 191 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2updtprcdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2updtprcdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 192 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2autopack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2autopack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 193 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2pickboprtzqts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2pickboprtzqts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 194 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3pick00noship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3pick00noship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 195 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordlead', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordlead = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 196 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2standordamnt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2standordamnt = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 197 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2inactitemcntrl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2inactitemcntrl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 198 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon2useitemref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon2useitemref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 199 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3upsnaftarecords', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3upsnaftarecords = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 200 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltshipwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltshipwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 201 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfdfltorigwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfdfltorigwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 202 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfinvcwithpack', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfinvcwithpack = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 203 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfcarrycntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfcarrycntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 204 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3useordras', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3useordras = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 205 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbconfuseordrsource', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbconfuseordrsource = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 206 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccprocessor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccprocessor = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 207 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3creditcardcap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3creditcardcap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 208 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3keyorcccap', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3keyorcccap = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 209 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccxoverlay', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccxoverlay = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 210 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cctimeout', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cctimeout = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 211 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3signaturecapture', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3signaturecapture = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 212 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3ccpreapproval', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3ccpreapproval = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 213 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3forceccnbrentry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3forceccnbrentry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 214 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3intritemnotes', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3intritemnotes = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 215 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3mtrcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3mtrcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 216 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Oetbcon3cofccert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oetbcon3cofccert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 217 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 218 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 220 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 219 + $startcol : ConfigSalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -9193,7 +9153,7 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 221; // 221 = ConfigSalesOrderTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 220; // 220 = ConfigSalesOrderTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigSalesOrder'), 0, $e);
@@ -9707,9 +9667,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ASKCHGPRCWQTY)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon3AskChgPrcWQty';
-        }
-        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ZEROPRCITMPDM)) {
-            $modifiedColumns[':p' . $index++]  = 'OetbCon3ZeroPrcItmPdm';
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3TENQTYBRKS)) {
             $modifiedColumns[':p' . $index++]  = 'OetbCon3TenQtyBrks';
@@ -10381,9 +10338,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                         break;
                     case 'OetbCon3AskChgPrcWQty':
                         $stmt->bindValue($identifier, $this->oetbcon3askchgprcwqty, PDO::PARAM_STR);
-                        break;
-                    case 'OetbCon3ZeroPrcItmPdm':
-                        $stmt->bindValue($identifier, $this->oetbcon3zeroprcitmpdm, PDO::PARAM_STR);
                         break;
                     case 'OetbCon3TenQtyBrks':
                         $stmt->bindValue($identifier, $this->oetbcon3tenqtybrks, PDO::PARAM_STR);
@@ -11101,348 +11055,345 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 return $this->getOetbcon3askchgprcwqty();
                 break;
             case 106:
-                return $this->getOetbcon3zeroprcitmpdm();
-                break;
-            case 107:
                 return $this->getOetbcon3tenqtybrks();
                 break;
-            case 108:
+            case 107:
                 return $this->getOetbconfdecordrpric();
                 break;
-            case 109:
+            case 108:
                 return $this->getOetbcon2provlostsales();
                 break;
-            case 110:
+            case 109:
                 return $this->getOetbcon2askreasoncode();
                 break;
-            case 111:
+            case 110:
                 return $this->getOetbcon2defreasoncode();
                 break;
-            case 112:
+            case 111:
                 return $this->getOetbcon2bordcntl();
                 break;
-            case 113:
+            case 112:
                 return $this->getOetbcon2defreabocode();
                 break;
-            case 114:
+            case 113:
                 return $this->getOetbcon2numdayssavls();
                 break;
-            case 115:
+            case 114:
                 return $this->getOetbcon2callbacknotif();
                 break;
-            case 116:
+            case 115:
                 return $this->getOetbcon2defdayswhenin();
                 break;
-            case 117:
+            case 116:
                 return $this->getOetbcon2addsubsls();
                 break;
-            case 118:
+            case 117:
                 return $this->getOetbcon2defreasubscode();
                 break;
-            case 119:
+            case 118:
                 return $this->getOetbcon2ordtypnorm();
                 break;
-            case 120:
+            case 119:
                 return $this->getOetbcon2ordtyprep();
                 break;
-            case 121:
+            case 120:
                 return $this->getOetbcon2ordtypserv();
                 break;
-            case 122:
+            case 121:
                 return $this->getOetbcon2defordtyp();
                 break;
-            case 123:
+            case 122:
                 return $this->getOetbconfchgpric();
                 break;
-            case 124:
+            case 123:
                 return $this->getOetbcon2spordpricezero();
                 break;
-            case 125:
+            case 124:
                 return $this->getOetbconfinactpricezero();
                 break;
-            case 126:
+            case 125:
                 return $this->getOetbcon2reseq();
                 break;
-            case 127:
+            case 126:
                 return $this->getOetbcon2reseqby();
                 break;
-            case 128:
+            case 127:
                 return $this->getOetbcon2minqtysales();
                 break;
-            case 129:
+            case 128:
                 return $this->getOetbcon2chgorder();
                 break;
-            case 130:
+            case 129:
                 return $this->getOetbcon2vercomp();
                 break;
-            case 131:
+            case 130:
                 return $this->getOetbcon2prtinv();
                 break;
-            case 132:
+            case 131:
                 return $this->getOetbcon2dynamicpicktick();
                 break;
-            case 133:
+            case 132:
                 return $this->getOetbcon2dynamicinvoice();
                 break;
-            case 134:
+            case 133:
                 return $this->getOetbcon2edidefinvoice();
                 break;
-            case 135:
+            case 134:
                 return $this->getOetbcon2allowccpick();
                 break;
-            case 136:
+            case 135:
                 return $this->getOetbcon2autoccwind();
                 break;
-            case 137:
+            case 136:
                 return $this->getOetbcon2autoccupdate();
                 break;
-            case 138:
+            case 137:
                 return $this->getOetbcon2allowapvdccchg();
                 break;
-            case 139:
+            case 138:
                 return $this->getOetbcon3apvdbckordclear();
                 break;
-            case 140:
+            case 139:
                 return $this->getOetbcon2polwhichcost();
                 break;
-            case 141:
+            case 140:
                 return $this->getOetbcon2revhazard();
                 break;
-            case 142:
+            case 141:
                 return $this->getOetbcon2showdisclist();
                 break;
-            case 143:
+            case 142:
                 return $this->getOetbcon2chglist();
                 break;
-            case 144:
+            case 143:
                 return $this->getOetbcon2maillist();
                 break;
-            case 145:
+            case 144:
                 return $this->getOetbcon2nameformat();
                 break;
-            case 146:
+            case 145:
                 return $this->getOetbcon2mailidtype();
                 break;
-            case 147:
+            case 146:
                 return $this->getOetbcon2cashdrawerpswd();
                 break;
-            case 148:
+            case 147:
                 return $this->getOetbcon2upsonline();
                 break;
-            case 149:
+            case 148:
                 return $this->getOetbcon2picorver();
                 break;
-            case 150:
+            case 149:
                 return $this->getOetbcon2combback();
                 break;
-            case 151:
+            case 150:
                 return $this->getOetbcon2frtallowamt();
                 break;
-            case 152:
+            case 151:
                 return $this->getOetbcon2usedept();
                 break;
-            case 153:
+            case 152:
                 return $this->getOetbcon2usedivision();
                 break;
-            case 154:
+            case 153:
                 return $this->getOetbcon2defmfecode();
                 break;
-            case 155:
+            case 154:
                 return $this->getOetbcon2showavgcost();
                 break;
-            case 156:
+            case 155:
                 return $this->getOetbcon2fedex();
                 break;
-            case 157:
+            case 156:
                 return $this->getOetbcon3deffrghtgrup();
                 break;
-            case 158:
+            case 157:
                 return $this->getOetbcon3upsmysqldbname();
                 break;
-            case 159:
+            case 158:
                 return $this->getOetbconfuseoptcode();
                 break;
-            case 160:
+            case 159:
                 return $this->getOetbconfscn4opt();
                 break;
-            case 161:
+            case 160:
                 return $this->getOetbcon2takenbyuse();
                 break;
-            case 162:
+            case 161:
                 return $this->getOetbcon2takenbylogin();
                 break;
-            case 163:
+            case 162:
                 return $this->getOetbcon2takenbyforce();
                 break;
-            case 164:
+            case 163:
                 return $this->getOetbcon2pickedbyuse();
                 break;
-            case 165:
+            case 164:
                 return $this->getOetbcon2pickedbyforce();
                 break;
-            case 166:
+            case 165:
                 return $this->getOetbcon2pickedbyproc();
                 break;
-            case 167:
+            case 166:
                 return $this->getOetbcon2packedbyuse();
                 break;
-            case 168:
+            case 167:
                 return $this->getOetbcon2packedbyforce();
                 break;
-            case 169:
+            case 168:
                 return $this->getOetbcon2verifiedbyuse();
                 break;
-            case 170:
+            case 169:
                 return $this->getOetbcon2verifiedbylogin();
                 break;
-            case 171:
+            case 170:
                 return $this->getOetbcon2verifiedbyforce();
                 break;
-            case 172:
+            case 171:
                 return $this->getOetbconfoptlabl1();
                 break;
-            case 173:
+            case 172:
                 return $this->getOetbcon2ucode1force();
                 break;
-            case 174:
+            case 173:
                 return $this->getOetbconfoptlabl2();
                 break;
-            case 175:
+            case 174:
                 return $this->getOetbcon2ucode2force();
                 break;
-            case 176:
+            case 175:
                 return $this->getOetbconfoptlabl3();
                 break;
-            case 177:
+            case 176:
                 return $this->getOetbcon2ucode3force();
                 break;
-            case 178:
+            case 177:
                 return $this->getOetbconfoptlabl4();
                 break;
-            case 179:
+            case 178:
                 return $this->getOetbcon2ucode4force();
                 break;
-            case 180:
+            case 179:
                 return $this->getOetbconfverifyafterpack();
                 break;
-            case 181:
+            case 180:
                 return $this->getOetbconfhistyrsback();
                 break;
-            case 182:
+            case 181:
                 return $this->getOetbconfrqstcatlg();
                 break;
-            case 183:
+            case 182:
                 return $this->getOetbcon2conpick();
                 break;
-            case 184:
+            case 183:
                 return $this->getOetbcon2allowpick();
                 break;
-            case 185:
+            case 184:
                 return $this->getOetbcon2combinesame();
                 break;
-            case 186:
+            case 185:
                 return $this->getOetbcon3autovernitems();
                 break;
-            case 187:
+            case 186:
                 return $this->getOetbcon2allowzeroqty();
                 break;
-            case 188:
+            case 187:
                 return $this->getOetbcon2allowinvalidwhse();
                 break;
-            case 189:
+            case 188:
                 return $this->getOetbcon2showediinfo();
                 break;
-            case 190:
+            case 189:
                 return $this->getOetbcon2addonsales();
                 break;
-            case 191:
+            case 190:
                 return $this->getOetbcon2forcedbkord();
                 break;
-            case 192:
+            case 191:
                 return $this->getOetbcon2updtprcdisc();
                 break;
-            case 193:
+            case 192:
                 return $this->getOetbcon2autopack();
                 break;
-            case 194:
+            case 193:
                 return $this->getOetbcon2pickboprtzqts();
                 break;
-            case 195:
+            case 194:
                 return $this->getOetbcon3pick00noship();
                 break;
-            case 196:
+            case 195:
                 return $this->getOetbcon2standordlead();
                 break;
-            case 197:
+            case 196:
                 return $this->getOetbcon2standordamnt();
                 break;
-            case 198:
+            case 197:
                 return $this->getOetbcon2inactitemcntrl();
                 break;
-            case 199:
+            case 198:
                 return $this->getOetbcon2useitemref();
                 break;
-            case 200:
+            case 199:
                 return $this->getOetbcon3upsnaftarecords();
                 break;
-            case 201:
+            case 200:
                 return $this->getOetbconfdfltshipwhse();
                 break;
-            case 202:
+            case 201:
                 return $this->getOetbconfdfltorigwhse();
                 break;
-            case 203:
+            case 202:
                 return $this->getOetbconfinvcwithpack();
                 break;
-            case 204:
+            case 203:
                 return $this->getOetbconfcarrycntrqty();
                 break;
-            case 205:
+            case 204:
                 return $this->getOetbcon3useordras();
                 break;
-            case 206:
+            case 205:
                 return $this->getOetbconfuseordrsource();
                 break;
-            case 207:
+            case 206:
                 return $this->getOetbcon3ccprocessor();
                 break;
-            case 208:
+            case 207:
                 return $this->getOetbcon3creditcardcap();
                 break;
-            case 209:
+            case 208:
                 return $this->getOetbcon3keyorcccap();
                 break;
-            case 210:
+            case 209:
                 return $this->getOetbcon3ccxoverlay();
                 break;
-            case 211:
+            case 210:
                 return $this->getOetbcon3cctimeout();
                 break;
-            case 212:
+            case 211:
                 return $this->getOetbcon3signaturecapture();
                 break;
-            case 213:
+            case 212:
                 return $this->getOetbcon3ccpreapproval();
                 break;
-            case 214:
+            case 213:
                 return $this->getOetbcon3forceccnbrentry();
                 break;
-            case 215:
+            case 214:
                 return $this->getOetbcon3intritemnotes();
                 break;
-            case 216:
+            case 215:
                 return $this->getOetbcon3mtrcert();
                 break;
-            case 217:
+            case 216:
                 return $this->getOetbcon3cofccert();
                 break;
-            case 218:
+            case 217:
                 return $this->getDateupdtd();
                 break;
-            case 219:
+            case 218:
                 return $this->getTimeupdtd();
                 break;
-            case 220:
+            case 219:
                 return $this->getDummy();
                 break;
             default:
@@ -11580,121 +11531,120 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $keys[103] => $this->getOetbconfwarnmultpo(),
             $keys[104] => $this->getOetbconfalertitemquote(),
             $keys[105] => $this->getOetbcon3askchgprcwqty(),
-            $keys[106] => $this->getOetbcon3zeroprcitmpdm(),
-            $keys[107] => $this->getOetbcon3tenqtybrks(),
-            $keys[108] => $this->getOetbconfdecordrpric(),
-            $keys[109] => $this->getOetbcon2provlostsales(),
-            $keys[110] => $this->getOetbcon2askreasoncode(),
-            $keys[111] => $this->getOetbcon2defreasoncode(),
-            $keys[112] => $this->getOetbcon2bordcntl(),
-            $keys[113] => $this->getOetbcon2defreabocode(),
-            $keys[114] => $this->getOetbcon2numdayssavls(),
-            $keys[115] => $this->getOetbcon2callbacknotif(),
-            $keys[116] => $this->getOetbcon2defdayswhenin(),
-            $keys[117] => $this->getOetbcon2addsubsls(),
-            $keys[118] => $this->getOetbcon2defreasubscode(),
-            $keys[119] => $this->getOetbcon2ordtypnorm(),
-            $keys[120] => $this->getOetbcon2ordtyprep(),
-            $keys[121] => $this->getOetbcon2ordtypserv(),
-            $keys[122] => $this->getOetbcon2defordtyp(),
-            $keys[123] => $this->getOetbconfchgpric(),
-            $keys[124] => $this->getOetbcon2spordpricezero(),
-            $keys[125] => $this->getOetbconfinactpricezero(),
-            $keys[126] => $this->getOetbcon2reseq(),
-            $keys[127] => $this->getOetbcon2reseqby(),
-            $keys[128] => $this->getOetbcon2minqtysales(),
-            $keys[129] => $this->getOetbcon2chgorder(),
-            $keys[130] => $this->getOetbcon2vercomp(),
-            $keys[131] => $this->getOetbcon2prtinv(),
-            $keys[132] => $this->getOetbcon2dynamicpicktick(),
-            $keys[133] => $this->getOetbcon2dynamicinvoice(),
-            $keys[134] => $this->getOetbcon2edidefinvoice(),
-            $keys[135] => $this->getOetbcon2allowccpick(),
-            $keys[136] => $this->getOetbcon2autoccwind(),
-            $keys[137] => $this->getOetbcon2autoccupdate(),
-            $keys[138] => $this->getOetbcon2allowapvdccchg(),
-            $keys[139] => $this->getOetbcon3apvdbckordclear(),
-            $keys[140] => $this->getOetbcon2polwhichcost(),
-            $keys[141] => $this->getOetbcon2revhazard(),
-            $keys[142] => $this->getOetbcon2showdisclist(),
-            $keys[143] => $this->getOetbcon2chglist(),
-            $keys[144] => $this->getOetbcon2maillist(),
-            $keys[145] => $this->getOetbcon2nameformat(),
-            $keys[146] => $this->getOetbcon2mailidtype(),
-            $keys[147] => $this->getOetbcon2cashdrawerpswd(),
-            $keys[148] => $this->getOetbcon2upsonline(),
-            $keys[149] => $this->getOetbcon2picorver(),
-            $keys[150] => $this->getOetbcon2combback(),
-            $keys[151] => $this->getOetbcon2frtallowamt(),
-            $keys[152] => $this->getOetbcon2usedept(),
-            $keys[153] => $this->getOetbcon2usedivision(),
-            $keys[154] => $this->getOetbcon2defmfecode(),
-            $keys[155] => $this->getOetbcon2showavgcost(),
-            $keys[156] => $this->getOetbcon2fedex(),
-            $keys[157] => $this->getOetbcon3deffrghtgrup(),
-            $keys[158] => $this->getOetbcon3upsmysqldbname(),
-            $keys[159] => $this->getOetbconfuseoptcode(),
-            $keys[160] => $this->getOetbconfscn4opt(),
-            $keys[161] => $this->getOetbcon2takenbyuse(),
-            $keys[162] => $this->getOetbcon2takenbylogin(),
-            $keys[163] => $this->getOetbcon2takenbyforce(),
-            $keys[164] => $this->getOetbcon2pickedbyuse(),
-            $keys[165] => $this->getOetbcon2pickedbyforce(),
-            $keys[166] => $this->getOetbcon2pickedbyproc(),
-            $keys[167] => $this->getOetbcon2packedbyuse(),
-            $keys[168] => $this->getOetbcon2packedbyforce(),
-            $keys[169] => $this->getOetbcon2verifiedbyuse(),
-            $keys[170] => $this->getOetbcon2verifiedbylogin(),
-            $keys[171] => $this->getOetbcon2verifiedbyforce(),
-            $keys[172] => $this->getOetbconfoptlabl1(),
-            $keys[173] => $this->getOetbcon2ucode1force(),
-            $keys[174] => $this->getOetbconfoptlabl2(),
-            $keys[175] => $this->getOetbcon2ucode2force(),
-            $keys[176] => $this->getOetbconfoptlabl3(),
-            $keys[177] => $this->getOetbcon2ucode3force(),
-            $keys[178] => $this->getOetbconfoptlabl4(),
-            $keys[179] => $this->getOetbcon2ucode4force(),
-            $keys[180] => $this->getOetbconfverifyafterpack(),
-            $keys[181] => $this->getOetbconfhistyrsback(),
-            $keys[182] => $this->getOetbconfrqstcatlg(),
-            $keys[183] => $this->getOetbcon2conpick(),
-            $keys[184] => $this->getOetbcon2allowpick(),
-            $keys[185] => $this->getOetbcon2combinesame(),
-            $keys[186] => $this->getOetbcon3autovernitems(),
-            $keys[187] => $this->getOetbcon2allowzeroqty(),
-            $keys[188] => $this->getOetbcon2allowinvalidwhse(),
-            $keys[189] => $this->getOetbcon2showediinfo(),
-            $keys[190] => $this->getOetbcon2addonsales(),
-            $keys[191] => $this->getOetbcon2forcedbkord(),
-            $keys[192] => $this->getOetbcon2updtprcdisc(),
-            $keys[193] => $this->getOetbcon2autopack(),
-            $keys[194] => $this->getOetbcon2pickboprtzqts(),
-            $keys[195] => $this->getOetbcon3pick00noship(),
-            $keys[196] => $this->getOetbcon2standordlead(),
-            $keys[197] => $this->getOetbcon2standordamnt(),
-            $keys[198] => $this->getOetbcon2inactitemcntrl(),
-            $keys[199] => $this->getOetbcon2useitemref(),
-            $keys[200] => $this->getOetbcon3upsnaftarecords(),
-            $keys[201] => $this->getOetbconfdfltshipwhse(),
-            $keys[202] => $this->getOetbconfdfltorigwhse(),
-            $keys[203] => $this->getOetbconfinvcwithpack(),
-            $keys[204] => $this->getOetbconfcarrycntrqty(),
-            $keys[205] => $this->getOetbcon3useordras(),
-            $keys[206] => $this->getOetbconfuseordrsource(),
-            $keys[207] => $this->getOetbcon3ccprocessor(),
-            $keys[208] => $this->getOetbcon3creditcardcap(),
-            $keys[209] => $this->getOetbcon3keyorcccap(),
-            $keys[210] => $this->getOetbcon3ccxoverlay(),
-            $keys[211] => $this->getOetbcon3cctimeout(),
-            $keys[212] => $this->getOetbcon3signaturecapture(),
-            $keys[213] => $this->getOetbcon3ccpreapproval(),
-            $keys[214] => $this->getOetbcon3forceccnbrentry(),
-            $keys[215] => $this->getOetbcon3intritemnotes(),
-            $keys[216] => $this->getOetbcon3mtrcert(),
-            $keys[217] => $this->getOetbcon3cofccert(),
-            $keys[218] => $this->getDateupdtd(),
-            $keys[219] => $this->getTimeupdtd(),
-            $keys[220] => $this->getDummy(),
+            $keys[106] => $this->getOetbcon3tenqtybrks(),
+            $keys[107] => $this->getOetbconfdecordrpric(),
+            $keys[108] => $this->getOetbcon2provlostsales(),
+            $keys[109] => $this->getOetbcon2askreasoncode(),
+            $keys[110] => $this->getOetbcon2defreasoncode(),
+            $keys[111] => $this->getOetbcon2bordcntl(),
+            $keys[112] => $this->getOetbcon2defreabocode(),
+            $keys[113] => $this->getOetbcon2numdayssavls(),
+            $keys[114] => $this->getOetbcon2callbacknotif(),
+            $keys[115] => $this->getOetbcon2defdayswhenin(),
+            $keys[116] => $this->getOetbcon2addsubsls(),
+            $keys[117] => $this->getOetbcon2defreasubscode(),
+            $keys[118] => $this->getOetbcon2ordtypnorm(),
+            $keys[119] => $this->getOetbcon2ordtyprep(),
+            $keys[120] => $this->getOetbcon2ordtypserv(),
+            $keys[121] => $this->getOetbcon2defordtyp(),
+            $keys[122] => $this->getOetbconfchgpric(),
+            $keys[123] => $this->getOetbcon2spordpricezero(),
+            $keys[124] => $this->getOetbconfinactpricezero(),
+            $keys[125] => $this->getOetbcon2reseq(),
+            $keys[126] => $this->getOetbcon2reseqby(),
+            $keys[127] => $this->getOetbcon2minqtysales(),
+            $keys[128] => $this->getOetbcon2chgorder(),
+            $keys[129] => $this->getOetbcon2vercomp(),
+            $keys[130] => $this->getOetbcon2prtinv(),
+            $keys[131] => $this->getOetbcon2dynamicpicktick(),
+            $keys[132] => $this->getOetbcon2dynamicinvoice(),
+            $keys[133] => $this->getOetbcon2edidefinvoice(),
+            $keys[134] => $this->getOetbcon2allowccpick(),
+            $keys[135] => $this->getOetbcon2autoccwind(),
+            $keys[136] => $this->getOetbcon2autoccupdate(),
+            $keys[137] => $this->getOetbcon2allowapvdccchg(),
+            $keys[138] => $this->getOetbcon3apvdbckordclear(),
+            $keys[139] => $this->getOetbcon2polwhichcost(),
+            $keys[140] => $this->getOetbcon2revhazard(),
+            $keys[141] => $this->getOetbcon2showdisclist(),
+            $keys[142] => $this->getOetbcon2chglist(),
+            $keys[143] => $this->getOetbcon2maillist(),
+            $keys[144] => $this->getOetbcon2nameformat(),
+            $keys[145] => $this->getOetbcon2mailidtype(),
+            $keys[146] => $this->getOetbcon2cashdrawerpswd(),
+            $keys[147] => $this->getOetbcon2upsonline(),
+            $keys[148] => $this->getOetbcon2picorver(),
+            $keys[149] => $this->getOetbcon2combback(),
+            $keys[150] => $this->getOetbcon2frtallowamt(),
+            $keys[151] => $this->getOetbcon2usedept(),
+            $keys[152] => $this->getOetbcon2usedivision(),
+            $keys[153] => $this->getOetbcon2defmfecode(),
+            $keys[154] => $this->getOetbcon2showavgcost(),
+            $keys[155] => $this->getOetbcon2fedex(),
+            $keys[156] => $this->getOetbcon3deffrghtgrup(),
+            $keys[157] => $this->getOetbcon3upsmysqldbname(),
+            $keys[158] => $this->getOetbconfuseoptcode(),
+            $keys[159] => $this->getOetbconfscn4opt(),
+            $keys[160] => $this->getOetbcon2takenbyuse(),
+            $keys[161] => $this->getOetbcon2takenbylogin(),
+            $keys[162] => $this->getOetbcon2takenbyforce(),
+            $keys[163] => $this->getOetbcon2pickedbyuse(),
+            $keys[164] => $this->getOetbcon2pickedbyforce(),
+            $keys[165] => $this->getOetbcon2pickedbyproc(),
+            $keys[166] => $this->getOetbcon2packedbyuse(),
+            $keys[167] => $this->getOetbcon2packedbyforce(),
+            $keys[168] => $this->getOetbcon2verifiedbyuse(),
+            $keys[169] => $this->getOetbcon2verifiedbylogin(),
+            $keys[170] => $this->getOetbcon2verifiedbyforce(),
+            $keys[171] => $this->getOetbconfoptlabl1(),
+            $keys[172] => $this->getOetbcon2ucode1force(),
+            $keys[173] => $this->getOetbconfoptlabl2(),
+            $keys[174] => $this->getOetbcon2ucode2force(),
+            $keys[175] => $this->getOetbconfoptlabl3(),
+            $keys[176] => $this->getOetbcon2ucode3force(),
+            $keys[177] => $this->getOetbconfoptlabl4(),
+            $keys[178] => $this->getOetbcon2ucode4force(),
+            $keys[179] => $this->getOetbconfverifyafterpack(),
+            $keys[180] => $this->getOetbconfhistyrsback(),
+            $keys[181] => $this->getOetbconfrqstcatlg(),
+            $keys[182] => $this->getOetbcon2conpick(),
+            $keys[183] => $this->getOetbcon2allowpick(),
+            $keys[184] => $this->getOetbcon2combinesame(),
+            $keys[185] => $this->getOetbcon3autovernitems(),
+            $keys[186] => $this->getOetbcon2allowzeroqty(),
+            $keys[187] => $this->getOetbcon2allowinvalidwhse(),
+            $keys[188] => $this->getOetbcon2showediinfo(),
+            $keys[189] => $this->getOetbcon2addonsales(),
+            $keys[190] => $this->getOetbcon2forcedbkord(),
+            $keys[191] => $this->getOetbcon2updtprcdisc(),
+            $keys[192] => $this->getOetbcon2autopack(),
+            $keys[193] => $this->getOetbcon2pickboprtzqts(),
+            $keys[194] => $this->getOetbcon3pick00noship(),
+            $keys[195] => $this->getOetbcon2standordlead(),
+            $keys[196] => $this->getOetbcon2standordamnt(),
+            $keys[197] => $this->getOetbcon2inactitemcntrl(),
+            $keys[198] => $this->getOetbcon2useitemref(),
+            $keys[199] => $this->getOetbcon3upsnaftarecords(),
+            $keys[200] => $this->getOetbconfdfltshipwhse(),
+            $keys[201] => $this->getOetbconfdfltorigwhse(),
+            $keys[202] => $this->getOetbconfinvcwithpack(),
+            $keys[203] => $this->getOetbconfcarrycntrqty(),
+            $keys[204] => $this->getOetbcon3useordras(),
+            $keys[205] => $this->getOetbconfuseordrsource(),
+            $keys[206] => $this->getOetbcon3ccprocessor(),
+            $keys[207] => $this->getOetbcon3creditcardcap(),
+            $keys[208] => $this->getOetbcon3keyorcccap(),
+            $keys[209] => $this->getOetbcon3ccxoverlay(),
+            $keys[210] => $this->getOetbcon3cctimeout(),
+            $keys[211] => $this->getOetbcon3signaturecapture(),
+            $keys[212] => $this->getOetbcon3ccpreapproval(),
+            $keys[213] => $this->getOetbcon3forceccnbrentry(),
+            $keys[214] => $this->getOetbcon3intritemnotes(),
+            $keys[215] => $this->getOetbcon3mtrcert(),
+            $keys[216] => $this->getOetbcon3cofccert(),
+            $keys[217] => $this->getDateupdtd(),
+            $keys[218] => $this->getTimeupdtd(),
+            $keys[219] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -12053,348 +12003,345 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
                 $this->setOetbcon3askchgprcwqty($value);
                 break;
             case 106:
-                $this->setOetbcon3zeroprcitmpdm($value);
-                break;
-            case 107:
                 $this->setOetbcon3tenqtybrks($value);
                 break;
-            case 108:
+            case 107:
                 $this->setOetbconfdecordrpric($value);
                 break;
-            case 109:
+            case 108:
                 $this->setOetbcon2provlostsales($value);
                 break;
-            case 110:
+            case 109:
                 $this->setOetbcon2askreasoncode($value);
                 break;
-            case 111:
+            case 110:
                 $this->setOetbcon2defreasoncode($value);
                 break;
-            case 112:
+            case 111:
                 $this->setOetbcon2bordcntl($value);
                 break;
-            case 113:
+            case 112:
                 $this->setOetbcon2defreabocode($value);
                 break;
-            case 114:
+            case 113:
                 $this->setOetbcon2numdayssavls($value);
                 break;
-            case 115:
+            case 114:
                 $this->setOetbcon2callbacknotif($value);
                 break;
-            case 116:
+            case 115:
                 $this->setOetbcon2defdayswhenin($value);
                 break;
-            case 117:
+            case 116:
                 $this->setOetbcon2addsubsls($value);
                 break;
-            case 118:
+            case 117:
                 $this->setOetbcon2defreasubscode($value);
                 break;
-            case 119:
+            case 118:
                 $this->setOetbcon2ordtypnorm($value);
                 break;
-            case 120:
+            case 119:
                 $this->setOetbcon2ordtyprep($value);
                 break;
-            case 121:
+            case 120:
                 $this->setOetbcon2ordtypserv($value);
                 break;
-            case 122:
+            case 121:
                 $this->setOetbcon2defordtyp($value);
                 break;
-            case 123:
+            case 122:
                 $this->setOetbconfchgpric($value);
                 break;
-            case 124:
+            case 123:
                 $this->setOetbcon2spordpricezero($value);
                 break;
-            case 125:
+            case 124:
                 $this->setOetbconfinactpricezero($value);
                 break;
-            case 126:
+            case 125:
                 $this->setOetbcon2reseq($value);
                 break;
-            case 127:
+            case 126:
                 $this->setOetbcon2reseqby($value);
                 break;
-            case 128:
+            case 127:
                 $this->setOetbcon2minqtysales($value);
                 break;
-            case 129:
+            case 128:
                 $this->setOetbcon2chgorder($value);
                 break;
-            case 130:
+            case 129:
                 $this->setOetbcon2vercomp($value);
                 break;
-            case 131:
+            case 130:
                 $this->setOetbcon2prtinv($value);
                 break;
-            case 132:
+            case 131:
                 $this->setOetbcon2dynamicpicktick($value);
                 break;
-            case 133:
+            case 132:
                 $this->setOetbcon2dynamicinvoice($value);
                 break;
-            case 134:
+            case 133:
                 $this->setOetbcon2edidefinvoice($value);
                 break;
-            case 135:
+            case 134:
                 $this->setOetbcon2allowccpick($value);
                 break;
-            case 136:
+            case 135:
                 $this->setOetbcon2autoccwind($value);
                 break;
-            case 137:
+            case 136:
                 $this->setOetbcon2autoccupdate($value);
                 break;
-            case 138:
+            case 137:
                 $this->setOetbcon2allowapvdccchg($value);
                 break;
-            case 139:
+            case 138:
                 $this->setOetbcon3apvdbckordclear($value);
                 break;
-            case 140:
+            case 139:
                 $this->setOetbcon2polwhichcost($value);
                 break;
-            case 141:
+            case 140:
                 $this->setOetbcon2revhazard($value);
                 break;
-            case 142:
+            case 141:
                 $this->setOetbcon2showdisclist($value);
                 break;
-            case 143:
+            case 142:
                 $this->setOetbcon2chglist($value);
                 break;
-            case 144:
+            case 143:
                 $this->setOetbcon2maillist($value);
                 break;
-            case 145:
+            case 144:
                 $this->setOetbcon2nameformat($value);
                 break;
-            case 146:
+            case 145:
                 $this->setOetbcon2mailidtype($value);
                 break;
-            case 147:
+            case 146:
                 $this->setOetbcon2cashdrawerpswd($value);
                 break;
-            case 148:
+            case 147:
                 $this->setOetbcon2upsonline($value);
                 break;
-            case 149:
+            case 148:
                 $this->setOetbcon2picorver($value);
                 break;
-            case 150:
+            case 149:
                 $this->setOetbcon2combback($value);
                 break;
-            case 151:
+            case 150:
                 $this->setOetbcon2frtallowamt($value);
                 break;
-            case 152:
+            case 151:
                 $this->setOetbcon2usedept($value);
                 break;
-            case 153:
+            case 152:
                 $this->setOetbcon2usedivision($value);
                 break;
-            case 154:
+            case 153:
                 $this->setOetbcon2defmfecode($value);
                 break;
-            case 155:
+            case 154:
                 $this->setOetbcon2showavgcost($value);
                 break;
-            case 156:
+            case 155:
                 $this->setOetbcon2fedex($value);
                 break;
-            case 157:
+            case 156:
                 $this->setOetbcon3deffrghtgrup($value);
                 break;
-            case 158:
+            case 157:
                 $this->setOetbcon3upsmysqldbname($value);
                 break;
-            case 159:
+            case 158:
                 $this->setOetbconfuseoptcode($value);
                 break;
-            case 160:
+            case 159:
                 $this->setOetbconfscn4opt($value);
                 break;
-            case 161:
+            case 160:
                 $this->setOetbcon2takenbyuse($value);
                 break;
-            case 162:
+            case 161:
                 $this->setOetbcon2takenbylogin($value);
                 break;
-            case 163:
+            case 162:
                 $this->setOetbcon2takenbyforce($value);
                 break;
-            case 164:
+            case 163:
                 $this->setOetbcon2pickedbyuse($value);
                 break;
-            case 165:
+            case 164:
                 $this->setOetbcon2pickedbyforce($value);
                 break;
-            case 166:
+            case 165:
                 $this->setOetbcon2pickedbyproc($value);
                 break;
-            case 167:
+            case 166:
                 $this->setOetbcon2packedbyuse($value);
                 break;
-            case 168:
+            case 167:
                 $this->setOetbcon2packedbyforce($value);
                 break;
-            case 169:
+            case 168:
                 $this->setOetbcon2verifiedbyuse($value);
                 break;
-            case 170:
+            case 169:
                 $this->setOetbcon2verifiedbylogin($value);
                 break;
-            case 171:
+            case 170:
                 $this->setOetbcon2verifiedbyforce($value);
                 break;
-            case 172:
+            case 171:
                 $this->setOetbconfoptlabl1($value);
                 break;
-            case 173:
+            case 172:
                 $this->setOetbcon2ucode1force($value);
                 break;
-            case 174:
+            case 173:
                 $this->setOetbconfoptlabl2($value);
                 break;
-            case 175:
+            case 174:
                 $this->setOetbcon2ucode2force($value);
                 break;
-            case 176:
+            case 175:
                 $this->setOetbconfoptlabl3($value);
                 break;
-            case 177:
+            case 176:
                 $this->setOetbcon2ucode3force($value);
                 break;
-            case 178:
+            case 177:
                 $this->setOetbconfoptlabl4($value);
                 break;
-            case 179:
+            case 178:
                 $this->setOetbcon2ucode4force($value);
                 break;
-            case 180:
+            case 179:
                 $this->setOetbconfverifyafterpack($value);
                 break;
-            case 181:
+            case 180:
                 $this->setOetbconfhistyrsback($value);
                 break;
-            case 182:
+            case 181:
                 $this->setOetbconfrqstcatlg($value);
                 break;
-            case 183:
+            case 182:
                 $this->setOetbcon2conpick($value);
                 break;
-            case 184:
+            case 183:
                 $this->setOetbcon2allowpick($value);
                 break;
-            case 185:
+            case 184:
                 $this->setOetbcon2combinesame($value);
                 break;
-            case 186:
+            case 185:
                 $this->setOetbcon3autovernitems($value);
                 break;
-            case 187:
+            case 186:
                 $this->setOetbcon2allowzeroqty($value);
                 break;
-            case 188:
+            case 187:
                 $this->setOetbcon2allowinvalidwhse($value);
                 break;
-            case 189:
+            case 188:
                 $this->setOetbcon2showediinfo($value);
                 break;
-            case 190:
+            case 189:
                 $this->setOetbcon2addonsales($value);
                 break;
-            case 191:
+            case 190:
                 $this->setOetbcon2forcedbkord($value);
                 break;
-            case 192:
+            case 191:
                 $this->setOetbcon2updtprcdisc($value);
                 break;
-            case 193:
+            case 192:
                 $this->setOetbcon2autopack($value);
                 break;
-            case 194:
+            case 193:
                 $this->setOetbcon2pickboprtzqts($value);
                 break;
-            case 195:
+            case 194:
                 $this->setOetbcon3pick00noship($value);
                 break;
-            case 196:
+            case 195:
                 $this->setOetbcon2standordlead($value);
                 break;
-            case 197:
+            case 196:
                 $this->setOetbcon2standordamnt($value);
                 break;
-            case 198:
+            case 197:
                 $this->setOetbcon2inactitemcntrl($value);
                 break;
-            case 199:
+            case 198:
                 $this->setOetbcon2useitemref($value);
                 break;
-            case 200:
+            case 199:
                 $this->setOetbcon3upsnaftarecords($value);
                 break;
-            case 201:
+            case 200:
                 $this->setOetbconfdfltshipwhse($value);
                 break;
-            case 202:
+            case 201:
                 $this->setOetbconfdfltorigwhse($value);
                 break;
-            case 203:
+            case 202:
                 $this->setOetbconfinvcwithpack($value);
                 break;
-            case 204:
+            case 203:
                 $this->setOetbconfcarrycntrqty($value);
                 break;
-            case 205:
+            case 204:
                 $this->setOetbcon3useordras($value);
                 break;
-            case 206:
+            case 205:
                 $this->setOetbconfuseordrsource($value);
                 break;
-            case 207:
+            case 206:
                 $this->setOetbcon3ccprocessor($value);
                 break;
-            case 208:
+            case 207:
                 $this->setOetbcon3creditcardcap($value);
                 break;
-            case 209:
+            case 208:
                 $this->setOetbcon3keyorcccap($value);
                 break;
-            case 210:
+            case 209:
                 $this->setOetbcon3ccxoverlay($value);
                 break;
-            case 211:
+            case 210:
                 $this->setOetbcon3cctimeout($value);
                 break;
-            case 212:
+            case 211:
                 $this->setOetbcon3signaturecapture($value);
                 break;
-            case 213:
+            case 212:
                 $this->setOetbcon3ccpreapproval($value);
                 break;
-            case 214:
+            case 213:
                 $this->setOetbcon3forceccnbrentry($value);
                 break;
-            case 215:
+            case 214:
                 $this->setOetbcon3intritemnotes($value);
                 break;
-            case 216:
+            case 215:
                 $this->setOetbcon3mtrcert($value);
                 break;
-            case 217:
+            case 216:
                 $this->setOetbcon3cofccert($value);
                 break;
-            case 218:
+            case 217:
                 $this->setDateupdtd($value);
                 break;
-            case 219:
+            case 218:
                 $this->setTimeupdtd($value);
                 break;
-            case 220:
+            case 219:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -12742,349 +12689,346 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
             $this->setOetbcon3askchgprcwqty($arr[$keys[105]]);
         }
         if (array_key_exists($keys[106], $arr)) {
-            $this->setOetbcon3zeroprcitmpdm($arr[$keys[106]]);
+            $this->setOetbcon3tenqtybrks($arr[$keys[106]]);
         }
         if (array_key_exists($keys[107], $arr)) {
-            $this->setOetbcon3tenqtybrks($arr[$keys[107]]);
+            $this->setOetbconfdecordrpric($arr[$keys[107]]);
         }
         if (array_key_exists($keys[108], $arr)) {
-            $this->setOetbconfdecordrpric($arr[$keys[108]]);
+            $this->setOetbcon2provlostsales($arr[$keys[108]]);
         }
         if (array_key_exists($keys[109], $arr)) {
-            $this->setOetbcon2provlostsales($arr[$keys[109]]);
+            $this->setOetbcon2askreasoncode($arr[$keys[109]]);
         }
         if (array_key_exists($keys[110], $arr)) {
-            $this->setOetbcon2askreasoncode($arr[$keys[110]]);
+            $this->setOetbcon2defreasoncode($arr[$keys[110]]);
         }
         if (array_key_exists($keys[111], $arr)) {
-            $this->setOetbcon2defreasoncode($arr[$keys[111]]);
+            $this->setOetbcon2bordcntl($arr[$keys[111]]);
         }
         if (array_key_exists($keys[112], $arr)) {
-            $this->setOetbcon2bordcntl($arr[$keys[112]]);
+            $this->setOetbcon2defreabocode($arr[$keys[112]]);
         }
         if (array_key_exists($keys[113], $arr)) {
-            $this->setOetbcon2defreabocode($arr[$keys[113]]);
+            $this->setOetbcon2numdayssavls($arr[$keys[113]]);
         }
         if (array_key_exists($keys[114], $arr)) {
-            $this->setOetbcon2numdayssavls($arr[$keys[114]]);
+            $this->setOetbcon2callbacknotif($arr[$keys[114]]);
         }
         if (array_key_exists($keys[115], $arr)) {
-            $this->setOetbcon2callbacknotif($arr[$keys[115]]);
+            $this->setOetbcon2defdayswhenin($arr[$keys[115]]);
         }
         if (array_key_exists($keys[116], $arr)) {
-            $this->setOetbcon2defdayswhenin($arr[$keys[116]]);
+            $this->setOetbcon2addsubsls($arr[$keys[116]]);
         }
         if (array_key_exists($keys[117], $arr)) {
-            $this->setOetbcon2addsubsls($arr[$keys[117]]);
+            $this->setOetbcon2defreasubscode($arr[$keys[117]]);
         }
         if (array_key_exists($keys[118], $arr)) {
-            $this->setOetbcon2defreasubscode($arr[$keys[118]]);
+            $this->setOetbcon2ordtypnorm($arr[$keys[118]]);
         }
         if (array_key_exists($keys[119], $arr)) {
-            $this->setOetbcon2ordtypnorm($arr[$keys[119]]);
+            $this->setOetbcon2ordtyprep($arr[$keys[119]]);
         }
         if (array_key_exists($keys[120], $arr)) {
-            $this->setOetbcon2ordtyprep($arr[$keys[120]]);
+            $this->setOetbcon2ordtypserv($arr[$keys[120]]);
         }
         if (array_key_exists($keys[121], $arr)) {
-            $this->setOetbcon2ordtypserv($arr[$keys[121]]);
+            $this->setOetbcon2defordtyp($arr[$keys[121]]);
         }
         if (array_key_exists($keys[122], $arr)) {
-            $this->setOetbcon2defordtyp($arr[$keys[122]]);
+            $this->setOetbconfchgpric($arr[$keys[122]]);
         }
         if (array_key_exists($keys[123], $arr)) {
-            $this->setOetbconfchgpric($arr[$keys[123]]);
+            $this->setOetbcon2spordpricezero($arr[$keys[123]]);
         }
         if (array_key_exists($keys[124], $arr)) {
-            $this->setOetbcon2spordpricezero($arr[$keys[124]]);
+            $this->setOetbconfinactpricezero($arr[$keys[124]]);
         }
         if (array_key_exists($keys[125], $arr)) {
-            $this->setOetbconfinactpricezero($arr[$keys[125]]);
+            $this->setOetbcon2reseq($arr[$keys[125]]);
         }
         if (array_key_exists($keys[126], $arr)) {
-            $this->setOetbcon2reseq($arr[$keys[126]]);
+            $this->setOetbcon2reseqby($arr[$keys[126]]);
         }
         if (array_key_exists($keys[127], $arr)) {
-            $this->setOetbcon2reseqby($arr[$keys[127]]);
+            $this->setOetbcon2minqtysales($arr[$keys[127]]);
         }
         if (array_key_exists($keys[128], $arr)) {
-            $this->setOetbcon2minqtysales($arr[$keys[128]]);
+            $this->setOetbcon2chgorder($arr[$keys[128]]);
         }
         if (array_key_exists($keys[129], $arr)) {
-            $this->setOetbcon2chgorder($arr[$keys[129]]);
+            $this->setOetbcon2vercomp($arr[$keys[129]]);
         }
         if (array_key_exists($keys[130], $arr)) {
-            $this->setOetbcon2vercomp($arr[$keys[130]]);
+            $this->setOetbcon2prtinv($arr[$keys[130]]);
         }
         if (array_key_exists($keys[131], $arr)) {
-            $this->setOetbcon2prtinv($arr[$keys[131]]);
+            $this->setOetbcon2dynamicpicktick($arr[$keys[131]]);
         }
         if (array_key_exists($keys[132], $arr)) {
-            $this->setOetbcon2dynamicpicktick($arr[$keys[132]]);
+            $this->setOetbcon2dynamicinvoice($arr[$keys[132]]);
         }
         if (array_key_exists($keys[133], $arr)) {
-            $this->setOetbcon2dynamicinvoice($arr[$keys[133]]);
+            $this->setOetbcon2edidefinvoice($arr[$keys[133]]);
         }
         if (array_key_exists($keys[134], $arr)) {
-            $this->setOetbcon2edidefinvoice($arr[$keys[134]]);
+            $this->setOetbcon2allowccpick($arr[$keys[134]]);
         }
         if (array_key_exists($keys[135], $arr)) {
-            $this->setOetbcon2allowccpick($arr[$keys[135]]);
+            $this->setOetbcon2autoccwind($arr[$keys[135]]);
         }
         if (array_key_exists($keys[136], $arr)) {
-            $this->setOetbcon2autoccwind($arr[$keys[136]]);
+            $this->setOetbcon2autoccupdate($arr[$keys[136]]);
         }
         if (array_key_exists($keys[137], $arr)) {
-            $this->setOetbcon2autoccupdate($arr[$keys[137]]);
+            $this->setOetbcon2allowapvdccchg($arr[$keys[137]]);
         }
         if (array_key_exists($keys[138], $arr)) {
-            $this->setOetbcon2allowapvdccchg($arr[$keys[138]]);
+            $this->setOetbcon3apvdbckordclear($arr[$keys[138]]);
         }
         if (array_key_exists($keys[139], $arr)) {
-            $this->setOetbcon3apvdbckordclear($arr[$keys[139]]);
+            $this->setOetbcon2polwhichcost($arr[$keys[139]]);
         }
         if (array_key_exists($keys[140], $arr)) {
-            $this->setOetbcon2polwhichcost($arr[$keys[140]]);
+            $this->setOetbcon2revhazard($arr[$keys[140]]);
         }
         if (array_key_exists($keys[141], $arr)) {
-            $this->setOetbcon2revhazard($arr[$keys[141]]);
+            $this->setOetbcon2showdisclist($arr[$keys[141]]);
         }
         if (array_key_exists($keys[142], $arr)) {
-            $this->setOetbcon2showdisclist($arr[$keys[142]]);
+            $this->setOetbcon2chglist($arr[$keys[142]]);
         }
         if (array_key_exists($keys[143], $arr)) {
-            $this->setOetbcon2chglist($arr[$keys[143]]);
+            $this->setOetbcon2maillist($arr[$keys[143]]);
         }
         if (array_key_exists($keys[144], $arr)) {
-            $this->setOetbcon2maillist($arr[$keys[144]]);
+            $this->setOetbcon2nameformat($arr[$keys[144]]);
         }
         if (array_key_exists($keys[145], $arr)) {
-            $this->setOetbcon2nameformat($arr[$keys[145]]);
+            $this->setOetbcon2mailidtype($arr[$keys[145]]);
         }
         if (array_key_exists($keys[146], $arr)) {
-            $this->setOetbcon2mailidtype($arr[$keys[146]]);
+            $this->setOetbcon2cashdrawerpswd($arr[$keys[146]]);
         }
         if (array_key_exists($keys[147], $arr)) {
-            $this->setOetbcon2cashdrawerpswd($arr[$keys[147]]);
+            $this->setOetbcon2upsonline($arr[$keys[147]]);
         }
         if (array_key_exists($keys[148], $arr)) {
-            $this->setOetbcon2upsonline($arr[$keys[148]]);
+            $this->setOetbcon2picorver($arr[$keys[148]]);
         }
         if (array_key_exists($keys[149], $arr)) {
-            $this->setOetbcon2picorver($arr[$keys[149]]);
+            $this->setOetbcon2combback($arr[$keys[149]]);
         }
         if (array_key_exists($keys[150], $arr)) {
-            $this->setOetbcon2combback($arr[$keys[150]]);
+            $this->setOetbcon2frtallowamt($arr[$keys[150]]);
         }
         if (array_key_exists($keys[151], $arr)) {
-            $this->setOetbcon2frtallowamt($arr[$keys[151]]);
+            $this->setOetbcon2usedept($arr[$keys[151]]);
         }
         if (array_key_exists($keys[152], $arr)) {
-            $this->setOetbcon2usedept($arr[$keys[152]]);
+            $this->setOetbcon2usedivision($arr[$keys[152]]);
         }
         if (array_key_exists($keys[153], $arr)) {
-            $this->setOetbcon2usedivision($arr[$keys[153]]);
+            $this->setOetbcon2defmfecode($arr[$keys[153]]);
         }
         if (array_key_exists($keys[154], $arr)) {
-            $this->setOetbcon2defmfecode($arr[$keys[154]]);
+            $this->setOetbcon2showavgcost($arr[$keys[154]]);
         }
         if (array_key_exists($keys[155], $arr)) {
-            $this->setOetbcon2showavgcost($arr[$keys[155]]);
+            $this->setOetbcon2fedex($arr[$keys[155]]);
         }
         if (array_key_exists($keys[156], $arr)) {
-            $this->setOetbcon2fedex($arr[$keys[156]]);
+            $this->setOetbcon3deffrghtgrup($arr[$keys[156]]);
         }
         if (array_key_exists($keys[157], $arr)) {
-            $this->setOetbcon3deffrghtgrup($arr[$keys[157]]);
+            $this->setOetbcon3upsmysqldbname($arr[$keys[157]]);
         }
         if (array_key_exists($keys[158], $arr)) {
-            $this->setOetbcon3upsmysqldbname($arr[$keys[158]]);
+            $this->setOetbconfuseoptcode($arr[$keys[158]]);
         }
         if (array_key_exists($keys[159], $arr)) {
-            $this->setOetbconfuseoptcode($arr[$keys[159]]);
+            $this->setOetbconfscn4opt($arr[$keys[159]]);
         }
         if (array_key_exists($keys[160], $arr)) {
-            $this->setOetbconfscn4opt($arr[$keys[160]]);
+            $this->setOetbcon2takenbyuse($arr[$keys[160]]);
         }
         if (array_key_exists($keys[161], $arr)) {
-            $this->setOetbcon2takenbyuse($arr[$keys[161]]);
+            $this->setOetbcon2takenbylogin($arr[$keys[161]]);
         }
         if (array_key_exists($keys[162], $arr)) {
-            $this->setOetbcon2takenbylogin($arr[$keys[162]]);
+            $this->setOetbcon2takenbyforce($arr[$keys[162]]);
         }
         if (array_key_exists($keys[163], $arr)) {
-            $this->setOetbcon2takenbyforce($arr[$keys[163]]);
+            $this->setOetbcon2pickedbyuse($arr[$keys[163]]);
         }
         if (array_key_exists($keys[164], $arr)) {
-            $this->setOetbcon2pickedbyuse($arr[$keys[164]]);
+            $this->setOetbcon2pickedbyforce($arr[$keys[164]]);
         }
         if (array_key_exists($keys[165], $arr)) {
-            $this->setOetbcon2pickedbyforce($arr[$keys[165]]);
+            $this->setOetbcon2pickedbyproc($arr[$keys[165]]);
         }
         if (array_key_exists($keys[166], $arr)) {
-            $this->setOetbcon2pickedbyproc($arr[$keys[166]]);
+            $this->setOetbcon2packedbyuse($arr[$keys[166]]);
         }
         if (array_key_exists($keys[167], $arr)) {
-            $this->setOetbcon2packedbyuse($arr[$keys[167]]);
+            $this->setOetbcon2packedbyforce($arr[$keys[167]]);
         }
         if (array_key_exists($keys[168], $arr)) {
-            $this->setOetbcon2packedbyforce($arr[$keys[168]]);
+            $this->setOetbcon2verifiedbyuse($arr[$keys[168]]);
         }
         if (array_key_exists($keys[169], $arr)) {
-            $this->setOetbcon2verifiedbyuse($arr[$keys[169]]);
+            $this->setOetbcon2verifiedbylogin($arr[$keys[169]]);
         }
         if (array_key_exists($keys[170], $arr)) {
-            $this->setOetbcon2verifiedbylogin($arr[$keys[170]]);
+            $this->setOetbcon2verifiedbyforce($arr[$keys[170]]);
         }
         if (array_key_exists($keys[171], $arr)) {
-            $this->setOetbcon2verifiedbyforce($arr[$keys[171]]);
+            $this->setOetbconfoptlabl1($arr[$keys[171]]);
         }
         if (array_key_exists($keys[172], $arr)) {
-            $this->setOetbconfoptlabl1($arr[$keys[172]]);
+            $this->setOetbcon2ucode1force($arr[$keys[172]]);
         }
         if (array_key_exists($keys[173], $arr)) {
-            $this->setOetbcon2ucode1force($arr[$keys[173]]);
+            $this->setOetbconfoptlabl2($arr[$keys[173]]);
         }
         if (array_key_exists($keys[174], $arr)) {
-            $this->setOetbconfoptlabl2($arr[$keys[174]]);
+            $this->setOetbcon2ucode2force($arr[$keys[174]]);
         }
         if (array_key_exists($keys[175], $arr)) {
-            $this->setOetbcon2ucode2force($arr[$keys[175]]);
+            $this->setOetbconfoptlabl3($arr[$keys[175]]);
         }
         if (array_key_exists($keys[176], $arr)) {
-            $this->setOetbconfoptlabl3($arr[$keys[176]]);
+            $this->setOetbcon2ucode3force($arr[$keys[176]]);
         }
         if (array_key_exists($keys[177], $arr)) {
-            $this->setOetbcon2ucode3force($arr[$keys[177]]);
+            $this->setOetbconfoptlabl4($arr[$keys[177]]);
         }
         if (array_key_exists($keys[178], $arr)) {
-            $this->setOetbconfoptlabl4($arr[$keys[178]]);
+            $this->setOetbcon2ucode4force($arr[$keys[178]]);
         }
         if (array_key_exists($keys[179], $arr)) {
-            $this->setOetbcon2ucode4force($arr[$keys[179]]);
+            $this->setOetbconfverifyafterpack($arr[$keys[179]]);
         }
         if (array_key_exists($keys[180], $arr)) {
-            $this->setOetbconfverifyafterpack($arr[$keys[180]]);
+            $this->setOetbconfhistyrsback($arr[$keys[180]]);
         }
         if (array_key_exists($keys[181], $arr)) {
-            $this->setOetbconfhistyrsback($arr[$keys[181]]);
+            $this->setOetbconfrqstcatlg($arr[$keys[181]]);
         }
         if (array_key_exists($keys[182], $arr)) {
-            $this->setOetbconfrqstcatlg($arr[$keys[182]]);
+            $this->setOetbcon2conpick($arr[$keys[182]]);
         }
         if (array_key_exists($keys[183], $arr)) {
-            $this->setOetbcon2conpick($arr[$keys[183]]);
+            $this->setOetbcon2allowpick($arr[$keys[183]]);
         }
         if (array_key_exists($keys[184], $arr)) {
-            $this->setOetbcon2allowpick($arr[$keys[184]]);
+            $this->setOetbcon2combinesame($arr[$keys[184]]);
         }
         if (array_key_exists($keys[185], $arr)) {
-            $this->setOetbcon2combinesame($arr[$keys[185]]);
+            $this->setOetbcon3autovernitems($arr[$keys[185]]);
         }
         if (array_key_exists($keys[186], $arr)) {
-            $this->setOetbcon3autovernitems($arr[$keys[186]]);
+            $this->setOetbcon2allowzeroqty($arr[$keys[186]]);
         }
         if (array_key_exists($keys[187], $arr)) {
-            $this->setOetbcon2allowzeroqty($arr[$keys[187]]);
+            $this->setOetbcon2allowinvalidwhse($arr[$keys[187]]);
         }
         if (array_key_exists($keys[188], $arr)) {
-            $this->setOetbcon2allowinvalidwhse($arr[$keys[188]]);
+            $this->setOetbcon2showediinfo($arr[$keys[188]]);
         }
         if (array_key_exists($keys[189], $arr)) {
-            $this->setOetbcon2showediinfo($arr[$keys[189]]);
+            $this->setOetbcon2addonsales($arr[$keys[189]]);
         }
         if (array_key_exists($keys[190], $arr)) {
-            $this->setOetbcon2addonsales($arr[$keys[190]]);
+            $this->setOetbcon2forcedbkord($arr[$keys[190]]);
         }
         if (array_key_exists($keys[191], $arr)) {
-            $this->setOetbcon2forcedbkord($arr[$keys[191]]);
+            $this->setOetbcon2updtprcdisc($arr[$keys[191]]);
         }
         if (array_key_exists($keys[192], $arr)) {
-            $this->setOetbcon2updtprcdisc($arr[$keys[192]]);
+            $this->setOetbcon2autopack($arr[$keys[192]]);
         }
         if (array_key_exists($keys[193], $arr)) {
-            $this->setOetbcon2autopack($arr[$keys[193]]);
+            $this->setOetbcon2pickboprtzqts($arr[$keys[193]]);
         }
         if (array_key_exists($keys[194], $arr)) {
-            $this->setOetbcon2pickboprtzqts($arr[$keys[194]]);
+            $this->setOetbcon3pick00noship($arr[$keys[194]]);
         }
         if (array_key_exists($keys[195], $arr)) {
-            $this->setOetbcon3pick00noship($arr[$keys[195]]);
+            $this->setOetbcon2standordlead($arr[$keys[195]]);
         }
         if (array_key_exists($keys[196], $arr)) {
-            $this->setOetbcon2standordlead($arr[$keys[196]]);
+            $this->setOetbcon2standordamnt($arr[$keys[196]]);
         }
         if (array_key_exists($keys[197], $arr)) {
-            $this->setOetbcon2standordamnt($arr[$keys[197]]);
+            $this->setOetbcon2inactitemcntrl($arr[$keys[197]]);
         }
         if (array_key_exists($keys[198], $arr)) {
-            $this->setOetbcon2inactitemcntrl($arr[$keys[198]]);
+            $this->setOetbcon2useitemref($arr[$keys[198]]);
         }
         if (array_key_exists($keys[199], $arr)) {
-            $this->setOetbcon2useitemref($arr[$keys[199]]);
+            $this->setOetbcon3upsnaftarecords($arr[$keys[199]]);
         }
         if (array_key_exists($keys[200], $arr)) {
-            $this->setOetbcon3upsnaftarecords($arr[$keys[200]]);
+            $this->setOetbconfdfltshipwhse($arr[$keys[200]]);
         }
         if (array_key_exists($keys[201], $arr)) {
-            $this->setOetbconfdfltshipwhse($arr[$keys[201]]);
+            $this->setOetbconfdfltorigwhse($arr[$keys[201]]);
         }
         if (array_key_exists($keys[202], $arr)) {
-            $this->setOetbconfdfltorigwhse($arr[$keys[202]]);
+            $this->setOetbconfinvcwithpack($arr[$keys[202]]);
         }
         if (array_key_exists($keys[203], $arr)) {
-            $this->setOetbconfinvcwithpack($arr[$keys[203]]);
+            $this->setOetbconfcarrycntrqty($arr[$keys[203]]);
         }
         if (array_key_exists($keys[204], $arr)) {
-            $this->setOetbconfcarrycntrqty($arr[$keys[204]]);
+            $this->setOetbcon3useordras($arr[$keys[204]]);
         }
         if (array_key_exists($keys[205], $arr)) {
-            $this->setOetbcon3useordras($arr[$keys[205]]);
+            $this->setOetbconfuseordrsource($arr[$keys[205]]);
         }
         if (array_key_exists($keys[206], $arr)) {
-            $this->setOetbconfuseordrsource($arr[$keys[206]]);
+            $this->setOetbcon3ccprocessor($arr[$keys[206]]);
         }
         if (array_key_exists($keys[207], $arr)) {
-            $this->setOetbcon3ccprocessor($arr[$keys[207]]);
+            $this->setOetbcon3creditcardcap($arr[$keys[207]]);
         }
         if (array_key_exists($keys[208], $arr)) {
-            $this->setOetbcon3creditcardcap($arr[$keys[208]]);
+            $this->setOetbcon3keyorcccap($arr[$keys[208]]);
         }
         if (array_key_exists($keys[209], $arr)) {
-            $this->setOetbcon3keyorcccap($arr[$keys[209]]);
+            $this->setOetbcon3ccxoverlay($arr[$keys[209]]);
         }
         if (array_key_exists($keys[210], $arr)) {
-            $this->setOetbcon3ccxoverlay($arr[$keys[210]]);
+            $this->setOetbcon3cctimeout($arr[$keys[210]]);
         }
         if (array_key_exists($keys[211], $arr)) {
-            $this->setOetbcon3cctimeout($arr[$keys[211]]);
+            $this->setOetbcon3signaturecapture($arr[$keys[211]]);
         }
         if (array_key_exists($keys[212], $arr)) {
-            $this->setOetbcon3signaturecapture($arr[$keys[212]]);
+            $this->setOetbcon3ccpreapproval($arr[$keys[212]]);
         }
         if (array_key_exists($keys[213], $arr)) {
-            $this->setOetbcon3ccpreapproval($arr[$keys[213]]);
+            $this->setOetbcon3forceccnbrentry($arr[$keys[213]]);
         }
         if (array_key_exists($keys[214], $arr)) {
-            $this->setOetbcon3forceccnbrentry($arr[$keys[214]]);
+            $this->setOetbcon3intritemnotes($arr[$keys[214]]);
         }
         if (array_key_exists($keys[215], $arr)) {
-            $this->setOetbcon3intritemnotes($arr[$keys[215]]);
+            $this->setOetbcon3mtrcert($arr[$keys[215]]);
         }
         if (array_key_exists($keys[216], $arr)) {
-            $this->setOetbcon3mtrcert($arr[$keys[216]]);
+            $this->setOetbcon3cofccert($arr[$keys[216]]);
         }
         if (array_key_exists($keys[217], $arr)) {
-            $this->setOetbcon3cofccert($arr[$keys[217]]);
+            $this->setDateupdtd($arr[$keys[217]]);
         }
         if (array_key_exists($keys[218], $arr)) {
-            $this->setDateupdtd($arr[$keys[218]]);
+            $this->setTimeupdtd($arr[$keys[218]]);
         }
         if (array_key_exists($keys[219], $arr)) {
-            $this->setTimeupdtd($arr[$keys[219]]);
-        }
-        if (array_key_exists($keys[220], $arr)) {
-            $this->setDummy($arr[$keys[220]]);
+            $this->setDummy($arr[$keys[219]]);
         }
     }
 
@@ -13444,9 +13388,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ASKCHGPRCWQTY)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3ASKCHGPRCWQTY, $this->oetbcon3askchgprcwqty);
-        }
-        if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3ZEROPRCITMPDM)) {
-            $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3ZEROPRCITMPDM, $this->oetbcon3zeroprcitmpdm);
         }
         if ($this->isColumnModified(ConfigSalesOrderTableMap::COL_OETBCON3TENQTYBRKS)) {
             $criteria->add(ConfigSalesOrderTableMap::COL_OETBCON3TENQTYBRKS, $this->oetbcon3tenqtybrks);
@@ -13982,7 +13923,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $copyObj->setOetbconfwarnmultpo($this->getOetbconfwarnmultpo());
         $copyObj->setOetbconfalertitemquote($this->getOetbconfalertitemquote());
         $copyObj->setOetbcon3askchgprcwqty($this->getOetbcon3askchgprcwqty());
-        $copyObj->setOetbcon3zeroprcitmpdm($this->getOetbcon3zeroprcitmpdm());
         $copyObj->setOetbcon3tenqtybrks($this->getOetbcon3tenqtybrks());
         $copyObj->setOetbconfdecordrpric($this->getOetbconfdecordrpric());
         $copyObj->setOetbcon2provlostsales($this->getOetbcon2provlostsales());
@@ -14237,7 +14177,6 @@ abstract class ConfigSalesOrder implements ActiveRecordInterface
         $this->oetbconfwarnmultpo = null;
         $this->oetbconfalertitemquote = null;
         $this->oetbcon3askchgprcwqty = null;
-        $this->oetbcon3zeroprcitmpdm = null;
         $this->oetbcon3tenqtybrks = null;
         $this->oetbconfdecordrpric = null;
         $this->oetbcon2provlostsales = null;

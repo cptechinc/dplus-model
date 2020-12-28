@@ -3521,7 +3521,6 @@
     <column name="OetbConfWarnMultPo" phpName="Oetbconfwarnmultpo" type="VARCHAR" size="1"/>
     <column name="OetbConfAlertItemQuote" phpName="Oetbconfalertitemquote" type="VARCHAR" size="1"/>
     <column name="OetbCon3AskChgPrcWQty" phpName="Oetbcon3askchgprcwqty" type="VARCHAR" size="1"/>
-    <column name="OetbCon3ZeroPrcItmPdm" phpName="Oetbcon3zeroprcitmpdm" type="VARCHAR" size="1"/>
     <column name="OetbCon3TenQtyBrks" phpName="Oetbcon3tenqtybrks" type="VARCHAR" size="1"/>
     <column name="OetbConfDecOrdrPric" phpName="Oetbconfdecordrpric" type="INTEGER" size="1"/>
     <column name="OetbCon2ProvLostSales" phpName="Oetbcon2provlostsales" type="VARCHAR" size="1"/>
