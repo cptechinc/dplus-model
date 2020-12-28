@@ -40,7 +40,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'allow_change_price'       => 'oetbconfchgpric',
-		'use_core_items'           => 'oetbcon2usecore'
+		'use_core_items'           => 'oetbcon2usecore',
+		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc'
 	);
 
 	/**
@@ -73,5 +74,14 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	public function use_core_items() {
 		return strtoupper($this->use_core_items) == 'Y';
+	}
+
+	/**
+	 * Return if CXM can update PDM
+	 *
+	 * @return bool
+	 */
+	public function update_pdm_from_cxm() {
+		return strtoupper($this->update_pdm_from_cxm) == 'Y';
 	}
 }
