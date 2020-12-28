@@ -6,7 +6,7 @@ use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Class for representing a row from the 'kt_config' table
+ * Class for representing a row from the 'in_config' table
  * NOTE: There will only be one record in the database for the company
  *
  */
