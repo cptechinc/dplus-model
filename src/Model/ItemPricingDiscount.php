@@ -9,6 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'so_price_discount' table.
  * PURPOSE: Item Pricing for Customer
  * RELATIONSHIPS: ItemMasterItem, Customer
+ * KEY: type, table, startdate, custid, custcode, itemid, itemgroupcode, salespersonid
  */
 class ItemPricingDiscount extends BaseItemPricingDiscount {
 	use ThrowErrorTrait;
@@ -24,8 +25,13 @@ class ItemPricingDiscount extends BaseItemPricingDiscount {
 	const COLUMN_ALIASES = array(
 		'type'      => 'oepctype',
 		'table'     => 'oepctbltype',
+		'startdate' => 'oepcstrtdate',
 		'custid'    => 'oepccustid',
+		'custcode'  => 'oepccustcode',
 		'itemid'    => 'oepcitemnbr',
+		'itemgroupcode' => 'oepcitemgrup',
+		'salespersonid' => 'oepcsp',
 		'baseprice' => 'oepcpricbase',
+		
 	);
 }
