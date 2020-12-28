@@ -29,6 +29,8 @@ class InvKitComponent extends BaseInvKitComponent{
 		'S' => 'Subtract'
 	);
 
+	const USAGETAG_SUBTRACT = 'S';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -43,6 +45,7 @@ class InvKitComponent extends BaseInvKitComponent{
 		'uom'         => 'kitdtUom',
 		'usage'       => 'ktdtusagrate',
 		'is_free'     => 'ktdtfreegoods',
+		'freegoods'   => 'ktdtfreegoods',
 		'usagetag'    => 'ktdtusagtag',
 		'suppliedby'  => 'ktdtvendsupply',
 		'date'        => 'dateupdtd',
@@ -58,6 +61,22 @@ class InvKitComponent extends BaseInvKitComponent{
 	 */
 	public function has_usage() {
 		return $this->ktdtusagrate > 0;
+	}
+
+	/**
+	 * Return Usage
+	 * @return string
+	 */
+	public function usage() {
+		return $this->usagetag_subtract() ? "-$this->usage" : $this->usage;
+	}
+
+	/**
+	 * Return if Component Usage Tag is Subtract
+	 * @return bool
+	 */
+	public function usagetag_subtract() {
+		return $this->usagetag == self::USAGETAG_SUBTRACT;
 	}
 
 	/**
