@@ -22,7 +22,9 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		'N' => 'normal'
 	);
 
-	const LENGTH_CUSTITEMID = 30;
+	const LENGTH_CUSTITEMID   = 30;
+	const LENGTH_DESCRIPTION  = 35;
+	const LENGTH_DESCRIPTION2 = 30;
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -46,12 +48,14 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		'qty_pack_inner'  => 'oexrinnerpackqty',
 		'qty_pack_outer'  => 'oexrouterpackqty',
 		'qty_purchase'    => 'oexrpurchqty',
-		'qty_tare'        => 'oexrshiptareqty',
+		'qty_pack_tare'   => 'oexrshiptareqty',
 		'convert'         => 'oexrconvert',
+		'conversion'      => 'oexrconvert',
 		'rounding'        => 'oexrrounding',
 		'weight'          => 'oexrwght',
 		'uom_customer'    => 'oexrcustuom',
 		'uom_pricing'     => 'oexrcustpricuom',
+		'price_uom'       => 'oexrcustpricuom',
 
 		'item'            => 'itemMasterItem', // FK GET
 		'uofmcustomer'    => 'unitofMeasurePricing',
@@ -66,12 +70,14 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	 * @return float
 	 */
 	public function get_pricing_peruom() {
-		if ($this->uom_pricing == '') {
+		if ($this->price_uom == '') {
 			return 0;
 		} else {
 			$itmitem = $this->getItemMasterItem();
 			$uom_pricing = $this->getUnitofMeasurePricing();
-			return $this->price_customer / $itmitem->qtypercase * $uom_pricing->conversion;
+			if ($uom_pricing) {
+				return $this->price_customer / $itmitem->qty_percase * $uom_pricing->conversion;
+			}
 		}
 	}
 
@@ -124,7 +130,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		$q->filterByItemid($this->itemid);
 		return $q;
 	}
-	
+
 	/**
 	 * Return ItemPricingDiscountQuery
 	 * @return ItemPricingDiscountQuery
@@ -132,7 +138,6 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 	protected function getItemPricingDiscountQuery() {
 		return ItemPricingDiscountQuery::create();
 	}
-
 
 	/**
 	 * Returns new ItemXrefCustomer with defaults
@@ -144,7 +149,7 @@ class ItemXrefCustomer extends BaseItemXrefCustomer {
 		$item->setQty_percase(0);
 		$item->setQty_pack_inner(0);
 		$item->setQty_pack_outer(0);
-		$item->setQty_tare(0);
+		$item->setQty_pack_tare(0);
 		$item->setQty_purchase(0);
 		$item->setConvert(0.000);
 		$item->setPrice_retail(0.000);
