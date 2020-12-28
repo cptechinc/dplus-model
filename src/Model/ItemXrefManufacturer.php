@@ -7,7 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'mfcp_item_xref' table.
- * 
+ *
  * FKRELATIONSHIPS: ItemMasterItem, Vendor
  */
 class ItemXrefManufacturer extends BaseItemXrefManufacturer {
@@ -20,18 +20,22 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 	 */
 	const COLUMN_ALIASES = array(
 		'vendorid'     => 'apvevendid',
-		'vendoritemid' => 'mcxrvenditembnr',
-		'theiritemid'  => 'mcxrvenditembnr',
+		'vendoritemid' => 'mcxrvenditemnbr',
+		'theiritemid'  => 'mcxrvenditemnbr',
 		'itemid'       => 'inititemnbr',
-		'uom'          => 'mcxruom',
+		'unitofm'      => 'mcxruom',
 		'price'        => 'mcxrprice',
 		'cost'         => 'mcxrcost',
 		'available'    => 'mcxravail',
-		'change_date'  => 'mcxrchgdate',
+		'dateupdated'  => 'mcxrchgdate',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd',
-		
 		// Foreign Key Relationship
-		'imitm'        => 'itemMasterItem',
+		'item'         => 'itemMasterItem',
+		'imitem'       => 'itemMasterItem'
 	);
+
+	public function getUom() {
+		return UnitofMeasurePurchaseQuery::create()->findOneByCode($this->unitofm);
+	}
 }
