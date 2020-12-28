@@ -25,6 +25,6 @@ class ConfigAp extends BaseConfigAp {
 		'id'                  => 'aptbconfkey',
 		'columns_notes_pord'  => 'aptbconfpocols',
 		'default_termscode'   => 'aptbconfdeftermcode',
+		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel'
 	);
-
 }
