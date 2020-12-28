@@ -29,6 +29,9 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 		'available'    => 'mcxravail',
 		'change_date'  => 'mcxrchgdate',
 		'date'		   => 'dateupdtd',
-		'time'		   => 'timeupdtd'
+		'time'		   => 'timeupdtd',
+		
+		// Foreign Key Relationship
+		'imitm'        => 'itemMasterItem',
 	);
 }
