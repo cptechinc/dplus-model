@@ -24,6 +24,17 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	protected $oetbconfrqstcatlg;
 
 	/**
+	 * Request Catalog Code
+	 * H = Head
+	 * D = Detail
+	 * @var string
+	 */
+	protected $oetbconfrqstheaddtl;
+
+	const REQUEST_DATE_HEADER   = 'H';
+	const REQUEST_DATE_DETAIL = 'D';
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
@@ -41,7 +52,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'allow_change_price'       => 'oetbconfchgpric',
 		'use_core_items'           => 'oetbcon2usecore',
-		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc'
+		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc',
+		'requestdate'              => 'OetbConfRqstHeadDtl'
 	);
 
 	/**
@@ -83,5 +95,21 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	public function update_pdm_from_cxm() {
 		return strtoupper($this->update_pdm_from_cxm) == 'Y';
+	}
+
+	/**
+	 * Return if Request is set on Header
+	 * @return bool
+	 */
+	public function request_date_header() {
+		return strtoupper($this->requestdate) == self::REQUEST_DATE_HEADER;
+	}
+
+	/**
+	 * Return if Request is set on Detail Lines
+	 * @return bool
+	 */
+	public function request_date_detail() {
+		return strtoupper($this->requestdate) == self::REQUEST_DATE_DETAIL;
 	}
 }
