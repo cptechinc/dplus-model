@@ -1288,6 +1288,46 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="cc_config" idMethod="native" phpName="ConfigCc">
+    <column name="CctbConfKey" phpName="Cctbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="CctbConfCredLine" phpName="Cctbconfcredline" type="INTEGER" size="2"/>
+    <column name="CctbConfCredCols" phpName="Cctbconfcredcols" type="INTEGER" size="2"/>
+    <column name="CctbConfNoteStoreDays" phpName="Cctbconfnotestoredays" type="INTEGER" size="4"/>
+    <column name="CctbConfAvgMonths" phpName="Cctbconfavgmonths" type="INTEGER" size="3"/>
+    <column name="CctbConfAvgFinChrg" phpName="Cctbconfavgfinchrg" type="VARCHAR" size="1"/>
+    <column name="CctbConfAllTerms" phpName="Cctbconfallterms" type="VARCHAR" size="1"/>
+    <column name="CctbConfTerms01" phpName="Cctbconfterms01" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms02" phpName="Cctbconfterms02" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms03" phpName="Cctbconfterms03" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms04" phpName="Cctbconfterms04" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms05" phpName="Cctbconfterms05" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms06" phpName="Cctbconfterms06" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms07" phpName="Cctbconfterms07" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms08" phpName="Cctbconfterms08" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms09" phpName="Cctbconfterms09" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms10" phpName="Cctbconfterms10" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms11" phpName="Cctbconfterms11" type="VARCHAR" size="4"/>
+    <column name="CctbConfTerms12" phpName="Cctbconfterms12" type="VARCHAR" size="4"/>
+    <column name="CctbConfFutOrdrs" phpName="Cctbconffutordrs" type="VARCHAR" size="1"/>
+    <column name="CctbConfPickTicket" phpName="Cctbconfpickticket" type="VARCHAR" size="1"/>
+    <column name="CctbConfPickAlt" phpName="Cctbconfpickalt" type="VARCHAR" size="1"/>
+    <column name="CctbConfPickRel" phpName="Cctbconfpickrel" type="VARCHAR" size="1"/>
+    <column name="CctbConfUseOdue" phpName="Cctbconfuseodue" type="VARCHAR" size="1"/>
+    <column name="CctbConfAgeLevlHold" phpName="Cctbconfagelevlhold" type="INTEGER" size="1"/>
+    <column name="CctbConfLevlAmt" phpName="Cctbconflevlamt" type="INTEGER" size="7"/>
+    <column name="CctbConfUseCredLmt" phpName="Cctbconfusecredlmt" type="VARCHAR" size="1"/>
+    <column name="CctbConfPctToHold" phpName="Cctbconfpcttohold" type="DECIMAL" size="20" scale="2"/>
+    <column name="CctbConfAddCurr" phpName="Cctbconfaddcurr" type="VARCHAR" size="1"/>
+    <column name="CctbConfMinMargHold" phpName="Cctbconfminmarghold" type="VARCHAR" size="1"/>
+    <column name="CctbConfMinMargBase" phpName="Cctbconfminmargbase" type="VARCHAR" size="1"/>
+    <column name="CctbConfHighLevlHold" phpName="Cctbconfhighlevlhold" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ci_config" idMethod="native" phpName="ConfigCi">
     <column name="CitbConfKey" phpName="Citbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="CitbConfYtdStrtMo" phpName="Citbconfytdstrtmo" type="INTEGER" size="2"/>
