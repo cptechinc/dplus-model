@@ -45,7 +45,7 @@ class SalesOrder extends BaseSalesOrder {
 		'custpo'       => 'oehdcustpo',
 		'total_total'  => 'oehdordrtot',
 		'date_ordered' => 'oehdordrdate',
-		'date_requested'  => 'oehrqstdate',
+		'date_requested'  => 'oehdrqstdate',
 		'date_canceled'   => 'oehdcancdate',
 		'date_taken'      => 'oehdtakendate',
 		'releasenumber'   => 'oehdreleasenbr',
