@@ -7,7 +7,6 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'ar_cust_mast' table.
- *
  * NOTE: Foreign Key Relationship to CustomerCommissionCode, Shipvia
  */
 
@@ -84,6 +83,14 @@ class Customer extends BaseCustomer {
 	 */
 	public function require_po() {
 		return in_array($this->require_po, self::REQUIRE_PO_FORCED);
+	}
+
+	/**
+	 * Return if Customer has Credit Hold
+	 * @return bool
+	 */
+	public function has_credithold() {
+		return strtoupper($this->credithold) == self::YN_TRUE;
 	}
 
 	/**
