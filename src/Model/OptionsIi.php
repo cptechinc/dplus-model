@@ -29,6 +29,8 @@ class OptionsIi extends BaseOptionsIi {
 		'A' => "AVL"
 	);
 
+	const YN_TRUE = 'Y';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -37,6 +39,7 @@ class OptionsIi extends BaseOptionsIi {
 		'user'              => 'iitboptncode',
 		'userid'            => 'iitboptncode',
 		'view_requirements' => 'iitboptnreqrview',
+
 		// II Screen Permissions
 		'activity'          => 'IitbOptnActAvail',
 		'cost'              => 'IitbOptnCostAvail',
@@ -52,6 +55,7 @@ class OptionsIi extends BaseOptionsIi {
 		'stock'             => 'IitbOptnStckAvail',
 		'substitutes'       => 'IitbOptnSubsupAvail',
 		'lostsales'         => 'IitbOptnLsAvail',
+
 		// II Screen Warehouse Options
 		'whseactivity'         => 'IitbOptnActWhse',
 		'whsecost'             => 'IitbOptnCostWhse',
@@ -94,7 +98,7 @@ class OptionsIi extends BaseOptionsIi {
 		'salesorders',
 		'lotserial',
 		'stock',
-		'substitute',
+		'substitutes',
 		'lostsales',
 	];
 
