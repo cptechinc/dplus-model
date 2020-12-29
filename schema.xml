@@ -671,6 +671,7 @@
     <column name="ArtbCon2ZeroOrdrMess" phpName="Artbcon2zeroordrmess" type="VARCHAR" size="1"/>
     <column name="ArtbConfCashAcctWhse" phpName="Artbconfcashacctwhse" type="VARCHAR" size="2"/>
     <column name="ArtbCon2MtaxFrtFlagOrCode" phpName="Artbcon2mtaxfrtflagorcode" type="VARCHAR" size="1"/>
+    <column name="ApveUseAch" phpName="ApveUseAch" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

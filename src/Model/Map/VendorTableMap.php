@@ -1221,6 +1221,27 @@ class VendorTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, 'VendorShipfroms', false);
+        $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ItemXrefManufacturers', false);
+        $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ItemXrefVendorNoteDetails', false);
+        $this->addRelation('ItemXrefVendorNoteInternal', '\\ItemXrefVendorNoteInternal', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ItemXrefVendorNoteInternals', false);
         $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -1228,6 +1249,13 @@ class VendorTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, 'PurchaseOrders', false);
+        $this->addRelation('ItemXrefVendor', '\\ItemXrefVendor', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ItemXrefVendors', false);
     } // buildRelations()
 
     /**
