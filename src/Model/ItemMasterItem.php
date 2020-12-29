@@ -184,6 +184,11 @@ class ItemMasterItem extends BaseItemMasterItem {
 		return $this->ynbool('allow_backorder');
 	}
 
+	/** @return bool Allow Item to be discount? */
+	public function allow_discount() {
+		return $this->ynbool('allow_discount');
+	}
+
 	/** @return bool is Item taxable? */
 	public function taxable() {
 		return $this->ynbool('taxable');
