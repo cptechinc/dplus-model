@@ -98,6 +98,16 @@ class SalesOrderQuery extends BaseSalesOrderQuery {
 	}
 
 	/**
+	 * Filter the query on the Oehdrqstdate column
+	 * @param  mixed  $date           string|array
+	 * @param  string $comparison     Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery  The current query, for fluid interface
+	 */
+	public function filterByRequestdate($date, $comparison = null) {
+		return $this->filterByOehdrqstdate($date, $comparison);
+	}
+
+	/**
 	 * Filter the query on the Oehdordrtot column
 	 *
 	 * @param  mixed  $ordertotal    string|array

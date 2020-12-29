@@ -116,8 +116,18 @@ class SalesHistoryQuery extends BaseSalesHistoryQuery {
 	 * @return $this|SalesHistoryQuery The current query, for fluid interface
 	 */
 	 public function filterByOrderdate($orderdate, $comparison = null) {
- 		return $this->filterByOehdordrdate($orderdate, $comparison);
+ 		return $this->filterByOehhordrdate($orderdate, $comparison);
  	}
+
+	/**
+	 * Filter the query on the Oehhrqstdate column
+	 * @param  mixed  $date           string|array
+	 * @param  string $comparison     Database Comparison Operator e.g. <=
+	 * @return $this|SalesOrderQuery  The current query, for fluid interface
+	 */
+	public function filterByRequestdate($date, $comparison = null) {
+		return $this->filterByOehhrqstdate($date, $comparison);
+	}
 
 	/**
 	 * Returns the Customer ID for Sales Order
