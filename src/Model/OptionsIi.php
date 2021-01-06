@@ -20,8 +20,8 @@ class OptionsIi extends BaseOptionsIi {
 	const VIEW_REQUIREMENTS_REQUIREMENTS = 'R';
 
 	const VIEW_REQUIREMENTS_OPTIONS = array(
-		'R' => 'Requirements',
-		'A' => 'Available'
+		'R' => 'Requirement',
+		'A' => 'Available to Promise'
 	);
 
 	const VIEW_REQUIREMENTS_OPTIONS_JSON = array(
@@ -36,9 +36,10 @@ class OptionsIi extends BaseOptionsIi {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'user'              => 'iitboptncode',
 		'userid'            => 'iitboptncode',
 		'view_requirements' => 'iitboptnreqrview',
+		'whichdesc'         => 'IitbOptnDesc1Or2',
+		'deleteloticerts'   => 'IitbOptnDelCerts',
 
 		// II Screen Permissions
 		'activity'          => 'IitbOptnActAvail',
@@ -61,7 +62,7 @@ class OptionsIi extends BaseOptionsIi {
 		'whsecost'             => 'IitbOptnCostWhse',
 		'whsepurchasehistory'  => 'IitbOptnPhWhse',
 		'whsepurchaseorders'   => 'IitbOptnPoWhse',
-		'whserequirement'      => 'IitbOptnReqrWhse',
+		'whserequirements'      => 'IitbOptnReqrWhse',
 		'whsesaleshistory'     => 'IitbOptnShWhse',
 		'whsesalesorders'      => 'IitbOptnSoWhse',
 		'whsestock'            => 'IitbOptnStckWhse',
@@ -82,7 +83,10 @@ class OptionsIi extends BaseOptionsIi {
 		'detailpurchasehistory' => 'IitbOptnPhDet',
 		'detailsaleshistory'    => 'IitbOptnShDet',
 		'detailstock'           => 'IitbOptnStckdet',
-		'detailrequirements'    => 'IitbOptnReqrView'
+		'detailrequirements'    => 'IitbOptnReqrView',
+
+		'date'            => 'dateupdtd',
+		'time'            => 'timeupdtd'
 	);
 
 	const PERMISSIONS = [
@@ -120,5 +124,26 @@ class OptionsIi extends BaseOptionsIi {
 	 */
 	public function permitted() {
 		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+	}
+
+	/**
+	 * Return User associated with Record
+	 * @return DplusUser
+	 */
+	public function getUser() {
+		return DplusUserQuery::create()->findOneByUserid($this->userid);
+	}
+
+	/**
+	 * Return New Record with no Permissions
+	 * @return OptionsIi
+	 */
+	public static function new() {
+		$record = new OptionsIi();
+
+		foreach (self::PERMISSIONS as $opt) {
+			$record->set($opt, 'N');
+		}
+		return $record;
 	}
 }
