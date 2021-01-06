@@ -17,6 +17,8 @@ class ConfigAp extends BaseConfigAp {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const YN_TRUE = 'Y';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -25,6 +27,15 @@ class ConfigAp extends BaseConfigAp {
 		'id'                  => 'aptbconfkey',
 		'columns_notes_pord'  => 'aptbconfpocols',
 		'default_termscode'   => 'aptbconfdeftermcode',
-		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel'
+		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel',
+		'vendorcostbreaks'      => 'AptbConfVendCostBreaks'
 	);
+
+	/**
+	 * Return if Vendor Cost Breaks can be used
+	 * @return bool
+	 */
+	public function use_vendor_cost_breaks() {
+		return $this->vendorcostbreaks == self::YN_TRUE;
+	}
 }
