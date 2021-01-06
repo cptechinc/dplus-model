@@ -14,7 +14,7 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * @method  ItemWhseOrderNoteQuery filterByItemid(string $ItemID)      Filter the query inititemnbr column
+ * @method  ItemWhseOrderNoteQuery filterByItemid(string $ItemID)      Filter the query by inititemnbr column
  *
  */
 class ItemWhseOrderNoteQuery extends BaseItemWhseOrderNoteQuery {
