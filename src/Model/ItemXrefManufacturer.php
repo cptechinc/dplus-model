@@ -14,6 +14,8 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const MAXLENGTH_MNFRITEMID = 30;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -22,6 +24,8 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 		'vendorid'     => 'apvevendid',
 		'vendoritemid' => 'mcxrvenditemnbr',
 		'theiritemid'  => 'mcxrvenditemnbr',
+		'mnfrid'       => 'apvevendid',
+		'mnfritemid'   => 'mcxrvenditemnbr',
 		'itemid'       => 'inititemnbr',
 		'unitofm'      => 'mcxruom',
 		'price'        => 'mcxrprice',
