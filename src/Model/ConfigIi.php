@@ -34,7 +34,7 @@ class ConfigIi extends BaseConfigIi {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'user'              => 'iitboptncode',
+		'userid'            => 'iitboptncode',
 		'view_requirements' => 'iitboptnreqrview'
 	);
 }
