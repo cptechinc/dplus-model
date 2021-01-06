@@ -20,14 +20,13 @@ class OptionsCi extends BaseOptionsCi {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'user'     => 'citboptncode',
 		'userid'   => 'citboptncode',
 		'days_po'  => 'citboptnpodaysback',
 		'days_sh'  => 'citboptnshdaysback',
 		// CI screens
 		'notes'          => 'CitbOptnNoteAvail',
 		'contacts'       => 'CitbOptnGenAvail',
-		'payment'        => 'CitbOptnPayAvail',
+		'payments'       => 'CitbOptnPayAvail',
 		'corebank'       => 'CitbOptnCoreAvail',
 		'credit'         => 'CitbOptnCredAvail',
 		'stock'          => 'CitbOptnCstkAvail',
@@ -37,13 +36,22 @@ class OptionsCi extends BaseOptionsCi {
 		'quotes'         => 'CitbOptnQuotAvail',
 		'openinvoices'   => 'CitbOptnOpenAvail',
 		'customerpo'     => 'CitbOptnPoAvail',
-		'saleshistory'   => 'CitbOptnShAvail'
+		'saleshistory'   => 'CitbOptnShAvail',
+
+		'dayscustomerpo'   => 'citboptnpodaysback',
+		'dayssaleshistory' => 'citboptnshdaysback',
+
+		'datecustomerpo'   => 'CitbOptnPoStrtDate',
+		'datesaleshistory' => 'CitbOptnShStrtDate',
+
+		'date'            => 'dateupdtd',
+		'time'            => 'timeupdtd'
 	);
 
 	const PERMISSIONS = [
 		'notes',
 		'contacts',
-		'payment',
+		'payments',
 		'corebank',
 		'credit',
 		'stock',
@@ -74,5 +82,26 @@ class OptionsCi extends BaseOptionsCi {
 	 */
 	public function permitted() {
 		return array_filter(self::PERMISSIONS, array($this, 'is_true'));
+	}
+
+	/**
+	 * Return User associated with Record
+	 * @return DplusUser
+	 */
+	public function getUser() {
+		return DplusUserQuery::create()->findOneByUserid($this->userid);
+	}
+
+	/**
+	 * Return New Record with no Permissions
+	 * @return OptionsCi
+	 */
+	public static function new() {
+		$record = new OptionsCi();
+
+		foreach (self::PERMISSIONS as $opt) {
+			$record->set($opt, 'N');
+		}
+		return $record;
 	}
 }
