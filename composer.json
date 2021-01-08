@@ -2,7 +2,7 @@
 {
 	"name": "cptechinc/dplus-model",
     "type": "library",
-    "description": "Propel built ORM classes for Dplus data(x) databases based",
+    "description": "Propel 2.0 built ORM classes for Dplus data(x) databases based",
     "keywords": ["dplus-model", "data"],
 	"homepage": "http://github.com/cptechinc/dplus-model",
 	"require": {
