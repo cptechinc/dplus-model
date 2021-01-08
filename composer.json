@@ -2,9 +2,12 @@
 {
 	"name": "cptechinc/dplus-model",
     "type": "library",
-    "description": "Classes for Dplus Database Tables",
-    "keywords": ["dplus-model", "quote", "cart", "cartquote", "detail", "qnote"],
-    "homepage": "http://github.com/cptechinc/dplus-model",
+    "description": "Propel built ORM classes for Dplus data(x) databases based",
+    "keywords": ["dplus-model", "data"],
+	"homepage": "http://github.com/cptechinc/dplus-model",
+	"require": {
+		"propel/propel": "~2.0@dev"
+	},
 	"autoload": {
 		"classmap": ["src/", "src/Model/", "src/traits/"]
 	}
