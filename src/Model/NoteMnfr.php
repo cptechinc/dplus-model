@@ -7,7 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'notes_mnfr_det' table.
- * 
+ *
  * PURPOSE: MXRFE Manufacturer Notes
  *
  */
@@ -23,11 +23,12 @@ class NoteMnfr extends BaseNoteMnfr {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'        => 'pontype',
+		'type'        => 'ponttype',
+		'notetype'    => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
 		'mnfritemid'  => 'pontmnfritem',
-		'sequence'    => 'pont',
+		'sequence'    => 'pontseq',
 		'note'        => 'pontnote',
 		'key2'        => 'pontkey2',
 		'form'        => 'pontform',
@@ -50,7 +51,6 @@ class NoteMnfr extends BaseNoteMnfr {
 
 	/**
 	 * Return new NoteMnfr
-	 *
 	 * @return NoteMnfr
 	 */
 	public static function new() {
