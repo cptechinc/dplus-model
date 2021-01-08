@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \NoteMnfrMisc;
-use \NoteMnfrMiscQuery;
+use \NoteMmsc;
+use \NoteMmscQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class NoteMnfrMiscTableMap extends TableMap
+class NoteMmscTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class NoteMnfrMiscTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.NoteMnfrMiscTableMap';
+    const CLASS_NAME = '.Map.NoteMmscTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class NoteMnfrMiscTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\NoteMnfrMisc';
+    const OM_CLASS = '\\NoteMmsc';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'NoteMnfrMisc';
+    const CLASS_DEFAULT = 'NoteMmsc';
 
     /**
      * The total number of columns
@@ -140,7 +140,7 @@ class NoteMnfrMiscTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Mnfrid', 'Pontmmscitem', 'Pontseq', 'Pontnote', 'Pontkey2', 'Pontform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'mnfrid', 'pontmmscitem', 'pontseq', 'pontnote', 'pontkey2', 'pontform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(NoteMnfrMiscTableMap::COL_PONTTYPE, NoteMnfrMiscTableMap::COL_PONTTYPEDESC, NoteMnfrMiscTableMap::COL_MNFRID, NoteMnfrMiscTableMap::COL_PONTMMSCITEM, NoteMnfrMiscTableMap::COL_PONTSEQ, NoteMnfrMiscTableMap::COL_PONTNOTE, NoteMnfrMiscTableMap::COL_PONTKEY2, NoteMnfrMiscTableMap::COL_PONTFORM, NoteMnfrMiscTableMap::COL_DATEUPDTD, NoteMnfrMiscTableMap::COL_TIMEUPDTD, NoteMnfrMiscTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(NoteMmscTableMap::COL_PONTTYPE, NoteMmscTableMap::COL_PONTTYPEDESC, NoteMmscTableMap::COL_MNFRID, NoteMmscTableMap::COL_PONTMMSCITEM, NoteMmscTableMap::COL_PONTSEQ, NoteMmscTableMap::COL_PONTNOTE, NoteMmscTableMap::COL_PONTKEY2, NoteMmscTableMap::COL_PONTFORM, NoteMmscTableMap::COL_DATEUPDTD, NoteMmscTableMap::COL_TIMEUPDTD, NoteMmscTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'MnfrId', 'PontMmscItem', 'PontSeq', 'PontNote', 'PontKey2', 'PontForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -154,7 +154,7 @@ class NoteMnfrMiscTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Mnfrid' => 2, 'Pontmmscitem' => 3, 'Pontseq' => 4, 'Pontnote' => 5, 'Pontkey2' => 6, 'Pontform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
         self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'mnfrid' => 2, 'pontmmscitem' => 3, 'pontseq' => 4, 'pontnote' => 5, 'pontkey2' => 6, 'pontform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(NoteMnfrMiscTableMap::COL_PONTTYPE => 0, NoteMnfrMiscTableMap::COL_PONTTYPEDESC => 1, NoteMnfrMiscTableMap::COL_MNFRID => 2, NoteMnfrMiscTableMap::COL_PONTMMSCITEM => 3, NoteMnfrMiscTableMap::COL_PONTSEQ => 4, NoteMnfrMiscTableMap::COL_PONTNOTE => 5, NoteMnfrMiscTableMap::COL_PONTKEY2 => 6, NoteMnfrMiscTableMap::COL_PONTFORM => 7, NoteMnfrMiscTableMap::COL_DATEUPDTD => 8, NoteMnfrMiscTableMap::COL_TIMEUPDTD => 9, NoteMnfrMiscTableMap::COL_DUMMY => 10, ),
+        self::TYPE_COLNAME       => array(NoteMmscTableMap::COL_PONTTYPE => 0, NoteMmscTableMap::COL_PONTTYPEDESC => 1, NoteMmscTableMap::COL_MNFRID => 2, NoteMmscTableMap::COL_PONTMMSCITEM => 3, NoteMmscTableMap::COL_PONTSEQ => 4, NoteMmscTableMap::COL_PONTNOTE => 5, NoteMmscTableMap::COL_PONTKEY2 => 6, NoteMmscTableMap::COL_PONTFORM => 7, NoteMmscTableMap::COL_DATEUPDTD => 8, NoteMmscTableMap::COL_TIMEUPDTD => 9, NoteMmscTableMap::COL_DUMMY => 10, ),
         self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'MnfrId' => 2, 'PontMmscItem' => 3, 'PontSeq' => 4, 'PontNote' => 5, 'PontKey2' => 6, 'PontForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -170,9 +170,9 @@ class NoteMnfrMiscTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_mnfr_misc_det');
-        $this->setPhpName('NoteMnfrMisc');
+        $this->setPhpName('NoteMmsc');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\NoteMnfrMisc');
+        $this->setClassName('\\NoteMmsc');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -204,7 +204,7 @@ class NoteMnfrMiscTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \NoteMnfrMisc $obj A \NoteMnfrMisc object.
+     * @param \NoteMmsc $obj A \NoteMmsc object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -225,12 +225,12 @@ class NoteMnfrMiscTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \NoteMnfrMisc object or a primary key value.
+     * @param mixed $value A \NoteMmsc object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \NoteMnfrMisc) {
+            if (is_object($value) && $value instanceof \NoteMmsc) {
                 $key = serialize([(null === $value->getPonttype() || is_scalar($value->getPonttype()) || is_callable([$value->getPonttype(), '__toString']) ? (string) $value->getPonttype() : $value->getPonttype()), (null === $value->getPontseq() || is_scalar($value->getPontseq()) || is_callable([$value->getPontseq(), '__toString']) ? (string) $value->getPontseq() : $value->getPontseq()), (null === $value->getPontkey2() || is_scalar($value->getPontkey2()) || is_callable([$value->getPontkey2(), '__toString']) ? (string) $value->getPontkey2() : $value->getPontkey2()), (null === $value->getPontform() || is_scalar($value->getPontform()) || is_callable([$value->getPontform(), '__toString']) ? (string) $value->getPontform() : $value->getPontform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -241,7 +241,7 @@ class NoteMnfrMiscTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NoteMnfrMisc object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NoteMmsc object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -325,7 +325,7 @@ class NoteMnfrMiscTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? NoteMnfrMiscTableMap::CLASS_DEFAULT : NoteMnfrMiscTableMap::OM_CLASS;
+        return $withPrefix ? NoteMmscTableMap::CLASS_DEFAULT : NoteMmscTableMap::OM_CLASS;
     }
 
     /**
@@ -339,22 +339,22 @@ class NoteMnfrMiscTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (NoteMnfrMisc object, last column rank)
+     * @return array           (NoteMmsc object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = NoteMnfrMiscTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = NoteMnfrMiscTableMap::getInstanceFromPool($key))) {
+        $key = NoteMmscTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = NoteMmscTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + NoteMnfrMiscTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + NoteMmscTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = NoteMnfrMiscTableMap::OM_CLASS;
-            /** @var NoteMnfrMisc $obj */
+            $cls = NoteMmscTableMap::OM_CLASS;
+            /** @var NoteMmsc $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            NoteMnfrMiscTableMap::addInstanceToPool($obj, $key);
+            NoteMmscTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -377,18 +377,18 @@ class NoteMnfrMiscTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = NoteMnfrMiscTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = NoteMnfrMiscTableMap::getInstanceFromPool($key))) {
+            $key = NoteMmscTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = NoteMmscTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var NoteMnfrMisc $obj */
+                /** @var NoteMmsc $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                NoteMnfrMiscTableMap::addInstanceToPool($obj, $key);
+                NoteMmscTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -409,17 +409,17 @@ class NoteMnfrMiscTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTTYPE);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTTYPEDESC);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_MNFRID);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTMMSCITEM);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTSEQ);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTNOTE);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTKEY2);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_PONTFORM);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(NoteMnfrMiscTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTTYPE);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTTYPEDESC);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_MNFRID);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTMMSCITEM);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTSEQ);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTNOTE);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTKEY2);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_PONTFORM);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(NoteMmscTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.PontType');
             $criteria->addSelectColumn($alias . '.PontTypeDesc');
@@ -444,7 +444,7 @@ class NoteMnfrMiscTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(NoteMnfrMiscTableMap::DATABASE_NAME)->getTable(NoteMnfrMiscTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(NoteMmscTableMap::DATABASE_NAME)->getTable(NoteMmscTableMap::TABLE_NAME);
     }
 
     /**
@@ -452,16 +452,16 @@ class NoteMnfrMiscTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteMnfrMiscTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(NoteMnfrMiscTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new NoteMnfrMiscTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteMmscTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(NoteMmscTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new NoteMmscTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a NoteMnfrMisc or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a NoteMmsc or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or NoteMnfrMisc object or primary key or array of primary keys
+     * @param mixed               $values Criteria or NoteMmsc object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -472,17 +472,17 @@ class NoteMnfrMiscTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \NoteMnfrMisc) { // it's a model object
+        } elseif ($values instanceof \NoteMmsc) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $criteria = new Criteria(NoteMmscTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -490,21 +490,21 @@ class NoteMnfrMiscTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(NoteMmscTableMap::COL_PONTTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(NoteMmscTableMap::COL_PONTSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteMmscTableMap::COL_PONTKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteMmscTableMap::COL_PONTFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = NoteMnfrMiscQuery::create()->mergeWith($criteria);
+        $query = NoteMmscQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            NoteMnfrMiscTableMap::clearInstancePool();
+            NoteMmscTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                NoteMnfrMiscTableMap::removeInstanceFromPool($singleval);
+                NoteMmscTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -519,13 +519,13 @@ class NoteMnfrMiscTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return NoteMnfrMiscQuery::create()->doDeleteAll($con);
+        return NoteMmscQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a NoteMnfrMisc or Criteria object.
+     * Performs an INSERT on the database, given a NoteMmsc or Criteria object.
      *
-     * @param mixed               $criteria Criteria or NoteMnfrMisc object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or NoteMmsc object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -534,18 +534,18 @@ class NoteMnfrMiscTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from NoteMnfrMisc object
+            $criteria = $criteria->buildCriteria(); // build Criteria from NoteMmsc object
         }
 
 
         // Set the correct dbName
-        $query = NoteMnfrMiscQuery::create()->mergeWith($criteria);
+        $query = NoteMmscQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -554,7 +554,7 @@ class NoteMnfrMiscTableMap extends TableMap
         });
     }
 
-} // NoteMnfrMiscTableMap
+} // NoteMmscTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-NoteMnfrMiscTableMap::buildTableMap();
+NoteMmscTableMap::buildTableMap();

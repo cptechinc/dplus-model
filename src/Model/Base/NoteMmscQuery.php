@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \NoteMnfrMisc as ChildNoteMnfrMisc;
-use \NoteMnfrMiscQuery as ChildNoteMnfrMiscQuery;
+use \NoteMmsc as ChildNoteMmsc;
+use \NoteMmscQuery as ChildNoteMmscQuery;
 use \Exception;
 use \PDO;
-use Map\NoteMnfrMiscTableMap;
+use Map\NoteMmscTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,113 +19,113 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildNoteMnfrMiscQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
- * @method     ChildNoteMnfrMiscQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
- * @method     ChildNoteMnfrMiscQuery orderByMnfrid($order = Criteria::ASC) Order by the MnfrId column
- * @method     ChildNoteMnfrMiscQuery orderByPontmmscitem($order = Criteria::ASC) Order by the PontMmscItem column
- * @method     ChildNoteMnfrMiscQuery orderByPontseq($order = Criteria::ASC) Order by the PontSeq column
- * @method     ChildNoteMnfrMiscQuery orderByPontnote($order = Criteria::ASC) Order by the PontNote column
- * @method     ChildNoteMnfrMiscQuery orderByPontkey2($order = Criteria::ASC) Order by the PontKey2 column
- * @method     ChildNoteMnfrMiscQuery orderByPontform($order = Criteria::ASC) Order by the PontForm column
- * @method     ChildNoteMnfrMiscQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildNoteMnfrMiscQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildNoteMnfrMiscQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildNoteMmscQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
+ * @method     ChildNoteMmscQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
+ * @method     ChildNoteMmscQuery orderByMnfrid($order = Criteria::ASC) Order by the MnfrId column
+ * @method     ChildNoteMmscQuery orderByPontmmscitem($order = Criteria::ASC) Order by the PontMmscItem column
+ * @method     ChildNoteMmscQuery orderByPontseq($order = Criteria::ASC) Order by the PontSeq column
+ * @method     ChildNoteMmscQuery orderByPontnote($order = Criteria::ASC) Order by the PontNote column
+ * @method     ChildNoteMmscQuery orderByPontkey2($order = Criteria::ASC) Order by the PontKey2 column
+ * @method     ChildNoteMmscQuery orderByPontform($order = Criteria::ASC) Order by the PontForm column
+ * @method     ChildNoteMmscQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildNoteMmscQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildNoteMmscQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildNoteMnfrMiscQuery groupByPonttype() Group by the PontType column
- * @method     ChildNoteMnfrMiscQuery groupByPonttypedesc() Group by the PontTypeDesc column
- * @method     ChildNoteMnfrMiscQuery groupByMnfrid() Group by the MnfrId column
- * @method     ChildNoteMnfrMiscQuery groupByPontmmscitem() Group by the PontMmscItem column
- * @method     ChildNoteMnfrMiscQuery groupByPontseq() Group by the PontSeq column
- * @method     ChildNoteMnfrMiscQuery groupByPontnote() Group by the PontNote column
- * @method     ChildNoteMnfrMiscQuery groupByPontkey2() Group by the PontKey2 column
- * @method     ChildNoteMnfrMiscQuery groupByPontform() Group by the PontForm column
- * @method     ChildNoteMnfrMiscQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildNoteMnfrMiscQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildNoteMnfrMiscQuery groupByDummy() Group by the dummy column
+ * @method     ChildNoteMmscQuery groupByPonttype() Group by the PontType column
+ * @method     ChildNoteMmscQuery groupByPonttypedesc() Group by the PontTypeDesc column
+ * @method     ChildNoteMmscQuery groupByMnfrid() Group by the MnfrId column
+ * @method     ChildNoteMmscQuery groupByPontmmscitem() Group by the PontMmscItem column
+ * @method     ChildNoteMmscQuery groupByPontseq() Group by the PontSeq column
+ * @method     ChildNoteMmscQuery groupByPontnote() Group by the PontNote column
+ * @method     ChildNoteMmscQuery groupByPontkey2() Group by the PontKey2 column
+ * @method     ChildNoteMmscQuery groupByPontform() Group by the PontForm column
+ * @method     ChildNoteMmscQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildNoteMmscQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildNoteMmscQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildNoteMnfrMiscQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildNoteMnfrMiscQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildNoteMnfrMiscQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildNoteMmscQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildNoteMmscQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildNoteMmscQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildNoteMnfrMiscQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildNoteMnfrMiscQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildNoteMnfrMiscQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildNoteMmscQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildNoteMmscQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildNoteMmscQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildNoteMnfrMisc findOne(ConnectionInterface $con = null) Return the first ChildNoteMnfrMisc matching the query
- * @method     ChildNoteMnfrMisc findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNoteMnfrMisc matching the query, or a new ChildNoteMnfrMisc object populated from the query conditions when no match is found
+ * @method     ChildNoteMmsc findOne(ConnectionInterface $con = null) Return the first ChildNoteMmsc matching the query
+ * @method     ChildNoteMmsc findOneOrCreate(ConnectionInterface $con = null) Return the first ChildNoteMmsc matching the query, or a new ChildNoteMmsc object populated from the query conditions when no match is found
  *
- * @method     ChildNoteMnfrMisc findOneByPonttype(string $PontType) Return the first ChildNoteMnfrMisc filtered by the PontType column
- * @method     ChildNoteMnfrMisc findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMnfrMisc filtered by the PontTypeDesc column
- * @method     ChildNoteMnfrMisc findOneByMnfrid(string $MnfrId) Return the first ChildNoteMnfrMisc filtered by the MnfrId column
- * @method     ChildNoteMnfrMisc findOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMnfrMisc filtered by the PontMmscItem column
- * @method     ChildNoteMnfrMisc findOneByPontseq(int $PontSeq) Return the first ChildNoteMnfrMisc filtered by the PontSeq column
- * @method     ChildNoteMnfrMisc findOneByPontnote(string $PontNote) Return the first ChildNoteMnfrMisc filtered by the PontNote column
- * @method     ChildNoteMnfrMisc findOneByPontkey2(string $PontKey2) Return the first ChildNoteMnfrMisc filtered by the PontKey2 column
- * @method     ChildNoteMnfrMisc findOneByPontform(string $PontForm) Return the first ChildNoteMnfrMisc filtered by the PontForm column
- * @method     ChildNoteMnfrMisc findOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteMnfrMisc filtered by the DateUpdtd column
- * @method     ChildNoteMnfrMisc findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteMnfrMisc filtered by the TimeUpdtd column
- * @method     ChildNoteMnfrMisc findOneByDummy(string $dummy) Return the first ChildNoteMnfrMisc filtered by the dummy column *
+ * @method     ChildNoteMmsc findOneByPonttype(string $PontType) Return the first ChildNoteMmsc filtered by the PontType column
+ * @method     ChildNoteMmsc findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMmsc filtered by the PontTypeDesc column
+ * @method     ChildNoteMmsc findOneByMnfrid(string $MnfrId) Return the first ChildNoteMmsc filtered by the MnfrId column
+ * @method     ChildNoteMmsc findOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMmsc filtered by the PontMmscItem column
+ * @method     ChildNoteMmsc findOneByPontseq(int $PontSeq) Return the first ChildNoteMmsc filtered by the PontSeq column
+ * @method     ChildNoteMmsc findOneByPontnote(string $PontNote) Return the first ChildNoteMmsc filtered by the PontNote column
+ * @method     ChildNoteMmsc findOneByPontkey2(string $PontKey2) Return the first ChildNoteMmsc filtered by the PontKey2 column
+ * @method     ChildNoteMmsc findOneByPontform(string $PontForm) Return the first ChildNoteMmsc filtered by the PontForm column
+ * @method     ChildNoteMmsc findOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteMmsc filtered by the DateUpdtd column
+ * @method     ChildNoteMmsc findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteMmsc filtered by the TimeUpdtd column
+ * @method     ChildNoteMmsc findOneByDummy(string $dummy) Return the first ChildNoteMmsc filtered by the dummy column *
 
- * @method     ChildNoteMnfrMisc requirePk($key, ConnectionInterface $con = null) Return the ChildNoteMnfrMisc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOne(ConnectionInterface $con = null) Return the first ChildNoteMnfrMisc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requirePk($key, ConnectionInterface $con = null) Return the ChildNoteMmsc by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOne(ConnectionInterface $con = null) Return the first ChildNoteMmsc matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNoteMnfrMisc requireOneByPonttype(string $PontType) Return the first ChildNoteMnfrMisc filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMnfrMisc filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByMnfrid(string $MnfrId) Return the first ChildNoteMnfrMisc filtered by the MnfrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMnfrMisc filtered by the PontMmscItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPontseq(int $PontSeq) Return the first ChildNoteMnfrMisc filtered by the PontSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPontnote(string $PontNote) Return the first ChildNoteMnfrMisc filtered by the PontNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPontkey2(string $PontKey2) Return the first ChildNoteMnfrMisc filtered by the PontKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByPontform(string $PontForm) Return the first ChildNoteMnfrMisc filtered by the PontForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteMnfrMisc filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteMnfrMisc filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfrMisc requireOneByDummy(string $dummy) Return the first ChildNoteMnfrMisc filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPonttype(string $PontType) Return the first ChildNoteMmsc filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMmsc filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByMnfrid(string $MnfrId) Return the first ChildNoteMmsc filtered by the MnfrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMmsc filtered by the PontMmscItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontseq(int $PontSeq) Return the first ChildNoteMmsc filtered by the PontSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontnote(string $PontNote) Return the first ChildNoteMmsc filtered by the PontNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontkey2(string $PontKey2) Return the first ChildNoteMmsc filtered by the PontKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontform(string $PontForm) Return the first ChildNoteMmsc filtered by the PontForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByDateupdtd(string $DateUpdtd) Return the first ChildNoteMmsc filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildNoteMmsc filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByDummy(string $dummy) Return the first ChildNoteMmsc filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildNoteMnfrMisc[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNoteMnfrMisc objects based on current ModelCriteria
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPonttype(string $PontType) Return ChildNoteMnfrMisc objects filtered by the PontType column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildNoteMnfrMisc objects filtered by the PontTypeDesc column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByMnfrid(string $MnfrId) Return ChildNoteMnfrMisc objects filtered by the MnfrId column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPontmmscitem(string $PontMmscItem) Return ChildNoteMnfrMisc objects filtered by the PontMmscItem column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPontseq(int $PontSeq) Return ChildNoteMnfrMisc objects filtered by the PontSeq column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPontnote(string $PontNote) Return ChildNoteMnfrMisc objects filtered by the PontNote column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPontkey2(string $PontKey2) Return ChildNoteMnfrMisc objects filtered by the PontKey2 column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByPontform(string $PontForm) Return ChildNoteMnfrMisc objects filtered by the PontForm column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildNoteMnfrMisc objects filtered by the DateUpdtd column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildNoteMnfrMisc objects filtered by the TimeUpdtd column
- * @method     ChildNoteMnfrMisc[]|ObjectCollection findByDummy(string $dummy) Return ChildNoteMnfrMisc objects filtered by the dummy column
- * @method     ChildNoteMnfrMisc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildNoteMmsc[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildNoteMmsc objects based on current ModelCriteria
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPonttype(string $PontType) Return ChildNoteMmsc objects filtered by the PontType column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildNoteMmsc objects filtered by the PontTypeDesc column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByMnfrid(string $MnfrId) Return ChildNoteMmsc objects filtered by the MnfrId column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontmmscitem(string $PontMmscItem) Return ChildNoteMmsc objects filtered by the PontMmscItem column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontseq(int $PontSeq) Return ChildNoteMmsc objects filtered by the PontSeq column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontnote(string $PontNote) Return ChildNoteMmsc objects filtered by the PontNote column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontkey2(string $PontKey2) Return ChildNoteMmsc objects filtered by the PontKey2 column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontform(string $PontForm) Return ChildNoteMmsc objects filtered by the PontForm column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildNoteMmsc objects filtered by the DateUpdtd column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildNoteMmsc objects filtered by the TimeUpdtd column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByDummy(string $dummy) Return ChildNoteMmsc objects filtered by the dummy column
+ * @method     ChildNoteMmsc[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class NoteMnfrMiscQuery extends ModelCriteria
+abstract class NoteMmscQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\NoteMnfrMiscQuery object.
+     * Initializes internal state of \Base\NoteMmscQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\NoteMnfrMisc', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\NoteMmsc', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildNoteMnfrMiscQuery object.
+     * Returns a new ChildNoteMmscQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildNoteMnfrMiscQuery
+     * @return ChildNoteMmscQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildNoteMnfrMiscQuery) {
+        if ($criteria instanceof ChildNoteMmscQuery) {
             return $criteria;
         }
-        $query = new ChildNoteMnfrMiscQuery();
+        $query = new ChildNoteMmscQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -148,7 +148,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param array[$PontType, $PontSeq, $PontKey2, $PontForm] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildNoteMnfrMisc|array|mixed the result, formatted by the current formatter
+     * @return ChildNoteMmsc|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -157,7 +157,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -170,7 +170,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = NoteMnfrMiscTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
+        if ((null !== ($obj = NoteMmscTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -187,7 +187,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildNoteMnfrMisc A model object, or null if the key is not found
+     * @return ChildNoteMmsc A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -205,10 +205,10 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildNoteMnfrMisc $obj */
-            $obj = new ChildNoteMnfrMisc();
+            /** @var ChildNoteMmsc $obj */
+            $obj = new ChildNoteMmsc();
             $obj->hydrate($row);
-            NoteMnfrMiscTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
+            NoteMmscTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
         }
         $stmt->closeCursor();
 
@@ -221,7 +221,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildNoteMnfrMisc|array|mixed the result, formatted by the current formatter
+     * @return ChildNoteMmsc|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -263,14 +263,14 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTTYPE, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTSEQ, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTKEY2, $key[2], Criteria::EQUAL);
-        $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTFORM, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(NoteMmscTableMap::COL_PONTTYPE, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(NoteMmscTableMap::COL_PONTSEQ, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(NoteMmscTableMap::COL_PONTKEY2, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(NoteMmscTableMap::COL_PONTFORM, $key[3], Criteria::EQUAL);
 
         return $this;
     }
@@ -280,7 +280,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -288,12 +288,12 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTTYPE, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTSEQ, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(NoteMmscTableMap::COL_PONTTYPE, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(NoteMmscTableMap::COL_PONTSEQ, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTKEY2, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(NoteMmscTableMap::COL_PONTKEY2, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
-            $cton3 = $this->getNewCriterion(NoteMnfrMiscTableMap::COL_PONTFORM, $key[3], Criteria::EQUAL);
+            $cton3 = $this->getNewCriterion(NoteMmscTableMap::COL_PONTFORM, $key[3], Criteria::EQUAL);
             $cton0->addAnd($cton3);
             $this->addOr($cton0);
         }
@@ -313,7 +313,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $ponttype The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPonttype($ponttype = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTTYPE, $ponttype, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTTYPE, $ponttype, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $ponttypedesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPonttypedesc($ponttypedesc = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTTYPEDESC, $ponttypedesc, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTTYPEDESC, $ponttypedesc, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $mnfrid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByMnfrid($mnfrid = null, $comparison = null)
     {
@@ -373,7 +373,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_MNFRID, $mnfrid, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_MNFRID, $mnfrid, $comparison);
     }
 
     /**
@@ -388,7 +388,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $pontmmscitem The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPontmmscitem($pontmmscitem = null, $comparison = null)
     {
@@ -398,7 +398,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTMMSCITEM, $pontmmscitem, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTMMSCITEM, $pontmmscitem, $comparison);
     }
 
     /**
@@ -417,18 +417,18 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPontseq($pontseq = null, $comparison = null)
     {
         if (is_array($pontseq)) {
             $useMinMax = false;
             if (isset($pontseq['min'])) {
-                $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTSEQ, $pontseq['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(NoteMmscTableMap::COL_PONTSEQ, $pontseq['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($pontseq['max'])) {
-                $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTSEQ, $pontseq['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(NoteMmscTableMap::COL_PONTSEQ, $pontseq['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -439,7 +439,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTSEQ, $pontseq, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTSEQ, $pontseq, $comparison);
     }
 
     /**
@@ -454,7 +454,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $pontnote The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPontnote($pontnote = null, $comparison = null)
     {
@@ -464,7 +464,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTNOTE, $pontnote, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTNOTE, $pontnote, $comparison);
     }
 
     /**
@@ -479,7 +479,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $pontkey2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPontkey2($pontkey2 = null, $comparison = null)
     {
@@ -489,7 +489,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTKEY2, $pontkey2, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTKEY2, $pontkey2, $comparison);
     }
 
     /**
@@ -504,7 +504,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $pontform The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByPontform($pontform = null, $comparison = null)
     {
@@ -514,7 +514,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_PONTFORM, $pontform, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTFORM, $pontform, $comparison);
     }
 
     /**
@@ -529,7 +529,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -539,7 +539,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -554,7 +554,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -564,7 +564,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -579,7 +579,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -589,23 +589,23 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrMiscTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildNoteMnfrMisc $noteMnfrMisc Object to remove from the list of results
+     * @param   ChildNoteMmsc $noteMmsc Object to remove from the list of results
      *
-     * @return $this|ChildNoteMnfrMiscQuery The current query, for fluid interface
+     * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
-    public function prune($noteMnfrMisc = null)
+    public function prune($noteMmsc = null)
     {
-        if ($noteMnfrMisc) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(NoteMnfrMiscTableMap::COL_PONTTYPE), $noteMnfrMisc->getPonttype(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(NoteMnfrMiscTableMap::COL_PONTSEQ), $noteMnfrMisc->getPontseq(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(NoteMnfrMiscTableMap::COL_PONTKEY2), $noteMnfrMisc->getPontkey2(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(NoteMnfrMiscTableMap::COL_PONTFORM), $noteMnfrMisc->getPontform(), Criteria::NOT_EQUAL);
+        if ($noteMmsc) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(NoteMmscTableMap::COL_PONTTYPE), $noteMmsc->getPonttype(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(NoteMmscTableMap::COL_PONTSEQ), $noteMmsc->getPontseq(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(NoteMmscTableMap::COL_PONTKEY2), $noteMmsc->getPontkey2(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(NoteMmscTableMap::COL_PONTFORM), $noteMmsc->getPontform(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
         }
 
@@ -621,7 +621,7 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -632,8 +632,8 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            NoteMnfrMiscTableMap::clearInstancePool();
-            NoteMnfrMiscTableMap::clearRelatedInstancePool();
+            NoteMmscTableMap::clearInstancePool();
+            NoteMmscTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -651,26 +651,26 @@ abstract class NoteMnfrMiscQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(NoteMnfrMiscTableMap::DATABASE_NAME);
+        $criteria->setDbName(NoteMmscTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            NoteMnfrMiscTableMap::removeInstanceFromPool($criteria);
+            NoteMmscTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            NoteMnfrMiscTableMap::clearRelatedInstancePool();
+            NoteMmscTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // NoteMnfrMiscQuery
+} // NoteMmscQuery

@@ -2492,7 +2492,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_mnfr_misc_det" idMethod="native" phpName="NoteMnfrMisc">
+  <table name="notes_mnfr_misc_det" idMethod="native" phpName="NoteMmsc">
     <column name="PontType" phpName="Ponttype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="PontTypeDesc" phpName="Ponttypedesc" type="VARCHAR" size="40"/>
     <column name="MnfrId" phpName="Mnfrid" type="VARCHAR" size="6"/>

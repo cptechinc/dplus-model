@@ -1,6 +1,6 @@
 <?php
 
-use Base\NoteMnfrMiscQuery as BaseNoteMnfrMiscQuery;
+use Base\NoteMmscQuery as BaseNoteMmscQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,6 +16,6 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  * @method  ItemWhseOrderNoteQuery filterByMnfrstring $mnfrID))      Filter the query by mnfrid column
  */
-class NoteMnfrMiscQuery extends BaseNoteMnfrMiscQuery {
+class NoteMmscQuery extends BaseNoteMmscQuery {
 	use QueryTraits;
 }

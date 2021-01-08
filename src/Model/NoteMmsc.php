@@ -1,6 +1,6 @@
 <?php
 
-use Base\NoteMnfrMisc as BaseNoteMnfrMisc;
+use Base\NoteMmsc as BaseNoteMmsc;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -10,7 +10,7 @@ use Dplus\Model\MagicMethodTraits;
  * PURPOSE: MXRFE Manufacturer Misc Notes
  *
  */
-class NoteMnfrMisc extends BaseNoteMnfrMisc {
+class NoteMmsc extends BaseNoteMmsc {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
@@ -22,11 +22,11 @@ class NoteMnfrMisc extends BaseNoteMnfrMisc {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'type'        => 'pontype',
+		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
 		'mnfritemid'  => 'pontmnfritem',
-		'sequence'    => 'pont',
+		'sequence'    => 'pontseq',
 		'note'        => 'pontnote',
 		'key2'        => 'pontkey2',
 		'form'        => 'pontform',

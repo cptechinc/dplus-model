@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \NoteMnfrMiscQuery as ChildNoteMnfrMiscQuery;
+use \NoteMmscQuery as ChildNoteMmscQuery;
 use \Exception;
 use \PDO;
-use Map\NoteMnfrMiscTableMap;
+use Map\NoteMmscTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class NoteMnfrMisc implements ActiveRecordInterface
+abstract class NoteMmsc implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\NoteMnfrMiscTableMap';
+    const TABLE_MAP = '\\Map\\NoteMmscTableMap';
 
 
     /**
@@ -163,7 +163,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\NoteMnfrMisc object.
+     * Initializes internal state of Base\NoteMmsc object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -260,9 +260,9 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>NoteMnfrMisc</code> instance.  If
-     * <code>obj</code> is an instance of <code>NoteMnfrMisc</code>, delegates to
-     * <code>equals(NoteMnfrMisc)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>NoteMmsc</code> instance.  If
+     * <code>obj</code> is an instance of <code>NoteMmsc</code>, delegates to
+     * <code>equals(NoteMmsc)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -328,7 +328,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|NoteMnfrMisc The current object, for fluid interface
+     * @return $this|NoteMmsc The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -503,7 +503,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [ponttype] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPonttype($v)
     {
@@ -513,7 +513,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->ponttype !== $v) {
             $this->ponttype = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTTYPE] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTTYPE] = true;
         }
 
         return $this;
@@ -523,7 +523,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [ponttypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPonttypedesc($v)
     {
@@ -533,7 +533,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->ponttypedesc !== $v) {
             $this->ponttypedesc = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTTYPEDESC] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTTYPEDESC] = true;
         }
 
         return $this;
@@ -543,7 +543,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [mnfrid] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setMnfrid($v)
     {
@@ -553,7 +553,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->mnfrid !== $v) {
             $this->mnfrid = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_MNFRID] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_MNFRID] = true;
         }
 
         return $this;
@@ -563,7 +563,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [pontmmscitem] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPontmmscitem($v)
     {
@@ -573,7 +573,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->pontmmscitem !== $v) {
             $this->pontmmscitem = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTMMSCITEM] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTMMSCITEM] = true;
         }
 
         return $this;
@@ -583,7 +583,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [pontseq] column.
      *
      * @param int $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPontseq($v)
     {
@@ -593,7 +593,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->pontseq !== $v) {
             $this->pontseq = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTSEQ] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTSEQ] = true;
         }
 
         return $this;
@@ -603,7 +603,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [pontnote] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPontnote($v)
     {
@@ -613,7 +613,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->pontnote !== $v) {
             $this->pontnote = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTNOTE] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTNOTE] = true;
         }
 
         return $this;
@@ -623,7 +623,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [pontkey2] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPontkey2($v)
     {
@@ -633,7 +633,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->pontkey2 !== $v) {
             $this->pontkey2 = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTKEY2] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTKEY2] = true;
         }
 
         return $this;
@@ -643,7 +643,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [pontform] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setPontform($v)
     {
@@ -653,7 +653,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->pontform !== $v) {
             $this->pontform = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_PONTFORM] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTFORM] = true;
         }
 
         return $this;
@@ -663,7 +663,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -673,7 +673,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -683,7 +683,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -693,7 +693,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -703,7 +703,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\NoteMnfrMisc The current object (for fluent API support)
+     * @return $this|\NoteMmsc The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -713,7 +713,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[NoteMnfrMiscTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[NoteMmscTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -771,37 +771,37 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : NoteMmscTableMap::translateFieldName('Ponttype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ponttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Ponttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : NoteMmscTableMap::translateFieldName('Ponttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->ponttypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Mnfrid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : NoteMmscTableMap::translateFieldName('Mnfrid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->mnfrid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Pontmmscitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : NoteMmscTableMap::translateFieldName('Pontmmscitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontmmscitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : NoteMmscTableMap::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Pontnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : NoteMmscTableMap::translateFieldName('Pontnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : NoteMmscTableMap::translateFieldName('Pontkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : NoteMmscTableMap::translateFieldName('Pontform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : NoteMmscTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : NoteMmscTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : NoteMnfrMiscTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : NoteMmscTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -811,10 +811,10 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = NoteMnfrMiscTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 11; // 11 = NoteMmscTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\NoteMnfrMisc'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\NoteMmsc'), 0, $e);
         }
     }
 
@@ -856,13 +856,13 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildNoteMnfrMiscQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildNoteMmscQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -881,8 +881,8 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see NoteMnfrMisc::setDeleted()
-     * @see NoteMnfrMisc::isDeleted()
+     * @see NoteMmsc::setDeleted()
+     * @see NoteMmsc::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -891,11 +891,11 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildNoteMnfrMiscQuery::create()
+            $deleteQuery = ChildNoteMmscQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -930,7 +930,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NoteMnfrMiscTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteMmscTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -949,7 +949,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                NoteMnfrMiscTableMap::addInstanceToPool($this);
+                NoteMmscTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1008,37 +1008,37 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTTYPE)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'PontType';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTTYPEDESC)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'PontTypeDesc';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_MNFRID)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_MNFRID)) {
             $modifiedColumns[':p' . $index++]  = 'MnfrId';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTMMSCITEM)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCITEM)) {
             $modifiedColumns[':p' . $index++]  = 'PontMmscItem';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTSEQ)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'PontSeq';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTNOTE)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'PontNote';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTKEY2)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'PontKey2';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTFORM)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTFORM)) {
             $modifiedColumns[':p' . $index++]  = 'PontForm';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(NoteMmscTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1124,7 +1124,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = NoteMnfrMiscTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = NoteMmscTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1196,11 +1196,11 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['NoteMnfrMisc'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['NoteMmsc'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['NoteMnfrMisc'][$this->hashCode()] = true;
-        $keys = NoteMnfrMiscTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['NoteMmsc'][$this->hashCode()] = true;
+        $keys = NoteMmscTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getPonttype(),
             $keys[1] => $this->getPonttypedesc(),
@@ -1232,11 +1232,11 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\NoteMnfrMisc
+     * @return $this|\NoteMmsc
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = NoteMnfrMiscTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = NoteMmscTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1247,7 +1247,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\NoteMnfrMisc
+     * @return $this|\NoteMmsc
      */
     public function setByPosition($pos, $value)
     {
@@ -1309,7 +1309,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = NoteMnfrMiscTableMap::getFieldNames($keyType);
+        $keys = NoteMmscTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setPonttype($arr[$keys[0]]);
@@ -1363,7 +1363,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\NoteMnfrMisc The current object, for fluid interface
+     * @return $this|\NoteMmsc The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1383,40 +1383,40 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(NoteMnfrMiscTableMap::DATABASE_NAME);
+        $criteria = new Criteria(NoteMmscTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTTYPE)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTTYPE, $this->ponttype);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTTYPE)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTTYPE, $this->ponttype);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTTYPEDESC)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTTYPEDESC, $this->ponttypedesc);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTTYPEDESC)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTTYPEDESC, $this->ponttypedesc);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_MNFRID)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_MNFRID, $this->mnfrid);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_MNFRID)) {
+            $criteria->add(NoteMmscTableMap::COL_MNFRID, $this->mnfrid);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTMMSCITEM)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTMMSCITEM, $this->pontmmscitem);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCITEM)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTMMSCITEM, $this->pontmmscitem);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTSEQ)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTSEQ, $this->pontseq);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTSEQ)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTSEQ, $this->pontseq);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTNOTE)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTNOTE, $this->pontnote);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTNOTE)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTNOTE, $this->pontnote);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTKEY2)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTKEY2, $this->pontkey2);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTKEY2)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTKEY2, $this->pontkey2);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_PONTFORM)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_PONTFORM, $this->pontform);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTFORM)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTFORM, $this->pontform);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_DATEUPDTD)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_DATEUPDTD)) {
+            $criteria->add(NoteMmscTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(NoteMmscTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(NoteMnfrMiscTableMap::COL_DUMMY)) {
-            $criteria->add(NoteMnfrMiscTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_DUMMY)) {
+            $criteria->add(NoteMmscTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1434,11 +1434,11 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildNoteMnfrMiscQuery::create();
-        $criteria->add(NoteMnfrMiscTableMap::COL_PONTTYPE, $this->ponttype);
-        $criteria->add(NoteMnfrMiscTableMap::COL_PONTSEQ, $this->pontseq);
-        $criteria->add(NoteMnfrMiscTableMap::COL_PONTKEY2, $this->pontkey2);
-        $criteria->add(NoteMnfrMiscTableMap::COL_PONTFORM, $this->pontform);
+        $criteria = ChildNoteMmscQuery::create();
+        $criteria->add(NoteMmscTableMap::COL_PONTTYPE, $this->ponttype);
+        $criteria->add(NoteMmscTableMap::COL_PONTSEQ, $this->pontseq);
+        $criteria->add(NoteMmscTableMap::COL_PONTKEY2, $this->pontkey2);
+        $criteria->add(NoteMmscTableMap::COL_PONTFORM, $this->pontform);
 
         return $criteria;
     }
@@ -1513,7 +1513,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \NoteMnfrMisc (or compatible) type.
+     * @param      object $copyObj An object of \NoteMmsc (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1545,7 +1545,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \NoteMnfrMisc Clone of current object.
+     * @return \NoteMmsc Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1606,7 +1606,7 @@ abstract class NoteMnfrMisc implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(NoteMnfrMiscTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(NoteMmscTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
