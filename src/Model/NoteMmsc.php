@@ -25,7 +25,7 @@ class NoteMmsc extends BaseNoteMmsc {
 		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
-		'mnfritemid'  => 'pontmnfritem',
+		'mnfritemid'  => 'pontmmscitem',
 		'sequence'    => 'pontseq',
 		'note'        => 'pontnote',
 		'key2'        => 'pontkey2',
@@ -53,7 +53,7 @@ class NoteMmsc extends BaseNoteMmsc {
 	 * @return NoteMnfr
 	 */
 	public static function new() {
-		$item = new NoteMnfr();
+		$item = new NoteMmsc();
 		$item->setType(self::TYPE);
 		$item->setDescription(self::DESC);
 		$item->setDummy('P');
