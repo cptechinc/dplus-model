@@ -14,7 +14,7 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * @method  ApBuyer filterByVendorid(string $vendorID)      Return the first ApBuyercode filtered by the apvevendid column
+ * @method  ItemXrefVendorQuery filterByVendorid(string $vendorID)      Filter the Query by the apvevendid column
  *
  * FindOneByXXX()
  *
@@ -24,7 +24,7 @@ use Dplus\Model\QueryTraits;
  */
 class ItemXrefVendorQuery extends BaseItemXrefVendorQuery {
 	use QueryTraits;
-	
+
 	/**
 	 * Filter the query on the ApveVendId column
 	 *
@@ -33,9 +33,24 @@ class ItemXrefVendorQuery extends BaseItemXrefVendorQuery {
 	 *
 	 * @param  string $vendorID   The value to use as filter.
 	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return ItemXrefManufacturerQuery The current query, for fluid interface
+	 * @return ItemXrefVendorQuery The current query, for fluid interface
 	 */
 	public function filterByVendorid($vendorID = null, $comparison = null) {
 		$this->filterByApvevendid($vendorID, $comparison);
+	}
+
+	/**
+	 * Filter the by the X-ref Key
+	 * @param  string $key        [vendorid, venditemid, itemid]
+	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return ItemXrefVendoruery The current query, for fluid interface
+	 */
+	public function filterByXrefKey(array $key = [], $comparison = null) {
+		$cols = [
+			$this->tablemap_column(ItemXrefVendor::get_aliasproperty('vendorid')),
+			$this->tablemap_column(ItemXrefVendor::get_aliasproperty('vendoritemid')),
+			$this->tablemap_column(ItemXrefVendor::get_aliasproperty('itemid'))
+		];
+		$this->where("CONCAT(".implode(",'-',", $cols).") $comparison ?", implode('-', $key));
 	}
 }
