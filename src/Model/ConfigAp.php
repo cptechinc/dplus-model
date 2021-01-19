@@ -28,7 +28,9 @@ class ConfigAp extends BaseConfigAp {
 		'columns_notes_pord'  => 'aptbconfpocols',
 		'default_termscode'   => 'aptbconfdeftermcode',
 		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel',
-		'vendorcostbreaks'      => 'AptbConfVendCostBreaks'
+		'vendorcostbreaks'      => 'AptbConfVendCostBreaks',
+		'updateitmcost'         => 'AptbConfVxmCostItemUpdM',
+		'confirmupdateitmcost'  => 'AptbConfVxmCostMMesg',
 	);
 
 	/**
@@ -37,5 +39,21 @@ class ConfigAp extends BaseConfigAp {
 	 */
 	public function use_vendor_cost_breaks() {
 		return $this->vendorcostbreaks == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if VXM should update ITM COST
+	 * @return bool
+	 */
+	public function update_itm_cost() {
+		return $this->updateitmcost == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if VXM should prompt user to Update ITM Cost
+	 * @return bool
+	 */
+	public function confirm_update_itm_cost() {
+		return $this->confirmupdateitmcost == self::YN_TRUE;
 	}
 }
