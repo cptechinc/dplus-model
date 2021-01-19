@@ -60,6 +60,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigApQuery orderByAptbconf1099zipcode($order = Criteria::ASC) Order by the AptbConf1099ZipCode column
  * @method     ChildConfigApQuery orderByAptbconf1099id($order = Criteria::ASC) Order by the AptbConf1099Id column
  * @method     ChildConfigApQuery orderByAptbconfstubsort($order = Criteria::ASC) Order by the AptbConfStubSort column
+ * @method     ChildConfigApQuery orderByAptbConfUseAch($order = Criteria::ASC) Order by the AptbConfUseAch column
  * @method     ChildConfigApQuery orderByAptbconfover1($order = Criteria::ASC) Order by the AptbConfOver1 column
  * @method     ChildConfigApQuery orderByAptbconfover2($order = Criteria::ASC) Order by the AptbConfOver2 column
  * @method     ChildConfigApQuery orderByAptbconfprtchk($order = Criteria::ASC) Order by the AptbConfPrtChk column
@@ -141,6 +142,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigApQuery groupByAptbconf1099zipcode() Group by the AptbConf1099ZipCode column
  * @method     ChildConfigApQuery groupByAptbconf1099id() Group by the AptbConf1099Id column
  * @method     ChildConfigApQuery groupByAptbconfstubsort() Group by the AptbConfStubSort column
+ * @method     ChildConfigApQuery groupByAptbConfUseAch() Group by the AptbConfUseAch column
  * @method     ChildConfigApQuery groupByAptbconfover1() Group by the AptbConfOver1 column
  * @method     ChildConfigApQuery groupByAptbconfover2() Group by the AptbConfOver2 column
  * @method     ChildConfigApQuery groupByAptbconfprtchk() Group by the AptbConfPrtChk column
@@ -233,6 +235,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAp findOneByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return the first ChildConfigAp filtered by the AptbConf1099ZipCode column
  * @method     ChildConfigAp findOneByAptbconf1099id(string $AptbConf1099Id) Return the first ChildConfigAp filtered by the AptbConf1099Id column
  * @method     ChildConfigAp findOneByAptbconfstubsort(string $AptbConfStubSort) Return the first ChildConfigAp filtered by the AptbConfStubSort column
+ * @method     ChildConfigAp findOneByAptbConfUseAch(string $AptbConfUseAch) Return the first ChildConfigAp filtered by the AptbConfUseAch column
  * @method     ChildConfigAp findOneByAptbconfover1(int $AptbConfOver1) Return the first ChildConfigAp filtered by the AptbConfOver1 column
  * @method     ChildConfigAp findOneByAptbconfover2(int $AptbConfOver2) Return the first ChildConfigAp filtered by the AptbConfOver2 column
  * @method     ChildConfigAp findOneByAptbconfprtchk(string $AptbConfPrtChk) Return the first ChildConfigAp filtered by the AptbConfPrtChk column
@@ -317,6 +320,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAp requireOneByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return the first ChildConfigAp filtered by the AptbConf1099ZipCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconf1099id(string $AptbConf1099Id) Return the first ChildConfigAp filtered by the AptbConf1099Id column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconfstubsort(string $AptbConfStubSort) Return the first ChildConfigAp filtered by the AptbConfStubSort column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAp requireOneByAptbConfUseAch(string $AptbConfUseAch) Return the first ChildConfigAp filtered by the AptbConfUseAch column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconfover1(int $AptbConfOver1) Return the first ChildConfigAp filtered by the AptbConfOver1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconfover2(int $AptbConfOver2) Return the first ChildConfigAp filtered by the AptbConfOver2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAp requireOneByAptbconfprtchk(string $AptbConfPrtChk) Return the first ChildConfigAp filtered by the AptbConfPrtChk column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -399,6 +403,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099zipcode(string $AptbConf1099ZipCode) Return ChildConfigAp objects filtered by the AptbConf1099ZipCode column
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconf1099id(string $AptbConf1099Id) Return ChildConfigAp objects filtered by the AptbConf1099Id column
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconfstubsort(string $AptbConfStubSort) Return ChildConfigAp objects filtered by the AptbConfStubSort column
+ * @method     ChildConfigAp[]|ObjectCollection findByAptbConfUseAch(string $AptbConfUseAch) Return ChildConfigAp objects filtered by the AptbConfUseAch column
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconfover1(int $AptbConfOver1) Return ChildConfigAp objects filtered by the AptbConfOver1 column
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconfover2(int $AptbConfOver2) Return ChildConfigAp objects filtered by the AptbConfOver2 column
  * @method     ChildConfigAp[]|ObjectCollection findByAptbconfprtchk(string $AptbConfPrtChk) Return ChildConfigAp objects filtered by the AptbConfPrtChk column
@@ -536,7 +541,7 @@ abstract class ConfigApQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT AptbConfKey, AptbConfGlIfac, AptbConfInIfac, AptbConfSoIfac, AptbConfPoIfac, AptbConfFrtAcct, AptbConfMiscAcct, AptbConfApAcct, AptbConfCashAcct, AptbConfDiscAcct, AptbConfTaxAcct, AptbConfPurAcct, AptbConfVarAcct, AptbConfVendDisc, AptbConfApInvVarAcct, AptbConfUseRoyal, AptbConfDefBuyrCode, AptbConfDefTermCode, AptbConfDefSviaCode, AptbConfDefTypeCode, AptbConfVendLine, AptbConfVendCols, AptbConfPoLine, AptbConfPoCols, AptbConfVendGetOpt, AptbConfPaytoShipfr, AptbConfHoldStat, AptbConfDiscRet, AptbConfStopVendChg, AptbConfReqDate2, AptbConfReqDate3, AptbConfReqDate4, AptbConf1099Name, AptbConf1099Adr1, AptbConf1099Adr2, AptbConf1099Adr3, AptbConf1099City, AptbConf1099Stat, AptbConf1099ZipCode, AptbConf1099Id, AptbConfStubSort, AptbConfOver1, AptbConfOver2, AptbConfPrtChk, AptbConfEiUnrecQty, AptbConfEiRecQtyAsk, AptbConfEiRecQtyDef, AptbConfAllowMultPos, AptbConfEiByClerk, AptbConfEiBatchProc, AptbConfEiDispStanCost, AptbConfEiAssetAcctChg, AptbConfAllowDupInvc, AptbConfPrtSoRept, AptbConfEiCheckHist, AptbConfSummGl, AptbConfVxmUserLabel, AptbConfVendCostBreaks, AptbConfMyeClrClosPo, AptbConfMyeClrClosDate, AptbConfMyeClrPoHist, AptbConfMyeClrPoDate, AptbConfMyeClrCkHist, AptbConfMyeClrCkDate, AptbConfMyeClrOpenCk, AptbConfLead, AptbConfVrReworkItem, AptbConfVrqcWhse, AptbConfVrGlAcct, AptbConfVxmListPc, AptbConfVxmListItemUpd, AptbConfVxmGrossLc, AptbConfVxmCostLp, AptbConfVxmCostItemUpd, AptbConfVxmCostRMesg, AptbConfVxmCostItemUpdM, AptbConfVxmCostMMesg, DateUpdtd, TimeUpdtd, dummy FROM ap_config WHERE AptbConfKey = :p0';
+        $sql = 'SELECT AptbConfKey, AptbConfGlIfac, AptbConfInIfac, AptbConfSoIfac, AptbConfPoIfac, AptbConfFrtAcct, AptbConfMiscAcct, AptbConfApAcct, AptbConfCashAcct, AptbConfDiscAcct, AptbConfTaxAcct, AptbConfPurAcct, AptbConfVarAcct, AptbConfVendDisc, AptbConfApInvVarAcct, AptbConfUseRoyal, AptbConfDefBuyrCode, AptbConfDefTermCode, AptbConfDefSviaCode, AptbConfDefTypeCode, AptbConfVendLine, AptbConfVendCols, AptbConfPoLine, AptbConfPoCols, AptbConfVendGetOpt, AptbConfPaytoShipfr, AptbConfHoldStat, AptbConfDiscRet, AptbConfStopVendChg, AptbConfReqDate2, AptbConfReqDate3, AptbConfReqDate4, AptbConf1099Name, AptbConf1099Adr1, AptbConf1099Adr2, AptbConf1099Adr3, AptbConf1099City, AptbConf1099Stat, AptbConf1099ZipCode, AptbConf1099Id, AptbConfStubSort, AptbConfUseAch, AptbConfOver1, AptbConfOver2, AptbConfPrtChk, AptbConfEiUnrecQty, AptbConfEiRecQtyAsk, AptbConfEiRecQtyDef, AptbConfAllowMultPos, AptbConfEiByClerk, AptbConfEiBatchProc, AptbConfEiDispStanCost, AptbConfEiAssetAcctChg, AptbConfAllowDupInvc, AptbConfPrtSoRept, AptbConfEiCheckHist, AptbConfSummGl, AptbConfVxmUserLabel, AptbConfVendCostBreaks, AptbConfMyeClrClosPo, AptbConfMyeClrClosDate, AptbConfMyeClrPoHist, AptbConfMyeClrPoDate, AptbConfMyeClrCkHist, AptbConfMyeClrCkDate, AptbConfMyeClrOpenCk, AptbConfLead, AptbConfVrReworkItem, AptbConfVrqcWhse, AptbConfVrGlAcct, AptbConfVxmListPc, AptbConfVxmListItemUpd, AptbConfVxmGrossLc, AptbConfVxmCostLp, AptbConfVxmCostItemUpd, AptbConfVxmCostRMesg, AptbConfVxmCostItemUpdM, AptbConfVxmCostMMesg, DateUpdtd, TimeUpdtd, dummy FROM ap_config WHERE AptbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -1809,6 +1814,31 @@ abstract class ConfigApQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFSTUBSORT, $aptbconfstubsort, $comparison);
+    }
+
+    /**
+     * Filter the query on the AptbConfUseAch column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByAptbConfUseAch('fooValue');   // WHERE AptbConfUseAch = 'fooValue'
+     * $query->filterByAptbConfUseAch('%fooValue%', Criteria::LIKE); // WHERE AptbConfUseAch LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $aptbConfUseAch The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigApQuery The current query, for fluid interface
+     */
+    public function filterByAptbConfUseAch($aptbConfUseAch = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($aptbConfUseAch)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigApTableMap::COL_APTBCONFUSEACH, $aptbConfUseAch, $comparison);
     }
 
     /**

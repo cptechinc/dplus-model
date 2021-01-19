@@ -53,6 +53,7 @@
     <column name="AptbConf1099ZipCode" phpName="Aptbconf1099zipcode" type="VARCHAR" size="10"/>
     <column name="AptbConf1099Id" phpName="Aptbconf1099id" type="VARCHAR" size="15"/>
     <column name="AptbConfStubSort" phpName="Aptbconfstubsort" type="VARCHAR" size="1"/>
+    <column name="AptbConfUseAch" phpName="AptbConfUseAch" type="VARCHAR" size="1"/>
     <column name="AptbConfOver1" phpName="Aptbconfover1" type="INTEGER" size="3"/>
     <column name="AptbConfOver2" phpName="Aptbconfover2" type="INTEGER" size="3"/>
     <column name="AptbConfPrtChk" phpName="Aptbconfprtchk" type="VARCHAR" size="1"/>

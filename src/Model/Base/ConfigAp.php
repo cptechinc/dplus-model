@@ -348,6 +348,13 @@ abstract class ConfigAp implements ActiveRecordInterface
     protected $aptbconfstubsort;
 
     /**
+     * The value for the aptbconfuseach field.
+     *
+     * @var        string
+     */
+    protected $aptbconfuseach;
+
+    /**
      * The value for the aptbconfover1 field.
      *
      * @var        int
@@ -1274,6 +1281,16 @@ abstract class ConfigAp implements ActiveRecordInterface
     public function getAptbconfstubsort()
     {
         return $this->aptbconfstubsort;
+    }
+
+    /**
+     * Get the [aptbconfuseach] column value.
+     *
+     * @return string
+     */
+    public function getAptbConfUseAch()
+    {
+        return $this->aptbconfuseach;
     }
 
     /**
@@ -2487,6 +2504,26 @@ abstract class ConfigAp implements ActiveRecordInterface
     } // setAptbconfstubsort()
 
     /**
+     * Set the value of [aptbconfuseach] column.
+     *
+     * @param string $v new value
+     * @return $this|\ConfigAp The current object (for fluent API support)
+     */
+    public function setAptbConfUseAch($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->aptbconfuseach !== $v) {
+            $this->aptbconfuseach = $v;
+            $this->modifiedColumns[ConfigApTableMap::COL_APTBCONFUSEACH] = true;
+        }
+
+        return $this;
+    } // setAptbConfUseAch()
+
+    /**
      * Set the value of [aptbconfover1] column.
      *
      * @param int $v new value
@@ -3429,121 +3466,124 @@ abstract class ConfigAp implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfstubsort', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfstubsort = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : ConfigApTableMap::translateFieldName('AptbConfUseAch', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->aptbconfuseach = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfover1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfover2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfover2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtchk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtchk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfprtchk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiunrecqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiunrecqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeiunrecqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtyask', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtyask', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeirecqtyask = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtydef', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeirecqtydef', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeirecqtydef = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowmultpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowmultpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfallowmultpos = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibyclerk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibyclerk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeibyclerk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibatchproc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeibatchproc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeibatchproc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeidispstancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeidispstancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeidispstancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiassetacctchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeiassetacctchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeiassetacctchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowdupinvc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfallowdupinvc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfallowdupinvc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtsorept', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfprtsorept', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfprtsorept = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeicheckhist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfeicheckhist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfeicheckhist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsummgl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfsummgl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfsummgl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmuserlabel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmuserlabel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmuserlabel = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcostbreaks', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvendcostbreaks', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvendcostbreaks = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclospo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclospo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrclospo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclosdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrclosdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrclosdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpohist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpohist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrpohist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpodate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrpodate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrpodate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckhist', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckhist', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrckhist = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclrckdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclrckdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclropenck', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfmyeclropenck', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfmyeclropenck = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ConfigApTableMap::translateFieldName('Aptbconflead', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigApTableMap::translateFieldName('Aptbconflead', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconflead = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrreworkitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrreworkitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrreworkitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrqcwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrqcwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrqcwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvrglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvrglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistpc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistpc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmlistpc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistitemupd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmlistitemupd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmlistitemupd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmgrosslc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmgrosslc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmgrosslc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostlp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostlp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostlp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostitemupd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostrmesg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostrmesg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostrmesg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupdm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostitemupdm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostitemupdm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostmmesg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigApTableMap::translateFieldName('Aptbconfvxmcostmmesg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbconfvxmcostmmesg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : ConfigApTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigApTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : ConfigApTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigApTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : ConfigApTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : ConfigApTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -3553,7 +3593,7 @@ abstract class ConfigAp implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 80; // 80 = ConfigApTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 81; // 81 = ConfigApTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ConfigAp'), 0, $e);
@@ -3873,6 +3913,9 @@ abstract class ConfigAp implements ActiveRecordInterface
         if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFSTUBSORT)) {
             $modifiedColumns[':p' . $index++]  = 'AptbConfStubSort';
         }
+        if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFUSEACH)) {
+            $modifiedColumns[':p' . $index++]  = 'AptbConfUseAch';
+        }
         if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFOVER1)) {
             $modifiedColumns[':p' . $index++]  = 'AptbConfOver1';
         }
@@ -4123,6 +4166,9 @@ abstract class ConfigAp implements ActiveRecordInterface
                         break;
                     case 'AptbConfStubSort':
                         $stmt->bindValue($identifier, $this->aptbconfstubsort, PDO::PARAM_STR);
+                        break;
+                    case 'AptbConfUseAch':
+                        $stmt->bindValue($identifier, $this->aptbconfuseach, PDO::PARAM_STR);
                         break;
                     case 'AptbConfOver1':
                         $stmt->bindValue($identifier, $this->aptbconfover1, PDO::PARAM_INT);
@@ -4420,120 +4466,123 @@ abstract class ConfigAp implements ActiveRecordInterface
                 return $this->getAptbconfstubsort();
                 break;
             case 41:
-                return $this->getAptbconfover1();
+                return $this->getAptbConfUseAch();
                 break;
             case 42:
-                return $this->getAptbconfover2();
+                return $this->getAptbconfover1();
                 break;
             case 43:
-                return $this->getAptbconfprtchk();
+                return $this->getAptbconfover2();
                 break;
             case 44:
-                return $this->getAptbconfeiunrecqty();
+                return $this->getAptbconfprtchk();
                 break;
             case 45:
-                return $this->getAptbconfeirecqtyask();
+                return $this->getAptbconfeiunrecqty();
                 break;
             case 46:
-                return $this->getAptbconfeirecqtydef();
+                return $this->getAptbconfeirecqtyask();
                 break;
             case 47:
-                return $this->getAptbconfallowmultpos();
+                return $this->getAptbconfeirecqtydef();
                 break;
             case 48:
-                return $this->getAptbconfeibyclerk();
+                return $this->getAptbconfallowmultpos();
                 break;
             case 49:
-                return $this->getAptbconfeibatchproc();
+                return $this->getAptbconfeibyclerk();
                 break;
             case 50:
-                return $this->getAptbconfeidispstancost();
+                return $this->getAptbconfeibatchproc();
                 break;
             case 51:
-                return $this->getAptbconfeiassetacctchg();
+                return $this->getAptbconfeidispstancost();
                 break;
             case 52:
-                return $this->getAptbconfallowdupinvc();
+                return $this->getAptbconfeiassetacctchg();
                 break;
             case 53:
-                return $this->getAptbconfprtsorept();
+                return $this->getAptbconfallowdupinvc();
                 break;
             case 54:
-                return $this->getAptbconfeicheckhist();
+                return $this->getAptbconfprtsorept();
                 break;
             case 55:
-                return $this->getAptbconfsummgl();
+                return $this->getAptbconfeicheckhist();
                 break;
             case 56:
-                return $this->getAptbconfvxmuserlabel();
+                return $this->getAptbconfsummgl();
                 break;
             case 57:
-                return $this->getAptbconfvendcostbreaks();
+                return $this->getAptbconfvxmuserlabel();
                 break;
             case 58:
-                return $this->getAptbconfmyeclrclospo();
+                return $this->getAptbconfvendcostbreaks();
                 break;
             case 59:
-                return $this->getAptbconfmyeclrclosdate();
+                return $this->getAptbconfmyeclrclospo();
                 break;
             case 60:
-                return $this->getAptbconfmyeclrpohist();
+                return $this->getAptbconfmyeclrclosdate();
                 break;
             case 61:
-                return $this->getAptbconfmyeclrpodate();
+                return $this->getAptbconfmyeclrpohist();
                 break;
             case 62:
-                return $this->getAptbconfmyeclrckhist();
+                return $this->getAptbconfmyeclrpodate();
                 break;
             case 63:
-                return $this->getAptbconfmyeclrckdate();
+                return $this->getAptbconfmyeclrckhist();
                 break;
             case 64:
-                return $this->getAptbconfmyeclropenck();
+                return $this->getAptbconfmyeclrckdate();
                 break;
             case 65:
-                return $this->getAptbconflead();
+                return $this->getAptbconfmyeclropenck();
                 break;
             case 66:
-                return $this->getAptbconfvrreworkitem();
+                return $this->getAptbconflead();
                 break;
             case 67:
-                return $this->getAptbconfvrqcwhse();
+                return $this->getAptbconfvrreworkitem();
                 break;
             case 68:
-                return $this->getAptbconfvrglacct();
+                return $this->getAptbconfvrqcwhse();
                 break;
             case 69:
-                return $this->getAptbconfvxmlistpc();
+                return $this->getAptbconfvrglacct();
                 break;
             case 70:
-                return $this->getAptbconfvxmlistitemupd();
+                return $this->getAptbconfvxmlistpc();
                 break;
             case 71:
-                return $this->getAptbconfvxmgrosslc();
+                return $this->getAptbconfvxmlistitemupd();
                 break;
             case 72:
-                return $this->getAptbconfvxmcostlp();
+                return $this->getAptbconfvxmgrosslc();
                 break;
             case 73:
-                return $this->getAptbconfvxmcostitemupd();
+                return $this->getAptbconfvxmcostlp();
                 break;
             case 74:
-                return $this->getAptbconfvxmcostrmesg();
+                return $this->getAptbconfvxmcostitemupd();
                 break;
             case 75:
-                return $this->getAptbconfvxmcostitemupdm();
+                return $this->getAptbconfvxmcostrmesg();
                 break;
             case 76:
-                return $this->getAptbconfvxmcostmmesg();
+                return $this->getAptbconfvxmcostitemupdm();
                 break;
             case 77:
-                return $this->getDateupdtd();
+                return $this->getAptbconfvxmcostmmesg();
                 break;
             case 78:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 79:
+                return $this->getTimeupdtd();
+                break;
+            case 80:
                 return $this->getDummy();
                 break;
             default:
@@ -4606,45 +4655,46 @@ abstract class ConfigAp implements ActiveRecordInterface
             $keys[38] => $this->getAptbconf1099zipcode(),
             $keys[39] => $this->getAptbconf1099id(),
             $keys[40] => $this->getAptbconfstubsort(),
-            $keys[41] => $this->getAptbconfover1(),
-            $keys[42] => $this->getAptbconfover2(),
-            $keys[43] => $this->getAptbconfprtchk(),
-            $keys[44] => $this->getAptbconfeiunrecqty(),
-            $keys[45] => $this->getAptbconfeirecqtyask(),
-            $keys[46] => $this->getAptbconfeirecqtydef(),
-            $keys[47] => $this->getAptbconfallowmultpos(),
-            $keys[48] => $this->getAptbconfeibyclerk(),
-            $keys[49] => $this->getAptbconfeibatchproc(),
-            $keys[50] => $this->getAptbconfeidispstancost(),
-            $keys[51] => $this->getAptbconfeiassetacctchg(),
-            $keys[52] => $this->getAptbconfallowdupinvc(),
-            $keys[53] => $this->getAptbconfprtsorept(),
-            $keys[54] => $this->getAptbconfeicheckhist(),
-            $keys[55] => $this->getAptbconfsummgl(),
-            $keys[56] => $this->getAptbconfvxmuserlabel(),
-            $keys[57] => $this->getAptbconfvendcostbreaks(),
-            $keys[58] => $this->getAptbconfmyeclrclospo(),
-            $keys[59] => $this->getAptbconfmyeclrclosdate(),
-            $keys[60] => $this->getAptbconfmyeclrpohist(),
-            $keys[61] => $this->getAptbconfmyeclrpodate(),
-            $keys[62] => $this->getAptbconfmyeclrckhist(),
-            $keys[63] => $this->getAptbconfmyeclrckdate(),
-            $keys[64] => $this->getAptbconfmyeclropenck(),
-            $keys[65] => $this->getAptbconflead(),
-            $keys[66] => $this->getAptbconfvrreworkitem(),
-            $keys[67] => $this->getAptbconfvrqcwhse(),
-            $keys[68] => $this->getAptbconfvrglacct(),
-            $keys[69] => $this->getAptbconfvxmlistpc(),
-            $keys[70] => $this->getAptbconfvxmlistitemupd(),
-            $keys[71] => $this->getAptbconfvxmgrosslc(),
-            $keys[72] => $this->getAptbconfvxmcostlp(),
-            $keys[73] => $this->getAptbconfvxmcostitemupd(),
-            $keys[74] => $this->getAptbconfvxmcostrmesg(),
-            $keys[75] => $this->getAptbconfvxmcostitemupdm(),
-            $keys[76] => $this->getAptbconfvxmcostmmesg(),
-            $keys[77] => $this->getDateupdtd(),
-            $keys[78] => $this->getTimeupdtd(),
-            $keys[79] => $this->getDummy(),
+            $keys[41] => $this->getAptbConfUseAch(),
+            $keys[42] => $this->getAptbconfover1(),
+            $keys[43] => $this->getAptbconfover2(),
+            $keys[44] => $this->getAptbconfprtchk(),
+            $keys[45] => $this->getAptbconfeiunrecqty(),
+            $keys[46] => $this->getAptbconfeirecqtyask(),
+            $keys[47] => $this->getAptbconfeirecqtydef(),
+            $keys[48] => $this->getAptbconfallowmultpos(),
+            $keys[49] => $this->getAptbconfeibyclerk(),
+            $keys[50] => $this->getAptbconfeibatchproc(),
+            $keys[51] => $this->getAptbconfeidispstancost(),
+            $keys[52] => $this->getAptbconfeiassetacctchg(),
+            $keys[53] => $this->getAptbconfallowdupinvc(),
+            $keys[54] => $this->getAptbconfprtsorept(),
+            $keys[55] => $this->getAptbconfeicheckhist(),
+            $keys[56] => $this->getAptbconfsummgl(),
+            $keys[57] => $this->getAptbconfvxmuserlabel(),
+            $keys[58] => $this->getAptbconfvendcostbreaks(),
+            $keys[59] => $this->getAptbconfmyeclrclospo(),
+            $keys[60] => $this->getAptbconfmyeclrclosdate(),
+            $keys[61] => $this->getAptbconfmyeclrpohist(),
+            $keys[62] => $this->getAptbconfmyeclrpodate(),
+            $keys[63] => $this->getAptbconfmyeclrckhist(),
+            $keys[64] => $this->getAptbconfmyeclrckdate(),
+            $keys[65] => $this->getAptbconfmyeclropenck(),
+            $keys[66] => $this->getAptbconflead(),
+            $keys[67] => $this->getAptbconfvrreworkitem(),
+            $keys[68] => $this->getAptbconfvrqcwhse(),
+            $keys[69] => $this->getAptbconfvrglacct(),
+            $keys[70] => $this->getAptbconfvxmlistpc(),
+            $keys[71] => $this->getAptbconfvxmlistitemupd(),
+            $keys[72] => $this->getAptbconfvxmgrosslc(),
+            $keys[73] => $this->getAptbconfvxmcostlp(),
+            $keys[74] => $this->getAptbconfvxmcostitemupd(),
+            $keys[75] => $this->getAptbconfvxmcostrmesg(),
+            $keys[76] => $this->getAptbconfvxmcostitemupdm(),
+            $keys[77] => $this->getAptbconfvxmcostmmesg(),
+            $keys[78] => $this->getDateupdtd(),
+            $keys[79] => $this->getTimeupdtd(),
+            $keys[80] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -4808,120 +4858,123 @@ abstract class ConfigAp implements ActiveRecordInterface
                 $this->setAptbconfstubsort($value);
                 break;
             case 41:
-                $this->setAptbconfover1($value);
+                $this->setAptbConfUseAch($value);
                 break;
             case 42:
-                $this->setAptbconfover2($value);
+                $this->setAptbconfover1($value);
                 break;
             case 43:
-                $this->setAptbconfprtchk($value);
+                $this->setAptbconfover2($value);
                 break;
             case 44:
-                $this->setAptbconfeiunrecqty($value);
+                $this->setAptbconfprtchk($value);
                 break;
             case 45:
-                $this->setAptbconfeirecqtyask($value);
+                $this->setAptbconfeiunrecqty($value);
                 break;
             case 46:
-                $this->setAptbconfeirecqtydef($value);
+                $this->setAptbconfeirecqtyask($value);
                 break;
             case 47:
-                $this->setAptbconfallowmultpos($value);
+                $this->setAptbconfeirecqtydef($value);
                 break;
             case 48:
-                $this->setAptbconfeibyclerk($value);
+                $this->setAptbconfallowmultpos($value);
                 break;
             case 49:
-                $this->setAptbconfeibatchproc($value);
+                $this->setAptbconfeibyclerk($value);
                 break;
             case 50:
-                $this->setAptbconfeidispstancost($value);
+                $this->setAptbconfeibatchproc($value);
                 break;
             case 51:
-                $this->setAptbconfeiassetacctchg($value);
+                $this->setAptbconfeidispstancost($value);
                 break;
             case 52:
-                $this->setAptbconfallowdupinvc($value);
+                $this->setAptbconfeiassetacctchg($value);
                 break;
             case 53:
-                $this->setAptbconfprtsorept($value);
+                $this->setAptbconfallowdupinvc($value);
                 break;
             case 54:
-                $this->setAptbconfeicheckhist($value);
+                $this->setAptbconfprtsorept($value);
                 break;
             case 55:
-                $this->setAptbconfsummgl($value);
+                $this->setAptbconfeicheckhist($value);
                 break;
             case 56:
-                $this->setAptbconfvxmuserlabel($value);
+                $this->setAptbconfsummgl($value);
                 break;
             case 57:
-                $this->setAptbconfvendcostbreaks($value);
+                $this->setAptbconfvxmuserlabel($value);
                 break;
             case 58:
-                $this->setAptbconfmyeclrclospo($value);
+                $this->setAptbconfvendcostbreaks($value);
                 break;
             case 59:
-                $this->setAptbconfmyeclrclosdate($value);
+                $this->setAptbconfmyeclrclospo($value);
                 break;
             case 60:
-                $this->setAptbconfmyeclrpohist($value);
+                $this->setAptbconfmyeclrclosdate($value);
                 break;
             case 61:
-                $this->setAptbconfmyeclrpodate($value);
+                $this->setAptbconfmyeclrpohist($value);
                 break;
             case 62:
-                $this->setAptbconfmyeclrckhist($value);
+                $this->setAptbconfmyeclrpodate($value);
                 break;
             case 63:
-                $this->setAptbconfmyeclrckdate($value);
+                $this->setAptbconfmyeclrckhist($value);
                 break;
             case 64:
-                $this->setAptbconfmyeclropenck($value);
+                $this->setAptbconfmyeclrckdate($value);
                 break;
             case 65:
-                $this->setAptbconflead($value);
+                $this->setAptbconfmyeclropenck($value);
                 break;
             case 66:
-                $this->setAptbconfvrreworkitem($value);
+                $this->setAptbconflead($value);
                 break;
             case 67:
-                $this->setAptbconfvrqcwhse($value);
+                $this->setAptbconfvrreworkitem($value);
                 break;
             case 68:
-                $this->setAptbconfvrglacct($value);
+                $this->setAptbconfvrqcwhse($value);
                 break;
             case 69:
-                $this->setAptbconfvxmlistpc($value);
+                $this->setAptbconfvrglacct($value);
                 break;
             case 70:
-                $this->setAptbconfvxmlistitemupd($value);
+                $this->setAptbconfvxmlistpc($value);
                 break;
             case 71:
-                $this->setAptbconfvxmgrosslc($value);
+                $this->setAptbconfvxmlistitemupd($value);
                 break;
             case 72:
-                $this->setAptbconfvxmcostlp($value);
+                $this->setAptbconfvxmgrosslc($value);
                 break;
             case 73:
-                $this->setAptbconfvxmcostitemupd($value);
+                $this->setAptbconfvxmcostlp($value);
                 break;
             case 74:
-                $this->setAptbconfvxmcostrmesg($value);
+                $this->setAptbconfvxmcostitemupd($value);
                 break;
             case 75:
-                $this->setAptbconfvxmcostitemupdm($value);
+                $this->setAptbconfvxmcostrmesg($value);
                 break;
             case 76:
-                $this->setAptbconfvxmcostmmesg($value);
+                $this->setAptbconfvxmcostitemupdm($value);
                 break;
             case 77:
-                $this->setDateupdtd($value);
+                $this->setAptbconfvxmcostmmesg($value);
                 break;
             case 78:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 79:
+                $this->setTimeupdtd($value);
+                break;
+            case 80:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -5074,121 +5127,124 @@ abstract class ConfigAp implements ActiveRecordInterface
             $this->setAptbconfstubsort($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setAptbconfover1($arr[$keys[41]]);
+            $this->setAptbConfUseAch($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setAptbconfover2($arr[$keys[42]]);
+            $this->setAptbconfover1($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setAptbconfprtchk($arr[$keys[43]]);
+            $this->setAptbconfover2($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setAptbconfeiunrecqty($arr[$keys[44]]);
+            $this->setAptbconfprtchk($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setAptbconfeirecqtyask($arr[$keys[45]]);
+            $this->setAptbconfeiunrecqty($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setAptbconfeirecqtydef($arr[$keys[46]]);
+            $this->setAptbconfeirecqtyask($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setAptbconfallowmultpos($arr[$keys[47]]);
+            $this->setAptbconfeirecqtydef($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setAptbconfeibyclerk($arr[$keys[48]]);
+            $this->setAptbconfallowmultpos($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setAptbconfeibatchproc($arr[$keys[49]]);
+            $this->setAptbconfeibyclerk($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setAptbconfeidispstancost($arr[$keys[50]]);
+            $this->setAptbconfeibatchproc($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setAptbconfeiassetacctchg($arr[$keys[51]]);
+            $this->setAptbconfeidispstancost($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setAptbconfallowdupinvc($arr[$keys[52]]);
+            $this->setAptbconfeiassetacctchg($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setAptbconfprtsorept($arr[$keys[53]]);
+            $this->setAptbconfallowdupinvc($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setAptbconfeicheckhist($arr[$keys[54]]);
+            $this->setAptbconfprtsorept($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setAptbconfsummgl($arr[$keys[55]]);
+            $this->setAptbconfeicheckhist($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setAptbconfvxmuserlabel($arr[$keys[56]]);
+            $this->setAptbconfsummgl($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setAptbconfvendcostbreaks($arr[$keys[57]]);
+            $this->setAptbconfvxmuserlabel($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setAptbconfmyeclrclospo($arr[$keys[58]]);
+            $this->setAptbconfvendcostbreaks($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setAptbconfmyeclrclosdate($arr[$keys[59]]);
+            $this->setAptbconfmyeclrclospo($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setAptbconfmyeclrpohist($arr[$keys[60]]);
+            $this->setAptbconfmyeclrclosdate($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setAptbconfmyeclrpodate($arr[$keys[61]]);
+            $this->setAptbconfmyeclrpohist($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setAptbconfmyeclrckhist($arr[$keys[62]]);
+            $this->setAptbconfmyeclrpodate($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setAptbconfmyeclrckdate($arr[$keys[63]]);
+            $this->setAptbconfmyeclrckhist($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setAptbconfmyeclropenck($arr[$keys[64]]);
+            $this->setAptbconfmyeclrckdate($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setAptbconflead($arr[$keys[65]]);
+            $this->setAptbconfmyeclropenck($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setAptbconfvrreworkitem($arr[$keys[66]]);
+            $this->setAptbconflead($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setAptbconfvrqcwhse($arr[$keys[67]]);
+            $this->setAptbconfvrreworkitem($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setAptbconfvrglacct($arr[$keys[68]]);
+            $this->setAptbconfvrqcwhse($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setAptbconfvxmlistpc($arr[$keys[69]]);
+            $this->setAptbconfvrglacct($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setAptbconfvxmlistitemupd($arr[$keys[70]]);
+            $this->setAptbconfvxmlistpc($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setAptbconfvxmgrosslc($arr[$keys[71]]);
+            $this->setAptbconfvxmlistitemupd($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setAptbconfvxmcostlp($arr[$keys[72]]);
+            $this->setAptbconfvxmgrosslc($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setAptbconfvxmcostitemupd($arr[$keys[73]]);
+            $this->setAptbconfvxmcostlp($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setAptbconfvxmcostrmesg($arr[$keys[74]]);
+            $this->setAptbconfvxmcostitemupd($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setAptbconfvxmcostitemupdm($arr[$keys[75]]);
+            $this->setAptbconfvxmcostrmesg($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setAptbconfvxmcostmmesg($arr[$keys[76]]);
+            $this->setAptbconfvxmcostitemupdm($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setDateupdtd($arr[$keys[77]]);
+            $this->setAptbconfvxmcostmmesg($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setTimeupdtd($arr[$keys[78]]);
+            $this->setDateupdtd($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setDummy($arr[$keys[79]]);
+            $this->setTimeupdtd($arr[$keys[79]]);
+        }
+        if (array_key_exists($keys[80], $arr)) {
+            $this->setDummy($arr[$keys[80]]);
         }
     }
 
@@ -5353,6 +5409,9 @@ abstract class ConfigAp implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFSTUBSORT)) {
             $criteria->add(ConfigApTableMap::COL_APTBCONFSTUBSORT, $this->aptbconfstubsort);
+        }
+        if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFUSEACH)) {
+            $criteria->add(ConfigApTableMap::COL_APTBCONFUSEACH, $this->aptbconfuseach);
         }
         if ($this->isColumnModified(ConfigApTableMap::COL_APTBCONFOVER1)) {
             $criteria->add(ConfigApTableMap::COL_APTBCONFOVER1, $this->aptbconfover1);
@@ -5598,6 +5657,7 @@ abstract class ConfigAp implements ActiveRecordInterface
         $copyObj->setAptbconf1099zipcode($this->getAptbconf1099zipcode());
         $copyObj->setAptbconf1099id($this->getAptbconf1099id());
         $copyObj->setAptbconfstubsort($this->getAptbconfstubsort());
+        $copyObj->setAptbConfUseAch($this->getAptbConfUseAch());
         $copyObj->setAptbconfover1($this->getAptbconfover1());
         $copyObj->setAptbconfover2($this->getAptbconfover2());
         $copyObj->setAptbconfprtchk($this->getAptbconfprtchk());
@@ -5712,6 +5772,7 @@ abstract class ConfigAp implements ActiveRecordInterface
         $this->aptbconf1099zipcode = null;
         $this->aptbconf1099id = null;
         $this->aptbconfstubsort = null;
+        $this->aptbconfuseach = null;
         $this->aptbconfover1 = null;
         $this->aptbconfover2 = null;
         $this->aptbconfprtchk = null;
