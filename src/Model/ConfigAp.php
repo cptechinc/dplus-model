@@ -19,6 +19,9 @@ class ConfigAp extends BaseConfigAp {
 
 	const YN_TRUE = 'Y';
 
+	const COMPUTEPERCENTAGEORCOST_COST       = 'C';
+	const COMPUTEPERCENTAGEORCOST_PERCENTAGE = 'P';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -31,6 +34,8 @@ class ConfigAp extends BaseConfigAp {
 		'vendorcostbreaks'      => 'AptbConfVendCostBreaks',
 		'updateitmcost'         => 'AptbConfVxmCostItemUpdM',
 		'confirmupdateitmcost'  => 'AptbConfVxmCostMMesg',
+		'computepercentageorcost' => 'AptbConfVxmListPc',
+		'updateitmpricing'        => 'AptbConfVxmListItemUpd'
 	);
 
 	/**
@@ -55,5 +60,13 @@ class ConfigAp extends BaseConfigAp {
 	 */
 	public function confirm_update_itm_cost() {
 		return $this->confirmupdateitmcost == self::YN_TRUE;
+	}
+
+	public function compute_percentage_cost_cost() {
+		$this->computepercentageorcost == self::COMPUTEPERCENTAGEORCOST_COST;
+	}
+
+	public function update_itm_pricing() {
+		return $this->updateitmpricing == self::YN_TRUE;
 	}
 }
