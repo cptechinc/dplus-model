@@ -76,6 +76,6 @@ class SoEditPermissions extends BaseSoEditPermissions {
 	 * @return bool
 	 */
 	public function allow_invoiced() {
-		return $this->invoice == self::YN_TRUE;
+		return $this->invoiced == self::YN_TRUE;
 	}
 }
