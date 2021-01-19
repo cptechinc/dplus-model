@@ -30,7 +30,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	const APPROVALCODE_NONE = '';
 
 	const OPTIONS_POORDERCODE = array(
-		''  => '',
+		''	=> '',
 		'C' => 'Costing',
 		'P' => 'Primary',
 		'Y' => 'Secondary'
@@ -38,38 +38,40 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	const POORDERCODE_PRIMARY = 'P';
 	const POORDERCODE_SECONDARY = 'Y';
+	const POORDERCODE_COSTING = 'Y';
 
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'vendorid'      => 'apvevendid',
-		'vendorID'      => 'apvevendid',
-		'vendoritemid'  => 'vexrvenditemnbr',
-		'vendoritemID'  => 'vexrvenditemnbr',
-		'theiritemID'   => 'vexrvenditemnbr',
-		'ouritemID'     => 'inititemnbr',
-		'ouritemid'     => 'inititemnbr',
-		'itemid'        => 'inititemnbr',
-		'description'   => 'vexrvenditemdesc',
-		'po_ordercode'  => 'vexrpoordercode',
-		'qty_percase'   => 'vexrcaseqty',
-		'minbuyqty'     => 'vexrminbuyqty',
-		'option1'       => 'vexroption1',
-		'is_kit'        => 'vexrprtkitdet',
-		'approvalcode'  => 'vexraprvcode',
-		'date_changed'  => 'vexrcostlastdate',
-		'uom_purchase'  => 'intbuompur',
-		'listprice'     => 'vexrlistprice',
-		'date'          => 'dateupdtd',
-		'time'          => 'timeupdtd',
-		'imitem'        => 'ItemMasterItem',
-		'uompurchase'   => 'UnitofMeasurePurchase',
+		'vendorid'		=> 'apvevendid',
+		'vendorID'		=> 'apvevendid',
+		'vendoritemid'	=> 'vexrvenditemnbr',
+		'vendoritemID'	=> 'vexrvenditemnbr',
+		'theiritemID'	=> 'vexrvenditemnbr',
+		'ouritemID' 	=> 'inititemnbr',
+		'ouritemid' 	=> 'inititemnbr',
+		'itemid'		=> 'inititemnbr',
+		'description'	=> 'vexrvenditemdesc',
+		'po_ordercode'	=> 'vexrpoordercode',
+		'ordercode' 	=> 'vexrpoordercode',
+		'qty_percase'	=> 'vexrcaseqty',
+		'minbuyqty' 	=> 'vexrminbuyqty',
+		'option1'		=> 'vexroption1',
+		'is_kit'		=> 'vexrprtkitdet',
+		'approvalcode'	=> 'vexraprvcode',
+		'date_changed'	=> 'vexrcostlastdate',
+		'uom_purchase'	=> 'intbuompur',
+		'listprice' 	=> 'vexrlistprice',
+		'date'			=> 'dateupdtd',
+		'time'			=> 'timeupdtd',
+		'imitem'		=> 'ItemMasterItem',
+		'uompurchase'	=> 'UnitofMeasurePurchase',
 		'unitcost_base' => 'vexrunitcost',
-		'foreigncost'   => 'vexrforeigncost',
-		'iskit'         => 'vexrprtkitdet',
-		'optioncode'    => 'vexroption1'
+		'foreigncost'	=> 'vexrforeigncost',
+		'iskit' 		=> 'vexrprtkitdet',
+		'optioncode'	=> 'vexroption1'
 	);
 
 	/**
@@ -131,13 +133,10 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return the Units at the Qty Posiition
-	 *
 	 * @param  int $unit  E.g. 1
 	 * @return int
 	 */
 	public function get_unitqty(int $unit) {
-		$col_base = 'vexrunitunit';
-
 		if ($unit <= self::UNITS_AVAILABLE) {
 			$col = self::get_unitqty_column($unit);
 			return $this->$col;
@@ -163,7 +162,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Unit Cost at Qty Position
-	 * @param  int   $unit
+	 * @param  int	 $unit
 	 * @return float
 	 */
 	public function get_unitcost(int $unit) {
@@ -173,7 +172,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 			if ($unit == 0) {
 				return $this->unitcost_base;
 			}
-			$col = $col_base . $unit;
+			$col = self::get_unitcost_column($unit);
 			return $this->$col;
 		} else {
 			return 0;
@@ -182,7 +181,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Return Unit Cost at Qty Position
-	 * @param  int   $unit
+	 * @param  int	 $unit
 	 * @return float
 	 */
 	public static function get_unitcost_column(int $unit) {
@@ -197,7 +196,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	/**
 	 * Returns Margin at Qty Position
-	 * @param  int    $unit
+	 * @param  int	  $unit
 	 * @return float
 	 */
 	public function get_unitmargin(int $unit) {
@@ -254,14 +253,30 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		return 0;
 	}
 
+/* =============================================================
+	Database Query Functions
+============================================================= */
+	/**
+	 * Return VXM X-REF query that looks for PO code excluding this X-REF
+	 * For comparison use from Propel\Runtime\ActiveQuery\Criteria
+	 * @param  string $pocode	   P |  | Y
+	 * @param  string $comparison  = | != 
+	 * @return ItemXrefVendorQuery
+	 */
+	private function query_itemid_pocode($pocode, $comparison = null) {
+		$q = ItemXrefVendorQuery::create();
+		$q->filterByOuritemid($this->ouritemid);
+		$q->filterByPo_ordercode($pocode);
+		$q->filterByXrefKey($this->getPrimaryKey(), $comparison);
+		return $q;
+	}
+
 	/**
 	 * Returns if there as another VXM item that is a primary order code for this Item
 	 * @return bool
 	 */
 	public function other_primary_poordercode_exists() {
-		$q = ItemXrefVendorQuery::create();
-		$q->filterByOuritemid($this->ouritemid);
-		$q->filterByVendoritemid($this->vendoritemID, Criteria::NOT_IN);
+		$q = $this->query_itemid_pocode(self::POORDERCODE_PRIMARY, Criteria::ALT_NOT_EQUAL);
 		return boolval($q->count());
 	}
 
@@ -270,9 +285,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * @return ItemXrefVendor
 	 */
 	public function get_other_primary_vxm_item() {
-		$q = ItemXrefVendorQuery::create();
-		$q->filterByOuritemid($this->ouritemid);
-		$q->filterByVendoritemid($this->vendoritemID, Criteria::NOT_IN);
+		$q = $this->query_itemid_pocode(self::POORDERCODE_PRIMARY, Criteria::ALT_NOT_EQUAL);
 		return $q->findOne();
 	}
 
@@ -281,10 +294,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * @return string
 	 */
 	public function other_primary_poordercode_itemid() {
-		$q = ItemXrefVendorQuery::create();
-		$q->select('vexrvenditemnbr');
-		$q->filterByOuritemid($this->ouritemid);
-		$q->filterByVendoritemid($this->vendoritemID, Criteria::NOT_IN);
+		$q = $this->query_itemid_pocode(self::POORDERCODE_PRIMARY, Criteria::ALT_NOT_EQUAL);
 		return $q->findOne();
 	}
 
@@ -293,13 +303,33 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * @return string
 	 */
 	public function other_primary_poordercode_vendorid() {
-		$q = ItemXrefVendorQuery::create();
+		$q = $this->query_itemid_pocode(self::POORDERCODE_PRIMARY, Criteria::ALT_NOT_EQUAL);
 		$q->select('apvevendid');
-		$q->filterByOuritemid($this->ouritemid);
-		$q->filterByVendoritemid($this->vendoritemID, Criteria::NOT_IN);
 		return $q->findOne();
 	}
 
+	/**
+	 * Return if Costing (other) X-Ref exists for Corresponding ITM Item
+	 * @return bool
+	 */
+	public function costing_xref_for_itemid_exists() {
+		$q = $this->query_itemid_pocode(self::POORDERCODE_COSTING, Criteria::ALT_NOT_EQUAL);
+		return boolval($q->count());
+	}
+
+	/**
+	 * Return Costing X-ref for ITM Item
+	 * @return ItemXrefVendor
+	 */
+	public function costing_xref_for_itemid() {
+		$q = $this->query_itemid_pocode(self::POORDERCODE_COSTING, Criteria::ALT_NOT_EQUAL);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return new X-ref With preset defaults
+	 * @return ItemXrefVendor
+	 */
 	public static function new() {
 		$item = new ItemXrefVendor();
 		$item->setQty_percase(1);
