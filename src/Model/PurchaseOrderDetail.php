@@ -40,7 +40,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'whse'          => 'intbwhse',
 		'date_shipped'  => 'podtshipdate',
 		'date_expected' => 'podtexptdate',
-		'uom'           => 'inbuompur',
+		'uom'           => 'intbuompur',
 		'qty_ordered'   => 'podtqtyord',
 		'cost'          => 'podtcost',
 		'cost_total'    => 'podtcosttot',
@@ -48,17 +48,45 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'glaccount'     => 'podtglacct',
 		'weight'        => 'podtwghttot',
 		'whse_destination' => 'podtdestwhse',
+		'status'           => 'podtstat',
+		'itm'              => 'Itmitem',
 	);
 
 	/**
 	 * Return Qty Received from the Database
-	 *
-	 * @return int
+	 * @return float
 	 */
 	public function qty_received() {
-		$q = PurchaseOrderDetailReceivedQuery::create();
-		$q->withColumn('SUM(pordqtyrec)', 'qtyreceived');
-		$q->select('qtyreceived');
+		$q = PurchaseOrderDetailReceivingQuery::create();
+		$q->withColumn('SUM(potdqtyrec)', 'qty');
+		$q->select('qty');
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterByLinenbr($this->podtline);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Qty Received from the Database
+	 * @return float
+	 */
+	public function qty_receipt() {
+		$q = PurchaseOrderDetailReceiptQuery::create();
+		$q->withColumn('SUM(pordqtyrec)', 'qty');
+		$q->select('qty');
+		$q->filterByPonbr($this->pohdnbr);
+		$q->filterByLinenbr($this->podtline);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Qty Invoiced
+	 * @return float
+	 */
+	public function qty_invoiced() {
+		$q = ApInvoiceDetailQuery::create();
+		$col = ApInvoiceDetail::get_aliasproperty('qty_received');
+		$q->withColumn("SUM($col)", 'qty');
+		$q->select('qty');
 		$q->filterByPonbr($this->pohdnbr);
 		$q->filterByLinenbr($this->podtline);
 		return $q->findOne();
@@ -66,7 +94,6 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 
 	/**
 	 * Return Qty Remaining to Receive
-	 *
 	 * @return int
 	 */
 	public function qty_remaining() {
@@ -101,5 +128,13 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	 */
 	public function is_closed() {
 		return $this->status == self::STATUS_CLOSED;
+	}
+
+	/**
+	 * Return Corresponding ITM Item
+	 * @return ItemMasterItem
+	 */
+	public function getItmitem() {
+		return ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
 	}
 }
