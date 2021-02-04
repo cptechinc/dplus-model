@@ -97,6 +97,22 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ap_contact" idMethod="native" phpName="ApContact">
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApcpContId" phpName="Apcpcontid" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApcpTitl" phpName="Apcptitl" type="VARCHAR" size="20"/>
+    <column name="ApcpWhse" phpName="Apcpwhse" type="VARCHAR" size="2"/>
+    <column name="ApcpPoCont" phpName="Apcppocont" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ap_invoice_det" idMethod="native" phpName="ApInvoiceDetail">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ApidPayToKey" phpName="Apidpaytokey" type="VARCHAR" size="180" primaryKey="true" required="true" defaultValue=""/>
