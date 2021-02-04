@@ -38,7 +38,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 
 	const POORDERCODE_PRIMARY = 'P';
 	const POORDERCODE_SECONDARY = 'Y';
-	const POORDERCODE_COSTING = 'Y';
+	const POORDERCODE_COSTING = 'C';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -247,6 +247,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		if ($this->listprice == 0 || empty($this->uom_purchase)) {
 			$this->init();
 		}
+		
 		if ($this->imitem->UnitofMeasureSale) {
 			return ($this->getEachlistprice()) * $this->imitem->UnitofMeasureSale->conversion;
 		}
