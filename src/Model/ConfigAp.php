@@ -22,6 +22,9 @@ class ConfigAp extends BaseConfigAp {
 	const COMPUTEPERCENTAGEORCOST_COST       = 'C';
 	const COMPUTEPERCENTAGEORCOST_PERCENTAGE = 'P';
 
+	const COMPUTELISTPRICEORPERCENT_LISTPRICE = 'L';
+	const COMPUTELISTPRICEORPERCENT_PERCENT   = 'P';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -32,11 +35,23 @@ class ConfigAp extends BaseConfigAp {
 		'default_termscode'   => 'aptbconfdeftermcode',
 		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel',
 		'vendorcostbreaks'      => 'AptbConfVendCostBreaks',
-		'updateitmcost'         => 'AptbConfVxmCostItemUpdM',
+		'updateitmcostreplacement'  => 'aptbConfVxmCostItemUpd',
+		'updateitmcostmanual'       => 'aptbConfVxmCostItemUpdM',
 		'confirmupdateitmcost'  => 'AptbConfVxmCostMMesg',
-		'computepercentageorcost' => 'AptbConfVxmListPc',
-		'updateitmpricing'        => 'AptbConfVxmListItemUpd'
+		'computepercentageorcost'   => 'AptbConfVxmListPc',
+		'updateitmpricing'          => 'AptbConfVxmListItemUpd',
+		'computelistpriceorpercent' => 'AptbConfVxmCostLp'
 	);
+
+	/**
+	 * ITM Cost Base Types and their corresponding config property
+	 * for updating stnadardcost
+	 * @var array
+	 */
+	const COSTBASETYPES_TO_CONFIG_UPDATE = [
+		'R' => 'aptbConfVxmCostItemUpd',
+		'M' => 'aptbConfVxmCostItemUpdM'
+	];
 
 	/**
 	 * Return if Vendor Cost Breaks can be used
@@ -50,8 +65,12 @@ class ConfigAp extends BaseConfigAp {
 	 * Return if VXM should update ITM COST
 	 * @return bool
 	 */
-	public function update_itm_cost() {
-		return $this->updateitmcost == self::YN_TRUE;
+	public function update_itm_cost($costbase) {
+		if (array_key_exists($costbase, self::COSTBASETYPES_TO_CONFIG_UPDATE) === false) {
+			return false;
+		}
+		$col = self::COSTBASETYPES_TO_CONFIG_UPDATE[$costbase];
+		return $this->$col == self::YN_TRUE;
 	}
 
 	/**
