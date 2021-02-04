@@ -10865,7 +10865,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (get_parent_class($this) != '') {
-            return parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }

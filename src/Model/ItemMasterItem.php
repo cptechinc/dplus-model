@@ -35,6 +35,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'M' => 'Manual',
 		'R' => 'Replacement'
 	);
+	const STANDARD_COST_BASE_REPLACEMENT = 'R';
+	const STANDARD_COST_BASE_MANUAL = 'M';
 
 	const OPTIONS_PRODUCER = ['Y' => 'Yes', 'N' => 'No'];
 	const OPTIONS_PREFERENCE = ['A', 'B', 'C', 'D', 'E', 'F'];
