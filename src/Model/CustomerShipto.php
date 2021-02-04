@@ -47,7 +47,8 @@ class CustomerShipto extends BaseCustomerShipto {
 		'ytd_sales'    => 'arstsaleytd',
 		'ytd_invoices' => 'arstinvytd',
 		'warehouse'    => 'intbwhse',
-		'require_po'   => 'arstcustpopram'
+		'require_po'   => 'arstcustpopram',
+		'primary'      => 'arstprimshipid'
 	);
 
 	/**
