@@ -2,17 +2,34 @@
 
 use Base\SalesPerson as BaseSalesPerson;
 
-/**
- * Skeleton subclass for representing a row from the 'ar_saleper1' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
- */
-class SalesPerson extends BaseSalesPerson
-{
+use Dplus\Model\ThrowErrorTrait;
+use Dplus\Model\MagicMethodTraits;
 
+/**
+ * Class for representing a row from the 'ar_saleper1' table.
+ *
+ * PURPOSE: Sales Person
+ */
+class SalesPerson extends BaseSalesPerson {
+	use ThrowErrorTrait;
+	use MagicMethodTraits;
+
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'        => 'arspsaleper1',
+		'name'      => 'arspname',
+		'userid'    => 'arsplogin',
+		'manager'   => 'arspmgr',
+		'vendorid'  => 'arspvendid',
+		'email'     => 'arspemailaddr',
+		'date'      => 'dateupdtd',
+		'time'      => 'timeupdtd',
+	);
+
+	public function is_manager() {
+		return $this->manager == 'Y';
+	}
 }
