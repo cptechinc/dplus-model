@@ -64,18 +64,18 @@ trait QueryTraits {
 	 * Add a LIKE condition to Query
 	 * @param  string $name     Condition Name
 	 * @param  string $pattern  Pattern to match against e.g. col1, or CONCAT(col1, col2)
-	 * @param  string $query    Search Query to match 
+	 * @param  string $query    Search Query to match
 	 * @return self
 	 */
 	public function condition_like($name, $pattern, $query) {
 		$this->condition($name, "$pattern LIKE ?", $query);
 		return $this;
 	}
-	
+
 	/**
 	 * Add a Concatenated Column Like Condition
 	 * @param array   $columns  Columns, not TableMap columns
-	 * @param string  $q        Search Query to match 
+	 * @param string  $q        Search Query to match
 	 * @return self
 	 */
 	public function condition_like_concat(array $columns, $q) {
@@ -101,7 +101,7 @@ trait QueryTraits {
 	/**
 	 * Return TableMap Column name
 	 *
-	 * @param  string $column 
+	 * @param  string $column
 	 * @return void
 	 */
 	public function tablemap_column($column) {
