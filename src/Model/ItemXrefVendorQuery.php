@@ -36,7 +36,7 @@ class ItemXrefVendorQuery extends BaseItemXrefVendorQuery {
 	 * @return ItemXrefVendorQuery The current query, for fluid interface
 	 */
 	public function filterByVendorid($vendorID = null, $comparison = null) {
-		$this->filterByApvevendid($vendorID, $comparison);
+		return $this->filterByApvevendid($vendorID, $comparison);
 	}
 
 	/**
@@ -51,6 +51,6 @@ class ItemXrefVendorQuery extends BaseItemXrefVendorQuery {
 			$this->tablemap_column(ItemXrefVendor::get_aliasproperty('vendoritemid')),
 			$this->tablemap_column(ItemXrefVendor::get_aliasproperty('itemid'))
 		];
-		$this->where("CONCAT(".implode(",'-',", $cols).") $comparison ?", implode('-', $key));
+		return $this->where("CONCAT(".implode(",'-',", $cols).") $comparison ?", implode('-', $key));
 	}
 }
