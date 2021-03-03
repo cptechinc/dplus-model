@@ -3656,6 +3656,8 @@
     <column name="OetbCon2PicOrVer" phpName="Oetbcon2picorver" type="VARCHAR" size="1"/>
     <column name="OetbCon2CombBack" phpName="Oetbcon2combback" type="VARCHAR" size="1"/>
     <column name="OetbCon2FrtAllowAmt" phpName="Oetbcon2frtallowamt" type="INTEGER" size="7"/>
+    <column name="OetbCon3ShipMoreOrdered" phpName="Oetbcon3shipmoreordered" type="VARCHAR" size="1"/>
+    <column name="OetbCon3WarnShipMore" phpName="Oetbcon3warnshipmore" type="VARCHAR" size="1"/>
     <column name="OetbCon2UseDept" phpName="Oetbcon2usedept" type="VARCHAR" size="1"/>
     <column name="OetbCon2UseDivision" phpName="Oetbcon2usedivision" type="VARCHAR" size="1"/>
     <column name="OetbCon2DefMfeCode" phpName="Oetbcon2defmfecode" type="VARCHAR" size="1"/>
