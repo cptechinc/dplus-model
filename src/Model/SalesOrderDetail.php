@@ -29,18 +29,25 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'total_price'   => 'oedtprictot',
 		'itemid'        => 'inititemnbr',
 		'desc1'         => 'oedtdesc',
+		'description'   => 'oedtdesc',
 		'desc2'         => 'oedtdesc2',
+		'description2'  => 'oedtdesc',
 		'line'          => 'oedtline',
 		'linenbr'       => 'oedtline',
 		'vendorpo'      => 'oedtponbr',
 		'qty_cases'     => 'oedtcntrqty',
 		'item'          => 'item',
 		'weight_total'  => 'oedtwghttot',
+		'specialorder'  => 'oedtspecordr',
+		'rqstdate'      => 'oedtrqstdate',
+		'whseid'        => 'intbwhse',
+		'nsvendorid'    => 'oedtnsvendId',
+		'nsvendoritemid' => 'oedtvenditemjob',
+		'nsitemgroupid'  =>  'oedtnsitemgrup'
 	);
 
 	/**
 	 * Returns if this Order Line has Notes
-	 *
 	 * @return bool
 	 */
 	public function has_notes() {
@@ -51,7 +58,6 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 
 	/**
 	 * Return ItemMasterItem associated with Order Item
-	 *
 	 * @return ItemMasterItem
 	 */
 	public function getItem() {
