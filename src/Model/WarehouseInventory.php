@@ -23,6 +23,7 @@ class WarehouseInventory extends BaseWarehouseInventory {
 	const SPECIALORDER_DROPSHIP = 'D';
 
 	const MAX_LENGTH_CYCLECODE = 2;
+	const REGEX_CODEABC = '/^[A-J]+$/i';
 	
 	const STATUS_DESCRIPTIONS = array(
 		'A' => 'active',
