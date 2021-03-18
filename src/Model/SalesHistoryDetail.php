@@ -14,6 +14,12 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const OPTIONS_SPECIALORDER = [
+		'N' => 'normal',
+		'S' => 'special order',
+		'D' => 'Drop Ship'
+	];
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -33,8 +39,20 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'vendorpo'      => 'oedhponbr',
 		'item'          => 'item',
 		'qty_cases'     => 'oedhcntrqty',
-		'weight_total'  => 'oedhwghttot'
+		'weight_total'  => 'oedhwghttot',
+		'order'         => 'salesHistory',
+		'specialorder'  => 'oedhspecordr',
+		'nsvendorid'    => 'oedhnsvendid',
+		'nsvendoritemid' => 'oedhvenditemjob',
+		'nsitemgroupid'  => 'oedhnsitemgrup',
+		'kit'            => 'oedhkitflag',
+		'ponbr'          => 'oedhponbr',
+		'poref'          => 'oedhporef',
 	);
+
+	public function specialorder() {
+		return self::OPTIONS_SPECIALORDER[$this->specialorder];
+	}
 
 	/**
 	 * Returns the number of Notes for the SalesHistoryDetail
