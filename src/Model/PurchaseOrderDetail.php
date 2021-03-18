@@ -49,7 +49,11 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'weight'        => 'podtwghttot',
 		'whse_destination' => 'podtdestwhse',
 		'status'           => 'podtstat',
+		'qtyduein'         => 'podtqtyduein',
+		'ordn'             => 'podtsonbr',
+		// FK
 		'itm'              => 'Itmitem',
+		'glcode'           => 'GlCode',
 	);
 
 	/**
@@ -136,5 +140,13 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	 */
 	public function getItmitem() {
 		return ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+	}
+
+	/**
+	 * Return Corresponding ITM Item
+	 * @return GlCode
+	 */
+	public function getGlCode() {
+		return GlCodeQuery::create()->findOneByCode($this->glaccount);
 	}
 }
