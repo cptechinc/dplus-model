@@ -16,6 +16,12 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 
 	const PONBR_BLANK = '00000000';
 
+	const OPTIONS_SPECIALORDER = [
+		'N' => 'normal',
+		'S' => 'special order',
+		'D' => 'Drop Ship'
+	];
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -35,6 +41,8 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'line'          => 'oedtline',
 		'linenbr'       => 'oedtline',
 		'vendorpo'      => 'oedtponbr',
+		'ponbr'         => 'oedtponbr',
+		'poref'         => 'oedtporef',
 		'qty_cases'     => 'oedtcntrqty',
 		'item'          => 'item',
 		'weight_total'  => 'oedtwghttot',
@@ -43,8 +51,25 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'whseid'        => 'intbwhse',
 		'nsvendorid'    => 'oedtnsvendId',
 		'nsvendoritemid' => 'oedtvenditemjob',
-		'nsitemgroupid'  =>  'oedtnsitemgrup'
+		'nsitemgroupid'  => 'oedtnsitemgrup',
+		'kit'            => 'oedtkitflag'
 	);
+
+	/**
+	 * Return Special Order Description
+	 * @return string
+	 */
+	public function specialorder() {
+		return self::OPTIONS_SPECIALORDER[$this->specialorder];
+	}
+
+	/**
+	 * Return if Item is Kit
+	 * @return bool
+	 */
+	public function is_kit() {
+		return $this->kit == 'Y';
+	}
 
 	/**
 	 * Returns if this Order Line has Notes
