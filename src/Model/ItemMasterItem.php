@@ -65,6 +65,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'qtypercase'  => 'initqtypercase',
 		'qty_percase'     => 'initqtypercase',
 		'specialitemcode' => 'initspecitemcd',
+		'specialitem'     => 'initspecitemcd',
 		'assortmentcode'  => 'initasstcode',
 		'assortmentqty'   => 'initasstqty',
 		'vendor_primary'  => 'initvendid',
