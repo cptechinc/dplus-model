@@ -1,8 +1,7 @@
-<?php
-	namespace Dplus\Model;
+<?php namespace Dplus\Model;
 
-	use Propel\Runtime\Propel;
-	use Propel\Runtime\ActiveQuery\Criteria;
+use Propel\Runtime\Propel;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
  * Functions that Query Databases
@@ -28,7 +27,7 @@ trait QueryTraits {
 	 * @param  array       $params Parameters and their values
 	 * @return PDOStatement        PDO Statement to get results
 	 */
-	public function execute_query($sql, $params) {
+	public function execute_query($sql, $params = []) {
 		$database = $this->dbName;
 		$con = Propel::getWriteConnection($database);
 		$stmt = $con->prepare($sql);
