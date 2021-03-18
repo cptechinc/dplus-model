@@ -60,6 +60,7 @@ class Customer extends BaseCustomer {
 		'has_charge'     => 'arcufinchrg',
 		'financecharge'  => 'arcunewfc', // Current Finance Charge
 		'warehouse'      => 'intbwhse',
+		'whseid'         => 'intbwhse',
 		'taxcode'        => 'artbmtaxcode',
 		'type'           => 'artbtypecode',
 		'pricecode'      => 'artbpriccode',
