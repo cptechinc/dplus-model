@@ -25,12 +25,22 @@ class SalesHistoryDetailQuery extends BaseSalesHistoryDetailQuery {
 	use QueryTraits;
 
 	/**
+	 * Filter the Query by the OehhNbr column
+	 * @param  string $ordn        Sales Order Number
+	 * @param  string $comparison
+	 * @return self
+	 */
+	public function filterByOrdernumber($ordn, $comparison = null) {
+		return $this->filterByOehhnbr($ordn, $comparison);
+	}
+
+	/**
 	 * Returns if there are records in the table
 	 *
 	 * @param  string $ordn  Sales Order Number
 	 * @return bool
 	 */
 	public function hasDetails($ordn) {
-		return bool($this->filterByOehhnbr($ordn)->count());
+		return boolval($this->filterByOehhnbr($ordn)->count());
 	}
 }
