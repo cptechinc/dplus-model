@@ -15,6 +15,18 @@ class DplusUser extends BaseDplusUser {
 
 	const LENGTH_USERID = 8;
 
+	const ROLES = [
+		'ACCTG'  => 'accounting',
+		'ADMIN'  => 'administration',
+		'MGMT'   => 'management',
+		'PURCH'  => 'purchasing',
+		'PURMGR' => 'purchasing manager',
+		'SLSREP' => 'sales rep',
+		'SLSMGR' => 'sales manager',
+		'WHSE'   => 'warehouse',
+		'WHSMGR' => 'warehouse manager',
+	];
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
