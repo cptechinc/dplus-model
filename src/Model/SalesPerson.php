@@ -50,6 +50,10 @@ class SalesPerson extends BaseSalesPerson {
 		return $this->manager == 'Y';
 	}
 
+	/**
+	 * Return New SalesPerson with default values
+	 * @return SalesPerson
+	 */
 	public static function new() {
 		$p = new SalesPerson();
 		$emptystring = ['cycle','groupid','email','vendorid','name','lastsaledate'];
