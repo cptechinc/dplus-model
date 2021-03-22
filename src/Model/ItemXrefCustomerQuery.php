@@ -25,11 +25,19 @@ class ItemXrefCustomerQuery extends BaseItemXrefCustomerQuery {
 
 	/**
 	 * Filter the query on the ArcuCustId column
-	 *
 	 * @param     string $custID The value to use as filter.
 	 * @return $this|ItemXrefCustomerQuery The current query, for fluid interface
 	 */
 	public function filterByCustid($custID) {
 		return $this->filterByArcucustid($custID);
+	}
+
+	/**
+	 * Filter the query on the inititemnbr column
+	 * @param  string $itemID The value to use as filter.
+	 * @return self           The current query, for fluid interface
+	 */
+	public function filterByItemid($itemID) {
+		return $this->filterByInititemnbr($itemID);
 	}
 }

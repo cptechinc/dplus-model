@@ -27,16 +27,22 @@ class ItemXrefVendorQuery extends BaseItemXrefVendorQuery {
 
 	/**
 	 * Filter the query on the ApveVendId column
-	 *
-	 * @param     string $apvevendid The value to use as filter.
-	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 *
-	 * @param  string $vendorID   The value to use as filter.
-	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return ItemXrefVendorQuery The current query, for fluid interface
+	 * @param  string $vendorID     The value to use as filter.
+	 * @param  string $comparison   Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return ItemXrefVendorQuery  The current query, for fluid interface
 	 */
 	public function filterByVendorid($vendorID = null, $comparison = null) {
 		return $this->filterByApvevendid($vendorID, $comparison);
+	}
+
+	/**
+	 * Filter the query on the inititemnbr column
+	 * @param  string $itemID     The value to use as filter.
+	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self               The current query, for fluid interface
+	 */
+	public function filterByItemid($itemID, $comparison = null) {
+		return $this->filterByInititemnbr($itemID, $comparison);
 	}
 
 	/**

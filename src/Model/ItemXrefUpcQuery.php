@@ -24,4 +24,14 @@ use Dplus\Model\QueryTraits;
  */
 class ItemXrefUpcQuery extends BaseItemXrefUpcQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the inititemnbr column
+	 * @param  string $itemID     The value to use as filter.
+	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self               The current query, for fluid interface
+	 */
+	public function filterByItemid($itemID, $comparison = null) {
+		return $this->filterByInititemnbr($itemID, $comparison);
+	}
 }
