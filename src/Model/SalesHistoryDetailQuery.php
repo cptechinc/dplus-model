@@ -36,7 +36,6 @@ class SalesHistoryDetailQuery extends BaseSalesHistoryDetailQuery {
 
 	/**
 	 * Returns if there are records in the table
-	 *
 	 * @param  string $ordn  Sales Order Number
 	 * @return bool
 	 */
