@@ -14,9 +14,19 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * Filters
- * @method     InvKitComponentQuery filterByItemid(string $itemID) Filter the query on the ktdtkey1 column
+ * @method     InvKitComponentQuery filterByItemid(string $kitID) Filter the query on the ktdtkey1 column
  *
  */
 class InvKitComponentQuery extends BaseInvKitComponentQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the Ktdtkey1 column
+	 * @param  string $kitID     The value to use as filter.
+	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self               The current query, for fluid interface
+	 */
+	public function filterByKitid($kitID, $comparison = null) {
+		return $this->filterByKtdtkey1($kitID, $comparison);
+	}
 }
