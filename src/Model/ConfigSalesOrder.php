@@ -31,7 +31,18 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 */
 	protected $oetbconfrqstheaddtl;
 
-	const REQUEST_DATE_HEADER   = 'H';
+	/**
+	 * Default Ship Warehouse
+	 * C = Customer
+	 * L = Login
+	 * @var string
+	 */
+	protected $oetbconfdfltshipwhse;
+
+	const SHIP_WHSE_CUSTOMER = 'C';
+	const SHIP_WHSE_LOGIN    = 'L';
+
+	const REQUEST_DATE_HEADER = 'H';
 	const REQUEST_DATE_DETAIL = 'D';
 
 	/**
@@ -53,7 +64,9 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'allow_change_price'       => 'oetbconfchgpric',
 		'use_core_items'           => 'oetbcon2usecore',
 		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc',
-		'requestdate'              => 'OetbConfRqstHeadDtl'
+		'requestdate'              => 'OetbConfRqstHeadDtl',
+		'allow_overpick'           => 'OetbCon3ShipMoreOrdered',
+		'default_ship_whse'        => 'oetbconfdfltshipwhse'
 	);
 
 	/**
