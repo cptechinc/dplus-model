@@ -1,6 +1,6 @@
 <?php
 
-use Base\DocumentsQuery as BaseDocumentsQuery;
+use Base\DocumentQuery as BaseDocumentQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -14,10 +14,10 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * Filters
- * @method  DocumentsQuery filterByFolder($folder)       Filter the query by the DoccFolder column
- * @method  DocumentsQuery filterByTag($folder)          Filter the query by the DociTag column
- * @method  DocumentsQuery filterByReference1($folder)   Filter the query by the Docifld column
- * @method  DocumentsQuery filterByFilename($folder)     Filter the query by the DociFilename column
+ * @method  DocumentQuery filterByFolder($folder)       Filter the query by the DoccFolder column
+ * @method  DocumentQuery filterByTag($folder)          Filter the query by the DociTag column
+ * @method  DocumentQuery filterByReference1($folder)   Filter the query by the Docifld column
+ * @method  DocumentQuery filterByFilename($folder)     Filter the query by the DociFilename column
  * 
  * FindOne
  * 
@@ -25,6 +25,6 @@ use Dplus\Model\QueryTraits;
  * Find
  *
  */
-class DocumentsQuery extends BaseDocumentsQuery {
+class DocumentQuery extends BaseDocumentQuery {
 	use QueryTraits;
 }

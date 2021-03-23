@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Documents;
-use \DocumentsQuery;
+use \Document;
+use \DocumentQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class DocumentsTableMap extends TableMap
+class DocumentTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class DocumentsTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.DocumentsTableMap';
+    const CLASS_NAME = '.Map.DocumentTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class DocumentsTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Documents';
+    const OM_CLASS = '\\Document';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Documents';
+    const CLASS_DEFAULT = 'Document';
 
     /**
      * The total number of columns
@@ -170,7 +170,7 @@ class DocumentsTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Doccfolder', 'Docifld1cd', 'Docifld1', 'Docifld2cd', 'Docifld2', 'Dociseq', 'Docitag', 'Docifilename', 'Dociuser', 'Docidate', 'Docitime', 'Dociorigdir', 'Dociorigfile', 'Dociref', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('doccfolder', 'docifld1cd', 'docifld1', 'docifld2cd', 'docifld2', 'dociseq', 'docitag', 'docifilename', 'dociuser', 'docidate', 'docitime', 'dociorigdir', 'dociorigfile', 'dociref', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(DocumentsTableMap::COL_DOCCFOLDER, DocumentsTableMap::COL_DOCIFLD1CD, DocumentsTableMap::COL_DOCIFLD1, DocumentsTableMap::COL_DOCIFLD2CD, DocumentsTableMap::COL_DOCIFLD2, DocumentsTableMap::COL_DOCISEQ, DocumentsTableMap::COL_DOCITAG, DocumentsTableMap::COL_DOCIFILENAME, DocumentsTableMap::COL_DOCIUSER, DocumentsTableMap::COL_DOCIDATE, DocumentsTableMap::COL_DOCITIME, DocumentsTableMap::COL_DOCIORIGDIR, DocumentsTableMap::COL_DOCIORIGFILE, DocumentsTableMap::COL_DOCIREF, DocumentsTableMap::COL_DATEUPDTD, DocumentsTableMap::COL_TIMEUPDTD, DocumentsTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(DocumentTableMap::COL_DOCCFOLDER, DocumentTableMap::COL_DOCIFLD1CD, DocumentTableMap::COL_DOCIFLD1, DocumentTableMap::COL_DOCIFLD2CD, DocumentTableMap::COL_DOCIFLD2, DocumentTableMap::COL_DOCISEQ, DocumentTableMap::COL_DOCITAG, DocumentTableMap::COL_DOCIFILENAME, DocumentTableMap::COL_DOCIUSER, DocumentTableMap::COL_DOCIDATE, DocumentTableMap::COL_DOCITIME, DocumentTableMap::COL_DOCIORIGDIR, DocumentTableMap::COL_DOCIORIGFILE, DocumentTableMap::COL_DOCIREF, DocumentTableMap::COL_DATEUPDTD, DocumentTableMap::COL_TIMEUPDTD, DocumentTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('DoccFolder', 'DociFld1Cd', 'DociFld1', 'DociFld2Cd', 'DociFld2', 'DociSeq', 'DociTag', 'DociFileName', 'DociUser', 'DociDate', 'DociTime', 'DociOrigDir', 'DociOrigFile', 'DociRef', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
     );
@@ -184,7 +184,7 @@ class DocumentsTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Doccfolder' => 0, 'Docifld1cd' => 1, 'Docifld1' => 2, 'Docifld2cd' => 3, 'Docifld2' => 4, 'Dociseq' => 5, 'Docitag' => 6, 'Docifilename' => 7, 'Dociuser' => 8, 'Docidate' => 9, 'Docitime' => 10, 'Dociorigdir' => 11, 'Dociorigfile' => 12, 'Dociref' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ),
         self::TYPE_CAMELNAME     => array('doccfolder' => 0, 'docifld1cd' => 1, 'docifld1' => 2, 'docifld2cd' => 3, 'docifld2' => 4, 'dociseq' => 5, 'docitag' => 6, 'docifilename' => 7, 'dociuser' => 8, 'docidate' => 9, 'docitime' => 10, 'dociorigdir' => 11, 'dociorigfile' => 12, 'dociref' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(DocumentsTableMap::COL_DOCCFOLDER => 0, DocumentsTableMap::COL_DOCIFLD1CD => 1, DocumentsTableMap::COL_DOCIFLD1 => 2, DocumentsTableMap::COL_DOCIFLD2CD => 3, DocumentsTableMap::COL_DOCIFLD2 => 4, DocumentsTableMap::COL_DOCISEQ => 5, DocumentsTableMap::COL_DOCITAG => 6, DocumentsTableMap::COL_DOCIFILENAME => 7, DocumentsTableMap::COL_DOCIUSER => 8, DocumentsTableMap::COL_DOCIDATE => 9, DocumentsTableMap::COL_DOCITIME => 10, DocumentsTableMap::COL_DOCIORIGDIR => 11, DocumentsTableMap::COL_DOCIORIGFILE => 12, DocumentsTableMap::COL_DOCIREF => 13, DocumentsTableMap::COL_DATEUPDTD => 14, DocumentsTableMap::COL_TIMEUPDTD => 15, DocumentsTableMap::COL_DUMMY => 16, ),
+        self::TYPE_COLNAME       => array(DocumentTableMap::COL_DOCCFOLDER => 0, DocumentTableMap::COL_DOCIFLD1CD => 1, DocumentTableMap::COL_DOCIFLD1 => 2, DocumentTableMap::COL_DOCIFLD2CD => 3, DocumentTableMap::COL_DOCIFLD2 => 4, DocumentTableMap::COL_DOCISEQ => 5, DocumentTableMap::COL_DOCITAG => 6, DocumentTableMap::COL_DOCIFILENAME => 7, DocumentTableMap::COL_DOCIUSER => 8, DocumentTableMap::COL_DOCIDATE => 9, DocumentTableMap::COL_DOCITIME => 10, DocumentTableMap::COL_DOCIORIGDIR => 11, DocumentTableMap::COL_DOCIORIGFILE => 12, DocumentTableMap::COL_DOCIREF => 13, DocumentTableMap::COL_DATEUPDTD => 14, DocumentTableMap::COL_TIMEUPDTD => 15, DocumentTableMap::COL_DUMMY => 16, ),
         self::TYPE_FIELDNAME     => array('DoccFolder' => 0, 'DociFld1Cd' => 1, 'DociFld1' => 2, 'DociFld2Cd' => 3, 'DociFld2' => 4, 'DociSeq' => 5, 'DociTag' => 6, 'DociFileName' => 7, 'DociUser' => 8, 'DociDate' => 9, 'DociTime' => 10, 'DociOrigDir' => 11, 'DociOrigFile' => 12, 'DociRef' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
     );
@@ -200,13 +200,13 @@ class DocumentsTableMap extends TableMap
     {
         // attributes
         $this->setName('doc_index');
-        $this->setPhpName('Documents');
+        $this->setPhpName('Document');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Documents');
+        $this->setClassName('\\Document');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('DoccFolder', 'Doccfolder', 'VARCHAR', true, 8, '');
+        $this->addForeignPrimaryKey('DoccFolder', 'Doccfolder', 'VARCHAR' , 'doc_control', 'DoccFolder', true, 8, '');
         $this->addPrimaryKey('DociFld1Cd', 'Docifld1cd', 'VARCHAR', true, 2, '');
         $this->addPrimaryKey('DociFld1', 'Docifld1', 'VARCHAR', true, 30, '');
         $this->addPrimaryKey('DociFld2Cd', 'Docifld2cd', 'VARCHAR', true, 2, '');
@@ -230,6 +230,13 @@ class DocumentsTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('DocumentFolder', '\\DocumentFolder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':DoccFolder',
+    1 => ':DoccFolder',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
@@ -240,7 +247,7 @@ class DocumentsTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \Documents $obj A \Documents object.
+     * @param \Document $obj A \Document object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -261,12 +268,12 @@ class DocumentsTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \Documents object or a primary key value.
+     * @param mixed $value A \Document object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \Documents) {
+            if (is_object($value) && $value instanceof \Document) {
                 $key = serialize([(null === $value->getDoccfolder() || is_scalar($value->getDoccfolder()) || is_callable([$value->getDoccfolder(), '__toString']) ? (string) $value->getDoccfolder() : $value->getDoccfolder()), (null === $value->getDocifld1cd() || is_scalar($value->getDocifld1cd()) || is_callable([$value->getDocifld1cd(), '__toString']) ? (string) $value->getDocifld1cd() : $value->getDocifld1cd()), (null === $value->getDocifld1() || is_scalar($value->getDocifld1()) || is_callable([$value->getDocifld1(), '__toString']) ? (string) $value->getDocifld1() : $value->getDocifld1()), (null === $value->getDocifld2cd() || is_scalar($value->getDocifld2cd()) || is_callable([$value->getDocifld2cd(), '__toString']) ? (string) $value->getDocifld2cd() : $value->getDocifld2cd()), (null === $value->getDocifld2() || is_scalar($value->getDocifld2()) || is_callable([$value->getDocifld2(), '__toString']) ? (string) $value->getDocifld2() : $value->getDocifld2()), (null === $value->getDociseq() || is_scalar($value->getDociseq()) || is_callable([$value->getDociseq(), '__toString']) ? (string) $value->getDociseq() : $value->getDociseq())]);
 
             } elseif (is_array($value) && count($value) === 6) {
@@ -277,7 +284,7 @@ class DocumentsTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Documents object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Document object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -371,7 +378,7 @@ class DocumentsTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? DocumentsTableMap::CLASS_DEFAULT : DocumentsTableMap::OM_CLASS;
+        return $withPrefix ? DocumentTableMap::CLASS_DEFAULT : DocumentTableMap::OM_CLASS;
     }
 
     /**
@@ -385,22 +392,22 @@ class DocumentsTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Documents object, last column rank)
+     * @return array           (Document object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = DocumentsTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = DocumentsTableMap::getInstanceFromPool($key))) {
+        $key = DocumentTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = DocumentTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + DocumentsTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + DocumentTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = DocumentsTableMap::OM_CLASS;
-            /** @var Documents $obj */
+            $cls = DocumentTableMap::OM_CLASS;
+            /** @var Document $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            DocumentsTableMap::addInstanceToPool($obj, $key);
+            DocumentTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -423,18 +430,18 @@ class DocumentsTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = DocumentsTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = DocumentsTableMap::getInstanceFromPool($key))) {
+            $key = DocumentTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = DocumentTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Documents $obj */
+                /** @var Document $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                DocumentsTableMap::addInstanceToPool($obj, $key);
+                DocumentTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -455,23 +462,23 @@ class DocumentsTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCCFOLDER);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIFLD1CD);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIFLD1);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIFLD2CD);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIFLD2);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCISEQ);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCITAG);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIFILENAME);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIUSER);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIDATE);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCITIME);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIORIGDIR);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIORIGFILE);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DOCIREF);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(DocumentsTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCCFOLDER);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIFLD1CD);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIFLD1);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIFLD2CD);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIFLD2);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCISEQ);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCITAG);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIFILENAME);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIUSER);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIDATE);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCITIME);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIORIGDIR);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIORIGFILE);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DOCIREF);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(DocumentTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(DocumentTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.DoccFolder');
             $criteria->addSelectColumn($alias . '.DociFld1Cd');
@@ -502,7 +509,7 @@ class DocumentsTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(DocumentsTableMap::DATABASE_NAME)->getTable(DocumentsTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(DocumentTableMap::DATABASE_NAME)->getTable(DocumentTableMap::TABLE_NAME);
     }
 
     /**
@@ -510,16 +517,16 @@ class DocumentsTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(DocumentsTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(DocumentsTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new DocumentsTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(DocumentTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(DocumentTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new DocumentTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Documents or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a Document or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Documents object or primary key or array of primary keys
+     * @param mixed               $values Criteria or Document object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -530,17 +537,17 @@ class DocumentsTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(DocumentsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(DocumentTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Documents) { // it's a model object
+        } elseif ($values instanceof \Document) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(DocumentsTableMap::DATABASE_NAME);
+            $criteria = new Criteria(DocumentTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -548,23 +555,23 @@ class DocumentsTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(DocumentsTableMap::COL_DOCCFOLDER, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(DocumentsTableMap::COL_DOCIFLD1CD, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(DocumentsTableMap::COL_DOCIFLD1, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(DocumentsTableMap::COL_DOCIFLD2CD, $value[3]));
-                $criterion->addAnd($criteria->getNewCriterion(DocumentsTableMap::COL_DOCIFLD2, $value[4]));
-                $criterion->addAnd($criteria->getNewCriterion(DocumentsTableMap::COL_DOCISEQ, $value[5]));
+                $criterion = $criteria->getNewCriterion(DocumentTableMap::COL_DOCCFOLDER, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(DocumentTableMap::COL_DOCIFLD1CD, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(DocumentTableMap::COL_DOCIFLD1, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(DocumentTableMap::COL_DOCIFLD2CD, $value[3]));
+                $criterion->addAnd($criteria->getNewCriterion(DocumentTableMap::COL_DOCIFLD2, $value[4]));
+                $criterion->addAnd($criteria->getNewCriterion(DocumentTableMap::COL_DOCISEQ, $value[5]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = DocumentsQuery::create()->mergeWith($criteria);
+        $query = DocumentQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            DocumentsTableMap::clearInstancePool();
+            DocumentTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                DocumentsTableMap::removeInstanceFromPool($singleval);
+                DocumentTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -579,13 +586,13 @@ class DocumentsTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return DocumentsQuery::create()->doDeleteAll($con);
+        return DocumentQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Documents or Criteria object.
+     * Performs an INSERT on the database, given a Document or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Documents object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or Document object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -594,18 +601,18 @@ class DocumentsTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(DocumentsTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(DocumentTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Documents object
+            $criteria = $criteria->buildCriteria(); // build Criteria from Document object
         }
 
 
         // Set the correct dbName
-        $query = DocumentsQuery::create()->mergeWith($criteria);
+        $query = DocumentQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -614,7 +621,7 @@ class DocumentsTableMap extends TableMap
         });
     }
 
-} // DocumentsTableMap
+} // DocumentTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-DocumentsTableMap::buildTableMap();
+DocumentTableMap::buildTableMap();

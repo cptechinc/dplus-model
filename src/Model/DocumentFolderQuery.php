@@ -1,6 +1,6 @@
 <?php
 
-use Base\DocumentFoldersQuery as BaseDocumentFoldersQuery;
+use Base\DocumentFolderQuery as BaseDocumentFolderQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * Filters
  *
  * FindOne
- * @method  DocumentFolders findOneByFolder($folder) Filter Return the first DocumentFolders filtered by the DoccFolder column
+ * @method  DocumentFolder findOneByFolder($folder) Filter Return the first DocumentFolder filtered by the DoccFolder column
  * 
  * Find
  *
  *
  */
-class DocumentFoldersQuery extends BaseDocumentFoldersQuery {
+class DocumentFolderQuery extends BaseDocumentFolderQuery {
 	use QueryTraits;
 }

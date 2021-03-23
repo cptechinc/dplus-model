@@ -2,10 +2,12 @@
 
 namespace Base;
 
-use \DocumentFoldersQuery as ChildDocumentFoldersQuery;
+use \DocumentFolder as ChildDocumentFolder;
+use \DocumentFolderQuery as ChildDocumentFolderQuery;
+use \DocumentQuery as ChildDocumentQuery;
 use \Exception;
 use \PDO;
-use Map\DocumentFoldersTableMap;
+use Map\DocumentTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,18 +21,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'doc_control' table.
+ * Base class that represents a row from the 'doc_index' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class DocumentFolders implements ActiveRecordInterface
+abstract class Document implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\DocumentFoldersTableMap';
+    const TABLE_MAP = '\\Map\\DocumentTableMap';
 
 
     /**
@@ -68,53 +70,100 @@ abstract class DocumentFolders implements ActiveRecordInterface
     protected $doccfolder;
 
     /**
-     * The value for the doccfolderdesc field.
+     * The value for the docifld1cd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $doccfolderdesc;
+    protected $docifld1cd;
 
     /**
-     * The value for the doccdir field.
+     * The value for the docifld1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $doccdir;
+    protected $docifld1;
 
     /**
-     * The value for the docctag field.
+     * The value for the docifld2cd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $docctag;
+    protected $docifld2cd;
 
     /**
-     * The value for the doccmultcopy field.
+     * The value for the docifld2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $doccmultcopy;
+    protected $docifld2;
 
     /**
-     * The value for the doccoverwrt field.
+     * The value for the dociseq field.
      *
-     * @var        string
-     */
-    protected $doccoverwrt;
-
-    /**
-     * The value for the doccfilecnt field.
-     *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $doccfilecnt;
+    protected $dociseq;
 
     /**
-     * The value for the doccautoscanid field.
+     * The value for the docitag field.
      *
      * @var        string
      */
-    protected $doccautoscanid;
+    protected $docitag;
+
+    /**
+     * The value for the docifilename field.
+     *
+     * @var        string
+     */
+    protected $docifilename;
+
+    /**
+     * The value for the dociuser field.
+     *
+     * @var        string
+     */
+    protected $dociuser;
+
+    /**
+     * The value for the docidate field.
+     *
+     * @var        string
+     */
+    protected $docidate;
+
+    /**
+     * The value for the docitime field.
+     *
+     * @var        string
+     */
+    protected $docitime;
+
+    /**
+     * The value for the dociorigdir field.
+     *
+     * @var        string
+     */
+    protected $dociorigdir;
+
+    /**
+     * The value for the dociorigfile field.
+     *
+     * @var        string
+     */
+    protected $dociorigfile;
+
+    /**
+     * The value for the dociref field.
+     *
+     * @var        string
+     */
+    protected $dociref;
 
     /**
      * The value for the dateupdtd field.
@@ -138,6 +187,11 @@ abstract class DocumentFolders implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ChildDocumentFolder
+     */
+    protected $aDocumentFolder;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -154,10 +208,15 @@ abstract class DocumentFolders implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->doccfolder = '';
+        $this->docifld1cd = '';
+        $this->docifld1 = '';
+        $this->docifld2cd = '';
+        $this->docifld2 = '';
+        $this->dociseq = 0;
     }
 
     /**
-     * Initializes internal state of Base\DocumentFolders object.
+     * Initializes internal state of Base\Document object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -254,9 +313,9 @@ abstract class DocumentFolders implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>DocumentFolders</code> instance.  If
-     * <code>obj</code> is an instance of <code>DocumentFolders</code>, delegates to
-     * <code>equals(DocumentFolders)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>Document</code> instance.  If
+     * <code>obj</code> is an instance of <code>Document</code>, delegates to
+     * <code>equals(Document)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -322,7 +381,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|DocumentFolders The current object, for fluid interface
+     * @return $this|Document The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -394,73 +453,133 @@ abstract class DocumentFolders implements ActiveRecordInterface
     }
 
     /**
-     * Get the [doccfolderdesc] column value.
+     * Get the [docifld1cd] column value.
      *
      * @return string
      */
-    public function getDoccfolderdesc()
+    public function getDocifld1cd()
     {
-        return $this->doccfolderdesc;
+        return $this->docifld1cd;
     }
 
     /**
-     * Get the [doccdir] column value.
+     * Get the [docifld1] column value.
      *
      * @return string
      */
-    public function getDoccdir()
+    public function getDocifld1()
     {
-        return $this->doccdir;
+        return $this->docifld1;
     }
 
     /**
-     * Get the [docctag] column value.
+     * Get the [docifld2cd] column value.
      *
      * @return string
      */
-    public function getDocctag()
+    public function getDocifld2cd()
     {
-        return $this->docctag;
+        return $this->docifld2cd;
     }
 
     /**
-     * Get the [doccmultcopy] column value.
+     * Get the [docifld2] column value.
      *
      * @return string
      */
-    public function getDoccmultcopy()
+    public function getDocifld2()
     {
-        return $this->doccmultcopy;
+        return $this->docifld2;
     }
 
     /**
-     * Get the [doccoverwrt] column value.
-     *
-     * @return string
-     */
-    public function getDoccoverwrt()
-    {
-        return $this->doccoverwrt;
-    }
-
-    /**
-     * Get the [doccfilecnt] column value.
+     * Get the [dociseq] column value.
      *
      * @return int
      */
-    public function getDoccfilecnt()
+    public function getDociseq()
     {
-        return $this->doccfilecnt;
+        return $this->dociseq;
     }
 
     /**
-     * Get the [doccautoscanid] column value.
+     * Get the [docitag] column value.
      *
      * @return string
      */
-    public function getDoccautoscanid()
+    public function getDocitag()
     {
-        return $this->doccautoscanid;
+        return $this->docitag;
+    }
+
+    /**
+     * Get the [docifilename] column value.
+     *
+     * @return string
+     */
+    public function getDocifilename()
+    {
+        return $this->docifilename;
+    }
+
+    /**
+     * Get the [dociuser] column value.
+     *
+     * @return string
+     */
+    public function getDociuser()
+    {
+        return $this->dociuser;
+    }
+
+    /**
+     * Get the [docidate] column value.
+     *
+     * @return string
+     */
+    public function getDocidate()
+    {
+        return $this->docidate;
+    }
+
+    /**
+     * Get the [docitime] column value.
+     *
+     * @return string
+     */
+    public function getDocitime()
+    {
+        return $this->docitime;
+    }
+
+    /**
+     * Get the [dociorigdir] column value.
+     *
+     * @return string
+     */
+    public function getDociorigdir()
+    {
+        return $this->dociorigdir;
+    }
+
+    /**
+     * Get the [dociorigfile] column value.
+     *
+     * @return string
+     */
+    public function getDociorigfile()
+    {
+        return $this->dociorigfile;
+    }
+
+    /**
+     * Get the [dociref] column value.
+     *
+     * @return string
+     */
+    public function getDociref()
+    {
+        return $this->dociref;
     }
 
     /**
@@ -497,7 +616,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * Set the value of [doccfolder] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
     public function setDoccfolder($v)
     {
@@ -507,157 +626,281 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
         if ($this->doccfolder !== $v) {
             $this->doccfolder = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCFOLDER] = true;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCCFOLDER] = true;
+        }
+
+        if ($this->aDocumentFolder !== null && $this->aDocumentFolder->getDoccfolder() !== $v) {
+            $this->aDocumentFolder = null;
         }
 
         return $this;
     } // setDoccfolder()
 
     /**
-     * Set the value of [doccfolderdesc] column.
+     * Set the value of [docifld1cd] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDoccfolderdesc($v)
+    public function setDocifld1cd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->doccfolderdesc !== $v) {
-            $this->doccfolderdesc = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCFOLDERDESC] = true;
+        if ($this->docifld1cd !== $v) {
+            $this->docifld1cd = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIFLD1CD] = true;
         }
 
         return $this;
-    } // setDoccfolderdesc()
+    } // setDocifld1cd()
 
     /**
-     * Set the value of [doccdir] column.
+     * Set the value of [docifld1] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDoccdir($v)
+    public function setDocifld1($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->doccdir !== $v) {
-            $this->doccdir = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCDIR] = true;
+        if ($this->docifld1 !== $v) {
+            $this->docifld1 = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIFLD1] = true;
         }
 
         return $this;
-    } // setDoccdir()
+    } // setDocifld1()
 
     /**
-     * Set the value of [docctag] column.
+     * Set the value of [docifld2cd] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDocctag($v)
+    public function setDocifld2cd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->docctag !== $v) {
-            $this->docctag = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCTAG] = true;
+        if ($this->docifld2cd !== $v) {
+            $this->docifld2cd = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIFLD2CD] = true;
         }
 
         return $this;
-    } // setDocctag()
+    } // setDocifld2cd()
 
     /**
-     * Set the value of [doccmultcopy] column.
+     * Set the value of [docifld2] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDoccmultcopy($v)
+    public function setDocifld2($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->doccmultcopy !== $v) {
-            $this->doccmultcopy = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCMULTCOPY] = true;
+        if ($this->docifld2 !== $v) {
+            $this->docifld2 = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIFLD2] = true;
         }
 
         return $this;
-    } // setDoccmultcopy()
+    } // setDocifld2()
 
     /**
-     * Set the value of [doccoverwrt] column.
-     *
-     * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
-     */
-    public function setDoccoverwrt($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->doccoverwrt !== $v) {
-            $this->doccoverwrt = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCOVERWRT] = true;
-        }
-
-        return $this;
-    } // setDoccoverwrt()
-
-    /**
-     * Set the value of [doccfilecnt] column.
+     * Set the value of [dociseq] column.
      *
      * @param int $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDoccfilecnt($v)
+    public function setDociseq($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->doccfilecnt !== $v) {
-            $this->doccfilecnt = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCFILECNT] = true;
+        if ($this->dociseq !== $v) {
+            $this->dociseq = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCISEQ] = true;
         }
 
         return $this;
-    } // setDoccfilecnt()
+    } // setDociseq()
 
     /**
-     * Set the value of [doccautoscanid] column.
+     * Set the value of [docitag] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
-    public function setDoccautoscanid($v)
+    public function setDocitag($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->doccautoscanid !== $v) {
-            $this->doccautoscanid = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DOCCAUTOSCANID] = true;
+        if ($this->docitag !== $v) {
+            $this->docitag = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCITAG] = true;
         }
 
         return $this;
-    } // setDoccautoscanid()
+    } // setDocitag()
+
+    /**
+     * Set the value of [docifilename] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDocifilename($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->docifilename !== $v) {
+            $this->docifilename = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIFILENAME] = true;
+        }
+
+        return $this;
+    } // setDocifilename()
+
+    /**
+     * Set the value of [dociuser] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDociuser($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->dociuser !== $v) {
+            $this->dociuser = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIUSER] = true;
+        }
+
+        return $this;
+    } // setDociuser()
+
+    /**
+     * Set the value of [docidate] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDocidate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->docidate !== $v) {
+            $this->docidate = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIDATE] = true;
+        }
+
+        return $this;
+    } // setDocidate()
+
+    /**
+     * Set the value of [docitime] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDocitime($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->docitime !== $v) {
+            $this->docitime = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCITIME] = true;
+        }
+
+        return $this;
+    } // setDocitime()
+
+    /**
+     * Set the value of [dociorigdir] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDociorigdir($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->dociorigdir !== $v) {
+            $this->dociorigdir = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIORIGDIR] = true;
+        }
+
+        return $this;
+    } // setDociorigdir()
+
+    /**
+     * Set the value of [dociorigfile] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDociorigfile($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->dociorigfile !== $v) {
+            $this->dociorigfile = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIORIGFILE] = true;
+        }
+
+        return $this;
+    } // setDociorigfile()
+
+    /**
+     * Set the value of [dociref] column.
+     *
+     * @param string $v new value
+     * @return $this|\Document The current object (for fluent API support)
+     */
+    public function setDociref($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->dociref !== $v) {
+            $this->dociref = $v;
+            $this->modifiedColumns[DocumentTableMap::COL_DOCIREF] = true;
+        }
+
+        return $this;
+    } // setDociref()
 
     /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -667,7 +910,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[DocumentTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -677,7 +920,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -687,7 +930,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[DocumentTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -697,7 +940,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\DocumentFolders The current object (for fluent API support)
+     * @return $this|\Document The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -707,7 +950,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[DocumentFoldersTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[DocumentTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -724,6 +967,26 @@ abstract class DocumentFolders implements ActiveRecordInterface
     public function hasOnlyDefaultValues()
     {
             if ($this->doccfolder !== '') {
+                return false;
+            }
+
+            if ($this->docifld1cd !== '') {
+                return false;
+            }
+
+            if ($this->docifld1 !== '') {
+                return false;
+            }
+
+            if ($this->docifld2cd !== '') {
+                return false;
+            }
+
+            if ($this->docifld2 !== '') {
+                return false;
+            }
+
+            if ($this->dociseq !== 0) {
                 return false;
             }
 
@@ -753,37 +1016,55 @@ abstract class DocumentFolders implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccfolder', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : DocumentTableMap::translateFieldName('Doccfolder', TableMap::TYPE_PHPNAME, $indexType)];
             $this->doccfolder = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccfolderdesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccfolderdesc = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : DocumentTableMap::translateFieldName('Docifld1cd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docifld1cd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccdir', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccdir = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : DocumentTableMap::translateFieldName('Docifld1', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docifld1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : DocumentFoldersTableMap::translateFieldName('Docctag', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->docctag = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : DocumentTableMap::translateFieldName('Docifld2cd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docifld2cd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccmultcopy', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccmultcopy = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : DocumentTableMap::translateFieldName('Docifld2', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docifld2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccoverwrt', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccoverwrt = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : DocumentTableMap::translateFieldName('Dociseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dociseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccfilecnt', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccfilecnt = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : DocumentTableMap::translateFieldName('Docitag', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docitag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : DocumentFoldersTableMap::translateFieldName('Doccautoscanid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccautoscanid = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : DocumentTableMap::translateFieldName('Docifilename', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docifilename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : DocumentFoldersTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : DocumentTableMap::translateFieldName('Dociuser', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dociuser = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : DocumentTableMap::translateFieldName('Docidate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docidate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : DocumentTableMap::translateFieldName('Docitime', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->docitime = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : DocumentTableMap::translateFieldName('Dociorigdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dociorigdir = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : DocumentTableMap::translateFieldName('Dociorigfile', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dociorigfile = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : DocumentTableMap::translateFieldName('Dociref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->dociref = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : DocumentTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : DocumentFoldersTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : DocumentTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : DocumentFoldersTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : DocumentTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -793,10 +1074,10 @@ abstract class DocumentFolders implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = DocumentFoldersTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 17; // 17 = DocumentTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\DocumentFolders'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\Document'), 0, $e);
         }
     }
 
@@ -815,6 +1096,9 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aDocumentFolder !== null && $this->doccfolder !== $this->aDocumentFolder->getDoccfolder()) {
+            $this->aDocumentFolder = null;
+        }
     } // ensureConsistency
 
     /**
@@ -838,13 +1122,13 @@ abstract class DocumentFolders implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(DocumentFoldersTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(DocumentTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildDocumentFoldersQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildDocumentQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -854,6 +1138,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aDocumentFolder = null;
         } // if (deep)
     }
 
@@ -863,8 +1148,8 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see DocumentFolders::setDeleted()
-     * @see DocumentFolders::isDeleted()
+     * @see Document::setDeleted()
+     * @see Document::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -873,11 +1158,11 @@ abstract class DocumentFolders implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(DocumentFoldersTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(DocumentTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildDocumentFoldersQuery::create()
+            $deleteQuery = ChildDocumentQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -912,7 +1197,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(DocumentFoldersTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(DocumentTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -931,7 +1216,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                DocumentFoldersTableMap::addInstanceToPool($this);
+                DocumentTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -956,6 +1241,18 @@ abstract class DocumentFolders implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aDocumentFolder !== null) {
+                if ($this->aDocumentFolder->isModified() || $this->aDocumentFolder->isNew()) {
+                    $affectedRows += $this->aDocumentFolder->save($con);
+                }
+                $this->setDocumentFolder($this->aDocumentFolder);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -990,42 +1287,60 @@ abstract class DocumentFolders implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFOLDER)) {
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCCFOLDER)) {
             $modifiedColumns[':p' . $index++]  = 'DoccFolder';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFOLDERDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccFolderDesc';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD1CD)) {
+            $modifiedColumns[':p' . $index++]  = 'DociFld1Cd';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCDIR)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccDir';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD1)) {
+            $modifiedColumns[':p' . $index++]  = 'DociFld1';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCTAG)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccTag';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD2CD)) {
+            $modifiedColumns[':p' . $index++]  = 'DociFld2Cd';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCMULTCOPY)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccMultCopy';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD2)) {
+            $modifiedColumns[':p' . $index++]  = 'DociFld2';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCOVERWRT)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccOverWrt';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCISEQ)) {
+            $modifiedColumns[':p' . $index++]  = 'DociSeq';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFILECNT)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccFileCnt';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCITAG)) {
+            $modifiedColumns[':p' . $index++]  = 'DociTag';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCAUTOSCANID)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccAutoScanId';
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFILENAME)) {
+            $modifiedColumns[':p' . $index++]  = 'DociFileName';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIUSER)) {
+            $modifiedColumns[':p' . $index++]  = 'DociUser';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'DociDate';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCITIME)) {
+            $modifiedColumns[':p' . $index++]  = 'DociTime';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIORIGDIR)) {
+            $modifiedColumns[':p' . $index++]  = 'DociOrigDir';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIORIGFILE)) {
+            $modifiedColumns[':p' . $index++]  = 'DociOrigFile';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIREF)) {
+            $modifiedColumns[':p' . $index++]  = 'DociRef';
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(DocumentTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(DocumentTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO doc_control (%s) VALUES (%s)',
+            'INSERT INTO doc_index (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1037,26 +1352,44 @@ abstract class DocumentFolders implements ActiveRecordInterface
                     case 'DoccFolder':
                         $stmt->bindValue($identifier, $this->doccfolder, PDO::PARAM_STR);
                         break;
-                    case 'DoccFolderDesc':
-                        $stmt->bindValue($identifier, $this->doccfolderdesc, PDO::PARAM_STR);
+                    case 'DociFld1Cd':
+                        $stmt->bindValue($identifier, $this->docifld1cd, PDO::PARAM_STR);
                         break;
-                    case 'DoccDir':
-                        $stmt->bindValue($identifier, $this->doccdir, PDO::PARAM_STR);
+                    case 'DociFld1':
+                        $stmt->bindValue($identifier, $this->docifld1, PDO::PARAM_STR);
                         break;
-                    case 'DoccTag':
-                        $stmt->bindValue($identifier, $this->docctag, PDO::PARAM_STR);
+                    case 'DociFld2Cd':
+                        $stmt->bindValue($identifier, $this->docifld2cd, PDO::PARAM_STR);
                         break;
-                    case 'DoccMultCopy':
-                        $stmt->bindValue($identifier, $this->doccmultcopy, PDO::PARAM_STR);
+                    case 'DociFld2':
+                        $stmt->bindValue($identifier, $this->docifld2, PDO::PARAM_STR);
                         break;
-                    case 'DoccOverWrt':
-                        $stmt->bindValue($identifier, $this->doccoverwrt, PDO::PARAM_STR);
+                    case 'DociSeq':
+                        $stmt->bindValue($identifier, $this->dociseq, PDO::PARAM_INT);
                         break;
-                    case 'DoccFileCnt':
-                        $stmt->bindValue($identifier, $this->doccfilecnt, PDO::PARAM_INT);
+                    case 'DociTag':
+                        $stmt->bindValue($identifier, $this->docitag, PDO::PARAM_STR);
                         break;
-                    case 'DoccAutoScanId':
-                        $stmt->bindValue($identifier, $this->doccautoscanid, PDO::PARAM_STR);
+                    case 'DociFileName':
+                        $stmt->bindValue($identifier, $this->docifilename, PDO::PARAM_STR);
+                        break;
+                    case 'DociUser':
+                        $stmt->bindValue($identifier, $this->dociuser, PDO::PARAM_STR);
+                        break;
+                    case 'DociDate':
+                        $stmt->bindValue($identifier, $this->docidate, PDO::PARAM_STR);
+                        break;
+                    case 'DociTime':
+                        $stmt->bindValue($identifier, $this->docitime, PDO::PARAM_STR);
+                        break;
+                    case 'DociOrigDir':
+                        $stmt->bindValue($identifier, $this->dociorigdir, PDO::PARAM_STR);
+                        break;
+                    case 'DociOrigFile':
+                        $stmt->bindValue($identifier, $this->dociorigfile, PDO::PARAM_STR);
+                        break;
+                    case 'DociRef':
+                        $stmt->bindValue($identifier, $this->dociref, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1106,7 +1439,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = DocumentFoldersTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = DocumentTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1126,33 +1459,51 @@ abstract class DocumentFolders implements ActiveRecordInterface
                 return $this->getDoccfolder();
                 break;
             case 1:
-                return $this->getDoccfolderdesc();
+                return $this->getDocifld1cd();
                 break;
             case 2:
-                return $this->getDoccdir();
+                return $this->getDocifld1();
                 break;
             case 3:
-                return $this->getDocctag();
+                return $this->getDocifld2cd();
                 break;
             case 4:
-                return $this->getDoccmultcopy();
+                return $this->getDocifld2();
                 break;
             case 5:
-                return $this->getDoccoverwrt();
+                return $this->getDociseq();
                 break;
             case 6:
-                return $this->getDoccfilecnt();
+                return $this->getDocitag();
                 break;
             case 7:
-                return $this->getDoccautoscanid();
+                return $this->getDocifilename();
                 break;
             case 8:
-                return $this->getDateupdtd();
+                return $this->getDociuser();
                 break;
             case 9:
-                return $this->getTimeupdtd();
+                return $this->getDocidate();
                 break;
             case 10:
+                return $this->getDocitime();
+                break;
+            case 11:
+                return $this->getDociorigdir();
+                break;
+            case 12:
+                return $this->getDociorigfile();
+                break;
+            case 13:
+                return $this->getDociref();
+                break;
+            case 14:
+                return $this->getDateupdtd();
+                break;
+            case 15:
+                return $this->getTimeupdtd();
+                break;
+            case 16:
                 return $this->getDummy();
                 break;
             default:
@@ -1172,35 +1523,59 @@ abstract class DocumentFolders implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['DocumentFolders'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['Document'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['DocumentFolders'][$this->hashCode()] = true;
-        $keys = DocumentFoldersTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['Document'][$this->hashCode()] = true;
+        $keys = DocumentTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getDoccfolder(),
-            $keys[1] => $this->getDoccfolderdesc(),
-            $keys[2] => $this->getDoccdir(),
-            $keys[3] => $this->getDocctag(),
-            $keys[4] => $this->getDoccmultcopy(),
-            $keys[5] => $this->getDoccoverwrt(),
-            $keys[6] => $this->getDoccfilecnt(),
-            $keys[7] => $this->getDoccautoscanid(),
-            $keys[8] => $this->getDateupdtd(),
-            $keys[9] => $this->getTimeupdtd(),
-            $keys[10] => $this->getDummy(),
+            $keys[1] => $this->getDocifld1cd(),
+            $keys[2] => $this->getDocifld1(),
+            $keys[3] => $this->getDocifld2cd(),
+            $keys[4] => $this->getDocifld2(),
+            $keys[5] => $this->getDociseq(),
+            $keys[6] => $this->getDocitag(),
+            $keys[7] => $this->getDocifilename(),
+            $keys[8] => $this->getDociuser(),
+            $keys[9] => $this->getDocidate(),
+            $keys[10] => $this->getDocitime(),
+            $keys[11] => $this->getDociorigdir(),
+            $keys[12] => $this->getDociorigfile(),
+            $keys[13] => $this->getDociref(),
+            $keys[14] => $this->getDateupdtd(),
+            $keys[15] => $this->getTimeupdtd(),
+            $keys[16] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aDocumentFolder) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'documentFolder';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'doc_control';
+                        break;
+                    default:
+                        $key = 'DocumentFolder';
+                }
+
+                $result[$key] = $this->aDocumentFolder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1214,11 +1589,11 @@ abstract class DocumentFolders implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\DocumentFolders
+     * @return $this|\Document
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = DocumentFoldersTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = DocumentTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1229,7 +1604,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\DocumentFolders
+     * @return $this|\Document
      */
     public function setByPosition($pos, $value)
     {
@@ -1238,33 +1613,51 @@ abstract class DocumentFolders implements ActiveRecordInterface
                 $this->setDoccfolder($value);
                 break;
             case 1:
-                $this->setDoccfolderdesc($value);
+                $this->setDocifld1cd($value);
                 break;
             case 2:
-                $this->setDoccdir($value);
+                $this->setDocifld1($value);
                 break;
             case 3:
-                $this->setDocctag($value);
+                $this->setDocifld2cd($value);
                 break;
             case 4:
-                $this->setDoccmultcopy($value);
+                $this->setDocifld2($value);
                 break;
             case 5:
-                $this->setDoccoverwrt($value);
+                $this->setDociseq($value);
                 break;
             case 6:
-                $this->setDoccfilecnt($value);
+                $this->setDocitag($value);
                 break;
             case 7:
-                $this->setDoccautoscanid($value);
+                $this->setDocifilename($value);
                 break;
             case 8:
-                $this->setDateupdtd($value);
+                $this->setDociuser($value);
                 break;
             case 9:
-                $this->setTimeupdtd($value);
+                $this->setDocidate($value);
                 break;
             case 10:
+                $this->setDocitime($value);
+                break;
+            case 11:
+                $this->setDociorigdir($value);
+                break;
+            case 12:
+                $this->setDociorigfile($value);
+                break;
+            case 13:
+                $this->setDociref($value);
+                break;
+            case 14:
+                $this->setDateupdtd($value);
+                break;
+            case 15:
+                $this->setTimeupdtd($value);
+                break;
+            case 16:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1291,40 +1684,58 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = DocumentFoldersTableMap::getFieldNames($keyType);
+        $keys = DocumentTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setDoccfolder($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setDoccfolderdesc($arr[$keys[1]]);
+            $this->setDocifld1cd($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setDoccdir($arr[$keys[2]]);
+            $this->setDocifld1($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setDocctag($arr[$keys[3]]);
+            $this->setDocifld2cd($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setDoccmultcopy($arr[$keys[4]]);
+            $this->setDocifld2($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setDoccoverwrt($arr[$keys[5]]);
+            $this->setDociseq($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setDoccfilecnt($arr[$keys[6]]);
+            $this->setDocitag($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setDoccautoscanid($arr[$keys[7]]);
+            $this->setDocifilename($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDateupdtd($arr[$keys[8]]);
+            $this->setDociuser($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setTimeupdtd($arr[$keys[9]]);
+            $this->setDocidate($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setDummy($arr[$keys[10]]);
+            $this->setDocitime($arr[$keys[10]]);
+        }
+        if (array_key_exists($keys[11], $arr)) {
+            $this->setDociorigdir($arr[$keys[11]]);
+        }
+        if (array_key_exists($keys[12], $arr)) {
+            $this->setDociorigfile($arr[$keys[12]]);
+        }
+        if (array_key_exists($keys[13], $arr)) {
+            $this->setDociref($arr[$keys[13]]);
+        }
+        if (array_key_exists($keys[14], $arr)) {
+            $this->setDateupdtd($arr[$keys[14]]);
+        }
+        if (array_key_exists($keys[15], $arr)) {
+            $this->setTimeupdtd($arr[$keys[15]]);
+        }
+        if (array_key_exists($keys[16], $arr)) {
+            $this->setDummy($arr[$keys[16]]);
         }
     }
 
@@ -1345,7 +1756,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\DocumentFolders The current object, for fluid interface
+     * @return $this|\Document The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1365,40 +1776,58 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(DocumentFoldersTableMap::DATABASE_NAME);
+        $criteria = new Criteria(DocumentTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFOLDER)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCFOLDER, $this->doccfolder);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCCFOLDER)) {
+            $criteria->add(DocumentTableMap::COL_DOCCFOLDER, $this->doccfolder);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFOLDERDESC)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCFOLDERDESC, $this->doccfolderdesc);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD1CD)) {
+            $criteria->add(DocumentTableMap::COL_DOCIFLD1CD, $this->docifld1cd);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCDIR)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCDIR, $this->doccdir);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD1)) {
+            $criteria->add(DocumentTableMap::COL_DOCIFLD1, $this->docifld1);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCTAG)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCTAG, $this->docctag);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD2CD)) {
+            $criteria->add(DocumentTableMap::COL_DOCIFLD2CD, $this->docifld2cd);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCMULTCOPY)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCMULTCOPY, $this->doccmultcopy);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFLD2)) {
+            $criteria->add(DocumentTableMap::COL_DOCIFLD2, $this->docifld2);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCOVERWRT)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCOVERWRT, $this->doccoverwrt);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCISEQ)) {
+            $criteria->add(DocumentTableMap::COL_DOCISEQ, $this->dociseq);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCFILECNT)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCFILECNT, $this->doccfilecnt);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCITAG)) {
+            $criteria->add(DocumentTableMap::COL_DOCITAG, $this->docitag);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DOCCAUTOSCANID)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DOCCAUTOSCANID, $this->doccautoscanid);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIFILENAME)) {
+            $criteria->add(DocumentTableMap::COL_DOCIFILENAME, $this->docifilename);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DATEUPDTD)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIUSER)) {
+            $criteria->add(DocumentTableMap::COL_DOCIUSER, $this->dociuser);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(DocumentFoldersTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIDATE)) {
+            $criteria->add(DocumentTableMap::COL_DOCIDATE, $this->docidate);
         }
-        if ($this->isColumnModified(DocumentFoldersTableMap::COL_DUMMY)) {
-            $criteria->add(DocumentFoldersTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCITIME)) {
+            $criteria->add(DocumentTableMap::COL_DOCITIME, $this->docitime);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIORIGDIR)) {
+            $criteria->add(DocumentTableMap::COL_DOCIORIGDIR, $this->dociorigdir);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIORIGFILE)) {
+            $criteria->add(DocumentTableMap::COL_DOCIORIGFILE, $this->dociorigfile);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DOCIREF)) {
+            $criteria->add(DocumentTableMap::COL_DOCIREF, $this->dociref);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DATEUPDTD)) {
+            $criteria->add(DocumentTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(DocumentTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        }
+        if ($this->isColumnModified(DocumentTableMap::COL_DUMMY)) {
+            $criteria->add(DocumentTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1416,8 +1845,13 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildDocumentFoldersQuery::create();
-        $criteria->add(DocumentFoldersTableMap::COL_DOCCFOLDER, $this->doccfolder);
+        $criteria = ChildDocumentQuery::create();
+        $criteria->add(DocumentTableMap::COL_DOCCFOLDER, $this->doccfolder);
+        $criteria->add(DocumentTableMap::COL_DOCIFLD1CD, $this->docifld1cd);
+        $criteria->add(DocumentTableMap::COL_DOCIFLD1, $this->docifld1);
+        $criteria->add(DocumentTableMap::COL_DOCIFLD2CD, $this->docifld2cd);
+        $criteria->add(DocumentTableMap::COL_DOCIFLD2, $this->docifld2);
+        $criteria->add(DocumentTableMap::COL_DOCISEQ, $this->dociseq);
 
         return $criteria;
     }
@@ -1430,10 +1864,22 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getDoccfolder();
+        $validPk = null !== $this->getDoccfolder() &&
+            null !== $this->getDocifld1cd() &&
+            null !== $this->getDocifld1() &&
+            null !== $this->getDocifld2cd() &&
+            null !== $this->getDocifld2() &&
+            null !== $this->getDociseq();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation directory to table doc_control
+        if ($this->aDocumentFolder && $hash = spl_object_hash($this->aDocumentFolder)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1445,23 +1891,37 @@ abstract class DocumentFolders implements ActiveRecordInterface
     }
 
     /**
-     * Returns the primary key for this object (row).
-     * @return string
+     * Returns the composite primary key for this object.
+     * The array elements will be in same order as specified in XML.
+     * @return array
      */
     public function getPrimaryKey()
     {
-        return $this->getDoccfolder();
+        $pks = array();
+        $pks[0] = $this->getDoccfolder();
+        $pks[1] = $this->getDocifld1cd();
+        $pks[2] = $this->getDocifld1();
+        $pks[3] = $this->getDocifld2cd();
+        $pks[4] = $this->getDocifld2();
+        $pks[5] = $this->getDociseq();
+
+        return $pks;
     }
 
     /**
-     * Generic method to set the primary key (doccfolder column).
+     * Set the [composite] primary key.
      *
-     * @param       string $key Primary key.
+     * @param      array $keys The elements of the composite key (order must match the order in XML file).
      * @return void
      */
-    public function setPrimaryKey($key)
+    public function setPrimaryKey($keys)
     {
-        $this->setDoccfolder($key);
+        $this->setDoccfolder($keys[0]);
+        $this->setDocifld1cd($keys[1]);
+        $this->setDocifld1($keys[2]);
+        $this->setDocifld2cd($keys[3]);
+        $this->setDocifld2($keys[4]);
+        $this->setDociseq($keys[5]);
     }
 
     /**
@@ -1470,7 +1930,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return null === $this->getDoccfolder();
+        return (null === $this->getDoccfolder()) && (null === $this->getDocifld1cd()) && (null === $this->getDocifld1()) && (null === $this->getDocifld2cd()) && (null === $this->getDocifld2()) && (null === $this->getDociseq());
     }
 
     /**
@@ -1479,7 +1939,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \DocumentFolders (or compatible) type.
+     * @param      object $copyObj An object of \Document (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1487,13 +1947,19 @@ abstract class DocumentFolders implements ActiveRecordInterface
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
         $copyObj->setDoccfolder($this->getDoccfolder());
-        $copyObj->setDoccfolderdesc($this->getDoccfolderdesc());
-        $copyObj->setDoccdir($this->getDoccdir());
-        $copyObj->setDocctag($this->getDocctag());
-        $copyObj->setDoccmultcopy($this->getDoccmultcopy());
-        $copyObj->setDoccoverwrt($this->getDoccoverwrt());
-        $copyObj->setDoccfilecnt($this->getDoccfilecnt());
-        $copyObj->setDoccautoscanid($this->getDoccautoscanid());
+        $copyObj->setDocifld1cd($this->getDocifld1cd());
+        $copyObj->setDocifld1($this->getDocifld1());
+        $copyObj->setDocifld2cd($this->getDocifld2cd());
+        $copyObj->setDocifld2($this->getDocifld2());
+        $copyObj->setDociseq($this->getDociseq());
+        $copyObj->setDocitag($this->getDocitag());
+        $copyObj->setDocifilename($this->getDocifilename());
+        $copyObj->setDociuser($this->getDociuser());
+        $copyObj->setDocidate($this->getDocidate());
+        $copyObj->setDocitime($this->getDocitime());
+        $copyObj->setDociorigdir($this->getDociorigdir());
+        $copyObj->setDociorigfile($this->getDociorigfile());
+        $copyObj->setDociref($this->getDociref());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1511,7 +1977,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \DocumentFolders Clone of current object.
+     * @return \Document Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1525,20 +1991,80 @@ abstract class DocumentFolders implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildDocumentFolder object.
+     *
+     * @param  ChildDocumentFolder $v
+     * @return $this|\Document The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setDocumentFolder(ChildDocumentFolder $v = null)
+    {
+        if ($v === null) {
+            $this->setDoccfolder('');
+        } else {
+            $this->setDoccfolder($v->getDoccfolder());
+        }
+
+        $this->aDocumentFolder = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildDocumentFolder object, it will not be re-added.
+        if ($v !== null) {
+            $v->addDocument($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildDocumentFolder object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildDocumentFolder The associated ChildDocumentFolder object.
+     * @throws PropelException
+     */
+    public function getDocumentFolder(ConnectionInterface $con = null)
+    {
+        if ($this->aDocumentFolder === null && (($this->doccfolder !== "" && $this->doccfolder !== null))) {
+            $this->aDocumentFolder = ChildDocumentFolderQuery::create()->findPk($this->doccfolder, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aDocumentFolder->addDocuments($this);
+             */
+        }
+
+        return $this->aDocumentFolder;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aDocumentFolder) {
+            $this->aDocumentFolder->removeDocument($this);
+        }
         $this->doccfolder = null;
-        $this->doccfolderdesc = null;
-        $this->doccdir = null;
-        $this->docctag = null;
-        $this->doccmultcopy = null;
-        $this->doccoverwrt = null;
-        $this->doccfilecnt = null;
-        $this->doccautoscanid = null;
+        $this->docifld1cd = null;
+        $this->docifld1 = null;
+        $this->docifld2cd = null;
+        $this->docifld2 = null;
+        $this->dociseq = null;
+        $this->docitag = null;
+        $this->docifilename = null;
+        $this->dociuser = null;
+        $this->docidate = null;
+        $this->docitime = null;
+        $this->dociorigdir = null;
+        $this->dociorigfile = null;
+        $this->dociref = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -1563,6 +2089,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aDocumentFolder = null;
     }
 
     /**
@@ -1572,7 +2099,7 @@ abstract class DocumentFolders implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(DocumentFoldersTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(DocumentTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
