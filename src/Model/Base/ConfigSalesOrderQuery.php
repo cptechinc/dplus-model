@@ -172,6 +172,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSalesOrderQuery orderByOetbcon2frtallowamt($order = Criteria::ASC) Order by the OetbCon2FrtAllowAmt column
  * @method     ChildConfigSalesOrderQuery orderByOetbcon3shipmoreordered($order = Criteria::ASC) Order by the OetbCon3ShipMoreOrdered column
  * @method     ChildConfigSalesOrderQuery orderByOetbcon3warnshipmore($order = Criteria::ASC) Order by the OetbCon3WarnShipMore column
+ * @method     ChildConfigSalesOrderQuery orderByOetbcon3proformafromeso($order = Criteria::ASC) Order by the OetbCon3ProformaFromEso column
+ * @method     ChildConfigSalesOrderQuery orderByOetbcon3pickpackcode($order = Criteria::ASC) Order by the OetbCon3PickPackCode column
  * @method     ChildConfigSalesOrderQuery orderByOetbcon2usedept($order = Criteria::ASC) Order by the OetbCon2UseDept column
  * @method     ChildConfigSalesOrderQuery orderByOetbcon2usedivision($order = Criteria::ASC) Order by the OetbCon2UseDivision column
  * @method     ChildConfigSalesOrderQuery orderByOetbcon2defmfecode($order = Criteria::ASC) Order by the OetbCon2DefMfeCode column
@@ -395,6 +397,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSalesOrderQuery groupByOetbcon2frtallowamt() Group by the OetbCon2FrtAllowAmt column
  * @method     ChildConfigSalesOrderQuery groupByOetbcon3shipmoreordered() Group by the OetbCon3ShipMoreOrdered column
  * @method     ChildConfigSalesOrderQuery groupByOetbcon3warnshipmore() Group by the OetbCon3WarnShipMore column
+ * @method     ChildConfigSalesOrderQuery groupByOetbcon3proformafromeso() Group by the OetbCon3ProformaFromEso column
+ * @method     ChildConfigSalesOrderQuery groupByOetbcon3pickpackcode() Group by the OetbCon3PickPackCode column
  * @method     ChildConfigSalesOrderQuery groupByOetbcon2usedept() Group by the OetbCon2UseDept column
  * @method     ChildConfigSalesOrderQuery groupByOetbcon2usedivision() Group by the OetbCon2UseDivision column
  * @method     ChildConfigSalesOrderQuery groupByOetbcon2defmfecode() Group by the OetbCon2DefMfeCode column
@@ -629,6 +633,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSalesOrder findOneByOetbcon2frtallowamt(int $OetbCon2FrtAllowAmt) Return the first ChildConfigSalesOrder filtered by the OetbCon2FrtAllowAmt column
  * @method     ChildConfigSalesOrder findOneByOetbcon3shipmoreordered(string $OetbCon3ShipMoreOrdered) Return the first ChildConfigSalesOrder filtered by the OetbCon3ShipMoreOrdered column
  * @method     ChildConfigSalesOrder findOneByOetbcon3warnshipmore(string $OetbCon3WarnShipMore) Return the first ChildConfigSalesOrder filtered by the OetbCon3WarnShipMore column
+ * @method     ChildConfigSalesOrder findOneByOetbcon3proformafromeso(string $OetbCon3ProformaFromEso) Return the first ChildConfigSalesOrder filtered by the OetbCon3ProformaFromEso column
+ * @method     ChildConfigSalesOrder findOneByOetbcon3pickpackcode(string $OetbCon3PickPackCode) Return the first ChildConfigSalesOrder filtered by the OetbCon3PickPackCode column
  * @method     ChildConfigSalesOrder findOneByOetbcon2usedept(string $OetbCon2UseDept) Return the first ChildConfigSalesOrder filtered by the OetbCon2UseDept column
  * @method     ChildConfigSalesOrder findOneByOetbcon2usedivision(string $OetbCon2UseDivision) Return the first ChildConfigSalesOrder filtered by the OetbCon2UseDivision column
  * @method     ChildConfigSalesOrder findOneByOetbcon2defmfecode(string $OetbCon2DefMfeCode) Return the first ChildConfigSalesOrder filtered by the OetbCon2DefMfeCode column
@@ -855,6 +861,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSalesOrder requireOneByOetbcon2frtallowamt(int $OetbCon2FrtAllowAmt) Return the first ChildConfigSalesOrder filtered by the OetbCon2FrtAllowAmt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSalesOrder requireOneByOetbcon3shipmoreordered(string $OetbCon3ShipMoreOrdered) Return the first ChildConfigSalesOrder filtered by the OetbCon3ShipMoreOrdered column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSalesOrder requireOneByOetbcon3warnshipmore(string $OetbCon3WarnShipMore) Return the first ChildConfigSalesOrder filtered by the OetbCon3WarnShipMore column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSalesOrder requireOneByOetbcon3proformafromeso(string $OetbCon3ProformaFromEso) Return the first ChildConfigSalesOrder filtered by the OetbCon3ProformaFromEso column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigSalesOrder requireOneByOetbcon3pickpackcode(string $OetbCon3PickPackCode) Return the first ChildConfigSalesOrder filtered by the OetbCon3PickPackCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSalesOrder requireOneByOetbcon2usedept(string $OetbCon2UseDept) Return the first ChildConfigSalesOrder filtered by the OetbCon2UseDept column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSalesOrder requireOneByOetbcon2usedivision(string $OetbCon2UseDivision) Return the first ChildConfigSalesOrder filtered by the OetbCon2UseDivision column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigSalesOrder requireOneByOetbcon2defmfecode(string $OetbCon2DefMfeCode) Return the first ChildConfigSalesOrder filtered by the OetbCon2DefMfeCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -1079,6 +1087,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon2frtallowamt(int $OetbCon2FrtAllowAmt) Return ChildConfigSalesOrder objects filtered by the OetbCon2FrtAllowAmt column
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon3shipmoreordered(string $OetbCon3ShipMoreOrdered) Return ChildConfigSalesOrder objects filtered by the OetbCon3ShipMoreOrdered column
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon3warnshipmore(string $OetbCon3WarnShipMore) Return ChildConfigSalesOrder objects filtered by the OetbCon3WarnShipMore column
+ * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon3proformafromeso(string $OetbCon3ProformaFromEso) Return ChildConfigSalesOrder objects filtered by the OetbCon3ProformaFromEso column
+ * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon3pickpackcode(string $OetbCon3PickPackCode) Return ChildConfigSalesOrder objects filtered by the OetbCon3PickPackCode column
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon2usedept(string $OetbCon2UseDept) Return ChildConfigSalesOrder objects filtered by the OetbCon2UseDept column
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon2usedivision(string $OetbCon2UseDivision) Return ChildConfigSalesOrder objects filtered by the OetbCon2UseDivision column
  * @method     ChildConfigSalesOrder[]|ObjectCollection findByOetbcon2defmfecode(string $OetbCon2DefMfeCode) Return ChildConfigSalesOrder objects filtered by the OetbCon2DefMfeCode column
@@ -1246,7 +1256,7 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OetbConfKey, OetbConfGlIfac, OetbConfInIfac, OetbConfRelIvty, OetbConfUseOrdrNbr, OetbConfDefRqstDate, OetbConfUseCancDate, OetbConfShowSp, OetbConfJrnlSort, OetbConfUsePrepSoOpt, OetbConfDispBillTo, OetbConfSlctFlm, OetbCon3UseStockPull, OetbConfQtyToShip, OetbConfQtyToShipDef, OetbConfDfltOrdrQty, OetbConfAllocQtyToShip, OetbConfOverAllocQts, OetbCon3CompleteLotBin, OetbCon3RqtsOpt, OetbCon2ShipCompHold, OetbCon3UseSaleForecast, OetbConfVerfStopNeg, OetbConfVerfAudtRept, OetbConfAgeLevlDisp, OetbConfAgeAllTime, OetbConfAgeAtHold, OetbConfShowAtLevl, OetbConfShowItem, OetbConfStopPnt, OetbConfPricWind, OetbConfShowCost, OetbConfCostToUse, OetbConfShowMarg, OetbConfFxOe, OetbConfFxInv, OetbConfDispVia, OetbConfDispCaseQty, OetbConfFrtIn, OetbConfFrtInGlAcct, OetbConfMinCharge, OetbConfMinChrgGlAcct, OetbConfDropShipChrg, OetbConfDropShpGlAcct, OetbConfNonTaxCustCode, OetbConfHsTaxId, OetbConfHsFrtId, OetbConfHsMiscId, OetbCon2HsCusdId, OetbCon3HsFrtInId, OetbCon3HsDropId, OetbCon3HsMinordId, OetbConfHeadGetDef, OetbConfItemGetDef, OetbConfAutoGetCust, OetbCon3AutoGetItem, OetbConfRqstHeadDtl, OetbConfCancHeadDtl, OetbConfUseInvcAsShip, OetbCon3UseArrvDate, OetbConfSeparateCred, OetbCon3ApplyCredits, OetbConfWarnNotNew, OetbConfWarnBoToZero, OetbCon2ProvideRouting, OetbCon2SrtRtByRqstDte, OetbConfUseSoReview, OetbConfPickNoteDef, OetbConfPackNoteDef, OetbConfPickSort, OetbConfPackSort, OetbConfPrtPricOnly, OetbConfPrtNeg, OetbCon2PrtPackageInfo, OetbCon2InnerPackLabel, OetbCon2OuterPackLabel, OetbCon2ShipTareLabel, OetbConfPrtPick, OetbConfPicPrioSeq, OetbConfPrtPack, OetbConfPrtInv, OetbCon2PrtCredMemo, OetbConfCrntDate, OetbConfMarkPicked, OetbConfShowUnavail, OetbConfDecPlaces, OetbConfWarnDup, OetbConfDefPick, OetbConfDefPack, OetbConfDefInvc, OetbConfDefAck, OetbConfAckSortOpt, OetbConfReleaseNbr, OetbConfPoDetLineNbr, OetbConfDetLineBinNbr, OetbConfSplitByWhse, OetbCon3AllowMultWhse, OetbConfUseOrigWhse, OetbConfUseEsoSingle, OetbConfCreatePo, OetbConfBestPrice, OetbConfEsoBackToNew, OetbConfPickPrintDrop, OetbConfWarnMultPo, OetbConfAlertItemQuote, OetbCon3AskChgPrcWQty, OetbCon3TenQtyBrks, OetbConfDecOrdrPric, OetbCon2ProvLostSales, OetbCon2AskReasonCode, OetbCon2DefReasonCode, OetbCon2BordCntl, OetbCon2DefReaBoCode, OetbCon2NumDaysSavLs, OetbCon2CallBackNotif, OetbCon2DefDaysWhenIn, OetbCon2AddSubsLs, OetbCon2DefReaSubsCode, OetbCon2OrdTypNorm, OetbCon2OrdTypRep, OetbCon2OrdTypServ, OetbCon2DefOrdTyp, OetbConfChgPric, OetbCon2SpordPriceZero, OetbConfInactPriceZero, OetbCon2Reseq, OetbCon2ReseqBy, OetbCon2MinQtySales, OetbCon2ChgOrder, OetbCon2VerComp, OetbCon2PrtInv, OetbCon2DynamicPickTick, OetbCon2DynamicInvoice, OetbCon2EdiDefInvoice, OetbCon2AllowCcPick, OetbCon2AutoCcWind, OetbCon2AutoCcUpdate, OetbCon2AllowApvdCcChg, OetbCon3ApvdBckordClear, OetbCon2PolWhichCost, OetbCon2RevHazard, OetbCon2ShowDiscList, OetbCon2ChgList, OetbCon2MailList, OetbCon2NameFormat, OetbCon2MailIdType, OetbCon2CashDrawerPswd, OetbCon2UpsOnline, OetbCon2PicOrVer, OetbCon2CombBack, OetbCon2FrtAllowAmt, OetbCon3ShipMoreOrdered, OetbCon3WarnShipMore, OetbCon2UseDept, OetbCon2UseDivision, OetbCon2DefMfeCode, OetbCon2ShowAvgCost, OetbCon2FedEx, OetbCon3DefFrghtGrup, OetbCon3UpsMysqlDbname, OetbConfUseOptCode, OetbConfScn4Opt, OetbCon2TakenByUse, OetbCon2TakenByLogin, OetbCon2TakenByForce, OetbCon2PickedByUse, OetbCon2PickedByForce, OetbCon2PickedByProc, OetbCon2PackedByUse, OetbCon2PackedByForce, OetbCon2VerifiedByUse, OetbCon2VerifiedByLogin, OetbCon2VerifiedByForce, OetbConfOptLabl1, OetbCon2Ucode1Force, OetbConfOptLabl2, OetbCon2Ucode2Force, OetbConfOptLabl3, OetbCon2Ucode3Force, OetbConfOptLabl4, OetbCon2Ucode4Force, OetbConfVerifyAfterPack, OetbConfHistYrsBack, OetbConfRqstCatlg, OetbCon2ConPick, OetbCon2AllowPick, OetbCon2CombineSame, OetbCon3AutoVerNItems, OetbCon2AllowZeroQty, OetbCon2AllowInvalidWhse, OetbCon2ShowEdiInfo, OetbCon2AddOnSales, OetbCon2ForcedBkord, OetbCon2UpdtPrcDisc, OetbCon2AutoPack, OetbCon2PickBoPrtZqts, OetbCon3Pick00NoShip, OetbCon2StandOrdLead, OetbCon2StandOrdAmnt, OetbCon2InactItemCntrl, OetbCon2UseItemRef, OetbCon3UpsNaftaRecords, OetbConfDfltShipWhse, OetbConfDfltOrigWhse, OetbConfInvcWithPack, OetbConfCarryCntrQty, OetbCon3UseOrdrAs, OetbConfUseOrdrSource, OetbCon3CcProcessor, OetbCon3CreditCardCap, OetbCon3KeyOrCcCap, OetbCon3CcXOverlay, OetbCon3CcTimeOut, OetbCon3SignatureCapture, OetbCon3CcPreapproval, OetbCon3ForceCcNbrEntry, OetbCon3IntrItemNotes, OetbCon3MtrCert, OetbCon3CofcCert, DateUpdtd, TimeUpdtd, dummy FROM so_config WHERE OetbConfKey = :p0';
+        $sql = 'SELECT OetbConfKey, OetbConfGlIfac, OetbConfInIfac, OetbConfRelIvty, OetbConfUseOrdrNbr, OetbConfDefRqstDate, OetbConfUseCancDate, OetbConfShowSp, OetbConfJrnlSort, OetbConfUsePrepSoOpt, OetbConfDispBillTo, OetbConfSlctFlm, OetbCon3UseStockPull, OetbConfQtyToShip, OetbConfQtyToShipDef, OetbConfDfltOrdrQty, OetbConfAllocQtyToShip, OetbConfOverAllocQts, OetbCon3CompleteLotBin, OetbCon3RqtsOpt, OetbCon2ShipCompHold, OetbCon3UseSaleForecast, OetbConfVerfStopNeg, OetbConfVerfAudtRept, OetbConfAgeLevlDisp, OetbConfAgeAllTime, OetbConfAgeAtHold, OetbConfShowAtLevl, OetbConfShowItem, OetbConfStopPnt, OetbConfPricWind, OetbConfShowCost, OetbConfCostToUse, OetbConfShowMarg, OetbConfFxOe, OetbConfFxInv, OetbConfDispVia, OetbConfDispCaseQty, OetbConfFrtIn, OetbConfFrtInGlAcct, OetbConfMinCharge, OetbConfMinChrgGlAcct, OetbConfDropShipChrg, OetbConfDropShpGlAcct, OetbConfNonTaxCustCode, OetbConfHsTaxId, OetbConfHsFrtId, OetbConfHsMiscId, OetbCon2HsCusdId, OetbCon3HsFrtInId, OetbCon3HsDropId, OetbCon3HsMinordId, OetbConfHeadGetDef, OetbConfItemGetDef, OetbConfAutoGetCust, OetbCon3AutoGetItem, OetbConfRqstHeadDtl, OetbConfCancHeadDtl, OetbConfUseInvcAsShip, OetbCon3UseArrvDate, OetbConfSeparateCred, OetbCon3ApplyCredits, OetbConfWarnNotNew, OetbConfWarnBoToZero, OetbCon2ProvideRouting, OetbCon2SrtRtByRqstDte, OetbConfUseSoReview, OetbConfPickNoteDef, OetbConfPackNoteDef, OetbConfPickSort, OetbConfPackSort, OetbConfPrtPricOnly, OetbConfPrtNeg, OetbCon2PrtPackageInfo, OetbCon2InnerPackLabel, OetbCon2OuterPackLabel, OetbCon2ShipTareLabel, OetbConfPrtPick, OetbConfPicPrioSeq, OetbConfPrtPack, OetbConfPrtInv, OetbCon2PrtCredMemo, OetbConfCrntDate, OetbConfMarkPicked, OetbConfShowUnavail, OetbConfDecPlaces, OetbConfWarnDup, OetbConfDefPick, OetbConfDefPack, OetbConfDefInvc, OetbConfDefAck, OetbConfAckSortOpt, OetbConfReleaseNbr, OetbConfPoDetLineNbr, OetbConfDetLineBinNbr, OetbConfSplitByWhse, OetbCon3AllowMultWhse, OetbConfUseOrigWhse, OetbConfUseEsoSingle, OetbConfCreatePo, OetbConfBestPrice, OetbConfEsoBackToNew, OetbConfPickPrintDrop, OetbConfWarnMultPo, OetbConfAlertItemQuote, OetbCon3AskChgPrcWQty, OetbCon3TenQtyBrks, OetbConfDecOrdrPric, OetbCon2ProvLostSales, OetbCon2AskReasonCode, OetbCon2DefReasonCode, OetbCon2BordCntl, OetbCon2DefReaBoCode, OetbCon2NumDaysSavLs, OetbCon2CallBackNotif, OetbCon2DefDaysWhenIn, OetbCon2AddSubsLs, OetbCon2DefReaSubsCode, OetbCon2OrdTypNorm, OetbCon2OrdTypRep, OetbCon2OrdTypServ, OetbCon2DefOrdTyp, OetbConfChgPric, OetbCon2SpordPriceZero, OetbConfInactPriceZero, OetbCon2Reseq, OetbCon2ReseqBy, OetbCon2MinQtySales, OetbCon2ChgOrder, OetbCon2VerComp, OetbCon2PrtInv, OetbCon2DynamicPickTick, OetbCon2DynamicInvoice, OetbCon2EdiDefInvoice, OetbCon2AllowCcPick, OetbCon2AutoCcWind, OetbCon2AutoCcUpdate, OetbCon2AllowApvdCcChg, OetbCon3ApvdBckordClear, OetbCon2PolWhichCost, OetbCon2RevHazard, OetbCon2ShowDiscList, OetbCon2ChgList, OetbCon2MailList, OetbCon2NameFormat, OetbCon2MailIdType, OetbCon2CashDrawerPswd, OetbCon2UpsOnline, OetbCon2PicOrVer, OetbCon2CombBack, OetbCon2FrtAllowAmt, OetbCon3ShipMoreOrdered, OetbCon3WarnShipMore, OetbCon3ProformaFromEso, OetbCon3PickPackCode, OetbCon2UseDept, OetbCon2UseDivision, OetbCon2DefMfeCode, OetbCon2ShowAvgCost, OetbCon2FedEx, OetbCon3DefFrghtGrup, OetbCon3UpsMysqlDbname, OetbConfUseOptCode, OetbConfScn4Opt, OetbCon2TakenByUse, OetbCon2TakenByLogin, OetbCon2TakenByForce, OetbCon2PickedByUse, OetbCon2PickedByForce, OetbCon2PickedByProc, OetbCon2PackedByUse, OetbCon2PackedByForce, OetbCon2VerifiedByUse, OetbCon2VerifiedByLogin, OetbCon2VerifiedByForce, OetbConfOptLabl1, OetbCon2Ucode1Force, OetbConfOptLabl2, OetbCon2Ucode2Force, OetbConfOptLabl3, OetbCon2Ucode3Force, OetbConfOptLabl4, OetbCon2Ucode4Force, OetbConfVerifyAfterPack, OetbConfHistYrsBack, OetbConfRqstCatlg, OetbCon2ConPick, OetbCon2AllowPick, OetbCon2CombineSame, OetbCon3AutoVerNItems, OetbCon2AllowZeroQty, OetbCon2AllowInvalidWhse, OetbCon2ShowEdiInfo, OetbCon2AddOnSales, OetbCon2ForcedBkord, OetbCon2UpdtPrcDisc, OetbCon2AutoPack, OetbCon2PickBoPrtZqts, OetbCon3Pick00NoShip, OetbCon2StandOrdLead, OetbCon2StandOrdAmnt, OetbCon2InactItemCntrl, OetbCon2UseItemRef, OetbCon3UpsNaftaRecords, OetbConfDfltShipWhse, OetbConfDfltOrigWhse, OetbConfInvcWithPack, OetbConfCarryCntrQty, OetbCon3UseOrdrAs, OetbConfUseOrdrSource, OetbCon3CcProcessor, OetbCon3CreditCardCap, OetbCon3KeyOrCcCap, OetbCon3CcXOverlay, OetbCon3CcTimeOut, OetbCon3SignatureCapture, OetbCon3CcPreapproval, OetbCon3ForceCcNbrEntry, OetbCon3IntrItemNotes, OetbCon3MtrCert, OetbCon3CofcCert, DateUpdtd, TimeUpdtd, dummy FROM so_config WHERE OetbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -5319,6 +5329,56 @@ abstract class ConfigSalesOrderQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3WARNSHIPMORE, $oetbcon3warnshipmore, $comparison);
+    }
+
+    /**
+     * Filter the query on the OetbCon3ProformaFromEso column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOetbcon3proformafromeso('fooValue');   // WHERE OetbCon3ProformaFromEso = 'fooValue'
+     * $query->filterByOetbcon3proformafromeso('%fooValue%', Criteria::LIKE); // WHERE OetbCon3ProformaFromEso LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oetbcon3proformafromeso The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterByOetbcon3proformafromeso($oetbcon3proformafromeso = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oetbcon3proformafromeso)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3PROFORMAFROMESO, $oetbcon3proformafromeso, $comparison);
+    }
+
+    /**
+     * Filter the query on the OetbCon3PickPackCode column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOetbcon3pickpackcode('fooValue');   // WHERE OetbCon3PickPackCode = 'fooValue'
+     * $query->filterByOetbcon3pickpackcode('%fooValue%', Criteria::LIKE); // WHERE OetbCon3PickPackCode LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oetbcon3pickpackcode The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterByOetbcon3pickpackcode($oetbcon3pickpackcode = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oetbcon3pickpackcode)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigSalesOrderTableMap::COL_OETBCON3PICKPACKCODE, $oetbcon3pickpackcode, $comparison);
     }
 
     /**

@@ -66,7 +66,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc',
 		'requestdate'              => 'OetbConfRqstHeadDtl',
 		'allow_overpick'           => 'OetbCon3ShipMoreOrdered',
-		'default_ship_whse'        => 'oetbconfdfltshipwhse'
+		'default_ship_whse'        => 'oetbconfdfltshipwhse',
+		'pickingtype'              => 'oetbCon3pickpackcode'
 	);
 
 	/**
