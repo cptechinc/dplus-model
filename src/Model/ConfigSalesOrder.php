@@ -70,6 +70,10 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'pickingtype'              => 'oetbCon3pickpackcode'
 	);
 
+	public function allowOverpick() {
+		return $this->overpick == 'Y';
+	}
+
 	/**
 	 * Returns if the Request Type is Program
 	 * @return bool
