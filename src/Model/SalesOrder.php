@@ -35,6 +35,13 @@ class SalesOrder extends BaseSalesOrder {
 	protected $oehdstat;
 
 	/**
+	 * Pick Queue Value
+	 * If L, then it's locked for line deletions
+	 * @var string
+	 */
+	protected $oehdpickqueue;
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
@@ -85,11 +92,12 @@ class SalesOrder extends BaseSalesOrder {
 		'shipcomplete'    => 'oehdshipcomp',
 		'original_total_total'  => 'oehdoordrtot',
 		'items'           => 'SalesOrderDetails', // NOTE: Used for getting Detaisl via __call()
+		'pickqueue'       => 'oehdpickqueue',
 	);
 
 	const LENGTH = 10;
-
 	const STATUS_NEW = 'N';
+	const PICKQUEUE_LOCKED = 'L';
 
 	/**
 	 * Order Statuses and the values for their description
@@ -105,6 +113,10 @@ class SalesOrder extends BaseSalesOrder {
 
 	public function is_shipcomplete() {
 		return $this->shipcomplete == 'Y';
+	}
+
+	public function canDeleteLines() {
+		return $this->pickqueue != self::PICKQUEUE_LOCKED;
 	}
 
 	/**
@@ -204,7 +216,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Return the itemIDs found on the sales order
-	 *
 	 * @return array
 	 */
 	public function itemids() {
@@ -216,7 +227,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Return the total number of qtys for order
-	 *
 	 * @return float
 	 */
 	public function sum_qty() {
