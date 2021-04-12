@@ -72,7 +72,8 @@ class Quote extends BaseQuote {
 		'deliverto'       => 'qthddeliverydesc',
 		'items'           => 'quoteDetails'
 	);
-
+	
+	const LENGTH = 8;
 	const FOB_OPTIONS = array('O', 'D');
 	const FOB_OPTIONS_DESC = array(
 		'O' => 'origin',
