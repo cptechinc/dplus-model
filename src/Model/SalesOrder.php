@@ -111,17 +111,24 @@ class SalesOrder extends BaseSalesOrder {
 		'I' => 'invoiced'
 	);
 
+	/**
+	 * Return if Order is to Ship Complete
+	 * @return bool
+	 */
 	public function is_shipcomplete() {
 		return $this->shipcomplete == 'Y';
 	}
 
+	/**
+	 * Return if Order can Delete Lines
+	 * @return bool
+	 */
 	public function canDeleteLines() {
 		return $this->pickqueue != self::PICKQUEUE_LOCKED;
 	}
 
 	/**
 	 * Return the status description based of the order status
-	 *
 	 * @return void
 	 */
 	public function status() {
@@ -130,7 +137,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Return if the Sales Order is Invoiced
-	 *
 	 * @return bool
 	 */
 	public function is_invoiced() {
@@ -139,7 +145,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Adds Leading Zeroes to Sales Order Number
-	 *
 	 * @param  string $ordn Sales Order Number ex.    4290100
 	 * @return string       Sales Order Number ex. 0004290100
 	 */
@@ -149,7 +154,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Returns if there is tracking data available in Sales Order Numbers
-	 *
 	 * @return bool
 	 */
 	public function has_tracking() {
@@ -158,7 +162,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Returns if Sales Order is being edited via the heldby alias
-	 *
 	 * @return bool
 	 */
 	public function is_beingedited() {
@@ -167,7 +170,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Returns if Sales Order is able to edited via the heldby alias
-	 *
 	 * @return bool
 	 */
 	public function is_editable() {
@@ -180,7 +182,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Returns the Number of Details Lines this Sales Order has
-	 *
 	 * @return bool
 	 */
 	public function count_items() {
@@ -189,7 +190,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Return the number of cases for this order
-	 *
 	 * @return int
 	 */
 	public function count_cases() {
@@ -202,7 +202,6 @@ class SalesOrder extends BaseSalesOrder {
 
 	/**
 	 * Return the total weight of items
-	 *
 	 * @return float
 	 */
 	public function total_weight() {

@@ -33,11 +33,10 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	 * Filter the query on the InitItemNbr column
 	 *
 	 * @param  string                    $itemID The value to use as filter.
-	 * @param  string                    $comparison Comparison Operator
 	 * @return $this|ItemMasterItemQuery The current query, for fluid interface
 	 */
-	public function filterByItemid($itemID, $comparison = null) {
-		return $this->filterByInititemnbr($itemID, $comparison);
+	public function filterByItemid($itemID, $comparision = null) {
+		return $this->filterByInititemnbr($itemID, $comparision);
 	}
 
 	/**
