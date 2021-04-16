@@ -2182,6 +2182,7 @@
     <column name="IntbUomDesc" phpName="Intbuomdesc" type="VARCHAR" size="20"/>
     <column name="IntbUomConv" phpName="Intbuomconv" type="DECIMAL" size="20" scale="7"/>
     <column name="IntbUomPricByWght" phpName="Intbuompricbywght" type="VARCHAR" size="1"/>
+    <column name="IntbUomStockByCase" phpName="IntbUomStockByCase" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
@@ -2194,6 +2195,7 @@
     <column name="IntbUomDesc" phpName="Intbuomdesc" type="VARCHAR" size="20"/>
     <column name="IntbUomConv" phpName="Intbuomconv" type="DECIMAL" size="20" scale="7"/>
     <column name="IntbUomPricByWght" phpName="Intbuompricbywght" type="VARCHAR" size="1"/>
+    <column name="IntbUomStockByCase" phpName="IntbUomStockByCase" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

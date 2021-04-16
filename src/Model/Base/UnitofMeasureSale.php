@@ -93,6 +93,13 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     protected $intbuompricbywght;
 
     /**
+     * The value for the intbuomstockbycase field.
+     *
+     * @var        string
+     */
+    protected $intbuomstockbycase;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -399,6 +406,16 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     }
 
     /**
+     * Get the [intbuomstockbycase] column value.
+     *
+     * @return string
+     */
+    public function getIntbUomStockByCase()
+    {
+        return $this->intbuomstockbycase;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -509,6 +526,26 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     } // setIntbuompricbywght()
 
     /**
+     * Set the value of [intbuomstockbycase] column.
+     *
+     * @param string $v new value
+     * @return $this|\UnitofMeasureSale The current object (for fluent API support)
+     */
+    public function setIntbUomStockByCase($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->intbuomstockbycase !== $v) {
+            $this->intbuomstockbycase = $v;
+            $this->modifiedColumns[UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE] = true;
+        }
+
+        return $this;
+    } // setIntbUomStockByCase()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -616,13 +653,16 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Intbuompricbywght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbuompricbywght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('IntbUomStockByCase', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbuomstockbycase = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : UnitofMeasureSaleTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -632,7 +672,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 7; // 7 = UnitofMeasureSaleTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 8; // 8 = UnitofMeasureSaleTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\UnitofMeasureSale'), 0, $e);
@@ -861,6 +901,9 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT)) {
             $modifiedColumns[':p' . $index++]  = 'IntbUomPricByWght';
         }
+        if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbUomStockByCase';
+        }
         if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -892,6 +935,9 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                         break;
                     case 'IntbUomPricByWght':
                         $stmt->bindValue($identifier, $this->intbuompricbywght, PDO::PARAM_STR);
+                        break;
+                    case 'IntbUomStockByCase':
+                        $stmt->bindValue($identifier, $this->intbuomstockbycase, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -970,12 +1016,15 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 return $this->getIntbuompricbywght();
                 break;
             case 4:
-                return $this->getDateupdtd();
+                return $this->getIntbUomStockByCase();
                 break;
             case 5:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 6:
+                return $this->getTimeupdtd();
+                break;
+            case 7:
                 return $this->getDummy();
                 break;
             default:
@@ -1012,9 +1061,10 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             $keys[1] => $this->getIntbuomdesc(),
             $keys[2] => $this->getIntbuomconv(),
             $keys[3] => $this->getIntbuompricbywght(),
-            $keys[4] => $this->getDateupdtd(),
-            $keys[5] => $this->getTimeupdtd(),
-            $keys[6] => $this->getDummy(),
+            $keys[4] => $this->getIntbUomStockByCase(),
+            $keys[5] => $this->getDateupdtd(),
+            $keys[6] => $this->getTimeupdtd(),
+            $keys[7] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1084,12 +1134,15 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 $this->setIntbuompricbywght($value);
                 break;
             case 4:
-                $this->setDateupdtd($value);
+                $this->setIntbUomStockByCase($value);
                 break;
             case 5:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 6:
+                $this->setTimeupdtd($value);
+                break;
+            case 7:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1131,13 +1184,16 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
             $this->setIntbuompricbywght($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setDateupdtd($arr[$keys[4]]);
+            $this->setIntbUomStockByCase($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setTimeupdtd($arr[$keys[5]]);
+            $this->setDateupdtd($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setDummy($arr[$keys[6]]);
+            $this->setTimeupdtd($arr[$keys[6]]);
+        }
+        if (array_key_exists($keys[7], $arr)) {
+            $this->setDummy($arr[$keys[7]]);
         }
     }
 
@@ -1191,6 +1247,9 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         }
         if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT)) {
             $criteria->add(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, $this->intbuompricbywght);
+        }
+        if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE)) {
+            $criteria->add(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, $this->intbuomstockbycase);
         }
         if ($this->isColumnModified(UnitofMeasureSaleTableMap::COL_DATEUPDTD)) {
             $criteria->add(UnitofMeasureSaleTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1291,6 +1350,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         $copyObj->setIntbuomdesc($this->getIntbuomdesc());
         $copyObj->setIntbuomconv($this->getIntbuomconv());
         $copyObj->setIntbuompricbywght($this->getIntbuompricbywght());
+        $copyObj->setIntbUomStockByCase($this->getIntbUomStockByCase());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1602,6 +1662,106 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         return $this->getItemMasterItems($query, $con);
     }
 
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinInvGroupCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('InvGroupCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinInvPriceCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('InvPriceCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinInvCommissionCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('InvCommissionCode', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related ItemMasterItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemMasterItem[] List of ChildItemMasterItem objects
+     */
+    public function getItemMasterItemsJoinItemPricing(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemMasterItemQuery::create(null, $criteria);
+        $query->joinWith('ItemPricing', $joinBehavior);
+
+        return $this->getItemMasterItems($query, $con);
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -1613,6 +1773,7 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
         $this->intbuomdesc = null;
         $this->intbuomconv = null;
         $this->intbuompricbywght = null;
+        $this->intbuomstockbycase = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

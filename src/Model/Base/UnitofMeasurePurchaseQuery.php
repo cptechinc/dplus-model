@@ -24,6 +24,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasurePurchaseQuery orderByIntbuomdesc($order = Criteria::ASC) Order by the IntbUomDesc column
  * @method     ChildUnitofMeasurePurchaseQuery orderByIntbuomconv($order = Criteria::ASC) Order by the IntbUomConv column
  * @method     ChildUnitofMeasurePurchaseQuery orderByIntbuompricbywght($order = Criteria::ASC) Order by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasurePurchaseQuery orderByIntbUomStockByCase($order = Criteria::ASC) Order by the IntbUomStockByCase column
  * @method     ChildUnitofMeasurePurchaseQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildUnitofMeasurePurchaseQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildUnitofMeasurePurchaseQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -32,6 +33,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasurePurchaseQuery groupByIntbuomdesc() Group by the IntbUomDesc column
  * @method     ChildUnitofMeasurePurchaseQuery groupByIntbuomconv() Group by the IntbUomConv column
  * @method     ChildUnitofMeasurePurchaseQuery groupByIntbuompricbywght() Group by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasurePurchaseQuery groupByIntbUomStockByCase() Group by the IntbUomStockByCase column
  * @method     ChildUnitofMeasurePurchaseQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildUnitofMeasurePurchaseQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildUnitofMeasurePurchaseQuery groupByDummy() Group by the dummy column
@@ -73,6 +75,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasurePurchase findOneByIntbuomdesc(string $IntbUomDesc) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomDesc column
  * @method     ChildUnitofMeasurePurchase findOneByIntbuomconv(string $IntbUomConv) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomConv column
  * @method     ChildUnitofMeasurePurchase findOneByIntbuompricbywght(string $IntbUomPricByWght) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasurePurchase findOneByIntbUomStockByCase(string $IntbUomStockByCase) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomStockByCase column
  * @method     ChildUnitofMeasurePurchase findOneByDateupdtd(string $DateUpdtd) Return the first ChildUnitofMeasurePurchase filtered by the DateUpdtd column
  * @method     ChildUnitofMeasurePurchase findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUnitofMeasurePurchase filtered by the TimeUpdtd column
  * @method     ChildUnitofMeasurePurchase findOneByDummy(string $dummy) Return the first ChildUnitofMeasurePurchase filtered by the dummy column *
@@ -84,6 +87,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasurePurchase requireOneByIntbuomdesc(string $IntbUomDesc) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasurePurchase requireOneByIntbuomconv(string $IntbUomConv) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomConv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasurePurchase requireOneByIntbuompricbywght(string $IntbUomPricByWght) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomPricByWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildUnitofMeasurePurchase requireOneByIntbUomStockByCase(string $IntbUomStockByCase) Return the first ChildUnitofMeasurePurchase filtered by the IntbUomStockByCase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasurePurchase requireOneByDateupdtd(string $DateUpdtd) Return the first ChildUnitofMeasurePurchase filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasurePurchase requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildUnitofMeasurePurchase filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildUnitofMeasurePurchase requireOneByDummy(string $dummy) Return the first ChildUnitofMeasurePurchase filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -93,6 +97,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByIntbuomdesc(string $IntbUomDesc) Return ChildUnitofMeasurePurchase objects filtered by the IntbUomDesc column
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByIntbuomconv(string $IntbUomConv) Return ChildUnitofMeasurePurchase objects filtered by the IntbUomConv column
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByIntbuompricbywght(string $IntbUomPricByWght) Return ChildUnitofMeasurePurchase objects filtered by the IntbUomPricByWght column
+ * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByIntbUomStockByCase(string $IntbUomStockByCase) Return ChildUnitofMeasurePurchase objects filtered by the IntbUomStockByCase column
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildUnitofMeasurePurchase objects filtered by the DateUpdtd column
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildUnitofMeasurePurchase objects filtered by the TimeUpdtd column
  * @method     ChildUnitofMeasurePurchase[]|ObjectCollection findByDummy(string $dummy) Return ChildUnitofMeasurePurchase objects filtered by the dummy column
@@ -194,7 +199,7 @@ abstract class UnitofMeasurePurchaseQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT IntbUomPur, IntbUomDesc, IntbUomConv, IntbUomPricByWght, DateUpdtd, TimeUpdtd, dummy FROM inv_uom_pur WHERE IntbUomPur = :p0';
+        $sql = 'SELECT IntbUomPur, IntbUomDesc, IntbUomConv, IntbUomPricByWght, IntbUomStockByCase, DateUpdtd, TimeUpdtd, dummy FROM inv_uom_pur WHERE IntbUomPur = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -398,6 +403,31 @@ abstract class UnitofMeasurePurchaseQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(UnitofMeasurePurchaseTableMap::COL_INTBUOMPRICBYWGHT, $intbuompricbywght, $comparison);
+    }
+
+    /**
+     * Filter the query on the IntbUomStockByCase column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByIntbUomStockByCase('fooValue');   // WHERE IntbUomStockByCase = 'fooValue'
+     * $query->filterByIntbUomStockByCase('%fooValue%', Criteria::LIKE); // WHERE IntbUomStockByCase LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $intbUomStockByCase The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildUnitofMeasurePurchaseQuery The current query, for fluid interface
+     */
+    public function filterByIntbUomStockByCase($intbUomStockByCase = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($intbUomStockByCase)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(UnitofMeasurePurchaseTableMap::COL_INTBUOMSTOCKBYCASE, $intbUomStockByCase, $comparison);
     }
 
     /**

@@ -59,7 +59,7 @@ class UnitofMeasureSaleTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 7;
+    const NUM_COLUMNS = 8;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class UnitofMeasureSaleTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 7;
+    const NUM_HYDRATE_COLUMNS = 8;
 
     /**
      * the column name for the IntbUomSale field
@@ -90,6 +90,11 @@ class UnitofMeasureSaleTableMap extends TableMap
      * the column name for the IntbUomPricByWght field
      */
     const COL_INTBUOMPRICBYWGHT = 'inv_uom_sale.IntbUomPricByWght';
+
+    /**
+     * the column name for the IntbUomStockByCase field
+     */
+    const COL_INTBUOMSTOCKBYCASE = 'inv_uom_sale.IntbUomStockByCase';
 
     /**
      * the column name for the DateUpdtd field
@@ -118,11 +123,11 @@ class UnitofMeasureSaleTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Intbuomsale', 'Intbuomdesc', 'Intbuomconv', 'Intbuompricbywght', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('intbuomsale', 'intbuomdesc', 'intbuomconv', 'intbuompricbywght', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, UnitofMeasureSaleTableMap::COL_INTBUOMDESC, UnitofMeasureSaleTableMap::COL_INTBUOMCONV, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, UnitofMeasureSaleTableMap::COL_DATEUPDTD, UnitofMeasureSaleTableMap::COL_TIMEUPDTD, UnitofMeasureSaleTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('IntbUomSale', 'IntbUomDesc', 'IntbUomConv', 'IntbUomPricByWght', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
+        self::TYPE_PHPNAME       => array('Intbuomsale', 'Intbuomdesc', 'Intbuomconv', 'Intbuompricbywght', 'IntbUomStockByCase', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('intbuomsale', 'intbuomdesc', 'intbuomconv', 'intbuompricbywght', 'intbUomStockByCase', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, UnitofMeasureSaleTableMap::COL_INTBUOMDESC, UnitofMeasureSaleTableMap::COL_INTBUOMCONV, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE, UnitofMeasureSaleTableMap::COL_DATEUPDTD, UnitofMeasureSaleTableMap::COL_TIMEUPDTD, UnitofMeasureSaleTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('IntbUomSale', 'IntbUomDesc', 'IntbUomConv', 'IntbUomPricByWght', 'IntbUomStockByCase', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
     );
 
     /**
@@ -132,11 +137,11 @@ class UnitofMeasureSaleTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Intbuomsale' => 0, 'Intbuomdesc' => 1, 'Intbuomconv' => 2, 'Intbuompricbywght' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
-        self::TYPE_CAMELNAME     => array('intbuomsale' => 0, 'intbuomdesc' => 1, 'intbuomconv' => 2, 'intbuompricbywght' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE => 0, UnitofMeasureSaleTableMap::COL_INTBUOMDESC => 1, UnitofMeasureSaleTableMap::COL_INTBUOMCONV => 2, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT => 3, UnitofMeasureSaleTableMap::COL_DATEUPDTD => 4, UnitofMeasureSaleTableMap::COL_TIMEUPDTD => 5, UnitofMeasureSaleTableMap::COL_DUMMY => 6, ),
-        self::TYPE_FIELDNAME     => array('IntbUomSale' => 0, 'IntbUomDesc' => 1, 'IntbUomConv' => 2, 'IntbUomPricByWght' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
+        self::TYPE_PHPNAME       => array('Intbuomsale' => 0, 'Intbuomdesc' => 1, 'Intbuomconv' => 2, 'Intbuompricbywght' => 3, 'IntbUomStockByCase' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
+        self::TYPE_CAMELNAME     => array('intbuomsale' => 0, 'intbuomdesc' => 1, 'intbuomconv' => 2, 'intbuompricbywght' => 3, 'intbUomStockByCase' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
+        self::TYPE_COLNAME       => array(UnitofMeasureSaleTableMap::COL_INTBUOMSALE => 0, UnitofMeasureSaleTableMap::COL_INTBUOMDESC => 1, UnitofMeasureSaleTableMap::COL_INTBUOMCONV => 2, UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT => 3, UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE => 4, UnitofMeasureSaleTableMap::COL_DATEUPDTD => 5, UnitofMeasureSaleTableMap::COL_TIMEUPDTD => 6, UnitofMeasureSaleTableMap::COL_DUMMY => 7, ),
+        self::TYPE_FIELDNAME     => array('IntbUomSale' => 0, 'IntbUomDesc' => 1, 'IntbUomConv' => 2, 'IntbUomPricByWght' => 3, 'IntbUomStockByCase' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
     );
 
     /**
@@ -160,6 +165,7 @@ class UnitofMeasureSaleTableMap extends TableMap
         $this->addColumn('IntbUomDesc', 'Intbuomdesc', 'VARCHAR', false, 20, null);
         $this->addColumn('IntbUomConv', 'Intbuomconv', 'DECIMAL', false, 20, null);
         $this->addColumn('IntbUomPricByWght', 'Intbuompricbywght', 'VARCHAR', false, 1, null);
+        $this->addColumn('IntbUomStockByCase', 'IntbUomStockByCase', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -324,6 +330,7 @@ class UnitofMeasureSaleTableMap extends TableMap
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMDESC);
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMCONV);
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMPRICBYWGHT);
+            $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_INTBUOMSTOCKBYCASE);
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(UnitofMeasureSaleTableMap::COL_DUMMY);
@@ -332,6 +339,7 @@ class UnitofMeasureSaleTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.IntbUomDesc');
             $criteria->addSelectColumn($alias . '.IntbUomConv');
             $criteria->addSelectColumn($alias . '.IntbUomPricByWght');
+            $criteria->addSelectColumn($alias . '.IntbUomStockByCase');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

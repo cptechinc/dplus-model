@@ -24,6 +24,7 @@ class UnitofMeasureSale extends BaseUnitofMeasureSale {
         'description'   => 'intbuomdesc',
         'conversion'    => 'intbuomconv',
         'pricebyweight' => 'intbuompricbywght',
+        'stockbycase'   => 'intbuomstockbycase',
         'date'          => 'dateupdtd',
         'time'          => 'timeupdtd'
     );
