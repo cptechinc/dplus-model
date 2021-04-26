@@ -28,16 +28,25 @@ trait QueryTraits {
 	 * @return PDOStatement        PDO Statement to get results
 	 */
 	public function execute_query($sql, $params = []) {
-		$database = $this->dbName;
-		$con = Propel::getWriteConnection($database);
+		return $this->executeQuery($sql, $params);
+	}
+
+	/**
+	 * Executes Query for Query Class
+	 * @uses  self::$dbName
+	 *
+	 * @param  string      $sql    SQL to Execute, parameterized if need be
+	 * @param  array       $params Parameters and their values
+	 * @return PDOStatement        PDO Statement to get results
+	 */
+	public function executeQuery($sql, $params = []) {
+		$con = Propel::getWriteConnection($this->dbName);
 		$stmt = $con->prepare($sql);
 
 		if (empty($params)){
-			$stmt->execute();
-		} else {
-			$stmt->execute($params);
+			return $stmt->execute();
 		}
-		return $stmt;
+		return $stmt->execute($params);
 	}
 
 	/**
@@ -92,19 +101,36 @@ trait QueryTraits {
 	public function tablemap_columns($columns) {
 		$cols = array();
 		foreach ($columns as $column) {
-			$cols[] = $this->tablemap_column($column);
+			$cols[] = $this->tablecolumn($column);
 		}
 		return $cols;
 	}
 
 	/**
-	 * Return TableMap Column name
-	 *
-	 * @param  string $column
-	 * @return void
+	 * Returns Table Map Column
+	 * @param  string $prop  Property to lookup column
+	 * @return string        column
 	 */
-	public function tablemap_column($column) {
-		$tablemap_column = "COL_".strtoupper($column);
+	public function get_tablecolumn($prop) {
+		return $this->tablecolumn($prop);
+	}
+
+	/**
+	 * Returns Table Map Column
+	 * @param  string $prop  Property to lookup column
+	 * @return string        column
+	 */
+	public function tablemap_column($prop) {
+		return $this->tablecolumn($prop);
+	}
+
+	/**
+	 * Returns Table Map Column
+	 * @param  string $prop  Property to lookup column
+	 * @return string        column
+	 */
+	public function tablecolumn($prop) {
+		$tablemap_column = "COL_".strtoupper($prop);
 		$mapclass = get_class($this->tableMap);
 		return constant("$mapclass::$tablemap_column");
 	}
