@@ -7,6 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'notes_opt_code_in' table.
+ * 
+ * RELATIONSHIPS: ItemMasterItem
  */
 class ItemOptCodeNote extends BaseItemOptCodeNote {
 	use ThrowErrorTrait;
@@ -28,7 +30,8 @@ class ItemOptCodeNote extends BaseItemOptCodeNote {
 		'key2'         => 'qnkey2',
 		'form'         => 'qnform',
 		'date'         => 'dateupdtd',
-		'time'         => 'timeupdtd'
+		'time'         => 'timeupdtd',
+		'item'         => 'itemMasterItem'
 	);
 
 }
