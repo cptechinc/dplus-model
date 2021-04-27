@@ -1,0 +1,29 @@
+{
+	"table": "so_det_hist",
+	"class": "SalesHistoryDetail",
+	"description": "Historical Sales Order Details",
+	"relationships": [
+		{
+			"table": "so_head_hist",
+			"description": "Sales Order Header",
+			"relationship-type": "Many to One",
+			"foreign-keys": [
+				{
+					"local": "OehhNbr",
+					"foreign": "OehhNbr"
+				}
+			]
+		},
+		{
+			"table": "inv_item_mast",
+			"description": "Itm Item",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "InitItemNbr",
+					"foreign": "InitItemNbr"
+				}
+			]
+		}	
+	]
+}

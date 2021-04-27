@@ -1,0 +1,44 @@
+{
+	"table": "so_head_hist",
+	"class": "SalesHistory",
+	"description": "Historical Sales Orders",
+	"relationships": [
+		{
+			"table": "ar_cust_mast",
+			"description": "Sales Order Customer",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "ArcuCustId",
+					"foreign": "ArcuCustId"
+				}
+			]
+		},
+		{
+			"table": "ar_ship_to",
+			"description": "Sales Order Customer Ship-to",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "ArcuCustId",
+					"foreign": "ArcuCustId"
+				},
+				{
+					"local": "ArstShipId",
+					"foreign": "ArstShipId"
+				}
+			]
+		},
+		{
+			"table": "so_det_hist",
+			"description": "Sales Order Details",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "OehhNbr",
+					"foreign": "OehhNbr"
+				}
+			]
+		}
+	]
+}

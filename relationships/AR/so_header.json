@@ -1,0 +1,44 @@
+{
+	"table": "so_header",
+	"class": "SalesOrder",
+	"description": "Open Sales Orders",
+	"relationships": [
+		{
+			"table": "ar_cust_mast",
+			"description": "Sales Order Customer",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "ArcuCustId",
+					"foreign": "ArcuCustId"
+				}
+			]
+		},
+		{
+			"table": "ar_ship_to",
+			"description": "Sales Order Customer Ship-to",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "ArcuCustId",
+					"foreign": "ArcuCustId"
+				},
+				{
+					"local": "ArstShipId",
+					"foreign": "ArstShipId"
+				}
+			]
+		},
+		{
+			"table": "so_detail",
+			"description": "Sales Order Details",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "OehdNbr",
+					"foreign": "OehdNbr"
+				}
+			]
+		}
+	]
+}

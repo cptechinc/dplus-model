@@ -1,0 +1,29 @@
+{
+	"table": "so_details",
+	"class": "SalesOrderDetail",
+	"description": "Open Sales Order Details",
+	"relationships": [
+		{
+			"table": "so_header",
+			"description": "Sales Order Header",
+			"relationship-type": "Many to One",
+			"foreign-keys": [
+				{
+					"local": "OehdNbr",
+					"foreign": "OehdNbr"
+				}
+			]
+		},
+		{
+			"table": "inv_item_mast",
+			"description": "Itm Item",
+			"relationship-type": "One To Many",
+			"foreign-keys": [
+				{
+					"local": "InitItemNbr",
+					"foreign": "InitItemNbr"
+				}
+			]
+		}	
+	]
+}
