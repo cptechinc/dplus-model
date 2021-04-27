@@ -328,6 +328,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomerNote() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomerNote relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomerNote() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomerNote relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItemOptCodeNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemOptCodeNote relation
+ * @method     ChildItemMasterItemQuery rightJoinItemOptCodeNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemOptCodeNote relation
+ * @method     ChildItemMasterItemQuery innerJoinItemOptCodeNote($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemOptCodeNote relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItemOptCodeNote($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemOptCodeNote relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItemOptCodeNote() Adds a LEFT JOIN clause and with to the query using the ItemOptCodeNote relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItemOptCodeNote() Adds a RIGHT JOIN clause and with to the query using the ItemOptCodeNote relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItemOptCodeNote() Adds a INNER JOIN clause and with to the query using the ItemOptCodeNote relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefVendorNoteDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefVendorNoteDetail relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefVendorNoteDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefVendorNoteDetail relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefVendorNoteDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefVendorNoteDetail relation
@@ -418,7 +428,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3960,6 +3970,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemXrefCustomerNote($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomerNote', '\ItemXrefCustomerNoteQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemOptCodeNote object
+     *
+     * @param \ItemOptCodeNote|ObjectCollection $itemOptCodeNote the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItemOptCodeNote($itemOptCodeNote, $comparison = null)
+    {
+        if ($itemOptCodeNote instanceof \ItemOptCodeNote) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itemOptCodeNote->getInititemnbr(), $comparison);
+        } elseif ($itemOptCodeNote instanceof ObjectCollection) {
+            return $this
+                ->useItemOptCodeNoteQuery()
+                ->filterByPrimaryKeys($itemOptCodeNote->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemOptCodeNote() only accepts arguments of type \ItemOptCodeNote or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemOptCodeNote relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItemOptCodeNote($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemOptCodeNote');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemOptCodeNote');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemOptCodeNote relation ItemOptCodeNote object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemOptCodeNoteQuery A secondary query class using the current class as primary query
+     */
+    public function useItemOptCodeNoteQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinItemOptCodeNote($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemOptCodeNote', '\ItemOptCodeNoteQuery');
     }
 
     /**
