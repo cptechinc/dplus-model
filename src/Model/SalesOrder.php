@@ -59,6 +59,7 @@ class SalesOrder extends BaseSalesOrder {
 		'status'          => 'oehdstat',
 		'orderstatus'     => 'oehdstat',
 		'subtotal_nontax' => 'OehdNonTaxSub',
+		'subtotal_tax'    => 'OehdTaxSub',
 		'total_freight'   => 'OehdFrtTot',
 		'total_tax'       => 'OehdTaxTot',
 		'shipto_name'     => 'oehdstname',
