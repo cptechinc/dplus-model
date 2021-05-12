@@ -9,4 +9,14 @@ use Dplus\Model\QueryTraits;
  */
 class InvGroupCodeQuery extends BaseInvGroupCodeQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the IntbGrup column
+	 * @param  string $intbgrup   The value to use as filter.
+	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self               The current query, for fluid interface
+	 */
+	public function filterById($intbgrup = null, $comparison = null) {
+		return $this->filterByIntbgrup($intbgrup, $comparison);
+	}
 }
