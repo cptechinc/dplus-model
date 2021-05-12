@@ -29,6 +29,17 @@ class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceivin
 		'lotref'       => 'potslotref',
 		'date_production' => 'potsexpiredate',
 		'sequence'        => 'potdseq',
-		'lotdate'         => 'potsexpiredate'
+		'lotdate'         => 'potsexpiredate',
+
+		// FK
+		'item'            => 'itmItem',
 	);
+
+	/**
+	 * Return Item Master Ite
+	 * @return ItemMasterItem
+	 */
+	public function getItmItem() {
+		return ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+	}
 }
