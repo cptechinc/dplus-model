@@ -40,7 +40,8 @@ class ConfigAp extends BaseConfigAp {
 		'confirmupdateitmcost'  => 'AptbConfVxmCostMMesg',
 		'computepercentageorcost'   => 'AptbConfVxmListPc',
 		'updateitmpricing'          => 'AptbConfVxmListItemUpd',
-		'computelistpriceorpercent' => 'AptbConfVxmCostLp'
+		'computelistpriceorpercent' => 'AptbConfVxmCostLp',
+		'computelistpriceorcost'    => 'AptbConfVxmGrossLc', // L = listprice, C = Cost
 	);
 
 	/**
@@ -52,6 +53,24 @@ class ConfigAp extends BaseConfigAp {
 		'R' => 'aptbConfVxmCostItemUpd',
 		'M' => 'aptbConfVxmCostItemUpdM'
 	];
+
+	/**
+	 * Compute Cost after Base Margin is Changed?
+	 * USED: VXM
+	 * @return bool
+	 */
+	public function computeCostAfterBaseMarginChange() {
+		return  $this->computelistpriceorcost == 'C';
+	}
+
+	/**
+	 * Compute Listprice after Base Margin is Changed?
+	 * USED: VXM
+	 * @return bool
+	 */
+	public function computeListpriceAfterBaseMarginChange() {
+		return  $this->computelistpriceorcost == 'L';
+	}
 
 	/**
 	 * Return if Vendor Cost Breaks can be used
@@ -74,17 +93,28 @@ class ConfigAp extends BaseConfigAp {
 	}
 
 	/**
-	 * Return if VXM should prompt user to Update ITM Cost
+	 * Prompt user to Update ITM Cost
+	 * USED: VXM
 	 * @return bool
 	 */
 	public function confirm_update_itm_cost() {
 		return $this->confirmupdateitmcost == self::YN_TRUE;
 	}
 
+	/**
+	 * Compute Percentage Cost?
+	 * USED: VXM
+	 * @return bool
+	 */
 	public function compute_percentage_cost_cost() {
 		$this->computepercentageorcost == self::COMPUTEPERCENTAGEORCOST_COST;
 	}
 
+	/**
+	 * Update ITM pricing?
+	 * USED: VXM
+	 * @return bool
+	 */
 	public function update_itm_pricing() {
 		return $this->updateitmpricing == self::YN_TRUE;
 	}
