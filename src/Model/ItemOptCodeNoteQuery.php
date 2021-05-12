@@ -19,4 +19,14 @@ use Dplus\Model\QueryTraits;
  */
 class ItemOptCodeNoteQuery extends BaseItemOptCodeNoteQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the Query By the inititemnbr column
+	 * @param  mixed  $itemID      Item ID
+	 * @param  string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self                The current query, for fluid interface
+	 */
+	public function filterByItemid($itemID = null, $comparison = null) {
+		return $this->filterByInititemnbr($itemID , $comparison);
+	}
 }
