@@ -40,6 +40,15 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	}
 
 	/**
+	 * Filter the query on the Inittype column
+	 * @param  string                    $type The value to use as filter.
+	 * @return $this|ItemMasterItemQuery The current query, for fluid interface
+	 */
+	public function filterByItemtype($type, $comparision = null) {
+		return $this->filterByInittype($type, $comparision);
+	}
+
+	/**
 	 * Returns Item Type for Item Id
 	 *
 	 * @param  string $itemID
