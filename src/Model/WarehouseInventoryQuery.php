@@ -2,6 +2,8 @@
 
 use Base\WarehouseInventoryQuery as BaseWarehouseInventoryQuery;
 
+use Propel\Runtime\ActiveQuery\Criteria;
+
 use Dplus\Model\QueryTraits;
 
 /**
@@ -39,5 +41,15 @@ class WarehouseInventoryQuery extends BaseWarehouseInventoryQuery {
 		$this->filterByWarehouseid($warehouseID);
 		$this->filterByItemid($itemID);
 		return $this->findOne();
+	}
+
+	/**
+	 * Filter the Query By Display II List
+	 * @param  bool  $display  Filter By Items that Can / cannot be displayed
+	 * @return self
+	 */
+	public function filterByDisplayiilist(bool $display) {
+		$comparison = $display ? Criteria::EQUAL : Criteria::NOT_EQUAL;
+		return $this->filterByInwhiisrchslct(WarehouseInventory::VALUE_TRUE, $comparison);
 	}
 }
