@@ -2263,6 +2263,7 @@
     <column name="InwhLastPurchPoNbr" phpName="Inwhlastpurchponbr" type="VARCHAR" size="8"/>
     <column name="InwhLastPurchInvNbr" phpName="Inwhlastpurchinvnbr" type="VARCHAR" size="15"/>
     <column name="InwhSupplyWhse" phpName="Inwhsupplywhse" type="VARCHAR" size="2"/>
+    <column name="InwhIISrchSlct" phpName="Inwhiisrchslct" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

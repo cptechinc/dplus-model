@@ -39,6 +39,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventoryQuery orderByInwhlastpurchponbr($order = Criteria::ASC) Order by the InwhLastPurchPoNbr column
  * @method     ChildWarehouseInventoryQuery orderByInwhlastpurchinvnbr($order = Criteria::ASC) Order by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventoryQuery orderByInwhsupplywhse($order = Criteria::ASC) Order by the InwhSupplyWhse column
+ * @method     ChildWarehouseInventoryQuery orderByInwhiisrchslct($order = Criteria::ASC) Order by the InwhIISrchSlct column
  * @method     ChildWarehouseInventoryQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildWarehouseInventoryQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildWarehouseInventoryQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -63,6 +64,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventoryQuery groupByInwhlastpurchponbr() Group by the InwhLastPurchPoNbr column
  * @method     ChildWarehouseInventoryQuery groupByInwhlastpurchinvnbr() Group by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventoryQuery groupByInwhsupplywhse() Group by the InwhSupplyWhse column
+ * @method     ChildWarehouseInventoryQuery groupByInwhiisrchslct() Group by the InwhIISrchSlct column
  * @method     ChildWarehouseInventoryQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildWarehouseInventoryQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildWarehouseInventoryQuery groupByDummy() Group by the dummy column
@@ -98,6 +100,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory findOneByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column
  * @method     ChildWarehouseInventory findOneByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventory findOneByInwhsupplywhse(string $InwhSupplyWhse) Return the first ChildWarehouseInventory filtered by the InwhSupplyWhse column
+ * @method     ChildWarehouseInventory findOneByInwhiisrchslct(string $InwhIISrchSlct) Return the first ChildWarehouseInventory filtered by the InwhIISrchSlct column
  * @method     ChildWarehouseInventory findOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column
  * @method     ChildWarehouseInventory findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column
  * @method     ChildWarehouseInventory findOneByDummy(string $dummy) Return the first ChildWarehouseInventory filtered by the dummy column *
@@ -125,6 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory requireOneByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchPoNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return the first ChildWarehouseInventory filtered by the InwhLastPurchInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByInwhsupplywhse(string $InwhSupplyWhse) Return the first ChildWarehouseInventory filtered by the InwhSupplyWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildWarehouseInventory requireOneByInwhiisrchslct(string $InwhIISrchSlct) Return the first ChildWarehouseInventory filtered by the InwhIISrchSlct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByDateupdtd(string $DateUpdtd) Return the first ChildWarehouseInventory filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWarehouseInventory filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildWarehouseInventory requireOneByDummy(string $dummy) Return the first ChildWarehouseInventory filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -150,6 +154,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhlastpurchponbr(string $InwhLastPurchPoNbr) Return ChildWarehouseInventory objects filtered by the InwhLastPurchPoNbr column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhlastpurchinvnbr(string $InwhLastPurchInvNbr) Return ChildWarehouseInventory objects filtered by the InwhLastPurchInvNbr column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhsupplywhse(string $InwhSupplyWhse) Return ChildWarehouseInventory objects filtered by the InwhSupplyWhse column
+ * @method     ChildWarehouseInventory[]|ObjectCollection findByInwhiisrchslct(string $InwhIISrchSlct) Return ChildWarehouseInventory objects filtered by the InwhIISrchSlct column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildWarehouseInventory objects filtered by the DateUpdtd column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildWarehouseInventory objects filtered by the TimeUpdtd column
  * @method     ChildWarehouseInventory[]|ObjectCollection findByDummy(string $dummy) Return ChildWarehouseInventory objects filtered by the dummy column
@@ -251,7 +256,7 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, IntbWhse, InwhBin, InwhCycl, InwhCntDate, InwhStat, InwhAbc, InwhOrdrPnt, InwhMax, InwhOrdrQty, InwhSpecOrdr, InwhAvail, Inwh12moTimesSold, InwhFrtIn, InwhMaxOrdrQty, InwhCrteDate, InwhShipBin, InwhLastPurchPoNbr, InwhLastPurchInvNbr, InwhSupplyWhse, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_mast WHERE InitItemNbr = :p0 AND IntbWhse = :p1';
+        $sql = 'SELECT InitItemNbr, IntbWhse, InwhBin, InwhCycl, InwhCntDate, InwhStat, InwhAbc, InwhOrdrPnt, InwhMax, InwhOrdrQty, InwhSpecOrdr, InwhAvail, Inwh12moTimesSold, InwhFrtIn, InwhMaxOrdrQty, InwhCrteDate, InwhShipBin, InwhLastPurchPoNbr, InwhLastPurchInvNbr, InwhSupplyWhse, InwhIISrchSlct, DateUpdtd, TimeUpdtd, dummy FROM inv_whse_mast WHERE InitItemNbr = :p0 AND IntbWhse = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -963,6 +968,31 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHSUPPLYWHSE, $inwhsupplywhse, $comparison);
+    }
+
+    /**
+     * Filter the query on the InwhIISrchSlct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInwhiisrchslct('fooValue');   // WHERE InwhIISrchSlct = 'fooValue'
+     * $query->filterByInwhiisrchslct('%fooValue%', Criteria::LIKE); // WHERE InwhIISrchSlct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $inwhiisrchslct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
+     */
+    public function filterByInwhiisrchslct($inwhiisrchslct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($inwhiisrchslct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(WarehouseInventoryTableMap::COL_INWHIISRCHSLCT, $inwhiisrchslct, $comparison);
     }
 
     /**

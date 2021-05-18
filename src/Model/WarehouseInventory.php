@@ -59,9 +59,18 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'codeabc'      => 'inwhabc',
 		'maxorderqty'  => 'inwhmaxordrqty',
 		'freightin'    => 'inwhfrtin',
+		'displayiilist' => 'inwhiisrchslct'
 
 		// NOTE: Used for getting  via __call()
 	);
+
+	/**
+	 * Display in II list
+	 * @return bool
+	 */
+	public function displayInIiList() {
+		return $this->displayiilist === self::VALUE_TRUE;
+	}
 
 	/**
 	 * Returns if Warehouse Item is active
