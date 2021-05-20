@@ -2113,6 +2113,20 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_opt_code" idMethod="native" phpName="ItemOptCode">
+    <column name="InitItemId" phpName="Inititemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InoptCode" phpName="Inoptcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InoptCodeDesc" phpName="Inoptcodedesc" type="VARCHAR" size="30"/>
+    <column name="InoptValue" phpName="Inoptvalue" type="VARCHAR" size="30"/>
+    <column name="InoptValueDesc" phpName="Inoptvaluedesc" type="VARCHAR" size="30"/>
+    <column name="InoptValueDesc2" phpName="Inoptvaluedesc2" type="VARCHAR" size="30"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_plne_code" idMethod="native" phpName="InvProductLineCode">
     <column name="IntbPlneCode" phpName="Intbplnecode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbPlneDesc" phpName="Intbplnedesc" type="VARCHAR" size="30"/>
