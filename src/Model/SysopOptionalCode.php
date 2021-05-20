@@ -21,6 +21,7 @@ class SysopOptionalCode extends BaseSysopOptionalCode {
 	const COLUMN_ALIASES = array(
         'system'       => 'optnsystem',
         'opt_code'     => 'optncode',
+        'sysop'        => 'optncode',
 		'id'           => 'optcid',
         'code'         => 'optcid',
 		'description'  => 'optcdesc',
