@@ -81,6 +81,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery orderByInitcubes($order = Criteria::ASC) Order by the InitCubes column
  * @method     ChildItemMasterItemQuery orderByInittimefence($order = Criteria::ASC) Order by the InitTimeFence column
  * @method     ChildItemMasterItemQuery orderByInitsrvcminchrg($order = Criteria::ASC) Order by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItemQuery orderByInitMinMargBase($order = Criteria::ASC) Order by the InitMinMargBase column
  * @method     ChildItemMasterItemQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildItemMasterItemQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildItemMasterItemQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -146,6 +147,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery groupByInitcubes() Group by the InitCubes column
  * @method     ChildItemMasterItemQuery groupByInittimefence() Group by the InitTimeFence column
  * @method     ChildItemMasterItemQuery groupByInitsrvcminchrg() Group by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItemQuery groupByInitMinMargBase() Group by the InitMinMargBase column
  * @method     ChildItemMasterItemQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildItemMasterItemQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildItemMasterItemQuery groupByDummy() Group by the dummy column
@@ -494,6 +496,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem findOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column
  * @method     ChildItemMasterItem findOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column
  * @method     ChildItemMasterItem findOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItem findOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column
  * @method     ChildItemMasterItem findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column
  * @method     ChildItemMasterItem findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column
  * @method     ChildItemMasterItem findOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column *
@@ -562,6 +565,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem requireOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -628,6 +632,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem[]|ObjectCollection findByInitcubes(string $InitCubes) Return ChildItemMasterItem objects filtered by the InitCubes column
  * @method     ChildItemMasterItem[]|ObjectCollection findByInittimefence(int $InitTimeFence) Return ChildItemMasterItem objects filtered by the InitTimeFence column
  * @method     ChildItemMasterItem[]|ObjectCollection findByInitsrvcminchrg(string $InitSrvcMinChrg) Return ChildItemMasterItem objects filtered by the InitSrvcMinChrg column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitMinMargBase(string $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
  * @method     ChildItemMasterItem[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemMasterItem objects filtered by the DateUpdtd column
  * @method     ChildItemMasterItem[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemMasterItem objects filtered by the TimeUpdtd column
  * @method     ChildItemMasterItem[]|ObjectCollection findByDummy(string $dummy) Return ChildItemMasterItem objects filtered by the dummy column
@@ -729,7 +734,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, InitDesc1, InitDesc2, IntbGrup, InitFormatCode, InitSplit, InitSherDateCd, InitCoreYN, IntbUserCode1, IntbUserCode2, InitType, InitTax, InitRtlPric, InitStatChgd, InitSpecItemCd, InitWarrDays, IntbUomSale, InitWght, InitBord, InitBaseItemId, InitSpecificCust, InitGiveDisc, InitAsstCode, InitPricLastDate, IntbUomPur, InitStanCost, InitStanCostBase, InitStanCostLastDate, InitMinMarg, InitVendId, InitInspect, InitStockCode, InitSuprItemNbr, InitVendShipFrom, InitCntryOfOrigin, InitAsstQty, IntbTariffCode, InitPreference, InitProducer, InitDocumentation, InitPurchCrtnQty, AptbBuyrCode, InitLastCost, InitLiters, IntbMsdsCode, InitRequireFrt, InitMfrtCode, InitInnerPackQty, InitOuterPackQty, InitBaseStanCost, InitShipTareQty, InitWgItem, IntbPricGrup, IntbCommGrup, InitLastCostDate, InitQtyPerCase, InitRevision, InitCommSaleQty, InitCubes, InitTimeFence, InitSrvcMinChrg, DateUpdtd, TimeUpdtd, dummy FROM inv_item_mast WHERE InitItemNbr = :p0';
+        $sql = 'SELECT InitItemNbr, InitDesc1, InitDesc2, IntbGrup, InitFormatCode, InitSplit, InitSherDateCd, InitCoreYN, IntbUserCode1, IntbUserCode2, InitType, InitTax, InitRtlPric, InitStatChgd, InitSpecItemCd, InitWarrDays, IntbUomSale, InitWght, InitBord, InitBaseItemId, InitSpecificCust, InitGiveDisc, InitAsstCode, InitPricLastDate, IntbUomPur, InitStanCost, InitStanCostBase, InitStanCostLastDate, InitMinMarg, InitVendId, InitInspect, InitStockCode, InitSuprItemNbr, InitVendShipFrom, InitCntryOfOrigin, InitAsstQty, IntbTariffCode, InitPreference, InitProducer, InitDocumentation, InitPurchCrtnQty, AptbBuyrCode, InitLastCost, InitLiters, IntbMsdsCode, InitRequireFrt, InitMfrtCode, InitInnerPackQty, InitOuterPackQty, InitBaseStanCost, InitShipTareQty, InitWgItem, IntbPricGrup, IntbCommGrup, InitLastCostDate, InitQtyPerCase, InitRevision, InitCommSaleQty, InitCubes, InitTimeFence, InitSrvcMinChrg, InitMinMargBase, DateUpdtd, TimeUpdtd, dummy FROM inv_item_mast WHERE InitItemNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -2630,6 +2635,31 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITSRVCMINCHRG, $initsrvcminchrg, $comparison);
+    }
+
+    /**
+     * Filter the query on the InitMinMargBase column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInitMinMargBase('fooValue');   // WHERE InitMinMargBase = 'fooValue'
+     * $query->filterByInitMinMargBase('%fooValue%', Criteria::LIKE); // WHERE InitMinMargBase LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $initMinMargBase The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInitMinMargBase($initMinMargBase = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($initMinMargBase)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initMinMargBase, $comparison);
     }
 
     /**

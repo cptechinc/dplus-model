@@ -556,6 +556,13 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $initsrvcminchrg;
 
     /**
+     * The value for the initminmargbase field.
+     *
+     * @var        string
+     */
+    protected $initminmargbase;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -1691,6 +1698,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function getInitsrvcminchrg()
     {
         return $this->initsrvcminchrg;
+    }
+
+    /**
+     * Get the [initminmargbase] column value.
+     *
+     * @return string
+     */
+    public function getInitMinMargBase()
+    {
+        return $this->initminmargbase;
     }
 
     /**
@@ -2968,6 +2985,26 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     } // setInitsrvcminchrg()
 
     /**
+     * Set the value of [initminmargbase] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function setInitMinMargBase($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->initminmargbase !== $v) {
+            $this->initminmargbase = $v;
+            $this->modifiedColumns[ItemMasterItemTableMap::COL_INITMINMARGBASE] = true;
+        }
+
+        return $this;
+    } // setInitMinMargBase()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -3250,13 +3287,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsrvcminchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsrvcminchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('InitMinMargBase', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->initminmargbase = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -3266,7 +3306,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 64; // 64 = ItemMasterItemTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 65; // 65 = ItemMasterItemTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemMasterItem'), 0, $e);
@@ -4089,6 +4129,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITSRVCMINCHRG)) {
             $modifiedColumns[':p' . $index++]  = 'InitSrvcMinChrg';
         }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITMINMARGBASE)) {
+            $modifiedColumns[':p' . $index++]  = 'InitMinMargBase';
+        }
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -4291,6 +4334,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                         break;
                     case 'InitSrvcMinChrg':
                         $stmt->bindValue($identifier, $this->initsrvcminchrg, PDO::PARAM_STR);
+                        break;
+                    case 'InitMinMargBase':
+                        $stmt->bindValue($identifier, $this->initminmargbase, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -4540,12 +4586,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 return $this->getInitsrvcminchrg();
                 break;
             case 61:
-                return $this->getDateupdtd();
+                return $this->getInitMinMargBase();
                 break;
             case 62:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 63:
+                return $this->getTimeupdtd();
+                break;
+            case 64:
                 return $this->getDummy();
                 break;
             default:
@@ -4639,9 +4688,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $keys[58] => $this->getInitcubes(),
             $keys[59] => $this->getInittimefence(),
             $keys[60] => $this->getInitsrvcminchrg(),
-            $keys[61] => $this->getDateupdtd(),
-            $keys[62] => $this->getTimeupdtd(),
-            $keys[63] => $this->getDummy(),
+            $keys[61] => $this->getInitMinMargBase(),
+            $keys[62] => $this->getDateupdtd(),
+            $keys[63] => $this->getTimeupdtd(),
+            $keys[64] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -5272,12 +5322,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->setInitsrvcminchrg($value);
                 break;
             case 61:
-                $this->setDateupdtd($value);
+                $this->setInitMinMargBase($value);
                 break;
             case 62:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 63:
+                $this->setTimeupdtd($value);
+                break;
+            case 64:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -5490,13 +5543,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->setInitsrvcminchrg($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setDateupdtd($arr[$keys[61]]);
+            $this->setInitMinMargBase($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setTimeupdtd($arr[$keys[62]]);
+            $this->setDateupdtd($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setDummy($arr[$keys[63]]);
+            $this->setTimeupdtd($arr[$keys[63]]);
+        }
+        if (array_key_exists($keys[64], $arr)) {
+            $this->setDummy($arr[$keys[64]]);
         }
     }
 
@@ -5722,6 +5778,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITSRVCMINCHRG)) {
             $criteria->add(ItemMasterItemTableMap::COL_INITSRVCMINCHRG, $this->initsrvcminchrg);
         }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITMINMARGBASE)) {
+            $criteria->add(ItemMasterItemTableMap::COL_INITMINMARGBASE, $this->initminmargbase);
+        }
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_DATEUPDTD)) {
             $criteria->add(ItemMasterItemTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -5885,6 +5944,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $copyObj->setInitcubes($this->getInitcubes());
         $copyObj->setInittimefence($this->getInittimefence());
         $copyObj->setInitsrvcminchrg($this->getInitsrvcminchrg());
+        $copyObj->setInitMinMargBase($this->getInitMinMargBase());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -10986,6 +11046,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->initcubes = null;
         $this->inittimefence = null;
         $this->initsrvcminchrg = null;
+        $this->initminmargbase = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

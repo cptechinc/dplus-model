@@ -1994,6 +1994,7 @@
     <column name="InitCubes" phpName="Initcubes" type="DECIMAL" size="20" scale="5"/>
     <column name="InitTimeFence" phpName="Inittimefence" type="INTEGER" size="5"/>
     <column name="InitSrvcMinChrg" phpName="Initsrvcminchrg" type="DECIMAL" size="20" scale="4"/>
+    <column name="InitMinMargBase" phpName="InitMinMargBase" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

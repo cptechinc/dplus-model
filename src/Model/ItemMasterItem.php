@@ -42,6 +42,12 @@ class ItemMasterItem extends BaseItemMasterItem {
 	const OPTIONS_PREFERENCE = ['A', 'B', 'C', 'D', 'E', 'F'];
 	const OPTIONS_DOCUMENTATION = [1, 2, 3];
 
+	const MIN_MARGIN_BASE_OPTIONS = [
+		'$' => 'amount',
+		'%' => 'percent'
+	];
+
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -101,6 +107,7 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'msdscode'    => 'IntbMsdsCode',
 		'freightcode' => 'InitMfrtCode',
 		'origincountry' => 'InitCntryOfOrigin',
+		'minmarginbase' => 'InitMinMargBase',
 
 		// Foreign Key Aliases
 		'primaryvxm'      => 'primaryItemXrefVendor',
