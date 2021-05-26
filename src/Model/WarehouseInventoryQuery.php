@@ -30,7 +30,6 @@ class WarehouseInventoryQuery extends BaseWarehouseInventoryQuery {
 
 	/**
 	 * Returns the default Warehouse Bin for the Item ID
-	 *
 	 * @param  string $warehouseID Warehouse ID
 	 * @param  string $itemID      Item ID
 	 * @return string              Default Warehouse Item Bin
@@ -51,5 +50,15 @@ class WarehouseInventoryQuery extends BaseWarehouseInventoryQuery {
 	public function filterByDisplayiilist(bool $display) {
 		$comparison = $display ? Criteria::EQUAL : Criteria::NOT_EQUAL;
 		return $this->filterByInwhiisrchslct(WarehouseInventory::VALUE_TRUE, $comparison);
+	}
+
+	/**
+	 * Filter the Query By Item ID
+	 * @param  string $itemID
+	 * @param  string $comparison
+	 * @return self
+	 */
+	public function filterByItemid($itemID, $comparison = null) {
+		return $this->filterByInititemnbr($itemID, $comparison);
 	}
 }
