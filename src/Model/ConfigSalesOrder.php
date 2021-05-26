@@ -71,7 +71,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	);
 
 	public function allowOverpick() {
-		return $this->overpick == 'Y';
+		return $this->overpick == $this->allow_overpick;
 	}
 
 	/**
