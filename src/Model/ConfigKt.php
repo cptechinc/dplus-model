@@ -8,7 +8,6 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'in_config' table
  * NOTE: There will only be one record in the database for the company
- *
  */
 class ConfigKt extends BaseConfigKt {
 	use ThrowErrorTrait;
@@ -39,6 +38,22 @@ class ConfigKt extends BaseConfigKt {
 	}
 
 	public function usageorfreeusage() {
+		return $this->usageorfree == 'T';
+	}
+
+	/**
+	 * Return if Usage Tag is Free Goods
+	 * @return bool
+	 */
+	public function isFreeUsage() {
+		return $this->usageorfree == 'F';
+	}
+
+	/**
+	 * Return if Usage Tag is Usage
+	 * @return bool
+	 */
+	public function isUsageTag() {
 		return $this->usageorfree == 'T';
 	}
 }
