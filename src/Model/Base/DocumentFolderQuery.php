@@ -28,7 +28,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolderQuery orderByDoccoverwrt($order = Criteria::ASC) Order by the DoccOverWrt column
  * @method     ChildDocumentFolderQuery orderByDoccfilecnt($order = Criteria::ASC) Order by the DoccFileCnt column
  * @method     ChildDocumentFolderQuery orderByDoccautoscanid($order = Criteria::ASC) Order by the DoccAutoScanId column
- * @method     ChildDocumentFolderQuery orderByDoccUseAutoFil($order = Criteria::ASC) Order by the DoccUseAutoFil column
+ * @method     ChildDocumentFolderQuery orderByDoccUseAutoFile($order = Criteria::ASC) Order by the DoccUseAutoFile column
  * @method     ChildDocumentFolderQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildDocumentFolderQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildDocumentFolderQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -41,7 +41,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolderQuery groupByDoccoverwrt() Group by the DoccOverWrt column
  * @method     ChildDocumentFolderQuery groupByDoccfilecnt() Group by the DoccFileCnt column
  * @method     ChildDocumentFolderQuery groupByDoccautoscanid() Group by the DoccAutoScanId column
- * @method     ChildDocumentFolderQuery groupByDoccUseAutoFil() Group by the DoccUseAutoFil column
+ * @method     ChildDocumentFolderQuery groupByDoccUseAutoFile() Group by the DoccUseAutoFile column
  * @method     ChildDocumentFolderQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildDocumentFolderQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildDocumentFolderQuery groupByDummy() Group by the dummy column
@@ -77,7 +77,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolder findOneByDoccoverwrt(string $DoccOverWrt) Return the first ChildDocumentFolder filtered by the DoccOverWrt column
  * @method     ChildDocumentFolder findOneByDoccfilecnt(int $DoccFileCnt) Return the first ChildDocumentFolder filtered by the DoccFileCnt column
  * @method     ChildDocumentFolder findOneByDoccautoscanid(string $DoccAutoScanId) Return the first ChildDocumentFolder filtered by the DoccAutoScanId column
- * @method     ChildDocumentFolder findOneByDoccUseAutoFil(string $DoccUseAutoFil) Return the first ChildDocumentFolder filtered by the DoccUseAutoFil column
+ * @method     ChildDocumentFolder findOneByDoccUseAutoFile(string $DoccUseAutoFile) Return the first ChildDocumentFolder filtered by the DoccUseAutoFile column
  * @method     ChildDocumentFolder findOneByDateupdtd(string $DateUpdtd) Return the first ChildDocumentFolder filtered by the DateUpdtd column
  * @method     ChildDocumentFolder findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDocumentFolder filtered by the TimeUpdtd column
  * @method     ChildDocumentFolder findOneByDummy(string $dummy) Return the first ChildDocumentFolder filtered by the dummy column *
@@ -93,7 +93,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolder requireOneByDoccoverwrt(string $DoccOverWrt) Return the first ChildDocumentFolder filtered by the DoccOverWrt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDoccfilecnt(int $DoccFileCnt) Return the first ChildDocumentFolder filtered by the DoccFileCnt column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDoccautoscanid(string $DoccAutoScanId) Return the first ChildDocumentFolder filtered by the DoccAutoScanId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildDocumentFolder requireOneByDoccUseAutoFil(string $DoccUseAutoFil) Return the first ChildDocumentFolder filtered by the DoccUseAutoFil column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildDocumentFolder requireOneByDoccUseAutoFile(string $DoccUseAutoFile) Return the first ChildDocumentFolder filtered by the DoccUseAutoFile column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDateupdtd(string $DateUpdtd) Return the first ChildDocumentFolder filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildDocumentFolder filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildDocumentFolder requireOneByDummy(string $dummy) Return the first ChildDocumentFolder filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -107,7 +107,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDocumentFolder[]|ObjectCollection findByDoccoverwrt(string $DoccOverWrt) Return ChildDocumentFolder objects filtered by the DoccOverWrt column
  * @method     ChildDocumentFolder[]|ObjectCollection findByDoccfilecnt(int $DoccFileCnt) Return ChildDocumentFolder objects filtered by the DoccFileCnt column
  * @method     ChildDocumentFolder[]|ObjectCollection findByDoccautoscanid(string $DoccAutoScanId) Return ChildDocumentFolder objects filtered by the DoccAutoScanId column
- * @method     ChildDocumentFolder[]|ObjectCollection findByDoccUseAutoFil(string $DoccUseAutoFil) Return ChildDocumentFolder objects filtered by the DoccUseAutoFil column
+ * @method     ChildDocumentFolder[]|ObjectCollection findByDoccUseAutoFile(string $DoccUseAutoFile) Return ChildDocumentFolder objects filtered by the DoccUseAutoFile column
  * @method     ChildDocumentFolder[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildDocumentFolder objects filtered by the DateUpdtd column
  * @method     ChildDocumentFolder[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildDocumentFolder objects filtered by the TimeUpdtd column
  * @method     ChildDocumentFolder[]|ObjectCollection findByDummy(string $dummy) Return ChildDocumentFolder objects filtered by the dummy column
@@ -209,7 +209,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT DoccFolder, DoccFolderDesc, DoccDir, DoccTag, DoccMultCopy, DoccOverWrt, DoccFileCnt, DoccAutoScanId, DoccUseAutoFil, DateUpdtd, TimeUpdtd, dummy FROM doc_control WHERE DoccFolder = :p0';
+        $sql = 'SELECT DoccFolder, DoccFolderDesc, DoccDir, DoccTag, DoccMultCopy, DoccOverWrt, DoccFileCnt, DoccAutoScanId, DoccUseAutoFile, DateUpdtd, TimeUpdtd, dummy FROM doc_control WHERE DoccFolder = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -516,12 +516,12 @@ abstract class DocumentFolderQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the DoccUseAutoFil column
+     * Filter the query on the DoccUseAutoFile column
      *
      * Example usage:
      * <code>
-     * $query->filterByDoccUseAutoFil('fooValue');   // WHERE DoccUseAutoFil = 'fooValue'
-     * $query->filterByDoccUseAutoFil('%fooValue%', Criteria::LIKE); // WHERE DoccUseAutoFil LIKE '%fooValue%'
+     * $query->filterByDoccUseAutoFile('fooValue');   // WHERE DoccUseAutoFile = 'fooValue'
+     * $query->filterByDoccUseAutoFile('%fooValue%', Criteria::LIKE); // WHERE DoccUseAutoFile LIKE '%fooValue%'
      * </code>
      *
      * @param     string $doccUseAutoFil The value to use as filter.
@@ -529,7 +529,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
      *
      * @return $this|ChildDocumentFolderQuery The current query, for fluid interface
      */
-    public function filterByDoccUseAutoFil($doccUseAutoFil = null, $comparison = null)
+    public function filterByDoccUseAutoFile($doccUseAutoFil = null, $comparison = null)
     {
         if (null === $comparison) {
             if (is_array($doccUseAutoFil)) {
@@ -537,7 +537,7 @@ abstract class DocumentFolderQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCUSEAUTOFIL, $doccUseAutoFil, $comparison);
+        return $this->addUsingAlias(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, $doccUseAutoFil, $comparison);
     }
 
     /**

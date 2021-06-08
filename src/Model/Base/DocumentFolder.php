@@ -122,11 +122,11 @@ abstract class DocumentFolder implements ActiveRecordInterface
     protected $doccautoscanid;
 
     /**
-     * The value for the doccuseautofil field.
+     * The value for the doccuseautofile field.
      *
      * @var        string
      */
-    protected $doccuseautofil;
+    protected $doccuseautofile;
 
     /**
      * The value for the dateupdtd field.
@@ -488,13 +488,13 @@ abstract class DocumentFolder implements ActiveRecordInterface
     }
 
     /**
-     * Get the [doccuseautofil] column value.
+     * Get the [doccuseautofile] column value.
      *
      * @return string
      */
-    public function getDoccUseAutoFil()
+    public function getDoccUseAutoFile()
     {
-        return $this->doccuseautofil;
+        return $this->doccuseautofile;
     }
 
     /**
@@ -688,24 +688,24 @@ abstract class DocumentFolder implements ActiveRecordInterface
     } // setDoccautoscanid()
 
     /**
-     * Set the value of [doccuseautofil] column.
+     * Set the value of [doccuseautofile] column.
      *
      * @param string $v new value
      * @return $this|\DocumentFolder The current object (for fluent API support)
      */
-    public function setDoccUseAutoFil($v)
+    public function setDoccUseAutoFile($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->doccuseautofil !== $v) {
-            $this->doccuseautofil = $v;
-            $this->modifiedColumns[DocumentFolderTableMap::COL_DOCCUSEAUTOFIL] = true;
+        if ($this->doccuseautofile !== $v) {
+            $this->doccuseautofile = $v;
+            $this->modifiedColumns[DocumentFolderTableMap::COL_DOCCUSEAUTOFILE] = true;
         }
 
         return $this;
-    } // setDoccUseAutoFil()
+    } // setDoccUseAutoFile()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -831,8 +831,8 @@ abstract class DocumentFolder implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : DocumentFolderTableMap::translateFieldName('Doccautoscanid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->doccautoscanid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : DocumentFolderTableMap::translateFieldName('DoccUseAutoFil', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->doccuseautofil = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : DocumentFolderTableMap::translateFieldName('DoccUseAutoFile', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->doccuseautofile = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : DocumentFolderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
@@ -1090,8 +1090,8 @@ abstract class DocumentFolder implements ActiveRecordInterface
         if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCAUTOSCANID)) {
             $modifiedColumns[':p' . $index++]  = 'DoccAutoScanId';
         }
-        if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCUSEAUTOFIL)) {
-            $modifiedColumns[':p' . $index++]  = 'DoccUseAutoFil';
+        if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE)) {
+            $modifiedColumns[':p' . $index++]  = 'DoccUseAutoFile';
         }
         if ($this->isColumnModified(DocumentFolderTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
@@ -1137,8 +1137,8 @@ abstract class DocumentFolder implements ActiveRecordInterface
                     case 'DoccAutoScanId':
                         $stmt->bindValue($identifier, $this->doccautoscanid, PDO::PARAM_STR);
                         break;
-                    case 'DoccUseAutoFil':
-                        $stmt->bindValue($identifier, $this->doccuseautofil, PDO::PARAM_STR);
+                    case 'DoccUseAutoFile':
+                        $stmt->bindValue($identifier, $this->doccuseautofile, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1229,7 +1229,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
                 return $this->getDoccautoscanid();
                 break;
             case 8:
-                return $this->getDoccUseAutoFil();
+                return $this->getDoccUseAutoFile();
                 break;
             case 9:
                 return $this->getDateupdtd();
@@ -1278,7 +1278,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
             $keys[5] => $this->getDoccoverwrt(),
             $keys[6] => $this->getDoccfilecnt(),
             $keys[7] => $this->getDoccautoscanid(),
-            $keys[8] => $this->getDoccUseAutoFil(),
+            $keys[8] => $this->getDoccUseAutoFile(),
             $keys[9] => $this->getDateupdtd(),
             $keys[10] => $this->getTimeupdtd(),
             $keys[11] => $this->getDummy(),
@@ -1363,7 +1363,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
                 $this->setDoccautoscanid($value);
                 break;
             case 8:
-                $this->setDoccUseAutoFil($value);
+                $this->setDoccUseAutoFile($value);
                 break;
             case 9:
                 $this->setDateupdtd($value);
@@ -1425,7 +1425,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
             $this->setDoccautoscanid($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setDoccUseAutoFil($arr[$keys[8]]);
+            $this->setDoccUseAutoFile($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
             $this->setDateupdtd($arr[$keys[9]]);
@@ -1501,8 +1501,8 @@ abstract class DocumentFolder implements ActiveRecordInterface
         if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCAUTOSCANID)) {
             $criteria->add(DocumentFolderTableMap::COL_DOCCAUTOSCANID, $this->doccautoscanid);
         }
-        if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCUSEAUTOFIL)) {
-            $criteria->add(DocumentFolderTableMap::COL_DOCCUSEAUTOFIL, $this->doccuseautofil);
+        if ($this->isColumnModified(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE)) {
+            $criteria->add(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, $this->doccuseautofile);
         }
         if ($this->isColumnModified(DocumentFolderTableMap::COL_DATEUPDTD)) {
             $criteria->add(DocumentFolderTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1607,7 +1607,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
         $copyObj->setDoccoverwrt($this->getDoccoverwrt());
         $copyObj->setDoccfilecnt($this->getDoccfilecnt());
         $copyObj->setDoccautoscanid($this->getDoccautoscanid());
-        $copyObj->setDoccUseAutoFil($this->getDoccUseAutoFil());
+        $copyObj->setDoccUseAutoFile($this->getDoccUseAutoFile());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1912,7 +1912,7 @@ abstract class DocumentFolder implements ActiveRecordInterface
         $this->doccoverwrt = null;
         $this->doccfilecnt = null;
         $this->doccautoscanid = null;
-        $this->doccuseautofil = null;
+        $this->doccuseautofile = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

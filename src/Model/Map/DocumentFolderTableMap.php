@@ -112,9 +112,9 @@ class DocumentFolderTableMap extends TableMap
     const COL_DOCCAUTOSCANID = 'doc_control.DoccAutoScanId';
 
     /**
-     * the column name for the DoccUseAutoFil field
+     * the column name for the DoccUseAutoFile field
      */
-    const COL_DOCCUSEAUTOFIL = 'doc_control.DoccUseAutoFil';
+    const COL_DOCCUSEAUTOFILE = 'doc_control.DoccUseAutoFile';
 
     /**
      * the column name for the DateUpdtd field
@@ -143,10 +143,10 @@ class DocumentFolderTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Doccfolder', 'Doccfolderdesc', 'Doccdir', 'Docctag', 'Doccmultcopy', 'Doccoverwrt', 'Doccfilecnt', 'Doccautoscanid', 'DoccUseAutoFil', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_PHPNAME       => array('Doccfolder', 'Doccfolderdesc', 'Doccdir', 'Docctag', 'Doccmultcopy', 'Doccoverwrt', 'Doccfilecnt', 'Doccautoscanid', 'DoccUseAutoFile', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('doccfolder', 'doccfolderdesc', 'doccdir', 'docctag', 'doccmultcopy', 'doccoverwrt', 'doccfilecnt', 'doccautoscanid', 'doccUseAutoFil', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER, DocumentFolderTableMap::COL_DOCCFOLDERDESC, DocumentFolderTableMap::COL_DOCCDIR, DocumentFolderTableMap::COL_DOCCTAG, DocumentFolderTableMap::COL_DOCCMULTCOPY, DocumentFolderTableMap::COL_DOCCOVERWRT, DocumentFolderTableMap::COL_DOCCFILECNT, DocumentFolderTableMap::COL_DOCCAUTOSCANID, DocumentFolderTableMap::COL_DOCCUSEAUTOFIL, DocumentFolderTableMap::COL_DATEUPDTD, DocumentFolderTableMap::COL_TIMEUPDTD, DocumentFolderTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('DoccFolder', 'DoccFolderDesc', 'DoccDir', 'DoccTag', 'DoccMultCopy', 'DoccOverWrt', 'DoccFileCnt', 'DoccAutoScanId', 'DoccUseAutoFil', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER, DocumentFolderTableMap::COL_DOCCFOLDERDESC, DocumentFolderTableMap::COL_DOCCDIR, DocumentFolderTableMap::COL_DOCCTAG, DocumentFolderTableMap::COL_DOCCMULTCOPY, DocumentFolderTableMap::COL_DOCCOVERWRT, DocumentFolderTableMap::COL_DOCCFILECNT, DocumentFolderTableMap::COL_DOCCAUTOSCANID, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE, DocumentFolderTableMap::COL_DATEUPDTD, DocumentFolderTableMap::COL_TIMEUPDTD, DocumentFolderTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('DoccFolder', 'DoccFolderDesc', 'DoccDir', 'DoccTag', 'DoccMultCopy', 'DoccOverWrt', 'DoccFileCnt', 'DoccAutoScanId', 'DoccUseAutoFile', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
@@ -157,10 +157,10 @@ class DocumentFolderTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Doccfolder' => 0, 'Doccfolderdesc' => 1, 'Doccdir' => 2, 'Docctag' => 3, 'Doccmultcopy' => 4, 'Doccoverwrt' => 5, 'Doccfilecnt' => 6, 'Doccautoscanid' => 7, 'DoccUseAutoFil' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
+        self::TYPE_PHPNAME       => array('Doccfolder' => 0, 'Doccfolderdesc' => 1, 'Doccdir' => 2, 'Docctag' => 3, 'Doccmultcopy' => 4, 'Doccoverwrt' => 5, 'Doccfilecnt' => 6, 'Doccautoscanid' => 7, 'DoccUseAutoFile' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
         self::TYPE_CAMELNAME     => array('doccfolder' => 0, 'doccfolderdesc' => 1, 'doccdir' => 2, 'docctag' => 3, 'doccmultcopy' => 4, 'doccoverwrt' => 5, 'doccfilecnt' => 6, 'doccautoscanid' => 7, 'doccUseAutoFil' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER => 0, DocumentFolderTableMap::COL_DOCCFOLDERDESC => 1, DocumentFolderTableMap::COL_DOCCDIR => 2, DocumentFolderTableMap::COL_DOCCTAG => 3, DocumentFolderTableMap::COL_DOCCMULTCOPY => 4, DocumentFolderTableMap::COL_DOCCOVERWRT => 5, DocumentFolderTableMap::COL_DOCCFILECNT => 6, DocumentFolderTableMap::COL_DOCCAUTOSCANID => 7, DocumentFolderTableMap::COL_DOCCUSEAUTOFIL => 8, DocumentFolderTableMap::COL_DATEUPDTD => 9, DocumentFolderTableMap::COL_TIMEUPDTD => 10, DocumentFolderTableMap::COL_DUMMY => 11, ),
-        self::TYPE_FIELDNAME     => array('DoccFolder' => 0, 'DoccFolderDesc' => 1, 'DoccDir' => 2, 'DoccTag' => 3, 'DoccMultCopy' => 4, 'DoccOverWrt' => 5, 'DoccFileCnt' => 6, 'DoccAutoScanId' => 7, 'DoccUseAutoFil' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
+        self::TYPE_COLNAME       => array(DocumentFolderTableMap::COL_DOCCFOLDER => 0, DocumentFolderTableMap::COL_DOCCFOLDERDESC => 1, DocumentFolderTableMap::COL_DOCCDIR => 2, DocumentFolderTableMap::COL_DOCCTAG => 3, DocumentFolderTableMap::COL_DOCCMULTCOPY => 4, DocumentFolderTableMap::COL_DOCCOVERWRT => 5, DocumentFolderTableMap::COL_DOCCFILECNT => 6, DocumentFolderTableMap::COL_DOCCAUTOSCANID => 7, DocumentFolderTableMap::COL_DOCCUSEAUTOFILE => 8, DocumentFolderTableMap::COL_DATEUPDTD => 9, DocumentFolderTableMap::COL_TIMEUPDTD => 10, DocumentFolderTableMap::COL_DUMMY => 11, ),
+        self::TYPE_FIELDNAME     => array('DoccFolder' => 0, 'DoccFolderDesc' => 1, 'DoccDir' => 2, 'DoccTag' => 3, 'DoccMultCopy' => 4, 'DoccOverWrt' => 5, 'DoccFileCnt' => 6, 'DoccAutoScanId' => 7, 'DoccUseAutoFile' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
 
@@ -189,7 +189,7 @@ class DocumentFolderTableMap extends TableMap
         $this->addColumn('DoccOverWrt', 'Doccoverwrt', 'VARCHAR', false, 1, null);
         $this->addColumn('DoccFileCnt', 'Doccfilecnt', 'INTEGER', false, 8, null);
         $this->addColumn('DoccAutoScanId', 'Doccautoscanid', 'VARCHAR', false, 4, null);
-        $this->addColumn('DoccUseAutoFil', 'DoccUseAutoFil', 'VARCHAR', false, 1, null);
+        $this->addColumn('DoccUseAutoFile', 'DoccUseAutoFile', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -358,7 +358,7 @@ class DocumentFolderTableMap extends TableMap
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCOVERWRT);
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCFILECNT);
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCAUTOSCANID);
-            $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCUSEAUTOFIL);
+            $criteria->addSelectColumn(DocumentFolderTableMap::COL_DOCCUSEAUTOFILE);
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(DocumentFolderTableMap::COL_DUMMY);
@@ -371,7 +371,7 @@ class DocumentFolderTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.DoccOverWrt');
             $criteria->addSelectColumn($alias . '.DoccFileCnt');
             $criteria->addSelectColumn($alias . '.DoccAutoScanId');
-            $criteria->addSelectColumn($alias . '.DoccUseAutoFil');
+            $criteria->addSelectColumn($alias . '.DoccUseAutoFile');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
