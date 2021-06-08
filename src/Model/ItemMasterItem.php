@@ -269,6 +269,15 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Return InvKitComponent objects for this Kit
+	 * @return int
+	 */
+	public function countKitcomponents() {
+		$query = InvKitComponentQuery::create();
+		return $query->filterByKititemid($this->inititemnbr)->count();
+	}
+
+	/**
 	 * Returns if Item is a BoM produced Item
 	 * @return bool
 	 */
@@ -474,6 +483,14 @@ class ItemMasterItem extends BaseItemMasterItem {
 	 */
 	public function is_ordered() {
 		return boolval(SalesOrderDetailQuery::create()->filterByItemid($this->itemid)->count());
+	}
+
+	/**
+	 * Return Customer associated with this Item
+	 * @return Customer
+	 */
+	public function getCustomer() {
+		return CustomerQuery::create()->findOneByCustid($this->custid);
 	}
 
 /* =============================================================
