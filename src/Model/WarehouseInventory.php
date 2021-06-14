@@ -7,6 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_whse_mast' table.
+ * RELATIONSHIPS: ItemMasterItem [inititemnbr]
  */
 class WarehouseInventory extends BaseWarehouseInventory {
 	use ThrowErrorTrait;

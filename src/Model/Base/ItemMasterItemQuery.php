@@ -310,6 +310,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvKit() Adds a RIGHT JOIN clause and with to the query using the InvKit relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvKit() Adds a INNER JOIN clause and with to the query using the InvKit relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinWarehouseInventory($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseInventory relation
+ * @method     ChildItemMasterItemQuery rightJoinWarehouseInventory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseInventory relation
+ * @method     ChildItemMasterItemQuery innerJoinWarehouseInventory($relationAlias = null) Adds a INNER JOIN clause to the query using the WarehouseInventory relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithWarehouseInventory($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WarehouseInventory relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithWarehouseInventory() Adds a LEFT JOIN clause and with to the query using the WarehouseInventory relation
+ * @method     ChildItemMasterItemQuery rightJoinWithWarehouseInventory() Adds a RIGHT JOIN clause and with to the query using the WarehouseInventory relation
+ * @method     ChildItemMasterItemQuery innerJoinWithWarehouseInventory() Adds a INNER JOIN clause and with to the query using the WarehouseInventory relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemXrefManufacturer($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefManufacturer relation
  * @method     ChildItemMasterItemQuery rightJoinItemXrefManufacturer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefManufacturer relation
  * @method     ChildItemMasterItemQuery innerJoinItemXrefManufacturer($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefManufacturer relation
@@ -430,7 +440,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3854,6 +3864,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinInvKit($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvKit', '\InvKitQuery');
+    }
+
+    /**
+     * Filter the query by a related \WarehouseInventory object
+     *
+     * @param \WarehouseInventory|ObjectCollection $warehouseInventory the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByWarehouseInventory($warehouseInventory, $comparison = null)
+    {
+        if ($warehouseInventory instanceof \WarehouseInventory) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $warehouseInventory->getInititemnbr(), $comparison);
+        } elseif ($warehouseInventory instanceof ObjectCollection) {
+            return $this
+                ->useWarehouseInventoryQuery()
+                ->filterByPrimaryKeys($warehouseInventory->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByWarehouseInventory() only accepts arguments of type \WarehouseInventory or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the WarehouseInventory relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinWarehouseInventory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('WarehouseInventory');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'WarehouseInventory');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the WarehouseInventory relation WarehouseInventory object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WarehouseInventoryQuery A secondary query class using the current class as primary query
+     */
+    public function useWarehouseInventoryQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinWarehouseInventory($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'WarehouseInventory', '\WarehouseInventoryQuery');
     }
 
     /**

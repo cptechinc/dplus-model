@@ -623,6 +623,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'WarehouseInventories', false);
         $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

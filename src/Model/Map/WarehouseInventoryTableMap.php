@@ -241,7 +241,7 @@ class WarehouseInventoryTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
         $this->addColumn('InwhBin', 'Inwhbin', 'VARCHAR', false, 8, null);
         $this->addColumn('InwhCycl', 'Inwhcycl', 'VARCHAR', false, 2, null);
@@ -272,6 +272,13 @@ class WarehouseInventoryTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

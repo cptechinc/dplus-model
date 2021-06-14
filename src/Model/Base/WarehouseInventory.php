@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
 use \Exception;
 use \PDO;
@@ -228,6 +230,11 @@ abstract class WarehouseInventory implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -731,6 +738,10 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[WarehouseInventoryTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -1341,6 +1352,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1380,6 +1394,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aItemMasterItem = null;
         } // if (deep)
     }
 
@@ -1482,6 +1497,18 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1815,10 +1842,11 @@ abstract class WarehouseInventory implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['WarehouseInventory'][$this->hashCode()])) {
@@ -1857,6 +1885,23 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -2207,8 +2252,15 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $validPk = null !== $this->getInititemnbr() &&
             null !== $this->getIntbwhse();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -2319,12 +2371,66 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWarehouseInventory($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addWarehouseInventories($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeWarehouseInventory($this);
+        }
         $this->inititemnbr = null;
         $this->intbwhse = null;
         $this->inwhbin = null;
@@ -2370,6 +2476,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aItemMasterItem = null;
     }
 
     /**

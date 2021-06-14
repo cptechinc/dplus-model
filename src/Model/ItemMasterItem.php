@@ -10,6 +10,7 @@ use Dplus\Model\MagicMethodTraits;
  *
  * RELATIONSHIPS: UnitofMeasurePurchase, UnitofMeasureSale
  * InvGroupCode, InvCommissionCode, ItemPricing
+ * RELATIONSHIP: WarehouseInventory [inititemnbr]
  */
 class ItemMasterItem extends BaseItemMasterItem {
 	use ThrowErrorTrait;

@@ -54,6 +54,8 @@ use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
 use \UnitofMeasurePurchaseQuery as ChildUnitofMeasurePurchaseQuery;
 use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
+use \WarehouseInventory as ChildWarehouseInventory;
+use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
 use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
@@ -73,6 +75,7 @@ use Map\ItemXrefVendorNoteDetailTableMap;
 use Map\ItemXrefVendorNoteInternalTableMap;
 use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
+use Map\WarehouseInventoryTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -666,6 +669,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $singleInvKit;
 
     /**
+     * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
+     */
+    protected $collWarehouseInventories;
+    protected $collWarehouseInventoriesPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemXrefManufacturer[] Collection to store aggregation of ChildItemXrefManufacturer objects.
      */
     protected $collItemXrefManufacturers;
@@ -785,6 +794,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvKitComponent[]
      */
     protected $invKitComponentsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWarehouseInventory[]
+     */
+    protected $warehouseInventoriesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3409,6 +3424,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->singleInvKit = null;
 
+            $this->collWarehouseInventories = null;
+
             $this->collItemXrefManufacturers = null;
 
             $this->collItemXrefCustomerNotes = null;
@@ -3723,6 +3740,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvKit !== null) {
                 if (!$this->singleInvKit->isDeleted() && ($this->singleInvKit->isNew() || $this->singleInvKit->isModified())) {
                     $affectedRows += $this->singleInvKit->save($con);
+                }
+            }
+
+            if ($this->warehouseInventoriesScheduledForDeletion !== null) {
+                if (!$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
+                    \WarehouseInventoryQuery::create()
+                        ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->warehouseInventoriesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWarehouseInventories !== null) {
+                foreach ($this->collWarehouseInventories as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
                 }
             }
 
@@ -4924,6 +4958,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->singleInvKit->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
+            if (null !== $this->collWarehouseInventories) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouseInventories';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_masts';
+                        break;
+                    default:
+                        $key = 'WarehouseInventories';
+                }
+
+                $result[$key] = $this->collWarehouseInventories->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collItemXrefManufacturers) {
 
                 switch ($keyType) {
@@ -6006,6 +6055,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $copyObj->setInvKit($relObj->copy($deepCopy));
             }
 
+            foreach ($this->getWarehouseInventories() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWarehouseInventory($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemXrefManufacturers() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemXrefManufacturer($relObj->copy($deepCopy));
@@ -6443,6 +6498,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('InvKitComponent' == $relationName) {
             $this->initInvKitComponents();
+            return;
+        }
+        if ('WarehouseInventory' == $relationName) {
+            $this->initWarehouseInventories();
             return;
         }
         if ('ItemXrefManufacturer' == $relationName) {
@@ -8176,6 +8235,234 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         // Make sure that that the passed-in ChildInvKit isn't already associated with this object
         if ($v !== null && $v->getItemMasterItem(null, false) === null) {
             $v->setItemMasterItem($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collWarehouseInventories collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWarehouseInventories()
+     */
+    public function clearWarehouseInventories()
+    {
+        $this->collWarehouseInventories = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWarehouseInventories collection loaded partially.
+     */
+    public function resetPartialWarehouseInventories($v = true)
+    {
+        $this->collWarehouseInventoriesPartial = $v;
+    }
+
+    /**
+     * Initializes the collWarehouseInventories collection.
+     *
+     * By default this just sets the collWarehouseInventories collection to an empty array (like clearcollWarehouseInventories());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWarehouseInventories($overrideExisting = true)
+    {
+        if (null !== $this->collWarehouseInventories && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WarehouseInventoryTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWarehouseInventories = new $collectionClassName;
+        $this->collWarehouseInventories->setModel('\WarehouseInventory');
+    }
+
+    /**
+     * Gets an array of ChildWarehouseInventory objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     * @throws PropelException
+     */
+    public function getWarehouseInventories(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
+        if (null === $this->collWarehouseInventories || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseInventories) {
+                // return empty collection
+                $this->initWarehouseInventories();
+            } else {
+                $collWarehouseInventories = ChildWarehouseInventoryQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWarehouseInventoriesPartial && count($collWarehouseInventories)) {
+                        $this->initWarehouseInventories(false);
+
+                        foreach ($collWarehouseInventories as $obj) {
+                            if (false == $this->collWarehouseInventories->contains($obj)) {
+                                $this->collWarehouseInventories->append($obj);
+                            }
+                        }
+
+                        $this->collWarehouseInventoriesPartial = true;
+                    }
+
+                    return $collWarehouseInventories;
+                }
+
+                if ($partial && $this->collWarehouseInventories) {
+                    foreach ($this->collWarehouseInventories as $obj) {
+                        if ($obj->isNew()) {
+                            $collWarehouseInventories[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWarehouseInventories = $collWarehouseInventories;
+                $this->collWarehouseInventoriesPartial = false;
+            }
+        }
+
+        return $this->collWarehouseInventories;
+    }
+
+    /**
+     * Sets a collection of ChildWarehouseInventory objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $warehouseInventories A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setWarehouseInventories(Collection $warehouseInventories, ConnectionInterface $con = null)
+    {
+        /** @var ChildWarehouseInventory[] $warehouseInventoriesToDelete */
+        $warehouseInventoriesToDelete = $this->getWarehouseInventories(new Criteria(), $con)->diff($warehouseInventories);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->warehouseInventoriesScheduledForDeletion = clone $warehouseInventoriesToDelete;
+
+        foreach ($warehouseInventoriesToDelete as $warehouseInventoryRemoved) {
+            $warehouseInventoryRemoved->setItemMasterItem(null);
+        }
+
+        $this->collWarehouseInventories = null;
+        foreach ($warehouseInventories as $warehouseInventory) {
+            $this->addWarehouseInventory($warehouseInventory);
+        }
+
+        $this->collWarehouseInventories = $warehouseInventories;
+        $this->collWarehouseInventoriesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related WarehouseInventory objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WarehouseInventory objects.
+     * @throws PropelException
+     */
+    public function countWarehouseInventories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
+        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseInventories) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWarehouseInventories());
+            }
+
+            $query = ChildWarehouseInventoryQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collWarehouseInventories);
+    }
+
+    /**
+     * Method called to associate a ChildWarehouseInventory object to this object
+     * through the ChildWarehouseInventory foreign key attribute.
+     *
+     * @param  ChildWarehouseInventory $l ChildWarehouseInventory
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addWarehouseInventory(ChildWarehouseInventory $l)
+    {
+        if ($this->collWarehouseInventories === null) {
+            $this->initWarehouseInventories();
+            $this->collWarehouseInventoriesPartial = true;
+        }
+
+        if (!$this->collWarehouseInventories->contains($l)) {
+            $this->doAddWarehouseInventory($l);
+
+            if ($this->warehouseInventoriesScheduledForDeletion and $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
+                $this->warehouseInventoriesScheduledForDeletion->remove($this->warehouseInventoriesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to add.
+     */
+    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    {
+        $this->collWarehouseInventories[]= $warehouseInventory;
+        $warehouseInventory->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    {
+        if ($this->getWarehouseInventories()->contains($warehouseInventory)) {
+            $pos = $this->collWarehouseInventories->search($warehouseInventory);
+            $this->collWarehouseInventories->remove($pos);
+            if (null === $this->warehouseInventoriesScheduledForDeletion) {
+                $this->warehouseInventoriesScheduledForDeletion = clone $this->collWarehouseInventories;
+                $this->warehouseInventoriesScheduledForDeletion->clear();
+            }
+            $this->warehouseInventoriesScheduledForDeletion[]= clone $warehouseInventory;
+            $warehouseInventory->setItemMasterItem(null);
         }
 
         return $this;
@@ -11110,6 +11397,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvKit) {
                 $this->singleInvKit->clearAllReferences($deep);
             }
+            if ($this->collWarehouseInventories) {
+                foreach ($this->collWarehouseInventories as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemXrefManufacturers) {
                 foreach ($this->collItemXrefManufacturers as $o) {
                     $o->clearAllReferences($deep);
@@ -11179,6 +11471,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
         $this->collInvKitComponents = null;
         $this->singleInvKit = null;
+        $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;
         $this->collItemOptCodeNotes = null;
