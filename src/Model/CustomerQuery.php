@@ -57,10 +57,10 @@ class CustomerQuery extends BaseCustomerQuery {
 			$array[] = "$basecolumn$i";
 		}
 		$columns = implode(" + ", $array);
-		$sql = "SELECT ($columns) as amount FROM ar_cust_mast WHERE ArcuCustId = :custid";
-		$params = array(':custid' => $custID);
-		$result = $this->execute_query($sql, $params);
-		return $result->fetchColumn();
+		$this->withColumn("($columns)", 'amount');
+		$this->select('amount');
+		$this->filterByCustid($custID);
+		return $this->findOne();
 	}
 
 	/**
@@ -78,9 +78,9 @@ class CustomerQuery extends BaseCustomerQuery {
 			$array[] = "$basecolumn$i";
 		}
 		$columns = implode(" + ", $array);
-		$sql = "SELECT ($columns) as amount FROM ar_cust_mast WHERE ArcuCustId = :custid";
-		$params = array(':custid' => $custID);
-		$result = $this->execute_query($sql, $params);
-		return $result->fetchColumn();
+		$this->withColumn("($columns)", 'amount');
+		$this->select('amount');
+		$this->filterByCustid($custID);
+		return $this->findOne();
 	}
 }
