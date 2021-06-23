@@ -1846,6 +1846,28 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_inv_dimen" idMethod="native" phpName="ItmDimension">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IndmInside" phpName="Indminside" type="DECIMAL" size="20" scale="4"/>
+    <column name="IndmOutside" phpName="Indmoutside" type="DECIMAL" size="20" scale="4"/>
+    <column name="IndmCross" phpName="Indmcross" type="DECIMAL" size="20" scale="4"/>
+    <column name="IndmThick" phpName="Indmthick" type="DECIMAL" size="20" scale="4"/>
+    <column name="IndmLength" phpName="Indmlength" type="DECIMAL" size="20" scale="2"/>
+    <column name="IndmWidth" phpName="Indmwidth" type="DECIMAL" size="20" scale="2"/>
+    <column name="IndmThickness" phpName="Indmthickness" type="DECIMAL" size="20" scale="2"/>
+    <column name="IndmSqft" phpName="Indmsqft" type="DECIMAL" size="20" scale="2"/>
+    <column name="IndmBagQty" phpName="Indmbagqty" type="INTEGER" size="7"/>
+    <column name="IndmBulkQty" phpName="Indmbulkqty" type="INTEGER" size="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_inv_hazmat" idMethod="native" phpName="InvHazmatItem">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InhzDot1" phpName="Inhzdot1" type="VARCHAR" size="35"/>
