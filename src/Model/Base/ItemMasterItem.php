@@ -48,6 +48,8 @@ use \ItemXrefVendorNoteDetailQuery as ChildItemXrefVendorNoteDetailQuery;
 use \ItemXrefVendorNoteInternal as ChildItemXrefVendorNoteInternal;
 use \ItemXrefVendorNoteInternalQuery as ChildItemXrefVendorNoteInternalQuery;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
+use \ItmDimension as ChildItmDimension;
+use \ItmDimensionQuery as ChildItmDimensionQuery;
 use \SalesHistoryLotserial as ChildSalesHistoryLotserial;
 use \SalesHistoryLotserialQuery as ChildSalesHistoryLotserialQuery;
 use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
@@ -633,6 +635,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      */
     protected $collItemAddonItemsRelatedByAdonadditemnbr;
     protected $collItemAddonItemsRelatedByAdonadditemnbrPartial;
+
+    /**
+     * @var        ChildItmDimension one-to-one related ChildItmDimension object
+     */
+    protected $singleItmDimension;
 
     /**
      * @var        ChildInvHazmatItem one-to-one related ChildInvHazmatItem object
@@ -3412,6 +3419,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
 
+            $this->singleItmDimension = null;
+
             $this->singleInvHazmatItem = null;
 
             $this->collInvLots = null;
@@ -3660,6 +3669,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
+                }
+            }
+
+            if ($this->singleItmDimension !== null) {
+                if (!$this->singleItmDimension->isDeleted() && ($this->singleItmDimension->isNew() || $this->singleItmDimension->isModified())) {
+                    $affectedRows += $this->singleItmDimension->save($con);
                 }
             }
 
@@ -4868,6 +4883,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemAddonItemsRelatedByAdonadditemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->singleItmDimension) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itmDimension';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_dimen';
+                        break;
+                    default:
+                        $key = 'ItmDimension';
+                }
+
+                $result[$key] = $this->singleItmDimension->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
             if (null !== $this->singleInvHazmatItem) {
 
                 switch ($keyType) {
@@ -6019,6 +6049,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemAddonItemRelatedByAdonadditemnbr($relObj->copy($deepCopy));
                 }
+            }
+
+            $relObj = $this->getItmDimension();
+            if ($relObj) {
+                $copyObj->setItmDimension($relObj->copy($deepCopy));
             }
 
             $relObj = $this->getInvHazmatItem();
@@ -7226,6 +7261,42 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             $this->itemAddonItemsRelatedByAdonadditemnbrScheduledForDeletion[]= clone $itemAddonItemRelatedByAdonadditemnbr;
             $itemAddonItemRelatedByAdonadditemnbr->setItemMasterItemRelatedByAdonadditemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Gets a single ChildItmDimension object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildItmDimension
+     * @throws PropelException
+     */
+    public function getItmDimension(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleItmDimension === null && !$this->isNew()) {
+            $this->singleItmDimension = ChildItmDimensionQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleItmDimension;
+    }
+
+    /**
+     * Sets a single ChildItmDimension object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildItmDimension $v ChildItmDimension
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItmDimension(ChildItmDimension $v = null)
+    {
+        $this->singleItmDimension = $v;
+
+        // Make sure that that the passed-in ChildItmDimension isn't already associated with this object
+        if ($v !== null && $v->getItemMasterItem(null, false) === null) {
+            $v->setItemMasterItem($this);
         }
 
         return $this;
@@ -11371,6 +11442,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->singleItmDimension) {
+                $this->singleItmDimension->clearAllReferences($deep);
+            }
             if ($this->singleInvHazmatItem) {
                 $this->singleInvHazmatItem->clearAllReferences($deep);
             }
@@ -11465,6 +11539,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemXrefCustomers = null;
         $this->collItemAddonItemsRelatedByInititemnbr = null;
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
+        $this->singleItmDimension = null;
         $this->singleInvHazmatItem = null;
         $this->collInvLots = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;

@@ -250,6 +250,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemAddonItemRelatedByAdonadditemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemAddonItemRelatedByAdonadditemnbr() Adds a INNER JOIN clause and with to the query using the ItemAddonItemRelatedByAdonadditemnbr relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinItmDimension($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItmDimension relation
+ * @method     ChildItemMasterItemQuery rightJoinItmDimension($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItmDimension relation
+ * @method     ChildItemMasterItemQuery innerJoinItmDimension($relationAlias = null) Adds a INNER JOIN clause to the query using the ItmDimension relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithItmDimension($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItmDimension relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithItmDimension() Adds a LEFT JOIN clause and with to the query using the ItmDimension relation
+ * @method     ChildItemMasterItemQuery rightJoinWithItmDimension() Adds a RIGHT JOIN clause and with to the query using the ItmDimension relation
+ * @method     ChildItemMasterItemQuery innerJoinWithItmDimension() Adds a INNER JOIN clause and with to the query using the ItmDimension relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinInvHazmatItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvHazmatItem relation
  * @method     ChildItemMasterItemQuery rightJoinInvHazmatItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvHazmatItem relation
  * @method     ChildItemMasterItemQuery innerJoinInvHazmatItem($relationAlias = null) Adds a INNER JOIN clause to the query using the InvHazmatItem relation
@@ -440,7 +450,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3426,6 +3436,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemAddonItemRelatedByAdonadditemnbr($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemAddonItemRelatedByAdonadditemnbr', '\ItemAddonItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItmDimension object
+     *
+     * @param \ItmDimension|ObjectCollection $itmDimension the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByItmDimension($itmDimension, $comparison = null)
+    {
+        if ($itmDimension instanceof \ItmDimension) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $itmDimension->getInititemnbr(), $comparison);
+        } elseif ($itmDimension instanceof ObjectCollection) {
+            return $this
+                ->useItmDimensionQuery()
+                ->filterByPrimaryKeys($itmDimension->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItmDimension() only accepts arguments of type \ItmDimension or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItmDimension relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinItmDimension($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItmDimension');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItmDimension');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItmDimension relation ItmDimension object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItmDimensionQuery A secondary query class using the current class as primary query
+     */
+    public function useItmDimensionQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItmDimension($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItmDimension', '\ItmDimensionQuery');
     }
 
     /**
