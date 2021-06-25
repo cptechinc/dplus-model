@@ -19,8 +19,9 @@ class ItmDimension extends BaseItmDimension {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'itemid'     => 'initiitemnbr',
+		'itemid'     => 'inititemnbr',
 		'thickness'  => 'indmthick',
+		'length'     => 'indmlength',
 		'width'      => 'indmwidth',
 		'sqft'       => 'indmsqft',
 		'date'       => 'dateupdtd',
