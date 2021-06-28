@@ -103,6 +103,7 @@
     <column name="ApcpTitl" phpName="Apcptitl" type="VARCHAR" size="20"/>
     <column name="ApcpWhse" phpName="Apcpwhse" type="VARCHAR" size="2"/>
     <column name="ApcpPoCont" phpName="Apcppocont" type="VARCHAR" size="1"/>
+    <column name="ApcpAchCont" phpName="ApcpAchCont" type="VARCHAR" size="1"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>

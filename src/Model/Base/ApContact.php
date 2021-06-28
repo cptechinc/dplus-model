@@ -99,6 +99,13 @@ abstract class ApContact implements ActiveRecordInterface
     protected $apcppocont;
 
     /**
+     * The value for the apcpachcont field.
+     *
+     * @var        string
+     */
+    protected $apcpachcont;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -422,6 +429,16 @@ abstract class ApContact implements ActiveRecordInterface
     }
 
     /**
+     * Get the [apcpachcont] column value.
+     *
+     * @return string
+     */
+    public function getApcpAchCont()
+    {
+        return $this->apcpachcont;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -556,6 +573,26 @@ abstract class ApContact implements ActiveRecordInterface
     } // setApcppocont()
 
     /**
+     * Set the value of [apcpachcont] column.
+     *
+     * @param string $v new value
+     * @return $this|\ApContact The current object (for fluent API support)
+     */
+    public function setApcpAchCont($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->apcpachcont !== $v) {
+            $this->apcpachcont = $v;
+            $this->modifiedColumns[ApContactTableMap::COL_APCPACHCONT] = true;
+        }
+
+        return $this;
+    } // setApcpAchCont()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -674,13 +711,16 @@ abstract class ApContact implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ApContactTableMap::translateFieldName('Apcppocont', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apcppocont = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ApContactTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ApContactTableMap::translateFieldName('ApcpAchCont', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->apcpachcont = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ApContactTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ApContactTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ApContactTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ApContactTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ApContactTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -690,7 +730,7 @@ abstract class ApContact implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 8; // 8 = ApContactTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 9; // 9 = ApContactTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ApContact'), 0, $e);
@@ -918,6 +958,9 @@ abstract class ApContact implements ActiveRecordInterface
         if ($this->isColumnModified(ApContactTableMap::COL_APCPPOCONT)) {
             $modifiedColumns[':p' . $index++]  = 'ApcpPoCont';
         }
+        if ($this->isColumnModified(ApContactTableMap::COL_APCPACHCONT)) {
+            $modifiedColumns[':p' . $index++]  = 'ApcpAchCont';
+        }
         if ($this->isColumnModified(ApContactTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -952,6 +995,9 @@ abstract class ApContact implements ActiveRecordInterface
                         break;
                     case 'ApcpPoCont':
                         $stmt->bindValue($identifier, $this->apcppocont, PDO::PARAM_STR);
+                        break;
+                    case 'ApcpAchCont':
+                        $stmt->bindValue($identifier, $this->apcpachcont, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1033,12 +1079,15 @@ abstract class ApContact implements ActiveRecordInterface
                 return $this->getApcppocont();
                 break;
             case 5:
-                return $this->getDateupdtd();
+                return $this->getApcpAchCont();
                 break;
             case 6:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 7:
+                return $this->getTimeupdtd();
+                break;
+            case 8:
                 return $this->getDummy();
                 break;
             default:
@@ -1076,9 +1125,10 @@ abstract class ApContact implements ActiveRecordInterface
             $keys[2] => $this->getApcptitl(),
             $keys[3] => $this->getApcpwhse(),
             $keys[4] => $this->getApcppocont(),
-            $keys[5] => $this->getDateupdtd(),
-            $keys[6] => $this->getTimeupdtd(),
-            $keys[7] => $this->getDummy(),
+            $keys[5] => $this->getApcpAchCont(),
+            $keys[6] => $this->getDateupdtd(),
+            $keys[7] => $this->getTimeupdtd(),
+            $keys[8] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1151,12 +1201,15 @@ abstract class ApContact implements ActiveRecordInterface
                 $this->setApcppocont($value);
                 break;
             case 5:
-                $this->setDateupdtd($value);
+                $this->setApcpAchCont($value);
                 break;
             case 6:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 7:
+                $this->setTimeupdtd($value);
+                break;
+            case 8:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1201,13 +1254,16 @@ abstract class ApContact implements ActiveRecordInterface
             $this->setApcppocont($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setDateupdtd($arr[$keys[5]]);
+            $this->setApcpAchCont($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setTimeupdtd($arr[$keys[6]]);
+            $this->setDateupdtd($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setDummy($arr[$keys[7]]);
+            $this->setTimeupdtd($arr[$keys[7]]);
+        }
+        if (array_key_exists($keys[8], $arr)) {
+            $this->setDummy($arr[$keys[8]]);
         }
     }
 
@@ -1264,6 +1320,9 @@ abstract class ApContact implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ApContactTableMap::COL_APCPPOCONT)) {
             $criteria->add(ApContactTableMap::COL_APCPPOCONT, $this->apcppocont);
+        }
+        if ($this->isColumnModified(ApContactTableMap::COL_APCPACHCONT)) {
+            $criteria->add(ApContactTableMap::COL_APCPACHCONT, $this->apcpachcont);
         }
         if ($this->isColumnModified(ApContactTableMap::COL_DATEUPDTD)) {
             $criteria->add(ApContactTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1380,6 +1439,7 @@ abstract class ApContact implements ActiveRecordInterface
         $copyObj->setApcptitl($this->getApcptitl());
         $copyObj->setApcpwhse($this->getApcpwhse());
         $copyObj->setApcppocont($this->getApcppocont());
+        $copyObj->setApcpAchCont($this->getApcpAchCont());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1476,6 +1536,7 @@ abstract class ApContact implements ActiveRecordInterface
         $this->apcptitl = null;
         $this->apcpwhse = null;
         $this->apcppocont = null;
+        $this->apcpachcont = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

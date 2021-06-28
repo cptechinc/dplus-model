@@ -25,6 +25,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApContactQuery orderByApcptitl($order = Criteria::ASC) Order by the ApcpTitl column
  * @method     ChildApContactQuery orderByApcpwhse($order = Criteria::ASC) Order by the ApcpWhse column
  * @method     ChildApContactQuery orderByApcppocont($order = Criteria::ASC) Order by the ApcpPoCont column
+ * @method     ChildApContactQuery orderByApcpAchCont($order = Criteria::ASC) Order by the ApcpAchCont column
  * @method     ChildApContactQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildApContactQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildApContactQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -34,6 +35,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApContactQuery groupByApcptitl() Group by the ApcpTitl column
  * @method     ChildApContactQuery groupByApcpwhse() Group by the ApcpWhse column
  * @method     ChildApContactQuery groupByApcppocont() Group by the ApcpPoCont column
+ * @method     ChildApContactQuery groupByApcpAchCont() Group by the ApcpAchCont column
  * @method     ChildApContactQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildApContactQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildApContactQuery groupByDummy() Group by the dummy column
@@ -66,6 +68,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApContact findOneByApcptitl(string $ApcpTitl) Return the first ChildApContact filtered by the ApcpTitl column
  * @method     ChildApContact findOneByApcpwhse(string $ApcpWhse) Return the first ChildApContact filtered by the ApcpWhse column
  * @method     ChildApContact findOneByApcppocont(string $ApcpPoCont) Return the first ChildApContact filtered by the ApcpPoCont column
+ * @method     ChildApContact findOneByApcpAchCont(string $ApcpAchCont) Return the first ChildApContact filtered by the ApcpAchCont column
  * @method     ChildApContact findOneByDateupdtd(string $DateUpdtd) Return the first ChildApContact filtered by the DateUpdtd column
  * @method     ChildApContact findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApContact filtered by the TimeUpdtd column
  * @method     ChildApContact findOneByDummy(string $dummy) Return the first ChildApContact filtered by the dummy column *
@@ -78,6 +81,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApContact requireOneByApcptitl(string $ApcpTitl) Return the first ChildApContact filtered by the ApcpTitl column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApContact requireOneByApcpwhse(string $ApcpWhse) Return the first ChildApContact filtered by the ApcpWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApContact requireOneByApcppocont(string $ApcpPoCont) Return the first ChildApContact filtered by the ApcpPoCont column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildApContact requireOneByApcpAchCont(string $ApcpAchCont) Return the first ChildApContact filtered by the ApcpAchCont column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApContact requireOneByDateupdtd(string $DateUpdtd) Return the first ChildApContact filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApContact requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildApContact filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildApContact requireOneByDummy(string $dummy) Return the first ChildApContact filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -88,6 +92,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildApContact[]|ObjectCollection findByApcptitl(string $ApcpTitl) Return ChildApContact objects filtered by the ApcpTitl column
  * @method     ChildApContact[]|ObjectCollection findByApcpwhse(string $ApcpWhse) Return ChildApContact objects filtered by the ApcpWhse column
  * @method     ChildApContact[]|ObjectCollection findByApcppocont(string $ApcpPoCont) Return ChildApContact objects filtered by the ApcpPoCont column
+ * @method     ChildApContact[]|ObjectCollection findByApcpAchCont(string $ApcpAchCont) Return ChildApContact objects filtered by the ApcpAchCont column
  * @method     ChildApContact[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildApContact objects filtered by the DateUpdtd column
  * @method     ChildApContact[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildApContact objects filtered by the TimeUpdtd column
  * @method     ChildApContact[]|ObjectCollection findByDummy(string $dummy) Return ChildApContact objects filtered by the dummy column
@@ -189,7 +194,7 @@ abstract class ApContactQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ApveVendId, ApcpContId, ApcpTitl, ApcpWhse, ApcpPoCont, DateUpdtd, TimeUpdtd, dummy FROM ap_contact WHERE ApveVendId = :p0 AND ApcpContId = :p1';
+        $sql = 'SELECT ApveVendId, ApcpContId, ApcpTitl, ApcpWhse, ApcpPoCont, ApcpAchCont, DateUpdtd, TimeUpdtd, dummy FROM ap_contact WHERE ApveVendId = :p0 AND ApcpContId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -414,6 +419,31 @@ abstract class ApContactQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ApContactTableMap::COL_APCPPOCONT, $apcppocont, $comparison);
+    }
+
+    /**
+     * Filter the query on the ApcpAchCont column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByApcpAchCont('fooValue');   // WHERE ApcpAchCont = 'fooValue'
+     * $query->filterByApcpAchCont('%fooValue%', Criteria::LIKE); // WHERE ApcpAchCont LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $apcpAchCont The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildApContactQuery The current query, for fluid interface
+     */
+    public function filterByApcpAchCont($apcpAchCont = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($apcpAchCont)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ApContactTableMap::COL_APCPACHCONT, $apcpAchCont, $comparison);
     }
 
     /**

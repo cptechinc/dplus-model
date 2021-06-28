@@ -59,7 +59,7 @@ class ApContactTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 8;
+    const NUM_COLUMNS = 9;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ApContactTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 8;
+    const NUM_HYDRATE_COLUMNS = 9;
 
     /**
      * the column name for the ApveVendId field
@@ -95,6 +95,11 @@ class ApContactTableMap extends TableMap
      * the column name for the ApcpPoCont field
      */
     const COL_APCPPOCONT = 'ap_contact.ApcpPoCont';
+
+    /**
+     * the column name for the ApcpAchCont field
+     */
+    const COL_APCPACHCONT = 'ap_contact.ApcpAchCont';
 
     /**
      * the column name for the DateUpdtd field
@@ -123,11 +128,11 @@ class ApContactTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Apvevendid', 'Apcpcontid', 'Apcptitl', 'Apcpwhse', 'Apcppocont', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('apvevendid', 'apcpcontid', 'apcptitl', 'apcpwhse', 'apcppocont', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ApContactTableMap::COL_APVEVENDID, ApContactTableMap::COL_APCPCONTID, ApContactTableMap::COL_APCPTITL, ApContactTableMap::COL_APCPWHSE, ApContactTableMap::COL_APCPPOCONT, ApContactTableMap::COL_DATEUPDTD, ApContactTableMap::COL_TIMEUPDTD, ApContactTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId', 'ApcpContId', 'ApcpTitl', 'ApcpWhse', 'ApcpPoCont', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
+        self::TYPE_PHPNAME       => array('Apvevendid', 'Apcpcontid', 'Apcptitl', 'Apcpwhse', 'Apcppocont', 'ApcpAchCont', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('apvevendid', 'apcpcontid', 'apcptitl', 'apcpwhse', 'apcppocont', 'apcpAchCont', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ApContactTableMap::COL_APVEVENDID, ApContactTableMap::COL_APCPCONTID, ApContactTableMap::COL_APCPTITL, ApContactTableMap::COL_APCPWHSE, ApContactTableMap::COL_APCPPOCONT, ApContactTableMap::COL_APCPACHCONT, ApContactTableMap::COL_DATEUPDTD, ApContactTableMap::COL_TIMEUPDTD, ApContactTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('ApveVendId', 'ApcpContId', 'ApcpTitl', 'ApcpWhse', 'ApcpPoCont', 'ApcpAchCont', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -137,11 +142,11 @@ class ApContactTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Apvevendid' => 0, 'Apcpcontid' => 1, 'Apcptitl' => 2, 'Apcpwhse' => 3, 'Apcppocont' => 4, 'Dateupdtd' => 5, 'Timeupdtd' => 6, 'Dummy' => 7, ),
-        self::TYPE_CAMELNAME     => array('apvevendid' => 0, 'apcpcontid' => 1, 'apcptitl' => 2, 'apcpwhse' => 3, 'apcppocont' => 4, 'dateupdtd' => 5, 'timeupdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_COLNAME       => array(ApContactTableMap::COL_APVEVENDID => 0, ApContactTableMap::COL_APCPCONTID => 1, ApContactTableMap::COL_APCPTITL => 2, ApContactTableMap::COL_APCPWHSE => 3, ApContactTableMap::COL_APCPPOCONT => 4, ApContactTableMap::COL_DATEUPDTD => 5, ApContactTableMap::COL_TIMEUPDTD => 6, ApContactTableMap::COL_DUMMY => 7, ),
-        self::TYPE_FIELDNAME     => array('ApveVendId' => 0, 'ApcpContId' => 1, 'ApcpTitl' => 2, 'ApcpWhse' => 3, 'ApcpPoCont' => 4, 'DateUpdtd' => 5, 'TimeUpdtd' => 6, 'dummy' => 7, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, )
+        self::TYPE_PHPNAME       => array('Apvevendid' => 0, 'Apcpcontid' => 1, 'Apcptitl' => 2, 'Apcpwhse' => 3, 'Apcppocont' => 4, 'ApcpAchCont' => 5, 'Dateupdtd' => 6, 'Timeupdtd' => 7, 'Dummy' => 8, ),
+        self::TYPE_CAMELNAME     => array('apvevendid' => 0, 'apcpcontid' => 1, 'apcptitl' => 2, 'apcpwhse' => 3, 'apcppocont' => 4, 'apcpAchCont' => 5, 'dateupdtd' => 6, 'timeupdtd' => 7, 'dummy' => 8, ),
+        self::TYPE_COLNAME       => array(ApContactTableMap::COL_APVEVENDID => 0, ApContactTableMap::COL_APCPCONTID => 1, ApContactTableMap::COL_APCPTITL => 2, ApContactTableMap::COL_APCPWHSE => 3, ApContactTableMap::COL_APCPPOCONT => 4, ApContactTableMap::COL_APCPACHCONT => 5, ApContactTableMap::COL_DATEUPDTD => 6, ApContactTableMap::COL_TIMEUPDTD => 7, ApContactTableMap::COL_DUMMY => 8, ),
+        self::TYPE_FIELDNAME     => array('ApveVendId' => 0, 'ApcpContId' => 1, 'ApcpTitl' => 2, 'ApcpWhse' => 3, 'ApcpPoCont' => 4, 'ApcpAchCont' => 5, 'DateUpdtd' => 6, 'TimeUpdtd' => 7, 'dummy' => 8, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
     /**
@@ -166,6 +171,7 @@ class ApContactTableMap extends TableMap
         $this->addColumn('ApcpTitl', 'Apcptitl', 'VARCHAR', false, 20, null);
         $this->addColumn('ApcpWhse', 'Apcpwhse', 'VARCHAR', false, 2, null);
         $this->addColumn('ApcpPoCont', 'Apcppocont', 'VARCHAR', false, 1, null);
+        $this->addColumn('ApcpAchCont', 'ApcpAchCont', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -393,6 +399,7 @@ class ApContactTableMap extends TableMap
             $criteria->addSelectColumn(ApContactTableMap::COL_APCPTITL);
             $criteria->addSelectColumn(ApContactTableMap::COL_APCPWHSE);
             $criteria->addSelectColumn(ApContactTableMap::COL_APCPPOCONT);
+            $criteria->addSelectColumn(ApContactTableMap::COL_APCPACHCONT);
             $criteria->addSelectColumn(ApContactTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ApContactTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ApContactTableMap::COL_DUMMY);
@@ -402,6 +409,7 @@ class ApContactTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.ApcpTitl');
             $criteria->addSelectColumn($alias . '.ApcpWhse');
             $criteria->addSelectColumn($alias . '.ApcpPoCont');
+            $criteria->addSelectColumn($alias . '.ApcpAchCont');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
