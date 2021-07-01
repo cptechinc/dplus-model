@@ -59,7 +59,7 @@ class GlCodeTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 19;
+    const NUM_COLUMNS = 21;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class GlCodeTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 19;
+    const NUM_HYDRATE_COLUMNS = 21;
 
     /**
      * the column name for the GlmaAcct field
@@ -157,6 +157,16 @@ class GlCodeTableMap extends TableMap
     const COL_DATEUPDTD = 'gl_master.DateUpdtd';
 
     /**
+     * the column name for the GlmaAcWhseAppendPos field
+     */
+    const COL_GLMAACWHSEAPPENDPOS = 'gl_master.GlmaAcWhseAppendPos';
+
+    /**
+     * the column name for the GlmaAchAcct field
+     */
+    const COL_GLMAACHACCT = 'gl_master.GlmaAchAcct';
+
+    /**
      * the column name for the TimeUpdtd field
      */
     const COL_TIMEUPDTD = 'gl_master.TimeUpdtd';
@@ -178,11 +188,11 @@ class GlCodeTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Glmaacct', 'Glmadesc', 'Glmadrcr', 'Glmaclosacct', 'Glmapackpost', 'Glmavald', 'Glmaco01', 'Glmaco02', 'Glmaco03', 'Glmaco04', 'Glmaco05', 'Glmaco06', 'Glmaco07', 'Glmaco08', 'Glmaco09', 'Glmaco10', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('glmaacct', 'glmadesc', 'glmadrcr', 'glmaclosacct', 'glmapackpost', 'glmavald', 'glmaco01', 'glmaco02', 'glmaco03', 'glmaco04', 'glmaco05', 'glmaco06', 'glmaco07', 'glmaco08', 'glmaco09', 'glmaco10', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(GlCodeTableMap::COL_GLMAACCT, GlCodeTableMap::COL_GLMADESC, GlCodeTableMap::COL_GLMADRCR, GlCodeTableMap::COL_GLMACLOSACCT, GlCodeTableMap::COL_GLMAPACKPOST, GlCodeTableMap::COL_GLMAVALD, GlCodeTableMap::COL_GLMACO01, GlCodeTableMap::COL_GLMACO02, GlCodeTableMap::COL_GLMACO03, GlCodeTableMap::COL_GLMACO04, GlCodeTableMap::COL_GLMACO05, GlCodeTableMap::COL_GLMACO06, GlCodeTableMap::COL_GLMACO07, GlCodeTableMap::COL_GLMACO08, GlCodeTableMap::COL_GLMACO09, GlCodeTableMap::COL_GLMACO10, GlCodeTableMap::COL_DATEUPDTD, GlCodeTableMap::COL_TIMEUPDTD, GlCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('GlmaAcct', 'GlmaDesc', 'GlmaDrCr', 'GlmaClosAcct', 'GlmaPackPost', 'GlmaVald', 'GlmaCo01', 'GlmaCo02', 'GlmaCo03', 'GlmaCo04', 'GlmaCo05', 'GlmaCo06', 'GlmaCo07', 'GlmaCo08', 'GlmaCo09', 'GlmaCo10', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
+        self::TYPE_PHPNAME       => array('Glmaacct', 'Glmadesc', 'Glmadrcr', 'Glmaclosacct', 'Glmapackpost', 'Glmavald', 'Glmaco01', 'Glmaco02', 'Glmaco03', 'Glmaco04', 'Glmaco05', 'Glmaco06', 'Glmaco07', 'Glmaco08', 'Glmaco09', 'Glmaco10', 'Dateupdtd', 'GlmaAcWhseAppendPos', 'GlmaAchAcct', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('glmaacct', 'glmadesc', 'glmadrcr', 'glmaclosacct', 'glmapackpost', 'glmavald', 'glmaco01', 'glmaco02', 'glmaco03', 'glmaco04', 'glmaco05', 'glmaco06', 'glmaco07', 'glmaco08', 'glmaco09', 'glmaco10', 'dateupdtd', 'glmaAcWhseAppendPos', 'glmaAchAcct', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(GlCodeTableMap::COL_GLMAACCT, GlCodeTableMap::COL_GLMADESC, GlCodeTableMap::COL_GLMADRCR, GlCodeTableMap::COL_GLMACLOSACCT, GlCodeTableMap::COL_GLMAPACKPOST, GlCodeTableMap::COL_GLMAVALD, GlCodeTableMap::COL_GLMACO01, GlCodeTableMap::COL_GLMACO02, GlCodeTableMap::COL_GLMACO03, GlCodeTableMap::COL_GLMACO04, GlCodeTableMap::COL_GLMACO05, GlCodeTableMap::COL_GLMACO06, GlCodeTableMap::COL_GLMACO07, GlCodeTableMap::COL_GLMACO08, GlCodeTableMap::COL_GLMACO09, GlCodeTableMap::COL_GLMACO10, GlCodeTableMap::COL_DATEUPDTD, GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, GlCodeTableMap::COL_GLMAACHACCT, GlCodeTableMap::COL_TIMEUPDTD, GlCodeTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('GlmaAcct', 'GlmaDesc', 'GlmaDrCr', 'GlmaClosAcct', 'GlmaPackPost', 'GlmaVald', 'GlmaCo01', 'GlmaCo02', 'GlmaCo03', 'GlmaCo04', 'GlmaCo05', 'GlmaCo06', 'GlmaCo07', 'GlmaCo08', 'GlmaCo09', 'GlmaCo10', 'DateUpdtd', 'GlmaAcWhseAppendPos', 'GlmaAchAcct', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
     /**
@@ -192,11 +202,11 @@ class GlCodeTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Glmaacct' => 0, 'Glmadesc' => 1, 'Glmadrcr' => 2, 'Glmaclosacct' => 3, 'Glmapackpost' => 4, 'Glmavald' => 5, 'Glmaco01' => 6, 'Glmaco02' => 7, 'Glmaco03' => 8, 'Glmaco04' => 9, 'Glmaco05' => 10, 'Glmaco06' => 11, 'Glmaco07' => 12, 'Glmaco08' => 13, 'Glmaco09' => 14, 'Glmaco10' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
-        self::TYPE_CAMELNAME     => array('glmaacct' => 0, 'glmadesc' => 1, 'glmadrcr' => 2, 'glmaclosacct' => 3, 'glmapackpost' => 4, 'glmavald' => 5, 'glmaco01' => 6, 'glmaco02' => 7, 'glmaco03' => 8, 'glmaco04' => 9, 'glmaco05' => 10, 'glmaco06' => 11, 'glmaco07' => 12, 'glmaco08' => 13, 'glmaco09' => 14, 'glmaco10' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(GlCodeTableMap::COL_GLMAACCT => 0, GlCodeTableMap::COL_GLMADESC => 1, GlCodeTableMap::COL_GLMADRCR => 2, GlCodeTableMap::COL_GLMACLOSACCT => 3, GlCodeTableMap::COL_GLMAPACKPOST => 4, GlCodeTableMap::COL_GLMAVALD => 5, GlCodeTableMap::COL_GLMACO01 => 6, GlCodeTableMap::COL_GLMACO02 => 7, GlCodeTableMap::COL_GLMACO03 => 8, GlCodeTableMap::COL_GLMACO04 => 9, GlCodeTableMap::COL_GLMACO05 => 10, GlCodeTableMap::COL_GLMACO06 => 11, GlCodeTableMap::COL_GLMACO07 => 12, GlCodeTableMap::COL_GLMACO08 => 13, GlCodeTableMap::COL_GLMACO09 => 14, GlCodeTableMap::COL_GLMACO10 => 15, GlCodeTableMap::COL_DATEUPDTD => 16, GlCodeTableMap::COL_TIMEUPDTD => 17, GlCodeTableMap::COL_DUMMY => 18, ),
-        self::TYPE_FIELDNAME     => array('GlmaAcct' => 0, 'GlmaDesc' => 1, 'GlmaDrCr' => 2, 'GlmaClosAcct' => 3, 'GlmaPackPost' => 4, 'GlmaVald' => 5, 'GlmaCo01' => 6, 'GlmaCo02' => 7, 'GlmaCo03' => 8, 'GlmaCo04' => 9, 'GlmaCo05' => 10, 'GlmaCo06' => 11, 'GlmaCo07' => 12, 'GlmaCo08' => 13, 'GlmaCo09' => 14, 'GlmaCo10' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
+        self::TYPE_PHPNAME       => array('Glmaacct' => 0, 'Glmadesc' => 1, 'Glmadrcr' => 2, 'Glmaclosacct' => 3, 'Glmapackpost' => 4, 'Glmavald' => 5, 'Glmaco01' => 6, 'Glmaco02' => 7, 'Glmaco03' => 8, 'Glmaco04' => 9, 'Glmaco05' => 10, 'Glmaco06' => 11, 'Glmaco07' => 12, 'Glmaco08' => 13, 'Glmaco09' => 14, 'Glmaco10' => 15, 'Dateupdtd' => 16, 'GlmaAcWhseAppendPos' => 17, 'GlmaAchAcct' => 18, 'Timeupdtd' => 19, 'Dummy' => 20, ),
+        self::TYPE_CAMELNAME     => array('glmaacct' => 0, 'glmadesc' => 1, 'glmadrcr' => 2, 'glmaclosacct' => 3, 'glmapackpost' => 4, 'glmavald' => 5, 'glmaco01' => 6, 'glmaco02' => 7, 'glmaco03' => 8, 'glmaco04' => 9, 'glmaco05' => 10, 'glmaco06' => 11, 'glmaco07' => 12, 'glmaco08' => 13, 'glmaco09' => 14, 'glmaco10' => 15, 'dateupdtd' => 16, 'glmaAcWhseAppendPos' => 17, 'glmaAchAcct' => 18, 'timeupdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_COLNAME       => array(GlCodeTableMap::COL_GLMAACCT => 0, GlCodeTableMap::COL_GLMADESC => 1, GlCodeTableMap::COL_GLMADRCR => 2, GlCodeTableMap::COL_GLMACLOSACCT => 3, GlCodeTableMap::COL_GLMAPACKPOST => 4, GlCodeTableMap::COL_GLMAVALD => 5, GlCodeTableMap::COL_GLMACO01 => 6, GlCodeTableMap::COL_GLMACO02 => 7, GlCodeTableMap::COL_GLMACO03 => 8, GlCodeTableMap::COL_GLMACO04 => 9, GlCodeTableMap::COL_GLMACO05 => 10, GlCodeTableMap::COL_GLMACO06 => 11, GlCodeTableMap::COL_GLMACO07 => 12, GlCodeTableMap::COL_GLMACO08 => 13, GlCodeTableMap::COL_GLMACO09 => 14, GlCodeTableMap::COL_GLMACO10 => 15, GlCodeTableMap::COL_DATEUPDTD => 16, GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS => 17, GlCodeTableMap::COL_GLMAACHACCT => 18, GlCodeTableMap::COL_TIMEUPDTD => 19, GlCodeTableMap::COL_DUMMY => 20, ),
+        self::TYPE_FIELDNAME     => array('GlmaAcct' => 0, 'GlmaDesc' => 1, 'GlmaDrCr' => 2, 'GlmaClosAcct' => 3, 'GlmaPackPost' => 4, 'GlmaVald' => 5, 'GlmaCo01' => 6, 'GlmaCo02' => 7, 'GlmaCo03' => 8, 'GlmaCo04' => 9, 'GlmaCo05' => 10, 'GlmaCo06' => 11, 'GlmaCo07' => 12, 'GlmaCo08' => 13, 'GlmaCo09' => 14, 'GlmaCo10' => 15, 'DateUpdtd' => 16, 'GlmaAcWhseAppendPos' => 17, 'GlmaAchAcct' => 18, 'TimeUpdtd' => 19, 'dummy' => 20, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, )
     );
 
     /**
@@ -233,6 +243,8 @@ class GlCodeTableMap extends TableMap
         $this->addColumn('GlmaCo09', 'Glmaco09', 'VARCHAR', false, 3, null);
         $this->addColumn('GlmaCo10', 'Glmaco10', 'VARCHAR', false, 3, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
+        $this->addColumn('GlmaAcWhseAppendPos', 'GlmaAcWhseAppendPos', 'INTEGER', false, 1, null);
+        $this->addColumn('GlmaAchAcct', 'GlmaAchAcct', 'VARCHAR', false, 1, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
     } // initialize()
@@ -402,6 +414,8 @@ class GlCodeTableMap extends TableMap
             $criteria->addSelectColumn(GlCodeTableMap::COL_GLMACO09);
             $criteria->addSelectColumn(GlCodeTableMap::COL_GLMACO10);
             $criteria->addSelectColumn(GlCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS);
+            $criteria->addSelectColumn(GlCodeTableMap::COL_GLMAACHACCT);
             $criteria->addSelectColumn(GlCodeTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(GlCodeTableMap::COL_DUMMY);
         } else {
@@ -422,6 +436,8 @@ class GlCodeTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.GlmaCo09');
             $criteria->addSelectColumn($alias . '.GlmaCo10');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
+            $criteria->addSelectColumn($alias . '.GlmaAcWhseAppendPos');
+            $criteria->addSelectColumn($alias . '.GlmaAchAcct');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
         }

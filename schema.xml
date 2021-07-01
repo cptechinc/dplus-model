@@ -1511,6 +1511,8 @@
     <column name="GlmaCo09" phpName="Glmaco09" type="VARCHAR" size="3"/>
     <column name="GlmaCo10" phpName="Glmaco10" type="VARCHAR" size="3"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="GlmaAcWhseAppendPos" phpName="GlmaAcWhseAppendPos" type="INTEGER" size="1"/>
+    <column name="GlmaAchAcct" phpName="GlmaAchAcct" type="VARCHAR" size="1"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <vendor type="mysql">

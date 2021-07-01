@@ -36,6 +36,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCodeQuery orderByGlmaco09($order = Criteria::ASC) Order by the GlmaCo09 column
  * @method     ChildGlCodeQuery orderByGlmaco10($order = Criteria::ASC) Order by the GlmaCo10 column
  * @method     ChildGlCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildGlCodeQuery orderByGlmaAcWhseAppendPos($order = Criteria::ASC) Order by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCodeQuery orderByGlmaAchAcct($order = Criteria::ASC) Order by the GlmaAchAcct column
  * @method     ChildGlCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildGlCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
@@ -56,6 +58,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCodeQuery groupByGlmaco09() Group by the GlmaCo09 column
  * @method     ChildGlCodeQuery groupByGlmaco10() Group by the GlmaCo10 column
  * @method     ChildGlCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildGlCodeQuery groupByGlmaAcWhseAppendPos() Group by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCodeQuery groupByGlmaAchAcct() Group by the GlmaAchAcct column
  * @method     ChildGlCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildGlCodeQuery groupByDummy() Group by the dummy column
  *
@@ -87,6 +91,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCode findOneByGlmaco09(string $GlmaCo09) Return the first ChildGlCode filtered by the GlmaCo09 column
  * @method     ChildGlCode findOneByGlmaco10(string $GlmaCo10) Return the first ChildGlCode filtered by the GlmaCo10 column
  * @method     ChildGlCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildGlCode filtered by the DateUpdtd column
+ * @method     ChildGlCode findOneByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return the first ChildGlCode filtered by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCode findOneByGlmaAchAcct(string $GlmaAchAcct) Return the first ChildGlCode filtered by the GlmaAchAcct column
  * @method     ChildGlCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlCode filtered by the TimeUpdtd column
  * @method     ChildGlCode findOneByDummy(string $dummy) Return the first ChildGlCode filtered by the dummy column *
 
@@ -110,6 +116,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCode requireOneByGlmaco09(string $GlmaCo09) Return the first ChildGlCode filtered by the GlmaCo09 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByGlmaco10(string $GlmaCo10) Return the first ChildGlCode filtered by the GlmaCo10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildGlCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlCode requireOneByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return the first ChildGlCode filtered by the GlmaAcWhseAppendPos column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildGlCode requireOneByGlmaAchAcct(string $GlmaAchAcct) Return the first ChildGlCode filtered by the GlmaAchAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildGlCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildGlCode requireOneByDummy(string $dummy) Return the first ChildGlCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
@@ -131,6 +139,8 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildGlCode[]|ObjectCollection findByGlmaco09(string $GlmaCo09) Return ChildGlCode objects filtered by the GlmaCo09 column
  * @method     ChildGlCode[]|ObjectCollection findByGlmaco10(string $GlmaCo10) Return ChildGlCode objects filtered by the GlmaCo10 column
  * @method     ChildGlCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildGlCode objects filtered by the DateUpdtd column
+ * @method     ChildGlCode[]|ObjectCollection findByGlmaAcWhseAppendPos(int $GlmaAcWhseAppendPos) Return ChildGlCode objects filtered by the GlmaAcWhseAppendPos column
+ * @method     ChildGlCode[]|ObjectCollection findByGlmaAchAcct(string $GlmaAchAcct) Return ChildGlCode objects filtered by the GlmaAchAcct column
  * @method     ChildGlCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildGlCode objects filtered by the TimeUpdtd column
  * @method     ChildGlCode[]|ObjectCollection findByDummy(string $dummy) Return ChildGlCode objects filtered by the dummy column
  * @method     ChildGlCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
@@ -231,7 +241,7 @@ abstract class GlCodeQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT GlmaAcct, GlmaDesc, GlmaDrCr, GlmaClosAcct, GlmaPackPost, GlmaVald, GlmaCo01, GlmaCo02, GlmaCo03, GlmaCo04, GlmaCo05, GlmaCo06, GlmaCo07, GlmaCo08, GlmaCo09, GlmaCo10, DateUpdtd, TimeUpdtd, dummy FROM gl_master WHERE GlmaAcct = :p0';
+        $sql = 'SELECT GlmaAcct, GlmaDesc, GlmaDrCr, GlmaClosAcct, GlmaPackPost, GlmaVald, GlmaCo01, GlmaCo02, GlmaCo03, GlmaCo04, GlmaCo05, GlmaCo06, GlmaCo07, GlmaCo08, GlmaCo09, GlmaCo10, DateUpdtd, GlmaAcWhseAppendPos, GlmaAchAcct, TimeUpdtd, dummy FROM gl_master WHERE GlmaAcct = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -744,6 +754,72 @@ abstract class GlCodeQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(GlCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+    }
+
+    /**
+     * Filter the query on the GlmaAcWhseAppendPos column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByGlmaAcWhseAppendPos(1234); // WHERE GlmaAcWhseAppendPos = 1234
+     * $query->filterByGlmaAcWhseAppendPos(array(12, 34)); // WHERE GlmaAcWhseAppendPos IN (12, 34)
+     * $query->filterByGlmaAcWhseAppendPos(array('min' => 12)); // WHERE GlmaAcWhseAppendPos > 12
+     * </code>
+     *
+     * @param     mixed $glmaAcWhseAppendPos The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     */
+    public function filterByGlmaAcWhseAppendPos($glmaAcWhseAppendPos = null, $comparison = null)
+    {
+        if (is_array($glmaAcWhseAppendPos)) {
+            $useMinMax = false;
+            if (isset($glmaAcWhseAppendPos['min'])) {
+                $this->addUsingAlias(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $glmaAcWhseAppendPos['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($glmaAcWhseAppendPos['max'])) {
+                $this->addUsingAlias(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $glmaAcWhseAppendPos['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $glmaAcWhseAppendPos, $comparison);
+    }
+
+    /**
+     * Filter the query on the GlmaAchAcct column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByGlmaAchAcct('fooValue');   // WHERE GlmaAchAcct = 'fooValue'
+     * $query->filterByGlmaAchAcct('%fooValue%', Criteria::LIKE); // WHERE GlmaAchAcct LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $glmaAchAcct The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildGlCodeQuery The current query, for fluid interface
+     */
+    public function filterByGlmaAchAcct($glmaAchAcct = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($glmaAchAcct)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(GlCodeTableMap::COL_GLMAACHACCT, $glmaAchAcct, $comparison);
     }
 
     /**

@@ -180,6 +180,20 @@ abstract class GlCode implements ActiveRecordInterface
     protected $dateupdtd;
 
     /**
+     * The value for the glmaacwhseappendpos field.
+     *
+     * @var        int
+     */
+    protected $glmaacwhseappendpos;
+
+    /**
+     * The value for the glmaachacct field.
+     *
+     * @var        string
+     */
+    protected $glmaachacct;
+
+    /**
      * The value for the timeupdtd field.
      *
      * @var        string
@@ -610,6 +624,26 @@ abstract class GlCode implements ActiveRecordInterface
     }
 
     /**
+     * Get the [glmaacwhseappendpos] column value.
+     *
+     * @return int
+     */
+    public function getGlmaAcWhseAppendPos()
+    {
+        return $this->glmaacwhseappendpos;
+    }
+
+    /**
+     * Get the [glmaachacct] column value.
+     *
+     * @return string
+     */
+    public function getGlmaAchAcct()
+    {
+        return $this->glmaachacct;
+    }
+
+    /**
      * Get the [timeupdtd] column value.
      *
      * @return string
@@ -970,6 +1004,46 @@ abstract class GlCode implements ActiveRecordInterface
     } // setDateupdtd()
 
     /**
+     * Set the value of [glmaacwhseappendpos] column.
+     *
+     * @param int $v new value
+     * @return $this|\GlCode The current object (for fluent API support)
+     */
+    public function setGlmaAcWhseAppendPos($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->glmaacwhseappendpos !== $v) {
+            $this->glmaacwhseappendpos = $v;
+            $this->modifiedColumns[GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS] = true;
+        }
+
+        return $this;
+    } // setGlmaAcWhseAppendPos()
+
+    /**
+     * Set the value of [glmaachacct] column.
+     *
+     * @param string $v new value
+     * @return $this|\GlCode The current object (for fluent API support)
+     */
+    public function setGlmaAchAcct($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->glmaachacct !== $v) {
+            $this->glmaachacct = $v;
+            $this->modifiedColumns[GlCodeTableMap::COL_GLMAACHACCT] = true;
+        }
+
+        return $this;
+    } // setGlmaAchAcct()
+
+    /**
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
@@ -1100,10 +1174,16 @@ abstract class GlCode implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : GlCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : GlCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : GlCodeTableMap::translateFieldName('GlmaAcWhseAppendPos', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->glmaacwhseappendpos = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : GlCodeTableMap::translateFieldName('GlmaAchAcct', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->glmaachacct = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : GlCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : GlCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : GlCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1113,7 +1193,7 @@ abstract class GlCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 19; // 19 = GlCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 21; // 21 = GlCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\GlCode'), 0, $e);
@@ -1361,6 +1441,12 @@ abstract class GlCode implements ActiveRecordInterface
         if ($this->isColumnModified(GlCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
+        if ($this->isColumnModified(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS)) {
+            $modifiedColumns[':p' . $index++]  = 'GlmaAcWhseAppendPos';
+        }
+        if ($this->isColumnModified(GlCodeTableMap::COL_GLMAACHACCT)) {
+            $modifiedColumns[':p' . $index++]  = 'GlmaAchAcct';
+        }
         if ($this->isColumnModified(GlCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
@@ -1428,6 +1514,12 @@ abstract class GlCode implements ActiveRecordInterface
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
+                        break;
+                    case 'GlmaAcWhseAppendPos':
+                        $stmt->bindValue($identifier, $this->glmaacwhseappendpos, PDO::PARAM_INT);
+                        break;
+                    case 'GlmaAchAcct':
+                        $stmt->bindValue($identifier, $this->glmaachacct, PDO::PARAM_STR);
                         break;
                     case 'TimeUpdtd':
                         $stmt->bindValue($identifier, $this->timeupdtd, PDO::PARAM_STR);
@@ -1542,9 +1634,15 @@ abstract class GlCode implements ActiveRecordInterface
                 return $this->getDateupdtd();
                 break;
             case 17:
-                return $this->getTimeupdtd();
+                return $this->getGlmaAcWhseAppendPos();
                 break;
             case 18:
+                return $this->getGlmaAchAcct();
+                break;
+            case 19:
+                return $this->getTimeupdtd();
+                break;
+            case 20:
                 return $this->getDummy();
                 break;
             default:
@@ -1593,8 +1691,10 @@ abstract class GlCode implements ActiveRecordInterface
             $keys[14] => $this->getGlmaco09(),
             $keys[15] => $this->getGlmaco10(),
             $keys[16] => $this->getDateupdtd(),
-            $keys[17] => $this->getTimeupdtd(),
-            $keys[18] => $this->getDummy(),
+            $keys[17] => $this->getGlmaAcWhseAppendPos(),
+            $keys[18] => $this->getGlmaAchAcct(),
+            $keys[19] => $this->getTimeupdtd(),
+            $keys[20] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1686,9 +1786,15 @@ abstract class GlCode implements ActiveRecordInterface
                 $this->setDateupdtd($value);
                 break;
             case 17:
-                $this->setTimeupdtd($value);
+                $this->setGlmaAcWhseAppendPos($value);
                 break;
             case 18:
+                $this->setGlmaAchAcct($value);
+                break;
+            case 19:
+                $this->setTimeupdtd($value);
+                break;
+            case 20:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1769,10 +1875,16 @@ abstract class GlCode implements ActiveRecordInterface
             $this->setDateupdtd($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setTimeupdtd($arr[$keys[17]]);
+            $this->setGlmaAcWhseAppendPos($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setDummy($arr[$keys[18]]);
+            $this->setGlmaAchAcct($arr[$keys[18]]);
+        }
+        if (array_key_exists($keys[19], $arr)) {
+            $this->setTimeupdtd($arr[$keys[19]]);
+        }
+        if (array_key_exists($keys[20], $arr)) {
+            $this->setDummy($arr[$keys[20]]);
         }
     }
 
@@ -1865,6 +1977,12 @@ abstract class GlCode implements ActiveRecordInterface
         }
         if ($this->isColumnModified(GlCodeTableMap::COL_DATEUPDTD)) {
             $criteria->add(GlCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        }
+        if ($this->isColumnModified(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS)) {
+            $criteria->add(GlCodeTableMap::COL_GLMAACWHSEAPPENDPOS, $this->glmaacwhseappendpos);
+        }
+        if ($this->isColumnModified(GlCodeTableMap::COL_GLMAACHACCT)) {
+            $criteria->add(GlCodeTableMap::COL_GLMAACHACCT, $this->glmaachacct);
         }
         if ($this->isColumnModified(GlCodeTableMap::COL_TIMEUPDTD)) {
             $criteria->add(GlCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
@@ -1975,6 +2093,8 @@ abstract class GlCode implements ActiveRecordInterface
         $copyObj->setGlmaco09($this->getGlmaco09());
         $copyObj->setGlmaco10($this->getGlmaco10());
         $copyObj->setDateupdtd($this->getDateupdtd());
+        $copyObj->setGlmaAcWhseAppendPos($this->getGlmaAcWhseAppendPos());
+        $copyObj->setGlmaAchAcct($this->getGlmaAchAcct());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
         if ($makeNew) {
@@ -2028,6 +2148,8 @@ abstract class GlCode implements ActiveRecordInterface
         $this->glmaco09 = null;
         $this->glmaco10 = null;
         $this->dateupdtd = null;
+        $this->glmaacwhseappendpos = null;
+        $this->glmaachacct = null;
         $this->timeupdtd = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
