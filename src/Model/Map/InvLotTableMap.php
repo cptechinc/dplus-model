@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'inv_inv_lot' table.
+ * This class defines the structure of the 'inv_lot_mast' table.
  *
  *
  *
@@ -44,7 +44,7 @@ class InvLotTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'inv_inv_lot';
+    const TABLE_NAME = 'inv_lot_mast';
 
     /**
      * The related Propel class for this table
@@ -59,7 +59,7 @@ class InvLotTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 43;
+    const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
@@ -69,222 +69,102 @@ class InvLotTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 43;
+    const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the InitItemNbr field
      */
-    const COL_INITITEMNBR = 'inv_inv_lot.InitItemNbr';
+    const COL_INITITEMNBR = 'inv_lot_mast.InitItemNbr';
 
     /**
-     * the column name for the IntbWhse field
+     * the column name for the LotmLotNbr field
      */
-    const COL_INTBWHSE = 'inv_inv_lot.IntbWhse';
+    const COL_LOTMLOTNBR = 'inv_lot_mast.LotmLotNbr';
 
     /**
-     * the column name for the InltLotSer field
+     * the column name for the LotmLotRef field
      */
-    const COL_INLTLOTSER = 'inv_inv_lot.InltLotSer';
+    const COL_LOTMLOTREF = 'inv_lot_mast.LotmLotRef';
 
     /**
-     * the column name for the InltBin field
+     * the column name for the LotmFrstActDate field
      */
-    const COL_INLTBIN = 'inv_inv_lot.InltBin';
+    const COL_LOTMFRSTACTDATE = 'inv_lot_mast.LotmFrstActDate';
 
     /**
-     * the column name for the InltDate field
+     * the column name for the LotmImagYn field
      */
-    const COL_INLTDATE = 'inv_inv_lot.InltDate';
+    const COL_LOTMIMAGYN = 'inv_lot_mast.LotmImagYn';
 
     /**
-     * the column name for the InltDateWrit field
+     * the column name for the LotmUnitWght field
      */
-    const COL_INLTDATEWRIT = 'inv_inv_lot.InltDateWrit';
+    const COL_LOTMUNITWGHT = 'inv_lot_mast.LotmUnitWght';
 
     /**
-     * the column name for the InltCost field
+     * the column name for the LotmRevision field
      */
-    const COL_INLTCOST = 'inv_inv_lot.InltCost';
+    const COL_LOTMREVISION = 'inv_lot_mast.LotmRevision';
 
     /**
-     * the column name for the InltOnHand field
+     * the column name for the LotmCtry field
      */
-    const COL_INLTONHAND = 'inv_inv_lot.InltOnHand';
+    const COL_LOTMCTRY = 'inv_lot_mast.LotmCtry';
 
     /**
-     * the column name for the InltResv field
+     * the column name for the LotmCOfC field
      */
-    const COL_INLTRESV = 'inv_inv_lot.InltResv';
+    const COL_LOTMCOFC = 'inv_lot_mast.LotmCOfC';
 
     /**
-     * the column name for the InltShip field
+     * the column name for the LotmCreateDate field
      */
-    const COL_INLTSHIP = 'inv_inv_lot.InltShip';
+    const COL_LOTMCREATEDATE = 'inv_lot_mast.LotmCreateDate';
 
     /**
-     * the column name for the InltAllo field
+     * the column name for the LotmCreateTime field
      */
-    const COL_INLTALLO = 'inv_inv_lot.InltAllo';
+    const COL_LOTMCREATETIME = 'inv_lot_mast.LotmCreateTime';
 
     /**
-     * the column name for the InltFabAllo field
+     * the column name for the LotmVendId field
      */
-    const COL_INLTFABALLO = 'inv_inv_lot.InltFabAllo';
+    const COL_LOTMVENDID = 'inv_lot_mast.LotmVendId';
 
     /**
-     * the column name for the InltInTran field
+     * the column name for the LotmExpireDate field
      */
-    const COL_INLTINTRAN = 'inv_inv_lot.InltInTran';
+    const COL_LOTMEXPIREDATE = 'inv_lot_mast.LotmExpireDate';
 
     /**
-     * the column name for the InltInShip field
+     * the column name for the LotmUnitCost field
      */
-    const COL_INLTINSHIP = 'inv_inv_lot.InltInShip';
+    const COL_LOTMUNITCOST = 'inv_lot_mast.LotmUnitCost';
 
     /**
-     * the column name for the InltLotRef field
+     * the column name for the LotmCntrQty field
      */
-    const COL_INLTLOTREF = 'inv_inv_lot.InltLotRef';
+    const COL_LOTMCNTRQTY = 'inv_lot_mast.LotmCntrQty';
 
     /**
-     * the column name for the InltBatch field
+     * the column name for the LotmSrcCd field
      */
-    const COL_INLTBATCH = 'inv_inv_lot.InltBatch';
-
-    /**
-     * the column name for the InltLandCost1 field
-     */
-    const COL_INLTLANDCOST1 = 'inv_inv_lot.InltLandCost1';
-
-    /**
-     * the column name for the InltLandCost2 field
-     */
-    const COL_INLTLANDCOST2 = 'inv_inv_lot.InltLandCost2';
-
-    /**
-     * the column name for the InltLandCost3 field
-     */
-    const COL_INLTLANDCOST3 = 'inv_inv_lot.InltLandCost3';
-
-    /**
-     * the column name for the InltLandCost4 field
-     */
-    const COL_INLTLANDCOST4 = 'inv_inv_lot.InltLandCost4';
-
-    /**
-     * the column name for the InltLandCost5 field
-     */
-    const COL_INLTLANDCOST5 = 'inv_inv_lot.InltLandCost5';
-
-    /**
-     * the column name for the InltTariffCost field
-     */
-    const COL_INLTTARIFFCOST = 'inv_inv_lot.InltTariffCost';
-
-    /**
-     * the column name for the InltShopCost field
-     */
-    const COL_INLTSHOPCOST = 'inv_inv_lot.InltShopCost';
-
-    /**
-     * the column name for the InltIsscoDfsQty field
-     */
-    const COL_INLTISSCODFSQTY = 'inv_inv_lot.InltIsscoDfsQty';
-
-    /**
-     * the column name for the InltHeadMark field
-     */
-    const COL_INLTHEADMARK = 'inv_inv_lot.InltHeadMark';
-
-    /**
-     * the column name for the InltCtry field
-     */
-    const COL_INLTCTRY = 'inv_inv_lot.InltCtry';
-
-    /**
-     * the column name for the InltRvalOrigCost field
-     */
-    const COL_INLTRVALORIGCOST = 'inv_inv_lot.InltRvalOrigCost';
-
-    /**
-     * the column name for the InltRvalPct field
-     */
-    const COL_INLTRVALPCT = 'inv_inv_lot.InltRvalPct';
-
-    /**
-     * the column name for the InltUnitWght field
-     */
-    const COL_INLTUNITWGHT = 'inv_inv_lot.InltUnitWght';
-
-    /**
-     * the column name for the InltDestWhse field
-     */
-    const COL_INLTDESTWHSE = 'inv_inv_lot.InltDestWhse';
-
-    /**
-     * the column name for the InltCntrQty field
-     */
-    const COL_INLTCNTRQTY = 'inv_inv_lot.InltCntrQty';
-
-    /**
-     * the column name for the InltQtyPerRoll field
-     */
-    const COL_INLTQTYPERROLL = 'inv_inv_lot.InltQtyPerRoll';
-
-    /**
-     * the column name for the InltTareWght field
-     */
-    const COL_INLTTAREWGHT = 'inv_inv_lot.InltTareWght';
-
-    /**
-     * the column name for the InltQcReasonCd field
-     */
-    const COL_INLTQCREASONCD = 'inv_inv_lot.InltQcReasonCd';
-
-    /**
-     * the column name for the InltCert field
-     */
-    const COL_INLTCERT = 'inv_inv_lot.InltCert';
-
-    /**
-     * the column name for the InltCureDate field
-     */
-    const COL_INLTCUREDATE = 'inv_inv_lot.InltCureDate';
-
-    /**
-     * the column name for the InltExpireDateCd field
-     */
-    const COL_INLTEXPIREDATECD = 'inv_inv_lot.InltExpireDateCd';
-
-    /**
-     * the column name for the InltExpireDate field
-     */
-    const COL_INLTEXPIREDATE = 'inv_inv_lot.InltExpireDate';
-
-    /**
-     * the column name for the InltOrigBin field
-     */
-    const COL_INLTORIGBIN = 'inv_inv_lot.InltOrigBin';
-
-    /**
-     * the column name for the InltShopItem field
-     */
-    const COL_INLTSHOPITEM = 'inv_inv_lot.InltShopItem';
+    const COL_LOTMSRCCD = 'inv_lot_mast.LotmSrcCd';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'inv_inv_lot.DateUpdtd';
+    const COL_DATEUPDTD = 'inv_lot_mast.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'inv_inv_lot.TimeUpdtd';
+    const COL_TIMEUPDTD = 'inv_lot_mast.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'inv_inv_lot.dummy';
+    const COL_DUMMY = 'inv_lot_mast.dummy';
 
     /**
      * The default string format for model objects of the related table
@@ -298,11 +178,11 @@ class InvLotTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inltlotser', 'Inltbin', 'Inltdate', 'Inltdatewrit', 'Inltcost', 'Inltonhand', 'Inltresv', 'Inltship', 'Inltallo', 'Inltfaballo', 'Inltintran', 'Inltinship', 'Inltlotref', 'Inltbatch', 'Inltlandcost1', 'Inltlandcost2', 'Inltlandcost3', 'Inltlandcost4', 'Inltlandcost5', 'Inlttariffcost', 'Inltshopcost', 'Inltisscodfsqty', 'Inltheadmark', 'Inltctry', 'Inltrvalorigcost', 'Inltrvalpct', 'Inltunitwght', 'Inltdestwhse', 'Inltcntrqty', 'Inltqtyperroll', 'Inlttarewght', 'Inltqcreasoncd', 'Inltcert', 'Inltcuredate', 'Inltexpiredatecd', 'Inltexpiredate', 'Inltorigbin', 'Inltshopitem', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inltlotser', 'inltbin', 'inltdate', 'inltdatewrit', 'inltcost', 'inltonhand', 'inltresv', 'inltship', 'inltallo', 'inltfaballo', 'inltintran', 'inltinship', 'inltlotref', 'inltbatch', 'inltlandcost1', 'inltlandcost2', 'inltlandcost3', 'inltlandcost4', 'inltlandcost5', 'inlttariffcost', 'inltshopcost', 'inltisscodfsqty', 'inltheadmark', 'inltctry', 'inltrvalorigcost', 'inltrvalpct', 'inltunitwght', 'inltdestwhse', 'inltcntrqty', 'inltqtyperroll', 'inlttarewght', 'inltqcreasoncd', 'inltcert', 'inltcuredate', 'inltexpiredatecd', 'inltexpiredate', 'inltorigbin', 'inltshopitem', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR, InvLotTableMap::COL_INTBWHSE, InvLotTableMap::COL_INLTLOTSER, InvLotTableMap::COL_INLTBIN, InvLotTableMap::COL_INLTDATE, InvLotTableMap::COL_INLTDATEWRIT, InvLotTableMap::COL_INLTCOST, InvLotTableMap::COL_INLTONHAND, InvLotTableMap::COL_INLTRESV, InvLotTableMap::COL_INLTSHIP, InvLotTableMap::COL_INLTALLO, InvLotTableMap::COL_INLTFABALLO, InvLotTableMap::COL_INLTINTRAN, InvLotTableMap::COL_INLTINSHIP, InvLotTableMap::COL_INLTLOTREF, InvLotTableMap::COL_INLTBATCH, InvLotTableMap::COL_INLTLANDCOST1, InvLotTableMap::COL_INLTLANDCOST2, InvLotTableMap::COL_INLTLANDCOST3, InvLotTableMap::COL_INLTLANDCOST4, InvLotTableMap::COL_INLTLANDCOST5, InvLotTableMap::COL_INLTTARIFFCOST, InvLotTableMap::COL_INLTSHOPCOST, InvLotTableMap::COL_INLTISSCODFSQTY, InvLotTableMap::COL_INLTHEADMARK, InvLotTableMap::COL_INLTCTRY, InvLotTableMap::COL_INLTRVALORIGCOST, InvLotTableMap::COL_INLTRVALPCT, InvLotTableMap::COL_INLTUNITWGHT, InvLotTableMap::COL_INLTDESTWHSE, InvLotTableMap::COL_INLTCNTRQTY, InvLotTableMap::COL_INLTQTYPERROLL, InvLotTableMap::COL_INLTTAREWGHT, InvLotTableMap::COL_INLTQCREASONCD, InvLotTableMap::COL_INLTCERT, InvLotTableMap::COL_INLTCUREDATE, InvLotTableMap::COL_INLTEXPIREDATECD, InvLotTableMap::COL_INLTEXPIREDATE, InvLotTableMap::COL_INLTORIGBIN, InvLotTableMap::COL_INLTSHOPITEM, InvLotTableMap::COL_DATEUPDTD, InvLotTableMap::COL_TIMEUPDTD, InvLotTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InltLotSer', 'InltBin', 'InltDate', 'InltDateWrit', 'InltCost', 'InltOnHand', 'InltResv', 'InltShip', 'InltAllo', 'InltFabAllo', 'InltInTran', 'InltInShip', 'InltLotRef', 'InltBatch', 'InltLandCost1', 'InltLandCost2', 'InltLandCost3', 'InltLandCost4', 'InltLandCost5', 'InltTariffCost', 'InltShopCost', 'InltIsscoDfsQty', 'InltHeadMark', 'InltCtry', 'InltRvalOrigCost', 'InltRvalPct', 'InltUnitWght', 'InltDestWhse', 'InltCntrQty', 'InltQtyPerRoll', 'InltTareWght', 'InltQcReasonCd', 'InltCert', 'InltCureDate', 'InltExpireDateCd', 'InltExpireDate', 'InltOrigBin', 'InltShopItem', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
+        self::TYPE_PHPNAME       => array('Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR, InvLotTableMap::COL_LOTMLOTNBR, InvLotTableMap::COL_LOTMLOTREF, InvLotTableMap::COL_LOTMFRSTACTDATE, InvLotTableMap::COL_LOTMIMAGYN, InvLotTableMap::COL_LOTMUNITWGHT, InvLotTableMap::COL_LOTMREVISION, InvLotTableMap::COL_LOTMCTRY, InvLotTableMap::COL_LOTMCOFC, InvLotTableMap::COL_LOTMCREATEDATE, InvLotTableMap::COL_LOTMCREATETIME, InvLotTableMap::COL_LOTMVENDID, InvLotTableMap::COL_LOTMEXPIREDATE, InvLotTableMap::COL_LOTMUNITCOST, InvLotTableMap::COL_LOTMCNTRQTY, InvLotTableMap::COL_LOTMSRCCD, InvLotTableMap::COL_DATEUPDTD, InvLotTableMap::COL_TIMEUPDTD, InvLotTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -312,11 +192,11 @@ class InvLotTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inltlotser' => 2, 'Inltbin' => 3, 'Inltdate' => 4, 'Inltdatewrit' => 5, 'Inltcost' => 6, 'Inltonhand' => 7, 'Inltresv' => 8, 'Inltship' => 9, 'Inltallo' => 10, 'Inltfaballo' => 11, 'Inltintran' => 12, 'Inltinship' => 13, 'Inltlotref' => 14, 'Inltbatch' => 15, 'Inltlandcost1' => 16, 'Inltlandcost2' => 17, 'Inltlandcost3' => 18, 'Inltlandcost4' => 19, 'Inltlandcost5' => 20, 'Inlttariffcost' => 21, 'Inltshopcost' => 22, 'Inltisscodfsqty' => 23, 'Inltheadmark' => 24, 'Inltctry' => 25, 'Inltrvalorigcost' => 26, 'Inltrvalpct' => 27, 'Inltunitwght' => 28, 'Inltdestwhse' => 29, 'Inltcntrqty' => 30, 'Inltqtyperroll' => 31, 'Inlttarewght' => 32, 'Inltqcreasoncd' => 33, 'Inltcert' => 34, 'Inltcuredate' => 35, 'Inltexpiredatecd' => 36, 'Inltexpiredate' => 37, 'Inltorigbin' => 38, 'Inltshopitem' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
-        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inltlotser' => 2, 'inltbin' => 3, 'inltdate' => 4, 'inltdatewrit' => 5, 'inltcost' => 6, 'inltonhand' => 7, 'inltresv' => 8, 'inltship' => 9, 'inltallo' => 10, 'inltfaballo' => 11, 'inltintran' => 12, 'inltinship' => 13, 'inltlotref' => 14, 'inltbatch' => 15, 'inltlandcost1' => 16, 'inltlandcost2' => 17, 'inltlandcost3' => 18, 'inltlandcost4' => 19, 'inltlandcost5' => 20, 'inlttariffcost' => 21, 'inltshopcost' => 22, 'inltisscodfsqty' => 23, 'inltheadmark' => 24, 'inltctry' => 25, 'inltrvalorigcost' => 26, 'inltrvalpct' => 27, 'inltunitwght' => 28, 'inltdestwhse' => 29, 'inltcntrqty' => 30, 'inltqtyperroll' => 31, 'inlttarewght' => 32, 'inltqcreasoncd' => 33, 'inltcert' => 34, 'inltcuredate' => 35, 'inltexpiredatecd' => 36, 'inltexpiredate' => 37, 'inltorigbin' => 38, 'inltshopitem' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR => 0, InvLotTableMap::COL_INTBWHSE => 1, InvLotTableMap::COL_INLTLOTSER => 2, InvLotTableMap::COL_INLTBIN => 3, InvLotTableMap::COL_INLTDATE => 4, InvLotTableMap::COL_INLTDATEWRIT => 5, InvLotTableMap::COL_INLTCOST => 6, InvLotTableMap::COL_INLTONHAND => 7, InvLotTableMap::COL_INLTRESV => 8, InvLotTableMap::COL_INLTSHIP => 9, InvLotTableMap::COL_INLTALLO => 10, InvLotTableMap::COL_INLTFABALLO => 11, InvLotTableMap::COL_INLTINTRAN => 12, InvLotTableMap::COL_INLTINSHIP => 13, InvLotTableMap::COL_INLTLOTREF => 14, InvLotTableMap::COL_INLTBATCH => 15, InvLotTableMap::COL_INLTLANDCOST1 => 16, InvLotTableMap::COL_INLTLANDCOST2 => 17, InvLotTableMap::COL_INLTLANDCOST3 => 18, InvLotTableMap::COL_INLTLANDCOST4 => 19, InvLotTableMap::COL_INLTLANDCOST5 => 20, InvLotTableMap::COL_INLTTARIFFCOST => 21, InvLotTableMap::COL_INLTSHOPCOST => 22, InvLotTableMap::COL_INLTISSCODFSQTY => 23, InvLotTableMap::COL_INLTHEADMARK => 24, InvLotTableMap::COL_INLTCTRY => 25, InvLotTableMap::COL_INLTRVALORIGCOST => 26, InvLotTableMap::COL_INLTRVALPCT => 27, InvLotTableMap::COL_INLTUNITWGHT => 28, InvLotTableMap::COL_INLTDESTWHSE => 29, InvLotTableMap::COL_INLTCNTRQTY => 30, InvLotTableMap::COL_INLTQTYPERROLL => 31, InvLotTableMap::COL_INLTTAREWGHT => 32, InvLotTableMap::COL_INLTQCREASONCD => 33, InvLotTableMap::COL_INLTCERT => 34, InvLotTableMap::COL_INLTCUREDATE => 35, InvLotTableMap::COL_INLTEXPIREDATECD => 36, InvLotTableMap::COL_INLTEXPIREDATE => 37, InvLotTableMap::COL_INLTORIGBIN => 38, InvLotTableMap::COL_INLTSHOPITEM => 39, InvLotTableMap::COL_DATEUPDTD => 40, InvLotTableMap::COL_TIMEUPDTD => 41, InvLotTableMap::COL_DUMMY => 42, ),
-        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InltLotSer' => 2, 'InltBin' => 3, 'InltDate' => 4, 'InltDateWrit' => 5, 'InltCost' => 6, 'InltOnHand' => 7, 'InltResv' => 8, 'InltShip' => 9, 'InltAllo' => 10, 'InltFabAllo' => 11, 'InltInTran' => 12, 'InltInShip' => 13, 'InltLotRef' => 14, 'InltBatch' => 15, 'InltLandCost1' => 16, 'InltLandCost2' => 17, 'InltLandCost3' => 18, 'InltLandCost4' => 19, 'InltLandCost5' => 20, 'InltTariffCost' => 21, 'InltShopCost' => 22, 'InltIsscoDfsQty' => 23, 'InltHeadMark' => 24, 'InltCtry' => 25, 'InltRvalOrigCost' => 26, 'InltRvalPct' => 27, 'InltUnitWght' => 28, 'InltDestWhse' => 29, 'InltCntrQty' => 30, 'InltQtyPerRoll' => 31, 'InltTareWght' => 32, 'InltQcReasonCd' => 33, 'InltCert' => 34, 'InltCureDate' => 35, 'InltExpireDateCd' => 36, 'InltExpireDate' => 37, 'InltOrigBin' => 38, 'InltShopItem' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
+        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
+        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR => 0, InvLotTableMap::COL_LOTMLOTNBR => 1, InvLotTableMap::COL_LOTMLOTREF => 2, InvLotTableMap::COL_LOTMFRSTACTDATE => 3, InvLotTableMap::COL_LOTMIMAGYN => 4, InvLotTableMap::COL_LOTMUNITWGHT => 5, InvLotTableMap::COL_LOTMREVISION => 6, InvLotTableMap::COL_LOTMCTRY => 7, InvLotTableMap::COL_LOTMCOFC => 8, InvLotTableMap::COL_LOTMCREATEDATE => 9, InvLotTableMap::COL_LOTMCREATETIME => 10, InvLotTableMap::COL_LOTMVENDID => 11, InvLotTableMap::COL_LOTMEXPIREDATE => 12, InvLotTableMap::COL_LOTMUNITCOST => 13, InvLotTableMap::COL_LOTMCNTRQTY => 14, InvLotTableMap::COL_LOTMSRCCD => 15, InvLotTableMap::COL_DATEUPDTD => 16, InvLotTableMap::COL_TIMEUPDTD => 17, InvLotTableMap::COL_DUMMY => 18, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -329,7 +209,7 @@ class InvLotTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('inv_inv_lot');
+        $this->setName('inv_lot_mast');
         $this->setPhpName('InvLot');
         $this->setIdentifierQuoting(false);
         $this->setClassName('\\InvLot');
@@ -337,45 +217,21 @@ class InvLotTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
-        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
-        $this->addPrimaryKey('InltLotSer', 'Inltlotser', 'VARCHAR', true, 20, '');
-        $this->addPrimaryKey('InltBin', 'Inltbin', 'VARCHAR', true, 8, '');
-        $this->addColumn('InltDate', 'Inltdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltDateWrit', 'Inltdatewrit', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltCost', 'Inltcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltOnHand', 'Inltonhand', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltResv', 'Inltresv', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltShip', 'Inltship', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltAllo', 'Inltallo', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltFabAllo', 'Inltfaballo', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltInTran', 'Inltintran', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltInShip', 'Inltinship', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLotRef', 'Inltlotref', 'VARCHAR', false, 20, null);
-        $this->addColumn('InltBatch', 'Inltbatch', 'VARCHAR', false, 20, null);
-        $this->addColumn('InltLandCost1', 'Inltlandcost1', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost2', 'Inltlandcost2', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost3', 'Inltlandcost3', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost4', 'Inltlandcost4', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltLandCost5', 'Inltlandcost5', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltTariffCost', 'Inlttariffcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltShopCost', 'Inltshopcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltIsscoDfsQty', 'Inltisscodfsqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltHeadMark', 'Inltheadmark', 'VARCHAR', false, 4, null);
-        $this->addColumn('InltCtry', 'Inltctry', 'VARCHAR', false, 4, null);
-        $this->addColumn('InltRvalOrigCost', 'Inltrvalorigcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltRvalPct', 'Inltrvalpct', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltUnitWght', 'Inltunitwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltDestWhse', 'Inltdestwhse', 'VARCHAR', false, 2, null);
-        $this->addColumn('InltCntrQty', 'Inltcntrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltQtyPerRoll', 'Inltqtyperroll', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltTareWght', 'Inlttarewght', 'DECIMAL', false, 20, null);
-        $this->addColumn('InltQcReasonCd', 'Inltqcreasoncd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltCert', 'Inltcert', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltCureDate', 'Inltcuredate', 'VARCHAR', false, 10, null);
-        $this->addColumn('InltExpireDateCd', 'Inltexpiredatecd', 'VARCHAR', false, 1, null);
-        $this->addColumn('InltExpireDate', 'Inltexpiredate', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltOrigBin', 'Inltorigbin', 'VARCHAR', false, 8, null);
-        $this->addColumn('InltShopItem', 'Inltshopitem', 'VARCHAR', false, 1, null);
+        $this->addPrimaryKey('LotmLotNbr', 'Lotmlotnbr', 'VARCHAR', true, 20, '');
+        $this->addColumn('LotmLotRef', 'Lotmlotref', 'VARCHAR', false, 20, null);
+        $this->addColumn('LotmFrstActDate', 'Lotmfrstactdate', 'VARCHAR', false, 8, null);
+        $this->addColumn('LotmImagYn', 'Lotmimagyn', 'VARCHAR', false, 1, null);
+        $this->addColumn('LotmUnitWght', 'Lotmunitwght', 'DECIMAL', false, 20, null);
+        $this->addColumn('LotmRevision', 'Lotmrevision', 'VARCHAR', false, 10, null);
+        $this->addColumn('LotmCtry', 'Lotmctry', 'VARCHAR', false, 4, null);
+        $this->addColumn('LotmCOfC', 'Lotmcofc', 'VARCHAR', false, 1, null);
+        $this->addColumn('LotmCreateDate', 'Lotmcreatedate', 'VARCHAR', false, 8, null);
+        $this->addColumn('LotmCreateTime', 'Lotmcreatetime', 'VARCHAR', false, 8, null);
+        $this->addColumn('LotmVendId', 'Lotmvendid', 'VARCHAR', false, 6, null);
+        $this->addColumn('LotmExpireDate', 'Lotmexpiredate', 'VARCHAR', false, 8, null);
+        $this->addColumn('LotmUnitCost', 'Lotmunitcost', 'DECIMAL', false, 20, null);
+        $this->addColumn('LotmCntrQty', 'Lotmcntrqty', 'DECIMAL', false, 20, null);
+        $this->addColumn('LotmSrcCd', 'Lotmsrccd', 'VARCHAR', false, 2, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -410,7 +266,7 @@ class InvLotTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getInititemnbr() || is_scalar($obj->getInititemnbr()) || is_callable([$obj->getInititemnbr(), '__toString']) ? (string) $obj->getInititemnbr() : $obj->getInititemnbr()), (null === $obj->getIntbwhse() || is_scalar($obj->getIntbwhse()) || is_callable([$obj->getIntbwhse(), '__toString']) ? (string) $obj->getIntbwhse() : $obj->getIntbwhse()), (null === $obj->getInltlotser() || is_scalar($obj->getInltlotser()) || is_callable([$obj->getInltlotser(), '__toString']) ? (string) $obj->getInltlotser() : $obj->getInltlotser()), (null === $obj->getInltbin() || is_scalar($obj->getInltbin()) || is_callable([$obj->getInltbin(), '__toString']) ? (string) $obj->getInltbin() : $obj->getInltbin())]);
+                $key = serialize([(null === $obj->getInititemnbr() || is_scalar($obj->getInititemnbr()) || is_callable([$obj->getInititemnbr(), '__toString']) ? (string) $obj->getInititemnbr() : $obj->getInititemnbr()), (null === $obj->getLotmlotnbr() || is_scalar($obj->getLotmlotnbr()) || is_callable([$obj->getLotmlotnbr(), '__toString']) ? (string) $obj->getLotmlotnbr() : $obj->getLotmlotnbr())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -430,11 +286,11 @@ class InvLotTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvLot) {
-                $key = serialize([(null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getIntbwhse() || is_scalar($value->getIntbwhse()) || is_callable([$value->getIntbwhse(), '__toString']) ? (string) $value->getIntbwhse() : $value->getIntbwhse()), (null === $value->getInltlotser() || is_scalar($value->getInltlotser()) || is_callable([$value->getInltlotser(), '__toString']) ? (string) $value->getInltlotser() : $value->getInltlotser()), (null === $value->getInltbin() || is_scalar($value->getInltbin()) || is_callable([$value->getInltbin(), '__toString']) ? (string) $value->getInltbin() : $value->getInltbin())]);
+                $key = serialize([(null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getLotmlotnbr() || is_scalar($value->getLotmlotnbr()) || is_callable([$value->getLotmlotnbr(), '__toString']) ? (string) $value->getLotmlotnbr() : $value->getLotmlotnbr())]);
 
-            } elseif (is_array($value) && count($value) === 4) {
+            } elseif (is_array($value) && count($value) === 2) {
                 // assume we've been passed a primary key";
-                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1]), (null === $value[2] || is_scalar($value[2]) || is_callable([$value[2], '__toString']) ? (string) $value[2] : $value[2]), (null === $value[3] || is_scalar($value[3]) || is_callable([$value[3], '__toString']) ? (string) $value[3] : $value[3])]);
+                $key = serialize([(null === $value[0] || is_scalar($value[0]) || is_callable([$value[0], '__toString']) ? (string) $value[0] : $value[0]), (null === $value[1] || is_scalar($value[1]) || is_callable([$value[1], '__toString']) ? (string) $value[1] : $value[1])]);
             } elseif ($value instanceof Criteria) {
                 self::$instances = [];
 
@@ -464,11 +320,11 @@ class InvLotTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 2 + $offset : static::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 3 + $offset : static::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -495,17 +351,7 @@ class InvLotTableMap extends TableMap
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 1 + $offset
-                : self::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 2 + $offset
-                : self::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)
-        ];
-        $pks[] = (string) $row[
-            $indexType == TableMap::TYPE_NUM
-                ? 3 + $offset
-                : self::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
         return $pks;
@@ -609,89 +455,41 @@ class InvLotTableMap extends TableMap
     {
         if (null === $alias) {
             $criteria->addSelectColumn(InvLotTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INTBWHSE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLOTSER);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTBIN);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTDATEWRIT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTCOST);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTONHAND);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTRESV);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTSHIP);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTALLO);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTFABALLO);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTINTRAN);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTINSHIP);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLOTREF);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTBATCH);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLANDCOST1);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLANDCOST2);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLANDCOST3);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLANDCOST4);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTLANDCOST5);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTTARIFFCOST);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTSHOPCOST);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTISSCODFSQTY);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTHEADMARK);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTCTRY);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTRVALORIGCOST);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTRVALPCT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTUNITWGHT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTDESTWHSE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTCNTRQTY);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTQTYPERROLL);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTTAREWGHT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTQCREASONCD);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTCERT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTCUREDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTEXPIREDATECD);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTEXPIREDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTORIGBIN);
-            $criteria->addSelectColumn(InvLotTableMap::COL_INLTSHOPITEM);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMLOTNBR);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMLOTREF);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMFRSTACTDATE);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMIMAGYN);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMUNITWGHT);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMREVISION);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCTRY);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCOFC);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCREATEDATE);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCREATETIME);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMVENDID);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMEXPIREDATE);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMUNITCOST);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCNTRQTY);
+            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMSRCCD);
             $criteria->addSelectColumn(InvLotTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(InvLotTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(InvLotTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.InitItemNbr');
-            $criteria->addSelectColumn($alias . '.IntbWhse');
-            $criteria->addSelectColumn($alias . '.InltLotSer');
-            $criteria->addSelectColumn($alias . '.InltBin');
-            $criteria->addSelectColumn($alias . '.InltDate');
-            $criteria->addSelectColumn($alias . '.InltDateWrit');
-            $criteria->addSelectColumn($alias . '.InltCost');
-            $criteria->addSelectColumn($alias . '.InltOnHand');
-            $criteria->addSelectColumn($alias . '.InltResv');
-            $criteria->addSelectColumn($alias . '.InltShip');
-            $criteria->addSelectColumn($alias . '.InltAllo');
-            $criteria->addSelectColumn($alias . '.InltFabAllo');
-            $criteria->addSelectColumn($alias . '.InltInTran');
-            $criteria->addSelectColumn($alias . '.InltInShip');
-            $criteria->addSelectColumn($alias . '.InltLotRef');
-            $criteria->addSelectColumn($alias . '.InltBatch');
-            $criteria->addSelectColumn($alias . '.InltLandCost1');
-            $criteria->addSelectColumn($alias . '.InltLandCost2');
-            $criteria->addSelectColumn($alias . '.InltLandCost3');
-            $criteria->addSelectColumn($alias . '.InltLandCost4');
-            $criteria->addSelectColumn($alias . '.InltLandCost5');
-            $criteria->addSelectColumn($alias . '.InltTariffCost');
-            $criteria->addSelectColumn($alias . '.InltShopCost');
-            $criteria->addSelectColumn($alias . '.InltIsscoDfsQty');
-            $criteria->addSelectColumn($alias . '.InltHeadMark');
-            $criteria->addSelectColumn($alias . '.InltCtry');
-            $criteria->addSelectColumn($alias . '.InltRvalOrigCost');
-            $criteria->addSelectColumn($alias . '.InltRvalPct');
-            $criteria->addSelectColumn($alias . '.InltUnitWght');
-            $criteria->addSelectColumn($alias . '.InltDestWhse');
-            $criteria->addSelectColumn($alias . '.InltCntrQty');
-            $criteria->addSelectColumn($alias . '.InltQtyPerRoll');
-            $criteria->addSelectColumn($alias . '.InltTareWght');
-            $criteria->addSelectColumn($alias . '.InltQcReasonCd');
-            $criteria->addSelectColumn($alias . '.InltCert');
-            $criteria->addSelectColumn($alias . '.InltCureDate');
-            $criteria->addSelectColumn($alias . '.InltExpireDateCd');
-            $criteria->addSelectColumn($alias . '.InltExpireDate');
-            $criteria->addSelectColumn($alias . '.InltOrigBin');
-            $criteria->addSelectColumn($alias . '.InltShopItem');
+            $criteria->addSelectColumn($alias . '.LotmLotNbr');
+            $criteria->addSelectColumn($alias . '.LotmLotRef');
+            $criteria->addSelectColumn($alias . '.LotmFrstActDate');
+            $criteria->addSelectColumn($alias . '.LotmImagYn');
+            $criteria->addSelectColumn($alias . '.LotmUnitWght');
+            $criteria->addSelectColumn($alias . '.LotmRevision');
+            $criteria->addSelectColumn($alias . '.LotmCtry');
+            $criteria->addSelectColumn($alias . '.LotmCOfC');
+            $criteria->addSelectColumn($alias . '.LotmCreateDate');
+            $criteria->addSelectColumn($alias . '.LotmCreateTime');
+            $criteria->addSelectColumn($alias . '.LotmVendId');
+            $criteria->addSelectColumn($alias . '.LotmExpireDate');
+            $criteria->addSelectColumn($alias . '.LotmUnitCost');
+            $criteria->addSelectColumn($alias . '.LotmCntrQty');
+            $criteria->addSelectColumn($alias . '.LotmSrcCd');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');
@@ -754,9 +552,7 @@ class InvLotTableMap extends TableMap
             }
             foreach ($values as $value) {
                 $criterion = $criteria->getNewCriterion(InvLotTableMap::COL_INITITEMNBR, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(InvLotTableMap::COL_INTBWHSE, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(InvLotTableMap::COL_INLTLOTSER, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(InvLotTableMap::COL_INLTBIN, $value[3]));
+                $criterion->addAnd($criteria->getNewCriterion(InvLotTableMap::COL_LOTMLOTNBR, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
@@ -775,7 +571,7 @@ class InvLotTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the inv_inv_lot table.
+     * Deletes all rows from the inv_lot_mast table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).

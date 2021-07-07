@@ -17,15 +17,18 @@ class InvLot extends BaseInvLot {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'itemid'        => 'inititemnbr',
-		'whse'          => 'intbwhse',
-		'lotserial'     => 'inltlotser',
-		'qty'           => 'inltonhand',
-		'bin'           => 'inltbin',
-		'date_lot'      => 'inltdate',
-		'date_written'  => 'inltdatewrite',
-		'date_expire'   => 'inltexpiredate',
-		'date'          => 'dateupdtd',
-		'time'          => 'timeupdtd'
+		'itemid'		=> 'inititemnbr',
+		'whse'			=> 'intbwhse',
+		'lotserial' 	=> 'inltlotser',
+		'qty'			=> 'inltonhand',
+		'bin'			=> 'inltbin',
+		'date_lot'		=> 'inltdate',
+		'date_written'	=> 'inltdatewrite',
+		'date_expire'	=> 'inltexpiredate',
+		'date'			=> 'dateupdtd',
+		'time'			=> 'timeupdtd',
+
+		// FOREIGN KEY GETS
+		'item'          => 'itemMasterItem'
 	);
 }

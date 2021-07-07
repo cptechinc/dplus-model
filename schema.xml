@@ -2129,6 +2129,33 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_lot_mast" idMethod="native" phpName="InvLot">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="LotmLotNbr" phpName="Lotmlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="LotmLotRef" phpName="Lotmlotref" type="VARCHAR" size="20"/>
+    <column name="LotmFrstActDate" phpName="Lotmfrstactdate" type="VARCHAR" size="8"/>
+    <column name="LotmImagYn" phpName="Lotmimagyn" type="VARCHAR" size="1"/>
+    <column name="LotmUnitWght" phpName="Lotmunitwght" type="DECIMAL" size="20" scale="7"/>
+    <column name="LotmRevision" phpName="Lotmrevision" type="VARCHAR" size="10"/>
+    <column name="LotmCtry" phpName="Lotmctry" type="VARCHAR" size="4"/>
+    <column name="LotmCOfC" phpName="Lotmcofc" type="VARCHAR" size="1"/>
+    <column name="LotmCreateDate" phpName="Lotmcreatedate" type="VARCHAR" size="8"/>
+    <column name="LotmCreateTime" phpName="Lotmcreatetime" type="VARCHAR" size="8"/>
+    <column name="LotmVendId" phpName="Lotmvendid" type="VARCHAR" size="6"/>
+    <column name="LotmExpireDate" phpName="Lotmexpiredate" type="VARCHAR" size="8"/>
+    <column name="LotmUnitCost" phpName="Lotmunitcost" type="DECIMAL" size="20" scale="7"/>
+    <column name="LotmCntrQty" phpName="Lotmcntrqty" type="DECIMAL" size="20" scale="5"/>
+    <column name="LotmSrcCd" phpName="Lotmsrccd" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_msds_code" idMethod="native" phpName="MsdsCode">
     <column name="IntbMsdsCode" phpName="Intbmsdscode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbMsdsDesc" phpName="Intbmsdsdesc" type="VARCHAR" size="20"/>

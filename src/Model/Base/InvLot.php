@@ -21,7 +21,7 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'inv_inv_lot' table.
+ * Base class that represents a row from the 'inv_lot_mast' table.
  *
  *
  *
@@ -70,280 +70,110 @@ abstract class InvLot implements ActiveRecordInterface
     protected $inititemnbr;
 
     /**
-     * The value for the intbwhse field.
+     * The value for the lotmlotnbr field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $intbwhse;
+    protected $lotmlotnbr;
 
     /**
-     * The value for the inltlotser field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $inltlotser;
-
-    /**
-     * The value for the inltbin field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $inltbin;
-
-    /**
-     * The value for the inltdate field.
+     * The value for the lotmlotref field.
      *
      * @var        string
      */
-    protected $inltdate;
+    protected $lotmlotref;
 
     /**
-     * The value for the inltdatewrit field.
+     * The value for the lotmfrstactdate field.
      *
      * @var        string
      */
-    protected $inltdatewrit;
+    protected $lotmfrstactdate;
 
     /**
-     * The value for the inltcost field.
+     * The value for the lotmimagyn field.
      *
      * @var        string
      */
-    protected $inltcost;
+    protected $lotmimagyn;
 
     /**
-     * The value for the inltonhand field.
+     * The value for the lotmunitwght field.
      *
      * @var        string
      */
-    protected $inltonhand;
+    protected $lotmunitwght;
 
     /**
-     * The value for the inltresv field.
+     * The value for the lotmrevision field.
      *
      * @var        string
      */
-    protected $inltresv;
+    protected $lotmrevision;
 
     /**
-     * The value for the inltship field.
+     * The value for the lotmctry field.
      *
      * @var        string
      */
-    protected $inltship;
+    protected $lotmctry;
 
     /**
-     * The value for the inltallo field.
+     * The value for the lotmcofc field.
      *
      * @var        string
      */
-    protected $inltallo;
+    protected $lotmcofc;
 
     /**
-     * The value for the inltfaballo field.
+     * The value for the lotmcreatedate field.
      *
      * @var        string
      */
-    protected $inltfaballo;
+    protected $lotmcreatedate;
 
     /**
-     * The value for the inltintran field.
+     * The value for the lotmcreatetime field.
      *
      * @var        string
      */
-    protected $inltintran;
+    protected $lotmcreatetime;
 
     /**
-     * The value for the inltinship field.
+     * The value for the lotmvendid field.
      *
      * @var        string
      */
-    protected $inltinship;
+    protected $lotmvendid;
 
     /**
-     * The value for the inltlotref field.
+     * The value for the lotmexpiredate field.
      *
      * @var        string
      */
-    protected $inltlotref;
+    protected $lotmexpiredate;
 
     /**
-     * The value for the inltbatch field.
+     * The value for the lotmunitcost field.
      *
      * @var        string
      */
-    protected $inltbatch;
+    protected $lotmunitcost;
 
     /**
-     * The value for the inltlandcost1 field.
+     * The value for the lotmcntrqty field.
      *
      * @var        string
      */
-    protected $inltlandcost1;
+    protected $lotmcntrqty;
 
     /**
-     * The value for the inltlandcost2 field.
+     * The value for the lotmsrccd field.
      *
      * @var        string
      */
-    protected $inltlandcost2;
-
-    /**
-     * The value for the inltlandcost3 field.
-     *
-     * @var        string
-     */
-    protected $inltlandcost3;
-
-    /**
-     * The value for the inltlandcost4 field.
-     *
-     * @var        string
-     */
-    protected $inltlandcost4;
-
-    /**
-     * The value for the inltlandcost5 field.
-     *
-     * @var        string
-     */
-    protected $inltlandcost5;
-
-    /**
-     * The value for the inlttariffcost field.
-     *
-     * @var        string
-     */
-    protected $inlttariffcost;
-
-    /**
-     * The value for the inltshopcost field.
-     *
-     * @var        string
-     */
-    protected $inltshopcost;
-
-    /**
-     * The value for the inltisscodfsqty field.
-     *
-     * @var        string
-     */
-    protected $inltisscodfsqty;
-
-    /**
-     * The value for the inltheadmark field.
-     *
-     * @var        string
-     */
-    protected $inltheadmark;
-
-    /**
-     * The value for the inltctry field.
-     *
-     * @var        string
-     */
-    protected $inltctry;
-
-    /**
-     * The value for the inltrvalorigcost field.
-     *
-     * @var        string
-     */
-    protected $inltrvalorigcost;
-
-    /**
-     * The value for the inltrvalpct field.
-     *
-     * @var        string
-     */
-    protected $inltrvalpct;
-
-    /**
-     * The value for the inltunitwght field.
-     *
-     * @var        string
-     */
-    protected $inltunitwght;
-
-    /**
-     * The value for the inltdestwhse field.
-     *
-     * @var        string
-     */
-    protected $inltdestwhse;
-
-    /**
-     * The value for the inltcntrqty field.
-     *
-     * @var        string
-     */
-    protected $inltcntrqty;
-
-    /**
-     * The value for the inltqtyperroll field.
-     *
-     * @var        string
-     */
-    protected $inltqtyperroll;
-
-    /**
-     * The value for the inlttarewght field.
-     *
-     * @var        string
-     */
-    protected $inlttarewght;
-
-    /**
-     * The value for the inltqcreasoncd field.
-     *
-     * @var        string
-     */
-    protected $inltqcreasoncd;
-
-    /**
-     * The value for the inltcert field.
-     *
-     * @var        string
-     */
-    protected $inltcert;
-
-    /**
-     * The value for the inltcuredate field.
-     *
-     * @var        string
-     */
-    protected $inltcuredate;
-
-    /**
-     * The value for the inltexpiredatecd field.
-     *
-     * @var        string
-     */
-    protected $inltexpiredatecd;
-
-    /**
-     * The value for the inltexpiredate field.
-     *
-     * @var        string
-     */
-    protected $inltexpiredate;
-
-    /**
-     * The value for the inltorigbin field.
-     *
-     * @var        string
-     */
-    protected $inltorigbin;
-
-    /**
-     * The value for the inltshopitem field.
-     *
-     * @var        string
-     */
-    protected $inltshopitem;
+    protected $lotmsrccd;
 
     /**
      * The value for the dateupdtd field.
@@ -388,9 +218,7 @@ abstract class InvLot implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->inititemnbr = '';
-        $this->intbwhse = '';
-        $this->inltlotser = '';
-        $this->inltbin = '';
+        $this->lotmlotnbr = '';
     }
 
     /**
@@ -631,393 +459,153 @@ abstract class InvLot implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbwhse] column value.
+     * Get the [lotmlotnbr] column value.
      *
      * @return string
      */
-    public function getIntbwhse()
+    public function getLotmlotnbr()
     {
-        return $this->intbwhse;
+        return $this->lotmlotnbr;
     }
 
     /**
-     * Get the [inltlotser] column value.
+     * Get the [lotmlotref] column value.
      *
      * @return string
      */
-    public function getInltlotser()
+    public function getLotmlotref()
     {
-        return $this->inltlotser;
+        return $this->lotmlotref;
     }
 
     /**
-     * Get the [inltbin] column value.
+     * Get the [lotmfrstactdate] column value.
      *
      * @return string
      */
-    public function getInltbin()
+    public function getLotmfrstactdate()
     {
-        return $this->inltbin;
+        return $this->lotmfrstactdate;
     }
 
     /**
-     * Get the [inltdate] column value.
+     * Get the [lotmimagyn] column value.
      *
      * @return string
      */
-    public function getInltdate()
+    public function getLotmimagyn()
     {
-        return $this->inltdate;
+        return $this->lotmimagyn;
     }
 
     /**
-     * Get the [inltdatewrit] column value.
+     * Get the [lotmunitwght] column value.
      *
      * @return string
      */
-    public function getInltdatewrit()
+    public function getLotmunitwght()
     {
-        return $this->inltdatewrit;
+        return $this->lotmunitwght;
     }
 
     /**
-     * Get the [inltcost] column value.
+     * Get the [lotmrevision] column value.
      *
      * @return string
      */
-    public function getInltcost()
+    public function getLotmrevision()
     {
-        return $this->inltcost;
+        return $this->lotmrevision;
     }
 
     /**
-     * Get the [inltonhand] column value.
+     * Get the [lotmctry] column value.
      *
      * @return string
      */
-    public function getInltonhand()
+    public function getLotmctry()
     {
-        return $this->inltonhand;
+        return $this->lotmctry;
     }
 
     /**
-     * Get the [inltresv] column value.
+     * Get the [lotmcofc] column value.
      *
      * @return string
      */
-    public function getInltresv()
+    public function getLotmcofc()
     {
-        return $this->inltresv;
+        return $this->lotmcofc;
     }
 
     /**
-     * Get the [inltship] column value.
+     * Get the [lotmcreatedate] column value.
      *
      * @return string
      */
-    public function getInltship()
+    public function getLotmcreatedate()
     {
-        return $this->inltship;
+        return $this->lotmcreatedate;
     }
 
     /**
-     * Get the [inltallo] column value.
+     * Get the [lotmcreatetime] column value.
      *
      * @return string
      */
-    public function getInltallo()
+    public function getLotmcreatetime()
     {
-        return $this->inltallo;
+        return $this->lotmcreatetime;
     }
 
     /**
-     * Get the [inltfaballo] column value.
+     * Get the [lotmvendid] column value.
      *
      * @return string
      */
-    public function getInltfaballo()
+    public function getLotmvendid()
     {
-        return $this->inltfaballo;
+        return $this->lotmvendid;
     }
 
     /**
-     * Get the [inltintran] column value.
+     * Get the [lotmexpiredate] column value.
      *
      * @return string
      */
-    public function getInltintran()
+    public function getLotmexpiredate()
     {
-        return $this->inltintran;
+        return $this->lotmexpiredate;
     }
 
     /**
-     * Get the [inltinship] column value.
+     * Get the [lotmunitcost] column value.
      *
      * @return string
      */
-    public function getInltinship()
+    public function getLotmunitcost()
     {
-        return $this->inltinship;
+        return $this->lotmunitcost;
     }
 
     /**
-     * Get the [inltlotref] column value.
+     * Get the [lotmcntrqty] column value.
      *
      * @return string
      */
-    public function getInltlotref()
+    public function getLotmcntrqty()
     {
-        return $this->inltlotref;
+        return $this->lotmcntrqty;
     }
 
     /**
-     * Get the [inltbatch] column value.
+     * Get the [lotmsrccd] column value.
      *
      * @return string
      */
-    public function getInltbatch()
+    public function getLotmsrccd()
     {
-        return $this->inltbatch;
-    }
-
-    /**
-     * Get the [inltlandcost1] column value.
-     *
-     * @return string
-     */
-    public function getInltlandcost1()
-    {
-        return $this->inltlandcost1;
-    }
-
-    /**
-     * Get the [inltlandcost2] column value.
-     *
-     * @return string
-     */
-    public function getInltlandcost2()
-    {
-        return $this->inltlandcost2;
-    }
-
-    /**
-     * Get the [inltlandcost3] column value.
-     *
-     * @return string
-     */
-    public function getInltlandcost3()
-    {
-        return $this->inltlandcost3;
-    }
-
-    /**
-     * Get the [inltlandcost4] column value.
-     *
-     * @return string
-     */
-    public function getInltlandcost4()
-    {
-        return $this->inltlandcost4;
-    }
-
-    /**
-     * Get the [inltlandcost5] column value.
-     *
-     * @return string
-     */
-    public function getInltlandcost5()
-    {
-        return $this->inltlandcost5;
-    }
-
-    /**
-     * Get the [inlttariffcost] column value.
-     *
-     * @return string
-     */
-    public function getInlttariffcost()
-    {
-        return $this->inlttariffcost;
-    }
-
-    /**
-     * Get the [inltshopcost] column value.
-     *
-     * @return string
-     */
-    public function getInltshopcost()
-    {
-        return $this->inltshopcost;
-    }
-
-    /**
-     * Get the [inltisscodfsqty] column value.
-     *
-     * @return string
-     */
-    public function getInltisscodfsqty()
-    {
-        return $this->inltisscodfsqty;
-    }
-
-    /**
-     * Get the [inltheadmark] column value.
-     *
-     * @return string
-     */
-    public function getInltheadmark()
-    {
-        return $this->inltheadmark;
-    }
-
-    /**
-     * Get the [inltctry] column value.
-     *
-     * @return string
-     */
-    public function getInltctry()
-    {
-        return $this->inltctry;
-    }
-
-    /**
-     * Get the [inltrvalorigcost] column value.
-     *
-     * @return string
-     */
-    public function getInltrvalorigcost()
-    {
-        return $this->inltrvalorigcost;
-    }
-
-    /**
-     * Get the [inltrvalpct] column value.
-     *
-     * @return string
-     */
-    public function getInltrvalpct()
-    {
-        return $this->inltrvalpct;
-    }
-
-    /**
-     * Get the [inltunitwght] column value.
-     *
-     * @return string
-     */
-    public function getInltunitwght()
-    {
-        return $this->inltunitwght;
-    }
-
-    /**
-     * Get the [inltdestwhse] column value.
-     *
-     * @return string
-     */
-    public function getInltdestwhse()
-    {
-        return $this->inltdestwhse;
-    }
-
-    /**
-     * Get the [inltcntrqty] column value.
-     *
-     * @return string
-     */
-    public function getInltcntrqty()
-    {
-        return $this->inltcntrqty;
-    }
-
-    /**
-     * Get the [inltqtyperroll] column value.
-     *
-     * @return string
-     */
-    public function getInltqtyperroll()
-    {
-        return $this->inltqtyperroll;
-    }
-
-    /**
-     * Get the [inlttarewght] column value.
-     *
-     * @return string
-     */
-    public function getInlttarewght()
-    {
-        return $this->inlttarewght;
-    }
-
-    /**
-     * Get the [inltqcreasoncd] column value.
-     *
-     * @return string
-     */
-    public function getInltqcreasoncd()
-    {
-        return $this->inltqcreasoncd;
-    }
-
-    /**
-     * Get the [inltcert] column value.
-     *
-     * @return string
-     */
-    public function getInltcert()
-    {
-        return $this->inltcert;
-    }
-
-    /**
-     * Get the [inltcuredate] column value.
-     *
-     * @return string
-     */
-    public function getInltcuredate()
-    {
-        return $this->inltcuredate;
-    }
-
-    /**
-     * Get the [inltexpiredatecd] column value.
-     *
-     * @return string
-     */
-    public function getInltexpiredatecd()
-    {
-        return $this->inltexpiredatecd;
-    }
-
-    /**
-     * Get the [inltexpiredate] column value.
-     *
-     * @return string
-     */
-    public function getInltexpiredate()
-    {
-        return $this->inltexpiredate;
-    }
-
-    /**
-     * Get the [inltorigbin] column value.
-     *
-     * @return string
-     */
-    public function getInltorigbin()
-    {
-        return $this->inltorigbin;
-    }
-
-    /**
-     * Get the [inltshopitem] column value.
-     *
-     * @return string
-     */
-    public function getInltshopitem()
-    {
-        return $this->inltshopitem;
+        return $this->lotmsrccd;
     }
 
     /**
@@ -1075,784 +663,304 @@ abstract class InvLot implements ActiveRecordInterface
     } // setInititemnbr()
 
     /**
-     * Set the value of [intbwhse] column.
+     * Set the value of [lotmlotnbr] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setIntbwhse($v)
+    public function setLotmlotnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbwhse !== $v) {
-            $this->intbwhse = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INTBWHSE] = true;
+        if ($this->lotmlotnbr !== $v) {
+            $this->lotmlotnbr = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMLOTNBR] = true;
         }
 
         return $this;
-    } // setIntbwhse()
+    } // setLotmlotnbr()
 
     /**
-     * Set the value of [inltlotser] column.
+     * Set the value of [lotmlotref] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltlotser($v)
+    public function setLotmlotref($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlotser !== $v) {
-            $this->inltlotser = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLOTSER] = true;
+        if ($this->lotmlotref !== $v) {
+            $this->lotmlotref = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMLOTREF] = true;
         }
 
         return $this;
-    } // setInltlotser()
+    } // setLotmlotref()
 
     /**
-     * Set the value of [inltbin] column.
+     * Set the value of [lotmfrstactdate] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltbin($v)
+    public function setLotmfrstactdate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltbin !== $v) {
-            $this->inltbin = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTBIN] = true;
+        if ($this->lotmfrstactdate !== $v) {
+            $this->lotmfrstactdate = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMFRSTACTDATE] = true;
         }
 
         return $this;
-    } // setInltbin()
+    } // setLotmfrstactdate()
 
     /**
-     * Set the value of [inltdate] column.
+     * Set the value of [lotmimagyn] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltdate($v)
+    public function setLotmimagyn($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltdate !== $v) {
-            $this->inltdate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTDATE] = true;
+        if ($this->lotmimagyn !== $v) {
+            $this->lotmimagyn = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMIMAGYN] = true;
         }
 
         return $this;
-    } // setInltdate()
+    } // setLotmimagyn()
 
     /**
-     * Set the value of [inltdatewrit] column.
+     * Set the value of [lotmunitwght] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltdatewrit($v)
+    public function setLotmunitwght($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltdatewrit !== $v) {
-            $this->inltdatewrit = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTDATEWRIT] = true;
+        if ($this->lotmunitwght !== $v) {
+            $this->lotmunitwght = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMUNITWGHT] = true;
         }
 
         return $this;
-    } // setInltdatewrit()
+    } // setLotmunitwght()
 
     /**
-     * Set the value of [inltcost] column.
+     * Set the value of [lotmrevision] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltcost($v)
+    public function setLotmrevision($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltcost !== $v) {
-            $this->inltcost = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTCOST] = true;
+        if ($this->lotmrevision !== $v) {
+            $this->lotmrevision = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMREVISION] = true;
         }
 
         return $this;
-    } // setInltcost()
+    } // setLotmrevision()
 
     /**
-     * Set the value of [inltonhand] column.
+     * Set the value of [lotmctry] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltonhand($v)
+    public function setLotmctry($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltonhand !== $v) {
-            $this->inltonhand = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTONHAND] = true;
+        if ($this->lotmctry !== $v) {
+            $this->lotmctry = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMCTRY] = true;
         }
 
         return $this;
-    } // setInltonhand()
+    } // setLotmctry()
 
     /**
-     * Set the value of [inltresv] column.
+     * Set the value of [lotmcofc] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltresv($v)
+    public function setLotmcofc($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltresv !== $v) {
-            $this->inltresv = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTRESV] = true;
+        if ($this->lotmcofc !== $v) {
+            $this->lotmcofc = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMCOFC] = true;
         }
 
         return $this;
-    } // setInltresv()
+    } // setLotmcofc()
 
     /**
-     * Set the value of [inltship] column.
+     * Set the value of [lotmcreatedate] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltship($v)
+    public function setLotmcreatedate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltship !== $v) {
-            $this->inltship = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTSHIP] = true;
+        if ($this->lotmcreatedate !== $v) {
+            $this->lotmcreatedate = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMCREATEDATE] = true;
         }
 
         return $this;
-    } // setInltship()
+    } // setLotmcreatedate()
 
     /**
-     * Set the value of [inltallo] column.
+     * Set the value of [lotmcreatetime] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltallo($v)
+    public function setLotmcreatetime($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltallo !== $v) {
-            $this->inltallo = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTALLO] = true;
+        if ($this->lotmcreatetime !== $v) {
+            $this->lotmcreatetime = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMCREATETIME] = true;
         }
 
         return $this;
-    } // setInltallo()
+    } // setLotmcreatetime()
 
     /**
-     * Set the value of [inltfaballo] column.
+     * Set the value of [lotmvendid] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltfaballo($v)
+    public function setLotmvendid($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltfaballo !== $v) {
-            $this->inltfaballo = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTFABALLO] = true;
+        if ($this->lotmvendid !== $v) {
+            $this->lotmvendid = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMVENDID] = true;
         }
 
         return $this;
-    } // setInltfaballo()
+    } // setLotmvendid()
 
     /**
-     * Set the value of [inltintran] column.
+     * Set the value of [lotmexpiredate] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltintran($v)
+    public function setLotmexpiredate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltintran !== $v) {
-            $this->inltintran = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTINTRAN] = true;
+        if ($this->lotmexpiredate !== $v) {
+            $this->lotmexpiredate = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMEXPIREDATE] = true;
         }
 
         return $this;
-    } // setInltintran()
+    } // setLotmexpiredate()
 
     /**
-     * Set the value of [inltinship] column.
+     * Set the value of [lotmunitcost] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltinship($v)
+    public function setLotmunitcost($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltinship !== $v) {
-            $this->inltinship = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTINSHIP] = true;
+        if ($this->lotmunitcost !== $v) {
+            $this->lotmunitcost = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMUNITCOST] = true;
         }
 
         return $this;
-    } // setInltinship()
+    } // setLotmunitcost()
 
     /**
-     * Set the value of [inltlotref] column.
+     * Set the value of [lotmcntrqty] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltlotref($v)
+    public function setLotmcntrqty($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltlotref !== $v) {
-            $this->inltlotref = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLOTREF] = true;
+        if ($this->lotmcntrqty !== $v) {
+            $this->lotmcntrqty = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMCNTRQTY] = true;
         }
 
         return $this;
-    } // setInltlotref()
+    } // setLotmcntrqty()
 
     /**
-     * Set the value of [inltbatch] column.
+     * Set the value of [lotmsrccd] column.
      *
      * @param string $v new value
      * @return $this|\InvLot The current object (for fluent API support)
      */
-    public function setInltbatch($v)
+    public function setLotmsrccd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inltbatch !== $v) {
-            $this->inltbatch = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTBATCH] = true;
+        if ($this->lotmsrccd !== $v) {
+            $this->lotmsrccd = $v;
+            $this->modifiedColumns[InvLotTableMap::COL_LOTMSRCCD] = true;
         }
 
         return $this;
-    } // setInltbatch()
-
-    /**
-     * Set the value of [inltlandcost1] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltlandcost1($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltlandcost1 !== $v) {
-            $this->inltlandcost1 = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLANDCOST1] = true;
-        }
-
-        return $this;
-    } // setInltlandcost1()
-
-    /**
-     * Set the value of [inltlandcost2] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltlandcost2($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltlandcost2 !== $v) {
-            $this->inltlandcost2 = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLANDCOST2] = true;
-        }
-
-        return $this;
-    } // setInltlandcost2()
-
-    /**
-     * Set the value of [inltlandcost3] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltlandcost3($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltlandcost3 !== $v) {
-            $this->inltlandcost3 = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLANDCOST3] = true;
-        }
-
-        return $this;
-    } // setInltlandcost3()
-
-    /**
-     * Set the value of [inltlandcost4] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltlandcost4($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltlandcost4 !== $v) {
-            $this->inltlandcost4 = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLANDCOST4] = true;
-        }
-
-        return $this;
-    } // setInltlandcost4()
-
-    /**
-     * Set the value of [inltlandcost5] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltlandcost5($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltlandcost5 !== $v) {
-            $this->inltlandcost5 = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTLANDCOST5] = true;
-        }
-
-        return $this;
-    } // setInltlandcost5()
-
-    /**
-     * Set the value of [inlttariffcost] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInlttariffcost($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inlttariffcost !== $v) {
-            $this->inlttariffcost = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTTARIFFCOST] = true;
-        }
-
-        return $this;
-    } // setInlttariffcost()
-
-    /**
-     * Set the value of [inltshopcost] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltshopcost($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltshopcost !== $v) {
-            $this->inltshopcost = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTSHOPCOST] = true;
-        }
-
-        return $this;
-    } // setInltshopcost()
-
-    /**
-     * Set the value of [inltisscodfsqty] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltisscodfsqty($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltisscodfsqty !== $v) {
-            $this->inltisscodfsqty = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTISSCODFSQTY] = true;
-        }
-
-        return $this;
-    } // setInltisscodfsqty()
-
-    /**
-     * Set the value of [inltheadmark] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltheadmark($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltheadmark !== $v) {
-            $this->inltheadmark = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTHEADMARK] = true;
-        }
-
-        return $this;
-    } // setInltheadmark()
-
-    /**
-     * Set the value of [inltctry] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltctry($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltctry !== $v) {
-            $this->inltctry = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTCTRY] = true;
-        }
-
-        return $this;
-    } // setInltctry()
-
-    /**
-     * Set the value of [inltrvalorigcost] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltrvalorigcost($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltrvalorigcost !== $v) {
-            $this->inltrvalorigcost = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTRVALORIGCOST] = true;
-        }
-
-        return $this;
-    } // setInltrvalorigcost()
-
-    /**
-     * Set the value of [inltrvalpct] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltrvalpct($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltrvalpct !== $v) {
-            $this->inltrvalpct = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTRVALPCT] = true;
-        }
-
-        return $this;
-    } // setInltrvalpct()
-
-    /**
-     * Set the value of [inltunitwght] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltunitwght($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltunitwght !== $v) {
-            $this->inltunitwght = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTUNITWGHT] = true;
-        }
-
-        return $this;
-    } // setInltunitwght()
-
-    /**
-     * Set the value of [inltdestwhse] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltdestwhse($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltdestwhse !== $v) {
-            $this->inltdestwhse = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTDESTWHSE] = true;
-        }
-
-        return $this;
-    } // setInltdestwhse()
-
-    /**
-     * Set the value of [inltcntrqty] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltcntrqty($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltcntrqty !== $v) {
-            $this->inltcntrqty = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTCNTRQTY] = true;
-        }
-
-        return $this;
-    } // setInltcntrqty()
-
-    /**
-     * Set the value of [inltqtyperroll] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltqtyperroll($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltqtyperroll !== $v) {
-            $this->inltqtyperroll = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTQTYPERROLL] = true;
-        }
-
-        return $this;
-    } // setInltqtyperroll()
-
-    /**
-     * Set the value of [inlttarewght] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInlttarewght($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inlttarewght !== $v) {
-            $this->inlttarewght = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTTAREWGHT] = true;
-        }
-
-        return $this;
-    } // setInlttarewght()
-
-    /**
-     * Set the value of [inltqcreasoncd] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltqcreasoncd($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltqcreasoncd !== $v) {
-            $this->inltqcreasoncd = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTQCREASONCD] = true;
-        }
-
-        return $this;
-    } // setInltqcreasoncd()
-
-    /**
-     * Set the value of [inltcert] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltcert($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltcert !== $v) {
-            $this->inltcert = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTCERT] = true;
-        }
-
-        return $this;
-    } // setInltcert()
-
-    /**
-     * Set the value of [inltcuredate] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltcuredate($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltcuredate !== $v) {
-            $this->inltcuredate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTCUREDATE] = true;
-        }
-
-        return $this;
-    } // setInltcuredate()
-
-    /**
-     * Set the value of [inltexpiredatecd] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltexpiredatecd($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltexpiredatecd !== $v) {
-            $this->inltexpiredatecd = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTEXPIREDATECD] = true;
-        }
-
-        return $this;
-    } // setInltexpiredatecd()
-
-    /**
-     * Set the value of [inltexpiredate] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltexpiredate($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltexpiredate !== $v) {
-            $this->inltexpiredate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTEXPIREDATE] = true;
-        }
-
-        return $this;
-    } // setInltexpiredate()
-
-    /**
-     * Set the value of [inltorigbin] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltorigbin($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltorigbin !== $v) {
-            $this->inltorigbin = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTORIGBIN] = true;
-        }
-
-        return $this;
-    } // setInltorigbin()
-
-    /**
-     * Set the value of [inltshopitem] column.
-     *
-     * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
-     */
-    public function setInltshopitem($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->inltshopitem !== $v) {
-            $this->inltshopitem = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INLTSHOPITEM] = true;
-        }
-
-        return $this;
-    } // setInltshopitem()
+    } // setLotmsrccd()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -1928,15 +1036,7 @@ abstract class InvLot implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->intbwhse !== '') {
-                return false;
-            }
-
-            if ($this->inltlotser !== '') {
-                return false;
-            }
-
-            if ($this->inltbin !== '') {
+            if ($this->lotmlotnbr !== '') {
                 return false;
             }
 
@@ -1969,130 +1069,58 @@ abstract class InvLot implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvLotTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvLotTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbwhse = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvLotTableMap::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmlotnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvLotTableMap::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlotser = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvLotTableMap::translateFieldName('Lotmlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvLotTableMap::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltbin = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvLotTableMap::translateFieldName('Lotmfrstactdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmfrstactdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvLotTableMap::translateFieldName('Inltdate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltdate = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvLotTableMap::translateFieldName('Lotmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmimagyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvLotTableMap::translateFieldName('Inltdatewrit', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltdatewrit = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvLotTableMap::translateFieldName('Lotmunitwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmunitwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvLotTableMap::translateFieldName('Inltcost', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltcost = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvLotTableMap::translateFieldName('Lotmrevision', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmrevision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvLotTableMap::translateFieldName('Inltonhand', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltonhand = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvLotTableMap::translateFieldName('Lotmctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvLotTableMap::translateFieldName('Inltresv', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltresv = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvLotTableMap::translateFieldName('Lotmcofc', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmcofc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvLotTableMap::translateFieldName('Inltship', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltship = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvLotTableMap::translateFieldName('Lotmcreatedate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmcreatedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvLotTableMap::translateFieldName('Inltallo', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltallo = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvLotTableMap::translateFieldName('Lotmcreatetime', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmcreatetime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvLotTableMap::translateFieldName('Inltfaballo', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltfaballo = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvLotTableMap::translateFieldName('Lotmvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvLotTableMap::translateFieldName('Inltintran', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltintran = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvLotTableMap::translateFieldName('Lotmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvLotTableMap::translateFieldName('Inltinship', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltinship = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvLotTableMap::translateFieldName('Lotmunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvLotTableMap::translateFieldName('Inltlotref', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlotref = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvLotTableMap::translateFieldName('Lotmcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmcntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvLotTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltbatch = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvLotTableMap::translateFieldName('Lotmsrccd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->lotmsrccd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotTableMap::translateFieldName('Inltlandcost1', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost1 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotTableMap::translateFieldName('Inltlandcost2', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost2 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotTableMap::translateFieldName('Inltlandcost3', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost3 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvLotTableMap::translateFieldName('Inltlandcost4', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost4 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvLotTableMap::translateFieldName('Inltlandcost5', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltlandcost5 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvLotTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inlttariffcost = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvLotTableMap::translateFieldName('Inltshopcost', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltshopcost = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvLotTableMap::translateFieldName('Inltisscodfsqty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltisscodfsqty = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvLotTableMap::translateFieldName('Inltheadmark', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltheadmark = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvLotTableMap::translateFieldName('Inltctry', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltctry = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : InvLotTableMap::translateFieldName('Inltrvalorigcost', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltrvalorigcost = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : InvLotTableMap::translateFieldName('Inltrvalpct', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltrvalpct = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : InvLotTableMap::translateFieldName('Inltunitwght', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltunitwght = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : InvLotTableMap::translateFieldName('Inltdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltdestwhse = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : InvLotTableMap::translateFieldName('Inltcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltcntrqty = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : InvLotTableMap::translateFieldName('Inltqtyperroll', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltqtyperroll = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : InvLotTableMap::translateFieldName('Inlttarewght', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inlttarewght = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : InvLotTableMap::translateFieldName('Inltqcreasoncd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltqcreasoncd = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : InvLotTableMap::translateFieldName('Inltcert', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltcert = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : InvLotTableMap::translateFieldName('Inltcuredate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltcuredate = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : InvLotTableMap::translateFieldName('Inltexpiredatecd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltexpiredatecd = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : InvLotTableMap::translateFieldName('Inltexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltexpiredate = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : InvLotTableMap::translateFieldName('Inltorigbin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltorigbin = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : InvLotTableMap::translateFieldName('Inltshopitem', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inltshopitem = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : InvLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : InvLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : InvLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -2102,7 +1130,7 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 43; // 43 = InvLotTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = InvLotTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\InvLot'), 0, $e);
@@ -2318,122 +1346,50 @@ abstract class InvLot implements ActiveRecordInterface
         if ($this->isColumnModified(InvLotTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INTBWHSE)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbWhse';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmLotNbr';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLOTSER)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLotSer';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTREF)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmLotRef';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'InltBin';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMFRSTACTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmFrstActDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'InltDate';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMIMAGYN)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmImagYn';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDATEWRIT)) {
-            $modifiedColumns[':p' . $index++]  = 'InltDateWrit';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITWGHT)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmUnitWght';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCOST)) {
-            $modifiedColumns[':p' . $index++]  = 'InltCost';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMREVISION)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmRevision';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTONHAND)) {
-            $modifiedColumns[':p' . $index++]  = 'InltOnHand';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCTRY)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCtry';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRESV)) {
-            $modifiedColumns[':p' . $index++]  = 'InltResv';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCOFC)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCOfC';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHIP)) {
-            $modifiedColumns[':p' . $index++]  = 'InltShip';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATEDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCreateDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTALLO)) {
-            $modifiedColumns[':p' . $index++]  = 'InltAllo';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATETIME)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCreateTime';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTFABALLO)) {
-            $modifiedColumns[':p' . $index++]  = 'InltFabAllo';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMVENDID)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmVendId';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTINTRAN)) {
-            $modifiedColumns[':p' . $index++]  = 'InltInTran';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMEXPIREDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmExpireDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTINSHIP)) {
-            $modifiedColumns[':p' . $index++]  = 'InltInShip';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmUnitCost';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLOTREF)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLotRef';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCNTRQTY)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmCntrQty';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTBATCH)) {
-            $modifiedColumns[':p' . $index++]  = 'InltBatch';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST1)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost1';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST2)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost2';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST3)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost3';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST4)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost4';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST5)) {
-            $modifiedColumns[':p' . $index++]  = 'InltLandCost5';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTTARIFFCOST)) {
-            $modifiedColumns[':p' . $index++]  = 'InltTariffCost';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHOPCOST)) {
-            $modifiedColumns[':p' . $index++]  = 'InltShopCost';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTISSCODFSQTY)) {
-            $modifiedColumns[':p' . $index++]  = 'InltIsscoDfsQty';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTHEADMARK)) {
-            $modifiedColumns[':p' . $index++]  = 'InltHeadMark';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCTRY)) {
-            $modifiedColumns[':p' . $index++]  = 'InltCtry';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRVALORIGCOST)) {
-            $modifiedColumns[':p' . $index++]  = 'InltRvalOrigCost';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRVALPCT)) {
-            $modifiedColumns[':p' . $index++]  = 'InltRvalPct';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTUNITWGHT)) {
-            $modifiedColumns[':p' . $index++]  = 'InltUnitWght';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDESTWHSE)) {
-            $modifiedColumns[':p' . $index++]  = 'InltDestWhse';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCNTRQTY)) {
-            $modifiedColumns[':p' . $index++]  = 'InltCntrQty';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTQTYPERROLL)) {
-            $modifiedColumns[':p' . $index++]  = 'InltQtyPerRoll';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTTAREWGHT)) {
-            $modifiedColumns[':p' . $index++]  = 'InltTareWght';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTQCREASONCD)) {
-            $modifiedColumns[':p' . $index++]  = 'InltQcReasonCd';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCERT)) {
-            $modifiedColumns[':p' . $index++]  = 'InltCert';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCUREDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'InltCureDate';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTEXPIREDATECD)) {
-            $modifiedColumns[':p' . $index++]  = 'InltExpireDateCd';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTEXPIREDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'InltExpireDate';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTORIGBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'InltOrigBin';
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHOPITEM)) {
-            $modifiedColumns[':p' . $index++]  = 'InltShopItem';
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMSRCCD)) {
+            $modifiedColumns[':p' . $index++]  = 'LotmSrcCd';
         }
         if ($this->isColumnModified(InvLotTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
@@ -2446,7 +1402,7 @@ abstract class InvLot implements ActiveRecordInterface
         }
 
         $sql = sprintf(
-            'INSERT INTO inv_inv_lot (%s) VALUES (%s)',
+            'INSERT INTO inv_lot_mast (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -2458,122 +1414,50 @@ abstract class InvLot implements ActiveRecordInterface
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
-                    case 'IntbWhse':
-                        $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+                    case 'LotmLotNbr':
+                        $stmt->bindValue($identifier, $this->lotmlotnbr, PDO::PARAM_STR);
                         break;
-                    case 'InltLotSer':
-                        $stmt->bindValue($identifier, $this->inltlotser, PDO::PARAM_STR);
+                    case 'LotmLotRef':
+                        $stmt->bindValue($identifier, $this->lotmlotref, PDO::PARAM_STR);
                         break;
-                    case 'InltBin':
-                        $stmt->bindValue($identifier, $this->inltbin, PDO::PARAM_STR);
+                    case 'LotmFrstActDate':
+                        $stmt->bindValue($identifier, $this->lotmfrstactdate, PDO::PARAM_STR);
                         break;
-                    case 'InltDate':
-                        $stmt->bindValue($identifier, $this->inltdate, PDO::PARAM_STR);
+                    case 'LotmImagYn':
+                        $stmt->bindValue($identifier, $this->lotmimagyn, PDO::PARAM_STR);
                         break;
-                    case 'InltDateWrit':
-                        $stmt->bindValue($identifier, $this->inltdatewrit, PDO::PARAM_STR);
+                    case 'LotmUnitWght':
+                        $stmt->bindValue($identifier, $this->lotmunitwght, PDO::PARAM_STR);
                         break;
-                    case 'InltCost':
-                        $stmt->bindValue($identifier, $this->inltcost, PDO::PARAM_STR);
+                    case 'LotmRevision':
+                        $stmt->bindValue($identifier, $this->lotmrevision, PDO::PARAM_STR);
                         break;
-                    case 'InltOnHand':
-                        $stmt->bindValue($identifier, $this->inltonhand, PDO::PARAM_STR);
+                    case 'LotmCtry':
+                        $stmt->bindValue($identifier, $this->lotmctry, PDO::PARAM_STR);
                         break;
-                    case 'InltResv':
-                        $stmt->bindValue($identifier, $this->inltresv, PDO::PARAM_STR);
+                    case 'LotmCOfC':
+                        $stmt->bindValue($identifier, $this->lotmcofc, PDO::PARAM_STR);
                         break;
-                    case 'InltShip':
-                        $stmt->bindValue($identifier, $this->inltship, PDO::PARAM_STR);
+                    case 'LotmCreateDate':
+                        $stmt->bindValue($identifier, $this->lotmcreatedate, PDO::PARAM_STR);
                         break;
-                    case 'InltAllo':
-                        $stmt->bindValue($identifier, $this->inltallo, PDO::PARAM_STR);
+                    case 'LotmCreateTime':
+                        $stmt->bindValue($identifier, $this->lotmcreatetime, PDO::PARAM_STR);
                         break;
-                    case 'InltFabAllo':
-                        $stmt->bindValue($identifier, $this->inltfaballo, PDO::PARAM_STR);
+                    case 'LotmVendId':
+                        $stmt->bindValue($identifier, $this->lotmvendid, PDO::PARAM_STR);
                         break;
-                    case 'InltInTran':
-                        $stmt->bindValue($identifier, $this->inltintran, PDO::PARAM_STR);
+                    case 'LotmExpireDate':
+                        $stmt->bindValue($identifier, $this->lotmexpiredate, PDO::PARAM_STR);
                         break;
-                    case 'InltInShip':
-                        $stmt->bindValue($identifier, $this->inltinship, PDO::PARAM_STR);
+                    case 'LotmUnitCost':
+                        $stmt->bindValue($identifier, $this->lotmunitcost, PDO::PARAM_STR);
                         break;
-                    case 'InltLotRef':
-                        $stmt->bindValue($identifier, $this->inltlotref, PDO::PARAM_STR);
+                    case 'LotmCntrQty':
+                        $stmt->bindValue($identifier, $this->lotmcntrqty, PDO::PARAM_STR);
                         break;
-                    case 'InltBatch':
-                        $stmt->bindValue($identifier, $this->inltbatch, PDO::PARAM_STR);
-                        break;
-                    case 'InltLandCost1':
-                        $stmt->bindValue($identifier, $this->inltlandcost1, PDO::PARAM_STR);
-                        break;
-                    case 'InltLandCost2':
-                        $stmt->bindValue($identifier, $this->inltlandcost2, PDO::PARAM_STR);
-                        break;
-                    case 'InltLandCost3':
-                        $stmt->bindValue($identifier, $this->inltlandcost3, PDO::PARAM_STR);
-                        break;
-                    case 'InltLandCost4':
-                        $stmt->bindValue($identifier, $this->inltlandcost4, PDO::PARAM_STR);
-                        break;
-                    case 'InltLandCost5':
-                        $stmt->bindValue($identifier, $this->inltlandcost5, PDO::PARAM_STR);
-                        break;
-                    case 'InltTariffCost':
-                        $stmt->bindValue($identifier, $this->inlttariffcost, PDO::PARAM_STR);
-                        break;
-                    case 'InltShopCost':
-                        $stmt->bindValue($identifier, $this->inltshopcost, PDO::PARAM_STR);
-                        break;
-                    case 'InltIsscoDfsQty':
-                        $stmt->bindValue($identifier, $this->inltisscodfsqty, PDO::PARAM_STR);
-                        break;
-                    case 'InltHeadMark':
-                        $stmt->bindValue($identifier, $this->inltheadmark, PDO::PARAM_STR);
-                        break;
-                    case 'InltCtry':
-                        $stmt->bindValue($identifier, $this->inltctry, PDO::PARAM_STR);
-                        break;
-                    case 'InltRvalOrigCost':
-                        $stmt->bindValue($identifier, $this->inltrvalorigcost, PDO::PARAM_STR);
-                        break;
-                    case 'InltRvalPct':
-                        $stmt->bindValue($identifier, $this->inltrvalpct, PDO::PARAM_STR);
-                        break;
-                    case 'InltUnitWght':
-                        $stmt->bindValue($identifier, $this->inltunitwght, PDO::PARAM_STR);
-                        break;
-                    case 'InltDestWhse':
-                        $stmt->bindValue($identifier, $this->inltdestwhse, PDO::PARAM_STR);
-                        break;
-                    case 'InltCntrQty':
-                        $stmt->bindValue($identifier, $this->inltcntrqty, PDO::PARAM_STR);
-                        break;
-                    case 'InltQtyPerRoll':
-                        $stmt->bindValue($identifier, $this->inltqtyperroll, PDO::PARAM_STR);
-                        break;
-                    case 'InltTareWght':
-                        $stmt->bindValue($identifier, $this->inlttarewght, PDO::PARAM_STR);
-                        break;
-                    case 'InltQcReasonCd':
-                        $stmt->bindValue($identifier, $this->inltqcreasoncd, PDO::PARAM_STR);
-                        break;
-                    case 'InltCert':
-                        $stmt->bindValue($identifier, $this->inltcert, PDO::PARAM_STR);
-                        break;
-                    case 'InltCureDate':
-                        $stmt->bindValue($identifier, $this->inltcuredate, PDO::PARAM_STR);
-                        break;
-                    case 'InltExpireDateCd':
-                        $stmt->bindValue($identifier, $this->inltexpiredatecd, PDO::PARAM_STR);
-                        break;
-                    case 'InltExpireDate':
-                        $stmt->bindValue($identifier, $this->inltexpiredate, PDO::PARAM_STR);
-                        break;
-                    case 'InltOrigBin':
-                        $stmt->bindValue($identifier, $this->inltorigbin, PDO::PARAM_STR);
-                        break;
-                    case 'InltShopItem':
-                        $stmt->bindValue($identifier, $this->inltshopitem, PDO::PARAM_STR);
+                    case 'LotmSrcCd':
+                        $stmt->bindValue($identifier, $this->lotmsrccd, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2643,129 +1527,57 @@ abstract class InvLot implements ActiveRecordInterface
                 return $this->getInititemnbr();
                 break;
             case 1:
-                return $this->getIntbwhse();
+                return $this->getLotmlotnbr();
                 break;
             case 2:
-                return $this->getInltlotser();
+                return $this->getLotmlotref();
                 break;
             case 3:
-                return $this->getInltbin();
+                return $this->getLotmfrstactdate();
                 break;
             case 4:
-                return $this->getInltdate();
+                return $this->getLotmimagyn();
                 break;
             case 5:
-                return $this->getInltdatewrit();
+                return $this->getLotmunitwght();
                 break;
             case 6:
-                return $this->getInltcost();
+                return $this->getLotmrevision();
                 break;
             case 7:
-                return $this->getInltonhand();
+                return $this->getLotmctry();
                 break;
             case 8:
-                return $this->getInltresv();
+                return $this->getLotmcofc();
                 break;
             case 9:
-                return $this->getInltship();
+                return $this->getLotmcreatedate();
                 break;
             case 10:
-                return $this->getInltallo();
+                return $this->getLotmcreatetime();
                 break;
             case 11:
-                return $this->getInltfaballo();
+                return $this->getLotmvendid();
                 break;
             case 12:
-                return $this->getInltintran();
+                return $this->getLotmexpiredate();
                 break;
             case 13:
-                return $this->getInltinship();
+                return $this->getLotmunitcost();
                 break;
             case 14:
-                return $this->getInltlotref();
+                return $this->getLotmcntrqty();
                 break;
             case 15:
-                return $this->getInltbatch();
+                return $this->getLotmsrccd();
                 break;
             case 16:
-                return $this->getInltlandcost1();
-                break;
-            case 17:
-                return $this->getInltlandcost2();
-                break;
-            case 18:
-                return $this->getInltlandcost3();
-                break;
-            case 19:
-                return $this->getInltlandcost4();
-                break;
-            case 20:
-                return $this->getInltlandcost5();
-                break;
-            case 21:
-                return $this->getInlttariffcost();
-                break;
-            case 22:
-                return $this->getInltshopcost();
-                break;
-            case 23:
-                return $this->getInltisscodfsqty();
-                break;
-            case 24:
-                return $this->getInltheadmark();
-                break;
-            case 25:
-                return $this->getInltctry();
-                break;
-            case 26:
-                return $this->getInltrvalorigcost();
-                break;
-            case 27:
-                return $this->getInltrvalpct();
-                break;
-            case 28:
-                return $this->getInltunitwght();
-                break;
-            case 29:
-                return $this->getInltdestwhse();
-                break;
-            case 30:
-                return $this->getInltcntrqty();
-                break;
-            case 31:
-                return $this->getInltqtyperroll();
-                break;
-            case 32:
-                return $this->getInlttarewght();
-                break;
-            case 33:
-                return $this->getInltqcreasoncd();
-                break;
-            case 34:
-                return $this->getInltcert();
-                break;
-            case 35:
-                return $this->getInltcuredate();
-                break;
-            case 36:
-                return $this->getInltexpiredatecd();
-                break;
-            case 37:
-                return $this->getInltexpiredate();
-                break;
-            case 38:
-                return $this->getInltorigbin();
-                break;
-            case 39:
-                return $this->getInltshopitem();
-                break;
-            case 40:
                 return $this->getDateupdtd();
                 break;
-            case 41:
+            case 17:
                 return $this->getTimeupdtd();
                 break;
-            case 42:
+            case 18:
                 return $this->getDummy();
                 break;
             default:
@@ -2799,48 +1611,24 @@ abstract class InvLot implements ActiveRecordInterface
         $keys = InvLotTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getInititemnbr(),
-            $keys[1] => $this->getIntbwhse(),
-            $keys[2] => $this->getInltlotser(),
-            $keys[3] => $this->getInltbin(),
-            $keys[4] => $this->getInltdate(),
-            $keys[5] => $this->getInltdatewrit(),
-            $keys[6] => $this->getInltcost(),
-            $keys[7] => $this->getInltonhand(),
-            $keys[8] => $this->getInltresv(),
-            $keys[9] => $this->getInltship(),
-            $keys[10] => $this->getInltallo(),
-            $keys[11] => $this->getInltfaballo(),
-            $keys[12] => $this->getInltintran(),
-            $keys[13] => $this->getInltinship(),
-            $keys[14] => $this->getInltlotref(),
-            $keys[15] => $this->getInltbatch(),
-            $keys[16] => $this->getInltlandcost1(),
-            $keys[17] => $this->getInltlandcost2(),
-            $keys[18] => $this->getInltlandcost3(),
-            $keys[19] => $this->getInltlandcost4(),
-            $keys[20] => $this->getInltlandcost5(),
-            $keys[21] => $this->getInlttariffcost(),
-            $keys[22] => $this->getInltshopcost(),
-            $keys[23] => $this->getInltisscodfsqty(),
-            $keys[24] => $this->getInltheadmark(),
-            $keys[25] => $this->getInltctry(),
-            $keys[26] => $this->getInltrvalorigcost(),
-            $keys[27] => $this->getInltrvalpct(),
-            $keys[28] => $this->getInltunitwght(),
-            $keys[29] => $this->getInltdestwhse(),
-            $keys[30] => $this->getInltcntrqty(),
-            $keys[31] => $this->getInltqtyperroll(),
-            $keys[32] => $this->getInlttarewght(),
-            $keys[33] => $this->getInltqcreasoncd(),
-            $keys[34] => $this->getInltcert(),
-            $keys[35] => $this->getInltcuredate(),
-            $keys[36] => $this->getInltexpiredatecd(),
-            $keys[37] => $this->getInltexpiredate(),
-            $keys[38] => $this->getInltorigbin(),
-            $keys[39] => $this->getInltshopitem(),
-            $keys[40] => $this->getDateupdtd(),
-            $keys[41] => $this->getTimeupdtd(),
-            $keys[42] => $this->getDummy(),
+            $keys[1] => $this->getLotmlotnbr(),
+            $keys[2] => $this->getLotmlotref(),
+            $keys[3] => $this->getLotmfrstactdate(),
+            $keys[4] => $this->getLotmimagyn(),
+            $keys[5] => $this->getLotmunitwght(),
+            $keys[6] => $this->getLotmrevision(),
+            $keys[7] => $this->getLotmctry(),
+            $keys[8] => $this->getLotmcofc(),
+            $keys[9] => $this->getLotmcreatedate(),
+            $keys[10] => $this->getLotmcreatetime(),
+            $keys[11] => $this->getLotmvendid(),
+            $keys[12] => $this->getLotmexpiredate(),
+            $keys[13] => $this->getLotmunitcost(),
+            $keys[14] => $this->getLotmcntrqty(),
+            $keys[15] => $this->getLotmsrccd(),
+            $keys[16] => $this->getDateupdtd(),
+            $keys[17] => $this->getTimeupdtd(),
+            $keys[18] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2901,129 +1689,57 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->setInititemnbr($value);
                 break;
             case 1:
-                $this->setIntbwhse($value);
+                $this->setLotmlotnbr($value);
                 break;
             case 2:
-                $this->setInltlotser($value);
+                $this->setLotmlotref($value);
                 break;
             case 3:
-                $this->setInltbin($value);
+                $this->setLotmfrstactdate($value);
                 break;
             case 4:
-                $this->setInltdate($value);
+                $this->setLotmimagyn($value);
                 break;
             case 5:
-                $this->setInltdatewrit($value);
+                $this->setLotmunitwght($value);
                 break;
             case 6:
-                $this->setInltcost($value);
+                $this->setLotmrevision($value);
                 break;
             case 7:
-                $this->setInltonhand($value);
+                $this->setLotmctry($value);
                 break;
             case 8:
-                $this->setInltresv($value);
+                $this->setLotmcofc($value);
                 break;
             case 9:
-                $this->setInltship($value);
+                $this->setLotmcreatedate($value);
                 break;
             case 10:
-                $this->setInltallo($value);
+                $this->setLotmcreatetime($value);
                 break;
             case 11:
-                $this->setInltfaballo($value);
+                $this->setLotmvendid($value);
                 break;
             case 12:
-                $this->setInltintran($value);
+                $this->setLotmexpiredate($value);
                 break;
             case 13:
-                $this->setInltinship($value);
+                $this->setLotmunitcost($value);
                 break;
             case 14:
-                $this->setInltlotref($value);
+                $this->setLotmcntrqty($value);
                 break;
             case 15:
-                $this->setInltbatch($value);
+                $this->setLotmsrccd($value);
                 break;
             case 16:
-                $this->setInltlandcost1($value);
-                break;
-            case 17:
-                $this->setInltlandcost2($value);
-                break;
-            case 18:
-                $this->setInltlandcost3($value);
-                break;
-            case 19:
-                $this->setInltlandcost4($value);
-                break;
-            case 20:
-                $this->setInltlandcost5($value);
-                break;
-            case 21:
-                $this->setInlttariffcost($value);
-                break;
-            case 22:
-                $this->setInltshopcost($value);
-                break;
-            case 23:
-                $this->setInltisscodfsqty($value);
-                break;
-            case 24:
-                $this->setInltheadmark($value);
-                break;
-            case 25:
-                $this->setInltctry($value);
-                break;
-            case 26:
-                $this->setInltrvalorigcost($value);
-                break;
-            case 27:
-                $this->setInltrvalpct($value);
-                break;
-            case 28:
-                $this->setInltunitwght($value);
-                break;
-            case 29:
-                $this->setInltdestwhse($value);
-                break;
-            case 30:
-                $this->setInltcntrqty($value);
-                break;
-            case 31:
-                $this->setInltqtyperroll($value);
-                break;
-            case 32:
-                $this->setInlttarewght($value);
-                break;
-            case 33:
-                $this->setInltqcreasoncd($value);
-                break;
-            case 34:
-                $this->setInltcert($value);
-                break;
-            case 35:
-                $this->setInltcuredate($value);
-                break;
-            case 36:
-                $this->setInltexpiredatecd($value);
-                break;
-            case 37:
-                $this->setInltexpiredate($value);
-                break;
-            case 38:
-                $this->setInltorigbin($value);
-                break;
-            case 39:
-                $this->setInltshopitem($value);
-                break;
-            case 40:
                 $this->setDateupdtd($value);
                 break;
-            case 41:
+            case 17:
                 $this->setTimeupdtd($value);
                 break;
-            case 42:
+            case 18:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -3056,130 +1772,58 @@ abstract class InvLot implements ActiveRecordInterface
             $this->setInititemnbr($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setIntbwhse($arr[$keys[1]]);
+            $this->setLotmlotnbr($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setInltlotser($arr[$keys[2]]);
+            $this->setLotmlotref($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setInltbin($arr[$keys[3]]);
+            $this->setLotmfrstactdate($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setInltdate($arr[$keys[4]]);
+            $this->setLotmimagyn($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setInltdatewrit($arr[$keys[5]]);
+            $this->setLotmunitwght($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setInltcost($arr[$keys[6]]);
+            $this->setLotmrevision($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setInltonhand($arr[$keys[7]]);
+            $this->setLotmctry($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setInltresv($arr[$keys[8]]);
+            $this->setLotmcofc($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setInltship($arr[$keys[9]]);
+            $this->setLotmcreatedate($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setInltallo($arr[$keys[10]]);
+            $this->setLotmcreatetime($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setInltfaballo($arr[$keys[11]]);
+            $this->setLotmvendid($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setInltintran($arr[$keys[12]]);
+            $this->setLotmexpiredate($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setInltinship($arr[$keys[13]]);
+            $this->setLotmunitcost($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setInltlotref($arr[$keys[14]]);
+            $this->setLotmcntrqty($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setInltbatch($arr[$keys[15]]);
+            $this->setLotmsrccd($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setInltlandcost1($arr[$keys[16]]);
+            $this->setDateupdtd($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setInltlandcost2($arr[$keys[17]]);
+            $this->setTimeupdtd($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setInltlandcost3($arr[$keys[18]]);
-        }
-        if (array_key_exists($keys[19], $arr)) {
-            $this->setInltlandcost4($arr[$keys[19]]);
-        }
-        if (array_key_exists($keys[20], $arr)) {
-            $this->setInltlandcost5($arr[$keys[20]]);
-        }
-        if (array_key_exists($keys[21], $arr)) {
-            $this->setInlttariffcost($arr[$keys[21]]);
-        }
-        if (array_key_exists($keys[22], $arr)) {
-            $this->setInltshopcost($arr[$keys[22]]);
-        }
-        if (array_key_exists($keys[23], $arr)) {
-            $this->setInltisscodfsqty($arr[$keys[23]]);
-        }
-        if (array_key_exists($keys[24], $arr)) {
-            $this->setInltheadmark($arr[$keys[24]]);
-        }
-        if (array_key_exists($keys[25], $arr)) {
-            $this->setInltctry($arr[$keys[25]]);
-        }
-        if (array_key_exists($keys[26], $arr)) {
-            $this->setInltrvalorigcost($arr[$keys[26]]);
-        }
-        if (array_key_exists($keys[27], $arr)) {
-            $this->setInltrvalpct($arr[$keys[27]]);
-        }
-        if (array_key_exists($keys[28], $arr)) {
-            $this->setInltunitwght($arr[$keys[28]]);
-        }
-        if (array_key_exists($keys[29], $arr)) {
-            $this->setInltdestwhse($arr[$keys[29]]);
-        }
-        if (array_key_exists($keys[30], $arr)) {
-            $this->setInltcntrqty($arr[$keys[30]]);
-        }
-        if (array_key_exists($keys[31], $arr)) {
-            $this->setInltqtyperroll($arr[$keys[31]]);
-        }
-        if (array_key_exists($keys[32], $arr)) {
-            $this->setInlttarewght($arr[$keys[32]]);
-        }
-        if (array_key_exists($keys[33], $arr)) {
-            $this->setInltqcreasoncd($arr[$keys[33]]);
-        }
-        if (array_key_exists($keys[34], $arr)) {
-            $this->setInltcert($arr[$keys[34]]);
-        }
-        if (array_key_exists($keys[35], $arr)) {
-            $this->setInltcuredate($arr[$keys[35]]);
-        }
-        if (array_key_exists($keys[36], $arr)) {
-            $this->setInltexpiredatecd($arr[$keys[36]]);
-        }
-        if (array_key_exists($keys[37], $arr)) {
-            $this->setInltexpiredate($arr[$keys[37]]);
-        }
-        if (array_key_exists($keys[38], $arr)) {
-            $this->setInltorigbin($arr[$keys[38]]);
-        }
-        if (array_key_exists($keys[39], $arr)) {
-            $this->setInltshopitem($arr[$keys[39]]);
-        }
-        if (array_key_exists($keys[40], $arr)) {
-            $this->setDateupdtd($arr[$keys[40]]);
-        }
-        if (array_key_exists($keys[41], $arr)) {
-            $this->setTimeupdtd($arr[$keys[41]]);
-        }
-        if (array_key_exists($keys[42], $arr)) {
-            $this->setDummy($arr[$keys[42]]);
+            $this->setDummy($arr[$keys[18]]);
         }
     }
 
@@ -3225,122 +1869,50 @@ abstract class InvLot implements ActiveRecordInterface
         if ($this->isColumnModified(InvLotTableMap::COL_INITITEMNBR)) {
             $criteria->add(InvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INTBWHSE)) {
-            $criteria->add(InvLotTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTNBR)) {
+            $criteria->add(InvLotTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLOTSER)) {
-            $criteria->add(InvLotTableMap::COL_INLTLOTSER, $this->inltlotser);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTREF)) {
+            $criteria->add(InvLotTableMap::COL_LOTMLOTREF, $this->lotmlotref);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTBIN)) {
-            $criteria->add(InvLotTableMap::COL_INLTBIN, $this->inltbin);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMFRSTACTDATE)) {
+            $criteria->add(InvLotTableMap::COL_LOTMFRSTACTDATE, $this->lotmfrstactdate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDATE)) {
-            $criteria->add(InvLotTableMap::COL_INLTDATE, $this->inltdate);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMIMAGYN)) {
+            $criteria->add(InvLotTableMap::COL_LOTMIMAGYN, $this->lotmimagyn);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDATEWRIT)) {
-            $criteria->add(InvLotTableMap::COL_INLTDATEWRIT, $this->inltdatewrit);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITWGHT)) {
+            $criteria->add(InvLotTableMap::COL_LOTMUNITWGHT, $this->lotmunitwght);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCOST)) {
-            $criteria->add(InvLotTableMap::COL_INLTCOST, $this->inltcost);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMREVISION)) {
+            $criteria->add(InvLotTableMap::COL_LOTMREVISION, $this->lotmrevision);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTONHAND)) {
-            $criteria->add(InvLotTableMap::COL_INLTONHAND, $this->inltonhand);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCTRY)) {
+            $criteria->add(InvLotTableMap::COL_LOTMCTRY, $this->lotmctry);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRESV)) {
-            $criteria->add(InvLotTableMap::COL_INLTRESV, $this->inltresv);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCOFC)) {
+            $criteria->add(InvLotTableMap::COL_LOTMCOFC, $this->lotmcofc);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHIP)) {
-            $criteria->add(InvLotTableMap::COL_INLTSHIP, $this->inltship);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATEDATE)) {
+            $criteria->add(InvLotTableMap::COL_LOTMCREATEDATE, $this->lotmcreatedate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTALLO)) {
-            $criteria->add(InvLotTableMap::COL_INLTALLO, $this->inltallo);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATETIME)) {
+            $criteria->add(InvLotTableMap::COL_LOTMCREATETIME, $this->lotmcreatetime);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTFABALLO)) {
-            $criteria->add(InvLotTableMap::COL_INLTFABALLO, $this->inltfaballo);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMVENDID)) {
+            $criteria->add(InvLotTableMap::COL_LOTMVENDID, $this->lotmvendid);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTINTRAN)) {
-            $criteria->add(InvLotTableMap::COL_INLTINTRAN, $this->inltintran);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMEXPIREDATE)) {
+            $criteria->add(InvLotTableMap::COL_LOTMEXPIREDATE, $this->lotmexpiredate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTINSHIP)) {
-            $criteria->add(InvLotTableMap::COL_INLTINSHIP, $this->inltinship);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITCOST)) {
+            $criteria->add(InvLotTableMap::COL_LOTMUNITCOST, $this->lotmunitcost);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLOTREF)) {
-            $criteria->add(InvLotTableMap::COL_INLTLOTREF, $this->inltlotref);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCNTRQTY)) {
+            $criteria->add(InvLotTableMap::COL_LOTMCNTRQTY, $this->lotmcntrqty);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTBATCH)) {
-            $criteria->add(InvLotTableMap::COL_INLTBATCH, $this->inltbatch);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST1)) {
-            $criteria->add(InvLotTableMap::COL_INLTLANDCOST1, $this->inltlandcost1);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST2)) {
-            $criteria->add(InvLotTableMap::COL_INLTLANDCOST2, $this->inltlandcost2);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST3)) {
-            $criteria->add(InvLotTableMap::COL_INLTLANDCOST3, $this->inltlandcost3);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST4)) {
-            $criteria->add(InvLotTableMap::COL_INLTLANDCOST4, $this->inltlandcost4);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTLANDCOST5)) {
-            $criteria->add(InvLotTableMap::COL_INLTLANDCOST5, $this->inltlandcost5);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTTARIFFCOST)) {
-            $criteria->add(InvLotTableMap::COL_INLTTARIFFCOST, $this->inlttariffcost);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHOPCOST)) {
-            $criteria->add(InvLotTableMap::COL_INLTSHOPCOST, $this->inltshopcost);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTISSCODFSQTY)) {
-            $criteria->add(InvLotTableMap::COL_INLTISSCODFSQTY, $this->inltisscodfsqty);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTHEADMARK)) {
-            $criteria->add(InvLotTableMap::COL_INLTHEADMARK, $this->inltheadmark);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCTRY)) {
-            $criteria->add(InvLotTableMap::COL_INLTCTRY, $this->inltctry);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRVALORIGCOST)) {
-            $criteria->add(InvLotTableMap::COL_INLTRVALORIGCOST, $this->inltrvalorigcost);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTRVALPCT)) {
-            $criteria->add(InvLotTableMap::COL_INLTRVALPCT, $this->inltrvalpct);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTUNITWGHT)) {
-            $criteria->add(InvLotTableMap::COL_INLTUNITWGHT, $this->inltunitwght);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTDESTWHSE)) {
-            $criteria->add(InvLotTableMap::COL_INLTDESTWHSE, $this->inltdestwhse);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCNTRQTY)) {
-            $criteria->add(InvLotTableMap::COL_INLTCNTRQTY, $this->inltcntrqty);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTQTYPERROLL)) {
-            $criteria->add(InvLotTableMap::COL_INLTQTYPERROLL, $this->inltqtyperroll);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTTAREWGHT)) {
-            $criteria->add(InvLotTableMap::COL_INLTTAREWGHT, $this->inlttarewght);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTQCREASONCD)) {
-            $criteria->add(InvLotTableMap::COL_INLTQCREASONCD, $this->inltqcreasoncd);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCERT)) {
-            $criteria->add(InvLotTableMap::COL_INLTCERT, $this->inltcert);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTCUREDATE)) {
-            $criteria->add(InvLotTableMap::COL_INLTCUREDATE, $this->inltcuredate);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTEXPIREDATECD)) {
-            $criteria->add(InvLotTableMap::COL_INLTEXPIREDATECD, $this->inltexpiredatecd);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTEXPIREDATE)) {
-            $criteria->add(InvLotTableMap::COL_INLTEXPIREDATE, $this->inltexpiredate);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTORIGBIN)) {
-            $criteria->add(InvLotTableMap::COL_INLTORIGBIN, $this->inltorigbin);
-        }
-        if ($this->isColumnModified(InvLotTableMap::COL_INLTSHOPITEM)) {
-            $criteria->add(InvLotTableMap::COL_INLTSHOPITEM, $this->inltshopitem);
+        if ($this->isColumnModified(InvLotTableMap::COL_LOTMSRCCD)) {
+            $criteria->add(InvLotTableMap::COL_LOTMSRCCD, $this->lotmsrccd);
         }
         if ($this->isColumnModified(InvLotTableMap::COL_DATEUPDTD)) {
             $criteria->add(InvLotTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -3369,9 +1941,7 @@ abstract class InvLot implements ActiveRecordInterface
     {
         $criteria = ChildInvLotQuery::create();
         $criteria->add(InvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
-        $criteria->add(InvLotTableMap::COL_INTBWHSE, $this->intbwhse);
-        $criteria->add(InvLotTableMap::COL_INLTLOTSER, $this->inltlotser);
-        $criteria->add(InvLotTableMap::COL_INLTBIN, $this->inltbin);
+        $criteria->add(InvLotTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
 
         return $criteria;
     }
@@ -3385,9 +1955,7 @@ abstract class InvLot implements ActiveRecordInterface
     public function hashCode()
     {
         $validPk = null !== $this->getInititemnbr() &&
-            null !== $this->getIntbwhse() &&
-            null !== $this->getInltlotser() &&
-            null !== $this->getInltbin();
+            null !== $this->getLotmlotnbr();
 
         $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
@@ -3417,9 +1985,7 @@ abstract class InvLot implements ActiveRecordInterface
     {
         $pks = array();
         $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getIntbwhse();
-        $pks[2] = $this->getInltlotser();
-        $pks[3] = $this->getInltbin();
+        $pks[1] = $this->getLotmlotnbr();
 
         return $pks;
     }
@@ -3433,9 +1999,7 @@ abstract class InvLot implements ActiveRecordInterface
     public function setPrimaryKey($keys)
     {
         $this->setInititemnbr($keys[0]);
-        $this->setIntbwhse($keys[1]);
-        $this->setInltlotser($keys[2]);
-        $this->setInltbin($keys[3]);
+        $this->setLotmlotnbr($keys[1]);
     }
 
     /**
@@ -3444,7 +2008,7 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getInititemnbr()) && (null === $this->getIntbwhse()) && (null === $this->getInltlotser()) && (null === $this->getInltbin());
+        return (null === $this->getInititemnbr()) && (null === $this->getLotmlotnbr());
     }
 
     /**
@@ -3461,45 +2025,21 @@ abstract class InvLot implements ActiveRecordInterface
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
         $copyObj->setInititemnbr($this->getInititemnbr());
-        $copyObj->setIntbwhse($this->getIntbwhse());
-        $copyObj->setInltlotser($this->getInltlotser());
-        $copyObj->setInltbin($this->getInltbin());
-        $copyObj->setInltdate($this->getInltdate());
-        $copyObj->setInltdatewrit($this->getInltdatewrit());
-        $copyObj->setInltcost($this->getInltcost());
-        $copyObj->setInltonhand($this->getInltonhand());
-        $copyObj->setInltresv($this->getInltresv());
-        $copyObj->setInltship($this->getInltship());
-        $copyObj->setInltallo($this->getInltallo());
-        $copyObj->setInltfaballo($this->getInltfaballo());
-        $copyObj->setInltintran($this->getInltintran());
-        $copyObj->setInltinship($this->getInltinship());
-        $copyObj->setInltlotref($this->getInltlotref());
-        $copyObj->setInltbatch($this->getInltbatch());
-        $copyObj->setInltlandcost1($this->getInltlandcost1());
-        $copyObj->setInltlandcost2($this->getInltlandcost2());
-        $copyObj->setInltlandcost3($this->getInltlandcost3());
-        $copyObj->setInltlandcost4($this->getInltlandcost4());
-        $copyObj->setInltlandcost5($this->getInltlandcost5());
-        $copyObj->setInlttariffcost($this->getInlttariffcost());
-        $copyObj->setInltshopcost($this->getInltshopcost());
-        $copyObj->setInltisscodfsqty($this->getInltisscodfsqty());
-        $copyObj->setInltheadmark($this->getInltheadmark());
-        $copyObj->setInltctry($this->getInltctry());
-        $copyObj->setInltrvalorigcost($this->getInltrvalorigcost());
-        $copyObj->setInltrvalpct($this->getInltrvalpct());
-        $copyObj->setInltunitwght($this->getInltunitwght());
-        $copyObj->setInltdestwhse($this->getInltdestwhse());
-        $copyObj->setInltcntrqty($this->getInltcntrqty());
-        $copyObj->setInltqtyperroll($this->getInltqtyperroll());
-        $copyObj->setInlttarewght($this->getInlttarewght());
-        $copyObj->setInltqcreasoncd($this->getInltqcreasoncd());
-        $copyObj->setInltcert($this->getInltcert());
-        $copyObj->setInltcuredate($this->getInltcuredate());
-        $copyObj->setInltexpiredatecd($this->getInltexpiredatecd());
-        $copyObj->setInltexpiredate($this->getInltexpiredate());
-        $copyObj->setInltorigbin($this->getInltorigbin());
-        $copyObj->setInltshopitem($this->getInltshopitem());
+        $copyObj->setLotmlotnbr($this->getLotmlotnbr());
+        $copyObj->setLotmlotref($this->getLotmlotref());
+        $copyObj->setLotmfrstactdate($this->getLotmfrstactdate());
+        $copyObj->setLotmimagyn($this->getLotmimagyn());
+        $copyObj->setLotmunitwght($this->getLotmunitwght());
+        $copyObj->setLotmrevision($this->getLotmrevision());
+        $copyObj->setLotmctry($this->getLotmctry());
+        $copyObj->setLotmcofc($this->getLotmcofc());
+        $copyObj->setLotmcreatedate($this->getLotmcreatedate());
+        $copyObj->setLotmcreatetime($this->getLotmcreatetime());
+        $copyObj->setLotmvendid($this->getLotmvendid());
+        $copyObj->setLotmexpiredate($this->getLotmexpiredate());
+        $copyObj->setLotmunitcost($this->getLotmunitcost());
+        $copyObj->setLotmcntrqty($this->getLotmcntrqty());
+        $copyObj->setLotmsrccd($this->getLotmsrccd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -3592,45 +2132,21 @@ abstract class InvLot implements ActiveRecordInterface
             $this->aItemMasterItem->removeInvLot($this);
         }
         $this->inititemnbr = null;
-        $this->intbwhse = null;
-        $this->inltlotser = null;
-        $this->inltbin = null;
-        $this->inltdate = null;
-        $this->inltdatewrit = null;
-        $this->inltcost = null;
-        $this->inltonhand = null;
-        $this->inltresv = null;
-        $this->inltship = null;
-        $this->inltallo = null;
-        $this->inltfaballo = null;
-        $this->inltintran = null;
-        $this->inltinship = null;
-        $this->inltlotref = null;
-        $this->inltbatch = null;
-        $this->inltlandcost1 = null;
-        $this->inltlandcost2 = null;
-        $this->inltlandcost3 = null;
-        $this->inltlandcost4 = null;
-        $this->inltlandcost5 = null;
-        $this->inlttariffcost = null;
-        $this->inltshopcost = null;
-        $this->inltisscodfsqty = null;
-        $this->inltheadmark = null;
-        $this->inltctry = null;
-        $this->inltrvalorigcost = null;
-        $this->inltrvalpct = null;
-        $this->inltunitwght = null;
-        $this->inltdestwhse = null;
-        $this->inltcntrqty = null;
-        $this->inltqtyperroll = null;
-        $this->inlttarewght = null;
-        $this->inltqcreasoncd = null;
-        $this->inltcert = null;
-        $this->inltcuredate = null;
-        $this->inltexpiredatecd = null;
-        $this->inltexpiredate = null;
-        $this->inltorigbin = null;
-        $this->inltshopitem = null;
+        $this->lotmlotnbr = null;
+        $this->lotmlotref = null;
+        $this->lotmfrstactdate = null;
+        $this->lotmimagyn = null;
+        $this->lotmunitwght = null;
+        $this->lotmrevision = null;
+        $this->lotmctry = null;
+        $this->lotmcofc = null;
+        $this->lotmcreatedate = null;
+        $this->lotmcreatetime = null;
+        $this->lotmvendid = null;
+        $this->lotmexpiredate = null;
+        $this->lotmunitcost = null;
+        $this->lotmcntrqty = null;
+        $this->lotmsrccd = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
