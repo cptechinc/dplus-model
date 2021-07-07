@@ -595,13 +595,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-        $this->addRelation('InvLot', '\\InvLot', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('WhseInvLot', '\\WhseInvLot', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
-), null, null, 'InvLots', false);
+), null, null, 'WhseInvLots', false);
         $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -630,6 +630,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('InvLot', '\\InvLot', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvLots', false);
         $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

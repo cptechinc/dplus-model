@@ -270,15 +270,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvHazmatItem() Adds a RIGHT JOIN clause and with to the query using the InvHazmatItem relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvHazmatItem() Adds a INNER JOIN clause and with to the query using the InvHazmatItem relation
  *
- * @method     ChildItemMasterItemQuery leftJoinInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLot relation
- * @method     ChildItemMasterItemQuery rightJoinInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLot relation
- * @method     ChildItemMasterItemQuery innerJoinInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery leftJoinWhseInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseInvLot relation
+ * @method     ChildItemMasterItemQuery rightJoinWhseInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseInvLot relation
+ * @method     ChildItemMasterItemQuery innerJoinWhseInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseInvLot relation
  *
- * @method     ChildItemMasterItemQuery joinWithInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery joinWithWhseInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseInvLot relation
  *
- * @method     ChildItemMasterItemQuery leftJoinWithInvLot() Adds a LEFT JOIN clause and with to the query using the InvLot relation
- * @method     ChildItemMasterItemQuery rightJoinWithInvLot() Adds a RIGHT JOIN clause and with to the query using the InvLot relation
- * @method     ChildItemMasterItemQuery innerJoinWithInvLot() Adds a INNER JOIN clause and with to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery leftJoinWithWhseInvLot() Adds a LEFT JOIN clause and with to the query using the WhseInvLot relation
+ * @method     ChildItemMasterItemQuery rightJoinWithWhseInvLot() Adds a RIGHT JOIN clause and with to the query using the WhseInvLot relation
+ * @method     ChildItemMasterItemQuery innerJoinWithWhseInvLot() Adds a INNER JOIN clause and with to the query using the WhseInvLot relation
  *
  * @method     ChildItemMasterItemQuery leftJoinItemSubstituteRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
  * @method     ChildItemMasterItemQuery rightJoinItemSubstituteRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemSubstituteRelatedByInititemnbr relation
@@ -319,6 +319,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery leftJoinWithInvKit() Adds a LEFT JOIN clause and with to the query using the InvKit relation
  * @method     ChildItemMasterItemQuery rightJoinWithInvKit() Adds a RIGHT JOIN clause and with to the query using the InvKit relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvKit() Adds a INNER JOIN clause and with to the query using the InvKit relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery rightJoinInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery innerJoinInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLot relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLot relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvLot() Adds a LEFT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvLot() Adds a RIGHT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvLot() Adds a INNER JOIN clause and with to the query using the InvLot relation
  *
  * @method     ChildItemMasterItemQuery leftJoinWarehouseInventory($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseInventory relation
  * @method     ChildItemMasterItemQuery rightJoinWarehouseInventory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseInventory relation
@@ -450,7 +460,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\WhseInvLotQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3585,40 +3595,40 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \InvLot object
+     * Filter the query by a related \WhseInvLot object
      *
-     * @param \InvLot|ObjectCollection $invLot the related object to use as filter
+     * @param \WhseInvLot|ObjectCollection $whseInvLot the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByInvLot($invLot, $comparison = null)
+    public function filterByWhseInvLot($whseInvLot, $comparison = null)
     {
-        if ($invLot instanceof \InvLot) {
+        if ($whseInvLot instanceof \WhseInvLot) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invLot->getInititemnbr(), $comparison);
-        } elseif ($invLot instanceof ObjectCollection) {
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $whseInvLot->getInititemnbr(), $comparison);
+        } elseif ($whseInvLot instanceof ObjectCollection) {
             return $this
-                ->useInvLotQuery()
-                ->filterByPrimaryKeys($invLot->getPrimaryKeys())
+                ->useWhseInvLotQuery()
+                ->filterByPrimaryKeys($whseInvLot->getPrimaryKeys())
                 ->endUse();
         } else {
-            throw new PropelException('filterByInvLot() only accepts arguments of type \InvLot or Collection');
+            throw new PropelException('filterByWhseInvLot() only accepts arguments of type \WhseInvLot or Collection');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the InvLot relation
+     * Adds a JOIN clause to the query using the WhseInvLot relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinWhseInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('InvLot');
+        $relationMap = $tableMap->getRelation('WhseInvLot');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -3633,14 +3643,14 @@ abstract class ItemMasterItemQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'InvLot');
+            $this->addJoinObject($join, 'WhseInvLot');
         }
 
         return $this;
     }
 
     /**
-     * Use the InvLot relation InvLot object
+     * Use the WhseInvLot relation WhseInvLot object
      *
      * @see useQuery()
      *
@@ -3648,13 +3658,13 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \InvLotQuery A secondary query class using the current class as primary query
+     * @return \WhseInvLotQuery A secondary query class using the current class as primary query
      */
-    public function useInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useWhseInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinInvLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLot', '\InvLotQuery');
+            ->joinWhseInvLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'WhseInvLot', '\WhseInvLotQuery');
     }
 
     /**
@@ -3947,6 +3957,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinInvKit($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvKit', '\InvKitQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvLot object
+     *
+     * @param \InvLot|ObjectCollection $invLot the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvLot($invLot, $comparison = null)
+    {
+        if ($invLot instanceof \InvLot) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invLot->getInititemnbr(), $comparison);
+        } elseif ($invLot instanceof ObjectCollection) {
+            return $this
+                ->useInvLotQuery()
+                ->filterByPrimaryKeys($invLot->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvLot() only accepts arguments of type \InvLot or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLot relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLot');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLot');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLot relation InvLot object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLot', '\InvLotQuery');
     }
 
     /**

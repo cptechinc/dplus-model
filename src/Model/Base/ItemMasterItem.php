@@ -58,6 +58,8 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \WarehouseInventory as ChildWarehouseInventory;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
+use \WhseInvLot as ChildWhseInvLot;
+use \WhseInvLotQuery as ChildWhseInvLotQuery;
 use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
@@ -78,6 +80,7 @@ use Map\ItemXrefVendorNoteInternalTableMap;
 use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
 use Map\WarehouseInventoryTableMap;
+use Map\WhseInvLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -647,10 +650,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $singleInvHazmatItem;
 
     /**
-     * @var        ObjectCollection|ChildInvLot[] Collection to store aggregation of ChildInvLot objects.
+     * @var        ObjectCollection|ChildWhseInvLot[] Collection to store aggregation of ChildWhseInvLot objects.
      */
-    protected $collInvLots;
-    protected $collInvLotsPartial;
+    protected $collWhseInvLots;
+    protected $collWhseInvLotsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
@@ -674,6 +677,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var        ChildInvKit one-to-one related ChildInvKit object
      */
     protected $singleInvKit;
+
+    /**
+     * @var        ObjectCollection|ChildInvLot[] Collection to store aggregation of ChildInvLot objects.
+     */
+    protected $collInvLots;
+    protected $collInvLotsPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
@@ -780,9 +789,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildInvLot[]
+     * @var ObjectCollection|ChildWhseInvLot[]
      */
-    protected $invLotsScheduledForDeletion = null;
+    protected $whseInvLotsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -801,6 +810,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvKitComponent[]
      */
     protected $invKitComponentsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvLot[]
+     */
+    protected $invLotsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3423,7 +3438,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->singleInvHazmatItem = null;
 
-            $this->collInvLots = null;
+            $this->collWhseInvLots = null;
 
             $this->collItemSubstitutesRelatedByInititemnbr = null;
 
@@ -3432,6 +3447,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->collInvKitComponents = null;
 
             $this->singleInvKit = null;
+
+            $this->collInvLots = null;
 
             $this->collWarehouseInventories = null;
 
@@ -3684,17 +3701,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invLotsScheduledForDeletion !== null) {
-                if (!$this->invLotsScheduledForDeletion->isEmpty()) {
-                    \InvLotQuery::create()
-                        ->filterByPrimaryKeys($this->invLotsScheduledForDeletion->getPrimaryKeys(false))
+            if ($this->whseInvLotsScheduledForDeletion !== null) {
+                if (!$this->whseInvLotsScheduledForDeletion->isEmpty()) {
+                    \WhseInvLotQuery::create()
+                        ->filterByPrimaryKeys($this->whseInvLotsScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
-                    $this->invLotsScheduledForDeletion = null;
+                    $this->whseInvLotsScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collInvLots !== null) {
-                foreach ($this->collInvLots as $referrerFK) {
+            if ($this->collWhseInvLots !== null) {
+                foreach ($this->collWhseInvLots as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -3755,6 +3772,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvKit !== null) {
                 if (!$this->singleInvKit->isDeleted() && ($this->singleInvKit->isNew() || $this->singleInvKit->isModified())) {
                     $affectedRows += $this->singleInvKit->save($con);
+                }
+            }
+
+            if ($this->invLotsScheduledForDeletion !== null) {
+                if (!$this->invLotsScheduledForDeletion->isEmpty()) {
+                    \InvLotQuery::create()
+                        ->filterByPrimaryKeys($this->invLotsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invLotsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvLots !== null) {
+                foreach ($this->collInvLots as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
                 }
             }
 
@@ -4913,20 +4947,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->singleInvHazmatItem->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
-            if (null !== $this->collInvLots) {
+            if (null !== $this->collWhseInvLots) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'invLots';
+                        $key = 'whseInvLots';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_inv_lots';
                         break;
                     default:
-                        $key = 'InvLots';
+                        $key = 'WhseInvLots';
                 }
 
-                $result[$key] = $this->collInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collWhseInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemSubstitutesRelatedByInititemnbr) {
 
@@ -4987,6 +5021,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->singleInvKit->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collInvLots) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLots';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_lot_masts';
+                        break;
+                    default:
+                        $key = 'InvLots';
+                }
+
+                $result[$key] = $this->collInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collWarehouseInventories) {
 
@@ -6061,9 +6110,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $copyObj->setInvHazmatItem($relObj->copy($deepCopy));
             }
 
-            foreach ($this->getInvLots() as $relObj) {
+            foreach ($this->getWhseInvLots() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addInvLot($relObj->copy($deepCopy));
+                    $copyObj->addWhseInvLot($relObj->copy($deepCopy));
                 }
             }
 
@@ -6088,6 +6137,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $relObj = $this->getInvKit();
             if ($relObj) {
                 $copyObj->setInvKit($relObj->copy($deepCopy));
+            }
+
+            foreach ($this->getInvLots() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvLot($relObj->copy($deepCopy));
+                }
             }
 
             foreach ($this->getWarehouseInventories() as $relObj) {
@@ -6519,8 +6574,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemAddonItemsRelatedByAdonadditemnbr();
             return;
         }
-        if ('InvLot' == $relationName) {
-            $this->initInvLots();
+        if ('WhseInvLot' == $relationName) {
+            $this->initWhseInvLots();
             return;
         }
         if ('ItemSubstituteRelatedByInititemnbr' == $relationName) {
@@ -6533,6 +6588,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('InvKitComponent' == $relationName) {
             $this->initInvKitComponents();
+            return;
+        }
+        if ('InvLot' == $relationName) {
+            $this->initInvLots();
             return;
         }
         if ('WarehouseInventory' == $relationName) {
@@ -7339,31 +7398,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collInvLots collection
+     * Clears out the collWhseInvLots collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addInvLots()
+     * @see        addWhseInvLots()
      */
-    public function clearInvLots()
+    public function clearWhseInvLots()
     {
-        $this->collInvLots = null; // important to set this to NULL since that means it is uninitialized
+        $this->collWhseInvLots = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collInvLots collection loaded partially.
+     * Reset is the collWhseInvLots collection loaded partially.
      */
-    public function resetPartialInvLots($v = true)
+    public function resetPartialWhseInvLots($v = true)
     {
-        $this->collInvLotsPartial = $v;
+        $this->collWhseInvLotsPartial = $v;
     }
 
     /**
-     * Initializes the collInvLots collection.
+     * Initializes the collWhseInvLots collection.
      *
-     * By default this just sets the collInvLots collection to an empty array (like clearcollInvLots());
+     * By default this just sets the collWhseInvLots collection to an empty array (like clearcollWhseInvLots());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -7372,20 +7431,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initInvLots($overrideExisting = true)
+    public function initWhseInvLots($overrideExisting = true)
     {
-        if (null !== $this->collInvLots && !$overrideExisting) {
+        if (null !== $this->collWhseInvLots && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = InvLotTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = WhseInvLotTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collInvLots = new $collectionClassName;
-        $this->collInvLots->setModel('\InvLot');
+        $this->collWhseInvLots = new $collectionClassName;
+        $this->collWhseInvLots->setModel('\WhseInvLot');
     }
 
     /**
-     * Gets an array of ChildInvLot objects which contain a foreign key that references this object.
+     * Gets an array of ChildWhseInvLot objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -7395,111 +7454,111 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildInvLot[] List of ChildInvLot objects
+     * @return ObjectCollection|ChildWhseInvLot[] List of ChildWhseInvLot objects
      * @throws PropelException
      */
-    public function getInvLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWhseInvLots(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collInvLotsPartial && !$this->isNew();
-        if (null === $this->collInvLots || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLots) {
+        $partial = $this->collWhseInvLotsPartial && !$this->isNew();
+        if (null === $this->collWhseInvLots || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWhseInvLots) {
                 // return empty collection
-                $this->initInvLots();
+                $this->initWhseInvLots();
             } else {
-                $collInvLots = ChildInvLotQuery::create(null, $criteria)
+                $collWhseInvLots = ChildWhseInvLotQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collInvLotsPartial && count($collInvLots)) {
-                        $this->initInvLots(false);
+                    if (false !== $this->collWhseInvLotsPartial && count($collWhseInvLots)) {
+                        $this->initWhseInvLots(false);
 
-                        foreach ($collInvLots as $obj) {
-                            if (false == $this->collInvLots->contains($obj)) {
-                                $this->collInvLots->append($obj);
+                        foreach ($collWhseInvLots as $obj) {
+                            if (false == $this->collWhseInvLots->contains($obj)) {
+                                $this->collWhseInvLots->append($obj);
                             }
                         }
 
-                        $this->collInvLotsPartial = true;
+                        $this->collWhseInvLotsPartial = true;
                     }
 
-                    return $collInvLots;
+                    return $collWhseInvLots;
                 }
 
-                if ($partial && $this->collInvLots) {
-                    foreach ($this->collInvLots as $obj) {
+                if ($partial && $this->collWhseInvLots) {
+                    foreach ($this->collWhseInvLots as $obj) {
                         if ($obj->isNew()) {
-                            $collInvLots[] = $obj;
+                            $collWhseInvLots[] = $obj;
                         }
                     }
                 }
 
-                $this->collInvLots = $collInvLots;
-                $this->collInvLotsPartial = false;
+                $this->collWhseInvLots = $collWhseInvLots;
+                $this->collWhseInvLotsPartial = false;
             }
         }
 
-        return $this->collInvLots;
+        return $this->collWhseInvLots;
     }
 
     /**
-     * Sets a collection of ChildInvLot objects related by a one-to-many relationship
+     * Sets a collection of ChildWhseInvLot objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLots A Propel collection.
+     * @param      Collection $whseInvLots A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setInvLots(Collection $invLots, ConnectionInterface $con = null)
+    public function setWhseInvLots(Collection $whseInvLots, ConnectionInterface $con = null)
     {
-        /** @var ChildInvLot[] $invLotsToDelete */
-        $invLotsToDelete = $this->getInvLots(new Criteria(), $con)->diff($invLots);
+        /** @var ChildWhseInvLot[] $whseInvLotsToDelete */
+        $whseInvLotsToDelete = $this->getWhseInvLots(new Criteria(), $con)->diff($whseInvLots);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->invLotsScheduledForDeletion = clone $invLotsToDelete;
+        $this->whseInvLotsScheduledForDeletion = clone $whseInvLotsToDelete;
 
-        foreach ($invLotsToDelete as $invLotRemoved) {
-            $invLotRemoved->setItemMasterItem(null);
+        foreach ($whseInvLotsToDelete as $whseInvLotRemoved) {
+            $whseInvLotRemoved->setItemMasterItem(null);
         }
 
-        $this->collInvLots = null;
-        foreach ($invLots as $invLot) {
-            $this->addInvLot($invLot);
+        $this->collWhseInvLots = null;
+        foreach ($whseInvLots as $whseInvLot) {
+            $this->addWhseInvLot($whseInvLot);
         }
 
-        $this->collInvLots = $invLots;
-        $this->collInvLotsPartial = false;
+        $this->collWhseInvLots = $whseInvLots;
+        $this->collWhseInvLotsPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related InvLot objects.
+     * Returns the number of related WhseInvLot objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related InvLot objects.
+     * @return int             Count of related WhseInvLot objects.
      * @throws PropelException
      */
-    public function countInvLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWhseInvLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collInvLotsPartial && !$this->isNew();
-        if (null === $this->collInvLots || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collInvLots) {
+        $partial = $this->collWhseInvLotsPartial && !$this->isNew();
+        if (null === $this->collWhseInvLots || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWhseInvLots) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getInvLots());
+                return count($this->getWhseInvLots());
             }
 
-            $query = ChildInvLotQuery::create(null, $criteria);
+            $query = ChildWhseInvLotQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -7509,28 +7568,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collInvLots);
+        return count($this->collWhseInvLots);
     }
 
     /**
-     * Method called to associate a ChildInvLot object to this object
-     * through the ChildInvLot foreign key attribute.
+     * Method called to associate a ChildWhseInvLot object to this object
+     * through the ChildWhseInvLot foreign key attribute.
      *
-     * @param  ChildInvLot $l ChildInvLot
+     * @param  ChildWhseInvLot $l ChildWhseInvLot
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function addInvLot(ChildInvLot $l)
+    public function addWhseInvLot(ChildWhseInvLot $l)
     {
-        if ($this->collInvLots === null) {
-            $this->initInvLots();
-            $this->collInvLotsPartial = true;
+        if ($this->collWhseInvLots === null) {
+            $this->initWhseInvLots();
+            $this->collWhseInvLotsPartial = true;
         }
 
-        if (!$this->collInvLots->contains($l)) {
-            $this->doAddInvLot($l);
+        if (!$this->collWhseInvLots->contains($l)) {
+            $this->doAddWhseInvLot($l);
 
-            if ($this->invLotsScheduledForDeletion and $this->invLotsScheduledForDeletion->contains($l)) {
-                $this->invLotsScheduledForDeletion->remove($this->invLotsScheduledForDeletion->search($l));
+            if ($this->whseInvLotsScheduledForDeletion and $this->whseInvLotsScheduledForDeletion->contains($l)) {
+                $this->whseInvLotsScheduledForDeletion->remove($this->whseInvLotsScheduledForDeletion->search($l));
             }
         }
 
@@ -7538,29 +7597,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildInvLot $invLot The ChildInvLot object to add.
+     * @param ChildWhseInvLot $whseInvLot The ChildWhseInvLot object to add.
      */
-    protected function doAddInvLot(ChildInvLot $invLot)
+    protected function doAddWhseInvLot(ChildWhseInvLot $whseInvLot)
     {
-        $this->collInvLots[]= $invLot;
-        $invLot->setItemMasterItem($this);
+        $this->collWhseInvLots[]= $whseInvLot;
+        $whseInvLot->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLot $invLot The ChildInvLot object to remove.
+     * @param  ChildWhseInvLot $whseInvLot The ChildWhseInvLot object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeInvLot(ChildInvLot $invLot)
+    public function removeWhseInvLot(ChildWhseInvLot $whseInvLot)
     {
-        if ($this->getInvLots()->contains($invLot)) {
-            $pos = $this->collInvLots->search($invLot);
-            $this->collInvLots->remove($pos);
-            if (null === $this->invLotsScheduledForDeletion) {
-                $this->invLotsScheduledForDeletion = clone $this->collInvLots;
-                $this->invLotsScheduledForDeletion->clear();
+        if ($this->getWhseInvLots()->contains($whseInvLot)) {
+            $pos = $this->collWhseInvLots->search($whseInvLot);
+            $this->collWhseInvLots->remove($pos);
+            if (null === $this->whseInvLotsScheduledForDeletion) {
+                $this->whseInvLotsScheduledForDeletion = clone $this->collWhseInvLots;
+                $this->whseInvLotsScheduledForDeletion->clear();
             }
-            $this->invLotsScheduledForDeletion[]= clone $invLot;
-            $invLot->setItemMasterItem(null);
+            $this->whseInvLotsScheduledForDeletion[]= clone $whseInvLot;
+            $whseInvLot->setItemMasterItem(null);
         }
 
         return $this;
@@ -8306,6 +8365,234 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         // Make sure that that the passed-in ChildInvKit isn't already associated with this object
         if ($v !== null && $v->getItemMasterItem(null, false) === null) {
             $v->setItemMasterItem($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collInvLots collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvLots()
+     */
+    public function clearInvLots()
+    {
+        $this->collInvLots = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvLots collection loaded partially.
+     */
+    public function resetPartialInvLots($v = true)
+    {
+        $this->collInvLotsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvLots collection.
+     *
+     * By default this just sets the collInvLots collection to an empty array (like clearcollInvLots());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvLots($overrideExisting = true)
+    {
+        if (null !== $this->collInvLots && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvLotTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvLots = new $collectionClassName;
+        $this->collInvLots->setModel('\InvLot');
+    }
+
+    /**
+     * Gets an array of ChildInvLot objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvLot[] List of ChildInvLot objects
+     * @throws PropelException
+     */
+    public function getInvLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotsPartial && !$this->isNew();
+        if (null === $this->collInvLots || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvLots) {
+                // return empty collection
+                $this->initInvLots();
+            } else {
+                $collInvLots = ChildInvLotQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvLotsPartial && count($collInvLots)) {
+                        $this->initInvLots(false);
+
+                        foreach ($collInvLots as $obj) {
+                            if (false == $this->collInvLots->contains($obj)) {
+                                $this->collInvLots->append($obj);
+                            }
+                        }
+
+                        $this->collInvLotsPartial = true;
+                    }
+
+                    return $collInvLots;
+                }
+
+                if ($partial && $this->collInvLots) {
+                    foreach ($this->collInvLots as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvLots[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvLots = $collInvLots;
+                $this->collInvLotsPartial = false;
+            }
+        }
+
+        return $this->collInvLots;
+    }
+
+    /**
+     * Sets a collection of ChildInvLot objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invLots A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvLots(Collection $invLots, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvLot[] $invLotsToDelete */
+        $invLotsToDelete = $this->getInvLots(new Criteria(), $con)->diff($invLots);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invLotsScheduledForDeletion = clone $invLotsToDelete;
+
+        foreach ($invLotsToDelete as $invLotRemoved) {
+            $invLotRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvLots = null;
+        foreach ($invLots as $invLot) {
+            $this->addInvLot($invLot);
+        }
+
+        $this->collInvLots = $invLots;
+        $this->collInvLotsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvLot objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvLot objects.
+     * @throws PropelException
+     */
+    public function countInvLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotsPartial && !$this->isNew();
+        if (null === $this->collInvLots || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvLots) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvLots());
+            }
+
+            $query = ChildInvLotQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvLots);
+    }
+
+    /**
+     * Method called to associate a ChildInvLot object to this object
+     * through the ChildInvLot foreign key attribute.
+     *
+     * @param  ChildInvLot $l ChildInvLot
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvLot(ChildInvLot $l)
+    {
+        if ($this->collInvLots === null) {
+            $this->initInvLots();
+            $this->collInvLotsPartial = true;
+        }
+
+        if (!$this->collInvLots->contains($l)) {
+            $this->doAddInvLot($l);
+
+            if ($this->invLotsScheduledForDeletion and $this->invLotsScheduledForDeletion->contains($l)) {
+                $this->invLotsScheduledForDeletion->remove($this->invLotsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvLot $invLot The ChildInvLot object to add.
+     */
+    protected function doAddInvLot(ChildInvLot $invLot)
+    {
+        $this->collInvLots[]= $invLot;
+        $invLot->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvLot $invLot The ChildInvLot object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvLot(ChildInvLot $invLot)
+    {
+        if ($this->getInvLots()->contains($invLot)) {
+            $pos = $this->collInvLots->search($invLot);
+            $this->collInvLots->remove($pos);
+            if (null === $this->invLotsScheduledForDeletion) {
+                $this->invLotsScheduledForDeletion = clone $this->collInvLots;
+                $this->invLotsScheduledForDeletion->clear();
+            }
+            $this->invLotsScheduledForDeletion[]= clone $invLot;
+            $invLot->setItemMasterItem(null);
         }
 
         return $this;
@@ -11448,8 +11735,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvHazmatItem) {
                 $this->singleInvHazmatItem->clearAllReferences($deep);
             }
-            if ($this->collInvLots) {
-                foreach ($this->collInvLots as $o) {
+            if ($this->collWhseInvLots) {
+                foreach ($this->collWhseInvLots as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -11470,6 +11757,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             if ($this->singleInvKit) {
                 $this->singleInvKit->clearAllReferences($deep);
+            }
+            if ($this->collInvLots) {
+                foreach ($this->collInvLots as $o) {
+                    $o->clearAllReferences($deep);
+                }
             }
             if ($this->collWarehouseInventories) {
                 foreach ($this->collWarehouseInventories as $o) {
@@ -11541,11 +11833,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
         $this->singleItmDimension = null;
         $this->singleInvHazmatItem = null;
-        $this->collInvLots = null;
+        $this->collWhseInvLots = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
         $this->collInvKitComponents = null;
         $this->singleInvKit = null;
+        $this->collInvLots = null;
         $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;
