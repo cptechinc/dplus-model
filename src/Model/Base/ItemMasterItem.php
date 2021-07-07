@@ -58,8 +58,8 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \WarehouseInventory as ChildWarehouseInventory;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
-use \WhseInvLot as ChildWhseInvLot;
-use \WhseInvLotQuery as ChildWhseInvLotQuery;
+use \WhseLotserial as ChildWhseLotserial;
+use \WhseLotserialQuery as ChildWhseLotserialQuery;
 use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
@@ -80,7 +80,7 @@ use Map\ItemXrefVendorNoteInternalTableMap;
 use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
 use Map\WarehouseInventoryTableMap;
-use Map\WhseInvLotTableMap;
+use Map\WhseLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -650,10 +650,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $singleInvHazmatItem;
 
     /**
-     * @var        ObjectCollection|ChildWhseInvLot[] Collection to store aggregation of ChildWhseInvLot objects.
+     * @var        ObjectCollection|ChildWhseLotserial[] Collection to store aggregation of ChildWhseLotserial objects.
      */
-    protected $collWhseInvLots;
-    protected $collWhseInvLotsPartial;
+    protected $collWhseLotserials;
+    protected $collWhseLotserialsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemSubstitute[] Collection to store aggregation of ChildItemSubstitute objects.
@@ -789,7 +789,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildWhseInvLot[]
+     * @var ObjectCollection|ChildWhseLotserial[]
      */
     protected $whseInvLotsScheduledForDeletion = null;
 
@@ -3438,7 +3438,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->singleInvHazmatItem = null;
 
-            $this->collWhseInvLots = null;
+            $this->collWhseLotserials = null;
 
             $this->collItemSubstitutesRelatedByInititemnbr = null;
 
@@ -3703,15 +3703,15 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->whseInvLotsScheduledForDeletion !== null) {
                 if (!$this->whseInvLotsScheduledForDeletion->isEmpty()) {
-                    \WhseInvLotQuery::create()
+                    \WhseLotserialQuery::create()
                         ->filterByPrimaryKeys($this->whseInvLotsScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
                     $this->whseInvLotsScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collWhseInvLots !== null) {
-                foreach ($this->collWhseInvLots as $referrerFK) {
+            if ($this->collWhseLotserials !== null) {
+                foreach ($this->collWhseLotserials as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4947,7 +4947,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->singleInvHazmatItem->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
-            if (null !== $this->collWhseInvLots) {
+            if (null !== $this->collWhseLotserials) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
@@ -4957,10 +4957,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                         $key = 'inv_inv_lots';
                         break;
                     default:
-                        $key = 'WhseInvLots';
+                        $key = 'WhseLotserials';
                 }
 
-                $result[$key] = $this->collWhseInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collWhseLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemSubstitutesRelatedByInititemnbr) {
 
@@ -6110,9 +6110,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $copyObj->setInvHazmatItem($relObj->copy($deepCopy));
             }
 
-            foreach ($this->getWhseInvLots() as $relObj) {
+            foreach ($this->getWhseLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addWhseInvLot($relObj->copy($deepCopy));
+                    $copyObj->addWhseLotserial($relObj->copy($deepCopy));
                 }
             }
 
@@ -6574,8 +6574,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemAddonItemsRelatedByAdonadditemnbr();
             return;
         }
-        if ('WhseInvLot' == $relationName) {
-            $this->initWhseInvLots();
+        if ('WhseLotserial' == $relationName) {
+            $this->initWhseLotserials();
             return;
         }
         if ('ItemSubstituteRelatedByInititemnbr' == $relationName) {
@@ -7398,31 +7398,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collWhseInvLots collection
+     * Clears out the collWhseLotserials collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addWhseInvLots()
+     * @see        addWhseLotserials()
      */
-    public function clearWhseInvLots()
+    public function clearWhseLotserials()
     {
-        $this->collWhseInvLots = null; // important to set this to NULL since that means it is uninitialized
+        $this->collWhseLotserials = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collWhseInvLots collection loaded partially.
+     * Reset is the collWhseLotserials collection loaded partially.
      */
-    public function resetPartialWhseInvLots($v = true)
+    public function resetPartialWhseLotserials($v = true)
     {
-        $this->collWhseInvLotsPartial = $v;
+        $this->collWhseLotserialsPartial = $v;
     }
 
     /**
-     * Initializes the collWhseInvLots collection.
+     * Initializes the collWhseLotserials collection.
      *
-     * By default this just sets the collWhseInvLots collection to an empty array (like clearcollWhseInvLots());
+     * By default this just sets the collWhseLotserials collection to an empty array (like clearcollWhseLotserials());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -7431,20 +7431,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initWhseInvLots($overrideExisting = true)
+    public function initWhseLotserials($overrideExisting = true)
     {
-        if (null !== $this->collWhseInvLots && !$overrideExisting) {
+        if (null !== $this->collWhseLotserials && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = WhseInvLotTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = WhseLotserialTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collWhseInvLots = new $collectionClassName;
-        $this->collWhseInvLots->setModel('\WhseInvLot');
+        $this->collWhseLotserials = new $collectionClassName;
+        $this->collWhseLotserials->setModel('\WhseLotserial');
     }
 
     /**
-     * Gets an array of ChildWhseInvLot objects which contain a foreign key that references this object.
+     * Gets an array of ChildWhseLotserial objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -7454,55 +7454,55 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildWhseInvLot[] List of ChildWhseInvLot objects
+     * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
      * @throws PropelException
      */
-    public function getWhseInvLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getWhseLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collWhseInvLotsPartial && !$this->isNew();
-        if (null === $this->collWhseInvLots || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collWhseInvLots) {
+        $partial = $this->collWhseLotserialsPartial && !$this->isNew();
+        if (null === $this->collWhseLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWhseLotserials) {
                 // return empty collection
-                $this->initWhseInvLots();
+                $this->initWhseLotserials();
             } else {
-                $collWhseInvLots = ChildWhseInvLotQuery::create(null, $criteria)
+                $collWhseLotserials = ChildWhseLotserialQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collWhseInvLotsPartial && count($collWhseInvLots)) {
-                        $this->initWhseInvLots(false);
+                    if (false !== $this->collWhseLotserialsPartial && count($collWhseLotserials)) {
+                        $this->initWhseLotserials(false);
 
-                        foreach ($collWhseInvLots as $obj) {
-                            if (false == $this->collWhseInvLots->contains($obj)) {
-                                $this->collWhseInvLots->append($obj);
+                        foreach ($collWhseLotserials as $obj) {
+                            if (false == $this->collWhseLotserials->contains($obj)) {
+                                $this->collWhseLotserials->append($obj);
                             }
                         }
 
-                        $this->collWhseInvLotsPartial = true;
+                        $this->collWhseLotserialsPartial = true;
                     }
 
-                    return $collWhseInvLots;
+                    return $collWhseLotserials;
                 }
 
-                if ($partial && $this->collWhseInvLots) {
-                    foreach ($this->collWhseInvLots as $obj) {
+                if ($partial && $this->collWhseLotserials) {
+                    foreach ($this->collWhseLotserials as $obj) {
                         if ($obj->isNew()) {
-                            $collWhseInvLots[] = $obj;
+                            $collWhseLotserials[] = $obj;
                         }
                     }
                 }
 
-                $this->collWhseInvLots = $collWhseInvLots;
-                $this->collWhseInvLotsPartial = false;
+                $this->collWhseLotserials = $collWhseLotserials;
+                $this->collWhseLotserialsPartial = false;
             }
         }
 
-        return $this->collWhseInvLots;
+        return $this->collWhseLotserials;
     }
 
     /**
-     * Sets a collection of ChildWhseInvLot objects related by a one-to-many relationship
+     * Sets a collection of ChildWhseLotserial objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
@@ -7511,10 +7511,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setWhseInvLots(Collection $whseInvLots, ConnectionInterface $con = null)
+    public function setWhseLotserials(Collection $whseInvLots, ConnectionInterface $con = null)
     {
-        /** @var ChildWhseInvLot[] $whseInvLotsToDelete */
-        $whseInvLotsToDelete = $this->getWhseInvLots(new Criteria(), $con)->diff($whseInvLots);
+        /** @var ChildWhseLotserial[] $whseInvLotsToDelete */
+        $whseInvLotsToDelete = $this->getWhseLotserials(new Criteria(), $con)->diff($whseInvLots);
 
 
         //since at least one column in the foreign key is at the same time a PK
@@ -7526,39 +7526,39 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $whseInvLotRemoved->setItemMasterItem(null);
         }
 
-        $this->collWhseInvLots = null;
+        $this->collWhseLotserials = null;
         foreach ($whseInvLots as $whseInvLot) {
-            $this->addWhseInvLot($whseInvLot);
+            $this->addWhseLotserial($whseInvLot);
         }
 
-        $this->collWhseInvLots = $whseInvLots;
-        $this->collWhseInvLotsPartial = false;
+        $this->collWhseLotserials = $whseInvLots;
+        $this->collWhseLotserialsPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related WhseInvLot objects.
+     * Returns the number of related WhseLotserial objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related WhseInvLot objects.
+     * @return int             Count of related WhseLotserial objects.
      * @throws PropelException
      */
-    public function countWhseInvLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countWhseLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collWhseInvLotsPartial && !$this->isNew();
-        if (null === $this->collWhseInvLots || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collWhseInvLots) {
+        $partial = $this->collWhseLotserialsPartial && !$this->isNew();
+        if (null === $this->collWhseLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWhseLotserials) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getWhseInvLots());
+                return count($this->getWhseLotserials());
             }
 
-            $query = ChildWhseInvLotQuery::create(null, $criteria);
+            $query = ChildWhseLotserialQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -7568,25 +7568,25 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collWhseInvLots);
+        return count($this->collWhseLotserials);
     }
 
     /**
-     * Method called to associate a ChildWhseInvLot object to this object
-     * through the ChildWhseInvLot foreign key attribute.
+     * Method called to associate a ChildWhseLotserial object to this object
+     * through the ChildWhseLotserial foreign key attribute.
      *
-     * @param  ChildWhseInvLot $l ChildWhseInvLot
+     * @param  ChildWhseLotserial $l ChildWhseLotserial
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function addWhseInvLot(ChildWhseInvLot $l)
+    public function addWhseLotserial(ChildWhseLotserial $l)
     {
-        if ($this->collWhseInvLots === null) {
-            $this->initWhseInvLots();
-            $this->collWhseInvLotsPartial = true;
+        if ($this->collWhseLotserials === null) {
+            $this->initWhseLotserials();
+            $this->collWhseLotserialsPartial = true;
         }
 
-        if (!$this->collWhseInvLots->contains($l)) {
-            $this->doAddWhseInvLot($l);
+        if (!$this->collWhseLotserials->contains($l)) {
+            $this->doAddWhseLotserial($l);
 
             if ($this->whseInvLotsScheduledForDeletion and $this->whseInvLotsScheduledForDeletion->contains($l)) {
                 $this->whseInvLotsScheduledForDeletion->remove($this->whseInvLotsScheduledForDeletion->search($l));
@@ -7597,25 +7597,25 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildWhseInvLot $whseInvLot The ChildWhseInvLot object to add.
+     * @param ChildWhseLotserial $whseInvLot The ChildWhseLotserial object to add.
      */
-    protected function doAddWhseInvLot(ChildWhseInvLot $whseInvLot)
+    protected function doAddWhseLotserial(ChildWhseLotserial $whseInvLot)
     {
-        $this->collWhseInvLots[]= $whseInvLot;
+        $this->collWhseLotserials[]= $whseInvLot;
         $whseInvLot->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildWhseInvLot $whseInvLot The ChildWhseInvLot object to remove.
+     * @param  ChildWhseLotserial $whseInvLot The ChildWhseLotserial object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeWhseInvLot(ChildWhseInvLot $whseInvLot)
+    public function removeWhseLotserial(ChildWhseLotserial $whseInvLot)
     {
-        if ($this->getWhseInvLots()->contains($whseInvLot)) {
-            $pos = $this->collWhseInvLots->search($whseInvLot);
-            $this->collWhseInvLots->remove($pos);
+        if ($this->getWhseLotserials()->contains($whseInvLot)) {
+            $pos = $this->collWhseLotserials->search($whseInvLot);
+            $this->collWhseLotserials->remove($pos);
             if (null === $this->whseInvLotsScheduledForDeletion) {
-                $this->whseInvLotsScheduledForDeletion = clone $this->collWhseInvLots;
+                $this->whseInvLotsScheduledForDeletion = clone $this->collWhseLotserials;
                 $this->whseInvLotsScheduledForDeletion->clear();
             }
             $this->whseInvLotsScheduledForDeletion[]= clone $whseInvLot;
@@ -11735,8 +11735,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvHazmatItem) {
                 $this->singleInvHazmatItem->clearAllReferences($deep);
             }
-            if ($this->collWhseInvLots) {
-                foreach ($this->collWhseInvLots as $o) {
+            if ($this->collWhseLotserials) {
+                foreach ($this->collWhseLotserials as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -11833,7 +11833,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
         $this->singleItmDimension = null;
         $this->singleInvHazmatItem = null;
-        $this->collWhseInvLots = null;
+        $this->collWhseLotserials = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
         $this->collInvKitComponents = null;

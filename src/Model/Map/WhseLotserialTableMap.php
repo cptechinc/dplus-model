@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \WhseInvLot;
-use \WhseInvLotQuery;
+use \WhseLotserial;
+use \WhseLotserialQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class WhseInvLotTableMap extends TableMap
+class WhseLotserialTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class WhseInvLotTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.WhseInvLotTableMap';
+    const CLASS_NAME = '.Map.WhseLotserialTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class WhseInvLotTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\WhseInvLot';
+    const OM_CLASS = '\\WhseLotserial';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'WhseInvLot';
+    const CLASS_DEFAULT = 'WhseLotserial';
 
     /**
      * The total number of columns
@@ -300,7 +300,7 @@ class WhseInvLotTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Inititemnbr', 'Intbwhse', 'Inltlotser', 'Inltbin', 'Inltdate', 'Inltdatewrit', 'Inltcost', 'Inltonhand', 'Inltresv', 'Inltship', 'Inltallo', 'Inltfaballo', 'Inltintran', 'Inltinship', 'Inltlotref', 'Inltbatch', 'Inltlandcost1', 'Inltlandcost2', 'Inltlandcost3', 'Inltlandcost4', 'Inltlandcost5', 'Inlttariffcost', 'Inltshopcost', 'Inltisscodfsqty', 'Inltheadmark', 'Inltctry', 'Inltrvalorigcost', 'Inltrvalpct', 'Inltunitwght', 'Inltdestwhse', 'Inltcntrqty', 'Inltqtyperroll', 'Inlttarewght', 'Inltqcreasoncd', 'Inltcert', 'Inltcuredate', 'Inltexpiredatecd', 'Inltexpiredate', 'Inltorigbin', 'Inltshopitem', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('inititemnbr', 'intbwhse', 'inltlotser', 'inltbin', 'inltdate', 'inltdatewrit', 'inltcost', 'inltonhand', 'inltresv', 'inltship', 'inltallo', 'inltfaballo', 'inltintran', 'inltinship', 'inltlotref', 'inltbatch', 'inltlandcost1', 'inltlandcost2', 'inltlandcost3', 'inltlandcost4', 'inltlandcost5', 'inlttariffcost', 'inltshopcost', 'inltisscodfsqty', 'inltheadmark', 'inltctry', 'inltrvalorigcost', 'inltrvalpct', 'inltunitwght', 'inltdestwhse', 'inltcntrqty', 'inltqtyperroll', 'inlttarewght', 'inltqcreasoncd', 'inltcert', 'inltcuredate', 'inltexpiredatecd', 'inltexpiredate', 'inltorigbin', 'inltshopitem', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(WhseInvLotTableMap::COL_INITITEMNBR, WhseInvLotTableMap::COL_INTBWHSE, WhseInvLotTableMap::COL_INLTLOTSER, WhseInvLotTableMap::COL_INLTBIN, WhseInvLotTableMap::COL_INLTDATE, WhseInvLotTableMap::COL_INLTDATEWRIT, WhseInvLotTableMap::COL_INLTCOST, WhseInvLotTableMap::COL_INLTONHAND, WhseInvLotTableMap::COL_INLTRESV, WhseInvLotTableMap::COL_INLTSHIP, WhseInvLotTableMap::COL_INLTALLO, WhseInvLotTableMap::COL_INLTFABALLO, WhseInvLotTableMap::COL_INLTINTRAN, WhseInvLotTableMap::COL_INLTINSHIP, WhseInvLotTableMap::COL_INLTLOTREF, WhseInvLotTableMap::COL_INLTBATCH, WhseInvLotTableMap::COL_INLTLANDCOST1, WhseInvLotTableMap::COL_INLTLANDCOST2, WhseInvLotTableMap::COL_INLTLANDCOST3, WhseInvLotTableMap::COL_INLTLANDCOST4, WhseInvLotTableMap::COL_INLTLANDCOST5, WhseInvLotTableMap::COL_INLTTARIFFCOST, WhseInvLotTableMap::COL_INLTSHOPCOST, WhseInvLotTableMap::COL_INLTISSCODFSQTY, WhseInvLotTableMap::COL_INLTHEADMARK, WhseInvLotTableMap::COL_INLTCTRY, WhseInvLotTableMap::COL_INLTRVALORIGCOST, WhseInvLotTableMap::COL_INLTRVALPCT, WhseInvLotTableMap::COL_INLTUNITWGHT, WhseInvLotTableMap::COL_INLTDESTWHSE, WhseInvLotTableMap::COL_INLTCNTRQTY, WhseInvLotTableMap::COL_INLTQTYPERROLL, WhseInvLotTableMap::COL_INLTTAREWGHT, WhseInvLotTableMap::COL_INLTQCREASONCD, WhseInvLotTableMap::COL_INLTCERT, WhseInvLotTableMap::COL_INLTCUREDATE, WhseInvLotTableMap::COL_INLTEXPIREDATECD, WhseInvLotTableMap::COL_INLTEXPIREDATE, WhseInvLotTableMap::COL_INLTORIGBIN, WhseInvLotTableMap::COL_INLTSHOPITEM, WhseInvLotTableMap::COL_DATEUPDTD, WhseInvLotTableMap::COL_TIMEUPDTD, WhseInvLotTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(WhseLotserialTableMap::COL_INITITEMNBR, WhseLotserialTableMap::COL_INTBWHSE, WhseLotserialTableMap::COL_INLTLOTSER, WhseLotserialTableMap::COL_INLTBIN, WhseLotserialTableMap::COL_INLTDATE, WhseLotserialTableMap::COL_INLTDATEWRIT, WhseLotserialTableMap::COL_INLTCOST, WhseLotserialTableMap::COL_INLTONHAND, WhseLotserialTableMap::COL_INLTRESV, WhseLotserialTableMap::COL_INLTSHIP, WhseLotserialTableMap::COL_INLTALLO, WhseLotserialTableMap::COL_INLTFABALLO, WhseLotserialTableMap::COL_INLTINTRAN, WhseLotserialTableMap::COL_INLTINSHIP, WhseLotserialTableMap::COL_INLTLOTREF, WhseLotserialTableMap::COL_INLTBATCH, WhseLotserialTableMap::COL_INLTLANDCOST1, WhseLotserialTableMap::COL_INLTLANDCOST2, WhseLotserialTableMap::COL_INLTLANDCOST3, WhseLotserialTableMap::COL_INLTLANDCOST4, WhseLotserialTableMap::COL_INLTLANDCOST5, WhseLotserialTableMap::COL_INLTTARIFFCOST, WhseLotserialTableMap::COL_INLTSHOPCOST, WhseLotserialTableMap::COL_INLTISSCODFSQTY, WhseLotserialTableMap::COL_INLTHEADMARK, WhseLotserialTableMap::COL_INLTCTRY, WhseLotserialTableMap::COL_INLTRVALORIGCOST, WhseLotserialTableMap::COL_INLTRVALPCT, WhseLotserialTableMap::COL_INLTUNITWGHT, WhseLotserialTableMap::COL_INLTDESTWHSE, WhseLotserialTableMap::COL_INLTCNTRQTY, WhseLotserialTableMap::COL_INLTQTYPERROLL, WhseLotserialTableMap::COL_INLTTAREWGHT, WhseLotserialTableMap::COL_INLTQCREASONCD, WhseLotserialTableMap::COL_INLTCERT, WhseLotserialTableMap::COL_INLTCUREDATE, WhseLotserialTableMap::COL_INLTEXPIREDATECD, WhseLotserialTableMap::COL_INLTEXPIREDATE, WhseLotserialTableMap::COL_INLTORIGBIN, WhseLotserialTableMap::COL_INLTSHOPITEM, WhseLotserialTableMap::COL_DATEUPDTD, WhseLotserialTableMap::COL_TIMEUPDTD, WhseLotserialTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr', 'IntbWhse', 'InltLotSer', 'InltBin', 'InltDate', 'InltDateWrit', 'InltCost', 'InltOnHand', 'InltResv', 'InltShip', 'InltAllo', 'InltFabAllo', 'InltInTran', 'InltInShip', 'InltLotRef', 'InltBatch', 'InltLandCost1', 'InltLandCost2', 'InltLandCost3', 'InltLandCost4', 'InltLandCost5', 'InltTariffCost', 'InltShopCost', 'InltIsscoDfsQty', 'InltHeadMark', 'InltCtry', 'InltRvalOrigCost', 'InltRvalPct', 'InltUnitWght', 'InltDestWhse', 'InltCntrQty', 'InltQtyPerRoll', 'InltTareWght', 'InltQcReasonCd', 'InltCert', 'InltCureDate', 'InltExpireDateCd', 'InltExpireDate', 'InltOrigBin', 'InltShopItem', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
     );
@@ -314,7 +314,7 @@ class WhseInvLotTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Intbwhse' => 1, 'Inltlotser' => 2, 'Inltbin' => 3, 'Inltdate' => 4, 'Inltdatewrit' => 5, 'Inltcost' => 6, 'Inltonhand' => 7, 'Inltresv' => 8, 'Inltship' => 9, 'Inltallo' => 10, 'Inltfaballo' => 11, 'Inltintran' => 12, 'Inltinship' => 13, 'Inltlotref' => 14, 'Inltbatch' => 15, 'Inltlandcost1' => 16, 'Inltlandcost2' => 17, 'Inltlandcost3' => 18, 'Inltlandcost4' => 19, 'Inltlandcost5' => 20, 'Inlttariffcost' => 21, 'Inltshopcost' => 22, 'Inltisscodfsqty' => 23, 'Inltheadmark' => 24, 'Inltctry' => 25, 'Inltrvalorigcost' => 26, 'Inltrvalpct' => 27, 'Inltunitwght' => 28, 'Inltdestwhse' => 29, 'Inltcntrqty' => 30, 'Inltqtyperroll' => 31, 'Inlttarewght' => 32, 'Inltqcreasoncd' => 33, 'Inltcert' => 34, 'Inltcuredate' => 35, 'Inltexpiredatecd' => 36, 'Inltexpiredate' => 37, 'Inltorigbin' => 38, 'Inltshopitem' => 39, 'Dateupdtd' => 40, 'Timeupdtd' => 41, 'Dummy' => 42, ),
         self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'intbwhse' => 1, 'inltlotser' => 2, 'inltbin' => 3, 'inltdate' => 4, 'inltdatewrit' => 5, 'inltcost' => 6, 'inltonhand' => 7, 'inltresv' => 8, 'inltship' => 9, 'inltallo' => 10, 'inltfaballo' => 11, 'inltintran' => 12, 'inltinship' => 13, 'inltlotref' => 14, 'inltbatch' => 15, 'inltlandcost1' => 16, 'inltlandcost2' => 17, 'inltlandcost3' => 18, 'inltlandcost4' => 19, 'inltlandcost5' => 20, 'inlttariffcost' => 21, 'inltshopcost' => 22, 'inltisscodfsqty' => 23, 'inltheadmark' => 24, 'inltctry' => 25, 'inltrvalorigcost' => 26, 'inltrvalpct' => 27, 'inltunitwght' => 28, 'inltdestwhse' => 29, 'inltcntrqty' => 30, 'inltqtyperroll' => 31, 'inlttarewght' => 32, 'inltqcreasoncd' => 33, 'inltcert' => 34, 'inltcuredate' => 35, 'inltexpiredatecd' => 36, 'inltexpiredate' => 37, 'inltorigbin' => 38, 'inltshopitem' => 39, 'dateupdtd' => 40, 'timeupdtd' => 41, 'dummy' => 42, ),
-        self::TYPE_COLNAME       => array(WhseInvLotTableMap::COL_INITITEMNBR => 0, WhseInvLotTableMap::COL_INTBWHSE => 1, WhseInvLotTableMap::COL_INLTLOTSER => 2, WhseInvLotTableMap::COL_INLTBIN => 3, WhseInvLotTableMap::COL_INLTDATE => 4, WhseInvLotTableMap::COL_INLTDATEWRIT => 5, WhseInvLotTableMap::COL_INLTCOST => 6, WhseInvLotTableMap::COL_INLTONHAND => 7, WhseInvLotTableMap::COL_INLTRESV => 8, WhseInvLotTableMap::COL_INLTSHIP => 9, WhseInvLotTableMap::COL_INLTALLO => 10, WhseInvLotTableMap::COL_INLTFABALLO => 11, WhseInvLotTableMap::COL_INLTINTRAN => 12, WhseInvLotTableMap::COL_INLTINSHIP => 13, WhseInvLotTableMap::COL_INLTLOTREF => 14, WhseInvLotTableMap::COL_INLTBATCH => 15, WhseInvLotTableMap::COL_INLTLANDCOST1 => 16, WhseInvLotTableMap::COL_INLTLANDCOST2 => 17, WhseInvLotTableMap::COL_INLTLANDCOST3 => 18, WhseInvLotTableMap::COL_INLTLANDCOST4 => 19, WhseInvLotTableMap::COL_INLTLANDCOST5 => 20, WhseInvLotTableMap::COL_INLTTARIFFCOST => 21, WhseInvLotTableMap::COL_INLTSHOPCOST => 22, WhseInvLotTableMap::COL_INLTISSCODFSQTY => 23, WhseInvLotTableMap::COL_INLTHEADMARK => 24, WhseInvLotTableMap::COL_INLTCTRY => 25, WhseInvLotTableMap::COL_INLTRVALORIGCOST => 26, WhseInvLotTableMap::COL_INLTRVALPCT => 27, WhseInvLotTableMap::COL_INLTUNITWGHT => 28, WhseInvLotTableMap::COL_INLTDESTWHSE => 29, WhseInvLotTableMap::COL_INLTCNTRQTY => 30, WhseInvLotTableMap::COL_INLTQTYPERROLL => 31, WhseInvLotTableMap::COL_INLTTAREWGHT => 32, WhseInvLotTableMap::COL_INLTQCREASONCD => 33, WhseInvLotTableMap::COL_INLTCERT => 34, WhseInvLotTableMap::COL_INLTCUREDATE => 35, WhseInvLotTableMap::COL_INLTEXPIREDATECD => 36, WhseInvLotTableMap::COL_INLTEXPIREDATE => 37, WhseInvLotTableMap::COL_INLTORIGBIN => 38, WhseInvLotTableMap::COL_INLTSHOPITEM => 39, WhseInvLotTableMap::COL_DATEUPDTD => 40, WhseInvLotTableMap::COL_TIMEUPDTD => 41, WhseInvLotTableMap::COL_DUMMY => 42, ),
+        self::TYPE_COLNAME       => array(WhseLotserialTableMap::COL_INITITEMNBR => 0, WhseLotserialTableMap::COL_INTBWHSE => 1, WhseLotserialTableMap::COL_INLTLOTSER => 2, WhseLotserialTableMap::COL_INLTBIN => 3, WhseLotserialTableMap::COL_INLTDATE => 4, WhseLotserialTableMap::COL_INLTDATEWRIT => 5, WhseLotserialTableMap::COL_INLTCOST => 6, WhseLotserialTableMap::COL_INLTONHAND => 7, WhseLotserialTableMap::COL_INLTRESV => 8, WhseLotserialTableMap::COL_INLTSHIP => 9, WhseLotserialTableMap::COL_INLTALLO => 10, WhseLotserialTableMap::COL_INLTFABALLO => 11, WhseLotserialTableMap::COL_INLTINTRAN => 12, WhseLotserialTableMap::COL_INLTINSHIP => 13, WhseLotserialTableMap::COL_INLTLOTREF => 14, WhseLotserialTableMap::COL_INLTBATCH => 15, WhseLotserialTableMap::COL_INLTLANDCOST1 => 16, WhseLotserialTableMap::COL_INLTLANDCOST2 => 17, WhseLotserialTableMap::COL_INLTLANDCOST3 => 18, WhseLotserialTableMap::COL_INLTLANDCOST4 => 19, WhseLotserialTableMap::COL_INLTLANDCOST5 => 20, WhseLotserialTableMap::COL_INLTTARIFFCOST => 21, WhseLotserialTableMap::COL_INLTSHOPCOST => 22, WhseLotserialTableMap::COL_INLTISSCODFSQTY => 23, WhseLotserialTableMap::COL_INLTHEADMARK => 24, WhseLotserialTableMap::COL_INLTCTRY => 25, WhseLotserialTableMap::COL_INLTRVALORIGCOST => 26, WhseLotserialTableMap::COL_INLTRVALPCT => 27, WhseLotserialTableMap::COL_INLTUNITWGHT => 28, WhseLotserialTableMap::COL_INLTDESTWHSE => 29, WhseLotserialTableMap::COL_INLTCNTRQTY => 30, WhseLotserialTableMap::COL_INLTQTYPERROLL => 31, WhseLotserialTableMap::COL_INLTTAREWGHT => 32, WhseLotserialTableMap::COL_INLTQCREASONCD => 33, WhseLotserialTableMap::COL_INLTCERT => 34, WhseLotserialTableMap::COL_INLTCUREDATE => 35, WhseLotserialTableMap::COL_INLTEXPIREDATECD => 36, WhseLotserialTableMap::COL_INLTEXPIREDATE => 37, WhseLotserialTableMap::COL_INLTORIGBIN => 38, WhseLotserialTableMap::COL_INLTSHOPITEM => 39, WhseLotserialTableMap::COL_DATEUPDTD => 40, WhseLotserialTableMap::COL_TIMEUPDTD => 41, WhseLotserialTableMap::COL_DUMMY => 42, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'IntbWhse' => 1, 'InltLotSer' => 2, 'InltBin' => 3, 'InltDate' => 4, 'InltDateWrit' => 5, 'InltCost' => 6, 'InltOnHand' => 7, 'InltResv' => 8, 'InltShip' => 9, 'InltAllo' => 10, 'InltFabAllo' => 11, 'InltInTran' => 12, 'InltInShip' => 13, 'InltLotRef' => 14, 'InltBatch' => 15, 'InltLandCost1' => 16, 'InltLandCost2' => 17, 'InltLandCost3' => 18, 'InltLandCost4' => 19, 'InltLandCost5' => 20, 'InltTariffCost' => 21, 'InltShopCost' => 22, 'InltIsscoDfsQty' => 23, 'InltHeadMark' => 24, 'InltCtry' => 25, 'InltRvalOrigCost' => 26, 'InltRvalPct' => 27, 'InltUnitWght' => 28, 'InltDestWhse' => 29, 'InltCntrQty' => 30, 'InltQtyPerRoll' => 31, 'InltTareWght' => 32, 'InltQcReasonCd' => 33, 'InltCert' => 34, 'InltCureDate' => 35, 'InltExpireDateCd' => 36, 'InltExpireDate' => 37, 'InltOrigBin' => 38, 'InltShopItem' => 39, 'DateUpdtd' => 40, 'TimeUpdtd' => 41, 'dummy' => 42, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, )
     );
@@ -330,9 +330,9 @@ class WhseInvLotTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_inv_lot');
-        $this->setPhpName('WhseInvLot');
+        $this->setPhpName('WhseLotserial');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\WhseInvLot');
+        $this->setClassName('\\WhseLotserial');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -403,7 +403,7 @@ class WhseInvLotTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \WhseInvLot $obj A \WhseInvLot object.
+     * @param \WhseLotserial $obj A \WhseLotserial object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -424,12 +424,12 @@ class WhseInvLotTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \WhseInvLot object or a primary key value.
+     * @param mixed $value A \WhseLotserial object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \WhseInvLot) {
+            if (is_object($value) && $value instanceof \WhseLotserial) {
                 $key = serialize([(null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getIntbwhse() || is_scalar($value->getIntbwhse()) || is_callable([$value->getIntbwhse(), '__toString']) ? (string) $value->getIntbwhse() : $value->getIntbwhse()), (null === $value->getInltlotser() || is_scalar($value->getInltlotser()) || is_callable([$value->getInltlotser(), '__toString']) ? (string) $value->getInltlotser() : $value->getInltlotser()), (null === $value->getInltbin() || is_scalar($value->getInltbin()) || is_callable([$value->getInltbin(), '__toString']) ? (string) $value->getInltbin() : $value->getInltbin())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -440,7 +440,7 @@ class WhseInvLotTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \WhseInvLot object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \WhseLotserial object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -524,7 +524,7 @@ class WhseInvLotTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? WhseInvLotTableMap::CLASS_DEFAULT : WhseInvLotTableMap::OM_CLASS;
+        return $withPrefix ? WhseLotserialTableMap::CLASS_DEFAULT : WhseLotserialTableMap::OM_CLASS;
     }
 
     /**
@@ -538,22 +538,22 @@ class WhseInvLotTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (WhseInvLot object, last column rank)
+     * @return array           (WhseLotserial object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = WhseInvLotTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = WhseInvLotTableMap::getInstanceFromPool($key))) {
+        $key = WhseLotserialTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = WhseLotserialTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + WhseInvLotTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + WhseLotserialTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = WhseInvLotTableMap::OM_CLASS;
-            /** @var WhseInvLot $obj */
+            $cls = WhseLotserialTableMap::OM_CLASS;
+            /** @var WhseLotserial $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            WhseInvLotTableMap::addInstanceToPool($obj, $key);
+            WhseLotserialTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -576,18 +576,18 @@ class WhseInvLotTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = WhseInvLotTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = WhseInvLotTableMap::getInstanceFromPool($key))) {
+            $key = WhseLotserialTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = WhseLotserialTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var WhseInvLot $obj */
+                /** @var WhseLotserial $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                WhseInvLotTableMap::addInstanceToPool($obj, $key);
+                WhseLotserialTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -608,49 +608,49 @@ class WhseInvLotTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INTBWHSE);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLOTSER);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTBIN);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTDATE);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTDATEWRIT);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTCOST);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTONHAND);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTRESV);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTSHIP);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTALLO);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTFABALLO);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTINTRAN);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTINSHIP);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLOTREF);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTBATCH);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLANDCOST1);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLANDCOST2);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLANDCOST3);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLANDCOST4);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTLANDCOST5);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTTARIFFCOST);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTSHOPCOST);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTISSCODFSQTY);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTHEADMARK);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTCTRY);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTRVALORIGCOST);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTRVALPCT);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTUNITWGHT);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTDESTWHSE);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTCNTRQTY);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTQTYPERROLL);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTTAREWGHT);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTQCREASONCD);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTCERT);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTCUREDATE);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTEXPIREDATECD);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTEXPIREDATE);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTORIGBIN);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_INLTSHOPITEM);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(WhseInvLotTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INTBWHSE);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLOTSER);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTBIN);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTDATE);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTDATEWRIT);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTCOST);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTONHAND);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTRESV);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTSHIP);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTALLO);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTFABALLO);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTINTRAN);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTINSHIP);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLOTREF);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTBATCH);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLANDCOST1);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLANDCOST2);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLANDCOST3);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLANDCOST4);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTLANDCOST5);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTTARIFFCOST);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTSHOPCOST);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTISSCODFSQTY);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTHEADMARK);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTCTRY);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTRVALORIGCOST);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTRVALPCT);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTUNITWGHT);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTDESTWHSE);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTCNTRQTY);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTQTYPERROLL);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTTAREWGHT);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTQCREASONCD);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTCERT);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTCUREDATE);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTEXPIREDATECD);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTEXPIREDATE);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTORIGBIN);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_INLTSHOPITEM);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(WhseLotserialTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.IntbWhse');
@@ -707,7 +707,7 @@ class WhseInvLotTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(WhseInvLotTableMap::DATABASE_NAME)->getTable(WhseInvLotTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(WhseLotserialTableMap::DATABASE_NAME)->getTable(WhseLotserialTableMap::TABLE_NAME);
     }
 
     /**
@@ -715,16 +715,16 @@ class WhseInvLotTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhseInvLotTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(WhseInvLotTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new WhseInvLotTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(WhseLotserialTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(WhseLotserialTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new WhseLotserialTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a WhseInvLot or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a WhseLotserial or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or WhseInvLot object or primary key or array of primary keys
+     * @param mixed               $values Criteria or WhseLotserial object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -735,17 +735,17 @@ class WhseInvLotTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseInvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \WhseInvLot) { // it's a model object
+        } elseif ($values instanceof \WhseLotserial) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(WhseInvLotTableMap::DATABASE_NAME);
+            $criteria = new Criteria(WhseLotserialTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -753,21 +753,21 @@ class WhseInvLotTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(WhseInvLotTableMap::COL_INITITEMNBR, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(WhseInvLotTableMap::COL_INTBWHSE, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(WhseInvLotTableMap::COL_INLTLOTSER, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(WhseInvLotTableMap::COL_INLTBIN, $value[3]));
+                $criterion = $criteria->getNewCriterion(WhseLotserialTableMap::COL_INITITEMNBR, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(WhseLotserialTableMap::COL_INTBWHSE, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(WhseLotserialTableMap::COL_INLTLOTSER, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(WhseLotserialTableMap::COL_INLTBIN, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = WhseInvLotQuery::create()->mergeWith($criteria);
+        $query = WhseLotserialQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            WhseInvLotTableMap::clearInstancePool();
+            WhseLotserialTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                WhseInvLotTableMap::removeInstanceFromPool($singleval);
+                WhseLotserialTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -782,13 +782,13 @@ class WhseInvLotTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return WhseInvLotQuery::create()->doDeleteAll($con);
+        return WhseLotserialQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a WhseInvLot or Criteria object.
+     * Performs an INSERT on the database, given a WhseLotserial or Criteria object.
      *
-     * @param mixed               $criteria Criteria or WhseInvLot object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or WhseLotserial object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -797,18 +797,18 @@ class WhseInvLotTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseInvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from WhseInvLot object
+            $criteria = $criteria->buildCriteria(); // build Criteria from WhseLotserial object
         }
 
 
         // Set the correct dbName
-        $query = WhseInvLotQuery::create()->mergeWith($criteria);
+        $query = WhseLotserialQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -817,7 +817,7 @@ class WhseInvLotTableMap extends TableMap
         });
     }
 
-} // WhseInvLotTableMap
+} // WhseLotserialTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-WhseInvLotTableMap::buildTableMap();
+WhseLotserialTableMap::buildTableMap();

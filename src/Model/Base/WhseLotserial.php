@@ -4,10 +4,10 @@ namespace Base;
 
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
-use \WhseInvLotQuery as ChildWhseInvLotQuery;
+use \WhseLotserialQuery as ChildWhseLotserialQuery;
 use \Exception;
 use \PDO;
-use Map\WhseInvLotTableMap;
+use Map\WhseLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -27,12 +27,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class WhseInvLot implements ActiveRecordInterface
+abstract class WhseLotserial implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\WhseInvLotTableMap';
+    const TABLE_MAP = '\\Map\\WhseLotserialTableMap';
 
 
     /**
@@ -394,7 +394,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\WhseInvLot object.
+     * Initializes internal state of Base\WhseLotserial object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -491,9 +491,9 @@ abstract class WhseInvLot implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>WhseInvLot</code> instance.  If
-     * <code>obj</code> is an instance of <code>WhseInvLot</code>, delegates to
-     * <code>equals(WhseInvLot)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>WhseLotserial</code> instance.  If
+     * <code>obj</code> is an instance of <code>WhseLotserial</code>, delegates to
+     * <code>equals(WhseLotserial)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -559,7 +559,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|WhseInvLot The current object, for fluid interface
+     * @return $this|WhseLotserial The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -1054,7 +1054,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -1064,7 +1064,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -1078,7 +1078,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [intbwhse] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setIntbwhse($v)
     {
@@ -1088,7 +1088,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->intbwhse !== $v) {
             $this->intbwhse = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INTBWHSE] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INTBWHSE] = true;
         }
 
         return $this;
@@ -1098,7 +1098,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlotser] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlotser($v)
     {
@@ -1108,7 +1108,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlotser !== $v) {
             $this->inltlotser = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLOTSER] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLOTSER] = true;
         }
 
         return $this;
@@ -1118,7 +1118,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltbin] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltbin($v)
     {
@@ -1128,7 +1128,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltbin !== $v) {
             $this->inltbin = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTBIN] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTBIN] = true;
         }
 
         return $this;
@@ -1138,7 +1138,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltdate] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltdate($v)
     {
@@ -1148,7 +1148,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltdate !== $v) {
             $this->inltdate = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTDATE] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTDATE] = true;
         }
 
         return $this;
@@ -1158,7 +1158,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltdatewrit] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltdatewrit($v)
     {
@@ -1168,7 +1168,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltdatewrit !== $v) {
             $this->inltdatewrit = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTDATEWRIT] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTDATEWRIT] = true;
         }
 
         return $this;
@@ -1178,7 +1178,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltcost] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltcost($v)
     {
@@ -1188,7 +1188,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltcost !== $v) {
             $this->inltcost = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTCOST] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTCOST] = true;
         }
 
         return $this;
@@ -1198,7 +1198,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltonhand] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltonhand($v)
     {
@@ -1208,7 +1208,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltonhand !== $v) {
             $this->inltonhand = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTONHAND] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTONHAND] = true;
         }
 
         return $this;
@@ -1218,7 +1218,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltresv] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltresv($v)
     {
@@ -1228,7 +1228,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltresv !== $v) {
             $this->inltresv = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTRESV] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTRESV] = true;
         }
 
         return $this;
@@ -1238,7 +1238,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltship] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltship($v)
     {
@@ -1248,7 +1248,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltship !== $v) {
             $this->inltship = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTSHIP] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTSHIP] = true;
         }
 
         return $this;
@@ -1258,7 +1258,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltallo] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltallo($v)
     {
@@ -1268,7 +1268,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltallo !== $v) {
             $this->inltallo = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTALLO] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTALLO] = true;
         }
 
         return $this;
@@ -1278,7 +1278,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltfaballo] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltfaballo($v)
     {
@@ -1288,7 +1288,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltfaballo !== $v) {
             $this->inltfaballo = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTFABALLO] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTFABALLO] = true;
         }
 
         return $this;
@@ -1298,7 +1298,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltintran] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltintran($v)
     {
@@ -1308,7 +1308,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltintran !== $v) {
             $this->inltintran = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTINTRAN] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTINTRAN] = true;
         }
 
         return $this;
@@ -1318,7 +1318,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltinship] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltinship($v)
     {
@@ -1328,7 +1328,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltinship !== $v) {
             $this->inltinship = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTINSHIP] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTINSHIP] = true;
         }
 
         return $this;
@@ -1338,7 +1338,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlotref] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlotref($v)
     {
@@ -1348,7 +1348,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlotref !== $v) {
             $this->inltlotref = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLOTREF] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLOTREF] = true;
         }
 
         return $this;
@@ -1358,7 +1358,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltbatch] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltbatch($v)
     {
@@ -1368,7 +1368,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltbatch !== $v) {
             $this->inltbatch = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTBATCH] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTBATCH] = true;
         }
 
         return $this;
@@ -1378,7 +1378,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlandcost1] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlandcost1($v)
     {
@@ -1388,7 +1388,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlandcost1 !== $v) {
             $this->inltlandcost1 = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLANDCOST1] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLANDCOST1] = true;
         }
 
         return $this;
@@ -1398,7 +1398,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlandcost2] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlandcost2($v)
     {
@@ -1408,7 +1408,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlandcost2 !== $v) {
             $this->inltlandcost2 = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLANDCOST2] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLANDCOST2] = true;
         }
 
         return $this;
@@ -1418,7 +1418,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlandcost3] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlandcost3($v)
     {
@@ -1428,7 +1428,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlandcost3 !== $v) {
             $this->inltlandcost3 = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLANDCOST3] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLANDCOST3] = true;
         }
 
         return $this;
@@ -1438,7 +1438,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlandcost4] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlandcost4($v)
     {
@@ -1448,7 +1448,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlandcost4 !== $v) {
             $this->inltlandcost4 = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLANDCOST4] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLANDCOST4] = true;
         }
 
         return $this;
@@ -1458,7 +1458,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltlandcost5] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltlandcost5($v)
     {
@@ -1468,7 +1468,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltlandcost5 !== $v) {
             $this->inltlandcost5 = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTLANDCOST5] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLANDCOST5] = true;
         }
 
         return $this;
@@ -1478,7 +1478,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inlttariffcost] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInlttariffcost($v)
     {
@@ -1488,7 +1488,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inlttariffcost !== $v) {
             $this->inlttariffcost = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTTARIFFCOST] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTTARIFFCOST] = true;
         }
 
         return $this;
@@ -1498,7 +1498,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltshopcost] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltshopcost($v)
     {
@@ -1508,7 +1508,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltshopcost !== $v) {
             $this->inltshopcost = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTSHOPCOST] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTSHOPCOST] = true;
         }
 
         return $this;
@@ -1518,7 +1518,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltisscodfsqty] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltisscodfsqty($v)
     {
@@ -1528,7 +1528,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltisscodfsqty !== $v) {
             $this->inltisscodfsqty = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTISSCODFSQTY] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTISSCODFSQTY] = true;
         }
 
         return $this;
@@ -1538,7 +1538,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltheadmark] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltheadmark($v)
     {
@@ -1548,7 +1548,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltheadmark !== $v) {
             $this->inltheadmark = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTHEADMARK] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTHEADMARK] = true;
         }
 
         return $this;
@@ -1558,7 +1558,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltctry] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltctry($v)
     {
@@ -1568,7 +1568,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltctry !== $v) {
             $this->inltctry = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTCTRY] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTCTRY] = true;
         }
 
         return $this;
@@ -1578,7 +1578,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltrvalorigcost] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltrvalorigcost($v)
     {
@@ -1588,7 +1588,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltrvalorigcost !== $v) {
             $this->inltrvalorigcost = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTRVALORIGCOST] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTRVALORIGCOST] = true;
         }
 
         return $this;
@@ -1598,7 +1598,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltrvalpct] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltrvalpct($v)
     {
@@ -1608,7 +1608,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltrvalpct !== $v) {
             $this->inltrvalpct = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTRVALPCT] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTRVALPCT] = true;
         }
 
         return $this;
@@ -1618,7 +1618,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltunitwght] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltunitwght($v)
     {
@@ -1628,7 +1628,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltunitwght !== $v) {
             $this->inltunitwght = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTUNITWGHT] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTUNITWGHT] = true;
         }
 
         return $this;
@@ -1638,7 +1638,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltdestwhse] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltdestwhse($v)
     {
@@ -1648,7 +1648,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltdestwhse !== $v) {
             $this->inltdestwhse = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTDESTWHSE] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTDESTWHSE] = true;
         }
 
         return $this;
@@ -1658,7 +1658,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltcntrqty] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltcntrqty($v)
     {
@@ -1668,7 +1668,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltcntrqty !== $v) {
             $this->inltcntrqty = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTCNTRQTY] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTCNTRQTY] = true;
         }
 
         return $this;
@@ -1678,7 +1678,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltqtyperroll] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltqtyperroll($v)
     {
@@ -1688,7 +1688,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltqtyperroll !== $v) {
             $this->inltqtyperroll = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTQTYPERROLL] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTQTYPERROLL] = true;
         }
 
         return $this;
@@ -1698,7 +1698,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inlttarewght] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInlttarewght($v)
     {
@@ -1708,7 +1708,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inlttarewght !== $v) {
             $this->inlttarewght = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTTAREWGHT] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTTAREWGHT] = true;
         }
 
         return $this;
@@ -1718,7 +1718,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltqcreasoncd] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltqcreasoncd($v)
     {
@@ -1728,7 +1728,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltqcreasoncd !== $v) {
             $this->inltqcreasoncd = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTQCREASONCD] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTQCREASONCD] = true;
         }
 
         return $this;
@@ -1738,7 +1738,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltcert] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltcert($v)
     {
@@ -1748,7 +1748,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltcert !== $v) {
             $this->inltcert = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTCERT] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTCERT] = true;
         }
 
         return $this;
@@ -1758,7 +1758,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltcuredate] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltcuredate($v)
     {
@@ -1768,7 +1768,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltcuredate !== $v) {
             $this->inltcuredate = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTCUREDATE] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTCUREDATE] = true;
         }
 
         return $this;
@@ -1778,7 +1778,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltexpiredatecd] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltexpiredatecd($v)
     {
@@ -1788,7 +1788,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltexpiredatecd !== $v) {
             $this->inltexpiredatecd = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTEXPIREDATECD] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTEXPIREDATECD] = true;
         }
 
         return $this;
@@ -1798,7 +1798,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltexpiredate] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltexpiredate($v)
     {
@@ -1808,7 +1808,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltexpiredate !== $v) {
             $this->inltexpiredate = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTEXPIREDATE] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTEXPIREDATE] = true;
         }
 
         return $this;
@@ -1818,7 +1818,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltorigbin] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltorigbin($v)
     {
@@ -1828,7 +1828,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltorigbin !== $v) {
             $this->inltorigbin = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTORIGBIN] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTORIGBIN] = true;
         }
 
         return $this;
@@ -1838,7 +1838,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [inltshopitem] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setInltshopitem($v)
     {
@@ -1848,7 +1848,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->inltshopitem !== $v) {
             $this->inltshopitem = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_INLTSHOPITEM] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_INLTSHOPITEM] = true;
         }
 
         return $this;
@@ -1858,7 +1858,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1868,7 +1868,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -1878,7 +1878,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1888,7 +1888,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -1898,7 +1898,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1908,7 +1908,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[WhseInvLotTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[WhseLotserialTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1966,133 +1966,133 @@ abstract class WhseInvLot implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WhseInvLotTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WhseLotserialTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WhseInvLotTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WhseLotserialTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlotser', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlotser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WhseInvLotTableMap::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WhseLotserialTableMap::translateFieldName('Inltbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WhseInvLotTableMap::translateFieldName('Inltdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WhseLotserialTableMap::translateFieldName('Inltdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WhseInvLotTableMap::translateFieldName('Inltdatewrit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WhseLotserialTableMap::translateFieldName('Inltdatewrit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdatewrit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseInvLotTableMap::translateFieldName('Inltcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WhseLotserialTableMap::translateFieldName('Inltcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseInvLotTableMap::translateFieldName('Inltonhand', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WhseLotserialTableMap::translateFieldName('Inltonhand', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltonhand = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseInvLotTableMap::translateFieldName('Inltresv', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WhseLotserialTableMap::translateFieldName('Inltresv', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltresv = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseInvLotTableMap::translateFieldName('Inltship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : WhseLotserialTableMap::translateFieldName('Inltship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseInvLotTableMap::translateFieldName('Inltallo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : WhseLotserialTableMap::translateFieldName('Inltallo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltallo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseInvLotTableMap::translateFieldName('Inltfaballo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : WhseLotserialTableMap::translateFieldName('Inltfaballo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltfaballo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseInvLotTableMap::translateFieldName('Inltintran', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : WhseLotserialTableMap::translateFieldName('Inltintran', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltintran = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WhseInvLotTableMap::translateFieldName('Inltinship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : WhseLotserialTableMap::translateFieldName('Inltinship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltinship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlotref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WhseInvLotTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : WhseLotserialTableMap::translateFieldName('Inltbatch', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlandcost1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlandcost1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlandcost2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlandcost2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlandcost3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlandcost3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlandcost4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlandcost4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WhseInvLotTableMap::translateFieldName('Inltlandcost5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WhseLotserialTableMap::translateFieldName('Inltlandcost5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltlandcost5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WhseInvLotTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WhseLotserialTableMap::translateFieldName('Inlttariffcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlttariffcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WhseInvLotTableMap::translateFieldName('Inltshopcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WhseLotserialTableMap::translateFieldName('Inltshopcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltshopcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : WhseInvLotTableMap::translateFieldName('Inltisscodfsqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : WhseLotserialTableMap::translateFieldName('Inltisscodfsqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltisscodfsqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : WhseInvLotTableMap::translateFieldName('Inltheadmark', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : WhseLotserialTableMap::translateFieldName('Inltheadmark', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltheadmark = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : WhseInvLotTableMap::translateFieldName('Inltctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : WhseLotserialTableMap::translateFieldName('Inltctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : WhseInvLotTableMap::translateFieldName('Inltrvalorigcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : WhseLotserialTableMap::translateFieldName('Inltrvalorigcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltrvalorigcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : WhseInvLotTableMap::translateFieldName('Inltrvalpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : WhseLotserialTableMap::translateFieldName('Inltrvalpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltrvalpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : WhseInvLotTableMap::translateFieldName('Inltunitwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : WhseLotserialTableMap::translateFieldName('Inltunitwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltunitwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : WhseInvLotTableMap::translateFieldName('Inltdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : WhseLotserialTableMap::translateFieldName('Inltdestwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltdestwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : WhseInvLotTableMap::translateFieldName('Inltcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : WhseLotserialTableMap::translateFieldName('Inltcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : WhseInvLotTableMap::translateFieldName('Inltqtyperroll', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : WhseLotserialTableMap::translateFieldName('Inltqtyperroll', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltqtyperroll = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : WhseInvLotTableMap::translateFieldName('Inlttarewght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : WhseLotserialTableMap::translateFieldName('Inlttarewght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inlttarewght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : WhseInvLotTableMap::translateFieldName('Inltqcreasoncd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : WhseLotserialTableMap::translateFieldName('Inltqcreasoncd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltqcreasoncd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : WhseInvLotTableMap::translateFieldName('Inltcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : WhseLotserialTableMap::translateFieldName('Inltcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : WhseInvLotTableMap::translateFieldName('Inltcuredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : WhseLotserialTableMap::translateFieldName('Inltcuredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltcuredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : WhseInvLotTableMap::translateFieldName('Inltexpiredatecd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : WhseLotserialTableMap::translateFieldName('Inltexpiredatecd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltexpiredatecd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : WhseInvLotTableMap::translateFieldName('Inltexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : WhseLotserialTableMap::translateFieldName('Inltexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : WhseInvLotTableMap::translateFieldName('Inltorigbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : WhseLotserialTableMap::translateFieldName('Inltorigbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltorigbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : WhseInvLotTableMap::translateFieldName('Inltshopitem', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : WhseLotserialTableMap::translateFieldName('Inltshopitem', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inltshopitem = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : WhseInvLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : WhseLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : WhseInvLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : WhseLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : WhseInvLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : WhseLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -2102,10 +2102,10 @@ abstract class WhseInvLot implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 43; // 43 = WhseInvLotTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 43; // 43 = WhseLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\WhseInvLot'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\WhseLotserial'), 0, $e);
         }
     }
 
@@ -2150,13 +2150,13 @@ abstract class WhseInvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WhseInvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(WhseLotserialTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildWhseInvLotQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildWhseLotserialQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -2176,8 +2176,8 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see WhseInvLot::setDeleted()
-     * @see WhseInvLot::isDeleted()
+     * @see WhseLotserial::setDeleted()
+     * @see WhseLotserial::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -2186,11 +2186,11 @@ abstract class WhseInvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseInvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildWhseInvLotQuery::create()
+            $deleteQuery = ChildWhseLotserialQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -2225,7 +2225,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseInvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -2244,7 +2244,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                WhseInvLotTableMap::addInstanceToPool($this);
+                WhseLotserialTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -2315,133 +2315,133 @@ abstract class WhseInvLot implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INTBWHSE)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INTBWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'IntbWhse';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLOTSER)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLOTSER)) {
             $modifiedColumns[':p' . $index++]  = 'InltLotSer';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTBIN)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTBIN)) {
             $modifiedColumns[':p' . $index++]  = 'InltBin';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDATE)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'InltDate';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDATEWRIT)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDATEWRIT)) {
             $modifiedColumns[':p' . $index++]  = 'InltDateWrit';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCOST)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCOST)) {
             $modifiedColumns[':p' . $index++]  = 'InltCost';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTONHAND)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTONHAND)) {
             $modifiedColumns[':p' . $index++]  = 'InltOnHand';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRESV)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRESV)) {
             $modifiedColumns[':p' . $index++]  = 'InltResv';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHIP)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'InltShip';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTALLO)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTALLO)) {
             $modifiedColumns[':p' . $index++]  = 'InltAllo';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTFABALLO)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTFABALLO)) {
             $modifiedColumns[':p' . $index++]  = 'InltFabAllo';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTINTRAN)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTINTRAN)) {
             $modifiedColumns[':p' . $index++]  = 'InltInTran';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTINSHIP)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTINSHIP)) {
             $modifiedColumns[':p' . $index++]  = 'InltInShip';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLOTREF)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLOTREF)) {
             $modifiedColumns[':p' . $index++]  = 'InltLotRef';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTBATCH)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTBATCH)) {
             $modifiedColumns[':p' . $index++]  = 'InltBatch';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST1)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST1)) {
             $modifiedColumns[':p' . $index++]  = 'InltLandCost1';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST2)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST2)) {
             $modifiedColumns[':p' . $index++]  = 'InltLandCost2';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST3)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST3)) {
             $modifiedColumns[':p' . $index++]  = 'InltLandCost3';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST4)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST4)) {
             $modifiedColumns[':p' . $index++]  = 'InltLandCost4';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST5)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST5)) {
             $modifiedColumns[':p' . $index++]  = 'InltLandCost5';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTTARIFFCOST)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTTARIFFCOST)) {
             $modifiedColumns[':p' . $index++]  = 'InltTariffCost';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHOPCOST)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHOPCOST)) {
             $modifiedColumns[':p' . $index++]  = 'InltShopCost';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTISSCODFSQTY)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTISSCODFSQTY)) {
             $modifiedColumns[':p' . $index++]  = 'InltIsscoDfsQty';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTHEADMARK)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTHEADMARK)) {
             $modifiedColumns[':p' . $index++]  = 'InltHeadMark';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCTRY)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCTRY)) {
             $modifiedColumns[':p' . $index++]  = 'InltCtry';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRVALORIGCOST)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRVALORIGCOST)) {
             $modifiedColumns[':p' . $index++]  = 'InltRvalOrigCost';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRVALPCT)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRVALPCT)) {
             $modifiedColumns[':p' . $index++]  = 'InltRvalPct';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTUNITWGHT)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTUNITWGHT)) {
             $modifiedColumns[':p' . $index++]  = 'InltUnitWght';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDESTWHSE)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDESTWHSE)) {
             $modifiedColumns[':p' . $index++]  = 'InltDestWhse';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCNTRQTY)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCNTRQTY)) {
             $modifiedColumns[':p' . $index++]  = 'InltCntrQty';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTQTYPERROLL)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTQTYPERROLL)) {
             $modifiedColumns[':p' . $index++]  = 'InltQtyPerRoll';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTTAREWGHT)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTTAREWGHT)) {
             $modifiedColumns[':p' . $index++]  = 'InltTareWght';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTQCREASONCD)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTQCREASONCD)) {
             $modifiedColumns[':p' . $index++]  = 'InltQcReasonCd';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCERT)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCERT)) {
             $modifiedColumns[':p' . $index++]  = 'InltCert';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCUREDATE)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCUREDATE)) {
             $modifiedColumns[':p' . $index++]  = 'InltCureDate';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTEXPIREDATECD)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTEXPIREDATECD)) {
             $modifiedColumns[':p' . $index++]  = 'InltExpireDateCd';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTEXPIREDATE)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTEXPIREDATE)) {
             $modifiedColumns[':p' . $index++]  = 'InltExpireDate';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTORIGBIN)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTORIGBIN)) {
             $modifiedColumns[':p' . $index++]  = 'InltOrigBin';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHOPITEM)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHOPITEM)) {
             $modifiedColumns[':p' . $index++]  = 'InltShopItem';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -2623,7 +2623,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WhseInvLotTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = WhseLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -2792,11 +2792,11 @@ abstract class WhseInvLot implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['WhseInvLot'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['WhseLotserial'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['WhseInvLot'][$this->hashCode()] = true;
-        $keys = WhseInvLotTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['WhseLotserial'][$this->hashCode()] = true;
+        $keys = WhseLotserialTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getInititemnbr(),
             $keys[1] => $this->getIntbwhse(),
@@ -2877,11 +2877,11 @@ abstract class WhseInvLot implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\WhseInvLot
+     * @return $this|\WhseLotserial
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WhseInvLotTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = WhseLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -2892,7 +2892,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\WhseInvLot
+     * @return $this|\WhseLotserial
      */
     public function setByPosition($pos, $value)
     {
@@ -3050,7 +3050,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = WhseInvLotTableMap::getFieldNames($keyType);
+        $keys = WhseLotserialTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setInititemnbr($arr[$keys[0]]);
@@ -3200,7 +3200,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\WhseInvLot The current object, for fluid interface
+     * @return $this|\WhseLotserial The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -3220,136 +3220,136 @@ abstract class WhseInvLot implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(WhseInvLotTableMap::DATABASE_NAME);
+        $criteria = new Criteria(WhseLotserialTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INITITEMNBR)) {
-            $criteria->add(WhseInvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INITITEMNBR)) {
+            $criteria->add(WhseLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INTBWHSE)) {
-            $criteria->add(WhseInvLotTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INTBWHSE)) {
+            $criteria->add(WhseLotserialTableMap::COL_INTBWHSE, $this->intbwhse);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLOTSER)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLOTSER, $this->inltlotser);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLOTSER)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLOTSER, $this->inltlotser);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTBIN)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTBIN, $this->inltbin);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTBIN)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTBIN, $this->inltbin);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDATE)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTDATE, $this->inltdate);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDATE)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTDATE, $this->inltdate);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDATEWRIT)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTDATEWRIT, $this->inltdatewrit);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDATEWRIT)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTDATEWRIT, $this->inltdatewrit);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCOST)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTCOST, $this->inltcost);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCOST)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTCOST, $this->inltcost);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTONHAND)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTONHAND, $this->inltonhand);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTONHAND)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTONHAND, $this->inltonhand);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRESV)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTRESV, $this->inltresv);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRESV)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTRESV, $this->inltresv);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHIP)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTSHIP, $this->inltship);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHIP)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTSHIP, $this->inltship);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTALLO)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTALLO, $this->inltallo);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTALLO)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTALLO, $this->inltallo);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTFABALLO)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTFABALLO, $this->inltfaballo);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTFABALLO)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTFABALLO, $this->inltfaballo);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTINTRAN)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTINTRAN, $this->inltintran);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTINTRAN)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTINTRAN, $this->inltintran);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTINSHIP)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTINSHIP, $this->inltinship);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTINSHIP)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTINSHIP, $this->inltinship);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLOTREF)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLOTREF, $this->inltlotref);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLOTREF)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLOTREF, $this->inltlotref);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTBATCH)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTBATCH, $this->inltbatch);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTBATCH)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTBATCH, $this->inltbatch);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST1)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLANDCOST1, $this->inltlandcost1);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST1)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLANDCOST1, $this->inltlandcost1);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST2)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLANDCOST2, $this->inltlandcost2);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST2)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLANDCOST2, $this->inltlandcost2);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST3)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLANDCOST3, $this->inltlandcost3);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST3)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLANDCOST3, $this->inltlandcost3);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST4)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLANDCOST4, $this->inltlandcost4);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST4)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLANDCOST4, $this->inltlandcost4);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTLANDCOST5)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTLANDCOST5, $this->inltlandcost5);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTLANDCOST5)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTLANDCOST5, $this->inltlandcost5);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTTARIFFCOST)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTTARIFFCOST, $this->inlttariffcost);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTTARIFFCOST)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTTARIFFCOST, $this->inlttariffcost);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHOPCOST)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTSHOPCOST, $this->inltshopcost);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHOPCOST)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTSHOPCOST, $this->inltshopcost);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTISSCODFSQTY)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTISSCODFSQTY, $this->inltisscodfsqty);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTISSCODFSQTY)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTISSCODFSQTY, $this->inltisscodfsqty);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTHEADMARK)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTHEADMARK, $this->inltheadmark);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTHEADMARK)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTHEADMARK, $this->inltheadmark);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCTRY)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTCTRY, $this->inltctry);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCTRY)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTCTRY, $this->inltctry);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRVALORIGCOST)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTRVALORIGCOST, $this->inltrvalorigcost);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRVALORIGCOST)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTRVALORIGCOST, $this->inltrvalorigcost);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTRVALPCT)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTRVALPCT, $this->inltrvalpct);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTRVALPCT)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTRVALPCT, $this->inltrvalpct);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTUNITWGHT)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTUNITWGHT, $this->inltunitwght);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTUNITWGHT)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTUNITWGHT, $this->inltunitwght);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTDESTWHSE)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTDESTWHSE, $this->inltdestwhse);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTDESTWHSE)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTDESTWHSE, $this->inltdestwhse);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCNTRQTY)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTCNTRQTY, $this->inltcntrqty);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCNTRQTY)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTCNTRQTY, $this->inltcntrqty);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTQTYPERROLL)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTQTYPERROLL, $this->inltqtyperroll);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTQTYPERROLL)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTQTYPERROLL, $this->inltqtyperroll);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTTAREWGHT)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTTAREWGHT, $this->inlttarewght);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTTAREWGHT)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTTAREWGHT, $this->inlttarewght);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTQCREASONCD)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTQCREASONCD, $this->inltqcreasoncd);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTQCREASONCD)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTQCREASONCD, $this->inltqcreasoncd);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCERT)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTCERT, $this->inltcert);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCERT)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTCERT, $this->inltcert);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTCUREDATE)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTCUREDATE, $this->inltcuredate);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTCUREDATE)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTCUREDATE, $this->inltcuredate);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTEXPIREDATECD)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTEXPIREDATECD, $this->inltexpiredatecd);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTEXPIREDATECD)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTEXPIREDATECD, $this->inltexpiredatecd);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTEXPIREDATE)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTEXPIREDATE, $this->inltexpiredate);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTEXPIREDATE)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTEXPIREDATE, $this->inltexpiredate);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTORIGBIN)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTORIGBIN, $this->inltorigbin);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTORIGBIN)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTORIGBIN, $this->inltorigbin);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_INLTSHOPITEM)) {
-            $criteria->add(WhseInvLotTableMap::COL_INLTSHOPITEM, $this->inltshopitem);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_INLTSHOPITEM)) {
+            $criteria->add(WhseLotserialTableMap::COL_INLTSHOPITEM, $this->inltshopitem);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_DATEUPDTD)) {
-            $criteria->add(WhseInvLotTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_DATEUPDTD)) {
+            $criteria->add(WhseLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(WhseInvLotTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(WhseLotserialTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(WhseInvLotTableMap::COL_DUMMY)) {
-            $criteria->add(WhseInvLotTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(WhseLotserialTableMap::COL_DUMMY)) {
+            $criteria->add(WhseLotserialTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -3367,11 +3367,11 @@ abstract class WhseInvLot implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildWhseInvLotQuery::create();
-        $criteria->add(WhseInvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
-        $criteria->add(WhseInvLotTableMap::COL_INTBWHSE, $this->intbwhse);
-        $criteria->add(WhseInvLotTableMap::COL_INLTLOTSER, $this->inltlotser);
-        $criteria->add(WhseInvLotTableMap::COL_INLTBIN, $this->inltbin);
+        $criteria = ChildWhseLotserialQuery::create();
+        $criteria->add(WhseLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        $criteria->add(WhseLotserialTableMap::COL_INTBWHSE, $this->intbwhse);
+        $criteria->add(WhseLotserialTableMap::COL_INLTLOTSER, $this->inltlotser);
+        $criteria->add(WhseLotserialTableMap::COL_INLTBIN, $this->inltbin);
 
         return $criteria;
     }
@@ -3453,7 +3453,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \WhseInvLot (or compatible) type.
+     * @param      object $copyObj An object of \WhseLotserial (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -3517,7 +3517,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \WhseInvLot Clone of current object.
+     * @return \WhseLotserial Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -3534,7 +3534,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      * Declares an association between this object and a ChildItemMasterItem object.
      *
      * @param  ChildItemMasterItem $v
-     * @return $this|\WhseInvLot The current object (for fluent API support)
+     * @return $this|\WhseLotserial The current object (for fluent API support)
      * @throws PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
@@ -3550,7 +3550,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
         if ($v !== null) {
-            $v->addWhseInvLot($this);
+            $v->addWhseLotserial($this);
         }
 
 
@@ -3574,7 +3574,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aItemMasterItem->addWhseInvLots($this);
+                $this->aItemMasterItem->addWhseLotserials($this);
              */
         }
 
@@ -3589,7 +3589,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
     public function clear()
     {
         if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeWhseInvLot($this);
+            $this->aItemMasterItem->removeWhseLotserial($this);
         }
         $this->inititemnbr = null;
         $this->intbwhse = null;
@@ -3665,7 +3665,7 @@ abstract class WhseInvLot implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WhseInvLotTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(WhseLotserialTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

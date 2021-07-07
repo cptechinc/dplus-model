@@ -1,6 +1,6 @@
 <?php
 
-use Base\WhseInvLot as BaseWhseInvLot;
+use Base\WhseLotserial as BaseWhseLotserial;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -10,7 +10,7 @@ use Dplus\Model\MagicMethodTraits;
  * 
  * REPRESENTS: Warehouse Lot Record
  */
-class WhseInvLot extends BaseWhseInvLot {
+class WhseLotserial extends BaseWhseLotserial {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

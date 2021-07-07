@@ -1890,7 +1890,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_inv_lot" idMethod="native" phpName="WhseInvLot">
+  <table name="inv_inv_lot" idMethod="native" phpName="WhseLotserial">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="InltLotSer" phpName="Inltlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
