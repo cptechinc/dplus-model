@@ -300,6 +300,8 @@ return array(
     'Base\\WarehouseNote' => $baseDir . '/src/Model/Base/WarehouseNote.php',
     'Base\\WarehouseNoteQuery' => $baseDir . '/src/Model/Base/WarehouseNoteQuery.php',
     'Base\\WarehouseQuery' => $baseDir . '/src/Model/Base/WarehouseQuery.php',
+    'Base\\WhseLotserial' => $baseDir . '/src/Model/Base/WhseLotserial.php',
+    'Base\\WhseLotserialQuery' => $baseDir . '/src/Model/Base/WhseLotserialQuery.php',
     'BomComponent' => $baseDir . '/src/Model/BomComponent.php',
     'BomComponentQuery' => $baseDir . '/src/Model/BomComponentQuery.php',
     'BomItem' => $baseDir . '/src/Model/BomItem.php',
@@ -595,6 +597,7 @@ return array(
     'Map\\WarehouseInventoryTableMap' => $baseDir . '/src/Model/Map/WarehouseInventoryTableMap.php',
     'Map\\WarehouseNoteTableMap' => $baseDir . '/src/Model/Map/WarehouseNoteTableMap.php',
     'Map\\WarehouseTableMap' => $baseDir . '/src/Model/Map/WarehouseTableMap.php',
+    'Map\\WhseLotserialTableMap' => $baseDir . '/src/Model/Map/WhseLotserialTableMap.php',
     'MotorFreightCode' => $baseDir . '/src/Model/MotorFreightCode.php',
     'MotorFreightCodeQuery' => $baseDir . '/src/Model/MotorFreightCodeQuery.php',
     'MsaSysopCode' => $baseDir . '/src/Model/MsaSysopCode.php',
@@ -709,4 +712,6 @@ return array(
     'WarehouseNote' => $baseDir . '/src/Model/WarehouseNote.php',
     'WarehouseNoteQuery' => $baseDir . '/src/Model/WarehouseNoteQuery.php',
     'WarehouseQuery' => $baseDir . '/src/Model/WarehouseQuery.php',
+    'WhseLotserial' => $baseDir . '/src/Model/WhseLotserial.php',
+    'WhseLotserialQuery' => $baseDir . '/src/Model/WhseLotserialQuery.php',
 );

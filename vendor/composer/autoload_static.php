@@ -301,6 +301,8 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Base\\WarehouseNote' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseNote.php',
         'Base\\WarehouseNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseNoteQuery.php',
         'Base\\WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/Base/WarehouseQuery.php',
+        'Base\\WhseLotserial' => __DIR__ . '/../..' . '/src/Model/Base/WhseLotserial.php',
+        'Base\\WhseLotserialQuery' => __DIR__ . '/../..' . '/src/Model/Base/WhseLotserialQuery.php',
         'BomComponent' => __DIR__ . '/../..' . '/src/Model/BomComponent.php',
         'BomComponentQuery' => __DIR__ . '/../..' . '/src/Model/BomComponentQuery.php',
         'BomItem' => __DIR__ . '/../..' . '/src/Model/BomItem.php',
@@ -596,6 +598,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Map\\WarehouseInventoryTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseInventoryTableMap.php',
         'Map\\WarehouseNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseNoteTableMap.php',
         'Map\\WarehouseTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WarehouseTableMap.php',
+        'Map\\WhseLotserialTableMap' => __DIR__ . '/../..' . '/src/Model/Map/WhseLotserialTableMap.php',
         'MotorFreightCode' => __DIR__ . '/../..' . '/src/Model/MotorFreightCode.php',
         'MotorFreightCodeQuery' => __DIR__ . '/../..' . '/src/Model/MotorFreightCodeQuery.php',
         'MsaSysopCode' => __DIR__ . '/../..' . '/src/Model/MsaSysopCode.php',
@@ -710,6 +713,8 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'WarehouseNote' => __DIR__ . '/../..' . '/src/Model/WarehouseNote.php',
         'WarehouseNoteQuery' => __DIR__ . '/../..' . '/src/Model/WarehouseNoteQuery.php',
         'WarehouseQuery' => __DIR__ . '/../..' . '/src/Model/WarehouseQuery.php',
+        'WhseLotserial' => __DIR__ . '/../..' . '/src/Model/WhseLotserial.php',
+        'WhseLotserialQuery' => __DIR__ . '/../..' . '/src/Model/WhseLotserialQuery.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
