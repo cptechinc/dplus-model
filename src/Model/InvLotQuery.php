@@ -33,4 +33,14 @@ class InvLotQuery extends BaseInvLotQuery {
 	public function filterByItemid($itemID, $comparison = null) {
 		return $this->filterByInititemnbr($itemID, $comparison);
 	}
+
+	/**
+	 * Filter the query on the lotnbr column
+	 * @param     string $inititemnbr The value to use as filter.
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return self
+	 */
+	public function filterByLotnbr($lotnbr, $comparison = null) {
+		return $this->filterByLotmlotnbr($lotnbr, $comparison);
+	}
 }
