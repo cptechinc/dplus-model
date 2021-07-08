@@ -44,9 +44,11 @@ trait QueryTraits {
 		$stmt = $con->prepare($sql);
 
 		if (empty($params)){
-			return $stmt->execute();
+			$stmt->execute();
+			return $stmt;
 		}
-		return $stmt->execute($params);
+		$stmt->execute($params);
+		return $stmt;
 	}
 
 	/**
