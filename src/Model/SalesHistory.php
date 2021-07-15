@@ -114,7 +114,7 @@ class SalesHistory extends BaseSalesHistory {
 		$q = SalesHistoryDetailQuery::create();
 		$q->withColumn('SUM('.SalesHistoryDetail::get_aliasproperty('qty_cases').')', 'cases');
 		$q->select('cases');
-		$q->filterByOrdernumber($this->oehdnbr);
+		$q->filterByOrdernumber($this->oehhnbr);
 		return $q->findOne();
 	}
 
@@ -140,7 +140,7 @@ class SalesHistory extends BaseSalesHistory {
 	public function itemids() {
 		$q = SalesHistoryDetailQuery::create();
 		$q->select(SalesHistoryDetail::get_aliasproperty('itemid'));
-		$q->filterByOrdernumber($this->oehdnbr);
+		$q->filterByOrdernumber($this->oehhnbr);
 		return $q->find()->toArray();
 	}
 
@@ -153,7 +153,17 @@ class SalesHistory extends BaseSalesHistory {
 		$q = SalesHistoryDetailQuery::create();
 		$q->withColumn('SUM('.SalesHistoryDetail::get_aliasproperty('qty_ordered').')', 'sum');
 		$q->select('sum');
-		$q->filterByOrdernumber($this->oehdnbr);
+		$q->filterByOrdernumber($this->oehhnbr);
 		return $q->findOne();
+	}
+
+	/**
+	 * Return if Lotserials have been assigned to this Order
+	 * @return bool
+	 */
+	public function hasLotserials() {
+		$q = SalesHistoryLotserialQuery::create();
+		$q->filterByOrdernumber($this->oehhnbr);
+		return boolval($q->count());
 	}
 }

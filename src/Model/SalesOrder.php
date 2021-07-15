@@ -237,4 +237,14 @@ class SalesOrder extends BaseSalesOrder {
 		$q->filterByOrdernumber($this->oehdnbr);
 		return $q->findOne();
 	}
+
+	/**
+	 * Return if Lotserials have been assigned to this Order
+	 * @return bool
+	 */
+	public function hasLotserials() {
+		$q = SalesOrderLotserialQuery::create();
+		$q->filterByOrdernumber($this->oehdnbr);
+		return boolval($q->count());
+	}
 }
