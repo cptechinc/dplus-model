@@ -13,8 +13,17 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 	use QueryTraits;
 
 	/**
+	 * Filter The Query by the Wareouse ID column
+	 * @param  string|mixed $whseID     Warehouse ID
+	 * @param  string       $comparison
+	 * @return self
+	 */
+	public function filterByWhseid($whseID, $comparison = null) {
+		return $this->filterByIntbWhse($whseID, $comparison);
+	}
+
+	/**
 	 * Returns if bin is a valid bin at the warehouse according to warehouse bin rules
-	 *
 	 * @param  string $whseID Warehouse ID
 	 * @param  string $binID  Bin ID
 	 * @return bool           Is bin valid?
@@ -36,7 +45,6 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 
 	/**
 	 * Return WarehouseBin objects filtered by warehouse column
-	 *
 	 * @return WarehouseBinQuery[]|ObjectCollection
 	 */
 	public function get_warehousebins($whseID) {
