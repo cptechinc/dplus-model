@@ -10,7 +10,6 @@ use Dplus\Model\MagicMethodTraits;
  * NOTE: Foreign Key Relationships: SalesHistory, SalesHistoryDetail, ItemMasterItem
  */
 class SalesHistoryLotserial extends BaseSalesHistoryLotserial {
-
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

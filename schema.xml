@@ -4581,6 +4581,44 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_lot_ser" idMethod="native" phpName="SalesOrderLotserial">
+    <column name="OehdNbr" phpName="Oehdnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="OedtLine" phpName="Oedtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OesdTag" phpName="Oesdtag" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OesdLotSer" phpName="Oesdlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OesdBin" phpName="Oesdbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OesdPlltNbr" phpName="Oesdplltnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OesdCrtnNbr" phpName="Oesdcrtnnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OesdQtyShip" phpName="Oesdqtyship" type="DECIMAL" size="20" scale="7"/>
+    <column name="OesdCntrQty" phpName="Oesdcntrqty" type="DECIMAL" size="20" scale="0"/>
+    <column name="OesdSpecOrdr" phpName="Oesdspecordr" type="VARCHAR" size="1"/>
+    <column name="OesdLotRef" phpName="Oesdlotref" type="VARCHAR" size="20"/>
+    <column name="OesdBatch" phpName="Oesdbatch" type="VARCHAR" size="15"/>
+    <column name="OesdCureDate" phpName="Oesdcuredate" type="VARCHAR" size="10"/>
+    <column name="OesdAcStatus" phpName="Oesdacstatus" type="VARCHAR" size="4"/>
+    <column name="OesdTestLot" phpName="Oesdtestlot" type="VARCHAR" size="4"/>
+    <column name="OesdPlltType" phpName="Oesdpllttype" type="VARCHAR" size="1"/>
+    <column name="OesdTareWght" phpName="Oesdtarewght" type="DECIMAL" size="20" scale="3"/>
+    <column name="OesdUseUp" phpName="Oesduseup" type="VARCHAR" size="1"/>
+    <column name="OesdLblPrtd" phpName="Oesdlblprtd" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="so_header" name="salesorder" skipSql="true">
+      <reference local="OehdNbr" foreign="OehdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="so_detail" name="salesorderdetail" skipSql="true">
+      <reference local="OehdNbr" foreign="OehdNbr"/>
+      <reference local="OedtLine" foreign="OedtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_lot_ser_hist" idMethod="native" phpName="SalesHistoryLotserial">
     <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="OedhLine" phpName="Oedhline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>

@@ -420,6 +420,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithBookingDetail() Adds a RIGHT JOIN clause and with to the query using the BookingDetail relation
  * @method     ChildItemMasterItemQuery innerJoinWithBookingDetail() Adds a INNER JOIN clause and with to the query using the BookingDetail relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinSalesOrderLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrderLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinSalesOrderLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrderLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinSalesOrderLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrderLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithSalesOrderLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrderLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithSalesOrderLotserial() Adds a LEFT JOIN clause and with to the query using the SalesOrderLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinWithSalesOrderLotserial() Adds a RIGHT JOIN clause and with to the query using the SalesOrderLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinWithSalesOrderLotserial() Adds a INNER JOIN clause and with to the query using the SalesOrderLotserial relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinSalesHistoryLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistoryLotserial relation
  * @method     ChildItemMasterItemQuery rightJoinSalesHistoryLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistoryLotserial relation
  * @method     ChildItemMasterItemQuery innerJoinSalesHistoryLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesHistoryLotserial relation
@@ -460,7 +470,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\WhseLotserialQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\WhseLotserialQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3597,20 +3607,20 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Filter the query by a related \WhseLotserial object
      *
-     * @param \WhseLotserial|ObjectCollection $whseInvLot the related object to use as filter
+     * @param \WhseLotserial|ObjectCollection $whseLotserial the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByWhseLotserial($whseInvLot, $comparison = null)
+    public function filterByWhseLotserial($whseLotserial, $comparison = null)
     {
-        if ($whseInvLot instanceof \WhseLotserial) {
+        if ($whseLotserial instanceof \WhseLotserial) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $whseInvLot->getInititemnbr(), $comparison);
-        } elseif ($whseInvLot instanceof ObjectCollection) {
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $whseLotserial->getInititemnbr(), $comparison);
+        } elseif ($whseLotserial instanceof ObjectCollection) {
             return $this
                 ->useWhseLotserialQuery()
-                ->filterByPrimaryKeys($whseInvLot->getPrimaryKeys())
+                ->filterByPrimaryKeys($whseLotserial->getPrimaryKeys())
                 ->endUse();
         } else {
             throw new PropelException('filterByWhseLotserial() only accepts arguments of type \WhseLotserial or Collection');
@@ -4687,6 +4697,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinBookingDetail($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'BookingDetail', '\BookingDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesOrderLotserial object
+     *
+     * @param \SalesOrderLotserial|ObjectCollection $salesOrderLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrderLotserial($salesOrderLotserial, $comparison = null)
+    {
+        if ($salesOrderLotserial instanceof \SalesOrderLotserial) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $salesOrderLotserial->getInititemnbr(), $comparison);
+        } elseif ($salesOrderLotserial instanceof ObjectCollection) {
+            return $this
+                ->useSalesOrderLotserialQuery()
+                ->filterByPrimaryKeys($salesOrderLotserial->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterBySalesOrderLotserial() only accepts arguments of type \SalesOrderLotserial or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrderLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinSalesOrderLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrderLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrderLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrderLotserial relation SalesOrderLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrderLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderLotserial', '\SalesOrderLotserialQuery');
     }
 
     /**

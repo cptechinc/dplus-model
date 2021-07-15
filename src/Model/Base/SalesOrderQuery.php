@@ -442,7 +442,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery rightJoinWithSalesOrderShipment() Adds a RIGHT JOIN clause and with to the query using the SalesOrderShipment relation
  * @method     ChildSalesOrderQuery innerJoinWithSalesOrderShipment() Adds a INNER JOIN clause and with to the query using the SalesOrderShipment relation
  *
- * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildSalesOrderQuery leftJoinSalesOrderLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrderLotserial relation
+ * @method     ChildSalesOrderQuery rightJoinSalesOrderLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrderLotserial relation
+ * @method     ChildSalesOrderQuery innerJoinSalesOrderLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrderLotserial relation
+ *
+ * @method     ChildSalesOrderQuery joinWithSalesOrderLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrderLotserial relation
+ *
+ * @method     ChildSalesOrderQuery leftJoinWithSalesOrderLotserial() Adds a LEFT JOIN clause and with to the query using the SalesOrderLotserial relation
+ * @method     ChildSalesOrderQuery rightJoinWithSalesOrderLotserial() Adds a RIGHT JOIN clause and with to the query using the SalesOrderLotserial relation
+ * @method     ChildSalesOrderQuery innerJoinWithSalesOrderLotserial() Adds a INNER JOIN clause and with to the query using the SalesOrderLotserial relation
+ *
+ * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery|\SalesOrderLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesOrder findOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
  * @method     ChildSalesOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
@@ -7101,6 +7111,79 @@ abstract class SalesOrderQuery extends ModelCriteria
         return $this
             ->joinSalesOrderShipment($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesOrderShipment', '\SalesOrderShipmentQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesOrderLotserial object
+     *
+     * @param \SalesOrderLotserial|ObjectCollection $salesOrderLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrderLotserial($salesOrderLotserial, $comparison = null)
+    {
+        if ($salesOrderLotserial instanceof \SalesOrderLotserial) {
+            return $this
+                ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $salesOrderLotserial->getOehdnbr(), $comparison);
+        } elseif ($salesOrderLotserial instanceof ObjectCollection) {
+            return $this
+                ->useSalesOrderLotserialQuery()
+                ->filterByPrimaryKeys($salesOrderLotserial->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterBySalesOrderLotserial() only accepts arguments of type \SalesOrderLotserial or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrderLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function joinSalesOrderLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrderLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrderLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrderLotserial relation SalesOrderLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrderLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderLotserial', '\SalesOrderLotserialQuery');
     }
 
     /**
