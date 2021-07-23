@@ -55,17 +55,24 @@ trait QueryTraits {
 	 * Adds a LIKE filter for each column, and one for the concatenated columns
 	 * @param  array         $columns        Array of Table Column Names
 	 * @param  string        $q              Search Query to Match
+	 * @param  string        $caseSensitive  Is Case-sensitive
 	 * @return ModelCriteria                 $this
 	 */
-	public function search_filter(array $columns, $q) {
-		$query = $this->wildcardify($q);
+	public function search_filter(array $columns, $q, $caseSensitive = false) {
+		return $this->addLikeFilter($columns, $q, $caseSensitive = false);
+	}
+
+	public function addLikeFilter(array $columns, $q, $caseSensitive = false) {
+		$keyword = $this->wildcardify($q);
 
 		foreach ($columns as $column) {
 			$tablecol = $this->tablemap_column($column);
-			$this->condition_like($column, $tablecol, $query);
+			$this->conditionLike($column, $tablecol, $keyword, $caseSensitive);
 		}
-		$this->condition_like_concat($columns, $q);
-		$columns[] = 'concat';
+		if (sizeof($columns) > 1) {
+			$this->conditionLikeConcat($columns, $q);
+			$columns[] = 'concat';
+		}
 		$this->where($columns, Criteria::LOGICAL_OR);
 		return $this;
 	}
@@ -74,24 +81,25 @@ trait QueryTraits {
 	 * Add a LIKE condition to Query
 	 * @param  string $name     Condition Name
 	 * @param  string $pattern  Pattern to match against e.g. col1, or CONCAT(col1, col2)
-	 * @param  string $query    Search Query to match
+	 * @param  string $keyword   Search Query to match
 	 * @return self
 	 */
-	public function condition_like($name, $pattern, $query) {
-		$this->condition($name, "$pattern LIKE ?", $query);
+	public function conditionLike($name, $pattern, $keyword, $caseSensitive = false) {
+		$condition = $caseSensitive === true ? "$pattern LIKE ?" : "UPPER($pattern) LIKE ?";
+		$this->condition($name, $condition, $keyword);
 		return $this;
 	}
 
 	/**
 	 * Add a Concatenated Column Like Condition
 	 * @param array   $columns  Columns, not TableMap columns
-	 * @param string  $q        Search Query to match
+	 * @param string  $keyword  Search keyword
 	 * @return self
 	 */
-	public function condition_like_concat(array $columns, $q) {
+	public function conditionLikeConcat(array $columns, $q, $caseSensitive = false) {
 		$query = $this->wildcardify($q);
-		$concat = $this->implode_columns($columns);
-		$this->condition_like('concat', "CONCAT($concat)", $query);
+		$concat = $this->implodeColumns($columns);
+		$this->conditionLike('concat', "CONCAT($concat)", $query, $caseSensitive);
 		return $this;
 	}
 
@@ -139,7 +147,6 @@ trait QueryTraits {
 
 	/**
 	 * Add WildCard Characters to query
-	 *
 	 * @param  string $q
 	 * @return string          '%{search}%';
 	 */
@@ -149,11 +156,10 @@ trait QueryTraits {
 
 	/**
 	 * Return a list of TableMap columns with comma & space separator
-	 *
 	 * @param  array $columns
 	 * @return array          TableMap Columns "COL_COL1, COL_COL2"
 	 */
-	public function implode_columns($columns) {
+	public function implodeColumns($columns) {
 		$columns_tb = $this->tablemap_columns($columns);
 		return implode(", ' ', " , $columns_tb);
 	}
