@@ -28,6 +28,8 @@ class InvLot extends BaseInvLot {
 		'createdate'	=> 'LotmCreateDate',
 		'date'			=> 'dateupdtd',
 		'time'			=> 'timeupdtd',
+		'expiredate'	=> 'lotmexpiredate',
+		'productiondate'	=> 'lotmexpiredate',
 
 		// FOREIGN KEY GETS
 		'item'          => 'itemMasterItem'
