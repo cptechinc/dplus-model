@@ -14,7 +14,6 @@ class ConfigIn extends BaseConfigIn {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-
 	const VALUE_TRUE  = 'Y';
 	const VALUE_FALSE = 'N';
 
@@ -55,7 +54,16 @@ class ConfigIn extends BaseConfigIn {
 		'default_notes_quote'           => 'intbconfdefquote',
 		'default_notes_po'              => 'intbconfdefpo',
 		'default_notes_transfer'        => 'intbconfdeftrans',
+		'allowduplicateupc'               => 'intbcon2allowdupupc'
 	);
+
+	/**
+	 * Return if Duplicate Upc Codes are allowed
+	 * @return bool
+	 */
+	public function allowDuplicateUpcs() {
+		return $this->allowduplicateupc == self::VALUE_TRUE;
+	}
 
 	/**
 	 * Return if Company is configured to use Control Bin
