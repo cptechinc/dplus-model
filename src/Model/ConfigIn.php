@@ -34,7 +34,7 @@ class ConfigIn extends BaseConfigIn {
 		'default_pricegroup' => 'IntbConfPricGrupDef',
 		'default_commgroup'  => 'IntbConfCommGrupDef',
 		'default_itemtype'   => 'IntbConfTypeDef',
-		'use_pricegroup'     => 'IntbConfUsePricGrup',
+		'use_pricegroup'     => 'intbconfusepricgrup',
 		'use_commgroup'      => 'IntbConfUseCommGrup',
 		'default_pricegroup_itemgroup' => 'IntbConfPricUseItem',
 		'default_commgroup_itemgroup'  => 'IntbConfCommUseItem',
@@ -54,7 +54,9 @@ class ConfigIn extends BaseConfigIn {
 		'default_notes_quote'           => 'intbconfdefquote',
 		'default_notes_po'              => 'intbconfdefpo',
 		'default_notes_transfer'        => 'intbconfdeftrans',
-		'allowduplicateupc'               => 'intbcon2allowdupupc'
+		'allowduplicateupc'               => 'intbcon2allowdupupc',
+		'useUppercaseItemid'            => 'intbconfnbruppr',
+		'useUppercaseItemDesc'          => 'intbconfdescuppr',
 	);
 
 	/**
@@ -125,5 +127,21 @@ class ConfigIn extends BaseConfigIn {
 	 */
 	public function use_grams() {
 		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_GRAMS, self::GRAMS_LITERS_GRAMS_ALT]);
+	}
+
+	/**
+	 * Return if Item ID should be in uppercase
+	 * @return bool
+	 */
+	public function useUppercaseItemid() {
+		return $this->useUppercaseItemid == self::VALUE_TRUE;
+	}
+
+	/**
+	 * Return if Item Description should be in uppercase
+	 * @return bool
+	 */
+	public function useUppercaseItemDescription() {
+		return $this->useUppercaseItemDesc == self::VALUE_TRUE;
 	}
 }
