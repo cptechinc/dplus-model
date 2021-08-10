@@ -1958,6 +1958,23 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_item_2_item" idMethod="native" phpName="InvItem2Item">
+    <column name="I2iMstrItemId" phpName="I2imstritemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="I2iChildItemId" phpName="I2ichilditemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="I2iSupplyWhse" phpName="I2isupplywhse" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_item_mast" name="parent">
+      <reference local="I2iMstrItemId" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="child">
+      <reference local="I2iChildItemId" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_item_mast" idMethod="native" phpName="ItemMasterItem">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35"/>

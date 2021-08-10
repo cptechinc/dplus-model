@@ -14,6 +14,8 @@ use \InvGroupCode as ChildInvGroupCode;
 use \InvGroupCodeQuery as ChildInvGroupCodeQuery;
 use \InvHazmatItem as ChildInvHazmatItem;
 use \InvHazmatItemQuery as ChildInvHazmatItemQuery;
+use \InvItem2Item as ChildInvItem2Item;
+use \InvItem2ItemQuery as ChildInvItem2ItemQuery;
 use \InvKit as ChildInvKit;
 use \InvKitComponent as ChildInvKitComponent;
 use \InvKitComponentQuery as ChildInvKitComponentQuery;
@@ -66,6 +68,7 @@ use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
 use Map\BookingDetailTableMap;
+use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
 use Map\InvLotTableMap;
 use Map\ItemAddonItemTableMap;
@@ -671,6 +674,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemSubstitutesRelatedByInsisubitemnbrPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvItem2Item[] Collection to store aggregation of ChildInvItem2Item objects.
+     */
+    protected $collInvItem2ItemsRelatedByI2imstritemid;
+    protected $collInvItem2ItemsRelatedByI2imstritemidPartial;
+
+    /**
+     * @var        ObjectCollection|ChildInvItem2Item[] Collection to store aggregation of ChildInvItem2Item objects.
+     */
+    protected $collInvItem2ItemsRelatedByI2ichilditemid;
+    protected $collInvItem2ItemsRelatedByI2ichilditemidPartial;
+
+    /**
      * @var        ObjectCollection|ChildInvKitComponent[] Collection to store aggregation of ChildInvKitComponent objects.
      */
     protected $collInvKitComponents;
@@ -813,6 +828,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemSubstitute[]
      */
     protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvItem2Item[]
+     */
+    protected $invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvItem2Item[]
+     */
+    protected $invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3459,6 +3486,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
 
+            $this->collInvItem2ItemsRelatedByI2imstritemid = null;
+
+            $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
+
             $this->collInvKitComponents = null;
 
             $this->singleInvKit = null;
@@ -3763,6 +3794,40 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemSubstitutesRelatedByInsisubitemnbr !== null) {
                 foreach ($this->collItemSubstitutesRelatedByInsisubitemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion !== null) {
+                if (!$this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->isEmpty()) {
+                    \InvItem2ItemQuery::create()
+                        ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvItem2ItemsRelatedByI2imstritemid !== null) {
+                foreach ($this->collInvItem2ItemsRelatedByI2imstritemid as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion !== null) {
+                if (!$this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->isEmpty()) {
+                    \InvItem2ItemQuery::create()
+                        ->filterByPrimaryKeys($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvItem2ItemsRelatedByI2ichilditemid !== null) {
+                foreach ($this->collInvItem2ItemsRelatedByI2ichilditemid as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5026,6 +5091,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemSubstitutesRelatedByInsisubitemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvItem2ItemsRelatedByI2imstritemid) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invItem2Items';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_2_items';
+                        break;
+                    default:
+                        $key = 'InvItem2Items';
+                }
+
+                $result[$key] = $this->collInvItem2ItemsRelatedByI2imstritemid->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invItem2Items';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_2_items';
+                        break;
+                    default:
+                        $key = 'InvItem2Items';
+                }
+
+                $result[$key] = $this->collInvItem2ItemsRelatedByI2ichilditemid->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collInvKitComponents) {
 
                 switch ($keyType) {
@@ -6177,6 +6272,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvItem2ItemsRelatedByI2imstritemid() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvItem2ItemRelatedByI2imstritemid($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getInvItem2ItemsRelatedByI2ichilditemid() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvItem2ItemRelatedByI2ichilditemid($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getInvKitComponents() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvKitComponent($relObj->copy($deepCopy));
@@ -6639,6 +6746,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemSubstituteRelatedByInsisubitemnbr' == $relationName) {
             $this->initItemSubstitutesRelatedByInsisubitemnbr();
+            return;
+        }
+        if ('InvItem2ItemRelatedByI2imstritemid' == $relationName) {
+            $this->initInvItem2ItemsRelatedByI2imstritemid();
+            return;
+        }
+        if ('InvItem2ItemRelatedByI2ichilditemid' == $relationName) {
+            $this->initInvItem2ItemsRelatedByI2ichilditemid();
             return;
         }
         if ('InvKitComponent' == $relationName) {
@@ -8135,6 +8250,462 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             $this->itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion[]= clone $itemSubstituteRelatedByInsisubitemnbr;
             $itemSubstituteRelatedByInsisubitemnbr->setItemMasterItemRelatedByInsisubitemnbr(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collInvItem2ItemsRelatedByI2imstritemid collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvItem2ItemsRelatedByI2imstritemid()
+     */
+    public function clearInvItem2ItemsRelatedByI2imstritemid()
+    {
+        $this->collInvItem2ItemsRelatedByI2imstritemid = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvItem2ItemsRelatedByI2imstritemid collection loaded partially.
+     */
+    public function resetPartialInvItem2ItemsRelatedByI2imstritemid($v = true)
+    {
+        $this->collInvItem2ItemsRelatedByI2imstritemidPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvItem2ItemsRelatedByI2imstritemid collection.
+     *
+     * By default this just sets the collInvItem2ItemsRelatedByI2imstritemid collection to an empty array (like clearcollInvItem2ItemsRelatedByI2imstritemid());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvItem2ItemsRelatedByI2imstritemid($overrideExisting = true)
+    {
+        if (null !== $this->collInvItem2ItemsRelatedByI2imstritemid && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvItem2ItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvItem2ItemsRelatedByI2imstritemid = new $collectionClassName;
+        $this->collInvItem2ItemsRelatedByI2imstritemid->setModel('\InvItem2Item');
+    }
+
+    /**
+     * Gets an array of ChildInvItem2Item objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvItem2Item[] List of ChildInvItem2Item objects
+     * @throws PropelException
+     */
+    public function getInvItem2ItemsRelatedByI2imstritemid(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
+        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
+                // return empty collection
+                $this->initInvItem2ItemsRelatedByI2imstritemid();
+            } else {
+                $collInvItem2ItemsRelatedByI2imstritemid = ChildInvItem2ItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByI2imstritemid($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvItem2ItemsRelatedByI2imstritemidPartial && count($collInvItem2ItemsRelatedByI2imstritemid)) {
+                        $this->initInvItem2ItemsRelatedByI2imstritemid(false);
+
+                        foreach ($collInvItem2ItemsRelatedByI2imstritemid as $obj) {
+                            if (false == $this->collInvItem2ItemsRelatedByI2imstritemid->contains($obj)) {
+                                $this->collInvItem2ItemsRelatedByI2imstritemid->append($obj);
+                            }
+                        }
+
+                        $this->collInvItem2ItemsRelatedByI2imstritemidPartial = true;
+                    }
+
+                    return $collInvItem2ItemsRelatedByI2imstritemid;
+                }
+
+                if ($partial && $this->collInvItem2ItemsRelatedByI2imstritemid) {
+                    foreach ($this->collInvItem2ItemsRelatedByI2imstritemid as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvItem2ItemsRelatedByI2imstritemid[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvItem2ItemsRelatedByI2imstritemid = $collInvItem2ItemsRelatedByI2imstritemid;
+                $this->collInvItem2ItemsRelatedByI2imstritemidPartial = false;
+            }
+        }
+
+        return $this->collInvItem2ItemsRelatedByI2imstritemid;
+    }
+
+    /**
+     * Sets a collection of ChildInvItem2Item objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invItem2ItemsRelatedByI2imstritemid A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvItem2ItemsRelatedByI2imstritemid(Collection $invItem2ItemsRelatedByI2imstritemid, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvItem2Item[] $invItem2ItemsRelatedByI2imstritemidToDelete */
+        $invItem2ItemsRelatedByI2imstritemidToDelete = $this->getInvItem2ItemsRelatedByI2imstritemid(new Criteria(), $con)->diff($invItem2ItemsRelatedByI2imstritemid);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = clone $invItem2ItemsRelatedByI2imstritemidToDelete;
+
+        foreach ($invItem2ItemsRelatedByI2imstritemidToDelete as $invItem2ItemRelatedByI2imstritemidRemoved) {
+            $invItem2ItemRelatedByI2imstritemidRemoved->setItemMasterItemRelatedByI2imstritemid(null);
+        }
+
+        $this->collInvItem2ItemsRelatedByI2imstritemid = null;
+        foreach ($invItem2ItemsRelatedByI2imstritemid as $invItem2ItemRelatedByI2imstritemid) {
+            $this->addInvItem2ItemRelatedByI2imstritemid($invItem2ItemRelatedByI2imstritemid);
+        }
+
+        $this->collInvItem2ItemsRelatedByI2imstritemid = $invItem2ItemsRelatedByI2imstritemid;
+        $this->collInvItem2ItemsRelatedByI2imstritemidPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvItem2Item objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvItem2Item objects.
+     * @throws PropelException
+     */
+    public function countInvItem2ItemsRelatedByI2imstritemid(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvItem2ItemsRelatedByI2imstritemidPartial && !$this->isNew();
+        if (null === $this->collInvItem2ItemsRelatedByI2imstritemid || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2imstritemid) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvItem2ItemsRelatedByI2imstritemid());
+            }
+
+            $query = ChildInvItem2ItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByI2imstritemid($this)
+                ->count($con);
+        }
+
+        return count($this->collInvItem2ItemsRelatedByI2imstritemid);
+    }
+
+    /**
+     * Method called to associate a ChildInvItem2Item object to this object
+     * through the ChildInvItem2Item foreign key attribute.
+     *
+     * @param  ChildInvItem2Item $l ChildInvItem2Item
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $l)
+    {
+        if ($this->collInvItem2ItemsRelatedByI2imstritemid === null) {
+            $this->initInvItem2ItemsRelatedByI2imstritemid();
+            $this->collInvItem2ItemsRelatedByI2imstritemidPartial = true;
+        }
+
+        if (!$this->collInvItem2ItemsRelatedByI2imstritemid->contains($l)) {
+            $this->doAddInvItem2ItemRelatedByI2imstritemid($l);
+
+            if ($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion and $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->contains($l)) {
+                $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->remove($this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid The ChildInvItem2Item object to add.
+     */
+    protected function doAddInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid)
+    {
+        $this->collInvItem2ItemsRelatedByI2imstritemid[]= $invItem2ItemRelatedByI2imstritemid;
+        $invItem2ItemRelatedByI2imstritemid->setItemMasterItemRelatedByI2imstritemid($this);
+    }
+
+    /**
+     * @param  ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid The ChildInvItem2Item object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvItem2ItemRelatedByI2imstritemid(ChildInvItem2Item $invItem2ItemRelatedByI2imstritemid)
+    {
+        if ($this->getInvItem2ItemsRelatedByI2imstritemid()->contains($invItem2ItemRelatedByI2imstritemid)) {
+            $pos = $this->collInvItem2ItemsRelatedByI2imstritemid->search($invItem2ItemRelatedByI2imstritemid);
+            $this->collInvItem2ItemsRelatedByI2imstritemid->remove($pos);
+            if (null === $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion) {
+                $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion = clone $this->collInvItem2ItemsRelatedByI2imstritemid;
+                $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion->clear();
+            }
+            $this->invItem2ItemsRelatedByI2imstritemidScheduledForDeletion[]= clone $invItem2ItemRelatedByI2imstritemid;
+            $invItem2ItemRelatedByI2imstritemid->setItemMasterItemRelatedByI2imstritemid(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collInvItem2ItemsRelatedByI2ichilditemid collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvItem2ItemsRelatedByI2ichilditemid()
+     */
+    public function clearInvItem2ItemsRelatedByI2ichilditemid()
+    {
+        $this->collInvItem2ItemsRelatedByI2ichilditemid = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvItem2ItemsRelatedByI2ichilditemid collection loaded partially.
+     */
+    public function resetPartialInvItem2ItemsRelatedByI2ichilditemid($v = true)
+    {
+        $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvItem2ItemsRelatedByI2ichilditemid collection.
+     *
+     * By default this just sets the collInvItem2ItemsRelatedByI2ichilditemid collection to an empty array (like clearcollInvItem2ItemsRelatedByI2ichilditemid());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvItem2ItemsRelatedByI2ichilditemid($overrideExisting = true)
+    {
+        if (null !== $this->collInvItem2ItemsRelatedByI2ichilditemid && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvItem2ItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvItem2ItemsRelatedByI2ichilditemid = new $collectionClassName;
+        $this->collInvItem2ItemsRelatedByI2ichilditemid->setModel('\InvItem2Item');
+    }
+
+    /**
+     * Gets an array of ChildInvItem2Item objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvItem2Item[] List of ChildInvItem2Item objects
+     * @throws PropelException
+     */
+    public function getInvItem2ItemsRelatedByI2ichilditemid(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
+        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+                // return empty collection
+                $this->initInvItem2ItemsRelatedByI2ichilditemid();
+            } else {
+                $collInvItem2ItemsRelatedByI2ichilditemid = ChildInvItem2ItemQuery::create(null, $criteria)
+                    ->filterByItemMasterItemRelatedByI2ichilditemid($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && count($collInvItem2ItemsRelatedByI2ichilditemid)) {
+                        $this->initInvItem2ItemsRelatedByI2ichilditemid(false);
+
+                        foreach ($collInvItem2ItemsRelatedByI2ichilditemid as $obj) {
+                            if (false == $this->collInvItem2ItemsRelatedByI2ichilditemid->contains($obj)) {
+                                $this->collInvItem2ItemsRelatedByI2ichilditemid->append($obj);
+                            }
+                        }
+
+                        $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = true;
+                    }
+
+                    return $collInvItem2ItemsRelatedByI2ichilditemid;
+                }
+
+                if ($partial && $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+                    foreach ($this->collInvItem2ItemsRelatedByI2ichilditemid as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvItem2ItemsRelatedByI2ichilditemid[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvItem2ItemsRelatedByI2ichilditemid = $collInvItem2ItemsRelatedByI2ichilditemid;
+                $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = false;
+            }
+        }
+
+        return $this->collInvItem2ItemsRelatedByI2ichilditemid;
+    }
+
+    /**
+     * Sets a collection of ChildInvItem2Item objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invItem2ItemsRelatedByI2ichilditemid A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvItem2ItemsRelatedByI2ichilditemid(Collection $invItem2ItemsRelatedByI2ichilditemid, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvItem2Item[] $invItem2ItemsRelatedByI2ichilditemidToDelete */
+        $invItem2ItemsRelatedByI2ichilditemidToDelete = $this->getInvItem2ItemsRelatedByI2ichilditemid(new Criteria(), $con)->diff($invItem2ItemsRelatedByI2ichilditemid);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = clone $invItem2ItemsRelatedByI2ichilditemidToDelete;
+
+        foreach ($invItem2ItemsRelatedByI2ichilditemidToDelete as $invItem2ItemRelatedByI2ichilditemidRemoved) {
+            $invItem2ItemRelatedByI2ichilditemidRemoved->setItemMasterItemRelatedByI2ichilditemid(null);
+        }
+
+        $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
+        foreach ($invItem2ItemsRelatedByI2ichilditemid as $invItem2ItemRelatedByI2ichilditemid) {
+            $this->addInvItem2ItemRelatedByI2ichilditemid($invItem2ItemRelatedByI2ichilditemid);
+        }
+
+        $this->collInvItem2ItemsRelatedByI2ichilditemid = $invItem2ItemsRelatedByI2ichilditemid;
+        $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvItem2Item objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvItem2Item objects.
+     * @throws PropelException
+     */
+    public function countInvItem2ItemsRelatedByI2ichilditemid(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvItem2ItemsRelatedByI2ichilditemidPartial && !$this->isNew();
+        if (null === $this->collInvItem2ItemsRelatedByI2ichilditemid || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvItem2ItemsRelatedByI2ichilditemid) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvItem2ItemsRelatedByI2ichilditemid());
+            }
+
+            $query = ChildInvItem2ItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItemRelatedByI2ichilditemid($this)
+                ->count($con);
+        }
+
+        return count($this->collInvItem2ItemsRelatedByI2ichilditemid);
+    }
+
+    /**
+     * Method called to associate a ChildInvItem2Item object to this object
+     * through the ChildInvItem2Item foreign key attribute.
+     *
+     * @param  ChildInvItem2Item $l ChildInvItem2Item
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $l)
+    {
+        if ($this->collInvItem2ItemsRelatedByI2ichilditemid === null) {
+            $this->initInvItem2ItemsRelatedByI2ichilditemid();
+            $this->collInvItem2ItemsRelatedByI2ichilditemidPartial = true;
+        }
+
+        if (!$this->collInvItem2ItemsRelatedByI2ichilditemid->contains($l)) {
+            $this->doAddInvItem2ItemRelatedByI2ichilditemid($l);
+
+            if ($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion and $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->contains($l)) {
+                $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->remove($this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid The ChildInvItem2Item object to add.
+     */
+    protected function doAddInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid)
+    {
+        $this->collInvItem2ItemsRelatedByI2ichilditemid[]= $invItem2ItemRelatedByI2ichilditemid;
+        $invItem2ItemRelatedByI2ichilditemid->setItemMasterItemRelatedByI2ichilditemid($this);
+    }
+
+    /**
+     * @param  ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid The ChildInvItem2Item object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvItem2ItemRelatedByI2ichilditemid(ChildInvItem2Item $invItem2ItemRelatedByI2ichilditemid)
+    {
+        if ($this->getInvItem2ItemsRelatedByI2ichilditemid()->contains($invItem2ItemRelatedByI2ichilditemid)) {
+            $pos = $this->collInvItem2ItemsRelatedByI2ichilditemid->search($invItem2ItemRelatedByI2ichilditemid);
+            $this->collInvItem2ItemsRelatedByI2ichilditemid->remove($pos);
+            if (null === $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion) {
+                $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion = clone $this->collInvItem2ItemsRelatedByI2ichilditemid;
+                $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion->clear();
+            }
+            $this->invItem2ItemsRelatedByI2ichilditemidScheduledForDeletion[]= clone $invItem2ItemRelatedByI2ichilditemid;
+            $invItem2ItemRelatedByI2ichilditemid->setItemMasterItemRelatedByI2ichilditemid(null);
         }
 
         return $this;
@@ -12087,6 +12658,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvItem2ItemsRelatedByI2imstritemid) {
+                foreach ($this->collInvItem2ItemsRelatedByI2imstritemid as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collInvItem2ItemsRelatedByI2ichilditemid) {
+                foreach ($this->collInvItem2ItemsRelatedByI2ichilditemid as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collInvKitComponents) {
                 foreach ($this->collInvKitComponents as $o) {
                     $o->clearAllReferences($deep);
@@ -12178,6 +12759,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collWhseLotserials = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
+        $this->collInvItem2ItemsRelatedByI2imstritemid = null;
+        $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
         $this->collInvKitComponents = null;
         $this->singleInvKit = null;
         $this->collInvLots = null;

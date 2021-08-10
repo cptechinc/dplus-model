@@ -300,6 +300,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a RIGHT JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemSubstituteRelatedByInsisubitemnbr() Adds a INNER JOIN clause and with to the query using the ItemSubstituteRelatedByInsisubitemnbr relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvItem2ItemRelatedByI2imstritemid($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ * @method     ChildItemMasterItemQuery rightJoinInvItem2ItemRelatedByI2imstritemid($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ * @method     ChildItemMasterItemQuery innerJoinInvItem2ItemRelatedByI2imstritemid($relationAlias = null) Adds a INNER JOIN clause to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvItem2ItemRelatedByI2imstritemid($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvItem2ItemRelatedByI2imstritemid() Adds a LEFT JOIN clause and with to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvItem2ItemRelatedByI2imstritemid() Adds a RIGHT JOIN clause and with to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvItem2ItemRelatedByI2imstritemid() Adds a INNER JOIN clause and with to the query using the InvItem2ItemRelatedByI2imstritemid relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvItem2ItemRelatedByI2ichilditemid($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ * @method     ChildItemMasterItemQuery rightJoinInvItem2ItemRelatedByI2ichilditemid($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ * @method     ChildItemMasterItemQuery innerJoinInvItem2ItemRelatedByI2ichilditemid($relationAlias = null) Adds a INNER JOIN clause to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvItem2ItemRelatedByI2ichilditemid($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvItem2ItemRelatedByI2ichilditemid() Adds a LEFT JOIN clause and with to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvItem2ItemRelatedByI2ichilditemid() Adds a RIGHT JOIN clause and with to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvItem2ItemRelatedByI2ichilditemid() Adds a INNER JOIN clause and with to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinInvKitComponent($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvKitComponent relation
  * @method     ChildItemMasterItemQuery rightJoinInvKitComponent($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvKitComponent relation
  * @method     ChildItemMasterItemQuery innerJoinInvKitComponent($relationAlias = null) Adds a INNER JOIN clause to the query using the InvKitComponent relation
@@ -470,7 +490,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\WhseLotserialQuery|\ItemSubstituteQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\WhseLotserialQuery|\ItemSubstituteQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotQuery|\WarehouseInventoryQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\ItemOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\ItemPricingDiscountQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3821,6 +3841,152 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemSubstituteRelatedByInsisubitemnbr($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemSubstituteRelatedByInsisubitemnbr', '\ItemSubstituteQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvItem2Item object
+     *
+     * @param \InvItem2Item|ObjectCollection $invItem2Item the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvItem2ItemRelatedByI2imstritemid($invItem2Item, $comparison = null)
+    {
+        if ($invItem2Item instanceof \InvItem2Item) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invItem2Item->getI2imstritemid(), $comparison);
+        } elseif ($invItem2Item instanceof ObjectCollection) {
+            return $this
+                ->useInvItem2ItemRelatedByI2imstritemidQuery()
+                ->filterByPrimaryKeys($invItem2Item->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvItem2ItemRelatedByI2imstritemid() only accepts arguments of type \InvItem2Item or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvItem2ItemRelatedByI2imstritemid relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvItem2ItemRelatedByI2imstritemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvItem2ItemRelatedByI2imstritemid');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvItem2ItemRelatedByI2imstritemid');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2imstritemid relation InvItem2Item object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvItem2ItemQuery A secondary query class using the current class as primary query
+     */
+    public function useInvItem2ItemRelatedByI2imstritemidQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvItem2ItemRelatedByI2imstritemid($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvItem2ItemRelatedByI2imstritemid', '\InvItem2ItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvItem2Item object
+     *
+     * @param \InvItem2Item|ObjectCollection $invItem2Item the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvItem2ItemRelatedByI2ichilditemid($invItem2Item, $comparison = null)
+    {
+        if ($invItem2Item instanceof \InvItem2Item) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invItem2Item->getI2ichilditemid(), $comparison);
+        } elseif ($invItem2Item instanceof ObjectCollection) {
+            return $this
+                ->useInvItem2ItemRelatedByI2ichilditemidQuery()
+                ->filterByPrimaryKeys($invItem2Item->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvItem2ItemRelatedByI2ichilditemid() only accepts arguments of type \InvItem2Item or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvItem2ItemRelatedByI2ichilditemid relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvItem2ItemRelatedByI2ichilditemid($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvItem2ItemRelatedByI2ichilditemid');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvItem2ItemRelatedByI2ichilditemid');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvItem2ItemRelatedByI2ichilditemid relation InvItem2Item object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvItem2ItemQuery A secondary query class using the current class as primary query
+     */
+    public function useInvItem2ItemRelatedByI2ichilditemidQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvItem2ItemRelatedByI2ichilditemid($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvItem2ItemRelatedByI2ichilditemid', '\InvItem2ItemQuery');
     }
 
     /**

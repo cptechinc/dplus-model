@@ -616,6 +616,20 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemSubstitutesRelatedByInsisubitemnbr', false);
+        $this->addRelation('InvItem2ItemRelatedByI2imstritemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':I2iMstrItemId',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvItem2ItemsRelatedByI2imstritemid', false);
+        $this->addRelation('InvItem2ItemRelatedByI2ichilditemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':I2iChildItemId',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvItem2ItemsRelatedByI2ichilditemid', false);
         $this->addRelation('InvKitComponent', '\\InvKitComponent', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
