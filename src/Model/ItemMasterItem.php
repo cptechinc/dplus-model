@@ -109,6 +109,8 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'freightcode' => 'InitMfrtCode',
 		'origincountry' => 'InitCntryOfOrigin',
 		'minmarginbase' => 'InitMinMargBase',
+		'date'          => 'dateupdtd',
+		'time'          => 'timeupdtd',
 
 		// Foreign Key Aliases
 		'primaryvxm'      => 'primaryItemXrefVendor',
