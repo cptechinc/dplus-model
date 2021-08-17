@@ -7,7 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_item_price' table.
- * 
+ *
  * NOTE: Foreign Key Relationship to ItemMasterItem
  */
 class ItemPricing extends BaseItemPricing {
@@ -31,7 +31,6 @@ class ItemPricing extends BaseItemPricing {
 
 	/**
 	 * Return Price breaks, that have non empty values
-	 *
 	 * @return string
 	 */
 	public function get_qtybreaks() {
@@ -78,7 +77,6 @@ class ItemPricing extends BaseItemPricing {
 
 	/**
 	 * Return Unit Column at Qty Break
-	 *
 	 * @param  int $break
 	 * @return string
 	 */
@@ -111,7 +109,6 @@ class ItemPricing extends BaseItemPricing {
 
 	/**
 	 * Return Price Column at Qty Break
-	 *
 	 * @param  int $break
 	 * @return string
 	 */
@@ -144,7 +141,6 @@ class ItemPricing extends BaseItemPricing {
 
 	/**
 	 * Returns the Each Price at Qty Break
-	 *
 	 * @param  int $break Qty Break
 	 * @return float
 	 */
@@ -152,5 +148,23 @@ class ItemPricing extends BaseItemPricing {
 		$price = $this->get_pricebreak_price($break);
 		$item = $this->item;
 		return $price / $item->unitofmsale->conversion;
+	}
+
+	/**
+	 * Return New Item Pricing Record
+	 * @return ItemPricing
+	 */
+	public static function new() {
+		$r = new self();
+		$r->setBaseprice(0);
+		for ($i = 1; $i < self::QTY_BREAKS; $i++) {
+			$colQty = ucfirst(self::get_pricebreak_qty_column($i));
+			$colPrice = ucfirst(self::get_pricebreak_price_column($i));
+			$setQty = "set$colQty";
+			$setPrice = "set$colPrice";
+			$r->$setQty(0);
+			$r->$setPrice(0);
+		}
+		return $r;
 	}
 }
