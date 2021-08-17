@@ -76,7 +76,7 @@ class ConfigAp extends BaseConfigAp {
 	 * Return if Vendor Cost Breaks can be used
 	 * @return bool
 	 */
-	public function use_vendor_cost_breaks() {
+	public function useVendorCostBreaks() {
 		return $this->vendorcostbreaks == self::YN_TRUE;
 	}
 
@@ -84,21 +84,21 @@ class ConfigAp extends BaseConfigAp {
 	 * Return if VXM should update ITM COST
 	 * @return bool
 	 */
-	public function update_itm_cost($costbase) {
+	public function updateItmCost($costbase) {
 		if (array_key_exists($costbase, self::COSTBASETYPES_TO_CONFIG_UPDATE) === false) {
 			return false;
 		}
 		$col = self::COSTBASETYPES_TO_CONFIG_UPDATE[$costbase];
 		return $this->$col == self::YN_TRUE;
 	}
-
+	
 	/**
 	 * Prompt user to Update ITM Cost
 	 * USED: VXM
 	 * @return bool
 	 */
-	public function confirm_update_itm_cost() {
-		return $this->confirmupdateitmcost == self::YN_TRUE;
+	public function confirmUpdateItmCost() {
+		return $this->confirm_update_itm_cost();
 	}
 
 	/**
@@ -106,7 +106,7 @@ class ConfigAp extends BaseConfigAp {
 	 * USED: VXM
 	 * @return bool
 	 */
-	public function compute_percentage_cost_cost() {
+	public function computePercentageCostCost() {
 		$this->computepercentageorcost == self::COMPUTEPERCENTAGEORCOST_COST;
 	}
 
@@ -115,7 +115,16 @@ class ConfigAp extends BaseConfigAp {
 	 * USED: VXM
 	 * @return bool
 	 */
-	public function update_itm_pricing() {
+	public function updateItmPricing() {
 		return $this->updateitmpricing == self::YN_TRUE;
 	}
+
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function use_vendor_cost_breaks() {return $this->useVendorCostBreaks();}
+	public function update_itm_cost($costbase) {return $this->updateItmCost($costbase);}
+	public function confirm_update_itm_cost() {return $this->confirmUpdateItmCost();}
+	public function compute_percentage_cost_cost() {$this->computePercentageCostCost();}
+	public function update_itm_pricing() {return $this->updateItmPricing();}
 }
