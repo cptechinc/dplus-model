@@ -59,7 +59,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if PO Item Notes are allowed
 	 * @return bool
 	 */
-	public function allow_po_item_notes() {
+	public function allowPoItemNotes() {
 		return $this->allow_po_item_notes == self::VALUE_TRUE;
 	}
 
@@ -67,7 +67,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Returns Description (label) for what Cancel Date means
 	 * @return string
 	 */
-	public function description_date_cancel() {
+	public function descriptionDateCancel() {
 		return self::DATE_CANCEL_DESCRIPTIONS[$this->date_cancel_or_revised];
 	}
 
@@ -75,7 +75,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Returns Description (label) for what Cancel Date means
 	 * @return string
 	 */
-	public function description_date_acknowledged() {
+	public function descriptionDateAcknowledged() {
 		return self::DATE_ACKNWOLEDGED_DESCRIPTIONS[$this->date_ack_or_eta];
 	}
 
@@ -83,7 +83,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if Date Expected is edited on Detail
 	 * @return bool
 	 */
-	public function edit_date_expected_detail() {
+	public function editDateExpectedDetail() {
 		return $this->edit_date_expect_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
 	}
 
@@ -91,7 +91,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if Date Acknowledged is edited on Detail
 	 * @return bool
 	 */
-	public function edit_date_acknowledged_detail() {
+	public function editDateAcknowledgedDetail() {
 		return $this->edit_date_ack_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
 	}
 
@@ -99,7 +99,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if Date Canceled is edited on Detail
 	 * @return bool
 	 */
-	public function edit_date_cancel_detail() {
+	public function editDateCancelDetail() {
 		return $this->edit_date_cancel_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
 	}
 
@@ -107,7 +107,7 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if Date Shipped is edited on Detail
 	 * @return bool
 	 */
-	public function edit_date_shipped_detail() {
+	public function editDateShippedDetail() {
 		return $this->edit_date_ship_head_det == self::VALUE_HEAD_DETAIL_DETAIL;
 	}
 
@@ -115,7 +115,19 @@ class ConfigPo extends BaseConfigPo {
 	 * Return if PO Reference is required
 	 * @return bool
 	 */
-	public function force_po_reference() {
+	public function forcePoReference() {
 		return $this->force_po_reference == self::VALUE_TRUE;
 	}
+
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function allow_po_item_notes() {return $this->allowPoItemNotes();}
+	public function description_date_cancel() {return $this->descriptionDateCancel();}
+	public function description_date_acknowledged() {return $this->descriptionDateAcknowledged();}
+	public function edit_date_expected_detail() {return $this->editDateExpectedDetail() ;}
+	public function edit_date_acknowledged_detail() {return $this->editDateAcknowledgedDetail();}
+	public function edit_date_cancel_detail() {return $this->editDateCancelDetail();}
+	public function edit_date_shipped_detail() {return $this->editDateShippedDetail();}
+	public function force_po_reference() {return $this->forcePoReference();}
 }

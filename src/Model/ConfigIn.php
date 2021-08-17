@@ -71,61 +71,55 @@ class ConfigIn extends BaseConfigIn {
 	 * Return if Company is configured to use Control Bin
 	 * @return bool
 	 */
-	public function use_controlbin() {
+	public function useControlbin() {
 		return $this->use_controlbin == self::VALUE_TRUE;
 	}
 
 	/**
 	 * Return if Item's Pricegroup should be defaulted to itemgroup
-	 *
 	 * @return bool
 	 */
-	public function use_itemgroup_as_pricegroup() {
+	public function useItemgroupAsPricegroup() {
 		return $this->default_pricegroup_itemgroup == self::VALUE_TRUE;
 	}
 
 	/**
 	 * Return if Item's Commgroup should be defaulted to itemgroup
-	 *
 	 * @return bool
 	 */
-	public function use_itemgroup_as_commgroup() {
+	public function useItemgroupAsCommgroup() {
 		return $this->default_commgroup_itemgroup == self::VALUE_TRUE;
 	}
 
 	/**
 	 * Return if Company is configured to use Pricegroups
-	 *
 	 * @return bool
 	 */
-	public function use_pricegroup() {
+	public function usePricegroup() {
 		return $this->use_pricegroup == self::VALUE_TRUE;
 	}
 
 	/**
 	 * Return if Company is configured to use Pricegroups
-	 *
 	 * @return bool
 	 */
-	public function use_commgroup() {
+	public function useCommgroup() {
 		return $this->use_commgroup == self::VALUE_TRUE;
 	}
 
 	/**
 	 * Returns if using Liters
-	 *
 	 * @return bool
 	 */
-	public function use_liters() {
+	public function useLiters() {
 		return $this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
 	}
 
 	/**
 	 * Returns if using Grams
-	 *
 	 * @return bool
 	 */
-	public function use_grams() {
+	public function useGrams() {
 		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_GRAMS, self::GRAMS_LITERS_GRAMS_ALT]);
 	}
 
@@ -144,4 +138,15 @@ class ConfigIn extends BaseConfigIn {
 	public function useUppercaseItemDescription() {
 		return $this->useUppercaseItemDesc == self::VALUE_TRUE;
 	}
+
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function use_controlbin() {return $this->useControlbin();}
+	public function use_itemgroup_as_pricegroup() {return $this->useItemgroupAsPricegroup();}
+	public function use_itemgroup_as_commgroup() {return $this->useItemgroupAsCommgroup();}
+	public function use_pricegroup() {return $this->usePricegroup();}
+	public function use_commgroup() {return $this->useCommgroup();}
+	public function use_liters() {return $this->useLiters();}
+	public function use_grams() {return $this->useGrams();}
 }

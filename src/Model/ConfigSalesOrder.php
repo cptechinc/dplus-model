@@ -66,19 +66,24 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc',
 		'requestdate'              => 'OetbConfRqstHeadDtl',
 		'allow_overpick'           => 'OetbCon3ShipMoreOrdered',
+		'overpick'                 => 'OetbCon3ShipMoreOrdered',
 		'default_ship_whse'        => 'oetbconfdfltshipwhse',
 		'pickingtype'              => 'oetbCon3pickpackcode'
 	);
 
+	/**
+	 * Return If Overpicking is allowed
+	 * @return bool
+	 */
 	public function allowOverpick() {
-		return $this->overpick == $this->allow_overpick;
+		return $this->overpick == self::YN_TRUE;
 	}
 
 	/**
 	 * Returns if the Request Type is Program
 	 * @return bool
 	 */
-	public function is_request_program() {
+	public function isRequestProgram() {
 		return strtoupper($this->request_catalog) == 'P';
 	}
 
@@ -86,7 +91,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * Returns if Freight in
 	 * @return bool
 	 */
-	public function is_freightin() {
+	public function isFreightin() {
 		return strtoupper($this->freightin) == 'Y';
 	}
 
@@ -94,7 +99,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * Returns if the Freight Allowed In Amt
 	 * @return bool
 	 */
-	public function get_freight_allowed_amt() {
+	public function getFreightAllowedAmt() {
 		return $this->freight_amt;
 	}
 
@@ -102,16 +107,15 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * Returns if Core Items Are Allowed
 	 * @return bool
 	 */
-	public function use_core_items() {
+	public function useCoreItems() {
 		return strtoupper($this->use_core_items) == 'Y';
 	}
 
 	/**
 	 * Return if CXM can update PDM
-	 *
 	 * @return bool
 	 */
-	public function update_pdm_from_cxm() {
+	public function updatePdmFromCxm() {
 		return strtoupper($this->update_pdm_from_cxm) == 'Y';
 	}
 
@@ -119,15 +123,26 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 	 * Return if Request is set on Header
 	 * @return bool
 	 */
-	public function request_date_header() {
+	public function requestDateHeader() {
 		return strtoupper($this->requestdate) == self::REQUEST_DATE_HEADER;
 	}
-
+	
 	/**
 	 * Return if Request is set on Detail Lines
 	 * @return bool
 	 */
-	public function request_date_detail() {
+	public function requestDateDetail() {
 		return strtoupper($this->requestdate) == self::REQUEST_DATE_DETAIL;
 	}
+	
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function is_request_program() {return $this->isRequestProgram();}
+	public function is_freightin() {return $this->isFreightin();}
+	public function get_freight_allowed_amt() {return $this->getFreightAllowedAmt();}
+	public function use_core_items() {return $this->useCoreItems();}
+	public function update_pdm_from_cxm() {return $this->updatePdmFromCxm();}
+	public function request_date_header() {return $this->requestDateHeader();}
+	public function request_date_detail() {return $this->requestDateDetail();}
 }

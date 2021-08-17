@@ -41,18 +41,23 @@ class ConfigAr extends BaseConfigAr {
 
 	/**
 	 * Returns the Description for the GL Report Type
-	 *
 	 * @return string
 	 */
-	public function gl_report_type() {
+	public function glReportType() {
 		return self::GL_REPORT_TYPES_DESCRIPTIONS[strtoupper($this->gl_report_type)];
 	}
-
+	
 	/**
 	 * Returns if the Web Program is Yes
 	 * @return bool
 	 */
-	public function is_web_group() {
+	public function isWebGroup() {
 		return strtoupper($this->web_group) == 'Y';
 	}
+	
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function gl_report_type() {return $this->glReportType();}
+	public function is_web_group() {return $this->isWebGroup();}
 }
