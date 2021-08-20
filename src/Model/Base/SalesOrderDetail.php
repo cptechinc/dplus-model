@@ -1035,6 +1035,41 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     protected $oedtrganbr;
 
     /**
+     * The value for the oedtorigpric field.
+     *
+     * @var        string
+     */
+    protected $oedtorigpric;
+
+    /**
+     * The value for the oedtreflinenbr field.
+     *
+     * @var        string
+     */
+    protected $oedtreflinenbr;
+
+    /**
+     * The value for the oedtbinlocn field.
+     *
+     * @var        string
+     */
+    protected $oedtbinlocn;
+
+    /**
+     * The value for the oedtacsuplywhse field.
+     *
+     * @var        string
+     */
+    protected $oedtacsuplywhse;
+
+    /**
+     * The value for the oedtacpricdate field.
+     *
+     * @var        string
+     */
+    protected $oedtacpricdate;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -2697,6 +2732,56 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     public function getOedtrganbr()
     {
         return $this->oedtrganbr;
+    }
+
+    /**
+     * Get the [oedtorigpric] column value.
+     *
+     * @return string
+     */
+    public function getOedtOrigPric()
+    {
+        return $this->oedtorigpric;
+    }
+
+    /**
+     * Get the [oedtreflinenbr] column value.
+     *
+     * @return string
+     */
+    public function getOedtRefLineNbr()
+    {
+        return $this->oedtreflinenbr;
+    }
+
+    /**
+     * Get the [oedtbinlocn] column value.
+     *
+     * @return string
+     */
+    public function getOedtBinLocn()
+    {
+        return $this->oedtbinlocn;
+    }
+
+    /**
+     * Get the [oedtacsuplywhse] column value.
+     *
+     * @return string
+     */
+    public function getOedtAcSuplyWhse()
+    {
+        return $this->oedtacsuplywhse;
+    }
+
+    /**
+     * Get the [oedtacpricdate] column value.
+     *
+     * @return string
+     */
+    public function getOedtAcPricDate()
+    {
+        return $this->oedtacpricdate;
     }
 
     /**
@@ -5494,6 +5579,106 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     } // setOedtrganbr()
 
     /**
+     * Set the value of [oedtorigpric] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     */
+    public function setOedtOrigPric($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedtorigpric !== $v) {
+            $this->oedtorigpric = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTORIGPRIC] = true;
+        }
+
+        return $this;
+    } // setOedtOrigPric()
+
+    /**
+     * Set the value of [oedtreflinenbr] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     */
+    public function setOedtRefLineNbr($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedtreflinenbr !== $v) {
+            $this->oedtreflinenbr = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTREFLINENBR] = true;
+        }
+
+        return $this;
+    } // setOedtRefLineNbr()
+
+    /**
+     * Set the value of [oedtbinlocn] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     */
+    public function setOedtBinLocn($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedtbinlocn !== $v) {
+            $this->oedtbinlocn = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTBINLOCN] = true;
+        }
+
+        return $this;
+    } // setOedtBinLocn()
+
+    /**
+     * Set the value of [oedtacsuplywhse] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     */
+    public function setOedtAcSuplyWhse($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedtacsuplywhse !== $v) {
+            $this->oedtacsuplywhse = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACSUPLYWHSE] = true;
+        }
+
+        return $this;
+    } // setOedtAcSuplyWhse()
+
+    /**
+     * Set the value of [oedtacpricdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     */
+    public function setOedtAcPricDate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oedtacpricdate !== $v) {
+            $this->oedtacpricdate = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_OEDTACPRICDATE] = true;
+        }
+
+        return $this;
+    } // setOedtAcPricDate()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -6011,13 +6196,28 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtrganbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtrganbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtOrigPric', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtorigpric = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtRefLineNbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtreflinenbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtBinLocn', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtbinlocn = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtAcSuplyWhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtacsuplywhse = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : SalesOrderDetailTableMap::translateFieldName('OedtAcPricDate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedtacpricdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : SalesOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : SalesOrderDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : SalesOrderDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -6027,7 +6227,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 141; // 141 = SalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 146; // 146 = SalesOrderDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesOrderDetail'), 0, $e);
@@ -6673,6 +6873,21 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRGANBR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtRgaNbr';
         }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGPRIC)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtOrigPric';
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTREFLINENBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtRefLineNbr';
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBINLOCN)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtBinLocn';
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACSUPLYWHSE)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtAcSuplyWhse';
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACPRICDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'OedtAcPricDate';
+        }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -7106,6 +7321,21 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                         break;
                     case 'OedtRgaNbr':
                         $stmt->bindValue($identifier, $this->oedtrganbr, PDO::PARAM_INT);
+                        break;
+                    case 'OedtOrigPric':
+                        $stmt->bindValue($identifier, $this->oedtorigpric, PDO::PARAM_STR);
+                        break;
+                    case 'OedtRefLineNbr':
+                        $stmt->bindValue($identifier, $this->oedtreflinenbr, PDO::PARAM_STR);
+                        break;
+                    case 'OedtBinLocn':
+                        $stmt->bindValue($identifier, $this->oedtbinlocn, PDO::PARAM_STR);
+                        break;
+                    case 'OedtAcSuplyWhse':
+                        $stmt->bindValue($identifier, $this->oedtacsuplywhse, PDO::PARAM_STR);
+                        break;
+                    case 'OedtAcPricDate':
+                        $stmt->bindValue($identifier, $this->oedtacpricdate, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -7586,12 +7816,27 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 return $this->getOedtrganbr();
                 break;
             case 138:
-                return $this->getDateupdtd();
+                return $this->getOedtOrigPric();
                 break;
             case 139:
-                return $this->getTimeupdtd();
+                return $this->getOedtRefLineNbr();
                 break;
             case 140:
+                return $this->getOedtBinLocn();
+                break;
+            case 141:
+                return $this->getOedtAcSuplyWhse();
+                break;
+            case 142:
+                return $this->getOedtAcPricDate();
+                break;
+            case 143:
+                return $this->getDateupdtd();
+                break;
+            case 144:
+                return $this->getTimeupdtd();
+                break;
+            case 145:
                 return $this->getDummy();
                 break;
             default:
@@ -7762,9 +8007,14 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $keys[135] => $this->getOedtwibatch1qty(),
             $keys[136] => $this->getOedtwibatch1stat(),
             $keys[137] => $this->getOedtrganbr(),
-            $keys[138] => $this->getDateupdtd(),
-            $keys[139] => $this->getTimeupdtd(),
-            $keys[140] => $this->getDummy(),
+            $keys[138] => $this->getOedtOrigPric(),
+            $keys[139] => $this->getOedtRefLineNbr(),
+            $keys[140] => $this->getOedtBinLocn(),
+            $keys[141] => $this->getOedtAcSuplyWhse(),
+            $keys[142] => $this->getOedtAcPricDate(),
+            $keys[143] => $this->getDateupdtd(),
+            $keys[144] => $this->getTimeupdtd(),
+            $keys[145] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -8251,12 +8501,27 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 $this->setOedtrganbr($value);
                 break;
             case 138:
-                $this->setDateupdtd($value);
+                $this->setOedtOrigPric($value);
                 break;
             case 139:
-                $this->setTimeupdtd($value);
+                $this->setOedtRefLineNbr($value);
                 break;
             case 140:
+                $this->setOedtBinLocn($value);
+                break;
+            case 141:
+                $this->setOedtAcSuplyWhse($value);
+                break;
+            case 142:
+                $this->setOedtAcPricDate($value);
+                break;
+            case 143:
+                $this->setDateupdtd($value);
+                break;
+            case 144:
+                $this->setTimeupdtd($value);
+                break;
+            case 145:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -8700,13 +8965,28 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $this->setOedtrganbr($arr[$keys[137]]);
         }
         if (array_key_exists($keys[138], $arr)) {
-            $this->setDateupdtd($arr[$keys[138]]);
+            $this->setOedtOrigPric($arr[$keys[138]]);
         }
         if (array_key_exists($keys[139], $arr)) {
-            $this->setTimeupdtd($arr[$keys[139]]);
+            $this->setOedtRefLineNbr($arr[$keys[139]]);
         }
         if (array_key_exists($keys[140], $arr)) {
-            $this->setDummy($arr[$keys[140]]);
+            $this->setOedtBinLocn($arr[$keys[140]]);
+        }
+        if (array_key_exists($keys[141], $arr)) {
+            $this->setOedtAcSuplyWhse($arr[$keys[141]]);
+        }
+        if (array_key_exists($keys[142], $arr)) {
+            $this->setOedtAcPricDate($arr[$keys[142]]);
+        }
+        if (array_key_exists($keys[143], $arr)) {
+            $this->setDateupdtd($arr[$keys[143]]);
+        }
+        if (array_key_exists($keys[144], $arr)) {
+            $this->setTimeupdtd($arr[$keys[144]]);
+        }
+        if (array_key_exists($keys[145], $arr)) {
+            $this->setDummy($arr[$keys[145]]);
         }
     }
 
@@ -9163,6 +9443,21 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTRGANBR)) {
             $criteria->add(SalesOrderDetailTableMap::COL_OEDTRGANBR, $this->oedtrganbr);
         }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTORIGPRIC)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTORIGPRIC, $this->oedtorigpric);
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTREFLINENBR)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTREFLINENBR, $this->oedtreflinenbr);
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTBINLOCN)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTBINLOCN, $this->oedtbinlocn);
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACSUPLYWHSE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACSUPLYWHSE, $this->oedtacsuplywhse);
+        }
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTACPRICDATE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_OEDTACPRICDATE, $this->oedtacpricdate);
+        }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesOrderDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -9411,6 +9706,11 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $copyObj->setOedtwibatch1qty($this->getOedtwibatch1qty());
         $copyObj->setOedtwibatch1stat($this->getOedtwibatch1stat());
         $copyObj->setOedtrganbr($this->getOedtrganbr());
+        $copyObj->setOedtOrigPric($this->getOedtOrigPric());
+        $copyObj->setOedtRefLineNbr($this->getOedtRefLineNbr());
+        $copyObj->setOedtBinLocn($this->getOedtBinLocn());
+        $copyObj->setOedtAcSuplyWhse($this->getOedtAcSuplyWhse());
+        $copyObj->setOedtAcPricDate($this->getOedtAcPricDate());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -9949,6 +10249,11 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $this->oedtwibatch1qty = null;
         $this->oedtwibatch1stat = null;
         $this->oedtrganbr = null;
+        $this->oedtorigpric = null;
+        $this->oedtreflinenbr = null;
+        $this->oedtbinlocn = null;
+        $this->oedtacsuplywhse = null;
+        $this->oedtacpricdate = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
