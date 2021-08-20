@@ -3991,7 +3991,7 @@
     <column name="OedhLabelPrinted" phpName="Oedhlabelprinted" type="VARCHAR" size="1"/>
     <column name="OedhQuoteId" phpName="Oedhquoteid" type="VARCHAR" size="8"/>
     <column name="OedhInvPrinted" phpName="Oedhinvprinted" type="VARCHAR" size="1"/>
-    <column name="OedtStockCheck" phpName="Oedtstockcheck" type="VARCHAR" size="1"/>
+    <column name="OedhStockCheck" phpName="Oedhstockcheck" type="VARCHAR" size="1"/>
     <column name="OedhShouldWeSplit" phpName="Oedhshouldwesplit" type="VARCHAR" size="1"/>
     <column name="OedhCofcReqd" phpName="Oedhcofcreqd" type="VARCHAR" size="1"/>
     <column name="OedhAckCode" phpName="Oedhackcode" type="VARCHAR" size="2"/>

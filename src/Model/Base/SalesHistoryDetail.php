@@ -957,11 +957,11 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     protected $oedhinvprinted;
 
     /**
-     * The value for the oedtstockcheck field.
+     * The value for the oedhstockcheck field.
      *
      * @var        string
      */
-    protected $oedtstockcheck;
+    protected $oedhstockcheck;
 
     /**
      * The value for the oedhshouldwesplit field.
@@ -2630,13 +2630,13 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [oedtstockcheck] column value.
+     * Get the [oedhstockcheck] column value.
      *
      * @return string
      */
-    public function getOedtstockcheck()
+    public function getOedhstockcheck()
     {
-        return $this->oedtstockcheck;
+        return $this->oedhstockcheck;
     }
 
     /**
@@ -5374,24 +5374,24 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     } // setOedhinvprinted()
 
     /**
-     * Set the value of [oedtstockcheck] column.
+     * Set the value of [oedhstockcheck] column.
      *
      * @param string $v new value
      * @return $this|\SalesHistoryDetail The current object (for fluent API support)
      */
-    public function setOedtstockcheck($v)
+    public function setOedhstockcheck($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oedtstockcheck !== $v) {
-            $this->oedtstockcheck = $v;
-            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_OEDTSTOCKCHECK] = true;
+        if ($this->oedhstockcheck !== $v) {
+            $this->oedhstockcheck = $v;
+            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_OEDHSTOCKCHECK] = true;
         }
 
         return $this;
-    } // setOedtstockcheck()
+    } // setOedhstockcheck()
 
     /**
      * Set the value of [oedhshouldwesplit] column.
@@ -6194,8 +6194,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhinvprinted', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhinvprinted = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedtstockcheck', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oedtstockcheck = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhstockcheck', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oedhstockcheck = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhshouldwesplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhshouldwesplit = (null !== $col) ? (string) $col : null;
@@ -6874,8 +6874,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHINVPRINTED)) {
             $modifiedColumns[':p' . $index++]  = 'OedhInvPrinted';
         }
-        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDTSTOCKCHECK)) {
-            $modifiedColumns[':p' . $index++]  = 'OedtStockCheck';
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSTOCKCHECK)) {
+            $modifiedColumns[':p' . $index++]  = 'OedhStockCheck';
         }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSHOULDWESPLIT)) {
             $modifiedColumns[':p' . $index++]  = 'OedhShouldWeSplit';
@@ -7326,8 +7326,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                     case 'OedhInvPrinted':
                         $stmt->bindValue($identifier, $this->oedhinvprinted, PDO::PARAM_STR);
                         break;
-                    case 'OedtStockCheck':
-                        $stmt->bindValue($identifier, $this->oedtstockcheck, PDO::PARAM_STR);
+                    case 'OedhStockCheck':
+                        $stmt->bindValue($identifier, $this->oedhstockcheck, PDO::PARAM_STR);
                         break;
                     case 'OedhShouldWeSplit':
                         $stmt->bindValue($identifier, $this->oedhshouldwesplit, PDO::PARAM_STR);
@@ -7823,7 +7823,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 return $this->getOedhinvprinted();
                 break;
             case 127:
-                return $this->getOedtstockcheck();
+                return $this->getOedhstockcheck();
                 break;
             case 128:
                 return $this->getOedhshouldwesplit();
@@ -8039,7 +8039,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $keys[124] => $this->getOedhlabelprinted(),
             $keys[125] => $this->getOedhquoteid(),
             $keys[126] => $this->getOedhinvprinted(),
-            $keys[127] => $this->getOedtstockcheck(),
+            $keys[127] => $this->getOedhstockcheck(),
             $keys[128] => $this->getOedhshouldwesplit(),
             $keys[129] => $this->getOedhcofcreqd(),
             $keys[130] => $this->getOedhackcode(),
@@ -8512,7 +8512,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 $this->setOedhinvprinted($value);
                 break;
             case 127:
-                $this->setOedtstockcheck($value);
+                $this->setOedhstockcheck($value);
                 break;
             case 128:
                 $this->setOedhshouldwesplit($value);
@@ -8979,7 +8979,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $this->setOedhinvprinted($arr[$keys[126]]);
         }
         if (array_key_exists($keys[127], $arr)) {
-            $this->setOedtstockcheck($arr[$keys[127]]);
+            $this->setOedhstockcheck($arr[$keys[127]]);
         }
         if (array_key_exists($keys[128], $arr)) {
             $this->setOedhshouldwesplit($arr[$keys[128]]);
@@ -9460,8 +9460,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHINVPRINTED)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_OEDHINVPRINTED, $this->oedhinvprinted);
         }
-        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDTSTOCKCHECK)) {
-            $criteria->add(SalesHistoryDetailTableMap::COL_OEDTSTOCKCHECK, $this->oedtstockcheck);
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSTOCKCHECK)) {
+            $criteria->add(SalesHistoryDetailTableMap::COL_OEDHSTOCKCHECK, $this->oedhstockcheck);
         }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSHOULDWESPLIT)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_OEDHSHOULDWESPLIT, $this->oedhshouldwesplit);
@@ -9748,7 +9748,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $copyObj->setOedhlabelprinted($this->getOedhlabelprinted());
         $copyObj->setOedhquoteid($this->getOedhquoteid());
         $copyObj->setOedhinvprinted($this->getOedhinvprinted());
-        $copyObj->setOedtstockcheck($this->getOedtstockcheck());
+        $copyObj->setOedhstockcheck($this->getOedhstockcheck());
         $copyObj->setOedhshouldwesplit($this->getOedhshouldwesplit());
         $copyObj->setOedhcofcreqd($this->getOedhcofcreqd());
         $copyObj->setOedhackcode($this->getOedhackcode());
@@ -10292,7 +10292,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $this->oedhlabelprinted = null;
         $this->oedhquoteid = null;
         $this->oedhinvprinted = null;
-        $this->oedtstockcheck = null;
+        $this->oedhstockcheck = null;
         $this->oedhshouldwesplit = null;
         $this->oedhcofcreqd = null;
         $this->oedhackcode = null;
