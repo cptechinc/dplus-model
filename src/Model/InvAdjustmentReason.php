@@ -23,7 +23,16 @@ class InvAdjustmentReason extends BaseInvAdjustmentReason {
 		'code'         => 'intbiarncode',
 		'description'  => 'intbiarndesc',
 		'sys_defined'  => 'intbiarnsysdefined',
+		'sysdefined'   => 'intbiarnsysdefined',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
+
+	/**
+	 * Return if Reason is System Defined
+	 * @return bool
+	 */
+	public function isSysDefined() {
+		return strtoupper($this->sysdefined) == 'Y';
+	}
 }
