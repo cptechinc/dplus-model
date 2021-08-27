@@ -17,9 +17,11 @@ class ConfigIn extends BaseConfigIn {
 	const VALUE_TRUE  = 'Y';
 	const VALUE_FALSE = 'N';
 
-	const GRAMS_LITERS_GRAMS  = 'G';
+	const GRAMS_LITERS_GRAMS     = 'G';
 	const GRAMS_LITERS_GRAMS_ALT = 'N';
-	const GRAMS_LITERS_LITERS = 'L';
+	const GRAMS_LITERS_LITERS    = 'L';
+	const GRAMS_LITERS_BOTH      = 'B';
+
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -112,7 +114,7 @@ class ConfigIn extends BaseConfigIn {
 	 * @return bool
 	 */
 	public function useLiters() {
-		return $this->use_grams_or_liters == self::GRAMS_LITERS_LITERS;
+		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_LITERS, self::GRAMS_LITERS_BOTH]);
 	}
 
 	/**
@@ -120,7 +122,7 @@ class ConfigIn extends BaseConfigIn {
 	 * @return bool
 	 */
 	public function useGrams() {
-		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_GRAMS, self::GRAMS_LITERS_GRAMS_ALT]);
+		return in_array($this->use_grams_or_liters, [self::GRAMS_LITERS_GRAMS, self::GRAMS_LITERS_GRAMS_ALT, self::GRAMS_LITERS_BOTH]);
 	}
 
 	/**
