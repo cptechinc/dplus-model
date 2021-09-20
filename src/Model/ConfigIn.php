@@ -59,6 +59,14 @@ class ConfigIn extends BaseConfigIn {
 		'allowduplicateupc'               => 'intbcon2allowdupupc',
 		'useUppercaseItemid'            => 'intbconfnbruppr',
 		'useUppercaseItemDesc'          => 'intbconfdescuppr',
+		'default_cycle'                 => 'intbConfCyclDef',
+		'default_status'                => 'intbConfStatDef',
+		'default_abccode'               => 'intbConfAbcDef',
+		'default_specialorder'          => 'intbConfSpecOrdrDef',
+		'default_orderqty'              => 'intbConfOrdrQtyDef',
+		'default_maxqty'                => 'intbConfMaxDef',
+		'default_whseid'                => 'intbCon2DfltWhse01',
+		'default_orderpoint'            => 'intbConfOrdrPntDef',
 	);
 
 	/**
