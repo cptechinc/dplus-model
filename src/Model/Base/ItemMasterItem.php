@@ -6707,6 +6707,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
+            if ($this->aItemPricing === null) {
+                $this->aItemPricing = new ChildItemPricing();
+                $this->aItemPricing->setInititemnbr($this->inititemnbr);
+            }
             $this->aItemPricing->setItemMasterItem($this);
         }
 
