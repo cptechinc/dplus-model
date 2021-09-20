@@ -14,6 +14,7 @@ class DplusUser extends BaseDplusUser {
 	use MagicMethodTraits;
 
 	const LENGTH_USERID = 8;
+	const YN_TRUE = 'Y';
 
 	const ROLES = [
 		'ACCTG'  => 'accounting',
@@ -39,7 +40,16 @@ class DplusUser extends BaseDplusUser {
 		'group'        => 'usrclogingroup',
 		'role'         => 'usrcloginrole',
 		'email'        => 'usrcemailaddr',
+		'activeitemsonly' => 'usrcactiveitemsonly',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
 	);
+
+	/**
+	 * Return if User should only see Active Items Only
+	 * @return bool
+	 */
+	public function showActiveItemsOnly() {
+		return $this->activeitemsonly == self::YN_TRUE;
+	}
 }
