@@ -43,7 +43,7 @@ trait QueryTraits {
 		$con = Propel::getWriteConnection($this->dbName);
 		$stmt = $con->prepare($sql);
 
-		if (empty($params)){
+		if (empty($params)) {
 			$stmt->execute();
 			return $stmt;
 		}
@@ -59,9 +59,16 @@ trait QueryTraits {
 	 * @return ModelCriteria                 $this
 	 */
 	public function search_filter(array $columns, $q, $caseSensitive = false) {
-		return $this->addLikeFilter($columns, $q, $caseSensitive = false);
+		return $this->addLikeFilter($columns, $q, $caseSensitive);
 	}
 
+	/**
+	 * Adds a LIKE filter for each column, and one for the concatenated columns
+	 * @param  array         $columns        Array of Table Column Names
+	 * @param  string        $q              Search Query to Match
+	 * @param  string        $caseSensitive  Is Case-sensitive
+	 * @return ModelCriteria                 $this
+	 */
 	public function addLikeFilter(array $columns, $q, $caseSensitive = false) {
 		$keyword = $this->wildcardify($q);
 
