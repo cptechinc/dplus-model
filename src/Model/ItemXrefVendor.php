@@ -36,9 +36,9 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'Y' => 'Secondary'
 	);
 
-	const POORDERCODE_PRIMARY = 'P';
+	const POORDERCODE_PRIMARY   = 'P';
 	const POORDERCODE_SECONDARY = 'Y';
-	const POORDERCODE_COSTING = 'C';
+	const POORDERCODE_COSTING   = 'C';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -67,7 +67,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		'date'			=> 'dateupdtd',
 		'time'			=> 'timeupdtd',
 		'imitem'		=> 'ItemMasterItem',
-		'uompurchase'	=> 'UnitofMeasurePurchase',
+		'uompurchase'	=> 'unitofMeasurePurchase',
 		'unitcost_base' => 'vexrunitcost',
 		'foreigncost'	=> 'vexrforeigncost',
 		'iskit' 		=> 'vexrprtkitdet',
@@ -166,8 +166,6 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 	 * @return float
 	 */
 	public function get_unitcost(int $unit) {
-		$col_base = 'vexrunitcost';
-
 		if ($unit <= self::UNITS_AVAILABLE) {
 			if ($unit == 0) {
 				return $this->unitcost_base;
@@ -177,6 +175,28 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		} else {
 			return 0;
 		}
+	}
+
+	/**
+	 * Return Unit Cost per UoM
+	 * @param  int    $unit
+	 * @return float
+	 */
+	public function getUnitCostUom(int $unit) {
+		if ($unit <= self::UNITS_AVAILABLE) {
+			$costEach = $this->unitcost_base;
+
+			if ($unit > 0) {
+				$col = self::get_unitcost_column($unit);
+				$costEach = $this->$col;
+			}
+
+			if (empty($this->uompurchase)) {
+				return $costEach;
+			}
+			return $costEach * $this->uompurchase->conversion;
+		}
+		return 0;
 	}
 
 	/**
@@ -234,7 +254,7 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		}
 
 		if (empty($this->uom_purchase)) {
-			$this->uom_purchase = $this->imitem->UnitofMeasurePurchase->conversion;
+			$this->setUom_purchase($this->imitem->UnitofMeasurePurchase->code);
 		}
 	}
 
