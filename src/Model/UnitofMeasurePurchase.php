@@ -10,20 +10,20 @@ use Dplus\Model\MagicMethodTraits;
 */
 class UnitofMeasurePurchase extends BaseUnitofMeasurePurchase {
     use ThrowErrorTrait;
-    use MagicMethodTraits;
+	use MagicMethodTraits;
 
-    /**
-     * Column Aliases to lookup / get properties
-     * @var array
-     */
-    const COLUMN_ALIASES = array(
-        'id'            => 'intbuompur',
-        'code'          => 'intbuompur',
-        'description'   => 'intbuomdesc',
-        'conversion'    => 'intbuomconv',
-        'pricebyweight' => 'intbuompricbywght',
-        'stockbycase'   => 'intbuomstockbycase',
-        'date'          => 'dateupdtd',
-        'time'          => 'timeupdtd'
-    );
+	/**
+	 * Column Aliases to lookup / get properties
+	 * @var array
+	 */
+	const COLUMN_ALIASES = array(
+		'id'            => 'intbuompur',
+		'code'          => 'intbuompur',
+		'description'   => 'intbuomdesc',
+		'conversion'    => 'intbuomconv',
+		'pricebyweight' => 'intbuompricbywght',
+		'stockbycase'   => 'intbuomstockbycase',
+		'date'          => 'dateupdtd',
+		'time'          => 'timeupdtd'
+	);
 }
