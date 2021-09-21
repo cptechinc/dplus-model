@@ -53,7 +53,7 @@ class ConfigIn extends BaseConfigIn {
 		'default_notes_pack'           => 'intbconfdefpack',
 		'default_notes_invoice'        => 'intbconfdefinvc',
 		'default_notes_acknowledgement' => 'intbconfdefack',
-		'default_notes_quote'           => 'intbconfdefquote',
+		'default_notes_quote'           => 'intbconfdefquot',
 		'default_notes_po'              => 'intbconfdefpo',
 		'default_notes_transfer'        => 'intbconfdeftrans',
 		'allowduplicateupc'               => 'intbcon2allowdupupc',
