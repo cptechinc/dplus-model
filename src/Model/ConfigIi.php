@@ -16,7 +16,18 @@ class ConfigIi extends BaseConfigIi {
 		'K' => 'kit',
 		'B' => 'BOM',
 		'A' => 'all',
-		'N' => 'non inquiry'
+		'N' => 'none'
+	];
+
+	const WHEREUSEDOPTIONS = [
+		'W' => 'where used',
+		'Q' => 'vendor quote worksheet',
+		'N' => 'none'
+	];
+
+	const QUOTEORLOSTSALESOPTIONS = [
+		'Q' => 'quotes',
+		'L' => 'lost sales'
 	];
 
 	/**
@@ -26,6 +37,7 @@ class ConfigIi extends BaseConfigIi {
 	const COLUMN_ALIASES = array(
 		'whereUsedOrQuote'     => 'iitbconfwuorvqw',
 		'breakdownInquiryCode' => 'iitbconfinqcode',
+		'quotesOrLostSales'    => 'iitbconfqorls',
 		'date'                 => 'dateupdtd',
 		'time'                 => 'timeupdtd'
 	);
@@ -54,5 +66,37 @@ class ConfigIi extends BaseConfigIi {
 	public function allowBreakdownKit() {
 		$allowed = ['K', 'A'];
 		return in_array($this->breakdownInquiryCode, $allowed);
+	}
+
+	/**
+	 * Return if WhereUsed Inquiry is allowed
+	 * @return bool
+	 */
+	public function allowWhereUsed() {
+		return $this->whereUsedOrQuote == 'W';
+	}
+
+	/**
+	 * Return if Quote Worksheet Inquiry is allowed
+	 * @return bool
+	 */
+	public function allowQuoteWorksheet() {
+		return $this->whereUsedOrQuote == 'Q';
+	}
+
+	/**
+	 * Return if Quotes Inquiry is allowed
+	 * @return bool
+	 */
+	public function allowQuotes() {
+		return $this->quotesOrLostSales == 'Q';
+	}
+
+	/**
+	 * Return if Lost Sales Inquiry is allowed
+	 * @return bool
+	 */
+	public function allowLostSales() {
+		return $this->quotesOrLostSales == 'L';
 	}
 }
