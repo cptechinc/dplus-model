@@ -1519,6 +1519,35 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ii_config" idMethod="native" phpName="ConfigIi">
+    <column name="IitbConfKey" phpName="Iitbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IitbConfOneWhse" phpName="Iitbconfonewhse" type="VARCHAR" size="1"/>
+    <column name="IitbConfDefWhse" phpName="Iitbconfdefwhse" type="VARCHAR" size="2"/>
+    <column name="IitbConfYtdStrtMo" phpName="Iitbconfytdstrtmo" type="INTEGER" size="2"/>
+    <column name="IitbConfUseCustWhse" phpName="Iitbconfusecustwhse" type="VARCHAR" size="1"/>
+    <column name="IitbConfWuOrVqw" phpName="Iitbconfwuorvqw" type="VARCHAR" size="1"/>
+    <column name="IitbConfQOrLs" phpName="Iitbconfqorls" type="VARCHAR" size="1"/>
+    <column name="IitbConfInqCode" phpName="Iitbconfinqcode" type="VARCHAR" size="1"/>
+    <column name="IitbConfPricSect" phpName="Iitbconfpricsect" type="VARCHAR" size="1"/>
+    <column name="IitbConfSrchUpcAlias" phpName="Iitbconfsrchupcalias" type="VARCHAR" size="1"/>
+    <column name="IitbConfLotBin" phpName="Iitbconflotbin" type="VARCHAR" size="1"/>
+    <column name="IitbConfOneItem" phpName="Iitbconfoneitem" type="VARCHAR" size="1"/>
+    <column name="IitbConfItemTotals" phpName="Iitbconfitemtotals" type="VARCHAR" size="1"/>
+    <column name="IitbConfMonthsUsage" phpName="Iitbconfmonthsusage" type="INTEGER" size="2"/>
+    <column name="IitbConfTOrA" phpName="Iitbconftora" type="VARCHAR" size="1"/>
+    <column name="IitbConfUnitCost" phpName="Iitbconfunitcost" type="VARCHAR" size="1"/>
+    <column name="IitbConfFormulaOption" phpName="Iitbconfformulaoption" type="INTEGER" size="2"/>
+    <column name="IitbConfTransSep" phpName="Iitbconftranssep" type="VARCHAR" size="1"/>
+    <column name="IitbConfDispBinDet" phpName="Iitbconfdispbindet" type="VARCHAR" size="1"/>
+    <column name="IitbConfShDateOrCust" phpName="Iitbconfshdateorcust" type="VARCHAR" size="1"/>
+    <column name="IitbConfShZeroShip" phpName="Iitbconfshzeroship" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ii_options" idMethod="native" phpName="OptionsIi">
     <column name="IitbOptnCode" phpName="Iitboptncode" type="VARCHAR" size="10" primaryKey="true" required="true"/>
     <column name="IitbOptnActAvail" phpName="Iitboptnactavail" type="VARCHAR" size="1"/>
