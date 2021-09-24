@@ -29,7 +29,7 @@ trait MagicMethodTraits {
 			return $this->$column;
 		} elseif (defined(get_class($this)."::COLUMN_ALIASES")) {
 			if (array_key_exists($column, self::COLUMN_ALIASES)) {
-				$realcolumn = self::COLUMN_ALIASES[$column];
+				$realcolumn = $this->aliasproperty($column);
 				return $this->$realcolumn;
 			} else {
 				$this->error("This column and alias ($column) does not exist");
@@ -53,7 +53,10 @@ trait MagicMethodTraits {
 			return isset($this->$column);
 		} else {
 			if (defined(get_class($this)."::COLUMN_ALIASES")) {
-				return array_key_exists($column, self::COLUMN_ALIASES);
+				if (array_key_exists($column, self::COLUMN_ALIASES)) {
+					return true;
+				}
+				return $this->aliasproperty_exists($column);
 			} else {
 				return false;
 			}
@@ -79,7 +82,7 @@ trait MagicMethodTraits {
 			} else {
 				$this->error("This column and alias ($column) does not exist");
 				return false;
-				}
+			}
 		} else {
 			$this->error("This column or alias ($column) does not exist");
 			return false;
@@ -97,6 +100,14 @@ trait MagicMethodTraits {
 		} elseif (defined(__CLASS__."::COLUMN_ALIASES")) {
 			if (array_key_exists($alias, self::COLUMN_ALIASES)) {
 				return self::COLUMN_ALIASES[$alias];
+			}
+
+			// Loop through aliases check if match found with lcfirst
+			$aliases = array_keys(self::COLUMN_ALIASES);
+			foreach ($aliases as $key => $aka) {
+				if ($aka === lcfirst($alias)) {
+					return self::COLUMN_ALIASES[$aka];
+				}
 			}
 		}
 
@@ -128,6 +139,14 @@ trait MagicMethodTraits {
 			if (array_key_exists($alias, self::COLUMN_ALIASES)) {
 				return true;
 			}
+
+			// Loop through aliases check if match found with lcfirst
+			$aliases = array_keys(self::COLUMN_ALIASES);
+			foreach ($aliases as $key => $aka) {
+				if ($aka === lcfirst($alias)) {
+					return true;
+				}
+			}
 		}
 		return false;
 	}
@@ -143,28 +162,54 @@ trait MagicMethodTraits {
 	 * @return mixed
 	 */
 	public function __call($name, $arguments) {
-		$method = 'set';
-
-		if ($method == substr($name, 0, 3)) {
-			if (method_exists($this, $name)) {
-				$col = str_replace($method, '', $name);
-				$this->originalvalues[$col] = $arguments[0];
-				return parent::__call($name, $arguments);
-			} else {
-				$property = strtolower(ltrim($name, $method));
-
-				$class_name = get_class();
-				$class_model = new $class_name();
-
-				if (!property_exists($class_model, $property)) {
-					$class_column = $class_model::get_aliasproperty($property);
-					$name = str_replace(ucfirst($property), ucfirst($class_column), $name);
-					$this->originalvalues[$class_column] = $this->$class_column;
-				}
-				return $this->$name($arguments[0]);
-			}
+		if ($this->isCallingSet($name)) {
+			return $this->handleSetCall($name, $arguments);
 		}
 		return parent::__call($name, $arguments);
+	}
+
+	/**
+	 * Return if Method Call is set
+	 * @param  string $method  e.g. setId
+	 * @return boolean
+	 */
+	protected function isCallingSet($method) {
+		$type = 'set';
+		return $type== substr($method, 0, 3);
+	}
+
+	/**
+	 * Handle Set Call
+	 * @param  string $name      Method Name
+	 * @param  array $arguments
+	 * @return mixed
+	 */
+	protected function handleSetCall($name, $arguments) {
+		$method = 'set';
+
+		// If Method Exists, execute it.
+		if (method_exists($this, $name)) {
+			$col = str_replace($method, '', $name);
+			$this->originalvalues[$col] = $arguments[0];
+			return parent::__call($name, $arguments);
+		}
+
+		$fieldAlias      = ltrim($name, $method);
+		$fieldAliasLcase = strtolower($fieldAlias);
+
+		$class = get_class();
+		$model = new $class();
+
+		if (property_exists($model, $fieldAliasLcase)) {
+			return $this->$name($arguments[0]);
+		}
+
+		$field = $this->aliasproperty_exists($fieldAlias) ? $model::aliasproperty($fieldAlias) : $model::aliasproperty($fieldAliasLcase);
+		$alias = $this->aliasproperty_exists($fieldAlias) ? $fieldAlias : $fieldAliasLcase;
+		$name = str_replace(ucfirst($alias), ucfirst($field), $name);
+
+		$this->originalvalues[$field] = $this->$field;
+		return $this->$name($arguments[0]);
 	}
 
 	/**
