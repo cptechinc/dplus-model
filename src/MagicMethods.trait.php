@@ -1,5 +1,4 @@
-<?php
-namespace Dplus\Model;
+<?php namespace Dplus\Model;
 
 /**
  * Traits that provide Magic Methods
@@ -162,28 +161,19 @@ trait MagicMethodTraits {
 	 * @return mixed
 	 */
 	public function __call($name, $arguments) {
+		$method = 'set';
+
 		if ($this->isCallingSet($name)) {
 			return $this->handleSetCall($name, $arguments);
 		}
 		return parent::__call($name, $arguments);
 	}
 
-	/**
-	 * Return if Method Call is set
-	 * @param  string $method  e.g. setId
-	 * @return boolean
-	 */
-	protected function isCallingSet($method) {
-		$type = 'set';
-		return $type== substr($method, 0, 3);
+	protected function isCallingSet($name) {
+		$method = 'set';
+		return $method == substr($name, 0, 3);
 	}
 
-	/**
-	 * Handle Set Call
-	 * @param  string $name      Method Name
-	 * @param  array $arguments
-	 * @return mixed
-	 */
 	protected function handleSetCall($name, $arguments) {
 		$method = 'set';
 
