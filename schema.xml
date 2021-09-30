@@ -2891,6 +2891,49 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="pm_config" idMethod="native" phpName="ConfigPm">
+    <column name="PmtbConfKey" phpName="Pmtbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="PmtbConfBaseSystem" phpName="Pmtbconfbasesystem" type="VARCHAR" size="1"/>
+    <column name="PmtbConfAdvancedSystem" phpName="Pmtbconfadvancedsystem" type="VARCHAR" size="1"/>
+    <column name="PmtbConfAllowNegUse" phpName="Pmtbconfallowneguse" type="VARCHAR" size="1"/>
+    <column name="PmtbConfScrapUnused" phpName="Pmtbconfscrapunused" type="VARCHAR" size="1"/>
+    <column name="PmtbConfScrapGl" phpName="Pmtbconfscrapgl" type="VARCHAR" size="9"/>
+    <column name="PmtbConfWarnQtyToZero" phpName="Pmtbconfwarnqtytozero" type="VARCHAR" size="1"/>
+    <column name="PmtbConfVarGl" phpName="Pmtbconfvargl" type="VARCHAR" size="9"/>
+    <column name="PmtbConfPutBinCode" phpName="Pmtbconfputbincode" type="VARCHAR" size="1"/>
+    <column name="PmtbConfPutBinDflt" phpName="Pmtbconfputbindflt" type="VARCHAR" size="8"/>
+    <column name="PmtbConfSerialBase" phpName="Pmtbconfserialbase" type="VARCHAR" size="1"/>
+    <column name="PmtbConfFgAtStan" phpName="Pmtbconffgatstan" type="VARCHAR" size="1"/>
+    <column name="PmtbConfGlFgToMat" phpName="Pmtbconfglfgtomat" type="VARCHAR" size="9"/>
+    <column name="PmtbConfPostDetSum" phpName="Pmtbconfpostdetsum" type="VARCHAR" size="1"/>
+    <column name="PmtbConfSort" phpName="Pmtbconfsort" type="VARCHAR" size="1"/>
+    <column name="PmtbConfLastCost" phpName="Pmtbconflastcost" type="VARCHAR" size="1"/>
+    <column name="PmtbConfAskBom" phpName="Pmtbconfaskbom" type="VARCHAR" size="1"/>
+    <column name="PmtbConfDefBom" phpName="Pmtbconfdefbom" type="VARCHAR" size="1"/>
+    <column name="PmtbConfAutoSelectLots" phpName="Pmtbconfautoselectlots" type="VARCHAR" size="1"/>
+    <column name="PmtbConfAllocWhenIC" phpName="Pmtbconfallocwhenic" type="VARCHAR" size="1"/>
+    <column name="PmtbConfUseWpc" phpName="Pmtbconfusewpc" type="VARCHAR" size="1"/>
+    <column name="PmtbConfPowgWipInProc" phpName="Pmtbconfpowgwipinproc" type="VARCHAR" size="1"/>
+    <column name="PmtbConfLrsCost" phpName="Pmtbconflrscost" type="VARCHAR" size="1"/>
+    <column name="PmtbConfVariAcctg" phpName="Pmtbconfvariacctg" type="VARCHAR" size="1"/>
+    <column name="PmtbConfTakeBinCode" phpName="Pmtbconftakebincode" type="VARCHAR" size="1"/>
+    <column name="PmtbConfUseFgUom" phpName="Pmtbconfusefguom" type="VARCHAR" size="1"/>
+    <column name="PmtbConfUseNc" phpName="Pmtbconfusenc" type="VARCHAR" size="1"/>
+    <column name="PmtbConfUseNegWip" phpName="Pmtbconfusenegwip" type="VARCHAR" size="1"/>
+    <column name="PmtbCon2AdvWipActEntry" phpName="Pmtbcon2advwipactentry" type="VARCHAR" size="1"/>
+    <column name="PmtbCon2MachLaborGl" phpName="Pmtbcon2machlaborgl" type="VARCHAR" size="9"/>
+    <column name="PmtbCon2MachSetupGl" phpName="Pmtbcon2machsetupgl" type="VARCHAR" size="9"/>
+    <column name="PmtbCon2BurdenLaborGl" phpName="Pmtbcon2burdenlaborgl" type="VARCHAR" size="9"/>
+    <column name="PmtbCon2BurdenMachGl" phpName="Pmtbcon2burdenmachgl" type="VARCHAR" size="9"/>
+    <column name="PmtbCon2BurdenAdminGl" phpName="Pmtbcon2burdenadmingl" type="VARCHAR" size="9"/>
+    <column name="PmtbCon2SetupAsOper" phpName="Pmtbcon2setupasoper" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="po_config" idMethod="native" phpName="ConfigPo">
     <column name="PotbConfKey" phpName="Potbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="PotbConfSortPo" phpName="Potbconfsortpo" type="VARCHAR" size="1"/>

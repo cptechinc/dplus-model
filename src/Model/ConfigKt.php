@@ -13,7 +13,6 @@ class ConfigKt extends BaseConfigKt {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-
 	const YN_TRUE  = 'Y';
 	const YN_FALSE = 'N';
 
