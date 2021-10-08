@@ -291,6 +291,26 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Returns if Item is a BoM produced Item
+	 * @return bool
+	 */
+	public function hasBom() {
+		$q = BomItemQuery::create();
+		$q->filterByItemid($this->itemid);
+		return boolval($q->count());
+	}
+
+	/**
+	 * Return the number of Bom Sub Components
+	 * @return int
+	 */
+	public function countBomSubComponents() {
+		$q = BomComponentQuery::create();
+		$q->filterByProduces($this->itemid);
+		return $q->count();
+	}
+
+	/**
 	 * Returns the Primary ItemXrefVendor for this item
 	 * @return ItemXrefVendor
 	 */
