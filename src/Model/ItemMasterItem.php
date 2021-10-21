@@ -48,7 +48,6 @@ class ItemMasterItem extends BaseItemMasterItem {
 		'%' => 'percent'
 	];
 
-
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
