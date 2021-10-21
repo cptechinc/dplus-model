@@ -36,9 +36,14 @@ class ItemXrefManufacturer extends BaseItemXrefManufacturer {
 		'time'		   => 'timeupdtd',
 		// Foreign Key Relationship
 		'item'         => 'itemMasterItem',
-		'imitem'       => 'itemMasterItem'
+		'imitem'       => 'itemMasterItem',
+		'mnfr'         => 'vendor'
 	);
 
+	/**
+	 * Return UnitofMeasurePurchase
+	 * @return UnitofMeasurePurchase
+	 */
 	public function getUom() {
 		return UnitofMeasurePurchaseQuery::create()->findOneByCode($this->unitofm);
 	}
