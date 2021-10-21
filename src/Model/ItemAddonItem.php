@@ -15,6 +15,9 @@ class ItemAddonItem extends BaseItemAddonItem {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	private $itm;
+	private $addonItm;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -25,4 +28,26 @@ class ItemAddonItem extends BaseItemAddonItem {
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
+
+	/**
+	 * Return ITM Item
+	 * @return ItemMasterItem
+	 */
+	public function getItem() {
+		if (empty($this->itm)) {
+			$this->itm = ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+		}
+		return $this->itm;
+	}
+
+	/**
+	 * Return ITM Item associated with addonitemid
+	 * @return ItemMasterItem
+	 */
+	public function getAddon() {
+		if (empty($this->addonItm)) {
+			$this->addonItm = ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+		}
+		return $this->addonItm;
+	}
 }
