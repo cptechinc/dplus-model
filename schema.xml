@@ -3278,6 +3278,30 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="pr_resource_cd" idMethod="native" phpName="PrResource">
+    <column name="PmtbRsrcId" phpName="Pmtbrsrcid" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PmtbRsrcName" phpName="Pmtbrsrcname" type="VARCHAR" size="30"/>
+    <column name="PmtbDeptId" phpName="Pmtbdeptid" type="VARCHAR" size="4"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="pr_work_center_cd" name="workcenter" skipSql="true">
+      <reference local="PmtbDeptId" foreign="PmtbDeptId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="pr_work_center_cd" idMethod="native" phpName="PrWorkCenter">
+    <column name="PmtbDeptId" phpName="Pmtbdeptid" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PmtbDeptDesc" phpName="Pmtbdeptdesc" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="printer_control" idMethod="native" phpName="Printer">
     <column name="PrctPrinterId" phpName="Prctprinterid" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
     <column name="PrctDesc" phpName="Prctdesc" type="VARCHAR" size="30"/>
