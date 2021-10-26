@@ -22,8 +22,8 @@ class PrResource extends BasePrResource {
 	const COLUMN_ALIASES = array(
 		'id'           => 'pmtbrsrcid',
 		'code'         => 'pmtbrsrcid',
-		'description'  => 'pmtbsrcname',
-		'name'         => 'pmtbsrcname',
+		'description'  => 'pmtbrsrcname',
+		'name'         => 'pmtbrsrcname',
 		'workcenterid' => 'pmtbdeptid',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
