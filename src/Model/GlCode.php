@@ -20,6 +20,8 @@ class GlCode extends BaseGlCode {
 		'id'           => 'glmaacct',
 		'code'         => 'glmaacct',
 		'description'  => 'glmadesc',
-		'name'         => 'glmadesc'
+		'name'         => 'glmadesc',
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 }
