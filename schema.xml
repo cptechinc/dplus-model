@@ -1493,6 +1493,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="gl_config" idMethod="native" phpName="ConfigGl">
+    <column name="GltbConfKey" phpName="Gltbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="GltbCoId" phpName="Gltbcoid" type="VARCHAR" size="3"/>
+    <column name="GltbYearEnd" phpName="Gltbyearend" type="VARCHAR" size="1"/>
+    <column name="GltbUseBudAnnInc" phpName="Gltbusebudanninc" type="VARCHAR" size="1"/>
+    <column name="GltbTraceOn" phpName="Gltbtraceon" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="gl_dist_code" idMethod="native" phpName="GlDistCode">
+    <column name="GltbDistCode" phpName="Gltbdistcode" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="GltbDistDesc" phpName="Gltbdistdesc" type="VARCHAR" size="20"/>
+    <column name="GltbDistAcctNbr01" phpName="Gltbdistacctnbr01" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct01" phpName="Gltbdistacctpct01" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr02" phpName="Gltbdistacctnbr02" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct02" phpName="Gltbdistacctpct02" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr03" phpName="Gltbdistacctnbr03" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct03" phpName="Gltbdistacctpct03" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr04" phpName="Gltbdistacctnbr04" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct04" phpName="Gltbdistacctpct04" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr05" phpName="Gltbdistacctnbr05" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct05" phpName="Gltbdistacctpct05" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr06" phpName="Gltbdistacctnbr06" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct06" phpName="Gltbdistacctpct06" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr07" phpName="Gltbdistacctnbr07" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct07" phpName="Gltbdistacctpct07" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr08" phpName="Gltbdistacctnbr08" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct08" phpName="Gltbdistacctpct08" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr09" phpName="Gltbdistacctnbr09" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct09" phpName="Gltbdistacctpct09" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr10" phpName="Gltbdistacctnbr10" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct10" phpName="Gltbdistacctpct10" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr11" phpName="Gltbdistacctnbr11" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct11" phpName="Gltbdistacctpct11" type="DECIMAL" size="20" scale="3"/>
+    <column name="GltbDistAcctNbr12" phpName="Gltbdistacctnbr12" type="VARCHAR" size="9"/>
+    <column name="GltbDistAcctPct12" phpName="Gltbdistacctpct12" type="DECIMAL" size="20" scale="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="gl_master" idMethod="native" phpName="GlCode">
     <column name="GlmaAcct" phpName="Glmaacct" type="VARCHAR" size="9" primaryKey="true" required="true" defaultValue=""/>
     <column name="GlmaDesc" phpName="Glmadesc" type="VARCHAR" size="30"/>
@@ -1513,6 +1560,19 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="GlmaAcWhseAppendPos" phpName="GlmaAcWhseAppendPos" type="INTEGER" size="1"/>
     <column name="GlmaAchAcct" phpName="GlmaAchAcct" type="VARCHAR" size="1"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="gl_text_code" idMethod="native" phpName="GlTextCode">
+    <column name="GltbTextCode" phpName="Gltbtextcode" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="GltbText1" phpName="Gltbtext1" type="VARCHAR" size="35"/>
+    <column name="GltbText2" phpName="Gltbtext2" type="VARCHAR" size="35"/>
+    <column name="GltbText3" phpName="Gltbtext3" type="VARCHAR" size="35"/>
+    <column name="GltbText4" phpName="Gltbtext4" type="VARCHAR" size="35"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <vendor type="mysql">
