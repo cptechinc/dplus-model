@@ -12,7 +12,7 @@ class GlDistCode extends BaseGlDistCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	const NBROFACCTS = 12;
+	const NBROFACCTS = 10;
 	const COLBASE_ACCTNBR = 'gltbdistacctnbr';
 	const COLBASE_ACCTPCT = 'gltbdistacctpct';
 
@@ -87,7 +87,7 @@ class GlDistCode extends BaseGlDistCode {
 
 	/**
 	 * Set GL Account Code at Index
-	 * @param  int    $nbr  Index 
+	 * @param  int    $nbr  Index
 	 * @param  string $val  GL Account Code
 	 * @return void
 	 */
@@ -115,7 +115,7 @@ class GlDistCode extends BaseGlDistCode {
 
 	/**
 	 * Set GL Account Percent at Index
-	 * @param  int    $nbr  Index 
+	 * @param  int    $nbr  Index
 	 * @param  string $val  GL Account Percent
 	 * @return float
 	 */
@@ -126,5 +126,14 @@ class GlDistCode extends BaseGlDistCode {
 		$col = ucfirst(self::getAccountPctCol($nbr));
 		$setFunc = "set$col";
 		$this->$setFunc($nbr, $val);
+	}
+
+	/**
+	 * Return GlCode
+	 * @param  string $code GL Account Number
+	 * @return GlCode
+	 */
+	public function getGlAccount($code) {
+		return GlCodeQuery::create()->findOneById($code);
 	}
 }
