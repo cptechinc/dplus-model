@@ -19,7 +19,7 @@ class InvOptCode extends BaseInvOptCode {
 	const COLUMN_ALIASES = array(
 		'itemid'       => 'initItemId',
 		'sysop'        => 'inoptcode',      // System Optional Code
-		'sysopdesc'    => 'inoptdesc',      // Optional Code Description
+		'sysopdesc'    => 'inoptcodedesc',      // Optional Code Description
 		'code'         => 'inoptvalue',     // Code Value
 		'description'  => 'inoptvaluedesc', // Value Description
 		'date'		   => 'dateupdtd',
