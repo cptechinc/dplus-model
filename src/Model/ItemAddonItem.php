@@ -7,7 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'inv_inv_addon' table.
- * 
+ *
  * KEY: inititemnbr, adonadditemnbr
  * FKRELATIONSHIPS: ItemMasterItem
  */
@@ -46,7 +46,7 @@ class ItemAddonItem extends BaseItemAddonItem {
 	 */
 	public function getAddon() {
 		if (empty($this->addonItm)) {
-			$this->addonItm = ItemMasterItemQuery::create()->findOneByItemid($this->itemid);
+			$this->addonItm = ItemMasterItemQuery::create()->findOneByItemid($this->addonitemid);
 		}
 		return $this->addonItm;
 	}
