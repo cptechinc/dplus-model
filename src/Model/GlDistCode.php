@@ -97,7 +97,7 @@ class GlDistCode extends BaseGlDistCode {
 		}
 		$col = ucfirst(self::getAccountNbrCol($nbr));
 		$setFunc = "set$col";
-		$this->$setFunc($nbr, $val);
+		$this->$setFunc($val);
 	}
 
 	/**
@@ -125,7 +125,7 @@ class GlDistCode extends BaseGlDistCode {
 		}
 		$col = ucfirst(self::getAccountPctCol($nbr));
 		$setFunc = "set$col";
-		$this->$setFunc($nbr, $val);
+		$this->$setFunc($val);
 	}
 
 	/**
