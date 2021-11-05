@@ -13,6 +13,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 8;
+	const YN_TRUE = 'Y';
 
 	const SYSTEM_IN = 'IN';
 	const SYSTEM_SO = 'SO';
@@ -30,10 +31,15 @@ class MsaSysopCode extends BaseMsaSysopCode {
 		'validate'          => 'optnvalidate',
 		'force'             => 'optnforce',
 		'note_code'         => 'optnnotecode',
+		'notecode'          => 'optnnotecode',
 		'list_seq'          => 'optnlistseq',
+		'seqquence'         => 'optnlistseq',
 		'file_name'         => 'optnfilename',
+		'filename'          => 'optnfilename',
 		'adv_search'        => 'optnadvsrch',
+		'advsearch'         => 'optnadvsrch',
 		'field_type'        => 'optnfieldtype',
+		'fieldtype'         => 'optnfieldtype',
 		'before_dec'        => 'optndef1b4dec',
 		'after_dec'         => 'optndef2aftdec',
 		'doc_store_folder'  => 'optndocstorfolder',
@@ -49,5 +55,13 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 */
 	public function get_max_length_code() {
 		return self::MAX_LENGTH_CODE;
+	}
+
+	public function validate() {
+		return strtoupper($this->validate) == self::YN_TRUE;
+	}
+
+	public function force() {
+		return strtoupper($this->force) == self::YN_TRUE;
 	}
 }
