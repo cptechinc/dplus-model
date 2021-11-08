@@ -33,7 +33,7 @@ class MsaSysopCode extends BaseMsaSysopCode {
 		'note_code'         => 'optnnotecode',
 		'notecode'          => 'optnnotecode',
 		'list_seq'          => 'optnlistseq',
-		'seqquence'         => 'optnlistseq',
+		'sequence'          => 'optnlistseq',
 		'file_name'         => 'optnfilename',
 		'filename'          => 'optnfilename',
 		'adv_search'        => 'optnadvsrch',
