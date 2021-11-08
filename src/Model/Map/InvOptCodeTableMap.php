@@ -72,9 +72,9 @@ class InvOptCodeTableMap extends TableMap
     const NUM_HYDRATE_COLUMNS = 9;
 
     /**
-     * the column name for the InitItemId field
+     * the column name for the InitItemNbr field
      */
-    const COL_INITITEMID = 'inv_opt_code.InitItemId';
+    const COL_INITITEMNBR = 'inv_opt_code.InitItemNbr';
 
     /**
      * the column name for the InoptCode field
@@ -128,10 +128,10 @@ class InvOptCodeTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Inititemid', 'Inoptcode', 'Inoptcodedesc', 'Inoptvalue', 'Inoptvaluedesc', 'Inoptvaluedesc2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('inititemid', 'inoptcode', 'inoptcodedesc', 'inoptvalue', 'inoptvaluedesc', 'inoptvaluedesc2', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvOptCodeTableMap::COL_INITITEMID, InvOptCodeTableMap::COL_INOPTCODE, InvOptCodeTableMap::COL_INOPTCODEDESC, InvOptCodeTableMap::COL_INOPTVALUE, InvOptCodeTableMap::COL_INOPTVALUEDESC, InvOptCodeTableMap::COL_INOPTVALUEDESC2, InvOptCodeTableMap::COL_DATEUPDTD, InvOptCodeTableMap::COL_TIMEUPDTD, InvOptCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('InitItemId', 'InoptCode', 'InoptCodeDesc', 'InoptValue', 'InoptValueDesc', 'InoptValueDesc2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Inititemnbr', 'Inoptcode', 'Inoptcodedesc', 'Inoptvalue', 'Inoptvaluedesc', 'Inoptvaluedesc2', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('inititemnbr', 'inoptcode', 'inoptcodedesc', 'inoptvalue', 'inoptvaluedesc', 'inoptvaluedesc2', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(InvOptCodeTableMap::COL_INITITEMNBR, InvOptCodeTableMap::COL_INOPTCODE, InvOptCodeTableMap::COL_INOPTCODEDESC, InvOptCodeTableMap::COL_INOPTVALUE, InvOptCodeTableMap::COL_INOPTVALUEDESC, InvOptCodeTableMap::COL_INOPTVALUEDESC2, InvOptCodeTableMap::COL_DATEUPDTD, InvOptCodeTableMap::COL_TIMEUPDTD, InvOptCodeTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr', 'InoptCode', 'InoptCodeDesc', 'InoptValue', 'InoptValueDesc', 'InoptValueDesc2', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
@@ -142,10 +142,10 @@ class InvOptCodeTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Inititemid' => 0, 'Inoptcode' => 1, 'Inoptcodedesc' => 2, 'Inoptvalue' => 3, 'Inoptvaluedesc' => 4, 'Inoptvaluedesc2' => 5, 'Dateupdtd' => 6, 'Timeupdtd' => 7, 'Dummy' => 8, ),
-        self::TYPE_CAMELNAME     => array('inititemid' => 0, 'inoptcode' => 1, 'inoptcodedesc' => 2, 'inoptvalue' => 3, 'inoptvaluedesc' => 4, 'inoptvaluedesc2' => 5, 'dateupdtd' => 6, 'timeupdtd' => 7, 'dummy' => 8, ),
-        self::TYPE_COLNAME       => array(InvOptCodeTableMap::COL_INITITEMID => 0, InvOptCodeTableMap::COL_INOPTCODE => 1, InvOptCodeTableMap::COL_INOPTCODEDESC => 2, InvOptCodeTableMap::COL_INOPTVALUE => 3, InvOptCodeTableMap::COL_INOPTVALUEDESC => 4, InvOptCodeTableMap::COL_INOPTVALUEDESC2 => 5, InvOptCodeTableMap::COL_DATEUPDTD => 6, InvOptCodeTableMap::COL_TIMEUPDTD => 7, InvOptCodeTableMap::COL_DUMMY => 8, ),
-        self::TYPE_FIELDNAME     => array('InitItemId' => 0, 'InoptCode' => 1, 'InoptCodeDesc' => 2, 'InoptValue' => 3, 'InoptValueDesc' => 4, 'InoptValueDesc2' => 5, 'DateUpdtd' => 6, 'TimeUpdtd' => 7, 'dummy' => 8, ),
+        self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Inoptcode' => 1, 'Inoptcodedesc' => 2, 'Inoptvalue' => 3, 'Inoptvaluedesc' => 4, 'Inoptvaluedesc2' => 5, 'Dateupdtd' => 6, 'Timeupdtd' => 7, 'Dummy' => 8, ),
+        self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'inoptcode' => 1, 'inoptcodedesc' => 2, 'inoptvalue' => 3, 'inoptvaluedesc' => 4, 'inoptvaluedesc2' => 5, 'dateupdtd' => 6, 'timeupdtd' => 7, 'dummy' => 8, ),
+        self::TYPE_COLNAME       => array(InvOptCodeTableMap::COL_INITITEMNBR => 0, InvOptCodeTableMap::COL_INOPTCODE => 1, InvOptCodeTableMap::COL_INOPTCODEDESC => 2, InvOptCodeTableMap::COL_INOPTVALUE => 3, InvOptCodeTableMap::COL_INOPTVALUEDESC => 4, InvOptCodeTableMap::COL_INOPTVALUEDESC2 => 5, InvOptCodeTableMap::COL_DATEUPDTD => 6, InvOptCodeTableMap::COL_TIMEUPDTD => 7, InvOptCodeTableMap::COL_DUMMY => 8, ),
+        self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'InoptCode' => 1, 'InoptCodeDesc' => 2, 'InoptValue' => 3, 'InoptValueDesc' => 4, 'InoptValueDesc2' => 5, 'DateUpdtd' => 6, 'TimeUpdtd' => 7, 'dummy' => 8, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, )
     );
 
@@ -166,7 +166,7 @@ class InvOptCodeTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('InitItemId', 'Inititemid', 'VARCHAR', true, 30, '');
+        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
         $this->addPrimaryKey('InoptCode', 'Inoptcode', 'VARCHAR', true, 8, '');
         $this->addColumn('InoptCodeDesc', 'Inoptcodedesc', 'VARCHAR', false, 30, null);
         $this->addColumn('InoptValue', 'Inoptvalue', 'VARCHAR', false, 30, null);
@@ -199,7 +199,7 @@ class InvOptCodeTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled()) {
             if (null === $key) {
-                $key = serialize([(null === $obj->getInititemid() || is_scalar($obj->getInititemid()) || is_callable([$obj->getInititemid(), '__toString']) ? (string) $obj->getInititemid() : $obj->getInititemid()), (null === $obj->getInoptcode() || is_scalar($obj->getInoptcode()) || is_callable([$obj->getInoptcode(), '__toString']) ? (string) $obj->getInoptcode() : $obj->getInoptcode())]);
+                $key = serialize([(null === $obj->getInititemnbr() || is_scalar($obj->getInititemnbr()) || is_callable([$obj->getInititemnbr(), '__toString']) ? (string) $obj->getInititemnbr() : $obj->getInititemnbr()), (null === $obj->getInoptcode() || is_scalar($obj->getInoptcode()) || is_callable([$obj->getInoptcode(), '__toString']) ? (string) $obj->getInoptcode() : $obj->getInoptcode())]);
             } // if key === null
             self::$instances[$key] = $obj;
         }
@@ -219,7 +219,7 @@ class InvOptCodeTableMap extends TableMap
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
             if (is_object($value) && $value instanceof \InvOptCode) {
-                $key = serialize([(null === $value->getInititemid() || is_scalar($value->getInititemid()) || is_callable([$value->getInititemid(), '__toString']) ? (string) $value->getInititemid() : $value->getInititemid()), (null === $value->getInoptcode() || is_scalar($value->getInoptcode()) || is_callable([$value->getInoptcode(), '__toString']) ? (string) $value->getInoptcode() : $value->getInoptcode())]);
+                $key = serialize([(null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getInoptcode() || is_scalar($value->getInoptcode()) || is_callable([$value->getInoptcode(), '__toString']) ? (string) $value->getInoptcode() : $value->getInoptcode())]);
 
             } elseif (is_array($value) && count($value) === 2) {
                 // assume we've been passed a primary key";
@@ -253,11 +253,11 @@ class InvOptCodeTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 1 + $offset : static::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -279,7 +279,7 @@ class InvOptCodeTableMap extends TableMap
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
-                : self::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)
+                : self::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
@@ -387,7 +387,7 @@ class InvOptCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(InvOptCodeTableMap::COL_INITITEMID);
+            $criteria->addSelectColumn(InvOptCodeTableMap::COL_INITITEMNBR);
             $criteria->addSelectColumn(InvOptCodeTableMap::COL_INOPTCODE);
             $criteria->addSelectColumn(InvOptCodeTableMap::COL_INOPTCODEDESC);
             $criteria->addSelectColumn(InvOptCodeTableMap::COL_INOPTVALUE);
@@ -397,7 +397,7 @@ class InvOptCodeTableMap extends TableMap
             $criteria->addSelectColumn(InvOptCodeTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(InvOptCodeTableMap::COL_DUMMY);
         } else {
-            $criteria->addSelectColumn($alias . '.InitItemId');
+            $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.InoptCode');
             $criteria->addSelectColumn($alias . '.InoptCodeDesc');
             $criteria->addSelectColumn($alias . '.InoptValue');
@@ -464,7 +464,7 @@ class InvOptCodeTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(InvOptCodeTableMap::COL_INITITEMID, $value[0]);
+                $criterion = $criteria->getNewCriterion(InvOptCodeTableMap::COL_INITITEMNBR, $value[0]);
                 $criterion->addAnd($criteria->getNewCriterion(InvOptCodeTableMap::COL_INOPTCODE, $value[1]));
                 $criteria->addOr($criterion);
             }

@@ -19,7 +19,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildInvOptCodeQuery orderByInititemid($order = Criteria::ASC) Order by the InitItemId column
+ * @method     ChildInvOptCodeQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
  * @method     ChildInvOptCodeQuery orderByInoptcode($order = Criteria::ASC) Order by the InoptCode column
  * @method     ChildInvOptCodeQuery orderByInoptcodedesc($order = Criteria::ASC) Order by the InoptCodeDesc column
  * @method     ChildInvOptCodeQuery orderByInoptvalue($order = Criteria::ASC) Order by the InoptValue column
@@ -29,7 +29,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildInvOptCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildInvOptCodeQuery groupByInititemid() Group by the InitItemId column
+ * @method     ChildInvOptCodeQuery groupByInititemnbr() Group by the InitItemNbr column
  * @method     ChildInvOptCodeQuery groupByInoptcode() Group by the InoptCode column
  * @method     ChildInvOptCodeQuery groupByInoptcodedesc() Group by the InoptCodeDesc column
  * @method     ChildInvOptCodeQuery groupByInoptvalue() Group by the InoptValue column
@@ -50,7 +50,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCode findOne(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query
  * @method     ChildInvOptCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query, or a new ChildInvOptCode object populated from the query conditions when no match is found
  *
- * @method     ChildInvOptCode findOneByInititemid(string $InitItemId) Return the first ChildInvOptCode filtered by the InitItemId column
+ * @method     ChildInvOptCode findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCode filtered by the InitItemNbr column
  * @method     ChildInvOptCode findOneByInoptcode(string $InoptCode) Return the first ChildInvOptCode filtered by the InoptCode column
  * @method     ChildInvOptCode findOneByInoptcodedesc(string $InoptCodeDesc) Return the first ChildInvOptCode filtered by the InoptCodeDesc column
  * @method     ChildInvOptCode findOneByInoptvalue(string $InoptValue) Return the first ChildInvOptCode filtered by the InoptValue column
@@ -63,7 +63,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCode requirePk($key, ConnectionInterface $con = null) Return the ChildInvOptCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOne(ConnectionInterface $con = null) Return the first ChildInvOptCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvOptCode requireOneByInititemid(string $InitItemId) Return the first ChildInvOptCode filtered by the InitItemId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCode requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCode filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOneByInoptcode(string $InoptCode) Return the first ChildInvOptCode filtered by the InoptCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOneByInoptcodedesc(string $InoptCodeDesc) Return the first ChildInvOptCode filtered by the InoptCodeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildInvOptCode requireOneByInoptvalue(string $InoptValue) Return the first ChildInvOptCode filtered by the InoptValue column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -74,7 +74,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvOptCode requireOneByDummy(string $dummy) Return the first ChildInvOptCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildInvOptCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvOptCode objects based on current ModelCriteria
- * @method     ChildInvOptCode[]|ObjectCollection findByInititemid(string $InitItemId) Return ChildInvOptCode objects filtered by the InitItemId column
+ * @method     ChildInvOptCode[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvOptCode objects filtered by the InitItemNbr column
  * @method     ChildInvOptCode[]|ObjectCollection findByInoptcode(string $InoptCode) Return ChildInvOptCode objects filtered by the InoptCode column
  * @method     ChildInvOptCode[]|ObjectCollection findByInoptcodedesc(string $InoptCodeDesc) Return ChildInvOptCode objects filtered by the InoptCodeDesc column
  * @method     ChildInvOptCode[]|ObjectCollection findByInoptvalue(string $InoptValue) Return ChildInvOptCode objects filtered by the InoptValue column
@@ -135,7 +135,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      * $obj = $c->findPk(array(12, 34), $con);
      * </code>
      *
-     * @param array[$InitItemId, $InoptCode] $key Primary key to use for the query
+     * @param array[$InitItemNbr, $InoptCode] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
      * @return ChildInvOptCode|array|mixed the result, formatted by the current formatter
@@ -181,7 +181,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemId, InoptCode, InoptCodeDesc, InoptValue, InoptValueDesc, InoptValueDesc2, DateUpdtd, TimeUpdtd, dummy FROM inv_opt_code WHERE InitItemId = :p0 AND InoptCode = :p1';
+        $sql = 'SELECT InitItemNbr, InoptCode, InoptCodeDesc, InoptValue, InoptValueDesc, InoptValueDesc2, DateUpdtd, TimeUpdtd, dummy FROM inv_opt_code WHERE InitItemNbr = :p0 AND InoptCode = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -255,7 +255,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMID, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
         $this->addUsingAlias(InvOptCodeTableMap::COL_INOPTCODE, $key[1], Criteria::EQUAL);
 
         return $this;
@@ -274,7 +274,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(InvOptCodeTableMap::COL_INITITEMID, $key[0], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(InvOptCodeTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
             $cton1 = $this->getNewCriterion(InvOptCodeTableMap::COL_INOPTCODE, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
             $this->addOr($cton0);
@@ -284,28 +284,28 @@ abstract class InvOptCodeQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the InitItemId column
+     * Filter the query on the InitItemNbr column
      *
      * Example usage:
      * <code>
-     * $query->filterByInititemid('fooValue');   // WHERE InitItemId = 'fooValue'
-     * $query->filterByInititemid('%fooValue%', Criteria::LIKE); // WHERE InitItemId LIKE '%fooValue%'
+     * $query->filterByInititemnbr('fooValue');   // WHERE InitItemNbr = 'fooValue'
+     * $query->filterByInititemnbr('%fooValue%', Criteria::LIKE); // WHERE InitItemNbr LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $inititemid The value to use as filter.
+     * @param     string $inititemnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildInvOptCodeQuery The current query, for fluid interface
      */
-    public function filterByInititemid($inititemid = null, $comparison = null)
+    public function filterByInititemnbr($inititemnbr= null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($inititemid)) {
+            if (is_array($inititemnbr)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMID, $inititemid, $comparison);
+        return $this->addUsingAlias(InvOptCodeTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
     }
 
     /**
@@ -518,7 +518,7 @@ abstract class InvOptCodeQuery extends ModelCriteria
     public function prune($invOptCode = null)
     {
         if ($invOptCode) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(InvOptCodeTableMap::COL_INITITEMID), $invOptCode->getInititemid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond0', $this->getAliasedColName(InvOptCodeTableMap::COL_INITITEMNBR), $invOptCode->getInititemnbr(), Criteria::NOT_EQUAL);
             $this->addCond('pruneCond1', $this->getAliasedColName(InvOptCodeTableMap::COL_INOPTCODE), $invOptCode->getInoptcode(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }

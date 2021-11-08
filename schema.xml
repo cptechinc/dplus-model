@@ -2274,7 +2274,7 @@
     </vendor>
   </table>
   <table name="inv_opt_code" idMethod="native" phpName="ItemOptCode">
-    <column name="InitItemId" phpName="Inititemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InoptCode" phpName="Inoptcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="InoptCodeDesc" phpName="Inoptcodedesc" type="VARCHAR" size="30"/>
     <column name="InoptValue" phpName="Inoptvalue" type="VARCHAR" size="30"/>

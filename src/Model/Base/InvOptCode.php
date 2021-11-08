@@ -60,12 +60,12 @@ abstract class InvOptCode implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the inititemid field.
+     * The value for the inititemnbr field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $inititemid;
+    protected $inititemnbr;
 
     /**
      * The value for the inoptcode field.
@@ -140,7 +140,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->inititemid = '';
+        $this->inititemnbr = '';
         $this->inoptcode = '';
     }
 
@@ -372,13 +372,13 @@ abstract class InvOptCode implements ActiveRecordInterface
     }
 
     /**
-     * Get the [inititemid] column value.
+     * Get the [inititemnbr] column value.
      *
      * @return string
      */
-    public function getInititemid()
+    public function getInititemnbr()
     {
-        return $this->inititemid;
+        return $this->inititemnbr;
     }
 
     /**
@@ -462,24 +462,24 @@ abstract class InvOptCode implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [inititemid] column.
+     * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
      * @return $this|\InvOptCode The current object (for fluent API support)
      */
-    public function setInititemid($v)
+    public function setInititemnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->inititemid !== $v) {
-            $this->inititemid = $v;
-            $this->modifiedColumns[InvOptCodeTableMap::COL_INITITEMID] = true;
+        if ($this->inititemnbr !== $v) {
+            $this->inititemnbr = $v;
+            $this->modifiedColumns[InvOptCodeTableMap::COL_INITITEMNBR] = true;
         }
 
         return $this;
-    } // setInititemid()
+    } // setInititemnbr()
 
     /**
      * Set the value of [inoptcode] column.
@@ -651,7 +651,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->inititemid !== '') {
+            if ($this->inititemnbr !== '') {
                 return false;
             }
 
@@ -685,8 +685,8 @@ abstract class InvOptCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvOptCodeTableMap::translateFieldName('Inititemid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->inititemid = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvOptCodeTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvOptCodeTableMap::translateFieldName('Inoptcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inoptcode = (null !== $col) ? (string) $col : null;
@@ -916,8 +916,8 @@ abstract class InvOptCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(InvOptCodeTableMap::COL_INITITEMID)) {
-            $modifiedColumns[':p' . $index++]  = 'InitItemId';
+        if ($this->isColumnModified(InvOptCodeTableMap::COL_INITITEMNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
         if ($this->isColumnModified(InvOptCodeTableMap::COL_INOPTCODE)) {
             $modifiedColumns[':p' . $index++]  = 'InoptCode';
@@ -954,8 +954,8 @@ abstract class InvOptCode implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'InitItemId':
-                        $stmt->bindValue($identifier, $this->inititemid, PDO::PARAM_STR);
+                    case 'InitItemNbr':
+                        $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
                     case 'InoptCode':
                         $stmt->bindValue($identifier, $this->inoptcode, PDO::PARAM_STR);
@@ -1037,7 +1037,7 @@ abstract class InvOptCode implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getInititemid();
+                return $this->getInititemnbr();
                 break;
             case 1:
                 return $this->getInoptcode();
@@ -1092,7 +1092,7 @@ abstract class InvOptCode implements ActiveRecordInterface
         $alreadyDumpedObjects['InvOptCode'][$this->hashCode()] = true;
         $keys = InvOptCodeTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getInititemid(),
+            $keys[0] => $this->getInititemnbr(),
             $keys[1] => $this->getInoptcode(),
             $keys[2] => $this->getInoptcodedesc(),
             $keys[3] => $this->getInoptvalue(),
@@ -1141,7 +1141,7 @@ abstract class InvOptCode implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setInititemid($value);
+                $this->setInititemnbr($value);
                 break;
             case 1:
                 $this->setInoptcode($value);
@@ -1194,7 +1194,7 @@ abstract class InvOptCode implements ActiveRecordInterface
         $keys = InvOptCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setInititemid($arr[$keys[0]]);
+            $this->setInititemnbr($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
             $this->setInoptcode($arr[$keys[1]]);
@@ -1261,8 +1261,8 @@ abstract class InvOptCode implements ActiveRecordInterface
     {
         $criteria = new Criteria(InvOptCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(InvOptCodeTableMap::COL_INITITEMID)) {
-            $criteria->add(InvOptCodeTableMap::COL_INITITEMID, $this->inititemid);
+        if ($this->isColumnModified(InvOptCodeTableMap::COL_INITITEMNBR)) {
+            $criteria->add(InvOptCodeTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
         if ($this->isColumnModified(InvOptCodeTableMap::COL_INOPTCODE)) {
             $criteria->add(InvOptCodeTableMap::COL_INOPTCODE, $this->inoptcode);
@@ -1305,7 +1305,7 @@ abstract class InvOptCode implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildInvOptCodeQuery::create();
-        $criteria->add(InvOptCodeTableMap::COL_INITITEMID, $this->inititemid);
+        $criteria->add(InvOptCodeTableMap::COL_INITITEMNBR, $this->inititemnbr);
         $criteria->add(InvOptCodeTableMap::COL_INOPTCODE, $this->inoptcode);
 
         return $criteria;
@@ -1319,7 +1319,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getInititemid() &&
+        $validPk = null !== $this->getInititemnbr() &&
             null !== $this->getInoptcode();
 
         $validPrimaryKeyFKs = 0;
@@ -1342,7 +1342,7 @@ abstract class InvOptCode implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getInititemid();
+        $pks[0] = $this->getInititemnbr();
         $pks[1] = $this->getInoptcode();
 
         return $pks;
@@ -1356,7 +1356,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setInititemid($keys[0]);
+        $this->setInititemnbr($keys[0]);
         $this->setInoptcode($keys[1]);
     }
 
@@ -1366,7 +1366,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getInititemid()) && (null === $this->getInoptcode());
+        return (null === $this->getInititemnbr()) && (null === $this->getInoptcode());
     }
 
     /**
@@ -1382,7 +1382,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setInititemid($this->getInititemid());
+        $copyObj->setInititemnbr($this->getInititemnbr());
         $copyObj->setInoptcode($this->getInoptcode());
         $copyObj->setInoptcodedesc($this->getInoptcodedesc());
         $copyObj->setInoptvalue($this->getInoptvalue());
@@ -1425,7 +1425,7 @@ abstract class InvOptCode implements ActiveRecordInterface
      */
     public function clear()
     {
-        $this->inititemid = null;
+        $this->inititemnbr = null;
         $this->inoptcode = null;
         $this->inoptcodedesc = null;
         $this->inoptvalue = null;
