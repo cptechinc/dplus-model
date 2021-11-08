@@ -35,12 +35,16 @@ class DplusUser extends BaseDplusUser {
 	const COLUMN_ALIASES = array(
 		'id'           => 'usrcid',
 		'userid'       => 'usrcid',
-		'name'         => 'UsrcLoginName',
+		'name'         => 'usrcloginname',
 		'whseid'       => 'intbwhse',
 		'group'        => 'usrclogingroup',
 		'role'         => 'usrcloginrole',
 		'email'        => 'usrcemailaddr',
 		'activeitemsonly' => 'usrcactiveitemsonly',
+		'admin'        => 'usrcadmin',
+		'storefront'   => 'usrcfront',
+		'citydesk'     => 'usrccitydesk',
+		'reportadmin'  => 'usrcreptadmin',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
 	);
@@ -51,5 +55,45 @@ class DplusUser extends BaseDplusUser {
 	 */
 	public function showActiveItemsOnly() {
 		return $this->activeitemsonly == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User is an Admin
+	 * @return bool
+	 */
+	public function isAdmin() {
+		return $this->admin == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User is a Store Front User
+	 * @return bool
+	 */
+	public function isStorefront() {
+		return $this->storefront == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User is a City DeskUser
+	 * @return bool
+	 */
+	public function isCityDesk() {
+		return $this->citydesk == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User is a Report Admin
+	 * @return bool
+	 */
+	public function isReportAdmin() {
+		return $this->reportadmin == self::YN_TRUE;
+	}
+
+	/**
+	 * Return Warehouse for User
+	 * @return Warehouse
+	 */
+	public function getWhse() {
+		return WarehouseQuery::create()->findOneById($this->whseid);
 	}
 }
