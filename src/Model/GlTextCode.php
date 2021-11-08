@@ -12,6 +12,9 @@ class GlTextCode extends BaseGlTextCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	const LINES = 4;
+	const COL_BASETEXT = 'gltbtext';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -27,4 +30,16 @@ class GlTextCode extends BaseGlTextCode {
 		'time'         => 'timeupdtd'
 	);
 
+	/**
+	 * Return Text Line
+	 * @param  int $i
+	 * @return string
+	 */
+	public function text($i = 1) {
+		if ($i > self::LINES) {
+			return '';
+		}
+		$col = self::COL_BASETEXT.$i;
+		return $this->$col;
+	}
 }
