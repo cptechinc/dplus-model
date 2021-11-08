@@ -2273,7 +2273,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_opt_code" idMethod="native" phpName="ItemOptCode">
+  <table name="inv_opt_code" idMethod="native" phpName="InvOptCode">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InoptCode" phpName="Inoptcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="InoptCodeDesc" phpName="Inoptcodedesc" type="VARCHAR" size="30"/>
@@ -2708,7 +2708,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_opt_code_in" idMethod="native" phpName="ItemOptCodeNote">
+  <table name="notes_opt_code_in" idMethod="native" phpName="InvOptCodeNote">
     <column name="QnOptSys" phpName="Qnoptsys" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
