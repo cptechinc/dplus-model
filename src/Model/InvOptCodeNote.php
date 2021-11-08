@@ -1,6 +1,6 @@
 <?php
 
-use Base\ItemOptCodeNote as BaseItemOptCodeNote;
+use Base\InvOptCodeNote as BaseInvOptCodeNote;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -10,7 +10,7 @@ use Dplus\Model\MagicMethodTraits;
  * 
  * RELATIONSHIPS: ItemMasterItem
  */
-class ItemOptCodeNote extends BaseItemOptCodeNote {
+class InvOptCodeNote extends BaseInvOptCodeNote {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \ItemOptCodeNote;
-use \ItemOptCodeNoteQuery;
+use \InvOptCodeNote;
+use \InvOptCodeNoteQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class ItemOptCodeNoteTableMap extends TableMap
+class InvOptCodeNoteTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class ItemOptCodeNoteTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ItemOptCodeNoteTableMap';
+    const CLASS_NAME = '.Map.InvOptCodeNoteTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ItemOptCodeNoteTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ItemOptCodeNote';
+    const OM_CLASS = '\\InvOptCodeNote';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ItemOptCodeNote';
+    const CLASS_DEFAULT = 'InvOptCodeNote';
 
     /**
      * The total number of columns
@@ -140,7 +140,7 @@ class ItemOptCodeNoteTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Qnoptsys', 'Qntype', 'Qntypedesc', 'Inititemnbr', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('qnoptsys', 'qntype', 'qntypedesc', 'inititemnbr', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ItemOptCodeNoteTableMap::COL_QNOPTSYS, ItemOptCodeNoteTableMap::COL_QNTYPE, ItemOptCodeNoteTableMap::COL_QNTYPEDESC, ItemOptCodeNoteTableMap::COL_INITITEMNBR, ItemOptCodeNoteTableMap::COL_QNSEQ, ItemOptCodeNoteTableMap::COL_QNNOTE, ItemOptCodeNoteTableMap::COL_QNKEY2, ItemOptCodeNoteTableMap::COL_QNFORM, ItemOptCodeNoteTableMap::COL_DATEUPDTD, ItemOptCodeNoteTableMap::COL_TIMEUPDTD, ItemOptCodeNoteTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(InvOptCodeNoteTableMap::COL_QNOPTSYS, InvOptCodeNoteTableMap::COL_QNTYPE, InvOptCodeNoteTableMap::COL_QNTYPEDESC, InvOptCodeNoteTableMap::COL_INITITEMNBR, InvOptCodeNoteTableMap::COL_QNSEQ, InvOptCodeNoteTableMap::COL_QNNOTE, InvOptCodeNoteTableMap::COL_QNKEY2, InvOptCodeNoteTableMap::COL_QNFORM, InvOptCodeNoteTableMap::COL_DATEUPDTD, InvOptCodeNoteTableMap::COL_TIMEUPDTD, InvOptCodeNoteTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('QnOptSys', 'QnType', 'QnTypeDesc', 'InitItemNbr', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -154,7 +154,7 @@ class ItemOptCodeNoteTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Qnoptsys' => 0, 'Qntype' => 1, 'Qntypedesc' => 2, 'Inititemnbr' => 3, 'Qnseq' => 4, 'Qnnote' => 5, 'Qnkey2' => 6, 'Qnform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
         self::TYPE_CAMELNAME     => array('qnoptsys' => 0, 'qntype' => 1, 'qntypedesc' => 2, 'inititemnbr' => 3, 'qnseq' => 4, 'qnnote' => 5, 'qnkey2' => 6, 'qnform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(ItemOptCodeNoteTableMap::COL_QNOPTSYS => 0, ItemOptCodeNoteTableMap::COL_QNTYPE => 1, ItemOptCodeNoteTableMap::COL_QNTYPEDESC => 2, ItemOptCodeNoteTableMap::COL_INITITEMNBR => 3, ItemOptCodeNoteTableMap::COL_QNSEQ => 4, ItemOptCodeNoteTableMap::COL_QNNOTE => 5, ItemOptCodeNoteTableMap::COL_QNKEY2 => 6, ItemOptCodeNoteTableMap::COL_QNFORM => 7, ItemOptCodeNoteTableMap::COL_DATEUPDTD => 8, ItemOptCodeNoteTableMap::COL_TIMEUPDTD => 9, ItemOptCodeNoteTableMap::COL_DUMMY => 10, ),
+        self::TYPE_COLNAME       => array(InvOptCodeNoteTableMap::COL_QNOPTSYS => 0, InvOptCodeNoteTableMap::COL_QNTYPE => 1, InvOptCodeNoteTableMap::COL_QNTYPEDESC => 2, InvOptCodeNoteTableMap::COL_INITITEMNBR => 3, InvOptCodeNoteTableMap::COL_QNSEQ => 4, InvOptCodeNoteTableMap::COL_QNNOTE => 5, InvOptCodeNoteTableMap::COL_QNKEY2 => 6, InvOptCodeNoteTableMap::COL_QNFORM => 7, InvOptCodeNoteTableMap::COL_DATEUPDTD => 8, InvOptCodeNoteTableMap::COL_TIMEUPDTD => 9, InvOptCodeNoteTableMap::COL_DUMMY => 10, ),
         self::TYPE_FIELDNAME     => array('QnOptSys' => 0, 'QnType' => 1, 'QnTypeDesc' => 2, 'InitItemNbr' => 3, 'QnSeq' => 4, 'QnNote' => 5, 'QnKey2' => 6, 'QnForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -170,9 +170,9 @@ class ItemOptCodeNoteTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_opt_code_in');
-        $this->setPhpName('ItemOptCodeNote');
+        $this->setPhpName('InvOptCodeNote');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\ItemOptCodeNote');
+        $this->setClassName('\\InvOptCodeNote');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -211,7 +211,7 @@ class ItemOptCodeNoteTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \ItemOptCodeNote $obj A \ItemOptCodeNote object.
+     * @param \InvOptCodeNote $obj A \InvOptCodeNote object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -232,12 +232,12 @@ class ItemOptCodeNoteTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \ItemOptCodeNote object or a primary key value.
+     * @param mixed $value A \InvOptCodeNote object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \ItemOptCodeNote) {
+            if (is_object($value) && $value instanceof \InvOptCodeNote) {
                 $key = serialize([(null === $value->getQnoptsys() || is_scalar($value->getQnoptsys()) || is_callable([$value->getQnoptsys(), '__toString']) ? (string) $value->getQnoptsys() : $value->getQnoptsys()), (null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 5) {
@@ -248,7 +248,7 @@ class ItemOptCodeNoteTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \ItemOptCodeNote object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \InvOptCodeNote object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -337,7 +337,7 @@ class ItemOptCodeNoteTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? ItemOptCodeNoteTableMap::CLASS_DEFAULT : ItemOptCodeNoteTableMap::OM_CLASS;
+        return $withPrefix ? InvOptCodeNoteTableMap::CLASS_DEFAULT : InvOptCodeNoteTableMap::OM_CLASS;
     }
 
     /**
@@ -351,22 +351,22 @@ class ItemOptCodeNoteTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ItemOptCodeNote object, last column rank)
+     * @return array           (InvOptCodeNote object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = ItemOptCodeNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = ItemOptCodeNoteTableMap::getInstanceFromPool($key))) {
+        $key = InvOptCodeNoteTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = InvOptCodeNoteTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + ItemOptCodeNoteTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + InvOptCodeNoteTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ItemOptCodeNoteTableMap::OM_CLASS;
-            /** @var ItemOptCodeNote $obj */
+            $cls = InvOptCodeNoteTableMap::OM_CLASS;
+            /** @var InvOptCodeNote $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            ItemOptCodeNoteTableMap::addInstanceToPool($obj, $key);
+            InvOptCodeNoteTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -389,18 +389,18 @@ class ItemOptCodeNoteTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = ItemOptCodeNoteTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = ItemOptCodeNoteTableMap::getInstanceFromPool($key))) {
+            $key = InvOptCodeNoteTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = InvOptCodeNoteTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var ItemOptCodeNote $obj */
+                /** @var InvOptCodeNote $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ItemOptCodeNoteTableMap::addInstanceToPool($obj, $key);
+                InvOptCodeNoteTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -421,17 +421,17 @@ class ItemOptCodeNoteTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNOPTSYS);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(ItemOptCodeNoteTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNOPTSYS);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(InvOptCodeNoteTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnOptSys');
             $criteria->addSelectColumn($alias . '.QnType');
@@ -456,7 +456,7 @@ class ItemOptCodeNoteTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(ItemOptCodeNoteTableMap::DATABASE_NAME)->getTable(ItemOptCodeNoteTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(InvOptCodeNoteTableMap::DATABASE_NAME)->getTable(InvOptCodeNoteTableMap::TABLE_NAME);
     }
 
     /**
@@ -464,16 +464,16 @@ class ItemOptCodeNoteTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ItemOptCodeNoteTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ItemOptCodeNoteTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ItemOptCodeNoteTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvOptCodeNoteTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(InvOptCodeNoteTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new InvOptCodeNoteTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a ItemOptCodeNote or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a InvOptCodeNote or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ItemOptCodeNote object or primary key or array of primary keys
+     * @param mixed               $values Criteria or InvOptCodeNote object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -484,17 +484,17 @@ class ItemOptCodeNoteTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \ItemOptCodeNote) { // it's a model object
+        } elseif ($values instanceof \InvOptCodeNote) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $criteria = new Criteria(InvOptCodeNoteTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -502,22 +502,22 @@ class ItemOptCodeNoteTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNTYPE, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNSEQ, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNKEY2, $value[3]));
-                $criterion->addAnd($criteria->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNFORM, $value[4]));
+                $criterion = $criteria->getNewCriterion(InvOptCodeNoteTableMap::COL_QNOPTSYS, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(InvOptCodeNoteTableMap::COL_QNTYPE, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(InvOptCodeNoteTableMap::COL_QNSEQ, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(InvOptCodeNoteTableMap::COL_QNKEY2, $value[3]));
+                $criterion->addAnd($criteria->getNewCriterion(InvOptCodeNoteTableMap::COL_QNFORM, $value[4]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = ItemOptCodeNoteQuery::create()->mergeWith($criteria);
+        $query = InvOptCodeNoteQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            ItemOptCodeNoteTableMap::clearInstancePool();
+            InvOptCodeNoteTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                ItemOptCodeNoteTableMap::removeInstanceFromPool($singleval);
+                InvOptCodeNoteTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -532,13 +532,13 @@ class ItemOptCodeNoteTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return ItemOptCodeNoteQuery::create()->doDeleteAll($con);
+        return InvOptCodeNoteQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a ItemOptCodeNote or Criteria object.
+     * Performs an INSERT on the database, given a InvOptCodeNote or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ItemOptCodeNote object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or InvOptCodeNote object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -547,18 +547,18 @@ class ItemOptCodeNoteTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from ItemOptCodeNote object
+            $criteria = $criteria->buildCriteria(); // build Criteria from InvOptCodeNote object
         }
 
 
         // Set the correct dbName
-        $query = ItemOptCodeNoteQuery::create()->mergeWith($criteria);
+        $query = InvOptCodeNoteQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -567,7 +567,7 @@ class ItemOptCodeNoteTableMap extends TableMap
         });
     }
 
-} // ItemOptCodeNoteTableMap
+} // InvOptCodeNoteTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-ItemOptCodeNoteTableMap::buildTableMap();
+InvOptCodeNoteTableMap::buildTableMap();

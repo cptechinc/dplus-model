@@ -1,6 +1,6 @@
 <?php
 
-use Base\ItemOptCodeNoteQuery as BaseItemOptCodeNoteQuery;
+use Base\InvOptCodeNoteQuery as BaseInvOptCodeNoteQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -14,10 +14,10 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * @method  ItemOptCodeNoteQuery filterByItemid(string $ItemID)      Filter the query inititemnbr column
+ * @method  InvOptCodeNoteQuery filterByItemid(string $ItemID)      Filter the query inititemnbr column
  *
  */
-class ItemOptCodeNoteQuery extends BaseItemOptCodeNoteQuery {
+class InvOptCodeNoteQuery extends BaseInvOptCodeNoteQuery {
 	use QueryTraits;
 
 	/**

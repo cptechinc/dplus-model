@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \ItemOptCodeNote as ChildItemOptCodeNote;
-use \ItemOptCodeNoteQuery as ChildItemOptCodeNoteQuery;
+use \InvOptCodeNote as ChildInvOptCodeNote;
+use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \Exception;
 use \PDO;
-use Map\ItemOptCodeNoteTableMap;
+use Map\InvOptCodeNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -20,125 +20,125 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildItemOptCodeNoteQuery orderByQnoptsys($order = Criteria::ASC) Order by the QnOptSys column
- * @method     ChildItemOptCodeNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
- * @method     ChildItemOptCodeNoteQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
- * @method     ChildItemOptCodeNoteQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
- * @method     ChildItemOptCodeNoteQuery orderByQnseq($order = Criteria::ASC) Order by the QnSeq column
- * @method     ChildItemOptCodeNoteQuery orderByQnnote($order = Criteria::ASC) Order by the QnNote column
- * @method     ChildItemOptCodeNoteQuery orderByQnkey2($order = Criteria::ASC) Order by the QnKey2 column
- * @method     ChildItemOptCodeNoteQuery orderByQnform($order = Criteria::ASC) Order by the QnForm column
- * @method     ChildItemOptCodeNoteQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildItemOptCodeNoteQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildItemOptCodeNoteQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildInvOptCodeNoteQuery orderByQnoptsys($order = Criteria::ASC) Order by the QnOptSys column
+ * @method     ChildInvOptCodeNoteQuery orderByQntype($order = Criteria::ASC) Order by the QnType column
+ * @method     ChildInvOptCodeNoteQuery orderByQntypedesc($order = Criteria::ASC) Order by the QnTypeDesc column
+ * @method     ChildInvOptCodeNoteQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
+ * @method     ChildInvOptCodeNoteQuery orderByQnseq($order = Criteria::ASC) Order by the QnSeq column
+ * @method     ChildInvOptCodeNoteQuery orderByQnnote($order = Criteria::ASC) Order by the QnNote column
+ * @method     ChildInvOptCodeNoteQuery orderByQnkey2($order = Criteria::ASC) Order by the QnKey2 column
+ * @method     ChildInvOptCodeNoteQuery orderByQnform($order = Criteria::ASC) Order by the QnForm column
+ * @method     ChildInvOptCodeNoteQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildInvOptCodeNoteQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildInvOptCodeNoteQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildItemOptCodeNoteQuery groupByQnoptsys() Group by the QnOptSys column
- * @method     ChildItemOptCodeNoteQuery groupByQntype() Group by the QnType column
- * @method     ChildItemOptCodeNoteQuery groupByQntypedesc() Group by the QnTypeDesc column
- * @method     ChildItemOptCodeNoteQuery groupByInititemnbr() Group by the InitItemNbr column
- * @method     ChildItemOptCodeNoteQuery groupByQnseq() Group by the QnSeq column
- * @method     ChildItemOptCodeNoteQuery groupByQnnote() Group by the QnNote column
- * @method     ChildItemOptCodeNoteQuery groupByQnkey2() Group by the QnKey2 column
- * @method     ChildItemOptCodeNoteQuery groupByQnform() Group by the QnForm column
- * @method     ChildItemOptCodeNoteQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildItemOptCodeNoteQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildItemOptCodeNoteQuery groupByDummy() Group by the dummy column
+ * @method     ChildInvOptCodeNoteQuery groupByQnoptsys() Group by the QnOptSys column
+ * @method     ChildInvOptCodeNoteQuery groupByQntype() Group by the QnType column
+ * @method     ChildInvOptCodeNoteQuery groupByQntypedesc() Group by the QnTypeDesc column
+ * @method     ChildInvOptCodeNoteQuery groupByInititemnbr() Group by the InitItemNbr column
+ * @method     ChildInvOptCodeNoteQuery groupByQnseq() Group by the QnSeq column
+ * @method     ChildInvOptCodeNoteQuery groupByQnnote() Group by the QnNote column
+ * @method     ChildInvOptCodeNoteQuery groupByQnkey2() Group by the QnKey2 column
+ * @method     ChildInvOptCodeNoteQuery groupByQnform() Group by the QnForm column
+ * @method     ChildInvOptCodeNoteQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildInvOptCodeNoteQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildInvOptCodeNoteQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildItemOptCodeNoteQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildItemOptCodeNoteQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildItemOptCodeNoteQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildInvOptCodeNoteQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildInvOptCodeNoteQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildInvOptCodeNoteQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildItemOptCodeNoteQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildItemOptCodeNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildItemOptCodeNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildInvOptCodeNoteQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildInvOptCodeNoteQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildInvOptCodeNoteQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildItemOptCodeNoteQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemOptCodeNoteQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildItemOptCodeNoteQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
  *
- * @method     ChildItemOptCodeNoteQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildItemOptCodeNoteQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemOptCodeNoteQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildItemOptCodeNoteQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvOptCodeNoteQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
  * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildItemOptCodeNote findOne(ConnectionInterface $con = null) Return the first ChildItemOptCodeNote matching the query
- * @method     ChildItemOptCodeNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemOptCodeNote matching the query, or a new ChildItemOptCodeNote object populated from the query conditions when no match is found
+ * @method     ChildInvOptCodeNote findOne(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query
+ * @method     ChildInvOptCodeNote findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query, or a new ChildInvOptCodeNote object populated from the query conditions when no match is found
  *
- * @method     ChildItemOptCodeNote findOneByQnoptsys(string $QnOptSys) Return the first ChildItemOptCodeNote filtered by the QnOptSys column
- * @method     ChildItemOptCodeNote findOneByQntype(string $QnType) Return the first ChildItemOptCodeNote filtered by the QnType column
- * @method     ChildItemOptCodeNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildItemOptCodeNote filtered by the QnTypeDesc column
- * @method     ChildItemOptCodeNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildItemOptCodeNote filtered by the InitItemNbr column
- * @method     ChildItemOptCodeNote findOneByQnseq(int $QnSeq) Return the first ChildItemOptCodeNote filtered by the QnSeq column
- * @method     ChildItemOptCodeNote findOneByQnnote(string $QnNote) Return the first ChildItemOptCodeNote filtered by the QnNote column
- * @method     ChildItemOptCodeNote findOneByQnkey2(string $QnKey2) Return the first ChildItemOptCodeNote filtered by the QnKey2 column
- * @method     ChildItemOptCodeNote findOneByQnform(string $QnForm) Return the first ChildItemOptCodeNote filtered by the QnForm column
- * @method     ChildItemOptCodeNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemOptCodeNote filtered by the DateUpdtd column
- * @method     ChildItemOptCodeNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemOptCodeNote filtered by the TimeUpdtd column
- * @method     ChildItemOptCodeNote findOneByDummy(string $dummy) Return the first ChildItemOptCodeNote filtered by the dummy column *
+ * @method     ChildInvOptCodeNote findOneByQnoptsys(string $QnOptSys) Return the first ChildInvOptCodeNote filtered by the QnOptSys column
+ * @method     ChildInvOptCodeNote findOneByQntype(string $QnType) Return the first ChildInvOptCodeNote filtered by the QnType column
+ * @method     ChildInvOptCodeNote findOneByQntypedesc(string $QnTypeDesc) Return the first ChildInvOptCodeNote filtered by the QnTypeDesc column
+ * @method     ChildInvOptCodeNote findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCodeNote filtered by the InitItemNbr column
+ * @method     ChildInvOptCodeNote findOneByQnseq(int $QnSeq) Return the first ChildInvOptCodeNote filtered by the QnSeq column
+ * @method     ChildInvOptCodeNote findOneByQnnote(string $QnNote) Return the first ChildInvOptCodeNote filtered by the QnNote column
+ * @method     ChildInvOptCodeNote findOneByQnkey2(string $QnKey2) Return the first ChildInvOptCodeNote filtered by the QnKey2 column
+ * @method     ChildInvOptCodeNote findOneByQnform(string $QnForm) Return the first ChildInvOptCodeNote filtered by the QnForm column
+ * @method     ChildInvOptCodeNote findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCodeNote filtered by the DateUpdtd column
+ * @method     ChildInvOptCodeNote findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCodeNote filtered by the TimeUpdtd column
+ * @method     ChildInvOptCodeNote findOneByDummy(string $dummy) Return the first ChildInvOptCodeNote filtered by the dummy column *
 
- * @method     ChildItemOptCodeNote requirePk($key, ConnectionInterface $con = null) Return the ChildItemOptCodeNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOne(ConnectionInterface $con = null) Return the first ChildItemOptCodeNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requirePk($key, ConnectionInterface $con = null) Return the ChildInvOptCodeNote by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOne(ConnectionInterface $con = null) Return the first ChildInvOptCodeNote matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemOptCodeNote requireOneByQnoptsys(string $QnOptSys) Return the first ChildItemOptCodeNote filtered by the QnOptSys column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQntype(string $QnType) Return the first ChildItemOptCodeNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildItemOptCodeNote filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByInititemnbr(string $InitItemNbr) Return the first ChildItemOptCodeNote filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQnseq(int $QnSeq) Return the first ChildItemOptCodeNote filtered by the QnSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQnnote(string $QnNote) Return the first ChildItemOptCodeNote filtered by the QnNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQnkey2(string $QnKey2) Return the first ChildItemOptCodeNote filtered by the QnKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByQnform(string $QnForm) Return the first ChildItemOptCodeNote filtered by the QnForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemOptCodeNote filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemOptCodeNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemOptCodeNote requireOneByDummy(string $dummy) Return the first ChildItemOptCodeNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQnoptsys(string $QnOptSys) Return the first ChildInvOptCodeNote filtered by the QnOptSys column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQntype(string $QnType) Return the first ChildInvOptCodeNote filtered by the QnType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQntypedesc(string $QnTypeDesc) Return the first ChildInvOptCodeNote filtered by the QnTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvOptCodeNote filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQnseq(int $QnSeq) Return the first ChildInvOptCodeNote filtered by the QnSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQnnote(string $QnNote) Return the first ChildInvOptCodeNote filtered by the QnNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQnkey2(string $QnKey2) Return the first ChildInvOptCodeNote filtered by the QnKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByQnform(string $QnForm) Return the first ChildInvOptCodeNote filtered by the QnForm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvOptCodeNote filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvOptCodeNote filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvOptCodeNote requireOneByDummy(string $dummy) Return the first ChildInvOptCodeNote filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildItemOptCodeNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildItemOptCodeNote objects based on current ModelCriteria
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQnoptsys(string $QnOptSys) Return ChildItemOptCodeNote objects filtered by the QnOptSys column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQntype(string $QnType) Return ChildItemOptCodeNote objects filtered by the QnType column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildItemOptCodeNote objects filtered by the QnTypeDesc column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildItemOptCodeNote objects filtered by the InitItemNbr column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildItemOptCodeNote objects filtered by the QnSeq column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildItemOptCodeNote objects filtered by the QnNote column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildItemOptCodeNote objects filtered by the QnKey2 column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildItemOptCodeNote objects filtered by the QnForm column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemOptCodeNote objects filtered by the DateUpdtd column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemOptCodeNote objects filtered by the TimeUpdtd column
- * @method     ChildItemOptCodeNote[]|ObjectCollection findByDummy(string $dummy) Return ChildItemOptCodeNote objects filtered by the dummy column
- * @method     ChildItemOptCodeNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvOptCodeNote[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvOptCodeNote objects based on current ModelCriteria
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnoptsys(string $QnOptSys) Return ChildInvOptCodeNote objects filtered by the QnOptSys column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQntype(string $QnType) Return ChildInvOptCodeNote objects filtered by the QnType column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQntypedesc(string $QnTypeDesc) Return ChildInvOptCodeNote objects filtered by the QnTypeDesc column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvOptCodeNote objects filtered by the InitItemNbr column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnseq(int $QnSeq) Return ChildInvOptCodeNote objects filtered by the QnSeq column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnnote(string $QnNote) Return ChildInvOptCodeNote objects filtered by the QnNote column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnkey2(string $QnKey2) Return ChildInvOptCodeNote objects filtered by the QnKey2 column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByQnform(string $QnForm) Return ChildInvOptCodeNote objects filtered by the QnForm column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvOptCodeNote objects filtered by the DateUpdtd column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvOptCodeNote objects filtered by the TimeUpdtd column
+ * @method     ChildInvOptCodeNote[]|ObjectCollection findByDummy(string $dummy) Return ChildInvOptCodeNote objects filtered by the dummy column
+ * @method     ChildInvOptCodeNote[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class ItemOptCodeNoteQuery extends ModelCriteria
+abstract class InvOptCodeNoteQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\ItemOptCodeNoteQuery object.
+     * Initializes internal state of \Base\InvOptCodeNoteQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\ItemOptCodeNote', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\InvOptCodeNote', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildItemOptCodeNoteQuery object.
+     * Returns a new ChildInvOptCodeNoteQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildItemOptCodeNoteQuery
+     * @return ChildInvOptCodeNoteQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildItemOptCodeNoteQuery) {
+        if ($criteria instanceof ChildInvOptCodeNoteQuery) {
             return $criteria;
         }
-        $query = new ChildItemOptCodeNoteQuery();
+        $query = new ChildInvOptCodeNoteQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -161,7 +161,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param array[$QnOptSys, $QnType, $QnSeq, $QnKey2, $QnForm] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildItemOptCodeNote|array|mixed the result, formatted by the current formatter
+     * @return ChildInvOptCodeNote|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -170,7 +170,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -183,7 +183,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = ItemOptCodeNoteTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]))))) {
+        if ((null !== ($obj = InvOptCodeNoteTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -200,7 +200,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemOptCodeNote A model object, or null if the key is not found
+     * @return ChildInvOptCodeNote A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -219,10 +219,10 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildItemOptCodeNote $obj */
-            $obj = new ChildItemOptCodeNote();
+            /** @var ChildInvOptCodeNote $obj */
+            $obj = new ChildInvOptCodeNote();
             $obj->hydrate($row);
-            ItemOptCodeNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
+            InvOptCodeNoteTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3]), (null === $key[4] || is_scalar($key[4]) || is_callable([$key[4], '__toString']) ? (string) $key[4] : $key[4])]));
         }
         $stmt->closeCursor();
 
@@ -235,7 +235,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildItemOptCodeNote|array|mixed the result, formatted by the current formatter
+     * @return ChildInvOptCodeNote|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -277,15 +277,15 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNTYPE, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNSEQ, $key[2], Criteria::EQUAL);
-        $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNKEY2, $key[3], Criteria::EQUAL);
-        $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNFORM, $key[4], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNOPTSYS, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPE, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNKEY2, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNFORM, $key[4], Criteria::EQUAL);
 
         return $this;
     }
@@ -295,7 +295,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -303,14 +303,14 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNTYPE, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNOPTSYS, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNTYPE, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNSEQ, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNSEQ, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
-            $cton3 = $this->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNKEY2, $key[3], Criteria::EQUAL);
+            $cton3 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNKEY2, $key[3], Criteria::EQUAL);
             $cton0->addAnd($cton3);
-            $cton4 = $this->getNewCriterion(ItemOptCodeNoteTableMap::COL_QNFORM, $key[4], Criteria::EQUAL);
+            $cton4 = $this->getNewCriterion(InvOptCodeNoteTableMap::COL_QNFORM, $key[4], Criteria::EQUAL);
             $cton0->addAnd($cton4);
             $this->addOr($cton0);
         }
@@ -330,7 +330,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qnoptsys The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQnoptsys($qnoptsys = null, $comparison = null)
     {
@@ -340,7 +340,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $qnoptsys, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNOPTSYS, $qnoptsys, $comparison);
     }
 
     /**
@@ -355,7 +355,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qntype The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQntype($qntype = null, $comparison = null)
     {
@@ -365,7 +365,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNTYPE, $qntype, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPE, $qntype, $comparison);
     }
 
     /**
@@ -380,7 +380,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qntypedesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQntypedesc($qntypedesc = null, $comparison = null)
     {
@@ -390,7 +390,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNTYPEDESC, $qntypedesc, $comparison);
     }
 
     /**
@@ -405,7 +405,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $inititemnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByInititemnbr($inititemnbr = null, $comparison = null)
     {
@@ -415,7 +415,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
     }
 
     /**
@@ -434,18 +434,18 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQnseq($qnseq = null, $comparison = null)
     {
         if (is_array($qnseq)) {
             $useMinMax = false;
             if (isset($qnseq['min'])) {
-                $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNSEQ, $qnseq['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $qnseq['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($qnseq['max'])) {
-                $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNSEQ, $qnseq['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $qnseq['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -456,7 +456,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNSEQ, $qnseq, $comparison);
     }
 
     /**
@@ -471,7 +471,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qnnote The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQnnote($qnnote = null, $comparison = null)
     {
@@ -481,7 +481,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNNOTE, $qnnote, $comparison);
     }
 
     /**
@@ -496,7 +496,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qnkey2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQnkey2($qnkey2 = null, $comparison = null)
     {
@@ -506,7 +506,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNKEY2, $qnkey2, $comparison);
     }
 
     /**
@@ -521,7 +521,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $qnform The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByQnform($qnform = null, $comparison = null)
     {
@@ -531,7 +531,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_QNFORM, $qnform, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_QNFORM, $qnform, $comparison);
     }
 
     /**
@@ -546,7 +546,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -556,7 +556,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -571,7 +571,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -581,7 +581,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -596,7 +596,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -606,7 +606,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ItemOptCodeNoteTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(InvOptCodeNoteTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
@@ -617,20 +617,20 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function filterByItemMasterItem($itemMasterItem, $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(ItemOptCodeNoteTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+                ->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(ItemOptCodeNoteTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+                ->addUsingAlias(InvOptCodeNoteTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -642,7 +642,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
     public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
@@ -689,18 +689,18 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildItemOptCodeNote $itemOptCodeNote Object to remove from the list of results
+     * @param   ChildInvOptCodeNote $invOptCodeNote Object to remove from the list of results
      *
-     * @return $this|ChildItemOptCodeNoteQuery The current query, for fluid interface
+     * @return $this|ChildInvOptCodeNoteQuery The current query, for fluid interface
      */
-    public function prune($itemOptCodeNote = null)
+    public function prune($invOptCodeNote = null)
     {
-        if ($itemOptCodeNote) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(ItemOptCodeNoteTableMap::COL_QNOPTSYS), $itemOptCodeNote->getQnoptsys(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(ItemOptCodeNoteTableMap::COL_QNTYPE), $itemOptCodeNote->getQntype(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(ItemOptCodeNoteTableMap::COL_QNSEQ), $itemOptCodeNote->getQnseq(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(ItemOptCodeNoteTableMap::COL_QNKEY2), $itemOptCodeNote->getQnkey2(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond4', $this->getAliasedColName(ItemOptCodeNoteTableMap::COL_QNFORM), $itemOptCodeNote->getQnform(), Criteria::NOT_EQUAL);
+        if ($invOptCodeNote) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(InvOptCodeNoteTableMap::COL_QNOPTSYS), $invOptCodeNote->getQnoptsys(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(InvOptCodeNoteTableMap::COL_QNTYPE), $invOptCodeNote->getQntype(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(InvOptCodeNoteTableMap::COL_QNSEQ), $invOptCodeNote->getQnseq(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(InvOptCodeNoteTableMap::COL_QNKEY2), $invOptCodeNote->getQnkey2(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond4', $this->getAliasedColName(InvOptCodeNoteTableMap::COL_QNFORM), $invOptCodeNote->getQnform(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3', 'pruneCond4'), Criteria::LOGICAL_OR);
         }
 
@@ -716,7 +716,7 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -727,8 +727,8 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            ItemOptCodeNoteTableMap::clearInstancePool();
-            ItemOptCodeNoteTableMap::clearRelatedInstancePool();
+            InvOptCodeNoteTableMap::clearInstancePool();
+            InvOptCodeNoteTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -746,26 +746,26 @@ abstract class ItemOptCodeNoteQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(ItemOptCodeNoteTableMap::DATABASE_NAME);
+        $criteria->setDbName(InvOptCodeNoteTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            ItemOptCodeNoteTableMap::removeInstanceFromPool($criteria);
+            InvOptCodeNoteTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            ItemOptCodeNoteTableMap::clearRelatedInstancePool();
+            InvOptCodeNoteTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // ItemOptCodeNoteQuery
+} // InvOptCodeNoteQuery

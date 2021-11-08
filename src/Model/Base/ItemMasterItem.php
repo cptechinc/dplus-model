@@ -22,14 +22,14 @@ use \InvKitComponentQuery as ChildInvKitComponentQuery;
 use \InvKitQuery as ChildInvKitQuery;
 use \InvLot as ChildInvLot;
 use \InvLotQuery as ChildInvLotQuery;
+use \InvOptCodeNote as ChildInvOptCodeNote;
+use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \ItemAddonItem as ChildItemAddonItem;
 use \ItemAddonItemQuery as ChildItemAddonItemQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
-use \ItemOptCodeNote as ChildItemOptCodeNote;
-use \ItemOptCodeNoteQuery as ChildItemOptCodeNoteQuery;
 use \ItemPricing as ChildItemPricing;
 use \ItemPricingDiscount as ChildItemPricingDiscount;
 use \ItemPricingDiscountQuery as ChildItemPricingDiscountQuery;
@@ -71,9 +71,9 @@ use Map\BookingDetailTableMap;
 use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
 use Map\InvLotTableMap;
+use Map\InvOptCodeNoteTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
-use Map\ItemOptCodeNoteTableMap;
 use Map\ItemPricingDiscountTableMap;
 use Map\ItemSubstituteTableMap;
 use Map\ItemXrefCustomerNoteTableMap;
@@ -721,10 +721,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomerNotesPartial;
 
     /**
-     * @var        ObjectCollection|ChildItemOptCodeNote[] Collection to store aggregation of ChildItemOptCodeNote objects.
+     * @var        ObjectCollection|ChildInvOptCodeNote[] Collection to store aggregation of ChildInvOptCodeNote objects.
      */
-    protected $collItemOptCodeNotes;
-    protected $collItemOptCodeNotesPartial;
+    protected $collInvOptCodeNotes;
+    protected $collInvOptCodeNotesPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefVendorNoteDetail[] Collection to store aggregation of ChildItemXrefVendorNoteDetail objects.
@@ -873,9 +873,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildItemOptCodeNote[]
+     * @var ObjectCollection|ChildInvOptCodeNote[]
      */
-    protected $itemOptCodeNotesScheduledForDeletion = null;
+    protected $invOptCodeNotesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3502,7 +3502,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemXrefCustomerNotes = null;
 
-            $this->collItemOptCodeNotes = null;
+            $this->collInvOptCodeNotes = null;
 
             $this->collItemXrefVendorNoteDetails = null;
 
@@ -3926,18 +3926,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->itemOptCodeNotesScheduledForDeletion !== null) {
-                if (!$this->itemOptCodeNotesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->itemOptCodeNotesScheduledForDeletion as $itemOptCodeNote) {
+            if ($this->invOptCodeNotesScheduledForDeletion !== null) {
+                if (!$this->invOptCodeNotesScheduledForDeletion->isEmpty()) {
+                    foreach ($this->invOptCodeNotesScheduledForDeletion as $invOptCodeNote) {
                         // need to save related object because we set the relation to null
-                        $itemOptCodeNote->save($con);
+                        $invOptCodeNote->save($con);
                     }
-                    $this->itemOptCodeNotesScheduledForDeletion = null;
+                    $this->invOptCodeNotesScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collItemOptCodeNotes !== null) {
-                foreach ($this->collItemOptCodeNotes as $referrerFK) {
+            if ($this->collInvOptCodeNotes !== null) {
+                foreach ($this->collInvOptCodeNotes as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5211,20 +5211,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomerNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
-            if (null !== $this->collItemOptCodeNotes) {
+            if (null !== $this->collInvOptCodeNotes) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'itemOptCodeNotes';
+                        $key = 'invOptCodeNotes';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'notes_opt_code_ins';
                         break;
                     default:
-                        $key = 'ItemOptCodeNotes';
+                        $key = 'InvOptCodeNotes';
                 }
 
-                $result[$key] = $this->collItemOptCodeNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collInvOptCodeNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemXrefVendorNoteDetails) {
 
@@ -6319,9 +6319,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            foreach ($this->getItemOptCodeNotes() as $relObj) {
+            foreach ($this->getInvOptCodeNotes() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addItemOptCodeNote($relObj->copy($deepCopy));
+                    $copyObj->addInvOptCodeNote($relObj->copy($deepCopy));
                 }
             }
 
@@ -6707,10 +6707,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
-            if ($this->aItemPricing === null) {
-                $this->aItemPricing = new ChildItemPricing();
-                $this->aItemPricing->setInititemnbr($this->inititemnbr);
-            }
             $this->aItemPricing->setItemMasterItem($this);
         }
 
@@ -6780,8 +6776,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomerNotes();
             return;
         }
-        if ('ItemOptCodeNote' == $relationName) {
-            $this->initItemOptCodeNotes();
+        if ('InvOptCodeNote' == $relationName) {
+            $this->initInvOptCodeNotes();
             return;
         }
         if ('ItemXrefVendorNoteDetail' == $relationName) {
@@ -9964,31 +9960,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collItemOptCodeNotes collection
+     * Clears out the collInvOptCodeNotes collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addItemOptCodeNotes()
+     * @see        addInvOptCodeNotes()
      */
-    public function clearItemOptCodeNotes()
+    public function clearInvOptCodeNotes()
     {
-        $this->collItemOptCodeNotes = null; // important to set this to NULL since that means it is uninitialized
+        $this->collInvOptCodeNotes = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collItemOptCodeNotes collection loaded partially.
+     * Reset is the collInvOptCodeNotes collection loaded partially.
      */
-    public function resetPartialItemOptCodeNotes($v = true)
+    public function resetPartialInvOptCodeNotes($v = true)
     {
-        $this->collItemOptCodeNotesPartial = $v;
+        $this->collInvOptCodeNotesPartial = $v;
     }
 
     /**
-     * Initializes the collItemOptCodeNotes collection.
+     * Initializes the collInvOptCodeNotes collection.
      *
-     * By default this just sets the collItemOptCodeNotes collection to an empty array (like clearcollItemOptCodeNotes());
+     * By default this just sets the collInvOptCodeNotes collection to an empty array (like clearcollInvOptCodeNotes());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -9997,20 +9993,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initItemOptCodeNotes($overrideExisting = true)
+    public function initInvOptCodeNotes($overrideExisting = true)
     {
-        if (null !== $this->collItemOptCodeNotes && !$overrideExisting) {
+        if (null !== $this->collInvOptCodeNotes && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = ItemOptCodeNoteTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = InvOptCodeNoteTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collItemOptCodeNotes = new $collectionClassName;
-        $this->collItemOptCodeNotes->setModel('\ItemOptCodeNote');
+        $this->collInvOptCodeNotes = new $collectionClassName;
+        $this->collInvOptCodeNotes->setModel('\InvOptCodeNote');
     }
 
     /**
-     * Gets an array of ChildItemOptCodeNote objects which contain a foreign key that references this object.
+     * Gets an array of ChildInvOptCodeNote objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -10020,108 +10016,108 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildItemOptCodeNote[] List of ChildItemOptCodeNote objects
+     * @return ObjectCollection|ChildInvOptCodeNote[] List of ChildInvOptCodeNote objects
      * @throws PropelException
      */
-    public function getItemOptCodeNotes(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvOptCodeNotes(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collItemOptCodeNotesPartial && !$this->isNew();
-        if (null === $this->collItemOptCodeNotes || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collItemOptCodeNotes) {
+        $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
+        if (null === $this->collInvOptCodeNotes || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvOptCodeNotes) {
                 // return empty collection
-                $this->initItemOptCodeNotes();
+                $this->initInvOptCodeNotes();
             } else {
-                $collItemOptCodeNotes = ChildItemOptCodeNoteQuery::create(null, $criteria)
+                $collInvOptCodeNotes = ChildInvOptCodeNoteQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collItemOptCodeNotesPartial && count($collItemOptCodeNotes)) {
-                        $this->initItemOptCodeNotes(false);
+                    if (false !== $this->collInvOptCodeNotesPartial && count($collInvOptCodeNotes)) {
+                        $this->initInvOptCodeNotes(false);
 
-                        foreach ($collItemOptCodeNotes as $obj) {
-                            if (false == $this->collItemOptCodeNotes->contains($obj)) {
-                                $this->collItemOptCodeNotes->append($obj);
+                        foreach ($collInvOptCodeNotes as $obj) {
+                            if (false == $this->collInvOptCodeNotes->contains($obj)) {
+                                $this->collInvOptCodeNotes->append($obj);
                             }
                         }
 
-                        $this->collItemOptCodeNotesPartial = true;
+                        $this->collInvOptCodeNotesPartial = true;
                     }
 
-                    return $collItemOptCodeNotes;
+                    return $collInvOptCodeNotes;
                 }
 
-                if ($partial && $this->collItemOptCodeNotes) {
-                    foreach ($this->collItemOptCodeNotes as $obj) {
+                if ($partial && $this->collInvOptCodeNotes) {
+                    foreach ($this->collInvOptCodeNotes as $obj) {
                         if ($obj->isNew()) {
-                            $collItemOptCodeNotes[] = $obj;
+                            $collInvOptCodeNotes[] = $obj;
                         }
                     }
                 }
 
-                $this->collItemOptCodeNotes = $collItemOptCodeNotes;
-                $this->collItemOptCodeNotesPartial = false;
+                $this->collInvOptCodeNotes = $collInvOptCodeNotes;
+                $this->collInvOptCodeNotesPartial = false;
             }
         }
 
-        return $this->collItemOptCodeNotes;
+        return $this->collInvOptCodeNotes;
     }
 
     /**
-     * Sets a collection of ChildItemOptCodeNote objects related by a one-to-many relationship
+     * Sets a collection of ChildInvOptCodeNote objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $itemOptCodeNotes A Propel collection.
+     * @param      Collection $invOptCodeNotes A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setItemOptCodeNotes(Collection $itemOptCodeNotes, ConnectionInterface $con = null)
+    public function setInvOptCodeNotes(Collection $invOptCodeNotes, ConnectionInterface $con = null)
     {
-        /** @var ChildItemOptCodeNote[] $itemOptCodeNotesToDelete */
-        $itemOptCodeNotesToDelete = $this->getItemOptCodeNotes(new Criteria(), $con)->diff($itemOptCodeNotes);
+        /** @var ChildInvOptCodeNote[] $invOptCodeNotesToDelete */
+        $invOptCodeNotesToDelete = $this->getInvOptCodeNotes(new Criteria(), $con)->diff($invOptCodeNotes);
 
 
-        $this->itemOptCodeNotesScheduledForDeletion = $itemOptCodeNotesToDelete;
+        $this->invOptCodeNotesScheduledForDeletion = $invOptCodeNotesToDelete;
 
-        foreach ($itemOptCodeNotesToDelete as $itemOptCodeNoteRemoved) {
-            $itemOptCodeNoteRemoved->setItemMasterItem(null);
+        foreach ($invOptCodeNotesToDelete as $invOptCodeNoteRemoved) {
+            $invOptCodeNoteRemoved->setItemMasterItem(null);
         }
 
-        $this->collItemOptCodeNotes = null;
-        foreach ($itemOptCodeNotes as $itemOptCodeNote) {
-            $this->addItemOptCodeNote($itemOptCodeNote);
+        $this->collInvOptCodeNotes = null;
+        foreach ($invOptCodeNotes as $invOptCodeNote) {
+            $this->addInvOptCodeNote($invOptCodeNote);
         }
 
-        $this->collItemOptCodeNotes = $itemOptCodeNotes;
-        $this->collItemOptCodeNotesPartial = false;
+        $this->collInvOptCodeNotes = $invOptCodeNotes;
+        $this->collInvOptCodeNotesPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related ItemOptCodeNote objects.
+     * Returns the number of related InvOptCodeNote objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related ItemOptCodeNote objects.
+     * @return int             Count of related InvOptCodeNote objects.
      * @throws PropelException
      */
-    public function countItemOptCodeNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvOptCodeNotes(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collItemOptCodeNotesPartial && !$this->isNew();
-        if (null === $this->collItemOptCodeNotes || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collItemOptCodeNotes) {
+        $partial = $this->collInvOptCodeNotesPartial && !$this->isNew();
+        if (null === $this->collInvOptCodeNotes || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvOptCodeNotes) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getItemOptCodeNotes());
+                return count($this->getInvOptCodeNotes());
             }
 
-            $query = ChildItemOptCodeNoteQuery::create(null, $criteria);
+            $query = ChildInvOptCodeNoteQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -10131,28 +10127,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collItemOptCodeNotes);
+        return count($this->collInvOptCodeNotes);
     }
 
     /**
-     * Method called to associate a ChildItemOptCodeNote object to this object
-     * through the ChildItemOptCodeNote foreign key attribute.
+     * Method called to associate a ChildInvOptCodeNote object to this object
+     * through the ChildInvOptCodeNote foreign key attribute.
      *
-     * @param  ChildItemOptCodeNote $l ChildItemOptCodeNote
+     * @param  ChildInvOptCodeNote $l ChildInvOptCodeNote
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function addItemOptCodeNote(ChildItemOptCodeNote $l)
+    public function addInvOptCodeNote(ChildInvOptCodeNote $l)
     {
-        if ($this->collItemOptCodeNotes === null) {
-            $this->initItemOptCodeNotes();
-            $this->collItemOptCodeNotesPartial = true;
+        if ($this->collInvOptCodeNotes === null) {
+            $this->initInvOptCodeNotes();
+            $this->collInvOptCodeNotesPartial = true;
         }
 
-        if (!$this->collItemOptCodeNotes->contains($l)) {
-            $this->doAddItemOptCodeNote($l);
+        if (!$this->collInvOptCodeNotes->contains($l)) {
+            $this->doAddInvOptCodeNote($l);
 
-            if ($this->itemOptCodeNotesScheduledForDeletion and $this->itemOptCodeNotesScheduledForDeletion->contains($l)) {
-                $this->itemOptCodeNotesScheduledForDeletion->remove($this->itemOptCodeNotesScheduledForDeletion->search($l));
+            if ($this->invOptCodeNotesScheduledForDeletion and $this->invOptCodeNotesScheduledForDeletion->contains($l)) {
+                $this->invOptCodeNotesScheduledForDeletion->remove($this->invOptCodeNotesScheduledForDeletion->search($l));
             }
         }
 
@@ -10160,29 +10156,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildItemOptCodeNote $itemOptCodeNote The ChildItemOptCodeNote object to add.
+     * @param ChildInvOptCodeNote $invOptCodeNote The ChildInvOptCodeNote object to add.
      */
-    protected function doAddItemOptCodeNote(ChildItemOptCodeNote $itemOptCodeNote)
+    protected function doAddInvOptCodeNote(ChildInvOptCodeNote $invOptCodeNote)
     {
-        $this->collItemOptCodeNotes[]= $itemOptCodeNote;
-        $itemOptCodeNote->setItemMasterItem($this);
+        $this->collInvOptCodeNotes[]= $invOptCodeNote;
+        $invOptCodeNote->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildItemOptCodeNote $itemOptCodeNote The ChildItemOptCodeNote object to remove.
+     * @param  ChildInvOptCodeNote $invOptCodeNote The ChildInvOptCodeNote object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeItemOptCodeNote(ChildItemOptCodeNote $itemOptCodeNote)
+    public function removeInvOptCodeNote(ChildInvOptCodeNote $invOptCodeNote)
     {
-        if ($this->getItemOptCodeNotes()->contains($itemOptCodeNote)) {
-            $pos = $this->collItemOptCodeNotes->search($itemOptCodeNote);
-            $this->collItemOptCodeNotes->remove($pos);
-            if (null === $this->itemOptCodeNotesScheduledForDeletion) {
-                $this->itemOptCodeNotesScheduledForDeletion = clone $this->collItemOptCodeNotes;
-                $this->itemOptCodeNotesScheduledForDeletion->clear();
+        if ($this->getInvOptCodeNotes()->contains($invOptCodeNote)) {
+            $pos = $this->collInvOptCodeNotes->search($invOptCodeNote);
+            $this->collInvOptCodeNotes->remove($pos);
+            if (null === $this->invOptCodeNotesScheduledForDeletion) {
+                $this->invOptCodeNotesScheduledForDeletion = clone $this->collInvOptCodeNotes;
+                $this->invOptCodeNotesScheduledForDeletion->clear();
             }
-            $this->itemOptCodeNotesScheduledForDeletion[]= $itemOptCodeNote;
-            $itemOptCodeNote->setItemMasterItem(null);
+            $this->invOptCodeNotesScheduledForDeletion[]= $invOptCodeNote;
+            $invOptCodeNote->setItemMasterItem(null);
         }
 
         return $this;
@@ -12700,8 +12696,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
-            if ($this->collItemOptCodeNotes) {
-                foreach ($this->collItemOptCodeNotes as $o) {
+            if ($this->collInvOptCodeNotes) {
+                foreach ($this->collInvOptCodeNotes as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -12771,7 +12767,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;
-        $this->collItemOptCodeNotes = null;
+        $this->collInvOptCodeNotes = null;
         $this->collItemXrefVendorNoteDetails = null;
         $this->collItemXrefVendorNoteInternals = null;
         $this->collBomComponents = null;

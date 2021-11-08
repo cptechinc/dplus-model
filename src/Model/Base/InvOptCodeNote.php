@@ -2,12 +2,12 @@
 
 namespace Base;
 
+use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
-use \ItemOptCodeNoteQuery as ChildItemOptCodeNoteQuery;
 use \Exception;
 use \PDO;
-use Map\ItemOptCodeNoteTableMap;
+use Map\InvOptCodeNoteTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -27,12 +27,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class ItemOptCodeNote implements ActiveRecordInterface
+abstract class InvOptCodeNote implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\ItemOptCodeNoteTableMap';
+    const TABLE_MAP = '\\Map\\InvOptCodeNoteTableMap';
 
 
     /**
@@ -172,7 +172,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\ItemOptCodeNote object.
+     * Initializes internal state of Base\InvOptCodeNote object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -269,9 +269,9 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>ItemOptCodeNote</code> instance.  If
-     * <code>obj</code> is an instance of <code>ItemOptCodeNote</code>, delegates to
-     * <code>equals(ItemOptCodeNote)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>InvOptCodeNote</code> instance.  If
+     * <code>obj</code> is an instance of <code>InvOptCodeNote</code>, delegates to
+     * <code>equals(InvOptCodeNote)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -337,7 +337,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|ItemOptCodeNote The current object, for fluid interface
+     * @return $this|InvOptCodeNote The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -512,7 +512,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qnoptsys] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQnoptsys($v)
     {
@@ -522,7 +522,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qnoptsys !== $v) {
             $this->qnoptsys = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNOPTSYS] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNOPTSYS] = true;
         }
 
         return $this;
@@ -532,7 +532,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qntype] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQntype($v)
     {
@@ -542,7 +542,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qntype !== $v) {
             $this->qntype = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNTYPE] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNTYPE] = true;
         }
 
         return $this;
@@ -552,7 +552,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qntypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQntypedesc($v)
     {
@@ -562,7 +562,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qntypedesc !== $v) {
             $this->qntypedesc = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNTYPEDESC] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNTYPEDESC] = true;
         }
 
         return $this;
@@ -572,7 +572,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -582,7 +582,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -596,7 +596,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qnseq] column.
      *
      * @param int $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQnseq($v)
     {
@@ -606,7 +606,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qnseq !== $v) {
             $this->qnseq = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNSEQ] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNSEQ] = true;
         }
 
         return $this;
@@ -616,7 +616,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qnnote] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQnnote($v)
     {
@@ -626,7 +626,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qnnote !== $v) {
             $this->qnnote = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNNOTE] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNNOTE] = true;
         }
 
         return $this;
@@ -636,7 +636,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qnkey2] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQnkey2($v)
     {
@@ -646,7 +646,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qnkey2 !== $v) {
             $this->qnkey2 = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNKEY2] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNKEY2] = true;
         }
 
         return $this;
@@ -656,7 +656,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [qnform] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setQnform($v)
     {
@@ -666,7 +666,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->qnform !== $v) {
             $this->qnform = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_QNFORM] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_QNFORM] = true;
         }
 
         return $this;
@@ -676,7 +676,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -686,7 +686,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -696,7 +696,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -706,7 +706,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -716,7 +716,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -726,7 +726,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[ItemOptCodeNoteTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[InvOptCodeNoteTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -788,37 +788,37 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qnoptsys', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qnoptsys', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnoptsys = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ItemOptCodeNoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvOptCodeNoteTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -828,10 +828,10 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 11; // 11 = ItemOptCodeNoteTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 11; // 11 = InvOptCodeNoteTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\ItemOptCodeNote'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\InvOptCodeNote'), 0, $e);
         }
     }
 
@@ -876,13 +876,13 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildItemOptCodeNoteQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildInvOptCodeNoteQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -902,8 +902,8 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see ItemOptCodeNote::setDeleted()
-     * @see ItemOptCodeNote::isDeleted()
+     * @see InvOptCodeNote::setDeleted()
+     * @see InvOptCodeNote::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -912,11 +912,11 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildItemOptCodeNoteQuery::create()
+            $deleteQuery = ChildInvOptCodeNoteQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -951,7 +951,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ItemOptCodeNoteTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvOptCodeNoteTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -970,7 +970,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                ItemOptCodeNoteTableMap::addInstanceToPool($this);
+                InvOptCodeNoteTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1041,37 +1041,37 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNOPTSYS)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNOPTSYS)) {
             $modifiedColumns[':p' . $index++]  = 'QnOptSys';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNTYPE)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'QnType';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNTYPEDESC)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'QnTypeDesc';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNSEQ)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'QnSeq';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNNOTE)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'QnNote';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNKEY2)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'QnKey2';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNFORM)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNFORM)) {
             $modifiedColumns[':p' . $index++]  = 'QnForm';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1157,7 +1157,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ItemOptCodeNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvOptCodeNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1230,11 +1230,11 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['ItemOptCodeNote'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['InvOptCodeNote'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['ItemOptCodeNote'][$this->hashCode()] = true;
-        $keys = ItemOptCodeNoteTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['InvOptCodeNote'][$this->hashCode()] = true;
+        $keys = InvOptCodeNoteTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getQnoptsys(),
             $keys[1] => $this->getQntype(),
@@ -1283,11 +1283,11 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ItemOptCodeNote
+     * @return $this|\InvOptCodeNote
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ItemOptCodeNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvOptCodeNoteTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1298,7 +1298,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\ItemOptCodeNote
+     * @return $this|\InvOptCodeNote
      */
     public function setByPosition($pos, $value)
     {
@@ -1360,7 +1360,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = ItemOptCodeNoteTableMap::getFieldNames($keyType);
+        $keys = InvOptCodeNoteTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setQnoptsys($arr[$keys[0]]);
@@ -1414,7 +1414,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ItemOptCodeNote The current object, for fluid interface
+     * @return $this|\InvOptCodeNote The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1434,40 +1434,40 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(ItemOptCodeNoteTableMap::DATABASE_NAME);
+        $criteria = new Criteria(InvOptCodeNoteTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNOPTSYS)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $this->qnoptsys);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNOPTSYS)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNOPTSYS, $this->qnoptsys);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNTYPE)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNTYPE, $this->qntype);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNTYPE)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNTYPE, $this->qntype);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNTYPEDESC)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNTYPEDESC, $this->qntypedesc);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNTYPEDESC)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNTYPEDESC, $this->qntypedesc);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_INITITEMNBR)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_INITITEMNBR)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNSEQ)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNSEQ, $this->qnseq);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNSEQ)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNSEQ, $this->qnseq);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNNOTE)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNNOTE, $this->qnnote);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNNOTE)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNNOTE, $this->qnnote);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNKEY2)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNKEY2, $this->qnkey2);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNKEY2)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNKEY2, $this->qnkey2);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_QNFORM)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_QNFORM, $this->qnform);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_QNFORM)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_QNFORM, $this->qnform);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_DATEUPDTD)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_DATEUPDTD)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(ItemOptCodeNoteTableMap::COL_DUMMY)) {
-            $criteria->add(ItemOptCodeNoteTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(InvOptCodeNoteTableMap::COL_DUMMY)) {
+            $criteria->add(InvOptCodeNoteTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1485,12 +1485,12 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildItemOptCodeNoteQuery::create();
-        $criteria->add(ItemOptCodeNoteTableMap::COL_QNOPTSYS, $this->qnoptsys);
-        $criteria->add(ItemOptCodeNoteTableMap::COL_QNTYPE, $this->qntype);
-        $criteria->add(ItemOptCodeNoteTableMap::COL_QNSEQ, $this->qnseq);
-        $criteria->add(ItemOptCodeNoteTableMap::COL_QNKEY2, $this->qnkey2);
-        $criteria->add(ItemOptCodeNoteTableMap::COL_QNFORM, $this->qnform);
+        $criteria = ChildInvOptCodeNoteQuery::create();
+        $criteria->add(InvOptCodeNoteTableMap::COL_QNOPTSYS, $this->qnoptsys);
+        $criteria->add(InvOptCodeNoteTableMap::COL_QNTYPE, $this->qntype);
+        $criteria->add(InvOptCodeNoteTableMap::COL_QNSEQ, $this->qnseq);
+        $criteria->add(InvOptCodeNoteTableMap::COL_QNKEY2, $this->qnkey2);
+        $criteria->add(InvOptCodeNoteTableMap::COL_QNFORM, $this->qnform);
 
         return $criteria;
     }
@@ -1568,7 +1568,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ItemOptCodeNote (or compatible) type.
+     * @param      object $copyObj An object of \InvOptCodeNote (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1600,7 +1600,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \ItemOptCodeNote Clone of current object.
+     * @return \InvOptCodeNote Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1617,7 +1617,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      * Declares an association between this object and a ChildItemMasterItem object.
      *
      * @param  ChildItemMasterItem $v
-     * @return $this|\ItemOptCodeNote The current object (for fluent API support)
+     * @return $this|\InvOptCodeNote The current object (for fluent API support)
      * @throws PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
@@ -1633,7 +1633,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
         if ($v !== null) {
-            $v->addItemOptCodeNote($this);
+            $v->addInvOptCodeNote($this);
         }
 
 
@@ -1657,7 +1657,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aItemMasterItem->addItemOptCodeNotes($this);
+                $this->aItemMasterItem->addInvOptCodeNotes($this);
              */
         }
 
@@ -1672,7 +1672,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
     public function clear()
     {
         if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeItemOptCodeNote($this);
+            $this->aItemMasterItem->removeInvOptCodeNote($this);
         }
         $this->qnoptsys = null;
         $this->qntype = null;
@@ -1716,7 +1716,7 @@ abstract class ItemOptCodeNote implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ItemOptCodeNoteTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(InvOptCodeNoteTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

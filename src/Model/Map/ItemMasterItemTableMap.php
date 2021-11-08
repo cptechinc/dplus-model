@@ -672,13 +672,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomerNotes', false);
-        $this->addRelation('ItemOptCodeNote', '\\ItemOptCodeNote', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('InvOptCodeNote', '\\InvOptCodeNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
-), null, null, 'ItemOptCodeNotes', false);
+), null, null, 'InvOptCodeNotes', false);
         $this->addRelation('ItemXrefVendorNoteDetail', '\\ItemXrefVendorNoteDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
