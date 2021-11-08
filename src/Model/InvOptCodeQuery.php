@@ -16,6 +16,6 @@ class InvOptCodeQuery extends BaseInvOptCodeQuery {
 	 * @return self|ItemMasterItemQuery          The current query, for fluid interface
 	 */
 	public function filterByItemid($itemID, $comparision = null) {
-		return $this->filterByInitItemId($itemID, $comparision);
+		return $this->filterByInitItemnbr($itemID, $comparision);
 	}
 }
