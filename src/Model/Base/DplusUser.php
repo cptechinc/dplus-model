@@ -5,6 +5,8 @@ namespace Base;
 use \DplusUserQuery as ChildDplusUserQuery;
 use \SysLoginGroup as ChildSysLoginGroup;
 use \SysLoginGroupQuery as ChildSysLoginGroupQuery;
+use \SysLoginRole as ChildSysLoginRole;
+use \SysLoginRoleQuery as ChildSysLoginRoleQuery;
 use \UserPermissionsItm as ChildUserPermissionsItm;
 use \UserPermissionsItmQuery as ChildUserPermissionsItmQuery;
 use \Exception;
@@ -368,6 +370,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * @var        ChildSysLoginGroup
      */
     protected $aSysLoginGroup;
+
+    /**
+     * @var        ChildSysLoginRole
+     */
+    protected $aSysLoginRole;
 
     /**
      * @var        ChildUserPermissionsItm one-to-one related ChildUserPermissionsItm object
@@ -1358,6 +1365,10 @@ abstract class DplusUser implements ActiveRecordInterface
             $this->modifiedColumns[DplusUserTableMap::COL_USRCLOGINROLE] = true;
         }
 
+        if ($this->aSysLoginRole !== null && $this->aSysLoginRole->getQtblrolecode() !== $v) {
+            $this->aSysLoginRole = null;
+        }
+
         return $this;
     } // setUsrcloginrole()
 
@@ -2098,6 +2109,9 @@ abstract class DplusUser implements ActiveRecordInterface
         if ($this->aSysLoginGroup !== null && $this->usrclogingroup !== $this->aSysLoginGroup->getQtbllgrpcode()) {
             $this->aSysLoginGroup = null;
         }
+        if ($this->aSysLoginRole !== null && $this->usrcloginrole !== $this->aSysLoginRole->getQtblrolecode()) {
+            $this->aSysLoginRole = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2138,6 +2152,7 @@ abstract class DplusUser implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aSysLoginGroup = null;
+            $this->aSysLoginRole = null;
             $this->singleUserPermissionsItm = null;
 
         } // if (deep)
@@ -2254,6 +2269,14 @@ abstract class DplusUser implements ActiveRecordInterface
                 }
                 $this->setSysLoginGroup($this->aSysLoginGroup);
             }
+
+            if ($this->aSysLoginRole !== null) {
+                if ($this->aSysLoginRole->isModified() || $this->aSysLoginRole->isNew()) {
+                    $affectedRows += $this->aSysLoginRole->save($con);
+                }
+                $this->setSysLoginRole($this->aSysLoginRole);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -2840,6 +2863,21 @@ abstract class DplusUser implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aSysLoginGroup->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aSysLoginRole) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'sysLoginRole';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'sys_login_role';
+                        break;
+                    default:
+                        $key = 'SysLoginRole';
+                }
+
+                $result[$key] = $this->aSysLoginRole->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->singleUserPermissionsItm) {
 
@@ -3564,6 +3602,57 @@ abstract class DplusUser implements ActiveRecordInterface
         return $this->aSysLoginGroup;
     }
 
+    /**
+     * Declares an association between this object and a ChildSysLoginRole object.
+     *
+     * @param  ChildSysLoginRole $v
+     * @return $this|\DplusUser The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSysLoginRole(ChildSysLoginRole $v = null)
+    {
+        if ($v === null) {
+            $this->setUsrcloginrole(NULL);
+        } else {
+            $this->setUsrcloginrole($v->getQtblrolecode());
+        }
+
+        $this->aSysLoginRole = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSysLoginRole object, it will not be re-added.
+        if ($v !== null) {
+            $v->addDplusUser($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSysLoginRole object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSysLoginRole The associated ChildSysLoginRole object.
+     * @throws PropelException
+     */
+    public function getSysLoginRole(ConnectionInterface $con = null)
+    {
+        if ($this->aSysLoginRole === null && (($this->usrcloginrole !== "" && $this->usrcloginrole !== null))) {
+            $this->aSysLoginRole = ChildSysLoginRoleQuery::create()->findPk($this->usrcloginrole, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSysLoginRole->addDplusUsers($this);
+             */
+        }
+
+        return $this->aSysLoginRole;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -3622,6 +3711,9 @@ abstract class DplusUser implements ActiveRecordInterface
     {
         if (null !== $this->aSysLoginGroup) {
             $this->aSysLoginGroup->removeDplusUser($this);
+        }
+        if (null !== $this->aSysLoginRole) {
+            $this->aSysLoginRole->removeDplusUser($this);
         }
         $this->usrcid = null;
         $this->usrcloginname = null;
@@ -3691,6 +3783,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
         $this->singleUserPermissionsItm = null;
         $this->aSysLoginGroup = null;
+        $this->aSysLoginRole = null;
     }
 
     /**

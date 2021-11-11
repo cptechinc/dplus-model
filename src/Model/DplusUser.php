@@ -8,6 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'sys_login' table.
  * AKA LOGM
+ * RELATIONSHIPS: SysLoginGroup, SysLoginRole
  */
 class DplusUser extends BaseDplusUser {
 	use ThrowErrorTrait;
@@ -51,7 +52,10 @@ class DplusUser extends BaseDplusUser {
 		'userwhsefirst' => 'usrcwhsedisplayseq',
 		'restrictaccess' => 'usrcrestrictaccess',
 		'date'         => 'dateupdtd',
-		'time'         => 'timeupdtd'
+		'time'         => 'timeupdtd',
+		// Foreign Key Relationships
+		'role'         => 'sysLoginRole',
+		'group'        => 'sysLoginGroup',
 	);
 
 	/**

@@ -125,6 +125,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUserQuery leftJoinWithSysLoginGroup() Adds a LEFT JOIN clause and with to the query using the SysLoginGroup relation
  * @method     ChildDplusUserQuery rightJoinWithSysLoginGroup() Adds a RIGHT JOIN clause and with to the query using the SysLoginGroup relation
  * @method     ChildDplusUserQuery innerJoinWithSysLoginGroup() Adds a INNER JOIN clause and with to the query using the SysLoginGroup relation
+ *
+ * @method     ChildDplusUserQuery leftJoinSysLoginRole($relationAlias = null) Adds a LEFT JOIN clause to the query using the SysLoginRole relation
+ * @method     ChildDplusUserQuery rightJoinSysLoginRole($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SysLoginRole relation
+ * @method     ChildDplusUserQuery innerJoinSysLoginRole($relationAlias = null) Adds a INNER JOIN clause to the query using the SysLoginRole relation
+ *
+ * @method     ChildDplusUserQuery joinWithSysLoginRole($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SysLoginRole relation
+ *
+ * @method     ChildDplusUserQuery leftJoinWithSysLoginRole() Adds a LEFT JOIN clause and with to the query using the SysLoginRole relation
+ * @method     ChildDplusUserQuery rightJoinWithSysLoginRole() Adds a RIGHT JOIN clause and with to the query using the SysLoginRole relation
+ * @method     ChildDplusUserQuery innerJoinWithSysLoginRole() Adds a INNER JOIN clause and with to the query using the SysLoginRole relation
+ *
  * @method     ChildDplusUserQuery leftJoinUserPermissionsItm($relationAlias = null) Adds a LEFT JOIN clause to the query using the UserPermissionsItm relation
  * @method     ChildDplusUserQuery rightJoinUserPermissionsItm($relationAlias = null) Adds a RIGHT JOIN clause to the query using the UserPermissionsItm relation
  * @method     ChildDplusUserQuery innerJoinUserPermissionsItm($relationAlias = null) Adds a INNER JOIN clause to the query using the UserPermissionsItm relation
@@ -135,7 +146,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUserQuery rightJoinWithUserPermissionsItm() Adds a RIGHT JOIN clause and with to the query using the UserPermissionsItm relation
  * @method     ChildDplusUserQuery innerJoinWithUserPermissionsItm() Adds a INNER JOIN clause and with to the query using the UserPermissionsItm relation
  *
- * @method     \UserPermissionsItmQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \SysLoginGroupQuery|\SysLoginRoleQuery|\UserPermissionsItmQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildDplusUser findOne(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query
  * @method     ChildDplusUser findOneOrCreate(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query, or a new ChildDplusUser object populated from the query conditions when no match is found
@@ -1614,6 +1625,84 @@ abstract class DplusUserQuery extends ModelCriteria
             ->joinSysLoginGroup($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SysLoginGroup', '\SysLoginGroupQuery');
     }
+
+    /**
+     * Filter the query by a related \SysLoginRole object
+     *
+     * @param \SysLoginRole|ObjectCollection $sysLoginRole The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function filterBySysLoginRole($sysLoginRole, $comparison = null)
+    {
+        if ($sysLoginRole instanceof \SysLoginRole) {
+            return $this
+                ->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $sysLoginRole->getQtblrolecode(), $comparison);
+        } elseif ($sysLoginRole instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(DplusUserTableMap::COL_USRCLOGINROLE, $sysLoginRole->toKeyValue('PrimaryKey', 'Qtblrolecode'), $comparison);
+        } else {
+            throw new PropelException('filterBySysLoginRole() only accepts arguments of type \SysLoginRole or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SysLoginRole relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function joinSysLoginRole($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SysLoginRole');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SysLoginRole');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SysLoginRole relation SysLoginRole object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SysLoginRoleQuery A secondary query class using the current class as primary query
+     */
+    public function useSysLoginRoleQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinSysLoginRole($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SysLoginRole', '\SysLoginRoleQuery');
+    }
+
     /**
      * Filter the query by a related \UserPermissionsItm object
      *
