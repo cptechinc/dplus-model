@@ -158,6 +158,13 @@ class SysLoginGroupTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('DplusUser', '\\DplusUser', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':UsrcLoginGroup',
+    1 => ':QtblLgrpCode',
+  ),
+), null, null, 'DplusUsers', false);
     } // buildRelations()
 
     /**

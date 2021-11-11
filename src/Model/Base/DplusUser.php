@@ -3,6 +3,8 @@
 namespace Base;
 
 use \DplusUserQuery as ChildDplusUserQuery;
+use \SysLoginGroup as ChildSysLoginGroup;
+use \SysLoginGroupQuery as ChildSysLoginGroupQuery;
 use \UserPermissionsItm as ChildUserPermissionsItm;
 use \UserPermissionsItmQuery as ChildUserPermissionsItmQuery;
 use \Exception;
@@ -361,6 +363,11 @@ abstract class DplusUser implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildSysLoginGroup
+     */
+    protected $aSysLoginGroup;
 
     /**
      * @var        ChildUserPermissionsItm one-to-one related ChildUserPermissionsItm object
@@ -1327,6 +1334,10 @@ abstract class DplusUser implements ActiveRecordInterface
             $this->modifiedColumns[DplusUserTableMap::COL_USRCLOGINGROUP] = true;
         }
 
+        if ($this->aSysLoginGroup !== null && $this->aSysLoginGroup->getQtbllgrpcode() !== $v) {
+            $this->aSysLoginGroup = null;
+        }
+
         return $this;
     } // setUsrclogingroup()
 
@@ -2084,6 +2095,9 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aSysLoginGroup !== null && $this->usrclogingroup !== $this->aSysLoginGroup->getQtbllgrpcode()) {
+            $this->aSysLoginGroup = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2123,6 +2137,7 @@ abstract class DplusUser implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aSysLoginGroup = null;
             $this->singleUserPermissionsItm = null;
 
         } // if (deep)
@@ -2228,6 +2243,17 @@ abstract class DplusUser implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aSysLoginGroup !== null) {
+                if ($this->aSysLoginGroup->isModified() || $this->aSysLoginGroup->isNew()) {
+                    $affectedRows += $this->aSysLoginGroup->save($con);
+                }
+                $this->setSysLoginGroup($this->aSysLoginGroup);
+            }
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -2800,6 +2826,21 @@ abstract class DplusUser implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aSysLoginGroup) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'sysLoginGroup';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'sys_login_group';
+                        break;
+                    default:
+                        $key = 'SysLoginGroup';
+                }
+
+                $result[$key] = $this->aSysLoginGroup->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->singleUserPermissionsItm) {
 
                 switch ($keyType) {
@@ -3472,6 +3513,57 @@ abstract class DplusUser implements ActiveRecordInterface
         return $copyObj;
     }
 
+    /**
+     * Declares an association between this object and a ChildSysLoginGroup object.
+     *
+     * @param  ChildSysLoginGroup $v
+     * @return $this|\DplusUser The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSysLoginGroup(ChildSysLoginGroup $v = null)
+    {
+        if ($v === null) {
+            $this->setUsrclogingroup(NULL);
+        } else {
+            $this->setUsrclogingroup($v->getQtbllgrpcode());
+        }
+
+        $this->aSysLoginGroup = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSysLoginGroup object, it will not be re-added.
+        if ($v !== null) {
+            $v->addDplusUser($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSysLoginGroup object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSysLoginGroup The associated ChildSysLoginGroup object.
+     * @throws PropelException
+     */
+    public function getSysLoginGroup(ConnectionInterface $con = null)
+    {
+        if ($this->aSysLoginGroup === null && (($this->usrclogingroup !== "" && $this->usrclogingroup !== null))) {
+            $this->aSysLoginGroup = ChildSysLoginGroupQuery::create()->findPk($this->usrclogingroup, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSysLoginGroup->addDplusUsers($this);
+             */
+        }
+
+        return $this->aSysLoginGroup;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -3528,6 +3620,9 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aSysLoginGroup) {
+            $this->aSysLoginGroup->removeDplusUser($this);
+        }
         $this->usrcid = null;
         $this->usrcloginname = null;
         $this->intbwhse = null;
@@ -3595,6 +3690,7 @@ abstract class DplusUser implements ActiveRecordInterface
         } // if ($deep)
 
         $this->singleUserPermissionsItm = null;
+        $this->aSysLoginGroup = null;
     }
 
     /**

@@ -10,6 +10,7 @@ use Map\SysLoginGroupTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -38,6 +39,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSysLoginGroupQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildSysLoginGroupQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSysLoginGroupQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildSysLoginGroupQuery leftJoinDplusUser($relationAlias = null) Adds a LEFT JOIN clause to the query using the DplusUser relation
+ * @method     ChildSysLoginGroupQuery rightJoinDplusUser($relationAlias = null) Adds a RIGHT JOIN clause to the query using the DplusUser relation
+ * @method     ChildSysLoginGroupQuery innerJoinDplusUser($relationAlias = null) Adds a INNER JOIN clause to the query using the DplusUser relation
+ *
+ * @method     ChildSysLoginGroupQuery joinWithDplusUser($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the DplusUser relation
+ *
+ * @method     ChildSysLoginGroupQuery leftJoinWithDplusUser() Adds a LEFT JOIN clause and with to the query using the DplusUser relation
+ * @method     ChildSysLoginGroupQuery rightJoinWithDplusUser() Adds a RIGHT JOIN clause and with to the query using the DplusUser relation
+ * @method     ChildSysLoginGroupQuery innerJoinWithDplusUser() Adds a INNER JOIN clause and with to the query using the DplusUser relation
+ *
+ * @method     \DplusUserQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSysLoginGroup findOne(ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query
  * @method     ChildSysLoginGroup findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSysLoginGroup matching the query, or a new ChildSysLoginGroup object populated from the query conditions when no match is found
@@ -374,6 +387,79 @@ abstract class SysLoginGroupQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SysLoginGroupTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \DplusUser object
+     *
+     * @param \DplusUser|ObjectCollection $dplusUser the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSysLoginGroupQuery The current query, for fluid interface
+     */
+    public function filterByDplusUser($dplusUser, $comparison = null)
+    {
+        if ($dplusUser instanceof \DplusUser) {
+            return $this
+                ->addUsingAlias(SysLoginGroupTableMap::COL_QTBLLGRPCODE, $dplusUser->getUsrclogingroup(), $comparison);
+        } elseif ($dplusUser instanceof ObjectCollection) {
+            return $this
+                ->useDplusUserQuery()
+                ->filterByPrimaryKeys($dplusUser->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByDplusUser() only accepts arguments of type \DplusUser or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the DplusUser relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSysLoginGroupQuery The current query, for fluid interface
+     */
+    public function joinDplusUser($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('DplusUser');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'DplusUser');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the DplusUser relation DplusUser object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \DplusUserQuery A secondary query class using the current class as primary query
+     */
+    public function useDplusUserQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinDplusUser($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'DplusUser', '\DplusUserQuery');
     }
 
     /**

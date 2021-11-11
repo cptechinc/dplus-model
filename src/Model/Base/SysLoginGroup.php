@@ -2,15 +2,20 @@
 
 namespace Base;
 
+use \DplusUser as ChildDplusUser;
+use \DplusUserQuery as ChildDplusUserQuery;
+use \SysLoginGroup as ChildSysLoginGroup;
 use \SysLoginGroupQuery as ChildSysLoginGroupQuery;
 use \Exception;
 use \PDO;
+use Map\DplusUserTableMap;
 use Map\SysLoginGroupTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -95,12 +100,24 @@ abstract class SysLoginGroup implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildDplusUser[] Collection to store aggregation of ChildDplusUser objects.
+     */
+    protected $collDplusUsers;
+    protected $collDplusUsersPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildDplusUser[]
+     */
+    protected $dplusUsersScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\SysLoginGroup object.
@@ -596,6 +613,8 @@ abstract class SysLoginGroup implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collDplusUsers = null;
+
         } // if (deep)
     }
 
@@ -708,6 +727,24 @@ abstract class SysLoginGroup implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->dplusUsersScheduledForDeletion !== null) {
+                if (!$this->dplusUsersScheduledForDeletion->isEmpty()) {
+                    foreach ($this->dplusUsersScheduledForDeletion as $dplusUser) {
+                        // need to save related object because we set the relation to null
+                        $dplusUser->save($con);
+                    }
+                    $this->dplusUsersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collDplusUsers !== null) {
+                foreach ($this->collDplusUsers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -860,10 +897,11 @@ abstract class SysLoginGroup implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['SysLoginGroup'][$this->hashCode()])) {
@@ -883,6 +921,23 @@ abstract class SysLoginGroup implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->collDplusUsers) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'dplusUsers';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'sys_logins';
+                        break;
+                    default:
+                        $key = 'DplusUsers';
+                }
+
+                $result[$key] = $this->collDplusUsers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+        }
 
         return $result;
     }
@@ -1119,6 +1174,20 @@ abstract class SysLoginGroup implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getDplusUsers() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addDplusUser($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1144,6 +1213,273 @@ abstract class SysLoginGroup implements ActiveRecordInterface
         $this->copyInto($copyObj, $deepCopy);
 
         return $copyObj;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('DplusUser' == $relationName) {
+            $this->initDplusUsers();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collDplusUsers collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addDplusUsers()
+     */
+    public function clearDplusUsers()
+    {
+        $this->collDplusUsers = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collDplusUsers collection loaded partially.
+     */
+    public function resetPartialDplusUsers($v = true)
+    {
+        $this->collDplusUsersPartial = $v;
+    }
+
+    /**
+     * Initializes the collDplusUsers collection.
+     *
+     * By default this just sets the collDplusUsers collection to an empty array (like clearcollDplusUsers());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initDplusUsers($overrideExisting = true)
+    {
+        if (null !== $this->collDplusUsers && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = DplusUserTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collDplusUsers = new $collectionClassName;
+        $this->collDplusUsers->setModel('\DplusUser');
+    }
+
+    /**
+     * Gets an array of ChildDplusUser objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildSysLoginGroup is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildDplusUser[] List of ChildDplusUser objects
+     * @throws PropelException
+     */
+    public function getDplusUsers(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collDplusUsersPartial && !$this->isNew();
+        if (null === $this->collDplusUsers || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collDplusUsers) {
+                // return empty collection
+                $this->initDplusUsers();
+            } else {
+                $collDplusUsers = ChildDplusUserQuery::create(null, $criteria)
+                    ->filterBySysLoginGroup($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collDplusUsersPartial && count($collDplusUsers)) {
+                        $this->initDplusUsers(false);
+
+                        foreach ($collDplusUsers as $obj) {
+                            if (false == $this->collDplusUsers->contains($obj)) {
+                                $this->collDplusUsers->append($obj);
+                            }
+                        }
+
+                        $this->collDplusUsersPartial = true;
+                    }
+
+                    return $collDplusUsers;
+                }
+
+                if ($partial && $this->collDplusUsers) {
+                    foreach ($this->collDplusUsers as $obj) {
+                        if ($obj->isNew()) {
+                            $collDplusUsers[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collDplusUsers = $collDplusUsers;
+                $this->collDplusUsersPartial = false;
+            }
+        }
+
+        return $this->collDplusUsers;
+    }
+
+    /**
+     * Sets a collection of ChildDplusUser objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $dplusUsers A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildSysLoginGroup The current object (for fluent API support)
+     */
+    public function setDplusUsers(Collection $dplusUsers, ConnectionInterface $con = null)
+    {
+        /** @var ChildDplusUser[] $dplusUsersToDelete */
+        $dplusUsersToDelete = $this->getDplusUsers(new Criteria(), $con)->diff($dplusUsers);
+
+
+        $this->dplusUsersScheduledForDeletion = $dplusUsersToDelete;
+
+        foreach ($dplusUsersToDelete as $dplusUserRemoved) {
+            $dplusUserRemoved->setSysLoginGroup(null);
+        }
+
+        $this->collDplusUsers = null;
+        foreach ($dplusUsers as $dplusUser) {
+            $this->addDplusUser($dplusUser);
+        }
+
+        $this->collDplusUsers = $dplusUsers;
+        $this->collDplusUsersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related DplusUser objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related DplusUser objects.
+     * @throws PropelException
+     */
+    public function countDplusUsers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collDplusUsersPartial && !$this->isNew();
+        if (null === $this->collDplusUsers || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collDplusUsers) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getDplusUsers());
+            }
+
+            $query = ChildDplusUserQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterBySysLoginGroup($this)
+                ->count($con);
+        }
+
+        return count($this->collDplusUsers);
+    }
+
+    /**
+     * Method called to associate a ChildDplusUser object to this object
+     * through the ChildDplusUser foreign key attribute.
+     *
+     * @param  ChildDplusUser $l ChildDplusUser
+     * @return $this|\SysLoginGroup The current object (for fluent API support)
+     */
+    public function addDplusUser(ChildDplusUser $l)
+    {
+        if ($this->collDplusUsers === null) {
+            $this->initDplusUsers();
+            $this->collDplusUsersPartial = true;
+        }
+
+        if (!$this->collDplusUsers->contains($l)) {
+            $this->doAddDplusUser($l);
+
+            if ($this->dplusUsersScheduledForDeletion and $this->dplusUsersScheduledForDeletion->contains($l)) {
+                $this->dplusUsersScheduledForDeletion->remove($this->dplusUsersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildDplusUser $dplusUser The ChildDplusUser object to add.
+     */
+    protected function doAddDplusUser(ChildDplusUser $dplusUser)
+    {
+        $this->collDplusUsers[]= $dplusUser;
+        $dplusUser->setSysLoginGroup($this);
+    }
+
+    /**
+     * @param  ChildDplusUser $dplusUser The ChildDplusUser object to remove.
+     * @return $this|ChildSysLoginGroup The current object (for fluent API support)
+     */
+    public function removeDplusUser(ChildDplusUser $dplusUser)
+    {
+        if ($this->getDplusUsers()->contains($dplusUser)) {
+            $pos = $this->collDplusUsers->search($dplusUser);
+            $this->collDplusUsers->remove($pos);
+            if (null === $this->dplusUsersScheduledForDeletion) {
+                $this->dplusUsersScheduledForDeletion = clone $this->collDplusUsers;
+                $this->dplusUsersScheduledForDeletion->clear();
+            }
+            $this->dplusUsersScheduledForDeletion[]= $dplusUser;
+            $dplusUser->setSysLoginGroup(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this SysLoginGroup is new, it will return
+     * an empty collection; or if this SysLoginGroup has previously
+     * been saved, it will retrieve related DplusUsers from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in SysLoginGroup.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildDplusUser[] List of ChildDplusUser objects
+     */
+    public function getDplusUsersJoinSysLoginRole(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildDplusUserQuery::create(null, $criteria);
+        $query->joinWith('SysLoginRole', $joinBehavior);
+
+        return $this->getDplusUsers($query, $con);
     }
 
     /**
@@ -1176,8 +1512,14 @@ abstract class SysLoginGroup implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collDplusUsers) {
+                foreach ($this->collDplusUsers as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collDplusUsers = null;
     }
 
     /**

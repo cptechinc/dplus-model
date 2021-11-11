@@ -350,8 +350,8 @@ class DplusUserTableMap extends TableMap
         $this->addColumn('UsrcWhseDisplaySeq', 'Usrcwhsedisplayseq', 'VARCHAR', false, 1, null);
         $this->addColumn('UsrcActiveItemsOnly', 'Usrcactiveitemsonly', 'VARCHAR', false, 1, null);
         $this->addColumn('UsrcRestrictAccess', 'Usrcrestrictaccess', 'VARCHAR', false, 1, null);
-        $this->addColumn('UsrcLoginGroup', 'Usrclogingroup', 'VARCHAR', false, 8, null);
         $this->addColumn('UsrcLoginRole', 'Usrcloginrole', 'VARCHAR', false, 6, null);
+        $this->addForeignKey('UsrcLoginGroup', 'Usrclogingroup', 'VARCHAR', 'sys_login_group', 'QtblLgrpCode', false, 8, null);
         $this->addColumn('UsrcAllowProcRemoval', 'Usrcallowprocremoval', 'VARCHAR', false, 1, null);
         $this->addColumn('UsrcAcAllowWarrEdit', 'Usrcacallowwarredit', 'VARCHAR', false, 1, null);
         $this->addColumn('UsrcIsProdMgr', 'Usrcisprodmgr', 'VARCHAR', false, 1, null);
@@ -386,6 +386,12 @@ class DplusUserTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SysLoginGroup', '\\SysLoginGroup', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':UsrcLoginGroup',
+    1 => ':QtblLgrpCode',
+  ),
         $this->addRelation('UserPermissionsItm', '\\UserPermissionsItm', RelationMap::ONE_TO_ONE, array (
   0 =>
   array (
