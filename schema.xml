@@ -4992,16 +4992,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="sys_login_group" idMethod="native" phpName="SysLoginGroup">
-    <column name="QtblLgrpCode" phpName="Qtbllgrpcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
-    <column name="QtblLgrpDesc" phpName="Qtbllgrpdesc" type="VARCHAR" size="40"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
-    <vendor type="mysql">
-      <parameter name="Engine" value="InnoDB"/>
-    </vendor>
-  </table>
+  
   <table name="sys_login" idMethod="native" phpName="DplusUser">
     <column name="UsrcId" phpName="Usrcid" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="UsrcLoginName" phpName="Usrcloginname" type="VARCHAR" size="20"/>
@@ -5043,6 +5034,16 @@
     <column name="UsrcScaleDevNbr" phpName="Usrcscaledevnbr" type="VARCHAR" size="2"/>
     <column name="UsrcCcscanWhseId" phpName="Usrcccscanwhseid" type="VARCHAR" size="2"/>
     <column name="UsrcCcscanDevNbr" phpName="Usrcccscandevnbr" type="VARCHAR" size="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="sys_login_group" idMethod="native" phpName="SysLoginGroup">
+    <column name="QtblLgrpCode" phpName="Qtbllgrpcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
+    <column name="QtblLgrpDesc" phpName="Qtbllgrpdesc" type="VARCHAR" size="40"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
