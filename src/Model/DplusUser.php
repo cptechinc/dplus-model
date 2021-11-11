@@ -37,14 +37,19 @@ class DplusUser extends BaseDplusUser {
 		'userid'       => 'usrcid',
 		'name'         => 'usrcloginname',
 		'whseid'       => 'intbwhse',
-		'group'        => 'usrclogingroup',
-		'role'         => 'usrcloginrole',
+		'groupid'      => 'usrclogingroup',
+		'roleid'       => 'usrcloginrole',
 		'email'        => 'usrcemailaddr',
 		'activeitemsonly' => 'usrcactiveitemsonly',
 		'admin'        => 'usrcadmin',
 		'storefront'   => 'usrcfront',
 		'citydesk'     => 'usrccitydesk',
 		'reportadmin'  => 'usrcreptadmin',
+		'companyid'    => 'usrcdefcmpy',
+		'printerbrowse' => 'usrcbrowseprinter',
+		'printerreport' => 'usrcprinter',
+		'userwhsefirst' => 'usrcwhsedisplayseq',
+		'restrictaccess' => 'usrcrestrictaccess',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
 	);
@@ -90,10 +95,35 @@ class DplusUser extends BaseDplusUser {
 	}
 
 	/**
+	 * Return if User's Whse should be displayed first
+	 * @return bool
+	 */
+	public function displayUserWhseFirst() {
+		return $this->userwhsefirst == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if Only Active Items should be shown for ITEMID GET
+	 * @return bool
+	 */
+	public function displayActiveItemsOnly() {
+		return $this->activeitemsonly == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User Access should be restricted
+	 * @return bool
+	 */
+	public function restrictAccess() {
+		return $this->restrictaccess == self::YN_TRUE;
+	}
+
+	/**
 	 * Return Warehouse for User
 	 * @return Warehouse
 	 */
 	public function getWhse() {
 		return WarehouseQuery::create()->findOneById($this->whseid);
 	}
+
 }
