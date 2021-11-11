@@ -23,4 +23,24 @@ use Dplus\Model\QueryTraits;
  */
 class MsaSysopCodeQuery extends BaseMsaSysopCodeQuery {
 	use QueryTraits;
+
+	/**
+	 * Return the Query filtered by the Optncode
+	 * @param  string $id          Sysop Code ID
+	 * @param string  $comparison
+	 * @return void
+	 */
+	public function filterById($id = null, $comparison = null) {
+		return $this->filterByOptncode($id, $comparison);
+	}
+
+	/**
+	 * Return the Query filtered by the Optncode
+	 * @param  string $id          Sysop Code ID
+	 * @param string  $comparison
+	 * @return void
+	 */
+	public function filterByCode($id = null, $comparison = null) {
+		return $this->filterByOptncode($id, $comparison);
+	}
 }

@@ -57,11 +57,35 @@ class MsaSysopCode extends BaseMsaSysopCode {
 		return self::MAX_LENGTH_CODE;
 	}
 
+	/**
+	 * Return if Code Needs to be Validated
+	 * @return bool
+	 */
 	public function validate() {
 		return strtoupper($this->validate) == self::YN_TRUE;
 	}
 
+	/**
+	 * Return if Code Needs to be forced
+	 * @return bool
+	 */
 	public function force() {
 		return strtoupper($this->force) == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if Code is a Note
+	 * @return bool
+	 */
+	public function isNote() {
+		return empty($this->notecode) === false;
+	}
+
+	/**
+	 * Return if Code is for Filenames
+	 * @return bool
+	 */
+	public function isFilename() {
+		return strtoupper($this->filename) == self::YN_TRUE;;
 	}
 }
