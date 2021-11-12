@@ -51,6 +51,7 @@ class DplusUser extends BaseDplusUser {
 		'printerreport' => 'usrcprinter',
 		'userwhsefirst' => 'usrcwhsedisplayseq',
 		'restrictaccess' => 'usrcrestrictaccess',
+		'allowprocessdelete' => 'usrcallowprocremoval',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 		// Foreign Key Relationships
@@ -120,6 +121,14 @@ class DplusUser extends BaseDplusUser {
 	 */
 	public function restrictAccess() {
 		return $this->restrictaccess == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if User is allowed to delete process
+	 * @return bool
+	 */
+	public function allowProcessDelete() {
+		return $this->allowprocessdelete == self::YN_TRUE;
 	}
 
 	/**

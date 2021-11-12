@@ -18,6 +18,7 @@ class SysLoginRole extends BaseSysLoginRole {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'           => 'qtblrolecode',
+		'code'         => 'qtblrolecode',
 		'description'  => 'qtblroledesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
