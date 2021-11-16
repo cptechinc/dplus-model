@@ -511,7 +511,6 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Map\\BookingSummaryRepTableMap' => __DIR__ . '/../..' . '/src/Model/Map/BookingSummaryRepTableMap.php',
         'Map\\BookingTableMap' => __DIR__ . '/../..' . '/src/Model/Map/BookingTableMap.php',
         'Map\\ConfigApTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ConfigApTableMap.php',
-        'Map\\ConfigAppTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ConfigAppTableMap.php',
         'Map\\ConfigArTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ConfigArTableMap.php',
         'Map\\ConfigCcTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ConfigCcTableMap.php',
         'Map\\ConfigCiTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ConfigCiTableMap.php',

@@ -510,7 +510,6 @@ return array(
     'Map\\BookingSummaryRepTableMap' => $baseDir . '/src/Model/Map/BookingSummaryRepTableMap.php',
     'Map\\BookingTableMap' => $baseDir . '/src/Model/Map/BookingTableMap.php',
     'Map\\ConfigApTableMap' => $baseDir . '/src/Model/Map/ConfigApTableMap.php',
-    'Map\\ConfigAppTableMap' => $baseDir . '/src/Model/Map/ConfigAppTableMap.php',
     'Map\\ConfigArTableMap' => $baseDir . '/src/Model/Map/ConfigArTableMap.php',
     'Map\\ConfigCcTableMap' => $baseDir . '/src/Model/Map/ConfigCcTableMap.php',
     'Map\\ConfigCiTableMap' => $baseDir . '/src/Model/Map/ConfigCiTableMap.php',
