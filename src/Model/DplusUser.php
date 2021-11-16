@@ -16,6 +16,7 @@ class DplusUser extends BaseDplusUser {
 
 	const LENGTH_USERID = 8;
 	const YN_TRUE = 'Y';
+	const NOTIFY_TRUE = 'X';
 
 	const ROLES = [
 		'ACCTG'  => 'accounting',
@@ -27,6 +28,12 @@ class DplusUser extends BaseDplusUser {
 		'SLSMGR' => 'sales manager',
 		'WHSE'   => 'warehouse',
 		'WHSMGR' => 'warehouse manager',
+	];
+
+	const SENDTIMES = [
+		'N' => 'Now',
+		'O' => 'Off Peak',
+		'A' => 'At Date/Time'
 	];
 
 	/**
@@ -52,8 +59,25 @@ class DplusUser extends BaseDplusUser {
 		'userwhsefirst' => 'usrcwhsedisplayseq',
 		'restrictaccess' => 'usrcrestrictaccess',
 		'allowprocessdelete' => 'usrcallowprocremoval',
+		'password'     => 'usrcpswd',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
+		// Fax Fields
+		'faxname'    => 'usrcfaxname',
+		'faxcompany' => 'usrcfaxcompany',
+		'faxarea'    => 'usrcfaxarea',
+		'faxfirst3'  => 'usrcfaxfrst3',
+		'faxlast4'   => 'usrcfaxlast4',
+		// Phone Fields
+		'phonearea'    => 'usrcphonearea',
+		'phonefirst3'  => 'usrcphonefrst3',
+		'phonelast4'   => 'usrcphonelast4',
+		'phoneext'     => 'usrcphoneext',
+		'coversheet'   => 'usrccoversheet',
+		'faxsubject'   => 'usrcsubject',
+		'notifysuccess' => 'usrcnotifys',
+		'notifyfailure' => 'usrcnotifyf',
+		'sendtime'      => 'usrcsendtime',
 		// Foreign Key Relationships
 		'role'         => 'sysLoginRole',
 		'group'        => 'sysLoginGroup',
@@ -139,4 +163,37 @@ class DplusUser extends BaseDplusUser {
 		return WarehouseQuery::create()->findOneById($this->whseid);
 	}
 
+	/**
+	 * Return if User should be Notified on Fax Success
+	 * @return bool
+	 */
+	public function notifySuccess() {
+		return $this->notifysuccess == self::NOTIFY_TRUE;
+	}
+
+	/**
+	 * Return if User should be Notified on Fax Failure
+	 * @return bool
+	 */
+	public function notifyFailure() {
+		return $this->notifyfailure == self::NOTIFY_TRUE;
+	}
+
+	/**
+	 * Return Fax
+	 * @param string $glue
+	 * @return string
+	 */
+	public function fax($glue = '') {
+		return implode($glue, [$this->faxarea, $this->faxfirst3, $this->faxlast4]);
+	}
+
+	/**
+	 * Return Phone
+	 * @param string $glue
+	 * @return string
+	 */
+	public function phone($glue = '') {
+		return implode($glue, [$this->phonearea, $this->phonefirst3, $this->phonelast4]);
+	}
 }
