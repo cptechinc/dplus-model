@@ -4955,7 +4955,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="sys_definition" idMethod="native" phpName="SystemDefinition">
+  <table name="sys_definition" idMethod="native" phpName="ConfigSysd">
     <column name="CscpCompNbr" phpName="Cscpcompnbr" type="INTEGER" size="2" primaryKey="true" required="true"/>
     <column name="CscpCompId" phpName="Cscpcompid" type="VARCHAR" size="4"/>
     <column name="CscpCompName" phpName="Cscpcompname" type="VARCHAR" size="30"/>

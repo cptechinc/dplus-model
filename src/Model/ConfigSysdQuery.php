@@ -1,12 +1,12 @@
 <?php
 
-use Base\SystemDefinitionQuery as BaseSystemDefinitionQuery;
+use Base\ConfigSysdQuery as BaseConfigSysdQuery;
 
 use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'sys_definition' table.
  */
-class SystemDefinitionQuery extends BaseSystemDefinitionQuery {
+class ConfigSysdQuery extends BaseConfigSysdQuery {
 	use Dplus\Model\QueryTraits;
 }

@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \SystemDefinitionQuery as ChildSystemDefinitionQuery;
+use \ConfigSysdQuery as ChildConfigSysdQuery;
 use \Exception;
 use \PDO;
-use Map\SystemDefinitionTableMap;
+use Map\ConfigSysdTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class SystemDefinition implements ActiveRecordInterface
+abstract class ConfigSysd implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\SystemDefinitionTableMap';
+    const TABLE_MAP = '\\Map\\ConfigSysdTableMap';
 
 
     /**
@@ -292,7 +292,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\SystemDefinition object.
+     * Initializes internal state of Base\ConfigSysd object.
      */
     public function __construct()
     {
@@ -387,9 +387,9 @@ abstract class SystemDefinition implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>SystemDefinition</code> instance.  If
-     * <code>obj</code> is an instance of <code>SystemDefinition</code>, delegates to
-     * <code>equals(SystemDefinition)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ConfigSysd</code> instance.  If
+     * <code>obj</code> is an instance of <code>ConfigSysd</code>, delegates to
+     * <code>equals(ConfigSysd)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -455,7 +455,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|SystemDefinition The current object, for fluid interface
+     * @return $this|ConfigSysd The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -840,7 +840,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpcompnbr] column.
      *
      * @param int $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpcompnbr($v)
     {
@@ -850,7 +850,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpcompnbr !== $v) {
             $this->cscpcompnbr = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPCOMPNBR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPCOMPNBR] = true;
         }
 
         return $this;
@@ -860,7 +860,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpcompid] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpcompid($v)
     {
@@ -870,7 +870,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpcompid !== $v) {
             $this->cscpcompid = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPCOMPID] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPCOMPID] = true;
         }
 
         return $this;
@@ -880,7 +880,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpcompname] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpcompname($v)
     {
@@ -890,7 +890,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpcompname !== $v) {
             $this->cscpcompname = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPCOMPNAME] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPCOMPNAME] = true;
         }
 
         return $this;
@@ -900,7 +900,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpdspermission] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpdspermission($v)
     {
@@ -910,7 +910,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpdspermission !== $v) {
             $this->cscpdspermission = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPDSPERMISSION] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPDSPERMISSION] = true;
         }
 
         return $this;
@@ -920,7 +920,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscprapermission] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscprapermission($v)
     {
@@ -930,7 +930,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscprapermission !== $v) {
             $this->cscprapermission = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPRAPERMISSION] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPRAPERMISSION] = true;
         }
 
         return $this;
@@ -940,7 +940,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpsrppermission] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpsrppermission($v)
     {
@@ -950,7 +950,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpsrppermission !== $v) {
             $this->cscpsrppermission = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPSRPPERMISSION] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPSRPPERMISSION] = true;
         }
 
         return $this;
@@ -960,7 +960,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpemailtype] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpemailtype($v)
     {
@@ -970,7 +970,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpemailtype !== $v) {
             $this->cscpemailtype = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPEMAILTYPE] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPEMAILTYPE] = true;
         }
 
         return $this;
@@ -980,7 +980,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpfaxdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpfaxdir($v)
     {
@@ -990,7 +990,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpfaxdir !== $v) {
             $this->cscpfaxdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPFAXDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPFAXDIR] = true;
         }
 
         return $this;
@@ -1000,7 +1000,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpprgdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpprgdir($v)
     {
@@ -1010,7 +1010,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpprgdir !== $v) {
             $this->cscpprgdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPPRGDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPPRGDIR] = true;
         }
 
         return $this;
@@ -1020,7 +1020,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpfile1dir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpfile1dir($v)
     {
@@ -1030,7 +1030,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpfile1dir !== $v) {
             $this->cscpfile1dir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPFILE1DIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPFILE1DIR] = true;
         }
 
         return $this;
@@ -1040,7 +1040,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpfile2dir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpfile2dir($v)
     {
@@ -1050,7 +1050,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpfile2dir !== $v) {
             $this->cscpfile2dir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPFILE2DIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPFILE2DIR] = true;
         }
 
         return $this;
@@ -1060,7 +1060,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpfile3dir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpfile3dir($v)
     {
@@ -1070,7 +1070,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpfile3dir !== $v) {
             $this->cscpfile3dir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPFILE3DIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPFILE3DIR] = true;
         }
 
         return $this;
@@ -1080,7 +1080,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscptempdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscptempdir($v)
     {
@@ -1090,7 +1090,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscptempdir !== $v) {
             $this->cscptempdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPTEMPDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPTEMPDIR] = true;
         }
 
         return $this;
@@ -1100,7 +1100,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpworkdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpworkdir($v)
     {
@@ -1110,7 +1110,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpworkdir !== $v) {
             $this->cscpworkdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPWORKDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPWORKDIR] = true;
         }
 
         return $this;
@@ -1120,7 +1120,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpreptarchdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpreptarchdir($v)
     {
@@ -1130,7 +1130,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpreptarchdir !== $v) {
             $this->cscpreptarchdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPREPTARCHDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPREPTARCHDIR] = true;
         }
 
         return $this;
@@ -1140,7 +1140,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpdocinboxdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpdocinboxdir($v)
     {
@@ -1150,7 +1150,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpdocinboxdir !== $v) {
             $this->cscpdocinboxdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPDOCINBOXDIR] = true;
         }
 
         return $this;
@@ -1160,7 +1160,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpdocautodir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpdocautodir($v)
     {
@@ -1170,7 +1170,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpdocautodir !== $v) {
             $this->cscpdocautodir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPDOCAUTODIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPDOCAUTODIR] = true;
         }
 
         return $this;
@@ -1180,7 +1180,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpcertsdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpcertsdir($v)
     {
@@ -1190,7 +1190,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpcertsdir !== $v) {
             $this->cscpcertsdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPCERTSDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPCERTSDIR] = true;
         }
 
         return $this;
@@ -1200,7 +1200,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpimgproduct] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpimgproduct($v)
     {
@@ -1210,7 +1210,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpimgproduct !== $v) {
             $this->cscpimgproduct = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPIMGPRODUCT] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPIMGPRODUCT] = true;
         }
 
         return $this;
@@ -1220,7 +1220,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpimgdrawings] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpimgdrawings($v)
     {
@@ -1230,7 +1230,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpimgdrawings !== $v) {
             $this->cscpimgdrawings = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPIMGDRAWINGS] = true;
         }
 
         return $this;
@@ -1240,7 +1240,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpimgschematic] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpimgschematic($v)
     {
@@ -1250,7 +1250,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpimgschematic !== $v) {
             $this->cscpimgschematic = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC] = true;
         }
 
         return $this;
@@ -1260,7 +1260,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpimgconfirm] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpimgconfirm($v)
     {
@@ -1270,7 +1270,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpimgconfirm !== $v) {
             $this->cscpimgconfirm = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPIMGCONFIRM] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPIMGCONFIRM] = true;
         }
 
         return $this;
@@ -1280,7 +1280,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscppcchargedir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscppcchargedir($v)
     {
@@ -1290,7 +1290,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscppcchargedir !== $v) {
             $this->cscppcchargedir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPPCCHARGEDIR] = true;
         }
 
         return $this;
@@ -1300,7 +1300,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpdevicedir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpdevicedir($v)
     {
@@ -1310,7 +1310,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpdevicedir !== $v) {
             $this->cscpdevicedir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPDEVICEDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPDEVICEDIR] = true;
         }
 
         return $this;
@@ -1320,7 +1320,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpecommdir] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpecommdir($v)
     {
@@ -1330,7 +1330,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpecommdir !== $v) {
             $this->cscpecommdir = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPECOMMDIR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPECOMMDIR] = true;
         }
 
         return $this;
@@ -1340,7 +1340,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpbrwzbaseip] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpbrwzbaseip($v)
     {
@@ -1350,7 +1350,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpbrwzbaseip !== $v) {
             $this->cscpbrwzbaseip = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPBRWZBASEIP] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPBRWZBASEIP] = true;
         }
 
         return $this;
@@ -1360,7 +1360,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpdatabasename] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpdatabasename($v)
     {
@@ -1370,7 +1370,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpdatabasename !== $v) {
             $this->cscpdatabasename = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPDATABASENAME] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPDATABASENAME] = true;
         }
 
         return $this;
@@ -1380,7 +1380,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpcompdatabasename] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpcompdatabasename($v)
     {
@@ -1390,7 +1390,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpcompdatabasename !== $v) {
             $this->cscpcompdatabasename = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME] = true;
         }
 
         return $this;
@@ -1400,7 +1400,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [cscpfgrndcolor] column.
      *
      * @param int $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setCscpfgrndcolor($v)
     {
@@ -1410,7 +1410,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->cscpfgrndcolor !== $v) {
             $this->cscpfgrndcolor = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_CSCPFGRNDCOLOR] = true;
         }
 
         return $this;
@@ -1420,7 +1420,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1430,7 +1430,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -1440,7 +1440,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1450,7 +1450,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -1460,7 +1460,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\SystemDefinition The current object (for fluent API support)
+     * @return $this|\ConfigSysd The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1470,7 +1470,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[SystemDefinitionTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ConfigSysdTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1512,100 +1512,100 @@ abstract class SystemDefinition implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpcompnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpcompnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpcompnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpcompid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpcompid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpcompid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpcompname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpcompname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpcompname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpdspermission', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpdspermission', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpdspermission = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscprapermission', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ConfigSysdTableMap::translateFieldName('Cscprapermission', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscprapermission = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpsrppermission', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpsrppermission', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpsrppermission = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpemailtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpemailtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpemailtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpfaxdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpfaxdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpfaxdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpprgdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpprgdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpprgdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpfile1dir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpfile1dir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpfile1dir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpfile2dir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpfile2dir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpfile2dir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpfile3dir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpfile3dir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpfile3dir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscptempdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ConfigSysdTableMap::translateFieldName('Cscptempdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscptempdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpworkdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpworkdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpworkdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpreptarchdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpreptarchdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpreptarchdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpdocinboxdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpdocinboxdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpdocinboxdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpdocautodir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpdocautodir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpdocautodir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpcertsdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpcertsdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpcertsdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpimgproduct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpimgproduct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpimgproduct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpimgdrawings', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpimgdrawings', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpimgdrawings = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpimgschematic', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpimgschematic', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpimgschematic = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpimgconfirm', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpimgconfirm', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpimgconfirm = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscppcchargedir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : ConfigSysdTableMap::translateFieldName('Cscppcchargedir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscppcchargedir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpdevicedir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpdevicedir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpdevicedir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpecommdir', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpecommdir', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpecommdir = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpbrwzbaseip', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpbrwzbaseip', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpbrwzbaseip = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpdatabasename', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpdatabasename', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpdatabasename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpcompdatabasename', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpcompdatabasename', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpcompdatabasename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : SystemDefinitionTableMap::translateFieldName('Cscpfgrndcolor', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : ConfigSysdTableMap::translateFieldName('Cscpfgrndcolor', TableMap::TYPE_PHPNAME, $indexType)];
             $this->cscpfgrndcolor = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : SystemDefinitionTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : ConfigSysdTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : SystemDefinitionTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : ConfigSysdTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : SystemDefinitionTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : ConfigSysdTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1615,10 +1615,10 @@ abstract class SystemDefinition implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 32; // 32 = SystemDefinitionTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 32; // 32 = ConfigSysdTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\SystemDefinition'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ConfigSysd'), 0, $e);
         }
     }
 
@@ -1660,13 +1660,13 @@ abstract class SystemDefinition implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(SystemDefinitionTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildSystemDefinitionQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildConfigSysdQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1685,8 +1685,8 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see SystemDefinition::setDeleted()
-     * @see SystemDefinition::isDeleted()
+     * @see ConfigSysd::setDeleted()
+     * @see ConfigSysd::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1695,11 +1695,11 @@ abstract class SystemDefinition implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SystemDefinitionTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildSystemDefinitionQuery::create()
+            $deleteQuery = ChildConfigSysdQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1734,7 +1734,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SystemDefinitionTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ConfigSysdTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1753,7 +1753,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                SystemDefinitionTableMap::addInstanceToPool($this);
+                ConfigSysdTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1812,100 +1812,100 @@ abstract class SystemDefinition implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPNBR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPNBR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpCompNbr';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPID)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPID)) {
             $modifiedColumns[':p' . $index++]  = 'CscpCompId';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPNAME)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPNAME)) {
             $modifiedColumns[':p' . $index++]  = 'CscpCompName';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDSPERMISSION)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDSPERMISSION)) {
             $modifiedColumns[':p' . $index++]  = 'CscpDsPermission';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPRAPERMISSION)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPRAPERMISSION)) {
             $modifiedColumns[':p' . $index++]  = 'CscpRaPermission';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPSRPPERMISSION)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPSRPPERMISSION)) {
             $modifiedColumns[':p' . $index++]  = 'CscpSrpPermission';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPEMAILTYPE)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPEMAILTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'CscpEmailType';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFAXDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFAXDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpFaxDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPPRGDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPPRGDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpPrgDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE1DIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE1DIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpFile1Dir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE2DIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE2DIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpFile2Dir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE3DIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE3DIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpFile3Dir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPTEMPDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPTEMPDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpTempDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPWORKDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPWORKDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpWorkDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPREPTARCHDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPREPTARCHDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpReptArchDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpDocInboxDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDOCAUTODIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDOCAUTODIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpDocAutoDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCERTSDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCERTSDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpCertsDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGPRODUCT)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGPRODUCT)) {
             $modifiedColumns[':p' . $index++]  = 'CscpImgProduct';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS)) {
             $modifiedColumns[':p' . $index++]  = 'CscpImgDrawings';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC)) {
             $modifiedColumns[':p' . $index++]  = 'CscpImgSchematic';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGCONFIRM)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGCONFIRM)) {
             $modifiedColumns[':p' . $index++]  = 'CscpImgConfirm';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpPcchargeDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDEVICEDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDEVICEDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpDeviceDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPECOMMDIR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPECOMMDIR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpEcommDir';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPBRWZBASEIP)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPBRWZBASEIP)) {
             $modifiedColumns[':p' . $index++]  = 'CscpBrwzBaseIp';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDATABASENAME)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDATABASENAME)) {
             $modifiedColumns[':p' . $index++]  = 'CscpDataBaseName';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME)) {
             $modifiedColumns[':p' . $index++]  = 'CscpCompDataBaseName';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFGRNDCOLOR)) {
             $modifiedColumns[':p' . $index++]  = 'CscpFgrndColor';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -2054,7 +2054,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SystemDefinitionTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ConfigSysdTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -2189,11 +2189,11 @@ abstract class SystemDefinition implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['SystemDefinition'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ConfigSysd'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['SystemDefinition'][$this->hashCode()] = true;
-        $keys = SystemDefinitionTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ConfigSysd'][$this->hashCode()] = true;
+        $keys = ConfigSysdTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getCscpcompnbr(),
             $keys[1] => $this->getCscpcompid(),
@@ -2246,11 +2246,11 @@ abstract class SystemDefinition implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SystemDefinition
+     * @return $this|\ConfigSysd
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SystemDefinitionTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ConfigSysdTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -2261,7 +2261,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\SystemDefinition
+     * @return $this|\ConfigSysd
      */
     public function setByPosition($pos, $value)
     {
@@ -2386,7 +2386,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = SystemDefinitionTableMap::getFieldNames($keyType);
+        $keys = ConfigSysdTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setCscpcompnbr($arr[$keys[0]]);
@@ -2503,7 +2503,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SystemDefinition The current object, for fluid interface
+     * @return $this|\ConfigSysd The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -2523,103 +2523,103 @@ abstract class SystemDefinition implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(SystemDefinitionTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ConfigSysdTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPNBR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPCOMPNBR, $this->cscpcompnbr);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPNBR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPCOMPNBR, $this->cscpcompnbr);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPID)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPCOMPID, $this->cscpcompid);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPID)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPCOMPID, $this->cscpcompid);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPNAME)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPCOMPNAME, $this->cscpcompname);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPNAME)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPCOMPNAME, $this->cscpcompname);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDSPERMISSION)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPDSPERMISSION, $this->cscpdspermission);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDSPERMISSION)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPDSPERMISSION, $this->cscpdspermission);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPRAPERMISSION)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPRAPERMISSION, $this->cscprapermission);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPRAPERMISSION)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPRAPERMISSION, $this->cscprapermission);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPSRPPERMISSION)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPSRPPERMISSION, $this->cscpsrppermission);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPSRPPERMISSION)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPSRPPERMISSION, $this->cscpsrppermission);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPEMAILTYPE)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPEMAILTYPE, $this->cscpemailtype);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPEMAILTYPE)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPEMAILTYPE, $this->cscpemailtype);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFAXDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPFAXDIR, $this->cscpfaxdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFAXDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPFAXDIR, $this->cscpfaxdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPPRGDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPPRGDIR, $this->cscpprgdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPPRGDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPPRGDIR, $this->cscpprgdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE1DIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPFILE1DIR, $this->cscpfile1dir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE1DIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPFILE1DIR, $this->cscpfile1dir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE2DIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPFILE2DIR, $this->cscpfile2dir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE2DIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPFILE2DIR, $this->cscpfile2dir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFILE3DIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPFILE3DIR, $this->cscpfile3dir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFILE3DIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPFILE3DIR, $this->cscpfile3dir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPTEMPDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPTEMPDIR, $this->cscptempdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPTEMPDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPTEMPDIR, $this->cscptempdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPWORKDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPWORKDIR, $this->cscpworkdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPWORKDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPWORKDIR, $this->cscpworkdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPREPTARCHDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPREPTARCHDIR, $this->cscpreptarchdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPREPTARCHDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPREPTARCHDIR, $this->cscpreptarchdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPDOCINBOXDIR, $this->cscpdocinboxdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPDOCINBOXDIR, $this->cscpdocinboxdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDOCAUTODIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPDOCAUTODIR, $this->cscpdocautodir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDOCAUTODIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPDOCAUTODIR, $this->cscpdocautodir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCERTSDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPCERTSDIR, $this->cscpcertsdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCERTSDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPCERTSDIR, $this->cscpcertsdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGPRODUCT)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPIMGPRODUCT, $this->cscpimgproduct);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGPRODUCT)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPIMGPRODUCT, $this->cscpimgproduct);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPIMGDRAWINGS, $this->cscpimgdrawings);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPIMGDRAWINGS, $this->cscpimgdrawings);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPIMGSCHEMATIC, $this->cscpimgschematic);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPIMGSCHEMATIC, $this->cscpimgschematic);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPIMGCONFIRM)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPIMGCONFIRM, $this->cscpimgconfirm);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPIMGCONFIRM)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPIMGCONFIRM, $this->cscpimgconfirm);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPPCCHARGEDIR, $this->cscppcchargedir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPPCCHARGEDIR, $this->cscppcchargedir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDEVICEDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPDEVICEDIR, $this->cscpdevicedir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDEVICEDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPDEVICEDIR, $this->cscpdevicedir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPECOMMDIR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPECOMMDIR, $this->cscpecommdir);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPECOMMDIR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPECOMMDIR, $this->cscpecommdir);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPBRWZBASEIP)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPBRWZBASEIP, $this->cscpbrwzbaseip);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPBRWZBASEIP)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPBRWZBASEIP, $this->cscpbrwzbaseip);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPDATABASENAME)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPDATABASENAME, $this->cscpdatabasename);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPDATABASENAME)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPDATABASENAME, $this->cscpdatabasename);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPCOMPDATABASENAME, $this->cscpcompdatabasename);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPCOMPDATABASENAME, $this->cscpcompdatabasename);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR)) {
-            $criteria->add(SystemDefinitionTableMap::COL_CSCPFGRNDCOLOR, $this->cscpfgrndcolor);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_CSCPFGRNDCOLOR)) {
+            $criteria->add(ConfigSysdTableMap::COL_CSCPFGRNDCOLOR, $this->cscpfgrndcolor);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_DATEUPDTD)) {
-            $criteria->add(SystemDefinitionTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ConfigSysdTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(SystemDefinitionTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ConfigSysdTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(SystemDefinitionTableMap::COL_DUMMY)) {
-            $criteria->add(SystemDefinitionTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ConfigSysdTableMap::COL_DUMMY)) {
+            $criteria->add(ConfigSysdTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2637,8 +2637,8 @@ abstract class SystemDefinition implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildSystemDefinitionQuery::create();
-        $criteria->add(SystemDefinitionTableMap::COL_CSCPCOMPNBR, $this->cscpcompnbr);
+        $criteria = ChildConfigSysdQuery::create();
+        $criteria->add(ConfigSysdTableMap::COL_CSCPCOMPNBR, $this->cscpcompnbr);
 
         return $criteria;
     }
@@ -2700,7 +2700,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SystemDefinition (or compatible) type.
+     * @param      object $copyObj An object of \ConfigSysd (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2753,7 +2753,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \SystemDefinition Clone of current object.
+     * @return \ConfigSysd Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2834,7 +2834,7 @@ abstract class SystemDefinition implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SystemDefinitionTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ConfigSysdTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
