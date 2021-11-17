@@ -8,6 +8,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'so_pre_allo' table.
+ * 
+ * FKRELATIONSHIPS: SalesOrder, SalesOrderDetail, ItemMasterItem, InvLot
  */
 class SoAllocatedLotserial extends BaseSoAllocatedLotserial {
 	use ThrowErrorTrait;
@@ -29,5 +31,11 @@ class SoAllocatedLotserial extends BaseSoAllocatedLotserial {
 		'qtyship'       => 'oeidqtyship',
 		'lotref'        => 'oeidlotref',
 		'lotreference'  => 'oeidlotref',
+		// FK Relatitonships
+		'order'         => 'salesOrder',
+		'orderline'     => 'salesOrderDetail',
+		'item'          => 'itemMasterItem',
+		'invlot'        => 'invLot',
+		'invlotserial'  => 'invLot',
 	);
 }

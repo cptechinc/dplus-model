@@ -10,6 +10,7 @@ use Map\SoAllocatedLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -62,6 +63,48 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoAllocatedLotserialQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildSoAllocatedLotserialQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildSoAllocatedLotserialQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinSalesOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrder relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinSalesOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrder relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinSalesOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrder relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery joinWithSalesOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrder relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinWithSalesOrder() Adds a LEFT JOIN clause and with to the query using the SalesOrder relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinSalesOrderDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesOrderDetail relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinSalesOrderDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesOrderDetail relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinSalesOrderDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the SalesOrderDetail relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery joinWithSalesOrderDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SalesOrderDetail relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinWithSalesOrderDetail() Adds a LEFT JOIN clause and with to the query using the SalesOrderDetail relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinWithSalesOrderDetail() Adds a RIGHT JOIN clause and with to the query using the SalesOrderDetail relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinWithSalesOrderDetail() Adds a INNER JOIN clause and with to the query using the SalesOrderDetail relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLot relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLot relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLot relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery joinWithInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLot relation
+ *
+ * @method     ChildSoAllocatedLotserialQuery leftJoinWithInvLot() Adds a LEFT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildSoAllocatedLotserialQuery rightJoinWithInvLot() Adds a RIGHT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildSoAllocatedLotserialQuery innerJoinWithInvLot() Adds a INNER JOIN clause and with to the query using the InvLot relation
+ *
+ * @method     \SalesOrderQuery|\SalesOrderDetailQuery|\ItemMasterItemQuery|\InvLotQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSoAllocatedLotserial findOne(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query
  * @method     ChildSoAllocatedLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query, or a new ChildSoAllocatedLotserial object populated from the query conditions when no match is found
@@ -377,6 +420,8 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      * $query->filterByOedtline(array(12, 34)); // WHERE OedtLine IN (12, 34)
      * $query->filterByOedtline(array('min' => 12)); // WHERE OedtLine > 12
      * </code>
+     *
+     * @see       filterBySalesOrderDetail()
      *
      * @param     mixed $oedtline The value to use as filter.
      *              Use scalar values for equality.
@@ -846,6 +891,302 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \SalesOrder object
+     *
+     * @param \SalesOrder|ObjectCollection $salesOrder The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrder($salesOrder, $comparison = null)
+    {
+        if ($salesOrder instanceof \SalesOrder) {
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $salesOrder->getOehdnbr(), $comparison);
+        } elseif ($salesOrder instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $salesOrder->toKeyValue('PrimaryKey', 'Oehdnbr'), $comparison);
+        } else {
+            throw new PropelException('filterBySalesOrder() only accepts arguments of type \SalesOrder or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrder relation SalesOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+    }
+
+    /**
+     * Filter the query by a related \SalesOrderDetail object
+     *
+     * @param \SalesOrderDetail $salesOrderDetail The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function filterBySalesOrderDetail($salesOrderDetail, $comparison = null)
+    {
+        if ($salesOrderDetail instanceof \SalesOrderDetail) {
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $salesOrderDetail->getOehdnbr(), $comparison)
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEDTLINE, $salesOrderDetail->getOedtline(), $comparison);
+        } else {
+            throw new PropelException('filterBySalesOrderDetail() only accepts arguments of type \SalesOrderDetail');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SalesOrderDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function joinSalesOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SalesOrderDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SalesOrderDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SalesOrderDetail relation SalesOrderDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SalesOrderDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useSalesOrderDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSalesOrderDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SalesOrderDetail', '\SalesOrderDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemMasterItem object
+     *
+     * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    {
+        if ($itemMasterItem instanceof \ItemMasterItem) {
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+        } elseif ($itemMasterItem instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+        } else {
+            throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemMasterItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemMasterItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemMasterItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemMasterItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvLot object
+     *
+     * @param \InvLot $invLot The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function filterByInvLot($invLot, $comparison = null)
+    {
+        if ($invLot instanceof \InvLot) {
+            return $this
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $invLot->getInititemnbr(), $comparison)
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $invLot->getLotmlotnbr(), $comparison);
+        } else {
+            throw new PropelException('filterByInvLot() only accepts arguments of type \InvLot');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLot relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
+     */
+    public function joinInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLot');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLot');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLot relation InvLot object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLot', '\InvLotQuery');
     }
 
     /**

@@ -728,6 +728,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'SalesHistoryLotserials', false);
+        $this->addRelation('SoAllocatedLotserial', '\\SoAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'SoAllocatedLotserials', false);
         $this->addRelation('ItemPricingDiscount', '\\ItemPricingDiscount', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

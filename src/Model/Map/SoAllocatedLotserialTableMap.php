@@ -206,10 +206,12 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR', true, 10, null);
-        $this->addPrimaryKey('OedtLine', 'Oedtline', 'INTEGER', true, 4, 0);
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
-        $this->addPrimaryKey('OeidLotSer', 'Oeidlotser', 'VARCHAR', true, 20, '');
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, null);
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_detail', 'OehdNbr', true, 10, null);
+        $this->addForeignPrimaryKey('OedtLine', 'Oedtline', 'INTEGER' , 'so_detail', 'OedtLine', true, 4, 0);
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_lot_mast', 'InitItemNbr', true, 30, '');
+        $this->addForeignPrimaryKey('OeidLotSer', 'Oeidlotser', 'VARCHAR' , 'inv_lot_mast', 'LotmLotNbr', true, 20, '');
         $this->addPrimaryKey('OeidBin', 'Oeidbin', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('OeidPlltNbr', 'Oeidplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('OeidCrtnNbr', 'Oeidcrtnnbr', 'INTEGER', true, 4, 0);
@@ -230,6 +232,44 @@ class SoAllocatedLotserialTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('SalesOrder', '\\SalesOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('SalesOrderDetail', '\\SalesOrderDetail', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':OedtLine',
+    1 => ':OedtLine',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvLot', '\\InvLot', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+  1 =>
+  array (
+    0 => ':OeidLotSer',
+    1 => ':LotmLotNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

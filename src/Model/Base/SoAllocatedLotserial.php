@@ -2,6 +2,14 @@
 
 namespace Base;
 
+use \InvLot as ChildInvLot;
+use \InvLotQuery as ChildInvLotQuery;
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \SalesOrder as ChildSalesOrder;
+use \SalesOrderDetail as ChildSalesOrderDetail;
+use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
+use \SalesOrderQuery as ChildSalesOrderQuery;
 use \SoAllocatedLotserialQuery as ChildSoAllocatedLotserialQuery;
 use \Exception;
 use \PDO;
@@ -183,6 +191,26 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildSalesOrder
+     */
+    protected $aSalesOrder;
+
+    /**
+     * @var        ChildSalesOrderDetail
+     */
+    protected $aSalesOrderDetail;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
+
+    /**
+     * @var        ChildInvLot
+     */
+    protected $aInvLot;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -622,6 +650,14 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEHDNBR] = true;
         }
 
+        if ($this->aSalesOrder !== null && $this->aSalesOrder->getOehdnbr() !== $v) {
+            $this->aSalesOrder = null;
+        }
+
+        if ($this->aSalesOrderDetail !== null && $this->aSalesOrderDetail->getOehdnbr() !== $v) {
+            $this->aSalesOrderDetail = null;
+        }
+
         return $this;
     } // setOehdnbr()
 
@@ -640,6 +676,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if ($this->oedtline !== $v) {
             $this->oedtline = $v;
             $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEDTLINE] = true;
+        }
+
+        if ($this->aSalesOrderDetail !== null && $this->aSalesOrderDetail->getOedtline() !== $v) {
+            $this->aSalesOrderDetail = null;
         }
 
         return $this;
@@ -662,6 +702,14 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_INITITEMNBR] = true;
         }
 
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
+        }
+
+        if ($this->aInvLot !== null && $this->aInvLot->getInititemnbr() !== $v) {
+            $this->aInvLot = null;
+        }
+
         return $this;
     } // setInititemnbr()
 
@@ -680,6 +728,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if ($this->oeidlotser !== $v) {
             $this->oeidlotser = $v;
             $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEIDLOTSER] = true;
+        }
+
+        if ($this->aInvLot !== null && $this->aInvLot->getLotmlotnbr() !== $v) {
+            $this->aInvLot = null;
         }
 
         return $this;
@@ -1085,6 +1137,24 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aSalesOrder !== null && $this->oehdnbr !== $this->aSalesOrder->getOehdnbr()) {
+            $this->aSalesOrder = null;
+        }
+        if ($this->aSalesOrderDetail !== null && $this->oehdnbr !== $this->aSalesOrderDetail->getOehdnbr()) {
+            $this->aSalesOrderDetail = null;
+        }
+        if ($this->aSalesOrderDetail !== null && $this->oedtline !== $this->aSalesOrderDetail->getOedtline()) {
+            $this->aSalesOrderDetail = null;
+        }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
+        if ($this->aInvLot !== null && $this->inititemnbr !== $this->aInvLot->getInititemnbr()) {
+            $this->aInvLot = null;
+        }
+        if ($this->aInvLot !== null && $this->oeidlotser !== $this->aInvLot->getLotmlotnbr()) {
+            $this->aInvLot = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1124,6 +1194,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aSalesOrder = null;
+            $this->aSalesOrderDetail = null;
+            $this->aItemMasterItem = null;
+            $this->aInvLot = null;
         } // if (deep)
     }
 
@@ -1226,6 +1300,39 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aSalesOrder !== null) {
+                if ($this->aSalesOrder->isModified() || $this->aSalesOrder->isNew()) {
+                    $affectedRows += $this->aSalesOrder->save($con);
+                }
+                $this->setSalesOrder($this->aSalesOrder);
+            }
+
+            if ($this->aSalesOrderDetail !== null) {
+                if ($this->aSalesOrderDetail->isModified() || $this->aSalesOrderDetail->isNew()) {
+                    $affectedRows += $this->aSalesOrderDetail->save($con);
+                }
+                $this->setSalesOrderDetail($this->aSalesOrderDetail);
+            }
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aInvLot !== null) {
+                if ($this->aInvLot->isModified() || $this->aInvLot->isNew()) {
+                    $affectedRows += $this->aInvLot->save($con);
+                }
+                $this->setInvLot($this->aInvLot);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1496,10 +1603,11 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['SoAllocatedLotserial'][$this->hashCode()])) {
@@ -1531,6 +1639,68 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aSalesOrder) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrder';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_header';
+                        break;
+                    default:
+                        $key = 'SalesOrder';
+                }
+
+                $result[$key] = $this->aSalesOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aSalesOrderDetail) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrderDetail';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_detail';
+                        break;
+                    default:
+                        $key = 'SalesOrderDetail';
+                }
+
+                $result[$key] = $this->aSalesOrderDetail->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aInvLot) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLot';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_lot_mast';
+                        break;
+                    default:
+                        $key = 'InvLot';
+                }
+
+                $result[$key] = $this->aInvLot->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1828,8 +1998,36 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             null !== $this->getOeidplltnbr() &&
             null !== $this->getOeidcrtnnbr();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 6;
         $primaryKeyFKs = [];
+
+        //relation salesorder to table so_header
+        if ($this->aSalesOrder && $hash = spl_object_hash($this->aSalesOrder)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation salesorderdetail to table so_detail
+        if ($this->aSalesOrderDetail && $hash = spl_object_hash($this->aSalesOrderDetail)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation lotserial to table inv_lot_mast
+        if ($this->aInvLot && $hash = spl_object_hash($this->aInvLot)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1943,12 +2141,240 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildSalesOrder object.
+     *
+     * @param  ChildSalesOrder $v
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSalesOrder(ChildSalesOrder $v = null)
+    {
+        if ($v === null) {
+            $this->setOehdnbr(NULL);
+        } else {
+            $this->setOehdnbr($v->getOehdnbr());
+        }
+
+        $this->aSalesOrder = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSalesOrder object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSoAllocatedLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSalesOrder object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSalesOrder The associated ChildSalesOrder object.
+     * @throws PropelException
+     */
+    public function getSalesOrder(ConnectionInterface $con = null)
+    {
+        if ($this->aSalesOrder === null && (($this->oehdnbr !== "" && $this->oehdnbr !== null))) {
+            $this->aSalesOrder = ChildSalesOrderQuery::create()->findPk($this->oehdnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSalesOrder->addSoAllocatedLotserials($this);
+             */
+        }
+
+        return $this->aSalesOrder;
+    }
+
+    /**
+     * Declares an association between this object and a ChildSalesOrderDetail object.
+     *
+     * @param  ChildSalesOrderDetail $v
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSalesOrderDetail(ChildSalesOrderDetail $v = null)
+    {
+        if ($v === null) {
+            $this->setOehdnbr(NULL);
+        } else {
+            $this->setOehdnbr($v->getOehdnbr());
+        }
+
+        if ($v === null) {
+            $this->setOedtline(0);
+        } else {
+            $this->setOedtline($v->getOedtline());
+        }
+
+        $this->aSalesOrderDetail = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSalesOrderDetail object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSoAllocatedLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSalesOrderDetail object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSalesOrderDetail The associated ChildSalesOrderDetail object.
+     * @throws PropelException
+     */
+    public function getSalesOrderDetail(ConnectionInterface $con = null)
+    {
+        if ($this->aSalesOrderDetail === null && (($this->oehdnbr !== "" && $this->oehdnbr !== null) && $this->oedtline != 0)) {
+            $this->aSalesOrderDetail = ChildSalesOrderDetailQuery::create()->findPk(array($this->oehdnbr, $this->oedtline), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSalesOrderDetail->addSoAllocatedLotserials($this);
+             */
+        }
+
+        return $this->aSalesOrderDetail;
+    }
+
+    /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSoAllocatedLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addSoAllocatedLotserials($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+    /**
+     * Declares an association between this object and a ChildInvLot object.
+     *
+     * @param  ChildInvLot $v
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvLot(ChildInvLot $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        if ($v === null) {
+            $this->setOeidlotser('');
+        } else {
+            $this->setOeidlotser($v->getLotmlotnbr());
+        }
+
+        $this->aInvLot = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvLot object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSoAllocatedLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvLot object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvLot The associated ChildInvLot object.
+     * @throws PropelException
+     */
+    public function getInvLot(ConnectionInterface $con = null)
+    {
+        if ($this->aInvLot === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->oeidlotser !== "" && $this->oeidlotser !== null))) {
+            $this->aInvLot = ChildInvLotQuery::create()->findPk(array($this->inititemnbr, $this->oeidlotser), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvLot->addSoAllocatedLotserials($this);
+             */
+        }
+
+        return $this->aInvLot;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aSalesOrder) {
+            $this->aSalesOrder->removeSoAllocatedLotserial($this);
+        }
+        if (null !== $this->aSalesOrderDetail) {
+            $this->aSalesOrderDetail->removeSoAllocatedLotserial($this);
+        }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeSoAllocatedLotserial($this);
+        }
+        if (null !== $this->aInvLot) {
+            $this->aInvLot->removeSoAllocatedLotserial($this);
+        }
         $this->oehdnbr = null;
         $this->oedtline = null;
         $this->inititemnbr = null;
@@ -1987,6 +2413,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aSalesOrder = null;
+        $this->aSalesOrderDetail = null;
+        $this->aItemMasterItem = null;
+        $this->aInvLot = null;
     }
 
     /**

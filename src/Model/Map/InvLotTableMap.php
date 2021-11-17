@@ -249,6 +249,18 @@ class InvLotTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('SoAllocatedLotserial', '\\SoAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+  1 =>
+  array (
+    0 => ':OeidLotSer',
+    1 => ':LotmLotNbr',
+  ),
+), null, null, 'SoAllocatedLotserials', false);
     } // buildRelations()
 
     /**
