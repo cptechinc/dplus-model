@@ -22,6 +22,7 @@ class SoAllocatedLotserial extends BaseSoAllocatedLotserial {
 		'ordernumber'   => 'oehdnbr',
 		'line'          => 'oedtline',
 		'linenumber'    => 'oedtline',
+		'lotserial'     => 'oeidlotser',
 		'bin'           => 'oeidbin',
 		'shipqty'       => 'oeidqtyship',
 		'qtyship'       => 'oeidqtyship',
