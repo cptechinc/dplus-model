@@ -4874,6 +4874,28 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_pre_allo" idMethod="native" phpName="SoAllocatedLotserial">
+    <column name="OehdNbr" phpName="Oehdnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="OedtLine" phpName="Oedtline" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeidLotSer" phpName="Oeidlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeidBin" phpName="Oeidbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OeidPlltNbr" phpName="Oeidplltnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OeidCrtnNbr" phpName="Oeidcrtnnbr" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OeidQtyShip" phpName="Oeidqtyship" type="DECIMAL" size="20" scale="7"/>
+    <column name="OeidLotRef" phpName="Oeidlotref" type="VARCHAR" size="20"/>
+    <column name="OeidCntrQty" phpName="Oeidcntrqty" type="DECIMAL" size="20" scale="0"/>
+    <column name="OeidBatch" phpName="Oeidbatch" type="VARCHAR" size="15"/>
+    <column name="OeidCureDate" phpName="Oeidcuredate" type="VARCHAR" size="10"/>
+    <column name="OeidPlltType" phpName="Oeidpllttype" type="VARCHAR" size="1"/>
+    <column name="OeidLblPrtd" phpName="Oeidlblprtd" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_price_discount" idMethod="native" phpName="ItemPricingDiscount">
     <column name="OepcType" phpName="Oepctype" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="OepcTblType" phpName="Oepctbltype" type="INTEGER" size="2" primaryKey="true" required="true" defaultValue="0"/>
