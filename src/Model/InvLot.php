@@ -19,6 +19,7 @@ class InvLot extends BaseInvLot {
 	const COLUMN_ALIASES = array(
 		'itemid'		=> 'inititemnbr',
 		'lotnbr' 	    => 'lotmlotnbr',
+		'lotserial'     => 'lotmlotnbr',
 		'lotref'	    => 'lotmlotref',
 		'revision'	    => 'lotmrevision',
 		'country'		=> 'lotmctry',
