@@ -456,6 +456,8 @@ return array(
     'InvPriceCodeQuery' => $baseDir . '/src/Model/InvPriceCodeQuery.php',
     'InvProductLineCode' => $baseDir . '/src/Model/InvProductLineCode.php',
     'InvProductLineCodeQuery' => $baseDir . '/src/Model/InvProductLineCodeQuery.php',
+    'InvSerialMaster' => $baseDir . '/src/Model/InvSerialMaster.php',
+    'InvSerialMasterQuery' => $baseDir . '/src/Model/InvSerialMasterQuery.php',
     'InvSpecialCode' => $baseDir . '/src/Model/InvSpecialCode.php',
     'InvSpecialCodeQuery' => $baseDir . '/src/Model/InvSpecialCodeQuery.php',
     'InvStockCode' => $baseDir . '/src/Model/InvStockCode.php',

@@ -457,6 +457,8 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'InvPriceCodeQuery' => __DIR__ . '/../..' . '/src/Model/InvPriceCodeQuery.php',
         'InvProductLineCode' => __DIR__ . '/../..' . '/src/Model/InvProductLineCode.php',
         'InvProductLineCodeQuery' => __DIR__ . '/../..' . '/src/Model/InvProductLineCodeQuery.php',
+        'InvSerialMaster' => __DIR__ . '/../..' . '/src/Model/InvSerialMaster.php',
+        'InvSerialMasterQuery' => __DIR__ . '/../..' . '/src/Model/InvSerialMasterQuery.php',
         'InvSpecialCode' => __DIR__ . '/../..' . '/src/Model/InvSpecialCode.php',
         'InvSpecialCodeQuery' => __DIR__ . '/../..' . '/src/Model/InvSpecialCodeQuery.php',
         'InvStockCode' => __DIR__ . '/../..' . '/src/Model/InvStockCode.php',
