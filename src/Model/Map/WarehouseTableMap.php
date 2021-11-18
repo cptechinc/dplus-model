@@ -332,6 +332,13 @@ class WarehouseTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('WhseLotserial', '\\WhseLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'WhseLotserials', false);
         $this->addRelation('WarehouseNote', '\\WarehouseNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

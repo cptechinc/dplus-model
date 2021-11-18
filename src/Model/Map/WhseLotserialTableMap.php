@@ -337,8 +337,9 @@ class WhseLotserialTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
-        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
-        $this->addPrimaryKey('InltLotSer', 'Inltlotser', 'VARCHAR', true, 20, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_lot_mast', 'InitItemNbr', true, 30, '');
+        $this->addForeignPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR' , 'inv_whse_code', 'IntbWhse', true, 2, '');
+        $this->addForeignPrimaryKey('InltLotSer', 'Inltlotser', 'VARCHAR' , 'inv_lot_mast', 'LotmLotNbr', true, 20, '');
         $this->addPrimaryKey('InltBin', 'Inltbin', 'VARCHAR', true, 8, '');
         $this->addColumn('InltDate', 'Inltdate', 'VARCHAR', false, 8, null);
         $this->addColumn('InltDateWrit', 'Inltdatewrit', 'VARCHAR', false, 8, null);
@@ -391,6 +392,25 @@ class WhseLotserialTableMap extends TableMap
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvLot', '\\InvLot', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+  1 =>
+  array (
+    0 => ':InltLotSer',
+    1 => ':LotmLotNbr',
   ),
 ), null, null, null, false);
     } // buildRelations()

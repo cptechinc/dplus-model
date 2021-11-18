@@ -126,7 +126,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseLotserialQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildWhseLotserialQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildWhseLotserialQuery leftJoinWarehouse($relationAlias = null) Adds a LEFT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWhseLotserialQuery rightJoinWarehouse($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWhseLotserialQuery innerJoinWarehouse($relationAlias = null) Adds a INNER JOIN clause to the query using the Warehouse relation
+ *
+ * @method     ChildWhseLotserialQuery joinWithWarehouse($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Warehouse relation
+ *
+ * @method     ChildWhseLotserialQuery leftJoinWithWarehouse() Adds a LEFT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWhseLotserialQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWhseLotserialQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
+ *
+ * @method     ChildWhseLotserialQuery leftJoinInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery rightJoinInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery innerJoinInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLot relation
+ *
+ * @method     ChildWhseLotserialQuery joinWithInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLot relation
+ *
+ * @method     ChildWhseLotserialQuery leftJoinWithInvLot() Adds a LEFT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery rightJoinWithInvLot() Adds a RIGHT JOIN clause and with to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery innerJoinWithInvLot() Adds a INNER JOIN clause and with to the query using the InvLot relation
+ *
+ * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvLotQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWhseLotserial findOne(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query
  * @method     ChildWhseLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query, or a new ChildWhseLotserial object populated from the query conditions when no match is found
@@ -1979,19 +1999,167 @@ abstract class WhseLotserialQuery extends ModelCriteria
     }
 
     /**
-     * Exclude object from result
+     * Filter the query by a related \Warehouse object
      *
-     * @param   ChildWhseLotserial $whseInvLot Object to remove from the list of results
+     * @param \Warehouse|ObjectCollection $warehouse The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildWhseLotserialQuery The current query, for fluid interface
+     */
+    public function filterByWarehouse($warehouse, $comparison = null)
+    {
+        if ($warehouse instanceof \Warehouse) {
+            return $this
+                ->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $warehouse->getIntbwhse(), $comparison);
+        } elseif ($warehouse instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+        } else {
+            throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Warehouse relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
      */
-    public function prune($whseInvLot = null)
+    public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
-        if ($whseInvLot) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(WhseLotserialTableMap::COL_INITITEMNBR), $whseInvLot->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(WhseLotserialTableMap::COL_INTBWHSE), $whseInvLot->getIntbwhse(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTLOTSER), $whseInvLot->getInltlotser(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTBIN), $whseInvLot->getInltbin(), Criteria::NOT_EQUAL);
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Warehouse');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Warehouse');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Warehouse relation Warehouse object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WarehouseQuery A secondary query class using the current class as primary query
+     */
+    public function useWarehouseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinWarehouse($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvLot object
+     *
+     * @param \InvLot $invLot The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildWhseLotserialQuery The current query, for fluid interface
+     */
+    public function filterByInvLot($invLot, $comparison = null)
+    {
+        if ($invLot instanceof \InvLot) {
+            return $this
+                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $invLot->getInititemnbr(), $comparison)
+                ->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $invLot->getLotmlotnbr(), $comparison);
+        } else {
+            throw new PropelException('filterByInvLot() only accepts arguments of type \InvLot');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLot relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     */
+    public function joinInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLot');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLot');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLot relation InvLot object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLot', '\InvLotQuery');
+    }
+
+    /**
+     * Exclude object from result
+     *
+     * @param   ChildWhseLotserial $whseLotserial Object to remove from the list of results
+     *
+     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     */
+    public function prune($whseLotserial = null)
+    {
+        if ($whseLotserial) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(WhseLotserialTableMap::COL_INITITEMNBR), $whseLotserial->getInititemnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(WhseLotserialTableMap::COL_INTBWHSE), $whseLotserial->getIntbwhse(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTLOTSER), $whseLotserial->getInltlotser(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTBIN), $whseLotserial->getInltbin(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
         }
 

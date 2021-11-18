@@ -2,8 +2,12 @@
 
 namespace Base;
 
+use \InvLot as ChildInvLot;
+use \InvLotQuery as ChildInvLotQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \Warehouse as ChildWarehouse;
+use \WarehouseQuery as ChildWarehouseQuery;
 use \WhseLotserialQuery as ChildWhseLotserialQuery;
 use \Exception;
 use \PDO;
@@ -370,6 +374,16 @@ abstract class WhseLotserial implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
+
+    /**
+     * @var        ChildWarehouse
+     */
+    protected $aWarehouse;
+
+    /**
+     * @var        ChildInvLot
+     */
+    protected $aInvLot;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1071,6 +1085,10 @@ abstract class WhseLotserial implements ActiveRecordInterface
             $this->aItemMasterItem = null;
         }
 
+        if ($this->aInvLot !== null && $this->aInvLot->getInititemnbr() !== $v) {
+            $this->aInvLot = null;
+        }
+
         return $this;
     } // setInititemnbr()
 
@@ -1091,6 +1109,10 @@ abstract class WhseLotserial implements ActiveRecordInterface
             $this->modifiedColumns[WhseLotserialTableMap::COL_INTBWHSE] = true;
         }
 
+        if ($this->aWarehouse !== null && $this->aWarehouse->getIntbwhse() !== $v) {
+            $this->aWarehouse = null;
+        }
+
         return $this;
     } // setIntbwhse()
 
@@ -1109,6 +1131,10 @@ abstract class WhseLotserial implements ActiveRecordInterface
         if ($this->inltlotser !== $v) {
             $this->inltlotser = $v;
             $this->modifiedColumns[WhseLotserialTableMap::COL_INLTLOTSER] = true;
+        }
+
+        if ($this->aInvLot !== null && $this->aInvLot->getLotmlotnbr() !== $v) {
+            $this->aInvLot = null;
         }
 
         return $this;
@@ -2127,6 +2153,15 @@ abstract class WhseLotserial implements ActiveRecordInterface
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
+        if ($this->aInvLot !== null && $this->inititemnbr !== $this->aInvLot->getInititemnbr()) {
+            $this->aInvLot = null;
+        }
+        if ($this->aWarehouse !== null && $this->intbwhse !== $this->aWarehouse->getIntbwhse()) {
+            $this->aWarehouse = null;
+        }
+        if ($this->aInvLot !== null && $this->inltlotser !== $this->aInvLot->getLotmlotnbr()) {
+            $this->aInvLot = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2167,6 +2202,8 @@ abstract class WhseLotserial implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
+            $this->aWarehouse = null;
+            $this->aInvLot = null;
         } // if (deep)
     }
 
@@ -2280,6 +2317,20 @@ abstract class WhseLotserial implements ActiveRecordInterface
                     $affectedRows += $this->aItemMasterItem->save($con);
                 }
                 $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aWarehouse !== null) {
+                if ($this->aWarehouse->isModified() || $this->aWarehouse->isNew()) {
+                    $affectedRows += $this->aWarehouse->save($con);
+                }
+                $this->setWarehouse($this->aWarehouse);
+            }
+
+            if ($this->aInvLot !== null) {
+                if ($this->aInvLot->isModified() || $this->aInvLot->isNew()) {
+                    $affectedRows += $this->aInvLot->save($con);
+                }
+                $this->setInvLot($this->aInvLot);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -2863,6 +2914,36 @@ abstract class WhseLotserial implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aWarehouse) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouse';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_code';
+                        break;
+                    default:
+                        $key = 'Warehouse';
+                }
+
+                $result[$key] = $this->aWarehouse->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aInvLot) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLot';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_lot_mast';
+                        break;
+                    default:
+                        $key = 'InvLot';
+                }
+
+                $result[$key] = $this->aInvLot->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -3389,11 +3470,25 @@ abstract class WhseLotserial implements ActiveRecordInterface
             null !== $this->getInltlotser() &&
             null !== $this->getInltbin();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 4;
         $primaryKeyFKs = [];
 
         //relation item to table inv_item_mast
         if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation warehouse to table inv_whse_code
+        if ($this->aWarehouse && $hash = spl_object_hash($this->aWarehouse)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation lotm to table inv_lot_mast
+        if ($this->aInvLot && $hash = spl_object_hash($this->aInvLot)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -3582,6 +3677,114 @@ abstract class WhseLotserial implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildWarehouse object.
+     *
+     * @param  ChildWarehouse $v
+     * @return $this|\WhseLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setWarehouse(ChildWarehouse $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbwhse('');
+        } else {
+            $this->setIntbwhse($v->getIntbwhse());
+        }
+
+        $this->aWarehouse = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildWarehouse object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWhseLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildWarehouse object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildWarehouse The associated ChildWarehouse object.
+     * @throws PropelException
+     */
+    public function getWarehouse(ConnectionInterface $con = null)
+    {
+        if ($this->aWarehouse === null && (($this->intbwhse !== "" && $this->intbwhse !== null))) {
+            $this->aWarehouse = ChildWarehouseQuery::create()->findPk($this->intbwhse, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aWarehouse->addWhseLotserials($this);
+             */
+        }
+
+        return $this->aWarehouse;
+    }
+
+    /**
+     * Declares an association between this object and a ChildInvLot object.
+     *
+     * @param  ChildInvLot $v
+     * @return $this|\WhseLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvLot(ChildInvLot $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        if ($v === null) {
+            $this->setInltlotser('');
+        } else {
+            $this->setInltlotser($v->getLotmlotnbr());
+        }
+
+        $this->aInvLot = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvLot object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWhseLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvLot object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvLot The associated ChildInvLot object.
+     * @throws PropelException
+     */
+    public function getInvLot(ConnectionInterface $con = null)
+    {
+        if ($this->aInvLot === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->inltlotser !== "" && $this->inltlotser !== null))) {
+            $this->aInvLot = ChildInvLotQuery::create()->findPk(array($this->inititemnbr, $this->inltlotser), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvLot->addWhseLotserials($this);
+             */
+        }
+
+        return $this->aInvLot;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3590,6 +3793,12 @@ abstract class WhseLotserial implements ActiveRecordInterface
     {
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeWhseLotserial($this);
+        }
+        if (null !== $this->aWarehouse) {
+            $this->aWarehouse->removeWhseLotserial($this);
+        }
+        if (null !== $this->aInvLot) {
+            $this->aInvLot->removeWhseLotserial($this);
         }
         $this->inititemnbr = null;
         $this->intbwhse = null;
@@ -3656,6 +3865,8 @@ abstract class WhseLotserial implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aItemMasterItem = null;
+        $this->aWarehouse = null;
+        $this->aInvLot = null;
     }
 
     /**

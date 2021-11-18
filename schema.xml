@@ -2026,6 +2026,13 @@
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lotm">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InltLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

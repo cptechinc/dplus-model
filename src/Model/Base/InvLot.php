@@ -8,10 +8,13 @@ use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \SoAllocatedLotserial as ChildSoAllocatedLotserial;
 use \SoAllocatedLotserialQuery as ChildSoAllocatedLotserialQuery;
+use \WhseLotserial as ChildWhseLotserial;
+use \WhseLotserialQuery as ChildWhseLotserialQuery;
 use \Exception;
 use \PDO;
 use Map\InvLotTableMap;
 use Map\SoAllocatedLotserialTableMap;
+use Map\WhseLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -207,6 +210,12 @@ abstract class InvLot implements ActiveRecordInterface
     protected $aItemMasterItem;
 
     /**
+     * @var        ObjectCollection|ChildWhseLotserial[] Collection to store aggregation of ChildWhseLotserial objects.
+     */
+    protected $collWhseLotserials;
+    protected $collWhseLotserialsPartial;
+
+    /**
      * @var        ObjectCollection|ChildSoAllocatedLotserial[] Collection to store aggregation of ChildSoAllocatedLotserial objects.
      */
     protected $collSoAllocatedLotserials;
@@ -219,6 +228,12 @@ abstract class InvLot implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWhseLotserial[]
+     */
+    protected $whseLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -1212,6 +1227,8 @@ abstract class InvLot implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
+            $this->collWhseLotserials = null;
+
             $this->collSoAllocatedLotserials = null;
 
         } // if (deep)
@@ -1338,6 +1355,23 @@ abstract class InvLot implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->whseLotserialsScheduledForDeletion !== null) {
+                if (!$this->whseLotserialsScheduledForDeletion->isEmpty()) {
+                    \WhseLotserialQuery::create()
+                        ->filterByPrimaryKeys($this->whseLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->whseLotserialsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWhseLotserials !== null) {
+                foreach ($this->collWhseLotserials as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->soAllocatedLotserialsScheduledForDeletion !== null) {
@@ -1686,6 +1720,21 @@ abstract class InvLot implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collWhseLotserials) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'whseLotserials';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_lots';
+                        break;
+                    default:
+                        $key = 'WhseLotserials';
+                }
+
+                $result[$key] = $this->collWhseLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collSoAllocatedLotserials) {
 
@@ -2100,6 +2149,12 @@ abstract class InvLot implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getWhseLotserials() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWhseLotserial($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getSoAllocatedLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addSoAllocatedLotserial($relObj->copy($deepCopy));
@@ -2197,10 +2252,292 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('WhseLotserial' == $relationName) {
+            $this->initWhseLotserials();
+            return;
+        }
         if ('SoAllocatedLotserial' == $relationName) {
             $this->initSoAllocatedLotserials();
             return;
         }
+    }
+
+    /**
+     * Clears out the collWhseLotserials collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWhseLotserials()
+     */
+    public function clearWhseLotserials()
+    {
+        $this->collWhseLotserials = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWhseLotserials collection loaded partially.
+     */
+    public function resetPartialWhseLotserials($v = true)
+    {
+        $this->collWhseLotserialsPartial = $v;
+    }
+
+    /**
+     * Initializes the collWhseLotserials collection.
+     *
+     * By default this just sets the collWhseLotserials collection to an empty array (like clearcollWhseLotserials());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWhseLotserials($overrideExisting = true)
+    {
+        if (null !== $this->collWhseLotserials && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WhseLotserialTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWhseLotserials = new $collectionClassName;
+        $this->collWhseLotserials->setModel('\WhseLotserial');
+    }
+
+    /**
+     * Gets an array of ChildWhseLotserial objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvLot is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
+     * @throws PropelException
+     */
+    public function getWhseLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWhseLotserialsPartial && !$this->isNew();
+        if (null === $this->collWhseLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWhseLotserials) {
+                // return empty collection
+                $this->initWhseLotserials();
+            } else {
+                $collWhseLotserials = ChildWhseLotserialQuery::create(null, $criteria)
+                    ->filterByInvLot($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWhseLotserialsPartial && count($collWhseLotserials)) {
+                        $this->initWhseLotserials(false);
+
+                        foreach ($collWhseLotserials as $obj) {
+                            if (false == $this->collWhseLotserials->contains($obj)) {
+                                $this->collWhseLotserials->append($obj);
+                            }
+                        }
+
+                        $this->collWhseLotserialsPartial = true;
+                    }
+
+                    return $collWhseLotserials;
+                }
+
+                if ($partial && $this->collWhseLotserials) {
+                    foreach ($this->collWhseLotserials as $obj) {
+                        if ($obj->isNew()) {
+                            $collWhseLotserials[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWhseLotserials = $collWhseLotserials;
+                $this->collWhseLotserialsPartial = false;
+            }
+        }
+
+        return $this->collWhseLotserials;
+    }
+
+    /**
+     * Sets a collection of ChildWhseLotserial objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $whseLotserials A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvLot The current object (for fluent API support)
+     */
+    public function setWhseLotserials(Collection $whseLotserials, ConnectionInterface $con = null)
+    {
+        /** @var ChildWhseLotserial[] $whseLotserialsToDelete */
+        $whseLotserialsToDelete = $this->getWhseLotserials(new Criteria(), $con)->diff($whseLotserials);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->whseLotserialsScheduledForDeletion = clone $whseLotserialsToDelete;
+
+        foreach ($whseLotserialsToDelete as $whseLotserialRemoved) {
+            $whseLotserialRemoved->setInvLot(null);
+        }
+
+        $this->collWhseLotserials = null;
+        foreach ($whseLotserials as $whseLotserial) {
+            $this->addWhseLotserial($whseLotserial);
+        }
+
+        $this->collWhseLotserials = $whseLotserials;
+        $this->collWhseLotserialsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related WhseLotserial objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WhseLotserial objects.
+     * @throws PropelException
+     */
+    public function countWhseLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWhseLotserialsPartial && !$this->isNew();
+        if (null === $this->collWhseLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWhseLotserials) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWhseLotserials());
+            }
+
+            $query = ChildWhseLotserialQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvLot($this)
+                ->count($con);
+        }
+
+        return count($this->collWhseLotserials);
+    }
+
+    /**
+     * Method called to associate a ChildWhseLotserial object to this object
+     * through the ChildWhseLotserial foreign key attribute.
+     *
+     * @param  ChildWhseLotserial $l ChildWhseLotserial
+     * @return $this|\InvLot The current object (for fluent API support)
+     */
+    public function addWhseLotserial(ChildWhseLotserial $l)
+    {
+        if ($this->collWhseLotserials === null) {
+            $this->initWhseLotserials();
+            $this->collWhseLotserialsPartial = true;
+        }
+
+        if (!$this->collWhseLotserials->contains($l)) {
+            $this->doAddWhseLotserial($l);
+
+            if ($this->whseLotserialsScheduledForDeletion and $this->whseLotserialsScheduledForDeletion->contains($l)) {
+                $this->whseLotserialsScheduledForDeletion->remove($this->whseLotserialsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWhseLotserial $whseLotserial The ChildWhseLotserial object to add.
+     */
+    protected function doAddWhseLotserial(ChildWhseLotserial $whseLotserial)
+    {
+        $this->collWhseLotserials[]= $whseLotserial;
+        $whseLotserial->setInvLot($this);
+    }
+
+    /**
+     * @param  ChildWhseLotserial $whseLotserial The ChildWhseLotserial object to remove.
+     * @return $this|ChildInvLot The current object (for fluent API support)
+     */
+    public function removeWhseLotserial(ChildWhseLotserial $whseLotserial)
+    {
+        if ($this->getWhseLotserials()->contains($whseLotserial)) {
+            $pos = $this->collWhseLotserials->search($whseLotserial);
+            $this->collWhseLotserials->remove($pos);
+            if (null === $this->whseLotserialsScheduledForDeletion) {
+                $this->whseLotserialsScheduledForDeletion = clone $this->collWhseLotserials;
+                $this->whseLotserialsScheduledForDeletion->clear();
+            }
+            $this->whseLotserialsScheduledForDeletion[]= clone $whseLotserial;
+            $whseLotserial->setInvLot(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLot is new, it will return
+     * an empty collection; or if this InvLot has previously
+     * been saved, it will retrieve related WhseLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLot.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
+     */
+    public function getWhseLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildWhseLotserialQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getWhseLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLot is new, it will return
+     * an empty collection; or if this InvLot has previously
+     * been saved, it will retrieve related WhseLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLot.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
+     */
+    public function getWhseLotserialsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildWhseLotserialQuery::create(null, $criteria);
+        $query->joinWith('Warehouse', $joinBehavior);
+
+        return $this->getWhseLotserials($query, $con);
     }
 
     /**
@@ -2554,6 +2891,11 @@ abstract class InvLot implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collWhseLotserials) {
+                foreach ($this->collWhseLotserials as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collSoAllocatedLotserials) {
                 foreach ($this->collSoAllocatedLotserials as $o) {
                     $o->clearAllReferences($deep);
@@ -2561,6 +2903,7 @@ abstract class InvLot implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collWhseLotserials = null;
         $this->collSoAllocatedLotserials = null;
         $this->aItemMasterItem = null;
     }

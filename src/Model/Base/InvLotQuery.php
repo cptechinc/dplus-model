@@ -78,6 +78,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildInvLotQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
+ * @method     ChildInvLotQuery leftJoinWhseLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotQuery rightJoinWhseLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotQuery innerJoinWhseLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseLotserial relation
+ *
+ * @method     ChildInvLotQuery joinWithWhseLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseLotserial relation
+ *
+ * @method     ChildInvLotQuery leftJoinWithWhseLotserial() Adds a LEFT JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotQuery rightJoinWithWhseLotserial() Adds a RIGHT JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotQuery innerJoinWithWhseLotserial() Adds a INNER JOIN clause and with to the query using the WhseLotserial relation
+ *
  * @method     ChildInvLotQuery leftJoinSoAllocatedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotQuery rightJoinSoAllocatedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotQuery innerJoinSoAllocatedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoAllocatedLotserial relation
@@ -88,7 +98,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     \ItemMasterItemQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\WhseLotserialQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildInvLot findOne(ConnectionInterface $con = null) Return the first ChildInvLot matching the query
  * @method     ChildInvLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLot matching the query, or a new ChildInvLot object populated from the query conditions when no match is found
@@ -954,6 +964,75 @@ abstract class InvLotQuery extends ModelCriteria
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \WhseLotserial object
+     *
+     * @param \WhseLotserial|ObjectCollection $whseLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildInvLotQuery The current query, for fluid interface
+     */
+    public function filterByWhseLotserial($whseLotserial, $comparison = null)
+    {
+        if ($whseLotserial instanceof \WhseLotserial) {
+            return $this
+                ->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $whseLotserial->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotTableMap::COL_LOTMLOTNBR, $whseLotserial->getInltlotser(), $comparison);
+        } else {
+            throw new PropelException('filterByWhseLotserial() only accepts arguments of type \WhseLotserial');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the WhseLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     */
+    public function joinWhseLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('WhseLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'WhseLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the WhseLotserial relation WhseLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WhseLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useWhseLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinWhseLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'WhseLotserial', '\WhseLotserialQuery');
     }
 
     /**
