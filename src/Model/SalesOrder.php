@@ -146,6 +146,14 @@ class SalesOrder extends BaseSalesOrder {
 	}
 
 	/**
+	 * Return if the Sales Order is Invoiced
+	 * @return bool
+	 */
+	public function isInvoiced() {
+		return $this->oehdstat == 'I';
+	}
+
+	/**
 	 * Adds Leading Zeroes to Sales Order Number
 	 * @param  string $ordn Sales Order Number ex.    4290100
 	 * @return string       Sales Order Number ex. 0004290100

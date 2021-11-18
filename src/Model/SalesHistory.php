@@ -79,6 +79,14 @@ class SalesHistory extends BaseSalesHistory {
 	}
 
 	/**
+	 * Return if Order is Invoiced
+	 * @return bool
+	 */
+	public function isInvoiced() {
+		return true;
+	}
+
+	/**
 	 * Returns if Order is Editable
 	 *
 	 * @return bool
