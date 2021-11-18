@@ -26,6 +26,8 @@ use \InvOptCodeNote as ChildInvOptCodeNote;
 use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
+use \InvSerialMaster as ChildInvSerialMaster;
+use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
 use \ItemAddonItem as ChildItemAddonItem;
 use \ItemAddonItemQuery as ChildItemAddonItemQuery;
 use \ItemMasterItem as ChildItemMasterItem;
@@ -74,6 +76,7 @@ use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
 use Map\InvLotTableMap;
 use Map\InvOptCodeNoteTableMap;
+use Map\InvSerialMasterTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemPricingDiscountTableMap;
@@ -706,6 +709,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collInvLotsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvSerialMaster[] Collection to store aggregation of ChildInvSerialMaster objects.
+     */
+    protected $collInvSerialMasters;
+    protected $collInvSerialMastersPartial;
+
+    /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
      */
     protected $collWarehouseInventories;
@@ -861,6 +870,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLot[]
      */
     protected $invLotsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvSerialMaster[]
+     */
+    protected $invSerialMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3511,6 +3526,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collInvLots = null;
 
+            $this->collInvSerialMasters = null;
+
             $this->collWarehouseInventories = null;
 
             $this->collItemXrefManufacturers = null;
@@ -3885,6 +3902,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collInvLots !== null) {
                 foreach ($this->collInvLots as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invSerialMastersScheduledForDeletion !== null) {
+                if (!$this->invSerialMastersScheduledForDeletion->isEmpty()) {
+                    \InvSerialMasterQuery::create()
+                        ->filterByPrimaryKeys($this->invSerialMastersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invSerialMastersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvSerialMasters !== null) {
+                foreach ($this->collInvSerialMasters as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5200,6 +5234,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvSerialMasters) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invSerialMasters';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_ser_masts';
+                        break;
+                    default:
+                        $key = 'InvSerialMasters';
+                }
+
+                $result[$key] = $this->collInvSerialMasters->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collWarehouseInventories) {
 
                 switch ($keyType) {
@@ -6350,6 +6399,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvSerialMasters() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvSerialMaster($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getWarehouseInventories() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addWarehouseInventory($relObj->copy($deepCopy));
@@ -6817,6 +6872,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('InvLot' == $relationName) {
             $this->initInvLots();
+            return;
+        }
+        if ('InvSerialMaster' == $relationName) {
+            $this->initInvSerialMasters();
             return;
         }
         if ('WarehouseInventory' == $relationName) {
@@ -9332,6 +9391,234 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             }
             $this->invLotsScheduledForDeletion[]= clone $invLot;
             $invLot->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collInvSerialMasters collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvSerialMasters()
+     */
+    public function clearInvSerialMasters()
+    {
+        $this->collInvSerialMasters = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvSerialMasters collection loaded partially.
+     */
+    public function resetPartialInvSerialMasters($v = true)
+    {
+        $this->collInvSerialMastersPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvSerialMasters collection.
+     *
+     * By default this just sets the collInvSerialMasters collection to an empty array (like clearcollInvSerialMasters());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvSerialMasters($overrideExisting = true)
+    {
+        if (null !== $this->collInvSerialMasters && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvSerialMasterTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvSerialMasters = new $collectionClassName;
+        $this->collInvSerialMasters->setModel('\InvSerialMaster');
+    }
+
+    /**
+     * Gets an array of ChildInvSerialMaster objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvSerialMaster[] List of ChildInvSerialMaster objects
+     * @throws PropelException
+     */
+    public function getInvSerialMasters(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvSerialMastersPartial && !$this->isNew();
+        if (null === $this->collInvSerialMasters || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvSerialMasters) {
+                // return empty collection
+                $this->initInvSerialMasters();
+            } else {
+                $collInvSerialMasters = ChildInvSerialMasterQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvSerialMastersPartial && count($collInvSerialMasters)) {
+                        $this->initInvSerialMasters(false);
+
+                        foreach ($collInvSerialMasters as $obj) {
+                            if (false == $this->collInvSerialMasters->contains($obj)) {
+                                $this->collInvSerialMasters->append($obj);
+                            }
+                        }
+
+                        $this->collInvSerialMastersPartial = true;
+                    }
+
+                    return $collInvSerialMasters;
+                }
+
+                if ($partial && $this->collInvSerialMasters) {
+                    foreach ($this->collInvSerialMasters as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvSerialMasters[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvSerialMasters = $collInvSerialMasters;
+                $this->collInvSerialMastersPartial = false;
+            }
+        }
+
+        return $this->collInvSerialMasters;
+    }
+
+    /**
+     * Sets a collection of ChildInvSerialMaster objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invSerialMasters A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvSerialMasters(Collection $invSerialMasters, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvSerialMaster[] $invSerialMastersToDelete */
+        $invSerialMastersToDelete = $this->getInvSerialMasters(new Criteria(), $con)->diff($invSerialMasters);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invSerialMastersScheduledForDeletion = clone $invSerialMastersToDelete;
+
+        foreach ($invSerialMastersToDelete as $invSerialMasterRemoved) {
+            $invSerialMasterRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvSerialMasters = null;
+        foreach ($invSerialMasters as $invSerialMaster) {
+            $this->addInvSerialMaster($invSerialMaster);
+        }
+
+        $this->collInvSerialMasters = $invSerialMasters;
+        $this->collInvSerialMastersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvSerialMaster objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvSerialMaster objects.
+     * @throws PropelException
+     */
+    public function countInvSerialMasters(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvSerialMastersPartial && !$this->isNew();
+        if (null === $this->collInvSerialMasters || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvSerialMasters) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvSerialMasters());
+            }
+
+            $query = ChildInvSerialMasterQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvSerialMasters);
+    }
+
+    /**
+     * Method called to associate a ChildInvSerialMaster object to this object
+     * through the ChildInvSerialMaster foreign key attribute.
+     *
+     * @param  ChildInvSerialMaster $l ChildInvSerialMaster
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvSerialMaster(ChildInvSerialMaster $l)
+    {
+        if ($this->collInvSerialMasters === null) {
+            $this->initInvSerialMasters();
+            $this->collInvSerialMastersPartial = true;
+        }
+
+        if (!$this->collInvSerialMasters->contains($l)) {
+            $this->doAddInvSerialMaster($l);
+
+            if ($this->invSerialMastersScheduledForDeletion and $this->invSerialMastersScheduledForDeletion->contains($l)) {
+                $this->invSerialMastersScheduledForDeletion->remove($this->invSerialMastersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvSerialMaster $invSerialMaster The ChildInvSerialMaster object to add.
+     */
+    protected function doAddInvSerialMaster(ChildInvSerialMaster $invSerialMaster)
+    {
+        $this->collInvSerialMasters[]= $invSerialMaster;
+        $invSerialMaster->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvSerialMaster $invSerialMaster The ChildInvSerialMaster object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvSerialMaster(ChildInvSerialMaster $invSerialMaster)
+    {
+        if ($this->getInvSerialMasters()->contains($invSerialMaster)) {
+            $pos = $this->collInvSerialMasters->search($invSerialMaster);
+            $this->collInvSerialMasters->remove($pos);
+            if (null === $this->invSerialMastersScheduledForDeletion) {
+                $this->invSerialMastersScheduledForDeletion = clone $this->collInvSerialMasters;
+                $this->invSerialMastersScheduledForDeletion->clear();
+            }
+            $this->invSerialMastersScheduledForDeletion[]= clone $invSerialMaster;
+            $invSerialMaster->setItemMasterItem(null);
         }
 
         return $this;
@@ -13093,6 +13380,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvSerialMasters) {
+                foreach ($this->collInvSerialMasters as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collWarehouseInventories) {
                 foreach ($this->collWarehouseInventories as $o) {
                     $o->clearAllReferences($deep);
@@ -13181,6 +13473,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collInvKitComponents = null;
         $this->singleInvKit = null;
         $this->collInvLots = null;
+        $this->collInvSerialMasters = null;
         $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;

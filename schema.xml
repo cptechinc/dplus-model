@@ -2316,6 +2316,27 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_ser_mast" idMethod="native" phpName="InvSerialMaster">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="SermSerNbr" phpName="Sermsernbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="SermProdDate" phpName="Sermproddate" type="VARCHAR" size="8"/>
+    <column name="SermPrntCnt" phpName="Sermprntcnt" type="INTEGER" size="4"/>
+    <column name="SermSordNbr" phpName="Sermsordnbr" type="VARCHAR" size="10"/>
+    <column name="SermInvcDate" phpName="Serminvcdate" type="VARCHAR" size="8"/>
+    <column name="SermRevision" phpName="Sermrevision" type="VARCHAR" size="10"/>
+    <column name="SermCtry" phpName="Sermctry" type="VARCHAR" size="4"/>
+    <column name="SermAcAllocOrdr" phpName="Sermacallocordr" type="VARCHAR" size="10"/>
+    <column name="SermRefSerNbr" phpName="Sermrefsernbr" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+	  <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_spit_code" idMethod="native" phpName="InvSpecialCode">
     <column name="IntbSpitCode" phpName="Intbspitcode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbSpitDesc" phpName="Intbspitdesc" type="VARCHAR" size="30"/>
