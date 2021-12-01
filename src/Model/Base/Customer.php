@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \ArInvoice as ChildArInvoice;
+use \ArInvoiceQuery as ChildArInvoiceQuery;
 use \Booking as ChildBooking;
 use \BookingDayCustomer as ChildBookingDayCustomer;
 use \BookingDayCustomerQuery as ChildBookingDayCustomerQuery;
@@ -26,6 +28,7 @@ use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
 use \Exception;
 use \PDO;
+use Map\ArInvoiceTableMap;
 use Map\BookingDayCustomerTableMap;
 use Map\BookingDayDetailTableMap;
 use Map\BookingTableMap;
@@ -1032,6 +1035,12 @@ abstract class Customer implements ActiveRecordInterface
     protected $aShipvia;
 
     /**
+     * @var        ObjectCollection|ChildArInvoice[] Collection to store aggregation of ChildArInvoice objects.
+     */
+    protected $collArInvoices;
+    protected $collArInvoicesPartial;
+
+    /**
      * @var        ObjectCollection|ChildCustomerShipto[] Collection to store aggregation of ChildCustomerShipto objects.
      */
     protected $collCustomerShiptos;
@@ -1086,6 +1095,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildArInvoice[]
+     */
+    protected $arInvoicesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -5886,6 +5901,8 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->aCustomerCommissionCode = null;
             $this->aShipvia = null;
+            $this->collArInvoices = null;
+
             $this->collCustomerShiptos = null;
 
             $this->collItemXrefCustomerNotes = null;
@@ -6033,6 +6050,23 @@ abstract class Customer implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->arInvoicesScheduledForDeletion !== null) {
+                if (!$this->arInvoicesScheduledForDeletion->isEmpty()) {
+                    \ArInvoiceQuery::create()
+                        ->filterByPrimaryKeys($this->arInvoicesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->arInvoicesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collArInvoices !== null) {
+                foreach ($this->collArInvoices as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->customerShiptosScheduledForDeletion !== null) {
@@ -7659,6 +7693,21 @@ abstract class Customer implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collArInvoices) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arInvoices';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_invs';
+                        break;
+                    default:
+                        $key = 'ArInvoices';
+                }
+
+                $result[$key] = $this->collArInvoices->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collCustomerShiptos) {
 
@@ -9303,6 +9352,12 @@ abstract class Customer implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getArInvoices() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addArInvoice($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getCustomerShiptos() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addCustomerShipto($relObj->copy($deepCopy));
@@ -9493,6 +9548,10 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ArInvoice' == $relationName) {
+            $this->initArInvoices();
+            return;
+        }
         if ('CustomerShipto' == $relationName) {
             $this->initCustomerShiptos();
             return;
@@ -9525,6 +9584,234 @@ abstract class Customer implements ActiveRecordInterface
             $this->initItemPricingDiscounts();
             return;
         }
+    }
+
+    /**
+     * Clears out the collArInvoices collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addArInvoices()
+     */
+    public function clearArInvoices()
+    {
+        $this->collArInvoices = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collArInvoices collection loaded partially.
+     */
+    public function resetPartialArInvoices($v = true)
+    {
+        $this->collArInvoicesPartial = $v;
+    }
+
+    /**
+     * Initializes the collArInvoices collection.
+     *
+     * By default this just sets the collArInvoices collection to an empty array (like clearcollArInvoices());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initArInvoices($overrideExisting = true)
+    {
+        if (null !== $this->collArInvoices && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ArInvoiceTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collArInvoices = new $collectionClassName;
+        $this->collArInvoices->setModel('\ArInvoice');
+    }
+
+    /**
+     * Gets an array of ChildArInvoice objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildArInvoice[] List of ChildArInvoice objects
+     * @throws PropelException
+     */
+    public function getArInvoices(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArInvoicesPartial && !$this->isNew();
+        if (null === $this->collArInvoices || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collArInvoices) {
+                // return empty collection
+                $this->initArInvoices();
+            } else {
+                $collArInvoices = ChildArInvoiceQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collArInvoicesPartial && count($collArInvoices)) {
+                        $this->initArInvoices(false);
+
+                        foreach ($collArInvoices as $obj) {
+                            if (false == $this->collArInvoices->contains($obj)) {
+                                $this->collArInvoices->append($obj);
+                            }
+                        }
+
+                        $this->collArInvoicesPartial = true;
+                    }
+
+                    return $collArInvoices;
+                }
+
+                if ($partial && $this->collArInvoices) {
+                    foreach ($this->collArInvoices as $obj) {
+                        if ($obj->isNew()) {
+                            $collArInvoices[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collArInvoices = $collArInvoices;
+                $this->collArInvoicesPartial = false;
+            }
+        }
+
+        return $this->collArInvoices;
+    }
+
+    /**
+     * Sets a collection of ChildArInvoice objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $arInvoices A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setArInvoices(Collection $arInvoices, ConnectionInterface $con = null)
+    {
+        /** @var ChildArInvoice[] $arInvoicesToDelete */
+        $arInvoicesToDelete = $this->getArInvoices(new Criteria(), $con)->diff($arInvoices);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->arInvoicesScheduledForDeletion = clone $arInvoicesToDelete;
+
+        foreach ($arInvoicesToDelete as $arInvoiceRemoved) {
+            $arInvoiceRemoved->setCustomer(null);
+        }
+
+        $this->collArInvoices = null;
+        foreach ($arInvoices as $arInvoice) {
+            $this->addArInvoice($arInvoice);
+        }
+
+        $this->collArInvoices = $arInvoices;
+        $this->collArInvoicesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ArInvoice objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ArInvoice objects.
+     * @throws PropelException
+     */
+    public function countArInvoices(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArInvoicesPartial && !$this->isNew();
+        if (null === $this->collArInvoices || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collArInvoices) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getArInvoices());
+            }
+
+            $query = ChildArInvoiceQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collArInvoices);
+    }
+
+    /**
+     * Method called to associate a ChildArInvoice object to this object
+     * through the ChildArInvoice foreign key attribute.
+     *
+     * @param  ChildArInvoice $l ChildArInvoice
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addArInvoice(ChildArInvoice $l)
+    {
+        if ($this->collArInvoices === null) {
+            $this->initArInvoices();
+            $this->collArInvoicesPartial = true;
+        }
+
+        if (!$this->collArInvoices->contains($l)) {
+            $this->doAddArInvoice($l);
+
+            if ($this->arInvoicesScheduledForDeletion and $this->arInvoicesScheduledForDeletion->contains($l)) {
+                $this->arInvoicesScheduledForDeletion->remove($this->arInvoicesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildArInvoice $arInvoice The ChildArInvoice object to add.
+     */
+    protected function doAddArInvoice(ChildArInvoice $arInvoice)
+    {
+        $this->collArInvoices[]= $arInvoice;
+        $arInvoice->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildArInvoice $arInvoice The ChildArInvoice object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeArInvoice(ChildArInvoice $arInvoice)
+    {
+        if ($this->getArInvoices()->contains($arInvoice)) {
+            $pos = $this->collArInvoices->search($arInvoice);
+            $this->collArInvoices->remove($pos);
+            if (null === $this->arInvoicesScheduledForDeletion) {
+                $this->arInvoicesScheduledForDeletion = clone $this->collArInvoices;
+                $this->arInvoicesScheduledForDeletion->clear();
+            }
+            $this->arInvoicesScheduledForDeletion[]= clone $arInvoice;
+            $arInvoice->setCustomer(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -11754,6 +12041,11 @@ abstract class Customer implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collArInvoices) {
+                foreach ($this->collArInvoices as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collCustomerShiptos) {
                 foreach ($this->collCustomerShiptos as $o) {
                     $o->clearAllReferences($deep);
@@ -11796,6 +12088,7 @@ abstract class Customer implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collArInvoices = null;
         $this->collCustomerShiptos = null;
         $this->collItemXrefCustomerNotes = null;
         $this->collBookingDayCustomers = null;

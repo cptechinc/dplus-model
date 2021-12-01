@@ -940,6 +940,13 @@ class CustomerTableMap extends TableMap
     1 => ':ArtbShipVia',
   ),
 ), null, null, null, false);
+        $this->addRelation('ArInvoice', '\\ArInvoice', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ArInvoices', false);
         $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

@@ -316,6 +316,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithShipvia() Adds a RIGHT JOIN clause and with to the query using the Shipvia relation
  * @method     ChildCustomerQuery innerJoinWithShipvia() Adds a INNER JOIN clause and with to the query using the Shipvia relation
  *
+ * @method     ChildCustomerQuery leftJoinArInvoice($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArInvoice relation
+ * @method     ChildCustomerQuery rightJoinArInvoice($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArInvoice relation
+ * @method     ChildCustomerQuery innerJoinArInvoice($relationAlias = null) Adds a INNER JOIN clause to the query using the ArInvoice relation
+ *
+ * @method     ChildCustomerQuery joinWithArInvoice($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArInvoice relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithArInvoice() Adds a LEFT JOIN clause and with to the query using the ArInvoice relation
+ * @method     ChildCustomerQuery rightJoinWithArInvoice() Adds a RIGHT JOIN clause and with to the query using the ArInvoice relation
+ * @method     ChildCustomerQuery innerJoinWithArInvoice() Adds a INNER JOIN clause and with to the query using the ArInvoice relation
+ *
  * @method     ChildCustomerQuery leftJoinCustomerShipto($relationAlias = null) Adds a LEFT JOIN clause to the query using the CustomerShipto relation
  * @method     ChildCustomerQuery rightJoinCustomerShipto($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CustomerShipto relation
  * @method     ChildCustomerQuery innerJoinCustomerShipto($relationAlias = null) Adds a INNER JOIN clause to the query using the CustomerShipto relation
@@ -396,7 +406,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -5639,6 +5649,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinShipvia($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'Shipvia', '\ShipviaQuery');
+    }
+
+    /**
+     * Filter the query by a related \ArInvoice object
+     *
+     * @param \ArInvoice|ObjectCollection $arInvoice the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByArInvoice($arInvoice, $comparison = null)
+    {
+        if ($arInvoice instanceof \ArInvoice) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $arInvoice->getArcucustid(), $comparison);
+        } elseif ($arInvoice instanceof ObjectCollection) {
+            return $this
+                ->useArInvoiceQuery()
+                ->filterByPrimaryKeys($arInvoice->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByArInvoice() only accepts arguments of type \ArInvoice or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArInvoice relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinArInvoice($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArInvoice');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArInvoice');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArInvoice relation ArInvoice object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArInvoiceQuery A secondary query class using the current class as primary query
+     */
+    public function useArInvoiceQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArInvoice($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArInvoice', '\ArInvoiceQuery');
     }
 
     /**

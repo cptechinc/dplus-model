@@ -1066,6 +1066,38 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_inv" idMethod="native" phpName="ArInvoice">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArinInvSeq" phpName="Arininvseq" type="INTEGER" size="2" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ArinType" phpName="Arintype" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArinSeq" phpName="Arinseq" type="INTEGER" size="5" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ArinHold" phpName="Arinhold" type="VARCHAR" size="1"/>
+    <column name="ArinInvDate" phpName="Arininvdate" type="VARCHAR" size="8"/>
+    <column name="ArinDiscDate" phpName="Arindiscdate" type="VARCHAR" size="8"/>
+    <column name="ArinDueDate" phpName="Arinduedate" type="VARCHAR" size="8"/>
+    <column name="ArinTotAmt" phpName="Arintotamt" type="DECIMAL" size="20" scale="7"/>
+    <column name="ArinDiscAmt" phpName="Arindiscamt" type="DECIMAL" size="20" scale="7"/>
+    <column name="ArinChkNbr" phpName="Arinchknbr" type="VARCHAR" size="8"/>
+    <column name="ArinCustPo" phpName="Arincustpo" type="VARCHAR" size="20"/>
+    <column name="ArinTermCode" phpName="Arintermcode" type="VARCHAR" size="4"/>
+    <column name="ArinFrtAllow" phpName="Arinfrtallow" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArinOrdrNbr" phpName="Arinordrnbr" type="VARCHAR" size="10"/>
+    <column name="ArinComRate" phpName="Arincomrate" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArinSalesAmt" phpName="Arinsalesamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArinOrigWhse" phpName="Arinorigwhse" type="VARCHAR" size="2"/>
+    <column name="ArinWriteOffDate" phpName="Arinwriteoffdate" type="VARCHAR" size="8"/>
+    <column name="ArinWriteOffAmt" phpName="Arinwriteoffamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_saleper1" idMethod="native" phpName="SalesPerson">
     <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArspName" phpName="Arspname" type="VARCHAR" size="30"/>
