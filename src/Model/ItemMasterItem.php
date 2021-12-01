@@ -331,6 +331,37 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Return Items that this Supersedes
+	 * @return ObjectCollection
+	 */
+	public function getSupercededItems() {
+		$q = ItemMasterItemQuery::create();
+		$q->filterBySupercededby($this->itemid);
+		return $q->find();
+	}
+
+	/**
+	 * Return Items that this Supersedes
+	 * @return array
+	 */
+	public function getSupercededItemids() {
+		$q = ItemMasterItemQuery::create();
+		$q->select(static::aliasproperty('itemid'));
+		$q->filterBySupercededby($this->itemid);
+		return $q->find()->toArray();
+	}
+
+	/**
+	 * Return if Item Supercedes other Items
+	 * @return bool
+	 */
+	public function doesSupercede() {
+		$q = ItemMasterItemQuery::create();
+		$q->filterBySupercededby($this->itemid);
+		return boolval($q->count());
+	}
+
+	/**
 	 * Return the First ItemXrefCustomer that matches
 	 * @param  string $itemID  Item ID
 	 * @param  string $custID  Customer ID
