@@ -41,10 +41,15 @@ class MsaSysopCode extends BaseMsaSysopCode {
 		'field_type'        => 'optnfieldtype',
 		'fieldtype'         => 'optnfieldtype',
 		'before_dec'        => 'optndef1b4dec',
+		'beforedecimal'     => 'optndef1b4dec',
 		'after_dec'         => 'optndef2aftdec',
+		'afterdecimal'      => 'optndef2aftdec',
 		'doc_store_folder'  => 'optndocstorfolder',
+		'docfolder'         => 'optndocstorfolder',
 		'web_validate'      => 'optnwebvalidate',
+		'webvalidate'       => 'optnwebvalidate',
 		'web_force'         => 'optnwebforce',
+		'webforce'          => 'optnwebforce',
 		'date'		        => 'dateupdtd',
 		'time'		        => 'timeupdtd'
 	);
@@ -86,6 +91,22 @@ class MsaSysopCode extends BaseMsaSysopCode {
 	 * @return bool
 	 */
 	public function isFilename() {
-		return strtoupper($this->filename) == self::YN_TRUE;;
+		return strtoupper($this->filename) == self::YN_TRUE;
+	}
+
+	/**
+	 * Return if Code Type is Numeric
+	 * @return bool
+	 */
+	public function isNumeric() {
+		return strtoupper($this->fieldtype) == 'N';
+	}
+
+	/**
+	 * Return if Code Type is Character
+	 * @return bool
+	 */
+	public function isCharacter() {
+		return strtoupper($this->fieldtype) == 'C';
 	}
 }
