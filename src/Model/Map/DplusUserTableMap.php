@@ -407,6 +407,13 @@ class DplusUserTableMap extends TableMap
     1 => ':UsrcId',
   ),
 ), null, null, null, false);
+        $this->addRelation('UserLastPrintJob', '\\UserLastPrintJob', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':UsrcId',
+    1 => ':UsrcId',
+  ),
+), null, null, 'UserLastPrintJobs', false);
     } // buildRelations()
 
     /**

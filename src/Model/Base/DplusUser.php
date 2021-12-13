@@ -2,21 +2,26 @@
 
 namespace Base;
 
+use \DplusUser as ChildDplusUser;
 use \DplusUserQuery as ChildDplusUserQuery;
 use \SysLoginGroup as ChildSysLoginGroup;
 use \SysLoginGroupQuery as ChildSysLoginGroupQuery;
 use \SysLoginRole as ChildSysLoginRole;
 use \SysLoginRoleQuery as ChildSysLoginRoleQuery;
+use \UserLastPrintJob as ChildUserLastPrintJob;
+use \UserLastPrintJobQuery as ChildUserLastPrintJobQuery;
 use \UserPermissionsItm as ChildUserPermissionsItm;
 use \UserPermissionsItmQuery as ChildUserPermissionsItmQuery;
 use \Exception;
 use \PDO;
 use Map\DplusUserTableMap;
+use Map\UserLastPrintJobTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -382,12 +387,24 @@ abstract class DplusUser implements ActiveRecordInterface
     protected $singleUserPermissionsItm;
 
     /**
+     * @var        ObjectCollection|ChildUserLastPrintJob[] Collection to store aggregation of ChildUserLastPrintJob objects.
+     */
+    protected $collUserLastPrintJobs;
+    protected $collUserLastPrintJobsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildUserLastPrintJob[]
+     */
+    protected $userLastPrintJobsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\DplusUser object.
@@ -2155,6 +2172,8 @@ abstract class DplusUser implements ActiveRecordInterface
             $this->aSysLoginRole = null;
             $this->singleUserPermissionsItm = null;
 
+            $this->collUserLastPrintJobs = null;
+
         } // if (deep)
     }
 
@@ -2291,6 +2310,23 @@ abstract class DplusUser implements ActiveRecordInterface
             if ($this->singleUserPermissionsItm !== null) {
                 if (!$this->singleUserPermissionsItm->isDeleted() && ($this->singleUserPermissionsItm->isNew() || $this->singleUserPermissionsItm->isModified())) {
                     $affectedRows += $this->singleUserPermissionsItm->save($con);
+                }
+            }
+
+            if ($this->userLastPrintJobsScheduledForDeletion !== null) {
+                if (!$this->userLastPrintJobsScheduledForDeletion->isEmpty()) {
+                    \UserLastPrintJobQuery::create()
+                        ->filterByPrimaryKeys($this->userLastPrintJobsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->userLastPrintJobsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collUserLastPrintJobs !== null) {
+                foreach ($this->collUserLastPrintJobs as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
                 }
             }
 
@@ -2893,6 +2929,21 @@ abstract class DplusUser implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->singleUserPermissionsItm->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collUserLastPrintJobs) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'userLastPrintJobs';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'user_printers';
+                        break;
+                    default:
+                        $key = 'UserLastPrintJobs';
+                }
+
+                $result[$key] = $this->collUserLastPrintJobs->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -3522,6 +3573,12 @@ abstract class DplusUser implements ActiveRecordInterface
                 $copyObj->setUserPermissionsItm($relObj->copy($deepCopy));
             }
 
+            foreach ($this->getUserLastPrintJobs() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addUserLastPrintJob($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -3664,6 +3721,10 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('UserLastPrintJob' == $relationName) {
+            $this->initUserLastPrintJobs();
+            return;
+        }
     }
 
     /**
@@ -3697,6 +3758,234 @@ abstract class DplusUser implements ActiveRecordInterface
         // Make sure that that the passed-in ChildUserPermissionsItm isn't already associated with this object
         if ($v !== null && $v->getDplusUser(null, false) === null) {
             $v->setDplusUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * Clears out the collUserLastPrintJobs collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addUserLastPrintJobs()
+     */
+    public function clearUserLastPrintJobs()
+    {
+        $this->collUserLastPrintJobs = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collUserLastPrintJobs collection loaded partially.
+     */
+    public function resetPartialUserLastPrintJobs($v = true)
+    {
+        $this->collUserLastPrintJobsPartial = $v;
+    }
+
+    /**
+     * Initializes the collUserLastPrintJobs collection.
+     *
+     * By default this just sets the collUserLastPrintJobs collection to an empty array (like clearcollUserLastPrintJobs());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initUserLastPrintJobs($overrideExisting = true)
+    {
+        if (null !== $this->collUserLastPrintJobs && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = UserLastPrintJobTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collUserLastPrintJobs = new $collectionClassName;
+        $this->collUserLastPrintJobs->setModel('\UserLastPrintJob');
+    }
+
+    /**
+     * Gets an array of ChildUserLastPrintJob objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildDplusUser is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildUserLastPrintJob[] List of ChildUserLastPrintJob objects
+     * @throws PropelException
+     */
+    public function getUserLastPrintJobs(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
+        if (null === $this->collUserLastPrintJobs || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collUserLastPrintJobs) {
+                // return empty collection
+                $this->initUserLastPrintJobs();
+            } else {
+                $collUserLastPrintJobs = ChildUserLastPrintJobQuery::create(null, $criteria)
+                    ->filterByDplusUser($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collUserLastPrintJobsPartial && count($collUserLastPrintJobs)) {
+                        $this->initUserLastPrintJobs(false);
+
+                        foreach ($collUserLastPrintJobs as $obj) {
+                            if (false == $this->collUserLastPrintJobs->contains($obj)) {
+                                $this->collUserLastPrintJobs->append($obj);
+                            }
+                        }
+
+                        $this->collUserLastPrintJobsPartial = true;
+                    }
+
+                    return $collUserLastPrintJobs;
+                }
+
+                if ($partial && $this->collUserLastPrintJobs) {
+                    foreach ($this->collUserLastPrintJobs as $obj) {
+                        if ($obj->isNew()) {
+                            $collUserLastPrintJobs[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collUserLastPrintJobs = $collUserLastPrintJobs;
+                $this->collUserLastPrintJobsPartial = false;
+            }
+        }
+
+        return $this->collUserLastPrintJobs;
+    }
+
+    /**
+     * Sets a collection of ChildUserLastPrintJob objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $userLastPrintJobs A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildDplusUser The current object (for fluent API support)
+     */
+    public function setUserLastPrintJobs(Collection $userLastPrintJobs, ConnectionInterface $con = null)
+    {
+        /** @var ChildUserLastPrintJob[] $userLastPrintJobsToDelete */
+        $userLastPrintJobsToDelete = $this->getUserLastPrintJobs(new Criteria(), $con)->diff($userLastPrintJobs);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->userLastPrintJobsScheduledForDeletion = clone $userLastPrintJobsToDelete;
+
+        foreach ($userLastPrintJobsToDelete as $userLastPrintJobRemoved) {
+            $userLastPrintJobRemoved->setDplusUser(null);
+        }
+
+        $this->collUserLastPrintJobs = null;
+        foreach ($userLastPrintJobs as $userLastPrintJob) {
+            $this->addUserLastPrintJob($userLastPrintJob);
+        }
+
+        $this->collUserLastPrintJobs = $userLastPrintJobs;
+        $this->collUserLastPrintJobsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related UserLastPrintJob objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related UserLastPrintJob objects.
+     * @throws PropelException
+     */
+    public function countUserLastPrintJobs(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collUserLastPrintJobsPartial && !$this->isNew();
+        if (null === $this->collUserLastPrintJobs || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collUserLastPrintJobs) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getUserLastPrintJobs());
+            }
+
+            $query = ChildUserLastPrintJobQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByDplusUser($this)
+                ->count($con);
+        }
+
+        return count($this->collUserLastPrintJobs);
+    }
+
+    /**
+     * Method called to associate a ChildUserLastPrintJob object to this object
+     * through the ChildUserLastPrintJob foreign key attribute.
+     *
+     * @param  ChildUserLastPrintJob $l ChildUserLastPrintJob
+     * @return $this|\DplusUser The current object (for fluent API support)
+     */
+    public function addUserLastPrintJob(ChildUserLastPrintJob $l)
+    {
+        if ($this->collUserLastPrintJobs === null) {
+            $this->initUserLastPrintJobs();
+            $this->collUserLastPrintJobsPartial = true;
+        }
+
+        if (!$this->collUserLastPrintJobs->contains($l)) {
+            $this->doAddUserLastPrintJob($l);
+
+            if ($this->userLastPrintJobsScheduledForDeletion and $this->userLastPrintJobsScheduledForDeletion->contains($l)) {
+                $this->userLastPrintJobsScheduledForDeletion->remove($this->userLastPrintJobsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildUserLastPrintJob $userLastPrintJob The ChildUserLastPrintJob object to add.
+     */
+    protected function doAddUserLastPrintJob(ChildUserLastPrintJob $userLastPrintJob)
+    {
+        $this->collUserLastPrintJobs[]= $userLastPrintJob;
+        $userLastPrintJob->setDplusUser($this);
+    }
+
+    /**
+     * @param  ChildUserLastPrintJob $userLastPrintJob The ChildUserLastPrintJob object to remove.
+     * @return $this|ChildDplusUser The current object (for fluent API support)
+     */
+    public function removeUserLastPrintJob(ChildUserLastPrintJob $userLastPrintJob)
+    {
+        if ($this->getUserLastPrintJobs()->contains($userLastPrintJob)) {
+            $pos = $this->collUserLastPrintJobs->search($userLastPrintJob);
+            $this->collUserLastPrintJobs->remove($pos);
+            if (null === $this->userLastPrintJobsScheduledForDeletion) {
+                $this->userLastPrintJobsScheduledForDeletion = clone $this->collUserLastPrintJobs;
+                $this->userLastPrintJobsScheduledForDeletion->clear();
+            }
+            $this->userLastPrintJobsScheduledForDeletion[]= clone $userLastPrintJob;
+            $userLastPrintJob->setDplusUser(null);
         }
 
         return $this;
@@ -3779,9 +4068,15 @@ abstract class DplusUser implements ActiveRecordInterface
             if ($this->singleUserPermissionsItm) {
                 $this->singleUserPermissionsItm->clearAllReferences($deep);
             }
+            if ($this->collUserLastPrintJobs) {
+                foreach ($this->collUserLastPrintJobs as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->singleUserPermissionsItm = null;
+        $this->collUserLastPrintJobs = null;
         $this->aSysLoginGroup = null;
         $this->aSysLoginRole = null;
     }

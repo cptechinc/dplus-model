@@ -5234,6 +5234,25 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="user_printer" idMethod="native" phpName="UserLastPrintJob">
+    <column name="UsprFunction" phpName="Usprfunction" type="VARCHAR" size="12" primaryKey="true" required="true" defaultValue=""/>
+    <column name="UsrcId" phpName="Usrcid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="UsprPrinter" phpName="Usprprinter" type="VARCHAR" size="12"/>
+    <column name="UsprLabel" phpName="Usprlabel" type="VARCHAR" size="8"/>
+    <column name="UsprLabel2" phpName="Usprlabel2" type="VARCHAR" size="8"/>
+    <column name="UsprLabelQty" phpName="Usprlabelqty" type="INTEGER" size="3"/>
+    <column name="UsprOrdrNbr" phpName="Usprordrnbr" type="INTEGER" size="10"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="sys_login" name="user">
+      <reference local="UsrcId" foreign="UsrcId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="vend_item_xref" idMethod="native" phpName="ItemXrefVendor">
     <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="VexrVendItemNbr" phpName="Vexrvenditemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
