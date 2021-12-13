@@ -59,6 +59,17 @@ trait QueryTraits {
 	 * @return ModelCriteria                 $this
 	 */
 	public function search_filter(array $columns, $q, $caseSensitive = false) {
+		return $this->searchFilter($columns, $q, $caseSensitive);
+	}
+
+	/**
+	 * Adds a LIKE filter for each column, and one for the concatenated columns
+	 * @param  array         $columns        Array of Table Column Names
+	 * @param  string        $q              Search Query to Match
+	 * @param  string        $caseSensitive  Is Case-sensitive
+	 * @return ModelCriteria                 $this
+	 */
+	public function searchFilter(array $columns, $q, $caseSensitive = false) {
 		return $this->addLikeFilter($columns, $q, $caseSensitive);
 	}
 
