@@ -21,5 +21,5 @@ use Dplus\Model\QueryTraits;
  * FindByXXX()
  */
 class UserLastPrintJobQuery extends BaseUserLastPrintJobQuery {
-	use ueryTraits;
+	use QueryTraits;
 }

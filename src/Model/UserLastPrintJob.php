@@ -19,9 +19,10 @@ class UserLastPrintJob extends BaseUserLastPrintJob {
 	const COLUMN_ALIASES = array(
 		'userid'       => 'usrcid',
 		'functionid'   => 'usprfunction',
-		'labelid'      => 'usrprlabel',
-		'label2id'     => 'usrprlabel2',
-		'qty'          => 'usrprlabelqty',
+		'printerid'    => 'usprprinter',
+		'labelid'      => 'usprlabel',
+		'label2id'     => 'usprlabel2',
+		'qty'          => 'usprlabelqty',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
 		'user'         => 'dplusUser',
