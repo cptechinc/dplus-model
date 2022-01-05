@@ -38,7 +38,8 @@ class VendorShipfrom extends BaseVendorShipfrom {
 		'gl_account'  => 'apfmglacct',
 		'date_opened' => 'apfmdateopen',
 		'ytd_purchases_amt'    => 'apfmpurytd',
-		'ytd_purchases_count'  => 'apfmpoytd'
+		'ytd_purchases_count'  => 'apfmpoytd',
+		'lastpurchasedate'     => 'apfmlastpurdate'
 	);
 
 	/**
