@@ -21,7 +21,7 @@ class ApInvoice extends BaseApInvoice {
 	 */
 	const COLUMN_ALIASES = array(
 		'invoicenumber'       => 'apihinvnbr',
-		'invnbr'              => 'apidinvnbr',
+		'invnbr'              => 'apihinvnbr',
 		'vendorid'            => 'apvevendid',
 		'vendorID'            => 'apvevendid',
 		'ponbr'               => 'apihponbr',
