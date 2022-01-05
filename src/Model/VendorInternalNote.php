@@ -42,4 +42,8 @@ class VendorInternalNote extends BaseVendorInternalNote {
 		$note->setDescription(self::DESC);
 		return $note;
 	}
+
+	public function generateKey2() {
+		
+	}
 }
