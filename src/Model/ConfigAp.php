@@ -31,7 +31,10 @@ class ConfigAp extends BaseConfigAp {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'                  => 'aptbconfkey',
+		'colsNotesVend'       => 'aptbconfvendcols',
+		'colsNotesPo'         => 'aptbconfpocols',
 		'columns_notes_pord'  => 'aptbconfpocols',
+		'columns_notes_vend'  => 'aptbconfvendcols',
 		'default_termscode'   => 'aptbconfdeftermcode',
 		'vxm_optioncode1_label' => 'aptbconfvxmuserlabel',
 		'vendorcostbreaks'      => 'AptbConfVendCostBreaks',
