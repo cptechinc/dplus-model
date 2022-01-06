@@ -5321,4 +5321,26 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="vi_options" idMethod="native" phpName="OptionsVi">
+    <column name="VitbOptnCode" phpName="Vitboptncode" type="VARCHAR" size="10" primaryKey="true" required="true"/>
+    <column name="VitbOptnGenAvail" phpName="Vitboptngenavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnPayAvail" phpName="Vitboptnpayavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnCostAvail" phpName="Vitboptncostavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnPoAvail" phpName="Vitboptnpoavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnOpenAvail" phpName="Vitboptnopenavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnPhAvail" phpName="Vitboptnphavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnUnrlAvail" phpName="Vitboptnunrlavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnUnivAvail" phpName="Vitboptnunivavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnNoteAvail" phpName="Vitboptnnoteavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptn24moAvail" phpName="Vitboptn24moavail" type="VARCHAR" size="1"/>
+    <column name="VitbOptnMisc1" phpName="Vitboptnmisc1" type="VARCHAR" size="1"/>
+    <column name="VitbOptnMisc2" phpName="Vitboptnmisc2" type="VARCHAR" size="1"/>
+    <column name="VitbOptnMisc3" phpName="Vitboptnmisc3" type="VARCHAR" size="1"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
 </database>
