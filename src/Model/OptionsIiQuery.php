@@ -18,6 +18,7 @@ use Dplus\Model\QueryTraits;
  * FindOneByXXX()
  * 
  * FindByXXX()
+ * 
  */
 class OptionsIiQuery extends BaseOptionsIiQuery {
 	use QueryTraits;
