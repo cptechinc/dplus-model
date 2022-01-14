@@ -595,13 +595,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-        $this->addRelation('WhseLotserial', '\\WhseLotserial', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
   ),
-), null, null, 'WhseLotserials', false);
+), null, null, 'InvWhseLots', false);
         $this->addRelation('ItemSubstituteRelatedByInititemnbr', '\\ItemSubstitute', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

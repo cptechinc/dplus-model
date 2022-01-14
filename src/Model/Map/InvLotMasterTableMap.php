@@ -249,7 +249,7 @@ class InvLotMasterTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
-        $this->addRelation('WhseLotserial', '\\WhseLotserial', RelationMap::ONE_TO_MANY, array (
+        $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
     0 => ':InitItemNbr',
@@ -260,7 +260,7 @@ class InvLotMasterTableMap extends TableMap
     0 => ':InltLotSer',
     1 => ':LotmLotNbr',
   ),
-), null, null, 'WhseLotserials', false);
+), null, null, 'InvWhseLots', false);
         $this->addRelation('SoAllocatedLotserial', '\\SoAllocatedLotserial', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

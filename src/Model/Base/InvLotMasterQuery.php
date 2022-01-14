@@ -78,15 +78,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildInvLotMasterQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildInvLotMasterQuery leftJoinWhseLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildInvLotMasterQuery rightJoinWhseLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildInvLotMasterQuery innerJoinWhseLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinInvWhseLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvWhseLot relation
+ * @method     ChildInvLotMasterQuery rightJoinInvWhseLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvWhseLot relation
+ * @method     ChildInvLotMasterQuery innerJoinInvWhseLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvWhseLot relation
  *
- * @method     ChildInvLotMasterQuery joinWithWhseLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery joinWithInvWhseLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvWhseLot relation
  *
- * @method     ChildInvLotMasterQuery leftJoinWithWhseLotserial() Adds a LEFT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildInvLotMasterQuery rightJoinWithWhseLotserial() Adds a RIGHT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildInvLotMasterQuery innerJoinWithWhseLotserial() Adds a INNER JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinWithInvWhseLot() Adds a LEFT JOIN clause and with to the query using the InvWhseLot relation
+ * @method     ChildInvLotMasterQuery rightJoinWithInvWhseLot() Adds a RIGHT JOIN clause and with to the query using the InvWhseLot relation
+ * @method     ChildInvLotMasterQuery innerJoinWithInvWhseLot() Adds a INNER JOIN clause and with to the query using the InvWhseLot relation
  *
  * @method     ChildInvLotMasterQuery leftJoinSoAllocatedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotMasterQuery rightJoinSoAllocatedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoAllocatedLotserial relation
@@ -98,7 +98,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotMasterQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     \ItemMasterItemQuery|\WhseLotserialQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildInvLotMaster findOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
  * @method     ChildInvLotMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
@@ -967,36 +967,36 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \WhseLotserial object
+     * Filter the query by a related \InvWhseLot object
      *
-     * @param \WhseLotserial|ObjectCollection $whseLotserial the related object to use as filter
+     * @param \InvWhseLot|ObjectCollection $invWhseLot the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildInvLotMasterQuery The current query, for fluid interface
      */
-    public function filterByWhseLotserial($whseLotserial, $comparison = null)
+    public function filterByInvWhseLot($invWhseLot, $comparison = null)
     {
-        if ($whseLotserial instanceof \WhseLotserial) {
+        if ($invWhseLot instanceof \InvWhseLot) {
             return $this
-                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $whseLotserial->getInititemnbr(), $comparison)
-                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $whseLotserial->getInltlotser(), $comparison);
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $invWhseLot->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $invWhseLot->getInltlotser(), $comparison);
         } else {
-            throw new PropelException('filterByWhseLotserial() only accepts arguments of type \WhseLotserial');
+            throw new PropelException('filterByInvWhseLot() only accepts arguments of type \InvWhseLot');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the WhseLotserial relation
+     * Adds a JOIN clause to the query using the InvWhseLot relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
-    public function joinWhseLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('WhseLotserial');
+        $relationMap = $tableMap->getRelation('InvWhseLot');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -1011,14 +1011,14 @@ abstract class InvLotMasterQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'WhseLotserial');
+            $this->addJoinObject($join, 'InvWhseLot');
         }
 
         return $this;
     }
 
     /**
-     * Use the WhseLotserial relation WhseLotserial object
+     * Use the InvWhseLot relation InvWhseLot object
      *
      * @see useQuery()
      *
@@ -1026,13 +1026,13 @@ abstract class InvLotMasterQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \WhseLotserialQuery A secondary query class using the current class as primary query
+     * @return \InvWhseLotQuery A secondary query class using the current class as primary query
      */
-    public function useWhseLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useInvWhseLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinWhseLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'WhseLotserial', '\WhseLotserialQuery');
+            ->joinInvWhseLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvWhseLot', '\InvWhseLotQuery');
     }
 
     /**

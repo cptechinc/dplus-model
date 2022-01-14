@@ -98,15 +98,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWarehouseQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWarehouseQuery leftJoinWhseLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildWarehouseQuery rightJoinWhseLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildWarehouseQuery innerJoinWhseLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildWarehouseQuery leftJoinInvWhseLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvWhseLot relation
+ * @method     ChildWarehouseQuery rightJoinInvWhseLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvWhseLot relation
+ * @method     ChildWarehouseQuery innerJoinInvWhseLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvWhseLot relation
  *
- * @method     ChildWarehouseQuery joinWithWhseLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseLotserial relation
+ * @method     ChildWarehouseQuery joinWithInvWhseLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvWhseLot relation
  *
- * @method     ChildWarehouseQuery leftJoinWithWhseLotserial() Adds a LEFT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildWarehouseQuery rightJoinWithWhseLotserial() Adds a RIGHT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildWarehouseQuery innerJoinWithWhseLotserial() Adds a INNER JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildWarehouseQuery leftJoinWithInvWhseLot() Adds a LEFT JOIN clause and with to the query using the InvWhseLot relation
+ * @method     ChildWarehouseQuery rightJoinWithInvWhseLot() Adds a RIGHT JOIN clause and with to the query using the InvWhseLot relation
+ * @method     ChildWarehouseQuery innerJoinWithInvWhseLot() Adds a INNER JOIN clause and with to the query using the InvWhseLot relation
  *
  * @method     ChildWarehouseQuery leftJoinWarehouseNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseNote relation
  * @method     ChildWarehouseQuery rightJoinWarehouseNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseNote relation
@@ -118,7 +118,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithWarehouseNote() Adds a RIGHT JOIN clause and with to the query using the WarehouseNote relation
  * @method     ChildWarehouseQuery innerJoinWithWarehouseNote() Adds a INNER JOIN clause and with to the query using the WarehouseNote relation
  *
- * @method     \WhseLotserialQuery|\WarehouseNoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \InvWhseLotQuery|\WarehouseNoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouse findOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
  * @method     ChildWarehouse findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
@@ -1270,40 +1270,40 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \WhseLotserial object
+     * Filter the query by a related \InvWhseLot object
      *
-     * @param \WhseLotserial|ObjectCollection $whseLotserial the related object to use as filter
+     * @param \InvWhseLot|ObjectCollection $invWhseLot the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildWarehouseQuery The current query, for fluid interface
      */
-    public function filterByWhseLotserial($whseLotserial, $comparison = null)
+    public function filterByInvWhseLot($invWhseLot, $comparison = null)
     {
-        if ($whseLotserial instanceof \WhseLotserial) {
+        if ($invWhseLot instanceof \InvWhseLot) {
             return $this
-                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $whseLotserial->getIntbwhse(), $comparison);
-        } elseif ($whseLotserial instanceof ObjectCollection) {
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invWhseLot->getIntbwhse(), $comparison);
+        } elseif ($invWhseLot instanceof ObjectCollection) {
             return $this
-                ->useWhseLotserialQuery()
-                ->filterByPrimaryKeys($whseLotserial->getPrimaryKeys())
+                ->useInvWhseLotQuery()
+                ->filterByPrimaryKeys($invWhseLot->getPrimaryKeys())
                 ->endUse();
         } else {
-            throw new PropelException('filterByWhseLotserial() only accepts arguments of type \WhseLotserial or Collection');
+            throw new PropelException('filterByInvWhseLot() only accepts arguments of type \InvWhseLot or Collection');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the WhseLotserial relation
+     * Adds a JOIN clause to the query using the InvWhseLot relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildWarehouseQuery The current query, for fluid interface
      */
-    public function joinWhseLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvWhseLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('WhseLotserial');
+        $relationMap = $tableMap->getRelation('InvWhseLot');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -1318,14 +1318,14 @@ abstract class WarehouseQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'WhseLotserial');
+            $this->addJoinObject($join, 'InvWhseLot');
         }
 
         return $this;
     }
 
     /**
-     * Use the WhseLotserial relation WhseLotserial object
+     * Use the InvWhseLot relation InvWhseLot object
      *
      * @see useQuery()
      *
@@ -1333,13 +1333,13 @@ abstract class WarehouseQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \WhseLotserialQuery A secondary query class using the current class as primary query
+     * @return \InvWhseLotQuery A secondary query class using the current class as primary query
      */
-    public function useWhseLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useInvWhseLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinWhseLotserial($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'WhseLotserial', '\WhseLotserialQuery');
+            ->joinInvWhseLot($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvWhseLot', '\InvWhseLotQuery');
     }
 
     /**

@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \WhseLotserial as ChildWhseLotserial;
-use \WhseLotserialQuery as ChildWhseLotserialQuery;
+use \InvWhseLot as ChildInvWhseLot;
+use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \Exception;
 use \PDO;
-use Map\WhseLotserialTableMap;
+use Map\InvWhseLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -20,305 +20,305 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildWhseLotserialQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
- * @method     ChildWhseLotserialQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
- * @method     ChildWhseLotserialQuery orderByInltlotser($order = Criteria::ASC) Order by the InltLotSer column
- * @method     ChildWhseLotserialQuery orderByInltbin($order = Criteria::ASC) Order by the InltBin column
- * @method     ChildWhseLotserialQuery orderByInltdate($order = Criteria::ASC) Order by the InltDate column
- * @method     ChildWhseLotserialQuery orderByInltdatewrit($order = Criteria::ASC) Order by the InltDateWrit column
- * @method     ChildWhseLotserialQuery orderByInltcost($order = Criteria::ASC) Order by the InltCost column
- * @method     ChildWhseLotserialQuery orderByInltonhand($order = Criteria::ASC) Order by the InltOnHand column
- * @method     ChildWhseLotserialQuery orderByInltresv($order = Criteria::ASC) Order by the InltResv column
- * @method     ChildWhseLotserialQuery orderByInltship($order = Criteria::ASC) Order by the InltShip column
- * @method     ChildWhseLotserialQuery orderByInltallo($order = Criteria::ASC) Order by the InltAllo column
- * @method     ChildWhseLotserialQuery orderByInltfaballo($order = Criteria::ASC) Order by the InltFabAllo column
- * @method     ChildWhseLotserialQuery orderByInltintran($order = Criteria::ASC) Order by the InltInTran column
- * @method     ChildWhseLotserialQuery orderByInltinship($order = Criteria::ASC) Order by the InltInShip column
- * @method     ChildWhseLotserialQuery orderByInltlotref($order = Criteria::ASC) Order by the InltLotRef column
- * @method     ChildWhseLotserialQuery orderByInltbatch($order = Criteria::ASC) Order by the InltBatch column
- * @method     ChildWhseLotserialQuery orderByInltlandcost1($order = Criteria::ASC) Order by the InltLandCost1 column
- * @method     ChildWhseLotserialQuery orderByInltlandcost2($order = Criteria::ASC) Order by the InltLandCost2 column
- * @method     ChildWhseLotserialQuery orderByInltlandcost3($order = Criteria::ASC) Order by the InltLandCost3 column
- * @method     ChildWhseLotserialQuery orderByInltlandcost4($order = Criteria::ASC) Order by the InltLandCost4 column
- * @method     ChildWhseLotserialQuery orderByInltlandcost5($order = Criteria::ASC) Order by the InltLandCost5 column
- * @method     ChildWhseLotserialQuery orderByInlttariffcost($order = Criteria::ASC) Order by the InltTariffCost column
- * @method     ChildWhseLotserialQuery orderByInltshopcost($order = Criteria::ASC) Order by the InltShopCost column
- * @method     ChildWhseLotserialQuery orderByInltisscodfsqty($order = Criteria::ASC) Order by the InltIsscoDfsQty column
- * @method     ChildWhseLotserialQuery orderByInltheadmark($order = Criteria::ASC) Order by the InltHeadMark column
- * @method     ChildWhseLotserialQuery orderByInltctry($order = Criteria::ASC) Order by the InltCtry column
- * @method     ChildWhseLotserialQuery orderByInltrvalorigcost($order = Criteria::ASC) Order by the InltRvalOrigCost column
- * @method     ChildWhseLotserialQuery orderByInltrvalpct($order = Criteria::ASC) Order by the InltRvalPct column
- * @method     ChildWhseLotserialQuery orderByInltunitwght($order = Criteria::ASC) Order by the InltUnitWght column
- * @method     ChildWhseLotserialQuery orderByInltdestwhse($order = Criteria::ASC) Order by the InltDestWhse column
- * @method     ChildWhseLotserialQuery orderByInltcntrqty($order = Criteria::ASC) Order by the InltCntrQty column
- * @method     ChildWhseLotserialQuery orderByInltqtyperroll($order = Criteria::ASC) Order by the InltQtyPerRoll column
- * @method     ChildWhseLotserialQuery orderByInlttarewght($order = Criteria::ASC) Order by the InltTareWght column
- * @method     ChildWhseLotserialQuery orderByInltqcreasoncd($order = Criteria::ASC) Order by the InltQcReasonCd column
- * @method     ChildWhseLotserialQuery orderByInltcert($order = Criteria::ASC) Order by the InltCert column
- * @method     ChildWhseLotserialQuery orderByInltcuredate($order = Criteria::ASC) Order by the InltCureDate column
- * @method     ChildWhseLotserialQuery orderByInltexpiredatecd($order = Criteria::ASC) Order by the InltExpireDateCd column
- * @method     ChildWhseLotserialQuery orderByInltexpiredate($order = Criteria::ASC) Order by the InltExpireDate column
- * @method     ChildWhseLotserialQuery orderByInltorigbin($order = Criteria::ASC) Order by the InltOrigBin column
- * @method     ChildWhseLotserialQuery orderByInltshopitem($order = Criteria::ASC) Order by the InltShopItem column
- * @method     ChildWhseLotserialQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildWhseLotserialQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildWhseLotserialQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildInvWhseLotQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
+ * @method     ChildInvWhseLotQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
+ * @method     ChildInvWhseLotQuery orderByInltlotser($order = Criteria::ASC) Order by the InltLotSer column
+ * @method     ChildInvWhseLotQuery orderByInltbin($order = Criteria::ASC) Order by the InltBin column
+ * @method     ChildInvWhseLotQuery orderByInltdate($order = Criteria::ASC) Order by the InltDate column
+ * @method     ChildInvWhseLotQuery orderByInltdatewrit($order = Criteria::ASC) Order by the InltDateWrit column
+ * @method     ChildInvWhseLotQuery orderByInltcost($order = Criteria::ASC) Order by the InltCost column
+ * @method     ChildInvWhseLotQuery orderByInltonhand($order = Criteria::ASC) Order by the InltOnHand column
+ * @method     ChildInvWhseLotQuery orderByInltresv($order = Criteria::ASC) Order by the InltResv column
+ * @method     ChildInvWhseLotQuery orderByInltship($order = Criteria::ASC) Order by the InltShip column
+ * @method     ChildInvWhseLotQuery orderByInltallo($order = Criteria::ASC) Order by the InltAllo column
+ * @method     ChildInvWhseLotQuery orderByInltfaballo($order = Criteria::ASC) Order by the InltFabAllo column
+ * @method     ChildInvWhseLotQuery orderByInltintran($order = Criteria::ASC) Order by the InltInTran column
+ * @method     ChildInvWhseLotQuery orderByInltinship($order = Criteria::ASC) Order by the InltInShip column
+ * @method     ChildInvWhseLotQuery orderByInltlotref($order = Criteria::ASC) Order by the InltLotRef column
+ * @method     ChildInvWhseLotQuery orderByInltbatch($order = Criteria::ASC) Order by the InltBatch column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost1($order = Criteria::ASC) Order by the InltLandCost1 column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost2($order = Criteria::ASC) Order by the InltLandCost2 column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost3($order = Criteria::ASC) Order by the InltLandCost3 column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost4($order = Criteria::ASC) Order by the InltLandCost4 column
+ * @method     ChildInvWhseLotQuery orderByInltlandcost5($order = Criteria::ASC) Order by the InltLandCost5 column
+ * @method     ChildInvWhseLotQuery orderByInlttariffcost($order = Criteria::ASC) Order by the InltTariffCost column
+ * @method     ChildInvWhseLotQuery orderByInltshopcost($order = Criteria::ASC) Order by the InltShopCost column
+ * @method     ChildInvWhseLotQuery orderByInltisscodfsqty($order = Criteria::ASC) Order by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLotQuery orderByInltheadmark($order = Criteria::ASC) Order by the InltHeadMark column
+ * @method     ChildInvWhseLotQuery orderByInltctry($order = Criteria::ASC) Order by the InltCtry column
+ * @method     ChildInvWhseLotQuery orderByInltrvalorigcost($order = Criteria::ASC) Order by the InltRvalOrigCost column
+ * @method     ChildInvWhseLotQuery orderByInltrvalpct($order = Criteria::ASC) Order by the InltRvalPct column
+ * @method     ChildInvWhseLotQuery orderByInltunitwght($order = Criteria::ASC) Order by the InltUnitWght column
+ * @method     ChildInvWhseLotQuery orderByInltdestwhse($order = Criteria::ASC) Order by the InltDestWhse column
+ * @method     ChildInvWhseLotQuery orderByInltcntrqty($order = Criteria::ASC) Order by the InltCntrQty column
+ * @method     ChildInvWhseLotQuery orderByInltqtyperroll($order = Criteria::ASC) Order by the InltQtyPerRoll column
+ * @method     ChildInvWhseLotQuery orderByInlttarewght($order = Criteria::ASC) Order by the InltTareWght column
+ * @method     ChildInvWhseLotQuery orderByInltqcreasoncd($order = Criteria::ASC) Order by the InltQcReasonCd column
+ * @method     ChildInvWhseLotQuery orderByInltcert($order = Criteria::ASC) Order by the InltCert column
+ * @method     ChildInvWhseLotQuery orderByInltcuredate($order = Criteria::ASC) Order by the InltCureDate column
+ * @method     ChildInvWhseLotQuery orderByInltexpiredatecd($order = Criteria::ASC) Order by the InltExpireDateCd column
+ * @method     ChildInvWhseLotQuery orderByInltexpiredate($order = Criteria::ASC) Order by the InltExpireDate column
+ * @method     ChildInvWhseLotQuery orderByInltorigbin($order = Criteria::ASC) Order by the InltOrigBin column
+ * @method     ChildInvWhseLotQuery orderByInltshopitem($order = Criteria::ASC) Order by the InltShopItem column
+ * @method     ChildInvWhseLotQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildInvWhseLotQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildInvWhseLotQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildWhseLotserialQuery groupByInititemnbr() Group by the InitItemNbr column
- * @method     ChildWhseLotserialQuery groupByIntbwhse() Group by the IntbWhse column
- * @method     ChildWhseLotserialQuery groupByInltlotser() Group by the InltLotSer column
- * @method     ChildWhseLotserialQuery groupByInltbin() Group by the InltBin column
- * @method     ChildWhseLotserialQuery groupByInltdate() Group by the InltDate column
- * @method     ChildWhseLotserialQuery groupByInltdatewrit() Group by the InltDateWrit column
- * @method     ChildWhseLotserialQuery groupByInltcost() Group by the InltCost column
- * @method     ChildWhseLotserialQuery groupByInltonhand() Group by the InltOnHand column
- * @method     ChildWhseLotserialQuery groupByInltresv() Group by the InltResv column
- * @method     ChildWhseLotserialQuery groupByInltship() Group by the InltShip column
- * @method     ChildWhseLotserialQuery groupByInltallo() Group by the InltAllo column
- * @method     ChildWhseLotserialQuery groupByInltfaballo() Group by the InltFabAllo column
- * @method     ChildWhseLotserialQuery groupByInltintran() Group by the InltInTran column
- * @method     ChildWhseLotserialQuery groupByInltinship() Group by the InltInShip column
- * @method     ChildWhseLotserialQuery groupByInltlotref() Group by the InltLotRef column
- * @method     ChildWhseLotserialQuery groupByInltbatch() Group by the InltBatch column
- * @method     ChildWhseLotserialQuery groupByInltlandcost1() Group by the InltLandCost1 column
- * @method     ChildWhseLotserialQuery groupByInltlandcost2() Group by the InltLandCost2 column
- * @method     ChildWhseLotserialQuery groupByInltlandcost3() Group by the InltLandCost3 column
- * @method     ChildWhseLotserialQuery groupByInltlandcost4() Group by the InltLandCost4 column
- * @method     ChildWhseLotserialQuery groupByInltlandcost5() Group by the InltLandCost5 column
- * @method     ChildWhseLotserialQuery groupByInlttariffcost() Group by the InltTariffCost column
- * @method     ChildWhseLotserialQuery groupByInltshopcost() Group by the InltShopCost column
- * @method     ChildWhseLotserialQuery groupByInltisscodfsqty() Group by the InltIsscoDfsQty column
- * @method     ChildWhseLotserialQuery groupByInltheadmark() Group by the InltHeadMark column
- * @method     ChildWhseLotserialQuery groupByInltctry() Group by the InltCtry column
- * @method     ChildWhseLotserialQuery groupByInltrvalorigcost() Group by the InltRvalOrigCost column
- * @method     ChildWhseLotserialQuery groupByInltrvalpct() Group by the InltRvalPct column
- * @method     ChildWhseLotserialQuery groupByInltunitwght() Group by the InltUnitWght column
- * @method     ChildWhseLotserialQuery groupByInltdestwhse() Group by the InltDestWhse column
- * @method     ChildWhseLotserialQuery groupByInltcntrqty() Group by the InltCntrQty column
- * @method     ChildWhseLotserialQuery groupByInltqtyperroll() Group by the InltQtyPerRoll column
- * @method     ChildWhseLotserialQuery groupByInlttarewght() Group by the InltTareWght column
- * @method     ChildWhseLotserialQuery groupByInltqcreasoncd() Group by the InltQcReasonCd column
- * @method     ChildWhseLotserialQuery groupByInltcert() Group by the InltCert column
- * @method     ChildWhseLotserialQuery groupByInltcuredate() Group by the InltCureDate column
- * @method     ChildWhseLotserialQuery groupByInltexpiredatecd() Group by the InltExpireDateCd column
- * @method     ChildWhseLotserialQuery groupByInltexpiredate() Group by the InltExpireDate column
- * @method     ChildWhseLotserialQuery groupByInltorigbin() Group by the InltOrigBin column
- * @method     ChildWhseLotserialQuery groupByInltshopitem() Group by the InltShopItem column
- * @method     ChildWhseLotserialQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildWhseLotserialQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildWhseLotserialQuery groupByDummy() Group by the dummy column
+ * @method     ChildInvWhseLotQuery groupByInititemnbr() Group by the InitItemNbr column
+ * @method     ChildInvWhseLotQuery groupByIntbwhse() Group by the IntbWhse column
+ * @method     ChildInvWhseLotQuery groupByInltlotser() Group by the InltLotSer column
+ * @method     ChildInvWhseLotQuery groupByInltbin() Group by the InltBin column
+ * @method     ChildInvWhseLotQuery groupByInltdate() Group by the InltDate column
+ * @method     ChildInvWhseLotQuery groupByInltdatewrit() Group by the InltDateWrit column
+ * @method     ChildInvWhseLotQuery groupByInltcost() Group by the InltCost column
+ * @method     ChildInvWhseLotQuery groupByInltonhand() Group by the InltOnHand column
+ * @method     ChildInvWhseLotQuery groupByInltresv() Group by the InltResv column
+ * @method     ChildInvWhseLotQuery groupByInltship() Group by the InltShip column
+ * @method     ChildInvWhseLotQuery groupByInltallo() Group by the InltAllo column
+ * @method     ChildInvWhseLotQuery groupByInltfaballo() Group by the InltFabAllo column
+ * @method     ChildInvWhseLotQuery groupByInltintran() Group by the InltInTran column
+ * @method     ChildInvWhseLotQuery groupByInltinship() Group by the InltInShip column
+ * @method     ChildInvWhseLotQuery groupByInltlotref() Group by the InltLotRef column
+ * @method     ChildInvWhseLotQuery groupByInltbatch() Group by the InltBatch column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost1() Group by the InltLandCost1 column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost2() Group by the InltLandCost2 column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost3() Group by the InltLandCost3 column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost4() Group by the InltLandCost4 column
+ * @method     ChildInvWhseLotQuery groupByInltlandcost5() Group by the InltLandCost5 column
+ * @method     ChildInvWhseLotQuery groupByInlttariffcost() Group by the InltTariffCost column
+ * @method     ChildInvWhseLotQuery groupByInltshopcost() Group by the InltShopCost column
+ * @method     ChildInvWhseLotQuery groupByInltisscodfsqty() Group by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLotQuery groupByInltheadmark() Group by the InltHeadMark column
+ * @method     ChildInvWhseLotQuery groupByInltctry() Group by the InltCtry column
+ * @method     ChildInvWhseLotQuery groupByInltrvalorigcost() Group by the InltRvalOrigCost column
+ * @method     ChildInvWhseLotQuery groupByInltrvalpct() Group by the InltRvalPct column
+ * @method     ChildInvWhseLotQuery groupByInltunitwght() Group by the InltUnitWght column
+ * @method     ChildInvWhseLotQuery groupByInltdestwhse() Group by the InltDestWhse column
+ * @method     ChildInvWhseLotQuery groupByInltcntrqty() Group by the InltCntrQty column
+ * @method     ChildInvWhseLotQuery groupByInltqtyperroll() Group by the InltQtyPerRoll column
+ * @method     ChildInvWhseLotQuery groupByInlttarewght() Group by the InltTareWght column
+ * @method     ChildInvWhseLotQuery groupByInltqcreasoncd() Group by the InltQcReasonCd column
+ * @method     ChildInvWhseLotQuery groupByInltcert() Group by the InltCert column
+ * @method     ChildInvWhseLotQuery groupByInltcuredate() Group by the InltCureDate column
+ * @method     ChildInvWhseLotQuery groupByInltexpiredatecd() Group by the InltExpireDateCd column
+ * @method     ChildInvWhseLotQuery groupByInltexpiredate() Group by the InltExpireDate column
+ * @method     ChildInvWhseLotQuery groupByInltorigbin() Group by the InltOrigBin column
+ * @method     ChildInvWhseLotQuery groupByInltshopitem() Group by the InltShopItem column
+ * @method     ChildInvWhseLotQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildInvWhseLotQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildInvWhseLotQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildWhseLotserialQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildWhseLotserialQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildWhseLotserialQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildInvWhseLotQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildInvWhseLotQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildInvWhseLotQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildWhseLotserialQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildWhseLotserialQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildWhseLotserialQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildInvWhseLotQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildInvWhseLotQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildInvWhseLotQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildWhseLotserialQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildWhseLotserialQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildWhseLotserialQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
  *
- * @method     ChildWhseLotserialQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildWhseLotserialQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildWhseLotserialQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildWhseLotserialQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvWhseLotQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildWhseLotserialQuery leftJoinWarehouse($relationAlias = null) Adds a LEFT JOIN clause to the query using the Warehouse relation
- * @method     ChildWhseLotserialQuery rightJoinWarehouse($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Warehouse relation
- * @method     ChildWhseLotserialQuery innerJoinWarehouse($relationAlias = null) Adds a INNER JOIN clause to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery leftJoinWarehouse($relationAlias = null) Adds a LEFT JOIN clause to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery rightJoinWarehouse($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery innerJoinWarehouse($relationAlias = null) Adds a INNER JOIN clause to the query using the Warehouse relation
  *
- * @method     ChildWhseLotserialQuery joinWithWarehouse($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery joinWithWarehouse($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Warehouse relation
  *
- * @method     ChildWhseLotserialQuery leftJoinWithWarehouse() Adds a LEFT JOIN clause and with to the query using the Warehouse relation
- * @method     ChildWhseLotserialQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
- * @method     ChildWhseLotserialQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery leftJoinWithWarehouse() Adds a LEFT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildInvWhseLotQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
  *
- * @method     ChildWhseLotserialQuery leftJoinInvLotMaster($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotMaster relation
- * @method     ChildWhseLotserialQuery rightJoinInvLotMaster($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotMaster relation
- * @method     ChildWhseLotserialQuery innerJoinInvLotMaster($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery leftJoinInvLotMaster($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery rightJoinInvLotMaster($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery innerJoinInvLotMaster($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotMaster relation
  *
- * @method     ChildWhseLotserialQuery joinWithInvLotMaster($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery joinWithInvLotMaster($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotMaster relation
  *
- * @method     ChildWhseLotserialQuery leftJoinWithInvLotMaster() Adds a LEFT JOIN clause and with to the query using the InvLotMaster relation
- * @method     ChildWhseLotserialQuery rightJoinWithInvLotMaster() Adds a RIGHT JOIN clause and with to the query using the InvLotMaster relation
- * @method     ChildWhseLotserialQuery innerJoinWithInvLotMaster() Adds a INNER JOIN clause and with to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery leftJoinWithInvLotMaster() Adds a LEFT JOIN clause and with to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery rightJoinWithInvLotMaster() Adds a RIGHT JOIN clause and with to the query using the InvLotMaster relation
+ * @method     ChildInvWhseLotQuery innerJoinWithInvLotMaster() Adds a INNER JOIN clause and with to the query using the InvLotMaster relation
  *
  * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvLotMasterQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildWhseLotserial findOne(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query
- * @method     ChildWhseLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query, or a new ChildWhseLotserial object populated from the query conditions when no match is found
+ * @method     ChildInvWhseLot findOne(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query
+ * @method     ChildInvWhseLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query, or a new ChildInvWhseLot object populated from the query conditions when no match is found
  *
- * @method     ChildWhseLotserial findOneByInititemnbr(string $InitItemNbr) Return the first ChildWhseLotserial filtered by the InitItemNbr column
- * @method     ChildWhseLotserial findOneByIntbwhse(string $IntbWhse) Return the first ChildWhseLotserial filtered by the IntbWhse column
- * @method     ChildWhseLotserial findOneByInltlotser(string $InltLotSer) Return the first ChildWhseLotserial filtered by the InltLotSer column
- * @method     ChildWhseLotserial findOneByInltbin(string $InltBin) Return the first ChildWhseLotserial filtered by the InltBin column
- * @method     ChildWhseLotserial findOneByInltdate(string $InltDate) Return the first ChildWhseLotserial filtered by the InltDate column
- * @method     ChildWhseLotserial findOneByInltdatewrit(string $InltDateWrit) Return the first ChildWhseLotserial filtered by the InltDateWrit column
- * @method     ChildWhseLotserial findOneByInltcost(string $InltCost) Return the first ChildWhseLotserial filtered by the InltCost column
- * @method     ChildWhseLotserial findOneByInltonhand(string $InltOnHand) Return the first ChildWhseLotserial filtered by the InltOnHand column
- * @method     ChildWhseLotserial findOneByInltresv(string $InltResv) Return the first ChildWhseLotserial filtered by the InltResv column
- * @method     ChildWhseLotserial findOneByInltship(string $InltShip) Return the first ChildWhseLotserial filtered by the InltShip column
- * @method     ChildWhseLotserial findOneByInltallo(string $InltAllo) Return the first ChildWhseLotserial filtered by the InltAllo column
- * @method     ChildWhseLotserial findOneByInltfaballo(string $InltFabAllo) Return the first ChildWhseLotserial filtered by the InltFabAllo column
- * @method     ChildWhseLotserial findOneByInltintran(string $InltInTran) Return the first ChildWhseLotserial filtered by the InltInTran column
- * @method     ChildWhseLotserial findOneByInltinship(string $InltInShip) Return the first ChildWhseLotserial filtered by the InltInShip column
- * @method     ChildWhseLotserial findOneByInltlotref(string $InltLotRef) Return the first ChildWhseLotserial filtered by the InltLotRef column
- * @method     ChildWhseLotserial findOneByInltbatch(string $InltBatch) Return the first ChildWhseLotserial filtered by the InltBatch column
- * @method     ChildWhseLotserial findOneByInltlandcost1(string $InltLandCost1) Return the first ChildWhseLotserial filtered by the InltLandCost1 column
- * @method     ChildWhseLotserial findOneByInltlandcost2(string $InltLandCost2) Return the first ChildWhseLotserial filtered by the InltLandCost2 column
- * @method     ChildWhseLotserial findOneByInltlandcost3(string $InltLandCost3) Return the first ChildWhseLotserial filtered by the InltLandCost3 column
- * @method     ChildWhseLotserial findOneByInltlandcost4(string $InltLandCost4) Return the first ChildWhseLotserial filtered by the InltLandCost4 column
- * @method     ChildWhseLotserial findOneByInltlandcost5(string $InltLandCost5) Return the first ChildWhseLotserial filtered by the InltLandCost5 column
- * @method     ChildWhseLotserial findOneByInlttariffcost(string $InltTariffCost) Return the first ChildWhseLotserial filtered by the InltTariffCost column
- * @method     ChildWhseLotserial findOneByInltshopcost(string $InltShopCost) Return the first ChildWhseLotserial filtered by the InltShopCost column
- * @method     ChildWhseLotserial findOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildWhseLotserial filtered by the InltIsscoDfsQty column
- * @method     ChildWhseLotserial findOneByInltheadmark(string $InltHeadMark) Return the first ChildWhseLotserial filtered by the InltHeadMark column
- * @method     ChildWhseLotserial findOneByInltctry(string $InltCtry) Return the first ChildWhseLotserial filtered by the InltCtry column
- * @method     ChildWhseLotserial findOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildWhseLotserial filtered by the InltRvalOrigCost column
- * @method     ChildWhseLotserial findOneByInltrvalpct(string $InltRvalPct) Return the first ChildWhseLotserial filtered by the InltRvalPct column
- * @method     ChildWhseLotserial findOneByInltunitwght(string $InltUnitWght) Return the first ChildWhseLotserial filtered by the InltUnitWght column
- * @method     ChildWhseLotserial findOneByInltdestwhse(string $InltDestWhse) Return the first ChildWhseLotserial filtered by the InltDestWhse column
- * @method     ChildWhseLotserial findOneByInltcntrqty(string $InltCntrQty) Return the first ChildWhseLotserial filtered by the InltCntrQty column
- * @method     ChildWhseLotserial findOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildWhseLotserial filtered by the InltQtyPerRoll column
- * @method     ChildWhseLotserial findOneByInlttarewght(string $InltTareWght) Return the first ChildWhseLotserial filtered by the InltTareWght column
- * @method     ChildWhseLotserial findOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildWhseLotserial filtered by the InltQcReasonCd column
- * @method     ChildWhseLotserial findOneByInltcert(string $InltCert) Return the first ChildWhseLotserial filtered by the InltCert column
- * @method     ChildWhseLotserial findOneByInltcuredate(string $InltCureDate) Return the first ChildWhseLotserial filtered by the InltCureDate column
- * @method     ChildWhseLotserial findOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildWhseLotserial filtered by the InltExpireDateCd column
- * @method     ChildWhseLotserial findOneByInltexpiredate(string $InltExpireDate) Return the first ChildWhseLotserial filtered by the InltExpireDate column
- * @method     ChildWhseLotserial findOneByInltorigbin(string $InltOrigBin) Return the first ChildWhseLotserial filtered by the InltOrigBin column
- * @method     ChildWhseLotserial findOneByInltshopitem(string $InltShopItem) Return the first ChildWhseLotserial filtered by the InltShopItem column
- * @method     ChildWhseLotserial findOneByDateupdtd(string $DateUpdtd) Return the first ChildWhseLotserial filtered by the DateUpdtd column
- * @method     ChildWhseLotserial findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWhseLotserial filtered by the TimeUpdtd column
- * @method     ChildWhseLotserial findOneByDummy(string $dummy) Return the first ChildWhseLotserial filtered by the dummy column *
+ * @method     ChildInvWhseLot findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseLot filtered by the InitItemNbr column
+ * @method     ChildInvWhseLot findOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseLot filtered by the IntbWhse column
+ * @method     ChildInvWhseLot findOneByInltlotser(string $InltLotSer) Return the first ChildInvWhseLot filtered by the InltLotSer column
+ * @method     ChildInvWhseLot findOneByInltbin(string $InltBin) Return the first ChildInvWhseLot filtered by the InltBin column
+ * @method     ChildInvWhseLot findOneByInltdate(string $InltDate) Return the first ChildInvWhseLot filtered by the InltDate column
+ * @method     ChildInvWhseLot findOneByInltdatewrit(string $InltDateWrit) Return the first ChildInvWhseLot filtered by the InltDateWrit column
+ * @method     ChildInvWhseLot findOneByInltcost(string $InltCost) Return the first ChildInvWhseLot filtered by the InltCost column
+ * @method     ChildInvWhseLot findOneByInltonhand(string $InltOnHand) Return the first ChildInvWhseLot filtered by the InltOnHand column
+ * @method     ChildInvWhseLot findOneByInltresv(string $InltResv) Return the first ChildInvWhseLot filtered by the InltResv column
+ * @method     ChildInvWhseLot findOneByInltship(string $InltShip) Return the first ChildInvWhseLot filtered by the InltShip column
+ * @method     ChildInvWhseLot findOneByInltallo(string $InltAllo) Return the first ChildInvWhseLot filtered by the InltAllo column
+ * @method     ChildInvWhseLot findOneByInltfaballo(string $InltFabAllo) Return the first ChildInvWhseLot filtered by the InltFabAllo column
+ * @method     ChildInvWhseLot findOneByInltintran(string $InltInTran) Return the first ChildInvWhseLot filtered by the InltInTran column
+ * @method     ChildInvWhseLot findOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column
+ * @method     ChildInvWhseLot findOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column
+ * @method     ChildInvWhseLot findOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column
+ * @method     ChildInvWhseLot findOneByInltlandcost1(string $InltLandCost1) Return the first ChildInvWhseLot filtered by the InltLandCost1 column
+ * @method     ChildInvWhseLot findOneByInltlandcost2(string $InltLandCost2) Return the first ChildInvWhseLot filtered by the InltLandCost2 column
+ * @method     ChildInvWhseLot findOneByInltlandcost3(string $InltLandCost3) Return the first ChildInvWhseLot filtered by the InltLandCost3 column
+ * @method     ChildInvWhseLot findOneByInltlandcost4(string $InltLandCost4) Return the first ChildInvWhseLot filtered by the InltLandCost4 column
+ * @method     ChildInvWhseLot findOneByInltlandcost5(string $InltLandCost5) Return the first ChildInvWhseLot filtered by the InltLandCost5 column
+ * @method     ChildInvWhseLot findOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column
+ * @method     ChildInvWhseLot findOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column
+ * @method     ChildInvWhseLot findOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLot findOneByInltheadmark(string $InltHeadMark) Return the first ChildInvWhseLot filtered by the InltHeadMark column
+ * @method     ChildInvWhseLot findOneByInltctry(string $InltCtry) Return the first ChildInvWhseLot filtered by the InltCtry column
+ * @method     ChildInvWhseLot findOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildInvWhseLot filtered by the InltRvalOrigCost column
+ * @method     ChildInvWhseLot findOneByInltrvalpct(string $InltRvalPct) Return the first ChildInvWhseLot filtered by the InltRvalPct column
+ * @method     ChildInvWhseLot findOneByInltunitwght(string $InltUnitWght) Return the first ChildInvWhseLot filtered by the InltUnitWght column
+ * @method     ChildInvWhseLot findOneByInltdestwhse(string $InltDestWhse) Return the first ChildInvWhseLot filtered by the InltDestWhse column
+ * @method     ChildInvWhseLot findOneByInltcntrqty(string $InltCntrQty) Return the first ChildInvWhseLot filtered by the InltCntrQty column
+ * @method     ChildInvWhseLot findOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildInvWhseLot filtered by the InltQtyPerRoll column
+ * @method     ChildInvWhseLot findOneByInlttarewght(string $InltTareWght) Return the first ChildInvWhseLot filtered by the InltTareWght column
+ * @method     ChildInvWhseLot findOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildInvWhseLot filtered by the InltQcReasonCd column
+ * @method     ChildInvWhseLot findOneByInltcert(string $InltCert) Return the first ChildInvWhseLot filtered by the InltCert column
+ * @method     ChildInvWhseLot findOneByInltcuredate(string $InltCureDate) Return the first ChildInvWhseLot filtered by the InltCureDate column
+ * @method     ChildInvWhseLot findOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildInvWhseLot filtered by the InltExpireDateCd column
+ * @method     ChildInvWhseLot findOneByInltexpiredate(string $InltExpireDate) Return the first ChildInvWhseLot filtered by the InltExpireDate column
+ * @method     ChildInvWhseLot findOneByInltorigbin(string $InltOrigBin) Return the first ChildInvWhseLot filtered by the InltOrigBin column
+ * @method     ChildInvWhseLot findOneByInltshopitem(string $InltShopItem) Return the first ChildInvWhseLot filtered by the InltShopItem column
+ * @method     ChildInvWhseLot findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseLot filtered by the DateUpdtd column
+ * @method     ChildInvWhseLot findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseLot filtered by the TimeUpdtd column
+ * @method     ChildInvWhseLot findOneByDummy(string $dummy) Return the first ChildInvWhseLot filtered by the dummy column *
 
- * @method     ChildWhseLotserial requirePk($key, ConnectionInterface $con = null) Return the ChildWhseLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOne(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requirePk($key, ConnectionInterface $con = null) Return the ChildInvWhseLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOne(ConnectionInterface $con = null) Return the first ChildInvWhseLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseLotserial requireOneByInititemnbr(string $InitItemNbr) Return the first ChildWhseLotserial filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByIntbwhse(string $IntbWhse) Return the first ChildWhseLotserial filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlotser(string $InltLotSer) Return the first ChildWhseLotserial filtered by the InltLotSer column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltbin(string $InltBin) Return the first ChildWhseLotserial filtered by the InltBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltdate(string $InltDate) Return the first ChildWhseLotserial filtered by the InltDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltdatewrit(string $InltDateWrit) Return the first ChildWhseLotserial filtered by the InltDateWrit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltcost(string $InltCost) Return the first ChildWhseLotserial filtered by the InltCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltonhand(string $InltOnHand) Return the first ChildWhseLotserial filtered by the InltOnHand column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltresv(string $InltResv) Return the first ChildWhseLotserial filtered by the InltResv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltship(string $InltShip) Return the first ChildWhseLotserial filtered by the InltShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltallo(string $InltAllo) Return the first ChildWhseLotserial filtered by the InltAllo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltfaballo(string $InltFabAllo) Return the first ChildWhseLotserial filtered by the InltFabAllo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltintran(string $InltInTran) Return the first ChildWhseLotserial filtered by the InltInTran column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltinship(string $InltInShip) Return the first ChildWhseLotserial filtered by the InltInShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlotref(string $InltLotRef) Return the first ChildWhseLotserial filtered by the InltLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltbatch(string $InltBatch) Return the first ChildWhseLotserial filtered by the InltBatch column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlandcost1(string $InltLandCost1) Return the first ChildWhseLotserial filtered by the InltLandCost1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlandcost2(string $InltLandCost2) Return the first ChildWhseLotserial filtered by the InltLandCost2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlandcost3(string $InltLandCost3) Return the first ChildWhseLotserial filtered by the InltLandCost3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlandcost4(string $InltLandCost4) Return the first ChildWhseLotserial filtered by the InltLandCost4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltlandcost5(string $InltLandCost5) Return the first ChildWhseLotserial filtered by the InltLandCost5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInlttariffcost(string $InltTariffCost) Return the first ChildWhseLotserial filtered by the InltTariffCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltshopcost(string $InltShopCost) Return the first ChildWhseLotserial filtered by the InltShopCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildWhseLotserial filtered by the InltIsscoDfsQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltheadmark(string $InltHeadMark) Return the first ChildWhseLotserial filtered by the InltHeadMark column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltctry(string $InltCtry) Return the first ChildWhseLotserial filtered by the InltCtry column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildWhseLotserial filtered by the InltRvalOrigCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltrvalpct(string $InltRvalPct) Return the first ChildWhseLotserial filtered by the InltRvalPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltunitwght(string $InltUnitWght) Return the first ChildWhseLotserial filtered by the InltUnitWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltdestwhse(string $InltDestWhse) Return the first ChildWhseLotserial filtered by the InltDestWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltcntrqty(string $InltCntrQty) Return the first ChildWhseLotserial filtered by the InltCntrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildWhseLotserial filtered by the InltQtyPerRoll column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInlttarewght(string $InltTareWght) Return the first ChildWhseLotserial filtered by the InltTareWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildWhseLotserial filtered by the InltQcReasonCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltcert(string $InltCert) Return the first ChildWhseLotserial filtered by the InltCert column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltcuredate(string $InltCureDate) Return the first ChildWhseLotserial filtered by the InltCureDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildWhseLotserial filtered by the InltExpireDateCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltexpiredate(string $InltExpireDate) Return the first ChildWhseLotserial filtered by the InltExpireDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltorigbin(string $InltOrigBin) Return the first ChildWhseLotserial filtered by the InltOrigBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByInltshopitem(string $InltShopItem) Return the first ChildWhseLotserial filtered by the InltShopItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByDateupdtd(string $DateUpdtd) Return the first ChildWhseLotserial filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildWhseLotserial filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildWhseLotserial requireOneByDummy(string $dummy) Return the first ChildWhseLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvWhseLot filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByIntbwhse(string $IntbWhse) Return the first ChildInvWhseLot filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlotser(string $InltLotSer) Return the first ChildInvWhseLot filtered by the InltLotSer column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltbin(string $InltBin) Return the first ChildInvWhseLot filtered by the InltBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltdate(string $InltDate) Return the first ChildInvWhseLot filtered by the InltDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltdatewrit(string $InltDateWrit) Return the first ChildInvWhseLot filtered by the InltDateWrit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltcost(string $InltCost) Return the first ChildInvWhseLot filtered by the InltCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltonhand(string $InltOnHand) Return the first ChildInvWhseLot filtered by the InltOnHand column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltresv(string $InltResv) Return the first ChildInvWhseLot filtered by the InltResv column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltship(string $InltShip) Return the first ChildInvWhseLot filtered by the InltShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltallo(string $InltAllo) Return the first ChildInvWhseLot filtered by the InltAllo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltfaballo(string $InltFabAllo) Return the first ChildInvWhseLot filtered by the InltFabAllo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltintran(string $InltInTran) Return the first ChildInvWhseLot filtered by the InltInTran column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltinship(string $InltInShip) Return the first ChildInvWhseLot filtered by the InltInShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlotref(string $InltLotRef) Return the first ChildInvWhseLot filtered by the InltLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltbatch(string $InltBatch) Return the first ChildInvWhseLot filtered by the InltBatch column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost1(string $InltLandCost1) Return the first ChildInvWhseLot filtered by the InltLandCost1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost2(string $InltLandCost2) Return the first ChildInvWhseLot filtered by the InltLandCost2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost3(string $InltLandCost3) Return the first ChildInvWhseLot filtered by the InltLandCost3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost4(string $InltLandCost4) Return the first ChildInvWhseLot filtered by the InltLandCost4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltlandcost5(string $InltLandCost5) Return the first ChildInvWhseLot filtered by the InltLandCost5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInlttariffcost(string $InltTariffCost) Return the first ChildInvWhseLot filtered by the InltTariffCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltshopcost(string $InltShopCost) Return the first ChildInvWhseLot filtered by the InltShopCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltisscodfsqty(string $InltIsscoDfsQty) Return the first ChildInvWhseLot filtered by the InltIsscoDfsQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltheadmark(string $InltHeadMark) Return the first ChildInvWhseLot filtered by the InltHeadMark column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltctry(string $InltCtry) Return the first ChildInvWhseLot filtered by the InltCtry column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltrvalorigcost(string $InltRvalOrigCost) Return the first ChildInvWhseLot filtered by the InltRvalOrigCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltrvalpct(string $InltRvalPct) Return the first ChildInvWhseLot filtered by the InltRvalPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltunitwght(string $InltUnitWght) Return the first ChildInvWhseLot filtered by the InltUnitWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltdestwhse(string $InltDestWhse) Return the first ChildInvWhseLot filtered by the InltDestWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltcntrqty(string $InltCntrQty) Return the first ChildInvWhseLot filtered by the InltCntrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltqtyperroll(string $InltQtyPerRoll) Return the first ChildInvWhseLot filtered by the InltQtyPerRoll column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInlttarewght(string $InltTareWght) Return the first ChildInvWhseLot filtered by the InltTareWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltqcreasoncd(string $InltQcReasonCd) Return the first ChildInvWhseLot filtered by the InltQcReasonCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltcert(string $InltCert) Return the first ChildInvWhseLot filtered by the InltCert column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltcuredate(string $InltCureDate) Return the first ChildInvWhseLot filtered by the InltCureDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltexpiredatecd(string $InltExpireDateCd) Return the first ChildInvWhseLot filtered by the InltExpireDateCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltexpiredate(string $InltExpireDate) Return the first ChildInvWhseLot filtered by the InltExpireDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltorigbin(string $InltOrigBin) Return the first ChildInvWhseLot filtered by the InltOrigBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByInltshopitem(string $InltShopItem) Return the first ChildInvWhseLot filtered by the InltShopItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvWhseLot filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvWhseLot filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvWhseLot requireOneByDummy(string $dummy) Return the first ChildInvWhseLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildWhseLotserial[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildWhseLotserial objects based on current ModelCriteria
- * @method     ChildWhseLotserial[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildWhseLotserial objects filtered by the InitItemNbr column
- * @method     ChildWhseLotserial[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildWhseLotserial objects filtered by the IntbWhse column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlotser(string $InltLotSer) Return ChildWhseLotserial objects filtered by the InltLotSer column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltbin(string $InltBin) Return ChildWhseLotserial objects filtered by the InltBin column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltdate(string $InltDate) Return ChildWhseLotserial objects filtered by the InltDate column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltdatewrit(string $InltDateWrit) Return ChildWhseLotserial objects filtered by the InltDateWrit column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltcost(string $InltCost) Return ChildWhseLotserial objects filtered by the InltCost column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltonhand(string $InltOnHand) Return ChildWhseLotserial objects filtered by the InltOnHand column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltresv(string $InltResv) Return ChildWhseLotserial objects filtered by the InltResv column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltship(string $InltShip) Return ChildWhseLotserial objects filtered by the InltShip column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltallo(string $InltAllo) Return ChildWhseLotserial objects filtered by the InltAllo column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltfaballo(string $InltFabAllo) Return ChildWhseLotserial objects filtered by the InltFabAllo column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltintran(string $InltInTran) Return ChildWhseLotserial objects filtered by the InltInTran column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltinship(string $InltInShip) Return ChildWhseLotserial objects filtered by the InltInShip column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlotref(string $InltLotRef) Return ChildWhseLotserial objects filtered by the InltLotRef column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltbatch(string $InltBatch) Return ChildWhseLotserial objects filtered by the InltBatch column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlandcost1(string $InltLandCost1) Return ChildWhseLotserial objects filtered by the InltLandCost1 column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlandcost2(string $InltLandCost2) Return ChildWhseLotserial objects filtered by the InltLandCost2 column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlandcost3(string $InltLandCost3) Return ChildWhseLotserial objects filtered by the InltLandCost3 column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlandcost4(string $InltLandCost4) Return ChildWhseLotserial objects filtered by the InltLandCost4 column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltlandcost5(string $InltLandCost5) Return ChildWhseLotserial objects filtered by the InltLandCost5 column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInlttariffcost(string $InltTariffCost) Return ChildWhseLotserial objects filtered by the InltTariffCost column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltshopcost(string $InltShopCost) Return ChildWhseLotserial objects filtered by the InltShopCost column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltisscodfsqty(string $InltIsscoDfsQty) Return ChildWhseLotserial objects filtered by the InltIsscoDfsQty column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltheadmark(string $InltHeadMark) Return ChildWhseLotserial objects filtered by the InltHeadMark column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltctry(string $InltCtry) Return ChildWhseLotserial objects filtered by the InltCtry column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltrvalorigcost(string $InltRvalOrigCost) Return ChildWhseLotserial objects filtered by the InltRvalOrigCost column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltrvalpct(string $InltRvalPct) Return ChildWhseLotserial objects filtered by the InltRvalPct column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltunitwght(string $InltUnitWght) Return ChildWhseLotserial objects filtered by the InltUnitWght column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltdestwhse(string $InltDestWhse) Return ChildWhseLotserial objects filtered by the InltDestWhse column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltcntrqty(string $InltCntrQty) Return ChildWhseLotserial objects filtered by the InltCntrQty column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltqtyperroll(string $InltQtyPerRoll) Return ChildWhseLotserial objects filtered by the InltQtyPerRoll column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInlttarewght(string $InltTareWght) Return ChildWhseLotserial objects filtered by the InltTareWght column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltqcreasoncd(string $InltQcReasonCd) Return ChildWhseLotserial objects filtered by the InltQcReasonCd column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltcert(string $InltCert) Return ChildWhseLotserial objects filtered by the InltCert column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltcuredate(string $InltCureDate) Return ChildWhseLotserial objects filtered by the InltCureDate column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltexpiredatecd(string $InltExpireDateCd) Return ChildWhseLotserial objects filtered by the InltExpireDateCd column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltexpiredate(string $InltExpireDate) Return ChildWhseLotserial objects filtered by the InltExpireDate column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltorigbin(string $InltOrigBin) Return ChildWhseLotserial objects filtered by the InltOrigBin column
- * @method     ChildWhseLotserial[]|ObjectCollection findByInltshopitem(string $InltShopItem) Return ChildWhseLotserial objects filtered by the InltShopItem column
- * @method     ChildWhseLotserial[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildWhseLotserial objects filtered by the DateUpdtd column
- * @method     ChildWhseLotserial[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildWhseLotserial objects filtered by the TimeUpdtd column
- * @method     ChildWhseLotserial[]|ObjectCollection findByDummy(string $dummy) Return ChildWhseLotserial objects filtered by the dummy column
- * @method     ChildWhseLotserial[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvWhseLot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvWhseLot objects based on current ModelCriteria
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvWhseLot objects filtered by the InitItemNbr column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildInvWhseLot objects filtered by the IntbWhse column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlotser(string $InltLotSer) Return ChildInvWhseLot objects filtered by the InltLotSer column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltbin(string $InltBin) Return ChildInvWhseLot objects filtered by the InltBin column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltdate(string $InltDate) Return ChildInvWhseLot objects filtered by the InltDate column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltdatewrit(string $InltDateWrit) Return ChildInvWhseLot objects filtered by the InltDateWrit column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltcost(string $InltCost) Return ChildInvWhseLot objects filtered by the InltCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltonhand(string $InltOnHand) Return ChildInvWhseLot objects filtered by the InltOnHand column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltresv(string $InltResv) Return ChildInvWhseLot objects filtered by the InltResv column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltship(string $InltShip) Return ChildInvWhseLot objects filtered by the InltShip column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltallo(string $InltAllo) Return ChildInvWhseLot objects filtered by the InltAllo column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltfaballo(string $InltFabAllo) Return ChildInvWhseLot objects filtered by the InltFabAllo column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltintran(string $InltInTran) Return ChildInvWhseLot objects filtered by the InltInTran column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltinship(string $InltInShip) Return ChildInvWhseLot objects filtered by the InltInShip column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlotref(string $InltLotRef) Return ChildInvWhseLot objects filtered by the InltLotRef column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltbatch(string $InltBatch) Return ChildInvWhseLot objects filtered by the InltBatch column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost1(string $InltLandCost1) Return ChildInvWhseLot objects filtered by the InltLandCost1 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost2(string $InltLandCost2) Return ChildInvWhseLot objects filtered by the InltLandCost2 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost3(string $InltLandCost3) Return ChildInvWhseLot objects filtered by the InltLandCost3 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost4(string $InltLandCost4) Return ChildInvWhseLot objects filtered by the InltLandCost4 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltlandcost5(string $InltLandCost5) Return ChildInvWhseLot objects filtered by the InltLandCost5 column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInlttariffcost(string $InltTariffCost) Return ChildInvWhseLot objects filtered by the InltTariffCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltshopcost(string $InltShopCost) Return ChildInvWhseLot objects filtered by the InltShopCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltisscodfsqty(string $InltIsscoDfsQty) Return ChildInvWhseLot objects filtered by the InltIsscoDfsQty column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltheadmark(string $InltHeadMark) Return ChildInvWhseLot objects filtered by the InltHeadMark column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltctry(string $InltCtry) Return ChildInvWhseLot objects filtered by the InltCtry column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltrvalorigcost(string $InltRvalOrigCost) Return ChildInvWhseLot objects filtered by the InltRvalOrigCost column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltrvalpct(string $InltRvalPct) Return ChildInvWhseLot objects filtered by the InltRvalPct column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltunitwght(string $InltUnitWght) Return ChildInvWhseLot objects filtered by the InltUnitWght column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltdestwhse(string $InltDestWhse) Return ChildInvWhseLot objects filtered by the InltDestWhse column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltcntrqty(string $InltCntrQty) Return ChildInvWhseLot objects filtered by the InltCntrQty column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltqtyperroll(string $InltQtyPerRoll) Return ChildInvWhseLot objects filtered by the InltQtyPerRoll column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInlttarewght(string $InltTareWght) Return ChildInvWhseLot objects filtered by the InltTareWght column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltqcreasoncd(string $InltQcReasonCd) Return ChildInvWhseLot objects filtered by the InltQcReasonCd column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltcert(string $InltCert) Return ChildInvWhseLot objects filtered by the InltCert column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltcuredate(string $InltCureDate) Return ChildInvWhseLot objects filtered by the InltCureDate column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltexpiredatecd(string $InltExpireDateCd) Return ChildInvWhseLot objects filtered by the InltExpireDateCd column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltexpiredate(string $InltExpireDate) Return ChildInvWhseLot objects filtered by the InltExpireDate column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltorigbin(string $InltOrigBin) Return ChildInvWhseLot objects filtered by the InltOrigBin column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByInltshopitem(string $InltShopItem) Return ChildInvWhseLot objects filtered by the InltShopItem column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvWhseLot objects filtered by the DateUpdtd column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvWhseLot objects filtered by the TimeUpdtd column
+ * @method     ChildInvWhseLot[]|ObjectCollection findByDummy(string $dummy) Return ChildInvWhseLot objects filtered by the dummy column
+ * @method     ChildInvWhseLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class WhseLotserialQuery extends ModelCriteria
+abstract class InvWhseLotQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\WhseLotserialQuery object.
+     * Initializes internal state of \Base\InvWhseLotQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\WhseLotserial', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\InvWhseLot', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildWhseLotserialQuery object.
+     * Returns a new ChildInvWhseLotQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildWhseLotserialQuery
+     * @return ChildInvWhseLotQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildWhseLotserialQuery) {
+        if ($criteria instanceof ChildInvWhseLotQuery) {
             return $criteria;
         }
-        $query = new ChildWhseLotserialQuery();
+        $query = new ChildInvWhseLotQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -341,7 +341,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param array[$InitItemNbr, $IntbWhse, $InltLotSer, $InltBin] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildWhseLotserial|array|mixed the result, formatted by the current formatter
+     * @return ChildInvWhseLot|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -350,7 +350,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WhseLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -363,7 +363,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = WhseLotserialTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
+        if ((null !== ($obj = InvWhseLotTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -380,7 +380,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildWhseLotserial A model object, or null if the key is not found
+     * @return ChildInvWhseLot A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -398,10 +398,10 @@ abstract class WhseLotserialQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildWhseLotserial $obj */
-            $obj = new ChildWhseLotserial();
+            /** @var ChildInvWhseLot $obj */
+            $obj = new ChildInvWhseLot();
             $obj->hydrate($row);
-            WhseLotserialTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
+            InvWhseLotTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1]), (null === $key[2] || is_scalar($key[2]) || is_callable([$key[2], '__toString']) ? (string) $key[2] : $key[2]), (null === $key[3] || is_scalar($key[3]) || is_callable([$key[3], '__toString']) ? (string) $key[3] : $key[3])]));
         }
         $stmt->closeCursor();
 
@@ -414,7 +414,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildWhseLotserial|array|mixed the result, formatted by the current formatter
+     * @return ChildInvWhseLot|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -456,14 +456,14 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $key[1], Criteria::EQUAL);
-        $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $key[2], Criteria::EQUAL);
-        $this->addUsingAlias(WhseLotserialTableMap::COL_INLTBIN, $key[3], Criteria::EQUAL);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $key[2], Criteria::EQUAL);
+        $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBIN, $key[3], Criteria::EQUAL);
 
         return $this;
     }
@@ -473,7 +473,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -481,12 +481,12 @@ abstract class WhseLotserialQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(WhseLotserialTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(WhseLotserialTableMap::COL_INTBWHSE, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(InvWhseLotTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(InvWhseLotTableMap::COL_INTBWHSE, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
-            $cton2 = $this->getNewCriterion(WhseLotserialTableMap::COL_INLTLOTSER, $key[2], Criteria::EQUAL);
+            $cton2 = $this->getNewCriterion(InvWhseLotTableMap::COL_INLTLOTSER, $key[2], Criteria::EQUAL);
             $cton0->addAnd($cton2);
-            $cton3 = $this->getNewCriterion(WhseLotserialTableMap::COL_INLTBIN, $key[3], Criteria::EQUAL);
+            $cton3 = $this->getNewCriterion(InvWhseLotTableMap::COL_INLTBIN, $key[3], Criteria::EQUAL);
             $cton0->addAnd($cton3);
             $this->addOr($cton0);
         }
@@ -506,7 +506,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inititemnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInititemnbr($inititemnbr = null, $comparison = null)
     {
@@ -516,7 +516,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
     }
 
     /**
@@ -531,7 +531,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $intbwhse The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByIntbwhse($intbwhse = null, $comparison = null)
     {
@@ -541,7 +541,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $intbwhse, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $intbwhse, $comparison);
     }
 
     /**
@@ -556,7 +556,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltlotser The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlotser($inltlotser = null, $comparison = null)
     {
@@ -566,7 +566,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $inltlotser, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $inltlotser, $comparison);
     }
 
     /**
@@ -581,7 +581,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltbin The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltbin($inltbin = null, $comparison = null)
     {
@@ -591,7 +591,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTBIN, $inltbin, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBIN, $inltbin, $comparison);
     }
 
     /**
@@ -606,7 +606,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltdate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltdate($inltdate = null, $comparison = null)
     {
@@ -616,7 +616,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTDATE, $inltdate, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATE, $inltdate, $comparison);
     }
 
     /**
@@ -631,7 +631,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltdatewrit The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltdatewrit($inltdatewrit = null, $comparison = null)
     {
@@ -641,7 +641,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTDATEWRIT, $inltdatewrit, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDATEWRIT, $inltdatewrit, $comparison);
     }
 
     /**
@@ -660,18 +660,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltcost($inltcost = null, $comparison = null)
     {
         if (is_array($inltcost)) {
             $useMinMax = false;
             if (isset($inltcost['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCOST, $inltcost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCOST, $inltcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltcost['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCOST, $inltcost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCOST, $inltcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -682,7 +682,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCOST, $inltcost, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCOST, $inltcost, $comparison);
     }
 
     /**
@@ -701,18 +701,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltonhand($inltonhand = null, $comparison = null)
     {
         if (is_array($inltonhand)) {
             $useMinMax = false;
             if (isset($inltonhand['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTONHAND, $inltonhand['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTONHAND, $inltonhand['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltonhand['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTONHAND, $inltonhand['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTONHAND, $inltonhand['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -723,7 +723,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTONHAND, $inltonhand, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTONHAND, $inltonhand, $comparison);
     }
 
     /**
@@ -742,18 +742,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltresv($inltresv = null, $comparison = null)
     {
         if (is_array($inltresv)) {
             $useMinMax = false;
             if (isset($inltresv['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRESV, $inltresv['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRESV, $inltresv['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltresv['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRESV, $inltresv['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRESV, $inltresv['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -764,7 +764,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRESV, $inltresv, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRESV, $inltresv, $comparison);
     }
 
     /**
@@ -783,18 +783,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltship($inltship = null, $comparison = null)
     {
         if (is_array($inltship)) {
             $useMinMax = false;
             if (isset($inltship['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHIP, $inltship['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHIP, $inltship['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltship['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHIP, $inltship['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHIP, $inltship['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -805,7 +805,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHIP, $inltship, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHIP, $inltship, $comparison);
     }
 
     /**
@@ -824,18 +824,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltallo($inltallo = null, $comparison = null)
     {
         if (is_array($inltallo)) {
             $useMinMax = false;
             if (isset($inltallo['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTALLO, $inltallo['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTALLO, $inltallo['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltallo['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTALLO, $inltallo['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTALLO, $inltallo['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -846,7 +846,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTALLO, $inltallo, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTALLO, $inltallo, $comparison);
     }
 
     /**
@@ -865,18 +865,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltfaballo($inltfaballo = null, $comparison = null)
     {
         if (is_array($inltfaballo)) {
             $useMinMax = false;
             if (isset($inltfaballo['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTFABALLO, $inltfaballo['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTFABALLO, $inltfaballo['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltfaballo['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTFABALLO, $inltfaballo['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTFABALLO, $inltfaballo['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -887,7 +887,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTFABALLO, $inltfaballo, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTFABALLO, $inltfaballo, $comparison);
     }
 
     /**
@@ -906,18 +906,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltintran($inltintran = null, $comparison = null)
     {
         if (is_array($inltintran)) {
             $useMinMax = false;
             if (isset($inltintran['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINTRAN, $inltintran['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINTRAN, $inltintran['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltintran['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINTRAN, $inltintran['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINTRAN, $inltintran['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -928,7 +928,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINTRAN, $inltintran, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINTRAN, $inltintran, $comparison);
     }
 
     /**
@@ -947,18 +947,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltinship($inltinship = null, $comparison = null)
     {
         if (is_array($inltinship)) {
             $useMinMax = false;
             if (isset($inltinship['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINSHIP, $inltinship['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINSHIP, $inltinship['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltinship['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINSHIP, $inltinship['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINSHIP, $inltinship['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -969,7 +969,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTINSHIP, $inltinship, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTINSHIP, $inltinship, $comparison);
     }
 
     /**
@@ -984,7 +984,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltlotref The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlotref($inltlotref = null, $comparison = null)
     {
@@ -994,7 +994,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTREF, $inltlotref, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTREF, $inltlotref, $comparison);
     }
 
     /**
@@ -1009,7 +1009,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltbatch The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltbatch($inltbatch = null, $comparison = null)
     {
@@ -1019,7 +1019,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTBATCH, $inltbatch, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTBATCH, $inltbatch, $comparison);
     }
 
     /**
@@ -1038,18 +1038,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlandcost1($inltlandcost1 = null, $comparison = null)
     {
         if (is_array($inltlandcost1)) {
             $useMinMax = false;
             if (isset($inltlandcost1['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST1, $inltlandcost1['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltlandcost1['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST1, $inltlandcost1['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1060,7 +1060,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST1, $inltlandcost1, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST1, $inltlandcost1, $comparison);
     }
 
     /**
@@ -1079,18 +1079,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlandcost2($inltlandcost2 = null, $comparison = null)
     {
         if (is_array($inltlandcost2)) {
             $useMinMax = false;
             if (isset($inltlandcost2['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST2, $inltlandcost2['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltlandcost2['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST2, $inltlandcost2['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1101,7 +1101,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST2, $inltlandcost2, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST2, $inltlandcost2, $comparison);
     }
 
     /**
@@ -1120,18 +1120,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlandcost3($inltlandcost3 = null, $comparison = null)
     {
         if (is_array($inltlandcost3)) {
             $useMinMax = false;
             if (isset($inltlandcost3['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST3, $inltlandcost3['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltlandcost3['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST3, $inltlandcost3['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1142,7 +1142,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST3, $inltlandcost3, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST3, $inltlandcost3, $comparison);
     }
 
     /**
@@ -1161,18 +1161,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlandcost4($inltlandcost4 = null, $comparison = null)
     {
         if (is_array($inltlandcost4)) {
             $useMinMax = false;
             if (isset($inltlandcost4['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST4, $inltlandcost4['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltlandcost4['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST4, $inltlandcost4['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1183,7 +1183,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST4, $inltlandcost4, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST4, $inltlandcost4, $comparison);
     }
 
     /**
@@ -1202,18 +1202,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltlandcost5($inltlandcost5 = null, $comparison = null)
     {
         if (is_array($inltlandcost5)) {
             $useMinMax = false;
             if (isset($inltlandcost5['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST5, $inltlandcost5['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltlandcost5['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST5, $inltlandcost5['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1224,7 +1224,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTLANDCOST5, $inltlandcost5, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTLANDCOST5, $inltlandcost5, $comparison);
     }
 
     /**
@@ -1243,18 +1243,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInlttariffcost($inlttariffcost = null, $comparison = null)
     {
         if (is_array($inlttariffcost)) {
             $useMinMax = false;
             if (isset($inlttariffcost['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTARIFFCOST, $inlttariffcost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTARIFFCOST, $inlttariffcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inlttariffcost['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTARIFFCOST, $inlttariffcost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTARIFFCOST, $inlttariffcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1265,7 +1265,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTARIFFCOST, $inlttariffcost, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTARIFFCOST, $inlttariffcost, $comparison);
     }
 
     /**
@@ -1284,18 +1284,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltshopcost($inltshopcost = null, $comparison = null)
     {
         if (is_array($inltshopcost)) {
             $useMinMax = false;
             if (isset($inltshopcost['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHOPCOST, $inltshopcost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPCOST, $inltshopcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltshopcost['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHOPCOST, $inltshopcost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPCOST, $inltshopcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1306,7 +1306,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHOPCOST, $inltshopcost, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPCOST, $inltshopcost, $comparison);
     }
 
     /**
@@ -1325,18 +1325,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltisscodfsqty($inltisscodfsqty = null, $comparison = null)
     {
         if (is_array($inltisscodfsqty)) {
             $useMinMax = false;
             if (isset($inltisscodfsqty['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltisscodfsqty['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1347,7 +1347,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTISSCODFSQTY, $inltisscodfsqty, $comparison);
     }
 
     /**
@@ -1362,7 +1362,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltheadmark The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltheadmark($inltheadmark = null, $comparison = null)
     {
@@ -1372,7 +1372,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTHEADMARK, $inltheadmark, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTHEADMARK, $inltheadmark, $comparison);
     }
 
     /**
@@ -1387,7 +1387,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltctry The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltctry($inltctry = null, $comparison = null)
     {
@@ -1397,7 +1397,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCTRY, $inltctry, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCTRY, $inltctry, $comparison);
     }
 
     /**
@@ -1416,18 +1416,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltrvalorigcost($inltrvalorigcost = null, $comparison = null)
     {
         if (is_array($inltrvalorigcost)) {
             $useMinMax = false;
             if (isset($inltrvalorigcost['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltrvalorigcost['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1438,7 +1438,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALORIGCOST, $inltrvalorigcost, $comparison);
     }
 
     /**
@@ -1457,18 +1457,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltrvalpct($inltrvalpct = null, $comparison = null)
     {
         if (is_array($inltrvalpct)) {
             $useMinMax = false;
             if (isset($inltrvalpct['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALPCT, $inltrvalpct['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALPCT, $inltrvalpct['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltrvalpct['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALPCT, $inltrvalpct['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALPCT, $inltrvalpct['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1479,7 +1479,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTRVALPCT, $inltrvalpct, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTRVALPCT, $inltrvalpct, $comparison);
     }
 
     /**
@@ -1498,18 +1498,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltunitwght($inltunitwght = null, $comparison = null)
     {
         if (is_array($inltunitwght)) {
             $useMinMax = false;
             if (isset($inltunitwght['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTUNITWGHT, $inltunitwght['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTUNITWGHT, $inltunitwght['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltunitwght['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTUNITWGHT, $inltunitwght['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTUNITWGHT, $inltunitwght['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1520,7 +1520,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTUNITWGHT, $inltunitwght, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTUNITWGHT, $inltunitwght, $comparison);
     }
 
     /**
@@ -1535,7 +1535,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltdestwhse The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltdestwhse($inltdestwhse = null, $comparison = null)
     {
@@ -1545,7 +1545,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTDESTWHSE, $inltdestwhse, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTDESTWHSE, $inltdestwhse, $comparison);
     }
 
     /**
@@ -1564,18 +1564,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltcntrqty($inltcntrqty = null, $comparison = null)
     {
         if (is_array($inltcntrqty)) {
             $useMinMax = false;
             if (isset($inltcntrqty['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCNTRQTY, $inltcntrqty['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCNTRQTY, $inltcntrqty['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltcntrqty['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCNTRQTY, $inltcntrqty['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCNTRQTY, $inltcntrqty['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1586,7 +1586,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCNTRQTY, $inltcntrqty, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCNTRQTY, $inltcntrqty, $comparison);
     }
 
     /**
@@ -1605,18 +1605,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltqtyperroll($inltqtyperroll = null, $comparison = null)
     {
         if (is_array($inltqtyperroll)) {
             $useMinMax = false;
             if (isset($inltqtyperroll['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTQTYPERROLL, $inltqtyperroll['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQTYPERROLL, $inltqtyperroll['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inltqtyperroll['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTQTYPERROLL, $inltqtyperroll['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQTYPERROLL, $inltqtyperroll['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1627,7 +1627,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTQTYPERROLL, $inltqtyperroll, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQTYPERROLL, $inltqtyperroll, $comparison);
     }
 
     /**
@@ -1646,18 +1646,18 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInlttarewght($inlttarewght = null, $comparison = null)
     {
         if (is_array($inlttarewght)) {
             $useMinMax = false;
             if (isset($inlttarewght['min'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTAREWGHT, $inlttarewght['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTAREWGHT, $inlttarewght['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($inlttarewght['max'])) {
-                $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTAREWGHT, $inlttarewght['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTAREWGHT, $inlttarewght['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -1668,7 +1668,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTTAREWGHT, $inlttarewght, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTTAREWGHT, $inlttarewght, $comparison);
     }
 
     /**
@@ -1683,7 +1683,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltqcreasoncd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltqcreasoncd($inltqcreasoncd = null, $comparison = null)
     {
@@ -1693,7 +1693,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTQCREASONCD, $inltqcreasoncd, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTQCREASONCD, $inltqcreasoncd, $comparison);
     }
 
     /**
@@ -1708,7 +1708,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltcert The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltcert($inltcert = null, $comparison = null)
     {
@@ -1718,7 +1718,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCERT, $inltcert, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCERT, $inltcert, $comparison);
     }
 
     /**
@@ -1733,7 +1733,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltcuredate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltcuredate($inltcuredate = null, $comparison = null)
     {
@@ -1743,7 +1743,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTCUREDATE, $inltcuredate, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTCUREDATE, $inltcuredate, $comparison);
     }
 
     /**
@@ -1758,7 +1758,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltexpiredatecd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltexpiredatecd($inltexpiredatecd = null, $comparison = null)
     {
@@ -1768,7 +1768,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTEXPIREDATECD, $inltexpiredatecd, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATECD, $inltexpiredatecd, $comparison);
     }
 
     /**
@@ -1783,7 +1783,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltexpiredate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltexpiredate($inltexpiredate = null, $comparison = null)
     {
@@ -1793,7 +1793,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTEXPIREDATE, $inltexpiredate, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTEXPIREDATE, $inltexpiredate, $comparison);
     }
 
     /**
@@ -1808,7 +1808,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltorigbin The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltorigbin($inltorigbin = null, $comparison = null)
     {
@@ -1818,7 +1818,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTORIGBIN, $inltorigbin, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTORIGBIN, $inltorigbin, $comparison);
     }
 
     /**
@@ -1833,7 +1833,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $inltshopitem The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInltshopitem($inltshopitem = null, $comparison = null)
     {
@@ -1843,7 +1843,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_INLTSHOPITEM, $inltshopitem, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_INLTSHOPITEM, $inltshopitem, $comparison);
     }
 
     /**
@@ -1858,7 +1858,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -1868,7 +1868,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -1883,7 +1883,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -1893,7 +1893,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -1908,7 +1908,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -1918,7 +1918,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(WhseLotserialTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(InvWhseLotTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
@@ -1929,20 +1929,20 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildWhseLotserialQuery The current query, for fluid interface
+     * @return ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByItemMasterItem($itemMasterItem, $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -1954,7 +1954,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -2006,20 +2006,20 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildWhseLotserialQuery The current query, for fluid interface
+     * @return ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByWarehouse($warehouse, $comparison = null)
     {
         if ($warehouse instanceof \Warehouse) {
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $warehouse->getIntbwhse(), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $warehouse->getIntbwhse(), $comparison);
         } elseif ($warehouse instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
         } else {
             throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
         }
@@ -2031,7 +2031,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -2083,14 +2083,14 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildWhseLotserialQuery The current query, for fluid interface
+     * @return ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function filterByInvLotMaster($InvLotMaster, $comparison = null)
     {
         if ($InvLotMaster instanceof \InvLotMaster) {
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison)
-                ->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $InvLotMaster->getLotmlotnbr(), $comparison);
+                ->addUsingAlias(InvWhseLotTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvWhseLotTableMap::COL_INLTLOTSER, $InvLotMaster->getLotmlotnbr(), $comparison);
         } else {
             throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster');
         }
@@ -2102,7 +2102,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
     public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -2149,17 +2149,17 @@ abstract class WhseLotserialQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildWhseLotserial $whseLotserial Object to remove from the list of results
+     * @param   ChildInvWhseLot $invWhseLot Object to remove from the list of results
      *
-     * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
+     * @return $this|ChildInvWhseLotQuery The current query, for fluid interface
      */
-    public function prune($whseLotserial = null)
+    public function prune($invWhseLot = null)
     {
-        if ($whseLotserial) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(WhseLotserialTableMap::COL_INITITEMNBR), $whseLotserial->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(WhseLotserialTableMap::COL_INTBWHSE), $whseLotserial->getIntbwhse(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTLOTSER), $whseLotserial->getInltlotser(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond3', $this->getAliasedColName(WhseLotserialTableMap::COL_INLTBIN), $whseLotserial->getInltbin(), Criteria::NOT_EQUAL);
+        if ($invWhseLot) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(InvWhseLotTableMap::COL_INITITEMNBR), $invWhseLot->getInititemnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(InvWhseLotTableMap::COL_INTBWHSE), $invWhseLot->getIntbwhse(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(InvWhseLotTableMap::COL_INLTLOTSER), $invWhseLot->getInltlotser(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond3', $this->getAliasedColName(InvWhseLotTableMap::COL_INLTBIN), $invWhseLot->getInltbin(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2', 'pruneCond3'), Criteria::LOGICAL_OR);
         }
 
@@ -2175,7 +2175,7 @@ abstract class WhseLotserialQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -2186,8 +2186,8 @@ abstract class WhseLotserialQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            WhseLotserialTableMap::clearInstancePool();
-            WhseLotserialTableMap::clearRelatedInstancePool();
+            InvWhseLotTableMap::clearInstancePool();
+            InvWhseLotTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -2205,26 +2205,26 @@ abstract class WhseLotserialQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WhseLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvWhseLotTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(WhseLotserialTableMap::DATABASE_NAME);
+        $criteria->setDbName(InvWhseLotTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            WhseLotserialTableMap::removeInstanceFromPool($criteria);
+            InvWhseLotTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            WhseLotserialTableMap::clearRelatedInstancePool();
+            InvWhseLotTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // WhseLotserialQuery
+} // InvWhseLotQuery

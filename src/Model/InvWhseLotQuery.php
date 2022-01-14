@@ -1,13 +1,13 @@
 <?php
 
-use Base\WhseLotserialQuery as BaseWhseLotserialQuery;
+use Base\InvWhseLotQuery as BaseInvWhseLotQuery;
 
 use Dplus\Model\QueryTraits;
 
 /**
  * Class for performing query and update operations on the 'inv_inv_lot' table.
  */
-class WhseLotserialQuery extends BaseWhseLotserialQuery {
+class InvWhseLotQuery extends BaseInvWhseLotQuery {
 	use QueryTraits;
 
 	/**
