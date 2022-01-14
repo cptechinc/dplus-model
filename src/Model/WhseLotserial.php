@@ -25,9 +25,11 @@ class WhseLotserial extends BaseWhseLotserial {
 		'lotserial' 	=> 'inltlotser',
 		'qty'			=> 'inltonhand',
 		'bin'			=> 'inltbin',
+		'binid' 		=> 'inltbin',
 		'date_lot'		=> 'inltdate',
 		'date_written'	=> 'inltdatewrite',
 		'date_expire'	=> 'inltexpiredate',
+		'expiredate'	=> 'inltexpiredate',
 		'date'			=> 'dateupdtd',
 		'time'			=> 'timeupdtd',
 
