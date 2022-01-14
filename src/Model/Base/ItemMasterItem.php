@@ -3891,12 +3891,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->InvLotMastersScheduledForDeletion !== null) {
-                if (!$this->InvLotMastersScheduledForDeletion->isEmpty()) {
+            if ($this->invLotMastersScheduledForDeletion !== null) {
+                if (!$this->invLotMastersScheduledForDeletion->isEmpty()) {
                     \InvLotMasterQuery::create()
-                        ->filterByPrimaryKeys($this->InvLotMastersScheduledForDeletion->getPrimaryKeys(false))
+                        ->filterByPrimaryKeys($this->invLotMastersScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
-                    $this->InvLotMastersScheduledForDeletion = null;
+                    $this->invLotMastersScheduledForDeletion = null;
                 }
             }
 
@@ -9294,7 +9294,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->InvLotMastersScheduledForDeletion = clone $InvLotMastersToDelete;
+        $this->invLotMastersScheduledForDeletion = clone $InvLotMastersToDelete;
 
         foreach ($InvLotMastersToDelete as $InvLotMasterRemoved) {
             $InvLotMasterRemoved->setItemMasterItem(null);
@@ -9362,8 +9362,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if (!$this->collInvLotMasters->contains($l)) {
             $this->doAddInvLotMaster($l);
 
-            if ($this->InvLotMastersScheduledForDeletion and $this->InvLotMastersScheduledForDeletion->contains($l)) {
-                $this->InvLotMastersScheduledForDeletion->remove($this->InvLotMastersScheduledForDeletion->search($l));
+            if ($this->invLotMastersScheduledForDeletion and $this->invLotMastersScheduledForDeletion->contains($l)) {
+                $this->invLotMastersScheduledForDeletion->remove($this->invLotMastersScheduledForDeletion->search($l));
             }
         }
 
@@ -9388,11 +9388,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->getInvLotMasters()->contains($InvLotMaster)) {
             $pos = $this->collInvLotMasters->search($InvLotMaster);
             $this->collInvLotMasters->remove($pos);
-            if (null === $this->InvLotMastersScheduledForDeletion) {
-                $this->InvLotMastersScheduledForDeletion = clone $this->collInvLotMasters;
-                $this->InvLotMastersScheduledForDeletion->clear();
+            if (null === $this->invLotMastersScheduledForDeletion) {
+                $this->invLotMastersScheduledForDeletion = clone $this->collInvLotMasters;
+                $this->invLotMastersScheduledForDeletion->clear();
             }
-            $this->InvLotMastersScheduledForDeletion[]= clone $InvLotMaster;
+            $this->invLotMastersScheduledForDeletion[]= clone $InvLotMaster;
             $InvLotMaster->setItemMasterItem(null);
         }
 
