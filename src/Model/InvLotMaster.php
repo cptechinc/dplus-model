@@ -1,6 +1,6 @@
 <?php
 
-use Base\InvLot as BaseInvLot;
+use Base\InvLotMaster as BaseInvLotMaster;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'inv_lot_mast' table.
  */
-class InvLot extends BaseInvLot {
+class InvLotMaster extends BaseInvLotMaster {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

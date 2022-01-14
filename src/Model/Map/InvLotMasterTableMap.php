@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \InvLot;
-use \InvLotQuery;
+use \InvLotMaster;
+use \InvLotMasterQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class InvLotTableMap extends TableMap
+class InvLotMasterTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class InvLotTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.InvLotTableMap';
+    const CLASS_NAME = '.Map.InvLotMasterTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class InvLotTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\InvLot';
+    const OM_CLASS = '\\InvLotMaster';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'InvLot';
+    const CLASS_DEFAULT = 'InvLotMaster';
 
     /**
      * The total number of columns
@@ -180,7 +180,7 @@ class InvLotTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Inititemnbr', 'Lotmlotnbr', 'Lotmlotref', 'Lotmfrstactdate', 'Lotmimagyn', 'Lotmunitwght', 'Lotmrevision', 'Lotmctry', 'Lotmcofc', 'Lotmcreatedate', 'Lotmcreatetime', 'Lotmvendid', 'Lotmexpiredate', 'Lotmunitcost', 'Lotmcntrqty', 'Lotmsrccd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('inititemnbr', 'lotmlotnbr', 'lotmlotref', 'lotmfrstactdate', 'lotmimagyn', 'lotmunitwght', 'lotmrevision', 'lotmctry', 'lotmcofc', 'lotmcreatedate', 'lotmcreatetime', 'lotmvendid', 'lotmexpiredate', 'lotmunitcost', 'lotmcntrqty', 'lotmsrccd', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR, InvLotTableMap::COL_LOTMLOTNBR, InvLotTableMap::COL_LOTMLOTREF, InvLotTableMap::COL_LOTMFRSTACTDATE, InvLotTableMap::COL_LOTMIMAGYN, InvLotTableMap::COL_LOTMUNITWGHT, InvLotTableMap::COL_LOTMREVISION, InvLotTableMap::COL_LOTMCTRY, InvLotTableMap::COL_LOTMCOFC, InvLotTableMap::COL_LOTMCREATEDATE, InvLotTableMap::COL_LOTMCREATETIME, InvLotTableMap::COL_LOTMVENDID, InvLotTableMap::COL_LOTMEXPIREDATE, InvLotTableMap::COL_LOTMUNITCOST, InvLotTableMap::COL_LOTMCNTRQTY, InvLotTableMap::COL_LOTMSRCCD, InvLotTableMap::COL_DATEUPDTD, InvLotTableMap::COL_TIMEUPDTD, InvLotTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR, InvLotMasterTableMap::COL_LOTMLOTNBR, InvLotMasterTableMap::COL_LOTMLOTREF, InvLotMasterTableMap::COL_LOTMFRSTACTDATE, InvLotMasterTableMap::COL_LOTMIMAGYN, InvLotMasterTableMap::COL_LOTMUNITWGHT, InvLotMasterTableMap::COL_LOTMREVISION, InvLotMasterTableMap::COL_LOTMCTRY, InvLotMasterTableMap::COL_LOTMCOFC, InvLotMasterTableMap::COL_LOTMCREATEDATE, InvLotMasterTableMap::COL_LOTMCREATETIME, InvLotMasterTableMap::COL_LOTMVENDID, InvLotMasterTableMap::COL_LOTMEXPIREDATE, InvLotMasterTableMap::COL_LOTMUNITCOST, InvLotMasterTableMap::COL_LOTMCNTRQTY, InvLotMasterTableMap::COL_LOTMSRCCD, InvLotMasterTableMap::COL_DATEUPDTD, InvLotMasterTableMap::COL_TIMEUPDTD, InvLotMasterTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr', 'LotmLotNbr', 'LotmLotRef', 'LotmFrstActDate', 'LotmImagYn', 'LotmUnitWght', 'LotmRevision', 'LotmCtry', 'LotmCOfC', 'LotmCreateDate', 'LotmCreateTime', 'LotmVendId', 'LotmExpireDate', 'LotmUnitCost', 'LotmCntrQty', 'LotmSrcCd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
@@ -194,7 +194,7 @@ class InvLotTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Inititemnbr' => 0, 'Lotmlotnbr' => 1, 'Lotmlotref' => 2, 'Lotmfrstactdate' => 3, 'Lotmimagyn' => 4, 'Lotmunitwght' => 5, 'Lotmrevision' => 6, 'Lotmctry' => 7, 'Lotmcofc' => 8, 'Lotmcreatedate' => 9, 'Lotmcreatetime' => 10, 'Lotmvendid' => 11, 'Lotmexpiredate' => 12, 'Lotmunitcost' => 13, 'Lotmcntrqty' => 14, 'Lotmsrccd' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
         self::TYPE_CAMELNAME     => array('inititemnbr' => 0, 'lotmlotnbr' => 1, 'lotmlotref' => 2, 'lotmfrstactdate' => 3, 'lotmimagyn' => 4, 'lotmunitwght' => 5, 'lotmrevision' => 6, 'lotmctry' => 7, 'lotmcofc' => 8, 'lotmcreatedate' => 9, 'lotmcreatetime' => 10, 'lotmvendid' => 11, 'lotmexpiredate' => 12, 'lotmunitcost' => 13, 'lotmcntrqty' => 14, 'lotmsrccd' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
-        self::TYPE_COLNAME       => array(InvLotTableMap::COL_INITITEMNBR => 0, InvLotTableMap::COL_LOTMLOTNBR => 1, InvLotTableMap::COL_LOTMLOTREF => 2, InvLotTableMap::COL_LOTMFRSTACTDATE => 3, InvLotTableMap::COL_LOTMIMAGYN => 4, InvLotTableMap::COL_LOTMUNITWGHT => 5, InvLotTableMap::COL_LOTMREVISION => 6, InvLotTableMap::COL_LOTMCTRY => 7, InvLotTableMap::COL_LOTMCOFC => 8, InvLotTableMap::COL_LOTMCREATEDATE => 9, InvLotTableMap::COL_LOTMCREATETIME => 10, InvLotTableMap::COL_LOTMVENDID => 11, InvLotTableMap::COL_LOTMEXPIREDATE => 12, InvLotTableMap::COL_LOTMUNITCOST => 13, InvLotTableMap::COL_LOTMCNTRQTY => 14, InvLotTableMap::COL_LOTMSRCCD => 15, InvLotTableMap::COL_DATEUPDTD => 16, InvLotTableMap::COL_TIMEUPDTD => 17, InvLotTableMap::COL_DUMMY => 18, ),
+        self::TYPE_COLNAME       => array(InvLotMasterTableMap::COL_INITITEMNBR => 0, InvLotMasterTableMap::COL_LOTMLOTNBR => 1, InvLotMasterTableMap::COL_LOTMLOTREF => 2, InvLotMasterTableMap::COL_LOTMFRSTACTDATE => 3, InvLotMasterTableMap::COL_LOTMIMAGYN => 4, InvLotMasterTableMap::COL_LOTMUNITWGHT => 5, InvLotMasterTableMap::COL_LOTMREVISION => 6, InvLotMasterTableMap::COL_LOTMCTRY => 7, InvLotMasterTableMap::COL_LOTMCOFC => 8, InvLotMasterTableMap::COL_LOTMCREATEDATE => 9, InvLotMasterTableMap::COL_LOTMCREATETIME => 10, InvLotMasterTableMap::COL_LOTMVENDID => 11, InvLotMasterTableMap::COL_LOTMEXPIREDATE => 12, InvLotMasterTableMap::COL_LOTMUNITCOST => 13, InvLotMasterTableMap::COL_LOTMCNTRQTY => 14, InvLotMasterTableMap::COL_LOTMSRCCD => 15, InvLotMasterTableMap::COL_DATEUPDTD => 16, InvLotMasterTableMap::COL_TIMEUPDTD => 17, InvLotMasterTableMap::COL_DUMMY => 18, ),
         self::TYPE_FIELDNAME     => array('InitItemNbr' => 0, 'LotmLotNbr' => 1, 'LotmLotRef' => 2, 'LotmFrstActDate' => 3, 'LotmImagYn' => 4, 'LotmUnitWght' => 5, 'LotmRevision' => 6, 'LotmCtry' => 7, 'LotmCOfC' => 8, 'LotmCreateDate' => 9, 'LotmCreateTime' => 10, 'LotmVendId' => 11, 'LotmExpireDate' => 12, 'LotmUnitCost' => 13, 'LotmCntrQty' => 14, 'LotmSrcCd' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
@@ -210,9 +210,9 @@ class InvLotTableMap extends TableMap
     {
         // attributes
         $this->setName('inv_lot_mast');
-        $this->setPhpName('InvLot');
+        $this->setPhpName('InvLotMaster');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\InvLot');
+        $this->setClassName('\\InvLotMaster');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -283,7 +283,7 @@ class InvLotTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \InvLot $obj A \InvLot object.
+     * @param \InvLotMaster $obj A \InvLotMaster object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -304,12 +304,12 @@ class InvLotTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \InvLot object or a primary key value.
+     * @param mixed $value A \InvLotMaster object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \InvLot) {
+            if (is_object($value) && $value instanceof \InvLotMaster) {
                 $key = serialize([(null === $value->getInititemnbr() || is_scalar($value->getInititemnbr()) || is_callable([$value->getInititemnbr(), '__toString']) ? (string) $value->getInititemnbr() : $value->getInititemnbr()), (null === $value->getLotmlotnbr() || is_scalar($value->getLotmlotnbr()) || is_callable([$value->getLotmlotnbr(), '__toString']) ? (string) $value->getLotmlotnbr() : $value->getLotmlotnbr())]);
 
             } elseif (is_array($value) && count($value) === 2) {
@@ -320,7 +320,7 @@ class InvLotTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \InvLot object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \InvLotMaster object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -394,7 +394,7 @@ class InvLotTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? InvLotTableMap::CLASS_DEFAULT : InvLotTableMap::OM_CLASS;
+        return $withPrefix ? InvLotMasterTableMap::CLASS_DEFAULT : InvLotMasterTableMap::OM_CLASS;
     }
 
     /**
@@ -408,22 +408,22 @@ class InvLotTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (InvLot object, last column rank)
+     * @return array           (InvLotMaster object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = InvLotTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = InvLotTableMap::getInstanceFromPool($key))) {
+        $key = InvLotMasterTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = InvLotMasterTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + InvLotTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + InvLotMasterTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = InvLotTableMap::OM_CLASS;
-            /** @var InvLot $obj */
+            $cls = InvLotMasterTableMap::OM_CLASS;
+            /** @var InvLotMaster $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            InvLotTableMap::addInstanceToPool($obj, $key);
+            InvLotMasterTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -446,18 +446,18 @@ class InvLotTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = InvLotTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = InvLotTableMap::getInstanceFromPool($key))) {
+            $key = InvLotMasterTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = InvLotMasterTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var InvLot $obj */
+                /** @var InvLotMaster $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                InvLotTableMap::addInstanceToPool($obj, $key);
+                InvLotMasterTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -478,25 +478,25 @@ class InvLotTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(InvLotTableMap::COL_INITITEMNBR);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMLOTNBR);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMLOTREF);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMFRSTACTDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMIMAGYN);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMUNITWGHT);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMREVISION);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCTRY);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCOFC);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCREATEDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCREATETIME);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMVENDID);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMEXPIREDATE);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMUNITCOST);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMCNTRQTY);
-            $criteria->addSelectColumn(InvLotTableMap::COL_LOTMSRCCD);
-            $criteria->addSelectColumn(InvLotTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(InvLotTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(InvLotTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_INITITEMNBR);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMLOTNBR);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMLOTREF);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMFRSTACTDATE);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMIMAGYN);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMUNITWGHT);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMREVISION);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCTRY);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCOFC);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCREATEDATE);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCREATETIME);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMVENDID);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMEXPIREDATE);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMUNITCOST);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMCNTRQTY);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_LOTMSRCCD);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(InvLotMasterTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.InitItemNbr');
             $criteria->addSelectColumn($alias . '.LotmLotNbr');
@@ -529,7 +529,7 @@ class InvLotTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(InvLotTableMap::DATABASE_NAME)->getTable(InvLotTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(InvLotMasterTableMap::DATABASE_NAME)->getTable(InvLotMasterTableMap::TABLE_NAME);
     }
 
     /**
@@ -537,16 +537,16 @@ class InvLotTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvLotTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(InvLotTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new InvLotTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(InvLotMasterTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(InvLotMasterTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new InvLotMasterTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a InvLot or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a InvLotMaster or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or InvLot object or primary key or array of primary keys
+     * @param mixed               $values Criteria or InvLotMaster object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -557,17 +557,17 @@ class InvLotTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \InvLot) { // it's a model object
+        } elseif ($values instanceof \InvLotMaster) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(InvLotTableMap::DATABASE_NAME);
+            $criteria = new Criteria(InvLotMasterTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -575,19 +575,19 @@ class InvLotTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(InvLotTableMap::COL_INITITEMNBR, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(InvLotTableMap::COL_LOTMLOTNBR, $value[1]));
+                $criterion = $criteria->getNewCriterion(InvLotMasterTableMap::COL_INITITEMNBR, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(InvLotMasterTableMap::COL_LOTMLOTNBR, $value[1]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = InvLotQuery::create()->mergeWith($criteria);
+        $query = InvLotMasterQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            InvLotTableMap::clearInstancePool();
+            InvLotMasterTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                InvLotTableMap::removeInstanceFromPool($singleval);
+                InvLotMasterTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -602,13 +602,13 @@ class InvLotTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return InvLotQuery::create()->doDeleteAll($con);
+        return InvLotMasterQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a InvLot or Criteria object.
+     * Performs an INSERT on the database, given a InvLotMaster or Criteria object.
      *
-     * @param mixed               $criteria Criteria or InvLot object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or InvLotMaster object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -617,18 +617,18 @@ class InvLotTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from InvLot object
+            $criteria = $criteria->buildCriteria(); // build Criteria from InvLotMaster object
         }
 
 
         // Set the correct dbName
-        $query = InvLotQuery::create()->mergeWith($criteria);
+        $query = InvLotMasterQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -637,7 +637,7 @@ class InvLotTableMap extends TableMap
         });
     }
 
-} // InvLotTableMap
+} // InvLotMasterTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-InvLotTableMap::buildTableMap();
+InvLotMasterTableMap::buildTableMap();

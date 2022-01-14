@@ -3301,10 +3301,10 @@ abstract class Warehouse implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
      */
-    public function getWhseLotserialsJoinInvLot(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getWhseLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildWhseLotserialQuery::create(null, $criteria);
-        $query->joinWith('InvLot', $joinBehavior);
+        $query->joinWith('InvLotMaster', $joinBehavior);
 
         return $this->getWhseLotserials($query, $con);
     }

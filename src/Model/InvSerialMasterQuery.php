@@ -27,7 +27,7 @@ class InvSerialMasterQuery extends BaseInvSerialMasterQuery {
 	 * Filter the query on the InitItemNbr column
 	 * @param     string $itemID      The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterByItemid($itemID, $comparison = null) {
 		return $this->filterByInititemnbr($itemID, $comparison);
@@ -37,7 +37,7 @@ class InvSerialMasterQuery extends BaseInvSerialMasterQuery {
 	 * Filter the query on the SermSerNbr column
 	 * @param     string $lotserial   The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterByLotserial($lotserial, $comparison = null) {
 		return $this->filterBySermsernbr($lotserial, $comparison);
@@ -47,7 +47,7 @@ class InvSerialMasterQuery extends BaseInvSerialMasterQuery {
 	 * Filter the query on the SermSerNbr column
 	 * @param     string $lotserial   The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterBySerialnbr($lotserial, $comparison = null) {
 		return $this->filterBySermsernbr($lotserial, $comparison);
@@ -57,7 +57,7 @@ class InvSerialMasterQuery extends BaseInvSerialMasterQuery {
 	 * Filter the query on the Sermsordnbr column
 	 * @param     string $ordn        The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterByOrdn($ordn, $comparison = null) {
 		return $this->filterBySermsordnbr($ordn, $comparison);
@@ -67,7 +67,7 @@ class InvSerialMasterQuery extends BaseInvSerialMasterQuery {
 	 * Filter the query on the Sermsordnbr column
 	 * @param     string $ordn        The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterByOrdernumber($ordn, $comparison = null) {
 		return $this->filterBySermsordnbr($ordn, $comparison);

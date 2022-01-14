@@ -2,8 +2,8 @@
 
 namespace Base;
 
-use \InvLot as ChildInvLot;
-use \InvLotQuery as ChildInvLotQuery;
+use \InvLotMaster as ChildInvLotMaster;
+use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \SalesOrder as ChildSalesOrder;
@@ -208,9 +208,9 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     protected $aItemMasterItem;
 
     /**
-     * @var        ChildInvLot
+     * @var        ChildInvLotMaster
      */
-    protected $aInvLot;
+    protected $aInvLotMaster;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -706,8 +706,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->aItemMasterItem = null;
         }
 
-        if ($this->aInvLot !== null && $this->aInvLot->getInititemnbr() !== $v) {
-            $this->aInvLot = null;
+        if ($this->aInvLotMaster !== null && $this->aInvLotMaster->getInititemnbr() !== $v) {
+            $this->aInvLotMaster = null;
         }
 
         return $this;
@@ -730,8 +730,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEIDLOTSER] = true;
         }
 
-        if ($this->aInvLot !== null && $this->aInvLot->getLotmlotnbr() !== $v) {
-            $this->aInvLot = null;
+        if ($this->aInvLotMaster !== null && $this->aInvLotMaster->getLotmlotnbr() !== $v) {
+            $this->aInvLotMaster = null;
         }
 
         return $this;
@@ -1149,11 +1149,11 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
-        if ($this->aInvLot !== null && $this->inititemnbr !== $this->aInvLot->getInititemnbr()) {
-            $this->aInvLot = null;
+        if ($this->aInvLotMaster !== null && $this->inititemnbr !== $this->aInvLotMaster->getInititemnbr()) {
+            $this->aInvLotMaster = null;
         }
-        if ($this->aInvLot !== null && $this->oeidlotser !== $this->aInvLot->getLotmlotnbr()) {
-            $this->aInvLot = null;
+        if ($this->aInvLotMaster !== null && $this->oeidlotser !== $this->aInvLotMaster->getLotmlotnbr()) {
+            $this->aInvLotMaster = null;
         }
     } // ensureConsistency
 
@@ -1197,7 +1197,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->aSalesOrder = null;
             $this->aSalesOrderDetail = null;
             $this->aItemMasterItem = null;
-            $this->aInvLot = null;
+            $this->aInvLotMaster = null;
         } // if (deep)
     }
 
@@ -1327,11 +1327,11 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                 $this->setItemMasterItem($this->aItemMasterItem);
             }
 
-            if ($this->aInvLot !== null) {
-                if ($this->aInvLot->isModified() || $this->aInvLot->isNew()) {
-                    $affectedRows += $this->aInvLot->save($con);
+            if ($this->aInvLotMaster !== null) {
+                if ($this->aInvLotMaster->isModified() || $this->aInvLotMaster->isNew()) {
+                    $affectedRows += $this->aInvLotMaster->save($con);
                 }
-                $this->setInvLot($this->aInvLot);
+                $this->setInvLotMaster($this->aInvLotMaster);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -1685,20 +1685,20 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
-            if (null !== $this->aInvLot) {
+            if (null !== $this->aInvLotMaster) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'invLot';
+                        $key = 'InvLotMaster';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_mast';
                         break;
                     default:
-                        $key = 'InvLot';
+                        $key = 'InvLotMaster';
                 }
 
-                $result[$key] = $this->aInvLot->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+                $result[$key] = $this->aInvLotMaster->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
         }
 
@@ -2023,7 +2023,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         }
 
         //relation lotserial to table inv_lot_mast
-        if ($this->aInvLot && $hash = spl_object_hash($this->aInvLot)) {
+        if ($this->aInvLotMaster && $hash = spl_object_hash($this->aInvLotMaster)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -2300,13 +2300,13 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     }
 
     /**
-     * Declares an association between this object and a ChildInvLot object.
+     * Declares an association between this object and a ChildInvLotMaster object.
      *
-     * @param  ChildInvLot $v
+     * @param  ChildInvLotMaster $v
      * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
      * @throws PropelException
      */
-    public function setInvLot(ChildInvLot $v = null)
+    public function setInvLotMaster(ChildInvLotMaster $v = null)
     {
         if ($v === null) {
             $this->setInititemnbr('');
@@ -2320,10 +2320,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->setOeidlotser($v->getLotmlotnbr());
         }
 
-        $this->aInvLot = $v;
+        $this->aInvLotMaster = $v;
 
         // Add binding for other direction of this n:n relationship.
-        // If this object has already been added to the ChildInvLot object, it will not be re-added.
+        // If this object has already been added to the ChildInvLotMaster object, it will not be re-added.
         if ($v !== null) {
             $v->addSoAllocatedLotserial($this);
         }
@@ -2334,26 +2334,26 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
 
 
     /**
-     * Get the associated ChildInvLot object
+     * Get the associated ChildInvLotMaster object
      *
      * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildInvLot The associated ChildInvLot object.
+     * @return ChildInvLotMaster The associated ChildInvLotMaster object.
      * @throws PropelException
      */
-    public function getInvLot(ConnectionInterface $con = null)
+    public function getInvLotMaster(ConnectionInterface $con = null)
     {
-        if ($this->aInvLot === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->oeidlotser !== "" && $this->oeidlotser !== null))) {
-            $this->aInvLot = ChildInvLotQuery::create()->findPk(array($this->inititemnbr, $this->oeidlotser), $con);
+        if ($this->aInvLotMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->oeidlotser !== "" && $this->oeidlotser !== null))) {
+            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk(array($this->inititemnbr, $this->oeidlotser), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aInvLot->addSoAllocatedLotserials($this);
+                $this->aInvLotMaster->addSoAllocatedLotserials($this);
              */
         }
 
-        return $this->aInvLot;
+        return $this->aInvLotMaster;
     }
 
     /**
@@ -2372,8 +2372,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeSoAllocatedLotserial($this);
         }
-        if (null !== $this->aInvLot) {
-            $this->aInvLot->removeSoAllocatedLotserial($this);
+        if (null !== $this->aInvLotMaster) {
+            $this->aInvLotMaster->removeSoAllocatedLotserial($this);
         }
         $this->oehdnbr = null;
         $this->oedtline = null;
@@ -2416,7 +2416,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         $this->aSalesOrder = null;
         $this->aSalesOrderDetail = null;
         $this->aItemMasterItem = null;
-        $this->aInvLot = null;
+        $this->aInvLotMaster = null;
     }
 
     /**

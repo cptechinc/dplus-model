@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'inv_inv_lot' table.
  * 
  * REPRESENTS: Warehouse Lot Record
- * FKRELATIONSHIPS: ItemMasterItem, Warehouse, InvLot
+ * FKRELATIONSHIPS: ItemMasterItem, Warehouse, InvLotMaster
  */
 class WhseLotserial extends BaseWhseLotserial {
 	use ThrowErrorTrait;

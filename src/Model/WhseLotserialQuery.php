@@ -15,7 +15,7 @@ class WhseLotserialQuery extends BaseWhseLotserialQuery {
 	 * @param     string $inititemnbr The value to use as filter.
 	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
 	 */
 	public function filterByItemid($itemID, $comparison = null) {
 		return $this->filterByInititemnbr($itemID, $comparison);
@@ -30,7 +30,7 @@ class WhseLotserialQuery extends BaseWhseLotserialQuery {
 	 *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
 	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
 	 */
 
 	public function filterByQty($qty, $comparison = null) {

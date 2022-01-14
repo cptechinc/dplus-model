@@ -1,6 +1,6 @@
 <?php
 
-use Base\InvLotQuery as BaseInvLotQuery;
+use Base\InvLotMasterQuery as BaseInvLotMasterQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -14,13 +14,13 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * @method  InvLotQuery filterByLotnbr(string $lotserial)      Filter the Query on the inltlotser column
+ * @method  InvLotMasterQuery filterByLotnbr(string $lotserial)      Filter the Query on the inltlotser column
  *
  * FindOneByXXX()
  * 
  * FindByXXX()
  */
-class InvLotQuery extends BaseInvLotQuery {
+class InvLotMasterQuery extends BaseInvLotMasterQuery {
 	use QueryTraits;
 
 	/**
@@ -28,7 +28,7 @@ class InvLotQuery extends BaseInvLotQuery {
 	 * @param     string $inititemnbr The value to use as filter.
 	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 *
-	 * @return $this|ChildInvLotQuery The current query, for fluid interface
+	 * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
 	 */
 	public function filterByItemid($itemID, $comparison = null) {
 		return $this->filterByInititemnbr($itemID, $comparison);

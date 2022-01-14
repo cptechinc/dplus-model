@@ -136,17 +136,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWhseLotserialQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
  * @method     ChildWhseLotserialQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
  *
- * @method     ChildWhseLotserialQuery leftJoinInvLot($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLot relation
- * @method     ChildWhseLotserialQuery rightJoinInvLot($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLot relation
- * @method     ChildWhseLotserialQuery innerJoinInvLot($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery leftJoinInvLotMaster($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotMaster relation
+ * @method     ChildWhseLotserialQuery rightJoinInvLotMaster($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotMaster relation
+ * @method     ChildWhseLotserialQuery innerJoinInvLotMaster($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotMaster relation
  *
- * @method     ChildWhseLotserialQuery joinWithInvLot($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery joinWithInvLotMaster($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotMaster relation
  *
- * @method     ChildWhseLotserialQuery leftJoinWithInvLot() Adds a LEFT JOIN clause and with to the query using the InvLot relation
- * @method     ChildWhseLotserialQuery rightJoinWithInvLot() Adds a RIGHT JOIN clause and with to the query using the InvLot relation
- * @method     ChildWhseLotserialQuery innerJoinWithInvLot() Adds a INNER JOIN clause and with to the query using the InvLot relation
+ * @method     ChildWhseLotserialQuery leftJoinWithInvLotMaster() Adds a LEFT JOIN clause and with to the query using the InvLotMaster relation
+ * @method     ChildWhseLotserialQuery rightJoinWithInvLotMaster() Adds a RIGHT JOIN clause and with to the query using the InvLotMaster relation
+ * @method     ChildWhseLotserialQuery innerJoinWithInvLotMaster() Adds a INNER JOIN clause and with to the query using the InvLotMaster relation
  *
- * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvLotQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvLotMasterQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWhseLotserial findOne(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query
  * @method     ChildWhseLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWhseLotserial matching the query, or a new ChildWhseLotserial object populated from the query conditions when no match is found
@@ -2076,38 +2076,38 @@ abstract class WhseLotserialQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \InvLot object
+     * Filter the query by a related \InvLotMaster object
      *
-     * @param \InvLot $invLot The related object to use as filter
+     * @param \InvLotMaster $InvLotMaster The related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return ChildWhseLotserialQuery The current query, for fluid interface
      */
-    public function filterByInvLot($invLot, $comparison = null)
+    public function filterByInvLotMaster($InvLotMaster, $comparison = null)
     {
-        if ($invLot instanceof \InvLot) {
+        if ($InvLotMaster instanceof \InvLotMaster) {
             return $this
-                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $invLot->getInititemnbr(), $comparison)
-                ->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $invLot->getLotmlotnbr(), $comparison);
+                ->addUsingAlias(WhseLotserialTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison)
+                ->addUsingAlias(WhseLotserialTableMap::COL_INLTLOTSER, $InvLotMaster->getLotmlotnbr(), $comparison);
         } else {
-            throw new PropelException('filterByInvLot() only accepts arguments of type \InvLot');
+            throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the InvLot relation
+     * Adds a JOIN clause to the query using the InvLotMaster relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildWhseLotserialQuery The current query, for fluid interface
      */
-    public function joinInvLot($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinInvLotMaster($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('InvLot');
+        $relationMap = $tableMap->getRelation('InvLotMaster');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -2122,14 +2122,14 @@ abstract class WhseLotserialQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'InvLot');
+            $this->addJoinObject($join, 'InvLotMaster');
         }
 
         return $this;
     }
 
     /**
-     * Use the InvLot relation InvLot object
+     * Use the InvLotMaster relation InvLotMaster object
      *
      * @see useQuery()
      *
@@ -2137,13 +2137,13 @@ abstract class WhseLotserialQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \InvLotQuery A secondary query class using the current class as primary query
+     * @return \InvLotMasterQuery A secondary query class using the current class as primary query
      */
-    public function useInvLotQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useInvLotMasterQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinInvLot($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'InvLot', '\InvLotQuery');
+            ->joinInvLotMaster($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLotMaster', '\InvLotMasterQuery');
     }
 
     /**

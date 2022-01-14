@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \InvLot as ChildInvLot;
-use \InvLotQuery as ChildInvLotQuery;
+use \InvLotMaster as ChildInvLotMaster;
+use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \Exception;
 use \PDO;
-use Map\InvLotTableMap;
+use Map\InvLotMasterTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -20,185 +20,185 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildInvLotQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
- * @method     ChildInvLotQuery orderByLotmlotnbr($order = Criteria::ASC) Order by the LotmLotNbr column
- * @method     ChildInvLotQuery orderByLotmlotref($order = Criteria::ASC) Order by the LotmLotRef column
- * @method     ChildInvLotQuery orderByLotmfrstactdate($order = Criteria::ASC) Order by the LotmFrstActDate column
- * @method     ChildInvLotQuery orderByLotmimagyn($order = Criteria::ASC) Order by the LotmImagYn column
- * @method     ChildInvLotQuery orderByLotmunitwght($order = Criteria::ASC) Order by the LotmUnitWght column
- * @method     ChildInvLotQuery orderByLotmrevision($order = Criteria::ASC) Order by the LotmRevision column
- * @method     ChildInvLotQuery orderByLotmctry($order = Criteria::ASC) Order by the LotmCtry column
- * @method     ChildInvLotQuery orderByLotmcofc($order = Criteria::ASC) Order by the LotmCOfC column
- * @method     ChildInvLotQuery orderByLotmcreatedate($order = Criteria::ASC) Order by the LotmCreateDate column
- * @method     ChildInvLotQuery orderByLotmcreatetime($order = Criteria::ASC) Order by the LotmCreateTime column
- * @method     ChildInvLotQuery orderByLotmvendid($order = Criteria::ASC) Order by the LotmVendId column
- * @method     ChildInvLotQuery orderByLotmexpiredate($order = Criteria::ASC) Order by the LotmExpireDate column
- * @method     ChildInvLotQuery orderByLotmunitcost($order = Criteria::ASC) Order by the LotmUnitCost column
- * @method     ChildInvLotQuery orderByLotmcntrqty($order = Criteria::ASC) Order by the LotmCntrQty column
- * @method     ChildInvLotQuery orderByLotmsrccd($order = Criteria::ASC) Order by the LotmSrcCd column
- * @method     ChildInvLotQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildInvLotQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildInvLotQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildInvLotMasterQuery orderByInititemnbr($order = Criteria::ASC) Order by the InitItemNbr column
+ * @method     ChildInvLotMasterQuery orderByLotmlotnbr($order = Criteria::ASC) Order by the LotmLotNbr column
+ * @method     ChildInvLotMasterQuery orderByLotmlotref($order = Criteria::ASC) Order by the LotmLotRef column
+ * @method     ChildInvLotMasterQuery orderByLotmfrstactdate($order = Criteria::ASC) Order by the LotmFrstActDate column
+ * @method     ChildInvLotMasterQuery orderByLotmimagyn($order = Criteria::ASC) Order by the LotmImagYn column
+ * @method     ChildInvLotMasterQuery orderByLotmunitwght($order = Criteria::ASC) Order by the LotmUnitWght column
+ * @method     ChildInvLotMasterQuery orderByLotmrevision($order = Criteria::ASC) Order by the LotmRevision column
+ * @method     ChildInvLotMasterQuery orderByLotmctry($order = Criteria::ASC) Order by the LotmCtry column
+ * @method     ChildInvLotMasterQuery orderByLotmcofc($order = Criteria::ASC) Order by the LotmCOfC column
+ * @method     ChildInvLotMasterQuery orderByLotmcreatedate($order = Criteria::ASC) Order by the LotmCreateDate column
+ * @method     ChildInvLotMasterQuery orderByLotmcreatetime($order = Criteria::ASC) Order by the LotmCreateTime column
+ * @method     ChildInvLotMasterQuery orderByLotmvendid($order = Criteria::ASC) Order by the LotmVendId column
+ * @method     ChildInvLotMasterQuery orderByLotmexpiredate($order = Criteria::ASC) Order by the LotmExpireDate column
+ * @method     ChildInvLotMasterQuery orderByLotmunitcost($order = Criteria::ASC) Order by the LotmUnitCost column
+ * @method     ChildInvLotMasterQuery orderByLotmcntrqty($order = Criteria::ASC) Order by the LotmCntrQty column
+ * @method     ChildInvLotMasterQuery orderByLotmsrccd($order = Criteria::ASC) Order by the LotmSrcCd column
+ * @method     ChildInvLotMasterQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildInvLotMasterQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildInvLotMasterQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildInvLotQuery groupByInititemnbr() Group by the InitItemNbr column
- * @method     ChildInvLotQuery groupByLotmlotnbr() Group by the LotmLotNbr column
- * @method     ChildInvLotQuery groupByLotmlotref() Group by the LotmLotRef column
- * @method     ChildInvLotQuery groupByLotmfrstactdate() Group by the LotmFrstActDate column
- * @method     ChildInvLotQuery groupByLotmimagyn() Group by the LotmImagYn column
- * @method     ChildInvLotQuery groupByLotmunitwght() Group by the LotmUnitWght column
- * @method     ChildInvLotQuery groupByLotmrevision() Group by the LotmRevision column
- * @method     ChildInvLotQuery groupByLotmctry() Group by the LotmCtry column
- * @method     ChildInvLotQuery groupByLotmcofc() Group by the LotmCOfC column
- * @method     ChildInvLotQuery groupByLotmcreatedate() Group by the LotmCreateDate column
- * @method     ChildInvLotQuery groupByLotmcreatetime() Group by the LotmCreateTime column
- * @method     ChildInvLotQuery groupByLotmvendid() Group by the LotmVendId column
- * @method     ChildInvLotQuery groupByLotmexpiredate() Group by the LotmExpireDate column
- * @method     ChildInvLotQuery groupByLotmunitcost() Group by the LotmUnitCost column
- * @method     ChildInvLotQuery groupByLotmcntrqty() Group by the LotmCntrQty column
- * @method     ChildInvLotQuery groupByLotmsrccd() Group by the LotmSrcCd column
- * @method     ChildInvLotQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildInvLotQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildInvLotQuery groupByDummy() Group by the dummy column
+ * @method     ChildInvLotMasterQuery groupByInititemnbr() Group by the InitItemNbr column
+ * @method     ChildInvLotMasterQuery groupByLotmlotnbr() Group by the LotmLotNbr column
+ * @method     ChildInvLotMasterQuery groupByLotmlotref() Group by the LotmLotRef column
+ * @method     ChildInvLotMasterQuery groupByLotmfrstactdate() Group by the LotmFrstActDate column
+ * @method     ChildInvLotMasterQuery groupByLotmimagyn() Group by the LotmImagYn column
+ * @method     ChildInvLotMasterQuery groupByLotmunitwght() Group by the LotmUnitWght column
+ * @method     ChildInvLotMasterQuery groupByLotmrevision() Group by the LotmRevision column
+ * @method     ChildInvLotMasterQuery groupByLotmctry() Group by the LotmCtry column
+ * @method     ChildInvLotMasterQuery groupByLotmcofc() Group by the LotmCOfC column
+ * @method     ChildInvLotMasterQuery groupByLotmcreatedate() Group by the LotmCreateDate column
+ * @method     ChildInvLotMasterQuery groupByLotmcreatetime() Group by the LotmCreateTime column
+ * @method     ChildInvLotMasterQuery groupByLotmvendid() Group by the LotmVendId column
+ * @method     ChildInvLotMasterQuery groupByLotmexpiredate() Group by the LotmExpireDate column
+ * @method     ChildInvLotMasterQuery groupByLotmunitcost() Group by the LotmUnitCost column
+ * @method     ChildInvLotMasterQuery groupByLotmcntrqty() Group by the LotmCntrQty column
+ * @method     ChildInvLotMasterQuery groupByLotmsrccd() Group by the LotmSrcCd column
+ * @method     ChildInvLotMasterQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildInvLotMasterQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildInvLotMasterQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildInvLotQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildInvLotQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildInvLotQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildInvLotMasterQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildInvLotMasterQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildInvLotMasterQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildInvLotQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildInvLotQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildInvLotQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildInvLotMasterQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildInvLotMasterQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildInvLotMasterQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildInvLotQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildInvLotQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
- * @method     ChildInvLotQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
  *
- * @method     ChildInvLotQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildInvLotQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildInvLotQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
- * @method     ChildInvLotQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildInvLotMasterQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     ChildInvLotQuery leftJoinWhseLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildInvLotQuery rightJoinWhseLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseLotserial relation
- * @method     ChildInvLotQuery innerJoinWhseLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinWhseLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinWhseLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinWhseLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the WhseLotserial relation
  *
- * @method     ChildInvLotQuery joinWithWhseLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery joinWithWhseLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the WhseLotserial relation
  *
- * @method     ChildInvLotQuery leftJoinWithWhseLotserial() Adds a LEFT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildInvLotQuery rightJoinWithWhseLotserial() Adds a RIGHT JOIN clause and with to the query using the WhseLotserial relation
- * @method     ChildInvLotQuery innerJoinWithWhseLotserial() Adds a INNER JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinWithWhseLotserial() Adds a LEFT JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinWithWhseLotserial() Adds a RIGHT JOIN clause and with to the query using the WhseLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinWithWhseLotserial() Adds a INNER JOIN clause and with to the query using the WhseLotserial relation
  *
- * @method     ChildInvLotQuery leftJoinSoAllocatedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoAllocatedLotserial relation
- * @method     ChildInvLotQuery rightJoinSoAllocatedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoAllocatedLotserial relation
- * @method     ChildInvLotQuery innerJoinSoAllocatedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinSoAllocatedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinSoAllocatedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinSoAllocatedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoAllocatedLotserial relation
  *
- * @method     ChildInvLotQuery joinWithSoAllocatedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery joinWithSoAllocatedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     ChildInvLotQuery leftJoinWithSoAllocatedLotserial() Adds a LEFT JOIN clause and with to the query using the SoAllocatedLotserial relation
- * @method     ChildInvLotQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
- * @method     ChildInvLotQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery leftJoinWithSoAllocatedLotserial() Adds a LEFT JOIN clause and with to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
  * @method     \ItemMasterItemQuery|\WhseLotserialQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildInvLot findOne(ConnectionInterface $con = null) Return the first ChildInvLot matching the query
- * @method     ChildInvLot findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLot matching the query, or a new ChildInvLot object populated from the query conditions when no match is found
+ * @method     ChildInvLotMaster findOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
+ * @method     ChildInvLotMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
  *
- * @method     ChildInvLot findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLot filtered by the InitItemNbr column
- * @method     ChildInvLot findOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLot filtered by the LotmLotNbr column
- * @method     ChildInvLot findOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLot filtered by the LotmLotRef column
- * @method     ChildInvLot findOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLot filtered by the LotmFrstActDate column
- * @method     ChildInvLot findOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLot filtered by the LotmImagYn column
- * @method     ChildInvLot findOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLot filtered by the LotmUnitWght column
- * @method     ChildInvLot findOneByLotmrevision(string $LotmRevision) Return the first ChildInvLot filtered by the LotmRevision column
- * @method     ChildInvLot findOneByLotmctry(string $LotmCtry) Return the first ChildInvLot filtered by the LotmCtry column
- * @method     ChildInvLot findOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLot filtered by the LotmCOfC column
- * @method     ChildInvLot findOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLot filtered by the LotmCreateDate column
- * @method     ChildInvLot findOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLot filtered by the LotmCreateTime column
- * @method     ChildInvLot findOneByLotmvendid(string $LotmVendId) Return the first ChildInvLot filtered by the LotmVendId column
- * @method     ChildInvLot findOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLot filtered by the LotmExpireDate column
- * @method     ChildInvLot findOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLot filtered by the LotmUnitCost column
- * @method     ChildInvLot findOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLot filtered by the LotmCntrQty column
- * @method     ChildInvLot findOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLot filtered by the LotmSrcCd column
- * @method     ChildInvLot findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLot filtered by the DateUpdtd column
- * @method     ChildInvLot findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLot filtered by the TimeUpdtd column
- * @method     ChildInvLot findOneByDummy(string $dummy) Return the first ChildInvLot filtered by the dummy column *
+ * @method     ChildInvLotMaster findOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLotMaster filtered by the InitItemNbr column
+ * @method     ChildInvLotMaster findOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLotMaster filtered by the LotmLotNbr column
+ * @method     ChildInvLotMaster findOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLotMaster filtered by the LotmLotRef column
+ * @method     ChildInvLotMaster findOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLotMaster filtered by the LotmFrstActDate column
+ * @method     ChildInvLotMaster findOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLotMaster filtered by the LotmImagYn column
+ * @method     ChildInvLotMaster findOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLotMaster filtered by the LotmUnitWght column
+ * @method     ChildInvLotMaster findOneByLotmrevision(string $LotmRevision) Return the first ChildInvLotMaster filtered by the LotmRevision column
+ * @method     ChildInvLotMaster findOneByLotmctry(string $LotmCtry) Return the first ChildInvLotMaster filtered by the LotmCtry column
+ * @method     ChildInvLotMaster findOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLotMaster filtered by the LotmCOfC column
+ * @method     ChildInvLotMaster findOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLotMaster filtered by the LotmCreateDate column
+ * @method     ChildInvLotMaster findOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLotMaster filtered by the LotmCreateTime column
+ * @method     ChildInvLotMaster findOneByLotmvendid(string $LotmVendId) Return the first ChildInvLotMaster filtered by the LotmVendId column
+ * @method     ChildInvLotMaster findOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLotMaster filtered by the LotmExpireDate column
+ * @method     ChildInvLotMaster findOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column
+ * @method     ChildInvLotMaster findOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column
+ * @method     ChildInvLotMaster findOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster findOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column
+ * @method     ChildInvLotMaster findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column
+ * @method     ChildInvLotMaster findOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column *
 
- * @method     ChildInvLot requirePk($key, ConnectionInterface $con = null) Return the ChildInvLot by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOne(ConnectionInterface $con = null) Return the first ChildInvLot matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requirePk($key, ConnectionInterface $con = null) Return the ChildInvLotMaster by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvLot requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLot filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLot filtered by the LotmLotNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLot filtered by the LotmLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLot filtered by the LotmFrstActDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLot filtered by the LotmImagYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLot filtered by the LotmUnitWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmrevision(string $LotmRevision) Return the first ChildInvLot filtered by the LotmRevision column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmctry(string $LotmCtry) Return the first ChildInvLot filtered by the LotmCtry column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLot filtered by the LotmCOfC column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLot filtered by the LotmCreateDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLot filtered by the LotmCreateTime column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmvendid(string $LotmVendId) Return the first ChildInvLot filtered by the LotmVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLot filtered by the LotmExpireDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLot filtered by the LotmUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLot filtered by the LotmCntrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLot filtered by the LotmSrcCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLot filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLot filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildInvLot requireOneByDummy(string $dummy) Return the first ChildInvLot filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByInititemnbr(string $InitItemNbr) Return the first ChildInvLotMaster filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmlotnbr(string $LotmLotNbr) Return the first ChildInvLotMaster filtered by the LotmLotNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmlotref(string $LotmLotRef) Return the first ChildInvLotMaster filtered by the LotmLotRef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmfrstactdate(string $LotmFrstActDate) Return the first ChildInvLotMaster filtered by the LotmFrstActDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmimagyn(string $LotmImagYn) Return the first ChildInvLotMaster filtered by the LotmImagYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmunitwght(string $LotmUnitWght) Return the first ChildInvLotMaster filtered by the LotmUnitWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmrevision(string $LotmRevision) Return the first ChildInvLotMaster filtered by the LotmRevision column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmctry(string $LotmCtry) Return the first ChildInvLotMaster filtered by the LotmCtry column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmcofc(string $LotmCOfC) Return the first ChildInvLotMaster filtered by the LotmCOfC column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmcreatedate(string $LotmCreateDate) Return the first ChildInvLotMaster filtered by the LotmCreateDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmcreatetime(string $LotmCreateTime) Return the first ChildInvLotMaster filtered by the LotmCreateTime column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmvendid(string $LotmVendId) Return the first ChildInvLotMaster filtered by the LotmVendId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmexpiredate(string $LotmExpireDate) Return the first ChildInvLotMaster filtered by the LotmExpireDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmunitcost(string $LotmUnitCost) Return the first ChildInvLotMaster filtered by the LotmUnitCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmcntrqty(string $LotmCntrQty) Return the first ChildInvLotMaster filtered by the LotmCntrQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByLotmsrccd(string $LotmSrcCd) Return the first ChildInvLotMaster filtered by the LotmSrcCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByDateupdtd(string $DateUpdtd) Return the first ChildInvLotMaster filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildInvLotMaster filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildInvLotMaster requireOneByDummy(string $dummy) Return the first ChildInvLotMaster filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildInvLot[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvLot objects based on current ModelCriteria
- * @method     ChildInvLot[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvLot objects filtered by the InitItemNbr column
- * @method     ChildInvLot[]|ObjectCollection findByLotmlotnbr(string $LotmLotNbr) Return ChildInvLot objects filtered by the LotmLotNbr column
- * @method     ChildInvLot[]|ObjectCollection findByLotmlotref(string $LotmLotRef) Return ChildInvLot objects filtered by the LotmLotRef column
- * @method     ChildInvLot[]|ObjectCollection findByLotmfrstactdate(string $LotmFrstActDate) Return ChildInvLot objects filtered by the LotmFrstActDate column
- * @method     ChildInvLot[]|ObjectCollection findByLotmimagyn(string $LotmImagYn) Return ChildInvLot objects filtered by the LotmImagYn column
- * @method     ChildInvLot[]|ObjectCollection findByLotmunitwght(string $LotmUnitWght) Return ChildInvLot objects filtered by the LotmUnitWght column
- * @method     ChildInvLot[]|ObjectCollection findByLotmrevision(string $LotmRevision) Return ChildInvLot objects filtered by the LotmRevision column
- * @method     ChildInvLot[]|ObjectCollection findByLotmctry(string $LotmCtry) Return ChildInvLot objects filtered by the LotmCtry column
- * @method     ChildInvLot[]|ObjectCollection findByLotmcofc(string $LotmCOfC) Return ChildInvLot objects filtered by the LotmCOfC column
- * @method     ChildInvLot[]|ObjectCollection findByLotmcreatedate(string $LotmCreateDate) Return ChildInvLot objects filtered by the LotmCreateDate column
- * @method     ChildInvLot[]|ObjectCollection findByLotmcreatetime(string $LotmCreateTime) Return ChildInvLot objects filtered by the LotmCreateTime column
- * @method     ChildInvLot[]|ObjectCollection findByLotmvendid(string $LotmVendId) Return ChildInvLot objects filtered by the LotmVendId column
- * @method     ChildInvLot[]|ObjectCollection findByLotmexpiredate(string $LotmExpireDate) Return ChildInvLot objects filtered by the LotmExpireDate column
- * @method     ChildInvLot[]|ObjectCollection findByLotmunitcost(string $LotmUnitCost) Return ChildInvLot objects filtered by the LotmUnitCost column
- * @method     ChildInvLot[]|ObjectCollection findByLotmcntrqty(string $LotmCntrQty) Return ChildInvLot objects filtered by the LotmCntrQty column
- * @method     ChildInvLot[]|ObjectCollection findByLotmsrccd(string $LotmSrcCd) Return ChildInvLot objects filtered by the LotmSrcCd column
- * @method     ChildInvLot[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvLot objects filtered by the DateUpdtd column
- * @method     ChildInvLot[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvLot objects filtered by the TimeUpdtd column
- * @method     ChildInvLot[]|ObjectCollection findByDummy(string $dummy) Return ChildInvLot objects filtered by the dummy column
- * @method     ChildInvLot[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildInvLotMaster[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildInvLotMaster objects based on current ModelCriteria
+ * @method     ChildInvLotMaster[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildInvLotMaster objects filtered by the InitItemNbr column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlotnbr(string $LotmLotNbr) Return ChildInvLotMaster objects filtered by the LotmLotNbr column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmlotref(string $LotmLotRef) Return ChildInvLotMaster objects filtered by the LotmLotRef column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmfrstactdate(string $LotmFrstActDate) Return ChildInvLotMaster objects filtered by the LotmFrstActDate column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmimagyn(string $LotmImagYn) Return ChildInvLotMaster objects filtered by the LotmImagYn column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmunitwght(string $LotmUnitWght) Return ChildInvLotMaster objects filtered by the LotmUnitWght column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmrevision(string $LotmRevision) Return ChildInvLotMaster objects filtered by the LotmRevision column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmctry(string $LotmCtry) Return ChildInvLotMaster objects filtered by the LotmCtry column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcofc(string $LotmCOfC) Return ChildInvLotMaster objects filtered by the LotmCOfC column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcreatedate(string $LotmCreateDate) Return ChildInvLotMaster objects filtered by the LotmCreateDate column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcreatetime(string $LotmCreateTime) Return ChildInvLotMaster objects filtered by the LotmCreateTime column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmvendid(string $LotmVendId) Return ChildInvLotMaster objects filtered by the LotmVendId column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmexpiredate(string $LotmExpireDate) Return ChildInvLotMaster objects filtered by the LotmExpireDate column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmunitcost(string $LotmUnitCost) Return ChildInvLotMaster objects filtered by the LotmUnitCost column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmcntrqty(string $LotmCntrQty) Return ChildInvLotMaster objects filtered by the LotmCntrQty column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByLotmsrccd(string $LotmSrcCd) Return ChildInvLotMaster objects filtered by the LotmSrcCd column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildInvLotMaster objects filtered by the DateUpdtd column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildInvLotMaster objects filtered by the TimeUpdtd column
+ * @method     ChildInvLotMaster[]|ObjectCollection findByDummy(string $dummy) Return ChildInvLotMaster objects filtered by the dummy column
+ * @method     ChildInvLotMaster[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class InvLotQuery extends ModelCriteria
+abstract class InvLotMasterQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\InvLotQuery object.
+     * Initializes internal state of \Base\InvLotMasterQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\InvLot', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\InvLotMaster', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildInvLotQuery object.
+     * Returns a new ChildInvLotMasterQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildInvLotQuery
+     * @return ChildInvLotMasterQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildInvLotQuery) {
+        if ($criteria instanceof ChildInvLotMasterQuery) {
             return $criteria;
         }
-        $query = new ChildInvLotQuery();
+        $query = new ChildInvLotMasterQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -221,7 +221,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param array[$InitItemNbr, $LotmLotNbr] $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildInvLot|array|mixed the result, formatted by the current formatter
+     * @return ChildInvLotMaster|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -230,7 +230,7 @@ abstract class InvLotQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -243,7 +243,7 @@ abstract class InvLotQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = InvLotTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
+        if ((null !== ($obj = InvLotMasterTableMap::getInstanceFromPool(serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]))))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -260,7 +260,7 @@ abstract class InvLotQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvLot A model object, or null if the key is not found
+     * @return ChildInvLotMaster A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -276,10 +276,10 @@ abstract class InvLotQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildInvLot $obj */
-            $obj = new ChildInvLot();
+            /** @var ChildInvLotMaster $obj */
+            $obj = new ChildInvLotMaster();
             $obj->hydrate($row);
-            InvLotTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
+            InvLotMasterTableMap::addInstanceToPool($obj, serialize([(null === $key[0] || is_scalar($key[0]) || is_callable([$key[0], '__toString']) ? (string) $key[0] : $key[0]), (null === $key[1] || is_scalar($key[1]) || is_callable([$key[1], '__toString']) ? (string) $key[1] : $key[1])]));
         }
         $stmt->closeCursor();
 
@@ -292,7 +292,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildInvLot|array|mixed the result, formatted by the current formatter
+     * @return ChildInvLotMaster|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -334,12 +334,12 @@ abstract class InvLotQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
-        $this->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
-        $this->addUsingAlias(InvLotTableMap::COL_LOTMLOTNBR, $key[1], Criteria::EQUAL);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
+        $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $key[1], Criteria::EQUAL);
 
         return $this;
     }
@@ -349,7 +349,7 @@ abstract class InvLotQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
@@ -357,8 +357,8 @@ abstract class InvLotQuery extends ModelCriteria
             return $this->add(null, '1<>1', Criteria::CUSTOM);
         }
         foreach ($keys as $key) {
-            $cton0 = $this->getNewCriterion(InvLotTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
-            $cton1 = $this->getNewCriterion(InvLotTableMap::COL_LOTMLOTNBR, $key[1], Criteria::EQUAL);
+            $cton0 = $this->getNewCriterion(InvLotMasterTableMap::COL_INITITEMNBR, $key[0], Criteria::EQUAL);
+            $cton1 = $this->getNewCriterion(InvLotMasterTableMap::COL_LOTMLOTNBR, $key[1], Criteria::EQUAL);
             $cton0->addAnd($cton1);
             $this->addOr($cton0);
         }
@@ -378,7 +378,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $inititemnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByInititemnbr($inititemnbr = null, $comparison = null)
     {
@@ -388,7 +388,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $inititemnbr, $comparison);
     }
 
     /**
@@ -403,7 +403,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmlotnbr The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmlotnbr($lotmlotnbr = null, $comparison = null)
     {
@@ -413,7 +413,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMLOTNBR, $lotmlotnbr, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $lotmlotnbr, $comparison);
     }
 
     /**
@@ -428,7 +428,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmlotref The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmlotref($lotmlotref = null, $comparison = null)
     {
@@ -438,7 +438,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMLOTREF, $lotmlotref, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTREF, $lotmlotref, $comparison);
     }
 
     /**
@@ -453,7 +453,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmfrstactdate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmfrstactdate($lotmfrstactdate = null, $comparison = null)
     {
@@ -463,7 +463,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMFRSTACTDATE, $lotmfrstactdate, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMFRSTACTDATE, $lotmfrstactdate, $comparison);
     }
 
     /**
@@ -478,7 +478,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmimagyn The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmimagyn($lotmimagyn = null, $comparison = null)
     {
@@ -488,7 +488,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMIMAGYN, $lotmimagyn, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMIMAGYN, $lotmimagyn, $comparison);
     }
 
     /**
@@ -507,18 +507,18 @@ abstract class InvLotQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmunitwght($lotmunitwght = null, $comparison = null)
     {
         if (is_array($lotmunitwght)) {
             $useMinMax = false;
             if (isset($lotmunitwght['min'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITWGHT, $lotmunitwght['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITWGHT, $lotmunitwght['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($lotmunitwght['max'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITWGHT, $lotmunitwght['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITWGHT, $lotmunitwght['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -529,7 +529,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITWGHT, $lotmunitwght, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITWGHT, $lotmunitwght, $comparison);
     }
 
     /**
@@ -544,7 +544,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmrevision The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmrevision($lotmrevision = null, $comparison = null)
     {
@@ -554,7 +554,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMREVISION, $lotmrevision, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMREVISION, $lotmrevision, $comparison);
     }
 
     /**
@@ -569,7 +569,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmctry The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmctry($lotmctry = null, $comparison = null)
     {
@@ -579,7 +579,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMCTRY, $lotmctry, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCTRY, $lotmctry, $comparison);
     }
 
     /**
@@ -594,7 +594,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmcofc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmcofc($lotmcofc = null, $comparison = null)
     {
@@ -604,7 +604,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMCOFC, $lotmcofc, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCOFC, $lotmcofc, $comparison);
     }
 
     /**
@@ -619,7 +619,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmcreatedate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmcreatedate($lotmcreatedate = null, $comparison = null)
     {
@@ -629,7 +629,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMCREATEDATE, $lotmcreatedate, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATEDATE, $lotmcreatedate, $comparison);
     }
 
     /**
@@ -644,7 +644,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmcreatetime The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmcreatetime($lotmcreatetime = null, $comparison = null)
     {
@@ -654,7 +654,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMCREATETIME, $lotmcreatetime, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCREATETIME, $lotmcreatetime, $comparison);
     }
 
     /**
@@ -669,7 +669,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmvendid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmvendid($lotmvendid = null, $comparison = null)
     {
@@ -679,7 +679,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMVENDID, $lotmvendid, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMVENDID, $lotmvendid, $comparison);
     }
 
     /**
@@ -694,7 +694,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmexpiredate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmexpiredate($lotmexpiredate = null, $comparison = null)
     {
@@ -704,7 +704,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMEXPIREDATE, $lotmexpiredate, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMEXPIREDATE, $lotmexpiredate, $comparison);
     }
 
     /**
@@ -723,18 +723,18 @@ abstract class InvLotQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmunitcost($lotmunitcost = null, $comparison = null)
     {
         if (is_array($lotmunitcost)) {
             $useMinMax = false;
             if (isset($lotmunitcost['min'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITCOST, $lotmunitcost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITCOST, $lotmunitcost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($lotmunitcost['max'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITCOST, $lotmunitcost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITCOST, $lotmunitcost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -745,7 +745,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMUNITCOST, $lotmunitcost, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMUNITCOST, $lotmunitcost, $comparison);
     }
 
     /**
@@ -764,18 +764,18 @@ abstract class InvLotQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmcntrqty($lotmcntrqty = null, $comparison = null)
     {
         if (is_array($lotmcntrqty)) {
             $useMinMax = false;
             if (isset($lotmcntrqty['min'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMCNTRQTY, $lotmcntrqty['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCNTRQTY, $lotmcntrqty['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($lotmcntrqty['max'])) {
-                $this->addUsingAlias(InvLotTableMap::COL_LOTMCNTRQTY, $lotmcntrqty['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCNTRQTY, $lotmcntrqty['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -786,7 +786,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMCNTRQTY, $lotmcntrqty, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMCNTRQTY, $lotmcntrqty, $comparison);
     }
 
     /**
@@ -801,7 +801,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $lotmsrccd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByLotmsrccd($lotmsrccd = null, $comparison = null)
     {
@@ -811,7 +811,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_LOTMSRCCD, $lotmsrccd, $comparison);
     }
 
     /**
@@ -826,7 +826,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -836,7 +836,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -851,7 +851,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -861,7 +861,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -876,7 +876,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -886,7 +886,7 @@ abstract class InvLotQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(InvLotTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(InvLotMasterTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
@@ -897,20 +897,20 @@ abstract class InvLotQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildInvLotQuery The current query, for fluid interface
+     * @return ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByItemMasterItem($itemMasterItem, $comparison = null)
     {
         if ($itemMasterItem instanceof \ItemMasterItem) {
             return $this
-                ->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
         } elseif ($itemMasterItem instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
         } else {
             throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
         }
@@ -922,7 +922,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -972,14 +972,14 @@ abstract class InvLotQuery extends ModelCriteria
      * @param \WhseLotserial|ObjectCollection $whseLotserial the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotQuery The current query, for fluid interface
+     * @return ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterByWhseLotserial($whseLotserial, $comparison = null)
     {
         if ($whseLotserial instanceof \WhseLotserial) {
             return $this
-                ->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $whseLotserial->getInititemnbr(), $comparison)
-                ->addUsingAlias(InvLotTableMap::COL_LOTMLOTNBR, $whseLotserial->getInltlotser(), $comparison);
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $whseLotserial->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $whseLotserial->getInltlotser(), $comparison);
         } else {
             throw new PropelException('filterByWhseLotserial() only accepts arguments of type \WhseLotserial');
         }
@@ -991,7 +991,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function joinWhseLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -1041,14 +1041,14 @@ abstract class InvLotQuery extends ModelCriteria
      * @param \SoAllocatedLotserial|ObjectCollection $soAllocatedLotserial the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildInvLotQuery The current query, for fluid interface
+     * @return ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function filterBySoAllocatedLotserial($soAllocatedLotserial, $comparison = null)
     {
         if ($soAllocatedLotserial instanceof \SoAllocatedLotserial) {
             return $this
-                ->addUsingAlias(InvLotTableMap::COL_INITITEMNBR, $soAllocatedLotserial->getInititemnbr(), $comparison)
-                ->addUsingAlias(InvLotTableMap::COL_LOTMLOTNBR, $soAllocatedLotserial->getOeidlotser(), $comparison);
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $soAllocatedLotserial->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $soAllocatedLotserial->getOeidlotser(), $comparison);
         } else {
             throw new PropelException('filterBySoAllocatedLotserial() only accepts arguments of type \SoAllocatedLotserial');
         }
@@ -1060,7 +1060,7 @@ abstract class InvLotQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
     public function joinSoAllocatedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
@@ -1107,15 +1107,15 @@ abstract class InvLotQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildInvLot $invLot Object to remove from the list of results
+     * @param   ChildInvLotMaster $InvLotMaster Object to remove from the list of results
      *
-     * @return $this|ChildInvLotQuery The current query, for fluid interface
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
-    public function prune($invLot = null)
+    public function prune($InvLotMaster = null)
     {
-        if ($invLot) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(InvLotTableMap::COL_INITITEMNBR), $invLot->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(InvLotTableMap::COL_LOTMLOTNBR), $invLot->getLotmlotnbr(), Criteria::NOT_EQUAL);
+        if ($InvLotMaster) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(InvLotMasterTableMap::COL_INITITEMNBR), $InvLotMaster->getInititemnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(InvLotMasterTableMap::COL_LOTMLOTNBR), $InvLotMaster->getLotmlotnbr(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 
@@ -1131,7 +1131,7 @@ abstract class InvLotQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -1142,8 +1142,8 @@ abstract class InvLotQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            InvLotTableMap::clearInstancePool();
-            InvLotTableMap::clearRelatedInstancePool();
+            InvLotMasterTableMap::clearInstancePool();
+            InvLotMasterTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -1161,26 +1161,26 @@ abstract class InvLotQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(InvLotTableMap::DATABASE_NAME);
+        $criteria->setDbName(InvLotMasterTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            InvLotTableMap::removeInstanceFromPool($criteria);
+            InvLotMasterTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            InvLotTableMap::clearRelatedInstancePool();
+            InvLotMasterTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // InvLotQuery
+} // InvLotMasterQuery

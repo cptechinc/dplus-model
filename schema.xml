@@ -2274,7 +2274,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="inv_lot_mast" idMethod="native" phpName="InvLot">
+  <table name="inv_lot_mast" idMethod="native" phpName="InvLotMaster">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="LotmLotNbr" phpName="Lotmlotnbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
     <column name="LotmLotRef" phpName="Lotmlotref" type="VARCHAR" size="20"/>

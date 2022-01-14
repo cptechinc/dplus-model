@@ -10455,10 +10455,10 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinInvLot(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
-        $query->joinWith('InvLot', $joinBehavior);
+        $query->joinWith('InvLotMaster', $joinBehavior);
 
         return $this->getSoAllocatedLotserials($query, $con);
     }

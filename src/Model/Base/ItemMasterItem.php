@@ -20,8 +20,8 @@ use \InvKit as ChildInvKit;
 use \InvKitComponent as ChildInvKitComponent;
 use \InvKitComponentQuery as ChildInvKitComponentQuery;
 use \InvKitQuery as ChildInvKitQuery;
-use \InvLot as ChildInvLot;
-use \InvLotQuery as ChildInvLotQuery;
+use \InvLotMaster as ChildInvLotMaster;
+use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \InvOptCodeNote as ChildInvOptCodeNote;
 use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \InvPriceCode as ChildInvPriceCode;
@@ -74,7 +74,7 @@ use Map\BomComponentTableMap;
 use Map\BookingDetailTableMap;
 use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
-use Map\InvLotTableMap;
+use Map\InvLotMasterTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
 use Map\ItemAddonItemTableMap;
@@ -703,10 +703,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $singleInvKit;
 
     /**
-     * @var        ObjectCollection|ChildInvLot[] Collection to store aggregation of ChildInvLot objects.
+     * @var        ObjectCollection|ChildInvLotMaster[] Collection to store aggregation of ChildInvLotMaster objects.
      */
-    protected $collInvLots;
-    protected $collInvLotsPartial;
+    protected $collInvLotMasters;
+    protected $collInvLotMastersPartial;
 
     /**
      * @var        ObjectCollection|ChildInvSerialMaster[] Collection to store aggregation of ChildInvSerialMaster objects.
@@ -867,9 +867,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildInvLot[]
+     * @var ObjectCollection|ChildInvLotMaster[]
      */
-    protected $invLotsScheduledForDeletion = null;
+    protected $InvLotMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3524,7 +3524,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->singleInvKit = null;
 
-            $this->collInvLots = null;
+            $this->collInvLotMasters = null;
 
             $this->collInvSerialMasters = null;
 
@@ -3891,17 +3891,17 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
-            if ($this->invLotsScheduledForDeletion !== null) {
-                if (!$this->invLotsScheduledForDeletion->isEmpty()) {
-                    \InvLotQuery::create()
-                        ->filterByPrimaryKeys($this->invLotsScheduledForDeletion->getPrimaryKeys(false))
+            if ($this->InvLotMastersScheduledForDeletion !== null) {
+                if (!$this->InvLotMastersScheduledForDeletion->isEmpty()) {
+                    \InvLotMasterQuery::create()
+                        ->filterByPrimaryKeys($this->InvLotMastersScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
-                    $this->invLotsScheduledForDeletion = null;
+                    $this->InvLotMastersScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collInvLots !== null) {
-                foreach ($this->collInvLots as $referrerFK) {
+            if ($this->collInvLotMasters !== null) {
+                foreach ($this->collInvLotMasters as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5219,20 +5219,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->singleInvKit->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
-            if (null !== $this->collInvLots) {
+            if (null !== $this->collInvLotMasters) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'invLots';
+                        $key = 'InvLotMasters';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_masts';
                         break;
                     default:
-                        $key = 'InvLots';
+                        $key = 'InvLotMasters';
                 }
 
-                $result[$key] = $this->collInvLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collInvLotMasters->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collInvSerialMasters) {
 
@@ -6393,9 +6393,9 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $copyObj->setInvKit($relObj->copy($deepCopy));
             }
 
-            foreach ($this->getInvLots() as $relObj) {
+            foreach ($this->getInvLotMasters() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addInvLot($relObj->copy($deepCopy));
+                    $copyObj->addInvLotMaster($relObj->copy($deepCopy));
                 }
             }
 
@@ -6873,8 +6873,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initInvKitComponents();
             return;
         }
-        if ('InvLot' == $relationName) {
-            $this->initInvLots();
+        if ('InvLotMaster' == $relationName) {
+            $this->initInvLotMasters();
             return;
         }
         if ('InvSerialMaster' == $relationName) {
@@ -7962,10 +7962,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildWhseLotserial[] List of ChildWhseLotserial objects
      */
-    public function getWhseLotserialsJoinInvLot(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getWhseLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildWhseLotserialQuery::create(null, $criteria);
-        $query->joinWith('InvLot', $joinBehavior);
+        $query->joinWith('InvLotMaster', $joinBehavior);
 
         return $this->getWhseLotserials($query, $con);
     }
@@ -9172,31 +9172,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collInvLots collection
+     * Clears out the collInvLotMasters collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addInvLots()
+     * @see        addInvLotMasters()
      */
-    public function clearInvLots()
+    public function clearInvLotMasters()
     {
-        $this->collInvLots = null; // important to set this to NULL since that means it is uninitialized
+        $this->collInvLotMasters = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collInvLots collection loaded partially.
+     * Reset is the collInvLotMasters collection loaded partially.
      */
-    public function resetPartialInvLots($v = true)
+    public function resetPartialInvLotMasters($v = true)
     {
-        $this->collInvLotsPartial = $v;
+        $this->collInvLotMastersPartial = $v;
     }
 
     /**
-     * Initializes the collInvLots collection.
+     * Initializes the collInvLotMasters collection.
      *
-     * By default this just sets the collInvLots collection to an empty array (like clearcollInvLots());
+     * By default this just sets the collInvLotMasters collection to an empty array (like clearcollInvLotMasters());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -9205,20 +9205,20 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initInvLots($overrideExisting = true)
+    public function initInvLotMasters($overrideExisting = true)
     {
-        if (null !== $this->collInvLots && !$overrideExisting) {
+        if (null !== $this->collInvLotMasters && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = InvLotTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = InvLotMasterTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collInvLots = new $collectionClassName;
-        $this->collInvLots->setModel('\InvLot');
+        $this->collInvLotMasters = new $collectionClassName;
+        $this->collInvLotMasters->setModel('\InvLotMaster');
     }
 
     /**
-     * Gets an array of ChildInvLot objects which contain a foreign key that references this object.
+     * Gets an array of ChildInvLotMaster objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -9228,111 +9228,111 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildInvLot[] List of ChildInvLot objects
+     * @return ObjectCollection|ChildInvLotMaster[] List of ChildInvLotMaster objects
      * @throws PropelException
      */
-    public function getInvLots(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getInvLotMasters(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collInvLotsPartial && !$this->isNew();
-        if (null === $this->collInvLots || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLots) {
+        $partial = $this->collInvLotMastersPartial && !$this->isNew();
+        if (null === $this->collInvLotMasters || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvLotMasters) {
                 // return empty collection
-                $this->initInvLots();
+                $this->initInvLotMasters();
             } else {
-                $collInvLots = ChildInvLotQuery::create(null, $criteria)
+                $collInvLotMasters = ChildInvLotMasterQuery::create(null, $criteria)
                     ->filterByItemMasterItem($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collInvLotsPartial && count($collInvLots)) {
-                        $this->initInvLots(false);
+                    if (false !== $this->collInvLotMastersPartial && count($collInvLotMasters)) {
+                        $this->initInvLotMasters(false);
 
-                        foreach ($collInvLots as $obj) {
-                            if (false == $this->collInvLots->contains($obj)) {
-                                $this->collInvLots->append($obj);
+                        foreach ($collInvLotMasters as $obj) {
+                            if (false == $this->collInvLotMasters->contains($obj)) {
+                                $this->collInvLotMasters->append($obj);
                             }
                         }
 
-                        $this->collInvLotsPartial = true;
+                        $this->collInvLotMastersPartial = true;
                     }
 
-                    return $collInvLots;
+                    return $collInvLotMasters;
                 }
 
-                if ($partial && $this->collInvLots) {
-                    foreach ($this->collInvLots as $obj) {
+                if ($partial && $this->collInvLotMasters) {
+                    foreach ($this->collInvLotMasters as $obj) {
                         if ($obj->isNew()) {
-                            $collInvLots[] = $obj;
+                            $collInvLotMasters[] = $obj;
                         }
                     }
                 }
 
-                $this->collInvLots = $collInvLots;
-                $this->collInvLotsPartial = false;
+                $this->collInvLotMasters = $collInvLotMasters;
+                $this->collInvLotMastersPartial = false;
             }
         }
 
-        return $this->collInvLots;
+        return $this->collInvLotMasters;
     }
 
     /**
-     * Sets a collection of ChildInvLot objects related by a one-to-many relationship
+     * Sets a collection of ChildInvLotMaster objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $invLots A Propel collection.
+     * @param      Collection $InvLotMasters A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setInvLots(Collection $invLots, ConnectionInterface $con = null)
+    public function setInvLotMasters(Collection $InvLotMasters, ConnectionInterface $con = null)
     {
-        /** @var ChildInvLot[] $invLotsToDelete */
-        $invLotsToDelete = $this->getInvLots(new Criteria(), $con)->diff($invLots);
+        /** @var ChildInvLotMaster[] $InvLotMastersToDelete */
+        $InvLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($InvLotMasters);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->invLotsScheduledForDeletion = clone $invLotsToDelete;
+        $this->InvLotMastersScheduledForDeletion = clone $InvLotMastersToDelete;
 
-        foreach ($invLotsToDelete as $invLotRemoved) {
-            $invLotRemoved->setItemMasterItem(null);
+        foreach ($InvLotMastersToDelete as $InvLotMasterRemoved) {
+            $InvLotMasterRemoved->setItemMasterItem(null);
         }
 
-        $this->collInvLots = null;
-        foreach ($invLots as $invLot) {
-            $this->addInvLot($invLot);
+        $this->collInvLotMasters = null;
+        foreach ($InvLotMasters as $InvLotMaster) {
+            $this->addInvLotMaster($InvLotMaster);
         }
 
-        $this->collInvLots = $invLots;
-        $this->collInvLotsPartial = false;
+        $this->collInvLotMasters = $InvLotMasters;
+        $this->collInvLotMastersPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related InvLot objects.
+     * Returns the number of related InvLotMaster objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related InvLot objects.
+     * @return int             Count of related InvLotMaster objects.
      * @throws PropelException
      */
-    public function countInvLots(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countInvLotMasters(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collInvLotsPartial && !$this->isNew();
-        if (null === $this->collInvLots || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collInvLots) {
+        $partial = $this->collInvLotMastersPartial && !$this->isNew();
+        if (null === $this->collInvLotMasters || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvLotMasters) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getInvLots());
+                return count($this->getInvLotMasters());
             }
 
-            $query = ChildInvLotQuery::create(null, $criteria);
+            $query = ChildInvLotMasterQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -9342,28 +9342,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collInvLots);
+        return count($this->collInvLotMasters);
     }
 
     /**
-     * Method called to associate a ChildInvLot object to this object
-     * through the ChildInvLot foreign key attribute.
+     * Method called to associate a ChildInvLotMaster object to this object
+     * through the ChildInvLotMaster foreign key attribute.
      *
-     * @param  ChildInvLot $l ChildInvLot
+     * @param  ChildInvLotMaster $l ChildInvLotMaster
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function addInvLot(ChildInvLot $l)
+    public function addInvLotMaster(ChildInvLotMaster $l)
     {
-        if ($this->collInvLots === null) {
-            $this->initInvLots();
-            $this->collInvLotsPartial = true;
+        if ($this->collInvLotMasters === null) {
+            $this->initInvLotMasters();
+            $this->collInvLotMastersPartial = true;
         }
 
-        if (!$this->collInvLots->contains($l)) {
-            $this->doAddInvLot($l);
+        if (!$this->collInvLotMasters->contains($l)) {
+            $this->doAddInvLotMaster($l);
 
-            if ($this->invLotsScheduledForDeletion and $this->invLotsScheduledForDeletion->contains($l)) {
-                $this->invLotsScheduledForDeletion->remove($this->invLotsScheduledForDeletion->search($l));
+            if ($this->InvLotMastersScheduledForDeletion and $this->InvLotMastersScheduledForDeletion->contains($l)) {
+                $this->InvLotMastersScheduledForDeletion->remove($this->InvLotMastersScheduledForDeletion->search($l));
             }
         }
 
@@ -9371,29 +9371,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildInvLot $invLot The ChildInvLot object to add.
+     * @param ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to add.
      */
-    protected function doAddInvLot(ChildInvLot $invLot)
+    protected function doAddInvLotMaster(ChildInvLotMaster $InvLotMaster)
     {
-        $this->collInvLots[]= $invLot;
-        $invLot->setItemMasterItem($this);
+        $this->collInvLotMasters[]= $InvLotMaster;
+        $InvLotMaster->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLot $invLot The ChildInvLot object to remove.
+     * @param  ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeInvLot(ChildInvLot $invLot)
+    public function removeInvLotMaster(ChildInvLotMaster $InvLotMaster)
     {
-        if ($this->getInvLots()->contains($invLot)) {
-            $pos = $this->collInvLots->search($invLot);
-            $this->collInvLots->remove($pos);
-            if (null === $this->invLotsScheduledForDeletion) {
-                $this->invLotsScheduledForDeletion = clone $this->collInvLots;
-                $this->invLotsScheduledForDeletion->clear();
+        if ($this->getInvLotMasters()->contains($InvLotMaster)) {
+            $pos = $this->collInvLotMasters->search($InvLotMaster);
+            $this->collInvLotMasters->remove($pos);
+            if (null === $this->InvLotMastersScheduledForDeletion) {
+                $this->InvLotMastersScheduledForDeletion = clone $this->collInvLotMasters;
+                $this->InvLotMastersScheduledForDeletion->clear();
             }
-            $this->invLotsScheduledForDeletion[]= clone $invLot;
-            $invLot->setItemMasterItem(null);
+            $this->InvLotMastersScheduledForDeletion[]= clone $InvLotMaster;
+            $InvLotMaster->setItemMasterItem(null);
         }
 
         return $this;
@@ -12448,10 +12448,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildSoAllocatedLotserial[] List of ChildSoAllocatedLotserial objects
      */
-    public function getSoAllocatedLotserialsJoinInvLot(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getSoAllocatedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildSoAllocatedLotserialQuery::create(null, $criteria);
-        $query->joinWith('InvLot', $joinBehavior);
+        $query->joinWith('InvLotMaster', $joinBehavior);
 
         return $this->getSoAllocatedLotserials($query, $con);
     }
@@ -13378,8 +13378,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             if ($this->singleInvKit) {
                 $this->singleInvKit->clearAllReferences($deep);
             }
-            if ($this->collInvLots) {
-                foreach ($this->collInvLots as $o) {
+            if ($this->collInvLotMasters) {
+                foreach ($this->collInvLotMasters as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -13475,7 +13475,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
         $this->collInvKitComponents = null;
         $this->singleInvKit = null;
-        $this->collInvLots = null;
+        $this->collInvLotMasters = null;
         $this->collInvSerialMasters = null;
         $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;

@@ -401,7 +401,7 @@ class WhseLotserialTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, null, false);
-        $this->addRelation('InvLot', '\\InvLot', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('InvLotMaster', '\\InvLotMaster', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':InitItemNbr',

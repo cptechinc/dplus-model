@@ -2,8 +2,8 @@
 
 namespace Base;
 
-use \InvLot as ChildInvLot;
-use \InvLotQuery as ChildInvLotQuery;
+use \InvLotMaster as ChildInvLotMaster;
+use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \SoAllocatedLotserial as ChildSoAllocatedLotserial;
@@ -12,7 +12,7 @@ use \WhseLotserial as ChildWhseLotserial;
 use \WhseLotserialQuery as ChildWhseLotserialQuery;
 use \Exception;
 use \PDO;
-use Map\InvLotTableMap;
+use Map\InvLotMasterTableMap;
 use Map\SoAllocatedLotserialTableMap;
 use Map\WhseLotserialTableMap;
 use Propel\Runtime\Propel;
@@ -35,12 +35,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class InvLot implements ActiveRecordInterface
+abstract class InvLotMaster implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\InvLotTableMap';
+    const TABLE_MAP = '\\Map\\InvLotMasterTableMap';
 
 
     /**
@@ -254,7 +254,7 @@ abstract class InvLot implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\InvLot object.
+     * Initializes internal state of Base\InvLotMaster object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -351,9 +351,9 @@ abstract class InvLot implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>InvLot</code> instance.  If
-     * <code>obj</code> is an instance of <code>InvLot</code>, delegates to
-     * <code>equals(InvLot)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>InvLotMaster</code> instance.  If
+     * <code>obj</code> is an instance of <code>InvLotMaster</code>, delegates to
+     * <code>equals(InvLotMaster)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -419,7 +419,7 @@ abstract class InvLot implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|InvLot The current object, for fluid interface
+     * @return $this|InvLotMaster The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -674,7 +674,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -684,7 +684,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -698,7 +698,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmlotnbr] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmlotnbr($v)
     {
@@ -708,7 +708,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmlotnbr !== $v) {
             $this->lotmlotnbr = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMLOTNBR] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMLOTNBR] = true;
         }
 
         return $this;
@@ -718,7 +718,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmlotref] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmlotref($v)
     {
@@ -728,7 +728,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmlotref !== $v) {
             $this->lotmlotref = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMLOTREF] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMLOTREF] = true;
         }
 
         return $this;
@@ -738,7 +738,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmfrstactdate] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmfrstactdate($v)
     {
@@ -748,7 +748,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmfrstactdate !== $v) {
             $this->lotmfrstactdate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMFRSTACTDATE] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMFRSTACTDATE] = true;
         }
 
         return $this;
@@ -758,7 +758,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmimagyn] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmimagyn($v)
     {
@@ -768,7 +768,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmimagyn !== $v) {
             $this->lotmimagyn = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMIMAGYN] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMIMAGYN] = true;
         }
 
         return $this;
@@ -778,7 +778,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmunitwght] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmunitwght($v)
     {
@@ -788,7 +788,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmunitwght !== $v) {
             $this->lotmunitwght = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMUNITWGHT] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMUNITWGHT] = true;
         }
 
         return $this;
@@ -798,7 +798,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmrevision] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmrevision($v)
     {
@@ -808,7 +808,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmrevision !== $v) {
             $this->lotmrevision = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMREVISION] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMREVISION] = true;
         }
 
         return $this;
@@ -818,7 +818,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmctry] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmctry($v)
     {
@@ -828,7 +828,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmctry !== $v) {
             $this->lotmctry = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMCTRY] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCTRY] = true;
         }
 
         return $this;
@@ -838,7 +838,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmcofc] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmcofc($v)
     {
@@ -848,7 +848,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmcofc !== $v) {
             $this->lotmcofc = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMCOFC] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCOFC] = true;
         }
 
         return $this;
@@ -858,7 +858,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmcreatedate] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmcreatedate($v)
     {
@@ -868,7 +868,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmcreatedate !== $v) {
             $this->lotmcreatedate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMCREATEDATE] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCREATEDATE] = true;
         }
 
         return $this;
@@ -878,7 +878,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmcreatetime] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmcreatetime($v)
     {
@@ -888,7 +888,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmcreatetime !== $v) {
             $this->lotmcreatetime = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMCREATETIME] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCREATETIME] = true;
         }
 
         return $this;
@@ -898,7 +898,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmvendid] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmvendid($v)
     {
@@ -908,7 +908,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmvendid !== $v) {
             $this->lotmvendid = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMVENDID] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMVENDID] = true;
         }
 
         return $this;
@@ -918,7 +918,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmexpiredate] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmexpiredate($v)
     {
@@ -928,7 +928,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmexpiredate !== $v) {
             $this->lotmexpiredate = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMEXPIREDATE] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMEXPIREDATE] = true;
         }
 
         return $this;
@@ -938,7 +938,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmunitcost] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmunitcost($v)
     {
@@ -948,7 +948,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmunitcost !== $v) {
             $this->lotmunitcost = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMUNITCOST] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMUNITCOST] = true;
         }
 
         return $this;
@@ -958,7 +958,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmcntrqty] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmcntrqty($v)
     {
@@ -968,7 +968,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmcntrqty !== $v) {
             $this->lotmcntrqty = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMCNTRQTY] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMCNTRQTY] = true;
         }
 
         return $this;
@@ -978,7 +978,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [lotmsrccd] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setLotmsrccd($v)
     {
@@ -988,7 +988,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->lotmsrccd !== $v) {
             $this->lotmsrccd = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_LOTMSRCCD] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_LOTMSRCCD] = true;
         }
 
         return $this;
@@ -998,7 +998,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1008,7 +1008,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -1018,7 +1018,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1028,7 +1028,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -1038,7 +1038,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1048,7 +1048,7 @@ abstract class InvLot implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[InvLotTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[InvLotMasterTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1098,61 +1098,61 @@ abstract class InvLot implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvLotTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvLotMasterTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvLotTableMap::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmlotnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmlotnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvLotTableMap::translateFieldName('Lotmlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmlotref', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvLotTableMap::translateFieldName('Lotmfrstactdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmfrstactdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmfrstactdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvLotTableMap::translateFieldName('Lotmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmimagyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmimagyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvLotTableMap::translateFieldName('Lotmunitwght', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmunitwght', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmunitwght = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvLotTableMap::translateFieldName('Lotmrevision', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmrevision', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmrevision = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvLotTableMap::translateFieldName('Lotmctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvLotTableMap::translateFieldName('Lotmcofc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmcofc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmcofc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvLotTableMap::translateFieldName('Lotmcreatedate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmcreatedate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmcreatedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvLotTableMap::translateFieldName('Lotmcreatetime', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmcreatetime', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmcreatetime = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvLotTableMap::translateFieldName('Lotmvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvLotTableMap::translateFieldName('Lotmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmexpiredate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmexpiredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvLotTableMap::translateFieldName('Lotmunitcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmunitcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmunitcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvLotTableMap::translateFieldName('Lotmcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmcntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvLotTableMap::translateFieldName('Lotmsrccd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvLotMasterTableMap::translateFieldName('Lotmsrccd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->lotmsrccd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvLotMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvLotMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvLotMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1162,10 +1162,10 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 19; // 19 = InvLotTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = InvLotMasterTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\InvLot'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\InvLotMaster'), 0, $e);
         }
     }
 
@@ -1210,13 +1210,13 @@ abstract class InvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildInvLotQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildInvLotMasterQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1240,8 +1240,8 @@ abstract class InvLot implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see InvLot::setDeleted()
-     * @see InvLot::isDeleted()
+     * @see InvLotMaster::setDeleted()
+     * @see InvLotMaster::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1250,11 +1250,11 @@ abstract class InvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildInvLotQuery::create()
+            $deleteQuery = ChildInvLotMasterQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1289,7 +1289,7 @@ abstract class InvLot implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvLotTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvLotMasterTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1308,7 +1308,7 @@ abstract class InvLot implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                InvLotTableMap::addInstanceToPool($this);
+                InvLotMasterTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1413,61 +1413,61 @@ abstract class InvLot implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(InvLotTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTNBR)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLOTNBR)) {
             $modifiedColumns[':p' . $index++]  = 'LotmLotNbr';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTREF)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLOTREF)) {
             $modifiedColumns[':p' . $index++]  = 'LotmLotRef';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMFRSTACTDATE)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMFRSTACTDATE)) {
             $modifiedColumns[':p' . $index++]  = 'LotmFrstActDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMIMAGYN)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMIMAGYN)) {
             $modifiedColumns[':p' . $index++]  = 'LotmImagYn';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITWGHT)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMUNITWGHT)) {
             $modifiedColumns[':p' . $index++]  = 'LotmUnitWght';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMREVISION)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMREVISION)) {
             $modifiedColumns[':p' . $index++]  = 'LotmRevision';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCTRY)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCTRY)) {
             $modifiedColumns[':p' . $index++]  = 'LotmCtry';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCOFC)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCOFC)) {
             $modifiedColumns[':p' . $index++]  = 'LotmCOfC';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATEDATE)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCREATEDATE)) {
             $modifiedColumns[':p' . $index++]  = 'LotmCreateDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATETIME)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCREATETIME)) {
             $modifiedColumns[':p' . $index++]  = 'LotmCreateTime';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMVENDID)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'LotmVendId';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMEXPIREDATE)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMEXPIREDATE)) {
             $modifiedColumns[':p' . $index++]  = 'LotmExpireDate';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITCOST)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMUNITCOST)) {
             $modifiedColumns[':p' . $index++]  = 'LotmUnitCost';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCNTRQTY)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCNTRQTY)) {
             $modifiedColumns[':p' . $index++]  = 'LotmCntrQty';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMSRCCD)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMSRCCD)) {
             $modifiedColumns[':p' . $index++]  = 'LotmSrcCd';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1577,7 +1577,7 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InvLotTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvLotMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1674,11 +1674,11 @@ abstract class InvLot implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['InvLot'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['InvLotMaster'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['InvLot'][$this->hashCode()] = true;
-        $keys = InvLotTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['InvLotMaster'][$this->hashCode()] = true;
+        $keys = InvLotMasterTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getInititemnbr(),
             $keys[1] => $this->getLotmlotnbr(),
@@ -1765,11 +1765,11 @@ abstract class InvLot implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\InvLot
+     * @return $this|\InvLotMaster
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InvLotTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvLotMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1780,7 +1780,7 @@ abstract class InvLot implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\InvLot
+     * @return $this|\InvLotMaster
      */
     public function setByPosition($pos, $value)
     {
@@ -1866,7 +1866,7 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = InvLotTableMap::getFieldNames($keyType);
+        $keys = InvLotMasterTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setInititemnbr($arr[$keys[0]]);
@@ -1944,7 +1944,7 @@ abstract class InvLot implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\InvLot The current object, for fluid interface
+     * @return $this|\InvLotMaster The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1964,64 +1964,64 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(InvLotTableMap::DATABASE_NAME);
+        $criteria = new Criteria(InvLotMasterTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(InvLotTableMap::COL_INITITEMNBR)) {
-            $criteria->add(InvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_INITITEMNBR)) {
+            $criteria->add(InvLotMasterTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTNBR)) {
-            $criteria->add(InvLotTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLOTNBR)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMLOTREF)) {
-            $criteria->add(InvLotTableMap::COL_LOTMLOTREF, $this->lotmlotref);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMLOTREF)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMLOTREF, $this->lotmlotref);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMFRSTACTDATE)) {
-            $criteria->add(InvLotTableMap::COL_LOTMFRSTACTDATE, $this->lotmfrstactdate);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMFRSTACTDATE)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMFRSTACTDATE, $this->lotmfrstactdate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMIMAGYN)) {
-            $criteria->add(InvLotTableMap::COL_LOTMIMAGYN, $this->lotmimagyn);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMIMAGYN)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMIMAGYN, $this->lotmimagyn);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITWGHT)) {
-            $criteria->add(InvLotTableMap::COL_LOTMUNITWGHT, $this->lotmunitwght);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMUNITWGHT)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMUNITWGHT, $this->lotmunitwght);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMREVISION)) {
-            $criteria->add(InvLotTableMap::COL_LOTMREVISION, $this->lotmrevision);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMREVISION)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMREVISION, $this->lotmrevision);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCTRY)) {
-            $criteria->add(InvLotTableMap::COL_LOTMCTRY, $this->lotmctry);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCTRY)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCTRY, $this->lotmctry);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCOFC)) {
-            $criteria->add(InvLotTableMap::COL_LOTMCOFC, $this->lotmcofc);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCOFC)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCOFC, $this->lotmcofc);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATEDATE)) {
-            $criteria->add(InvLotTableMap::COL_LOTMCREATEDATE, $this->lotmcreatedate);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCREATEDATE)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCREATEDATE, $this->lotmcreatedate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCREATETIME)) {
-            $criteria->add(InvLotTableMap::COL_LOTMCREATETIME, $this->lotmcreatetime);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCREATETIME)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCREATETIME, $this->lotmcreatetime);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMVENDID)) {
-            $criteria->add(InvLotTableMap::COL_LOTMVENDID, $this->lotmvendid);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMVENDID)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMVENDID, $this->lotmvendid);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMEXPIREDATE)) {
-            $criteria->add(InvLotTableMap::COL_LOTMEXPIREDATE, $this->lotmexpiredate);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMEXPIREDATE)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMEXPIREDATE, $this->lotmexpiredate);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMUNITCOST)) {
-            $criteria->add(InvLotTableMap::COL_LOTMUNITCOST, $this->lotmunitcost);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMUNITCOST)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMUNITCOST, $this->lotmunitcost);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMCNTRQTY)) {
-            $criteria->add(InvLotTableMap::COL_LOTMCNTRQTY, $this->lotmcntrqty);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMCNTRQTY)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMCNTRQTY, $this->lotmcntrqty);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_LOTMSRCCD)) {
-            $criteria->add(InvLotTableMap::COL_LOTMSRCCD, $this->lotmsrccd);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_LOTMSRCCD)) {
+            $criteria->add(InvLotMasterTableMap::COL_LOTMSRCCD, $this->lotmsrccd);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_DATEUPDTD)) {
-            $criteria->add(InvLotTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_DATEUPDTD)) {
+            $criteria->add(InvLotMasterTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(InvLotTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(InvLotMasterTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(InvLotTableMap::COL_DUMMY)) {
-            $criteria->add(InvLotTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(InvLotMasterTableMap::COL_DUMMY)) {
+            $criteria->add(InvLotMasterTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2039,9 +2039,9 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildInvLotQuery::create();
-        $criteria->add(InvLotTableMap::COL_INITITEMNBR, $this->inititemnbr);
-        $criteria->add(InvLotTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
+        $criteria = ChildInvLotMasterQuery::create();
+        $criteria->add(InvLotMasterTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        $criteria->add(InvLotMasterTableMap::COL_LOTMLOTNBR, $this->lotmlotnbr);
 
         return $criteria;
     }
@@ -2117,7 +2117,7 @@ abstract class InvLot implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \InvLot (or compatible) type.
+     * @param      object $copyObj An object of \InvLotMaster (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2177,7 +2177,7 @@ abstract class InvLot implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \InvLot Clone of current object.
+     * @return \InvLotMaster Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2194,7 +2194,7 @@ abstract class InvLot implements ActiveRecordInterface
      * Declares an association between this object and a ChildItemMasterItem object.
      *
      * @param  ChildItemMasterItem $v
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      * @throws PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
@@ -2210,7 +2210,7 @@ abstract class InvLot implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
         if ($v !== null) {
-            $v->addInvLot($this);
+            $v->addInvLotMaster($this);
         }
 
 
@@ -2234,7 +2234,7 @@ abstract class InvLot implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aItemMasterItem->addInvLots($this);
+                $this->aItemMasterItem->addInvLotMasters($this);
              */
         }
 
@@ -2314,7 +2314,7 @@ abstract class InvLot implements ActiveRecordInterface
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
      * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildInvLot is new, it will return
+     * If this ChildInvLotMaster is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
@@ -2331,7 +2331,7 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->initWhseLotserials();
             } else {
                 $collWhseLotserials = ChildWhseLotserialQuery::create(null, $criteria)
-                    ->filterByInvLot($this)
+                    ->filterByInvLotMaster($this)
                     ->find($con);
 
                 if (null !== $criteria) {
@@ -2374,7 +2374,7 @@ abstract class InvLot implements ActiveRecordInterface
      *
      * @param      Collection $whseLotserials A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvLot The current object (for fluent API support)
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
      */
     public function setWhseLotserials(Collection $whseLotserials, ConnectionInterface $con = null)
     {
@@ -2388,7 +2388,7 @@ abstract class InvLot implements ActiveRecordInterface
         $this->whseLotserialsScheduledForDeletion = clone $whseLotserialsToDelete;
 
         foreach ($whseLotserialsToDelete as $whseLotserialRemoved) {
-            $whseLotserialRemoved->setInvLot(null);
+            $whseLotserialRemoved->setInvLotMaster(null);
         }
 
         $this->collWhseLotserials = null;
@@ -2429,7 +2429,7 @@ abstract class InvLot implements ActiveRecordInterface
             }
 
             return $query
-                ->filterByInvLot($this)
+                ->filterByInvLotMaster($this)
                 ->count($con);
         }
 
@@ -2441,7 +2441,7 @@ abstract class InvLot implements ActiveRecordInterface
      * through the ChildWhseLotserial foreign key attribute.
      *
      * @param  ChildWhseLotserial $l ChildWhseLotserial
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function addWhseLotserial(ChildWhseLotserial $l)
     {
@@ -2467,12 +2467,12 @@ abstract class InvLot implements ActiveRecordInterface
     protected function doAddWhseLotserial(ChildWhseLotserial $whseLotserial)
     {
         $this->collWhseLotserials[]= $whseLotserial;
-        $whseLotserial->setInvLot($this);
+        $whseLotserial->setInvLotMaster($this);
     }
 
     /**
      * @param  ChildWhseLotserial $whseLotserial The ChildWhseLotserial object to remove.
-     * @return $this|ChildInvLot The current object (for fluent API support)
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
      */
     public function removeWhseLotserial(ChildWhseLotserial $whseLotserial)
     {
@@ -2484,7 +2484,7 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->whseLotserialsScheduledForDeletion->clear();
             }
             $this->whseLotserialsScheduledForDeletion[]= clone $whseLotserial;
-            $whseLotserial->setInvLot(null);
+            $whseLotserial->setInvLotMaster(null);
         }
 
         return $this;
@@ -2494,13 +2494,13 @@ abstract class InvLot implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvLot is new, it will return
-     * an empty collection; or if this InvLot has previously
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
      * been saved, it will retrieve related WhseLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvLot.
+     * actually need in InvLotMaster.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2519,13 +2519,13 @@ abstract class InvLot implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvLot is new, it will return
-     * an empty collection; or if this InvLot has previously
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
      * been saved, it will retrieve related WhseLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvLot.
+     * actually need in InvLotMaster.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2592,7 +2592,7 @@ abstract class InvLot implements ActiveRecordInterface
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
      * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildInvLot is new, it will return
+     * If this ChildInvLotMaster is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
@@ -2609,7 +2609,7 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->initSoAllocatedLotserials();
             } else {
                 $collSoAllocatedLotserials = ChildSoAllocatedLotserialQuery::create(null, $criteria)
-                    ->filterByInvLot($this)
+                    ->filterByInvLotMaster($this)
                     ->find($con);
 
                 if (null !== $criteria) {
@@ -2652,7 +2652,7 @@ abstract class InvLot implements ActiveRecordInterface
      *
      * @param      Collection $soAllocatedLotserials A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvLot The current object (for fluent API support)
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
      */
     public function setSoAllocatedLotserials(Collection $soAllocatedLotserials, ConnectionInterface $con = null)
     {
@@ -2666,7 +2666,7 @@ abstract class InvLot implements ActiveRecordInterface
         $this->soAllocatedLotserialsScheduledForDeletion = clone $soAllocatedLotserialsToDelete;
 
         foreach ($soAllocatedLotserialsToDelete as $soAllocatedLotserialRemoved) {
-            $soAllocatedLotserialRemoved->setInvLot(null);
+            $soAllocatedLotserialRemoved->setInvLotMaster(null);
         }
 
         $this->collSoAllocatedLotserials = null;
@@ -2707,7 +2707,7 @@ abstract class InvLot implements ActiveRecordInterface
             }
 
             return $query
-                ->filterByInvLot($this)
+                ->filterByInvLotMaster($this)
                 ->count($con);
         }
 
@@ -2719,7 +2719,7 @@ abstract class InvLot implements ActiveRecordInterface
      * through the ChildSoAllocatedLotserial foreign key attribute.
      *
      * @param  ChildSoAllocatedLotserial $l ChildSoAllocatedLotserial
-     * @return $this|\InvLot The current object (for fluent API support)
+     * @return $this|\InvLotMaster The current object (for fluent API support)
      */
     public function addSoAllocatedLotserial(ChildSoAllocatedLotserial $l)
     {
@@ -2745,12 +2745,12 @@ abstract class InvLot implements ActiveRecordInterface
     protected function doAddSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
     {
         $this->collSoAllocatedLotserials[]= $soAllocatedLotserial;
-        $soAllocatedLotserial->setInvLot($this);
+        $soAllocatedLotserial->setInvLotMaster($this);
     }
 
     /**
      * @param  ChildSoAllocatedLotserial $soAllocatedLotserial The ChildSoAllocatedLotserial object to remove.
-     * @return $this|ChildInvLot The current object (for fluent API support)
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
      */
     public function removeSoAllocatedLotserial(ChildSoAllocatedLotserial $soAllocatedLotserial)
     {
@@ -2762,7 +2762,7 @@ abstract class InvLot implements ActiveRecordInterface
                 $this->soAllocatedLotserialsScheduledForDeletion->clear();
             }
             $this->soAllocatedLotserialsScheduledForDeletion[]= clone $soAllocatedLotserial;
-            $soAllocatedLotserial->setInvLot(null);
+            $soAllocatedLotserial->setInvLotMaster(null);
         }
 
         return $this;
@@ -2772,13 +2772,13 @@ abstract class InvLot implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvLot is new, it will return
-     * an empty collection; or if this InvLot has previously
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
      * been saved, it will retrieve related SoAllocatedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvLot.
+     * actually need in InvLotMaster.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2797,13 +2797,13 @@ abstract class InvLot implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvLot is new, it will return
-     * an empty collection; or if this InvLot has previously
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
      * been saved, it will retrieve related SoAllocatedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvLot.
+     * actually need in InvLotMaster.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2822,13 +2822,13 @@ abstract class InvLot implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvLot is new, it will return
-     * an empty collection; or if this InvLot has previously
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
      * been saved, it will retrieve related SoAllocatedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvLot.
+     * actually need in InvLotMaster.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2851,7 +2851,7 @@ abstract class InvLot implements ActiveRecordInterface
     public function clear()
     {
         if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeInvLot($this);
+            $this->aItemMasterItem->removeInvLotMaster($this);
         }
         $this->inititemnbr = null;
         $this->lotmlotnbr = null;
@@ -2915,7 +2915,7 @@ abstract class InvLot implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvLotTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(InvLotMasterTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
