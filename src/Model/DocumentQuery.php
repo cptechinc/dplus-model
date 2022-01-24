@@ -27,4 +27,14 @@ use Dplus\Model\QueryTraits;
  */
 class DocumentQuery extends BaseDocumentQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the DociFld1Cd column
+	 * @param string $value      The value to use as filter.
+	 * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return $this The current query, for fluid interface
+	 */
+	public function filterByReference1($value = null, $comparison = null) {
+		return $this->filterByDocifld1cd($value, $comparison);
+	}
 }
