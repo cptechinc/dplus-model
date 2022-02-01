@@ -87,6 +87,15 @@ class SalesHistory extends BaseSalesHistory {
 	}
 
 	/**
+	 * Return if the Sales Order is Verified
+	 * @return bool
+	 */
+	public function isVerified() {
+		return $this->oehhstat == 'V';
+	}
+
+
+	/**
 	 * Returns if Order is Editable
 	 *
 	 * @return bool

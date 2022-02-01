@@ -24,6 +24,7 @@ class OptionsVi extends BaseOptionsVi {
 	 */
 	const COLUMN_ALIASES = array(
 		'userid'           => 'vitboptncode',
+		'contacts'         => 'vitboptngenavail',
 		'payments'         => 'vitboptnpayavail',
 		'costing'          => 'vitboptncostavail',
 		'purchaseorders'   => 'vitboptnpoavail',
@@ -39,6 +40,7 @@ class OptionsVi extends BaseOptionsVi {
 	);
 
 	const PERMISSIONS = [
+		'contacts',
 		'payments',
 		'costing',
 		'purchaseorders',

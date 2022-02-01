@@ -154,6 +154,14 @@ class SalesOrder extends BaseSalesOrder {
 	}
 
 	/**
+	 * Return if the Sales Order is Verified
+	 * @return bool
+	 */
+	public function isVerified() {
+		return $this->oehdstat == 'V';
+	}
+
+	/**
 	 * Adds Leading Zeroes to Sales Order Number
 	 * @param  string $ordn Sales Order Number ex.    4290100
 	 * @return string       Sales Order Number ex. 0004290100

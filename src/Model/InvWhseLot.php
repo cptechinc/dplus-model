@@ -22,6 +22,7 @@ class InvWhseLot extends BaseInvWhseLot {
 	const COLUMN_ALIASES = array(
 		'itemid'		=> 'inititemnbr',
 		'whse'			=> 'intbwhse',
+		'whseid'		=> 'intbwhse',
 		'lotserial' 	=> 'inltlotser',
 		'qty'			=> 'inltonhand',
 		'bin'			=> 'inltbin',
