@@ -60,6 +60,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery orderByArtbconfstmt0orless($order = Criteria::ASC) Order by the ArtbConfStmt0OrLess column
  * @method     ChildConfigArQuery orderByArtbconfspdef($order = Criteria::ASC) Order by the ArtbConfSpDef column
  * @method     ChildConfigArQuery orderByArtbconfwhse($order = Criteria::ASC) Order by the ArtbConfWhse column
+ * @method     ChildConfigArQuery orderByArtbconftypedef($order = Criteria::ASC) Order by the ArtbConfTypeDef column
  * @method     ChildConfigArQuery orderByArtbconfsviadef($order = Criteria::ASC) Order by the ArtbConfSviaDef column
  * @method     ChildConfigArQuery orderByArtbconftermdef($order = Criteria::ASC) Order by the ArtbConfTermDef column
  * @method     ChildConfigArQuery orderByArtbconftaxdef($order = Criteria::ASC) Order by the ArtbConfTaxDef column
@@ -76,6 +77,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery orderByArtbconfshiplabl($order = Criteria::ASC) Order by the ArtbConfShipLabl column
  * @method     ChildConfigArQuery orderByArtbconfshipreq($order = Criteria::ASC) Order by the ArtbConfShipReq column
  * @method     ChildConfigArQuery orderByArtbconfshipdef($order = Criteria::ASC) Order by the ArtbConfShipDef column
+ * @method     ChildConfigArQuery orderByArtbconfuseidlink($order = Criteria::ASC) Order by the ArtbConfUseIdLink column
  * @method     ChildConfigArQuery orderByArtbconfreqdate2($order = Criteria::ASC) Order by the ArtbConfReqDate2 column
  * @method     ChildConfigArQuery orderByArtbconfreqdate3($order = Criteria::ASC) Order by the ArtbConfReqDate3 column
  * @method     ChildConfigArQuery orderByArtbconfreqdate4($order = Criteria::ASC) Order by the ArtbConfReqDate4 column
@@ -101,6 +103,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery orderByArtbcon2rfndarterm($order = Criteria::ASC) Order by the ArtbCon2RfndArTerm column
  * @method     ChildConfigArQuery orderByArtbcon2cwoterm($order = Criteria::ASC) Order by the ArtbCon2CwoTerm column
  * @method     ChildConfigArQuery orderByArtbcon2ccterm($order = Criteria::ASC) Order by the ArtbCon2CcTerm column
+ * @method     ChildConfigArQuery orderByArtbcon2ccsave($order = Criteria::ASC) Order by the ArtbCon2CcSave column
  * @method     ChildConfigArQuery orderByArtbcon2ccbatch($order = Criteria::ASC) Order by the ArtbCon2CcBatch column
  * @method     ChildConfigArQuery orderByArtbcon2ccsavedays($order = Criteria::ASC) Order by the ArtbCon2CcSaveDays column
  * @method     ChildConfigArQuery orderByArtbcon2aprvdccasdeposit($order = Criteria::ASC) Order by the ArtbCon2AprvdCcAsDeposit column
@@ -175,6 +178,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery groupByArtbconfstmt0orless() Group by the ArtbConfStmt0OrLess column
  * @method     ChildConfigArQuery groupByArtbconfspdef() Group by the ArtbConfSpDef column
  * @method     ChildConfigArQuery groupByArtbconfwhse() Group by the ArtbConfWhse column
+ * @method     ChildConfigArQuery groupByArtbconftypedef() Group by the ArtbConfTypeDef column
  * @method     ChildConfigArQuery groupByArtbconfsviadef() Group by the ArtbConfSviaDef column
  * @method     ChildConfigArQuery groupByArtbconftermdef() Group by the ArtbConfTermDef column
  * @method     ChildConfigArQuery groupByArtbconftaxdef() Group by the ArtbConfTaxDef column
@@ -191,6 +195,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery groupByArtbconfshiplabl() Group by the ArtbConfShipLabl column
  * @method     ChildConfigArQuery groupByArtbconfshipreq() Group by the ArtbConfShipReq column
  * @method     ChildConfigArQuery groupByArtbconfshipdef() Group by the ArtbConfShipDef column
+ * @method     ChildConfigArQuery groupByArtbconfuseidlink() Group by the ArtbConfUseIdLink column
  * @method     ChildConfigArQuery groupByArtbconfreqdate2() Group by the ArtbConfReqDate2 column
  * @method     ChildConfigArQuery groupByArtbconfreqdate3() Group by the ArtbConfReqDate3 column
  * @method     ChildConfigArQuery groupByArtbconfreqdate4() Group by the ArtbConfReqDate4 column
@@ -216,6 +221,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigArQuery groupByArtbcon2rfndarterm() Group by the ArtbCon2RfndArTerm column
  * @method     ChildConfigArQuery groupByArtbcon2cwoterm() Group by the ArtbCon2CwoTerm column
  * @method     ChildConfigArQuery groupByArtbcon2ccterm() Group by the ArtbCon2CcTerm column
+ * @method     ChildConfigArQuery groupByArtbcon2ccsave() Group by the ArtbCon2CcSave column
  * @method     ChildConfigArQuery groupByArtbcon2ccbatch() Group by the ArtbCon2CcBatch column
  * @method     ChildConfigArQuery groupByArtbcon2ccsavedays() Group by the ArtbCon2CcSaveDays column
  * @method     ChildConfigArQuery groupByArtbcon2aprvdccasdeposit() Group by the ArtbCon2AprvdCcAsDeposit column
@@ -301,6 +307,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr findOneByArtbconfstmt0orless(string $ArtbConfStmt0OrLess) Return the first ChildConfigAr filtered by the ArtbConfStmt0OrLess column
  * @method     ChildConfigAr findOneByArtbconfspdef(string $ArtbConfSpDef) Return the first ChildConfigAr filtered by the ArtbConfSpDef column
  * @method     ChildConfigAr findOneByArtbconfwhse(string $ArtbConfWhse) Return the first ChildConfigAr filtered by the ArtbConfWhse column
+ * @method     ChildConfigAr findOneByArtbconftypedef(string $ArtbConfTypeDef) Return the first ChildConfigAr filtered by the ArtbConfTypeDef column
  * @method     ChildConfigAr findOneByArtbconfsviadef(string $ArtbConfSviaDef) Return the first ChildConfigAr filtered by the ArtbConfSviaDef column
  * @method     ChildConfigAr findOneByArtbconftermdef(string $ArtbConfTermDef) Return the first ChildConfigAr filtered by the ArtbConfTermDef column
  * @method     ChildConfigAr findOneByArtbconftaxdef(string $ArtbConfTaxDef) Return the first ChildConfigAr filtered by the ArtbConfTaxDef column
@@ -317,6 +324,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr findOneByArtbconfshiplabl(string $ArtbConfShipLabl) Return the first ChildConfigAr filtered by the ArtbConfShipLabl column
  * @method     ChildConfigAr findOneByArtbconfshipreq(string $ArtbConfShipReq) Return the first ChildConfigAr filtered by the ArtbConfShipReq column
  * @method     ChildConfigAr findOneByArtbconfshipdef(string $ArtbConfShipDef) Return the first ChildConfigAr filtered by the ArtbConfShipDef column
+ * @method     ChildConfigAr findOneByArtbconfuseidlink(string $ArtbConfUseIdLink) Return the first ChildConfigAr filtered by the ArtbConfUseIdLink column
  * @method     ChildConfigAr findOneByArtbconfreqdate2(int $ArtbConfReqDate2) Return the first ChildConfigAr filtered by the ArtbConfReqDate2 column
  * @method     ChildConfigAr findOneByArtbconfreqdate3(int $ArtbConfReqDate3) Return the first ChildConfigAr filtered by the ArtbConfReqDate3 column
  * @method     ChildConfigAr findOneByArtbconfreqdate4(int $ArtbConfReqDate4) Return the first ChildConfigAr filtered by the ArtbConfReqDate4 column
@@ -342,6 +350,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr findOneByArtbcon2rfndarterm(string $ArtbCon2RfndArTerm) Return the first ChildConfigAr filtered by the ArtbCon2RfndArTerm column
  * @method     ChildConfigAr findOneByArtbcon2cwoterm(string $ArtbCon2CwoTerm) Return the first ChildConfigAr filtered by the ArtbCon2CwoTerm column
  * @method     ChildConfigAr findOneByArtbcon2ccterm(string $ArtbCon2CcTerm) Return the first ChildConfigAr filtered by the ArtbCon2CcTerm column
+ * @method     ChildConfigAr findOneByArtbcon2ccsave(string $ArtbCon2CcSave) Return the first ChildConfigAr filtered by the ArtbCon2CcSave column
  * @method     ChildConfigAr findOneByArtbcon2ccbatch(string $ArtbCon2CcBatch) Return the first ChildConfigAr filtered by the ArtbCon2CcBatch column
  * @method     ChildConfigAr findOneByArtbcon2ccsavedays(int $ArtbCon2CcSaveDays) Return the first ChildConfigAr filtered by the ArtbCon2CcSaveDays column
  * @method     ChildConfigAr findOneByArtbcon2aprvdccasdeposit(string $ArtbCon2AprvdCcAsDeposit) Return the first ChildConfigAr filtered by the ArtbCon2AprvdCcAsDeposit column
@@ -419,6 +428,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr requireOneByArtbconfstmt0orless(string $ArtbConfStmt0OrLess) Return the first ChildConfigAr filtered by the ArtbConfStmt0OrLess column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfspdef(string $ArtbConfSpDef) Return the first ChildConfigAr filtered by the ArtbConfSpDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfwhse(string $ArtbConfWhse) Return the first ChildConfigAr filtered by the ArtbConfWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAr requireOneByArtbconftypedef(string $ArtbConfTypeDef) Return the first ChildConfigAr filtered by the ArtbConfTypeDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfsviadef(string $ArtbConfSviaDef) Return the first ChildConfigAr filtered by the ArtbConfSviaDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconftermdef(string $ArtbConfTermDef) Return the first ChildConfigAr filtered by the ArtbConfTermDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconftaxdef(string $ArtbConfTaxDef) Return the first ChildConfigAr filtered by the ArtbConfTaxDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -435,6 +445,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr requireOneByArtbconfshiplabl(string $ArtbConfShipLabl) Return the first ChildConfigAr filtered by the ArtbConfShipLabl column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfshipreq(string $ArtbConfShipReq) Return the first ChildConfigAr filtered by the ArtbConfShipReq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfshipdef(string $ArtbConfShipDef) Return the first ChildConfigAr filtered by the ArtbConfShipDef column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAr requireOneByArtbconfuseidlink(string $ArtbConfUseIdLink) Return the first ChildConfigAr filtered by the ArtbConfUseIdLink column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfreqdate2(int $ArtbConfReqDate2) Return the first ChildConfigAr filtered by the ArtbConfReqDate2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfreqdate3(int $ArtbConfReqDate3) Return the first ChildConfigAr filtered by the ArtbConfReqDate3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbconfreqdate4(int $ArtbConfReqDate4) Return the first ChildConfigAr filtered by the ArtbConfReqDate4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -460,6 +471,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr requireOneByArtbcon2rfndarterm(string $ArtbCon2RfndArTerm) Return the first ChildConfigAr filtered by the ArtbCon2RfndArTerm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbcon2cwoterm(string $ArtbCon2CwoTerm) Return the first ChildConfigAr filtered by the ArtbCon2CwoTerm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbcon2ccterm(string $ArtbCon2CcTerm) Return the first ChildConfigAr filtered by the ArtbCon2CcTerm column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildConfigAr requireOneByArtbcon2ccsave(string $ArtbCon2CcSave) Return the first ChildConfigAr filtered by the ArtbCon2CcSave column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbcon2ccbatch(string $ArtbCon2CcBatch) Return the first ChildConfigAr filtered by the ArtbCon2CcBatch column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbcon2ccsavedays(int $ArtbCon2CcSaveDays) Return the first ChildConfigAr filtered by the ArtbCon2CcSaveDays column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildConfigAr requireOneByArtbcon2aprvdccasdeposit(string $ArtbCon2AprvdCcAsDeposit) Return the first ChildConfigAr filtered by the ArtbCon2AprvdCcAsDeposit column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -535,6 +547,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfstmt0orless(string $ArtbConfStmt0OrLess) Return ChildConfigAr objects filtered by the ArtbConfStmt0OrLess column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfspdef(string $ArtbConfSpDef) Return ChildConfigAr objects filtered by the ArtbConfSpDef column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfwhse(string $ArtbConfWhse) Return ChildConfigAr objects filtered by the ArtbConfWhse column
+ * @method     ChildConfigAr[]|ObjectCollection findByArtbconftypedef(string $ArtbConfTypeDef) Return ChildConfigAr objects filtered by the ArtbConfTypeDef column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfsviadef(string $ArtbConfSviaDef) Return ChildConfigAr objects filtered by the ArtbConfSviaDef column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconftermdef(string $ArtbConfTermDef) Return ChildConfigAr objects filtered by the ArtbConfTermDef column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconftaxdef(string $ArtbConfTaxDef) Return ChildConfigAr objects filtered by the ArtbConfTaxDef column
@@ -551,6 +564,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfshiplabl(string $ArtbConfShipLabl) Return ChildConfigAr objects filtered by the ArtbConfShipLabl column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfshipreq(string $ArtbConfShipReq) Return ChildConfigAr objects filtered by the ArtbConfShipReq column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfshipdef(string $ArtbConfShipDef) Return ChildConfigAr objects filtered by the ArtbConfShipDef column
+ * @method     ChildConfigAr[]|ObjectCollection findByArtbconfuseidlink(string $ArtbConfUseIdLink) Return ChildConfigAr objects filtered by the ArtbConfUseIdLink column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfreqdate2(int $ArtbConfReqDate2) Return ChildConfigAr objects filtered by the ArtbConfReqDate2 column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfreqdate3(int $ArtbConfReqDate3) Return ChildConfigAr objects filtered by the ArtbConfReqDate3 column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbconfreqdate4(int $ArtbConfReqDate4) Return ChildConfigAr objects filtered by the ArtbConfReqDate4 column
@@ -576,6 +590,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2rfndarterm(string $ArtbCon2RfndArTerm) Return ChildConfigAr objects filtered by the ArtbCon2RfndArTerm column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2cwoterm(string $ArtbCon2CwoTerm) Return ChildConfigAr objects filtered by the ArtbCon2CwoTerm column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2ccterm(string $ArtbCon2CcTerm) Return ChildConfigAr objects filtered by the ArtbCon2CcTerm column
+ * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2ccsave(string $ArtbCon2CcSave) Return ChildConfigAr objects filtered by the ArtbCon2CcSave column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2ccbatch(string $ArtbCon2CcBatch) Return ChildConfigAr objects filtered by the ArtbCon2CcBatch column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2ccsavedays(int $ArtbCon2CcSaveDays) Return ChildConfigAr objects filtered by the ArtbCon2CcSaveDays column
  * @method     ChildConfigAr[]|ObjectCollection findByArtbcon2aprvdccasdeposit(string $ArtbCon2AprvdCcAsDeposit) Return ChildConfigAr objects filtered by the ArtbCon2AprvdCcAsDeposit column
@@ -706,7 +721,7 @@ abstract class ConfigArQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArtbConfKey, ArtbConfGlIfac, ArtbConfInIfac, ArtbConfPcIfac, ArtbConfCcIfac, ArtbConfInvCustGl, ArtbConfFrtAcct, ArtbConfMiscAcct, ArtbConfArAcct, ArtbConfCashAcct, ArtbCon2CcCashAcct, ArtbConfFincAcct, ArtbConfDiscAcct, ArtbConfRgaCogsAcct, ArtbConfCusdAcct, ArtbConfDpstAcct, ArtbConfWriteOffAcct, ArtbCon2PresalIvtyAcct, ArtbConfFincPct, ArtbConfFincDays, ArtbConfFincMinChg, ArtbConfFincTerm, ArtbConfOver1, ArtbConfOver2, ArtbConfStmtLine, ArtbConfStmtCols, ArtbConfStmtNoteDef, ArtbConfStmtNote1, ArtbConfStmtNote2, ArtbConfStmtNote3, ArtbConfInvLine, ArtbConfInvCols, ArtbConfInvNoteDef, ArtbConfCustLine, ArtbConfCustCols, ArtbConfInvSort, ArtbConfInvNc, ArtbConfStmtSort, ArtbConfStmt0OrLess, ArtbConfSpDef, ArtbConfWhse, ArtbConfSviaDef, ArtbConfTermDef, ArtbConfTaxDef, ArtbConfStmtDef, ArtbConfAllowBo, ArtbConfAllowFc, ArtbConfUsePricCode, ArtbConfPricDef, ArtbConfUseCommCode, ArtbConfCommDef, ArtbConfCustLabl, ArtbConfCustReq, ArtbConfCustDef, ArtbConfShipLabl, ArtbConfShipReq, ArtbConfShipDef, ArtbConfReqDate2, ArtbConfReqDate3, ArtbConfReqDate4, ArtbConfUseWeb, ArtbConfPayhStoreDays, ArtbConfByClerk, ArtbCon2EcrWhse, ArtbConfZeroTermDisc, ArtbConfUseAutoCidGen, ArtbConfPrefixLen, ArtbConfParAgeCredLast, ArtbConfIncludeCod, ArtbConfAddlPricDisc, ArtbConfApdOnOehd, ArtbConfNbrSp, ArtbConfForceSpLvl, ArtbConfCustGetOpt, ArtbConfAddICmnt, ArtbCon2AppAddiscItmPdm, ArtbCon2RfndSelectAmt, ArtbCon2RfndGlAcct, ArtbCon2RfndApTerm, ArtbCon2RfndArTerm, ArtbCon2CwoTerm, ArtbCon2CcTerm, ArtbCon2CcBatch, ArtbCon2CcSaveDays, ArtbCon2AprvdCcAsDeposit, ArtbCon2CmQtySign, ArtbCon2BolLine, ArtbCon2BolCols, ArtbCon2UseSoUnitWght, ArtbCon2DelZbal, ArtbConfStopCustChg, ArtbCon2ProspectEditCmm, ArtbCon2ProspectNotesToCmm, ArtbCon2CtryGetDflt, ArtbConfRptByWhse, ArtbConfAppendPos, ArtbConfIncoAsstAcct, ArtbConfIncoLiabAcct, ArtbCon2IncoAsstAcct2, ArtbCon2IncoLiabAcct2, ArtbCon2UseSurchg, ArtbCon2SurchgItemId, ArtbCon2SurchgIgrupSeq, ArtbCon2SurchgSviaSeq, ArtbCon2SurchgCstidSeq, ArtbCon2SurchgCstpcSeq, ArtbConfZeroInvcLine, ArtbCon2ZeroOrdrShip, ArtbCon2ZeroOrdrMess, ArtbConfCashAcctWhse, ArtbCon2MtaxFrtFlagOrCode, DateUpdtd, TimeUpdtd, dummy FROM ar_config WHERE ArtbConfKey = :p0';
+        $sql = 'SELECT ArtbConfKey, ArtbConfGlIfac, ArtbConfInIfac, ArtbConfPcIfac, ArtbConfCcIfac, ArtbConfInvCustGl, ArtbConfFrtAcct, ArtbConfMiscAcct, ArtbConfArAcct, ArtbConfCashAcct, ArtbCon2CcCashAcct, ArtbConfFincAcct, ArtbConfDiscAcct, ArtbConfRgaCogsAcct, ArtbConfCusdAcct, ArtbConfDpstAcct, ArtbConfWriteOffAcct, ArtbCon2PresalIvtyAcct, ArtbConfFincPct, ArtbConfFincDays, ArtbConfFincMinChg, ArtbConfFincTerm, ArtbConfOver1, ArtbConfOver2, ArtbConfStmtLine, ArtbConfStmtCols, ArtbConfStmtNoteDef, ArtbConfStmtNote1, ArtbConfStmtNote2, ArtbConfStmtNote3, ArtbConfInvLine, ArtbConfInvCols, ArtbConfInvNoteDef, ArtbConfCustLine, ArtbConfCustCols, ArtbConfInvSort, ArtbConfInvNc, ArtbConfStmtSort, ArtbConfStmt0OrLess, ArtbConfSpDef, ArtbConfWhse, ArtbConfTypeDef, ArtbConfSviaDef, ArtbConfTermDef, ArtbConfTaxDef, ArtbConfStmtDef, ArtbConfAllowBo, ArtbConfAllowFc, ArtbConfUsePricCode, ArtbConfPricDef, ArtbConfUseCommCode, ArtbConfCommDef, ArtbConfCustLabl, ArtbConfCustReq, ArtbConfCustDef, ArtbConfShipLabl, ArtbConfShipReq, ArtbConfShipDef, ArtbConfUseIdLink, ArtbConfReqDate2, ArtbConfReqDate3, ArtbConfReqDate4, ArtbConfUseWeb, ArtbConfPayhStoreDays, ArtbConfByClerk, ArtbCon2EcrWhse, ArtbConfZeroTermDisc, ArtbConfUseAutoCidGen, ArtbConfPrefixLen, ArtbConfParAgeCredLast, ArtbConfIncludeCod, ArtbConfAddlPricDisc, ArtbConfApdOnOehd, ArtbConfNbrSp, ArtbConfForceSpLvl, ArtbConfCustGetOpt, ArtbConfAddICmnt, ArtbCon2AppAddiscItmPdm, ArtbCon2RfndSelectAmt, ArtbCon2RfndGlAcct, ArtbCon2RfndApTerm, ArtbCon2RfndArTerm, ArtbCon2CwoTerm, ArtbCon2CcTerm, ArtbCon2CcSave, ArtbCon2CcBatch, ArtbCon2CcSaveDays, ArtbCon2AprvdCcAsDeposit, ArtbCon2CmQtySign, ArtbCon2BolLine, ArtbCon2BolCols, ArtbCon2UseSoUnitWght, ArtbCon2DelZbal, ArtbConfStopCustChg, ArtbCon2ProspectEditCmm, ArtbCon2ProspectNotesToCmm, ArtbCon2CtryGetDflt, ArtbConfRptByWhse, ArtbConfAppendPos, ArtbConfIncoAsstAcct, ArtbConfIncoLiabAcct, ArtbCon2IncoAsstAcct2, ArtbCon2IncoLiabAcct2, ArtbCon2UseSurchg, ArtbCon2SurchgItemId, ArtbCon2SurchgIgrupSeq, ArtbCon2SurchgSviaSeq, ArtbCon2SurchgCstidSeq, ArtbCon2SurchgCstpcSeq, ArtbConfZeroInvcLine, ArtbCon2ZeroOrdrShip, ArtbCon2ZeroOrdrMess, ArtbConfCashAcctWhse, ArtbCon2MtaxFrtFlagOrCode, DateUpdtd, TimeUpdtd, dummy FROM ar_config WHERE ArtbConfKey = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -2014,6 +2029,31 @@ abstract class ConfigArQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query on the ArtbConfTypeDef column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByArtbconftypedef('fooValue');   // WHERE ArtbConfTypeDef = 'fooValue'
+     * $query->filterByArtbconftypedef('%fooValue%', Criteria::LIKE); // WHERE ArtbConfTypeDef LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $artbconftypedef The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigArQuery The current query, for fluid interface
+     */
+    public function filterByArtbconftypedef($artbconftypedef = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($artbconftypedef)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFTYPEDEF, $artbconftypedef, $comparison);
+    }
+
+    /**
      * Filter the query on the ArtbConfSviaDef column
      *
      * Example usage:
@@ -2411,6 +2451,31 @@ abstract class ConfigArQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFSHIPDEF, $artbconfshipdef, $comparison);
+    }
+
+    /**
+     * Filter the query on the ArtbConfUseIdLink column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByArtbconfuseidlink('fooValue');   // WHERE ArtbConfUseIdLink = 'fooValue'
+     * $query->filterByArtbconfuseidlink('%fooValue%', Criteria::LIKE); // WHERE ArtbConfUseIdLink LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $artbconfuseidlink The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigArQuery The current query, for fluid interface
+     */
+    public function filterByArtbconfuseidlink($artbconfuseidlink = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($artbconfuseidlink)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigArTableMap::COL_ARTBCONFUSEIDLINK, $artbconfuseidlink, $comparison);
     }
 
     /**
@@ -3180,6 +3245,31 @@ abstract class ConfigArQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCTERM, $artbcon2ccterm, $comparison);
+    }
+
+    /**
+     * Filter the query on the ArtbCon2CcSave column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByArtbcon2ccsave('fooValue');   // WHERE ArtbCon2CcSave = 'fooValue'
+     * $query->filterByArtbcon2ccsave('%fooValue%', Criteria::LIKE); // WHERE ArtbCon2CcSave LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $artbcon2ccsave The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildConfigArQuery The current query, for fluid interface
+     */
+    public function filterByArtbcon2ccsave($artbcon2ccsave = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($artbcon2ccsave)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ConfigArTableMap::COL_ARTBCON2CCSAVE, $artbcon2ccsave, $comparison);
     }
 
     /**
