@@ -33,7 +33,7 @@ class OptionsVi extends BaseOptionsVi {
 		'unreleased'       => 'vitboptnunrlavail',
 		'uninvoiced'       => 'vitboptnunivavail',
 		'summary'          => 'vitboptn24moavail',
-
+		'notes'            => 'vitboptnnoteavail',
 
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
