@@ -1,22 +1,35 @@
 <?php
-
-use Base\WarehouseBin as BaseWarehouseBin;
+// Dplus Model
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
+// Base Classes
+use Base\WarehouseBin as BaseWarehouseBin;
 
 /**
  * Class for representing a row from the 'inv_bin_cntrl' table.
- *
- *
- *
- * You should add additional methods to this class to meet the
- * application requirements.  This class will only be generated as
- * long as it does not already exist in the output directory.
- *
+ * 
+ * REPRESENTS: Bin List
  */
 class WarehouseBin extends BaseWarehouseBin {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+
+	/**
+	 * Descriptions of each Bin Type
+	 * @var array
+	 */
+	const TYPES = [
+		'B' => 'Fabrication Bin',
+		'C' => 'Customer Return',
+		'F' => 'Store Front',
+		'N' => 'Consignment',
+		'P' => 'Pallet / Cart',
+		'Q' => 'Quality Control',
+		'R' => 'Receiving',
+		'S' => 'Stocking',
+		'T' => 'Transfer',
+		'V' => 'Vendor'
+	];
 
 	/**
 	 * Aliases for Class Properties
@@ -32,4 +45,24 @@ class WarehouseBin extends BaseWarehouseBin {
 		'area'         => 'bnctbinarea',
 		'description'  => 'bnctbindesc',
 	);
+
+	/**
+	 * Return Description for Bin Type
+	 * @param  string $type
+	 * @return string
+	 */
+	public static function typeDescription($type = '') {
+		if (array_key_exists($type, self::TYPES) === false) {
+			return '';
+		}
+		return self::TYPES[$type];
+	}
+
+	/**
+	 * Return Description of this Bin Type
+	 * @return string
+	 */
+	public function type() {
+		return self::typeDescription($this->type);
+	}
 }
