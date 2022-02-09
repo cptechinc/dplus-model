@@ -1,9 +1,9 @@
 <?php
-
-use Base\Customer as BaseCustomer;
-
+// Dplus Model
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
+// Base
+use Base\Customer as BaseCustomer;
 
 /**
  * Class for representing a row from the 'ar_cust_mast' table.
@@ -198,5 +198,65 @@ class Customer extends BaseCustomer {
 		$query->filterbyCustId($this->id);
 		$query->select_sum_ordertotal();
 		return $query->findOne();
+	}
+
+	/**
+	 * Return Tax Code Description
+	 * @return string
+	 */
+	public function taxcode() {
+		$q = TaxCodeMasterQuery::create();
+		$q->select(TaxCodeMaster::aliasproperty('description'));
+		$q->filterById($this->taxcode);
+
+		if ($q->count() === 0) {
+			return '';
+		}
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Type Code Description
+	 * @return string
+	 */
+	public function type() {
+		$q = CustomerTypeCodeQuery::create();
+		$q->select(CustomerTypeCode::aliasproperty('description'));
+		$q->filterByCode($this->type);
+
+		if ($q->count() === 0) {
+			return '';
+		}
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Terms Code Description
+	 * @return string
+	 */
+	public function termscode() {
+		$q = CustomerTermsCodeQuery::create();
+		$q->select(CustomerTermsCode::aliasproperty('description'));
+		$q->filterByCode($this->termscode);
+
+		if ($q->count() === 0) {
+			return '';
+		}
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Price Code Description
+	 * @return string
+	 */
+	public function pricecode() {
+		$q = CustomerPriceCodeQuery::create();
+		$q->select(CustomerPriceCode::aliasproperty('description'));
+		$q->filterByCode($this->pricecode);
+
+		if ($q->count() === 0) {
+			return '';
+		}
+		return $q->findOne();
 	}
 }
