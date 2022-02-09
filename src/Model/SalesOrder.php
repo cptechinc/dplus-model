@@ -102,6 +102,17 @@ class SalesOrder extends BaseSalesOrder {
 	const PICKQUEUE_LOCKED = 'L';
 
 	/**
+	 * Order Statuses indexed by description
+	 * @var array
+	 */
+	const STATUS_CODES = array(
+		'new'       => 'N',
+		'picked'    => 'P',
+		'verified'  => 'V',
+		'invoiced'  => 'I'
+	);
+
+	/**
 	 * Order Statuses and the values for their description
 	 *
 	 * @var array
