@@ -577,6 +577,58 @@
 			<parameter name="Engine" value="InnoDB"/>
 		</vendor>
 	</table>
+	<table name="ar_cash_det" idMethod="native" phpName="ArPayment">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArcdInvNbr" phpName="Arcdinvnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArcdInvSeq" phpName="Arcdinvseq" type="INTEGER" size="2" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="ArcdPaid" phpName="Arcdpaid" type="VARCHAR" size="1"/>
+    <column name="ArcdInvDate" phpName="Arcdinvdate" type="VARCHAR" size="8"/>
+    <column name="ArcdDueDate" phpName="Arcdduedate" type="VARCHAR" size="8"/>
+    <column name="ArcdChkNbr" phpName="Arcdchknbr" type="VARCHAR" size="8"/>
+    <column name="ArcdAmtDue" phpName="Arcdamtdue" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcdAmtPaid" phpName="Arcdamtpaid" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcdDiscPaid" phpName="Arcddiscpaid" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcdCashAcct" phpName="Arcdcashacct" type="VARCHAR" size="9"/>
+    <column name="ArcdCredAcct" phpName="Arcdcredacct" type="VARCHAR" size="9"/>
+    <column name="ArcdTermCode" phpName="Arcdtermcode" type="VARCHAR" size="4"/>
+    <column name="ArcdFrtAllow" phpName="Arcdfrtallow" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdCustPo" phpName="Arcdcustpo" type="VARCHAR" size="20"/>
+    <column name="ArcdOrdrNbr" phpName="Arcdordrnbr" type="VARCHAR" size="10"/>
+    <column name="ArcdTaxCode1" phpName="Arcdtaxcode1" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow1" phpName="Arcdtaxallow1" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode2" phpName="Arcdtaxcode2" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow2" phpName="Arcdtaxallow2" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode3" phpName="Arcdtaxcode3" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow3" phpName="Arcdtaxallow3" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode4" phpName="Arcdtaxcode4" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow4" phpName="Arcdtaxallow4" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode5" phpName="Arcdtaxcode5" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow5" phpName="Arcdtaxallow5" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode6" phpName="Arcdtaxcode6" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow6" phpName="Arcdtaxallow6" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode7" phpName="Arcdtaxcode7" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow7" phpName="Arcdtaxallow7" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode8" phpName="Arcdtaxcode8" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow8" phpName="Arcdtaxallow8" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdTaxCode9" phpName="Arcdtaxcode9" type="VARCHAR" size="6"/>
+    <column name="ArcdTaxAllow9" phpName="Arcdtaxallow9" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdWriteOff" phpName="Arcdwriteoff" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdWriteOffReas" phpName="Arcdwriteoffreas" type="VARCHAR" size="4"/>
+    <column name="ArcdComRate" phpName="Arcdcomrate" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdSalesAmt" phpName="Arcdsalesamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcdPayDate" phpName="Arcdpaydate" type="VARCHAR" size="8"/>
+    <column name="ArcdGlPd" phpName="Arcdglpd" type="INTEGER" size="2"/>
+    <column name="ArcdRef" phpName="Arcdref" type="VARCHAR" size="20"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+			<reference local="ArcuCustId" foreign="ArcuCustId"/>
+		</foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
 	<table name="ar_config" idMethod="native" phpName="ConfigAr">
 		<column name="ArtbConfKey" phpName="Artbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="1"/>
 		<column name="ArtbConfGlIfac" phpName="Artbconfglifac" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
