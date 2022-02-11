@@ -577,7 +577,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cash_det" idMethod="native" phpName="ArPayment">
+  <table name="ar_cash_det" idMethod="native" phpName="ArPaymentPending">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcdInvNbr" phpName="Arcdinvnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcdInvSeq" phpName="Arcdinvseq" type="INTEGER" size="2" primaryKey="true" required="true" defaultValue="0"/>

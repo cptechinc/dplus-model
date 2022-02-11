@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \ArPayment;
-use \ArPaymentQuery;
+use \ArPaymentPending;
+use \ArPaymentPendingQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class ArPaymentTableMap extends TableMap
+class ArPaymentPendingTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class ArPaymentTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ArPaymentTableMap';
+    const CLASS_NAME = '.Map.ArPaymentPendingTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ArPaymentTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ArPayment';
+    const OM_CLASS = '\\ArPaymentPending';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ArPayment';
+    const CLASS_DEFAULT = 'ArPaymentPending';
 
     /**
      * The total number of columns
@@ -305,7 +305,7 @@ class ArPaymentTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Arcucustid', 'Arcdinvnbr', 'Arcdinvseq', 'Arcdpaid', 'Arcdinvdate', 'Arcdduedate', 'Arcdchknbr', 'Arcdamtdue', 'Arcdamtpaid', 'Arcddiscpaid', 'Arcdcashacct', 'Arcdcredacct', 'Arcdtermcode', 'Arcdfrtallow', 'Arcdcustpo', 'Arcdordrnbr', 'Arcdtaxcode1', 'Arcdtaxallow1', 'Arcdtaxcode2', 'Arcdtaxallow2', 'Arcdtaxcode3', 'Arcdtaxallow3', 'Arcdtaxcode4', 'Arcdtaxallow4', 'Arcdtaxcode5', 'Arcdtaxallow5', 'Arcdtaxcode6', 'Arcdtaxallow6', 'Arcdtaxcode7', 'Arcdtaxallow7', 'Arcdtaxcode8', 'Arcdtaxallow8', 'Arcdtaxcode9', 'Arcdtaxallow9', 'Arcdwriteoff', 'Arcdwriteoffreas', 'Arcdcomrate', 'Arcdsalesamt', 'Arcdpaydate', 'Arcdglpd', 'Arcdref', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('arcucustid', 'arcdinvnbr', 'arcdinvseq', 'arcdpaid', 'arcdinvdate', 'arcdduedate', 'arcdchknbr', 'arcdamtdue', 'arcdamtpaid', 'arcddiscpaid', 'arcdcashacct', 'arcdcredacct', 'arcdtermcode', 'arcdfrtallow', 'arcdcustpo', 'arcdordrnbr', 'arcdtaxcode1', 'arcdtaxallow1', 'arcdtaxcode2', 'arcdtaxallow2', 'arcdtaxcode3', 'arcdtaxallow3', 'arcdtaxcode4', 'arcdtaxallow4', 'arcdtaxcode5', 'arcdtaxallow5', 'arcdtaxcode6', 'arcdtaxallow6', 'arcdtaxcode7', 'arcdtaxallow7', 'arcdtaxcode8', 'arcdtaxallow8', 'arcdtaxcode9', 'arcdtaxallow9', 'arcdwriteoff', 'arcdwriteoffreas', 'arcdcomrate', 'arcdsalesamt', 'arcdpaydate', 'arcdglpd', 'arcdref', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ArPaymentTableMap::COL_ARCUCUSTID, ArPaymentTableMap::COL_ARCDINVNBR, ArPaymentTableMap::COL_ARCDINVSEQ, ArPaymentTableMap::COL_ARCDPAID, ArPaymentTableMap::COL_ARCDINVDATE, ArPaymentTableMap::COL_ARCDDUEDATE, ArPaymentTableMap::COL_ARCDCHKNBR, ArPaymentTableMap::COL_ARCDAMTDUE, ArPaymentTableMap::COL_ARCDAMTPAID, ArPaymentTableMap::COL_ARCDDISCPAID, ArPaymentTableMap::COL_ARCDCASHACCT, ArPaymentTableMap::COL_ARCDCREDACCT, ArPaymentTableMap::COL_ARCDTERMCODE, ArPaymentTableMap::COL_ARCDFRTALLOW, ArPaymentTableMap::COL_ARCDCUSTPO, ArPaymentTableMap::COL_ARCDORDRNBR, ArPaymentTableMap::COL_ARCDTAXCODE1, ArPaymentTableMap::COL_ARCDTAXALLOW1, ArPaymentTableMap::COL_ARCDTAXCODE2, ArPaymentTableMap::COL_ARCDTAXALLOW2, ArPaymentTableMap::COL_ARCDTAXCODE3, ArPaymentTableMap::COL_ARCDTAXALLOW3, ArPaymentTableMap::COL_ARCDTAXCODE4, ArPaymentTableMap::COL_ARCDTAXALLOW4, ArPaymentTableMap::COL_ARCDTAXCODE5, ArPaymentTableMap::COL_ARCDTAXALLOW5, ArPaymentTableMap::COL_ARCDTAXCODE6, ArPaymentTableMap::COL_ARCDTAXALLOW6, ArPaymentTableMap::COL_ARCDTAXCODE7, ArPaymentTableMap::COL_ARCDTAXALLOW7, ArPaymentTableMap::COL_ARCDTAXCODE8, ArPaymentTableMap::COL_ARCDTAXALLOW8, ArPaymentTableMap::COL_ARCDTAXCODE9, ArPaymentTableMap::COL_ARCDTAXALLOW9, ArPaymentTableMap::COL_ARCDWRITEOFF, ArPaymentTableMap::COL_ARCDWRITEOFFREAS, ArPaymentTableMap::COL_ARCDCOMRATE, ArPaymentTableMap::COL_ARCDSALESAMT, ArPaymentTableMap::COL_ARCDPAYDATE, ArPaymentTableMap::COL_ARCDGLPD, ArPaymentTableMap::COL_ARCDREF, ArPaymentTableMap::COL_DATEUPDTD, ArPaymentTableMap::COL_TIMEUPDTD, ArPaymentTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArPaymentPendingTableMap::COL_ARCUCUSTID, ArPaymentPendingTableMap::COL_ARCDINVNBR, ArPaymentPendingTableMap::COL_ARCDINVSEQ, ArPaymentPendingTableMap::COL_ARCDPAID, ArPaymentPendingTableMap::COL_ARCDINVDATE, ArPaymentPendingTableMap::COL_ARCDDUEDATE, ArPaymentPendingTableMap::COL_ARCDCHKNBR, ArPaymentPendingTableMap::COL_ARCDAMTDUE, ArPaymentPendingTableMap::COL_ARCDAMTPAID, ArPaymentPendingTableMap::COL_ARCDDISCPAID, ArPaymentPendingTableMap::COL_ARCDCASHACCT, ArPaymentPendingTableMap::COL_ARCDCREDACCT, ArPaymentPendingTableMap::COL_ARCDTERMCODE, ArPaymentPendingTableMap::COL_ARCDFRTALLOW, ArPaymentPendingTableMap::COL_ARCDCUSTPO, ArPaymentPendingTableMap::COL_ARCDORDRNBR, ArPaymentPendingTableMap::COL_ARCDTAXCODE1, ArPaymentPendingTableMap::COL_ARCDTAXALLOW1, ArPaymentPendingTableMap::COL_ARCDTAXCODE2, ArPaymentPendingTableMap::COL_ARCDTAXALLOW2, ArPaymentPendingTableMap::COL_ARCDTAXCODE3, ArPaymentPendingTableMap::COL_ARCDTAXALLOW3, ArPaymentPendingTableMap::COL_ARCDTAXCODE4, ArPaymentPendingTableMap::COL_ARCDTAXALLOW4, ArPaymentPendingTableMap::COL_ARCDTAXCODE5, ArPaymentPendingTableMap::COL_ARCDTAXALLOW5, ArPaymentPendingTableMap::COL_ARCDTAXCODE6, ArPaymentPendingTableMap::COL_ARCDTAXALLOW6, ArPaymentPendingTableMap::COL_ARCDTAXCODE7, ArPaymentPendingTableMap::COL_ARCDTAXALLOW7, ArPaymentPendingTableMap::COL_ARCDTAXCODE8, ArPaymentPendingTableMap::COL_ARCDTAXALLOW8, ArPaymentPendingTableMap::COL_ARCDTAXCODE9, ArPaymentPendingTableMap::COL_ARCDTAXALLOW9, ArPaymentPendingTableMap::COL_ARCDWRITEOFF, ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS, ArPaymentPendingTableMap::COL_ARCDCOMRATE, ArPaymentPendingTableMap::COL_ARCDSALESAMT, ArPaymentPendingTableMap::COL_ARCDPAYDATE, ArPaymentPendingTableMap::COL_ARCDGLPD, ArPaymentPendingTableMap::COL_ARCDREF, ArPaymentPendingTableMap::COL_DATEUPDTD, ArPaymentPendingTableMap::COL_TIMEUPDTD, ArPaymentPendingTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArcdInvNbr', 'ArcdInvSeq', 'ArcdPaid', 'ArcdInvDate', 'ArcdDueDate', 'ArcdChkNbr', 'ArcdAmtDue', 'ArcdAmtPaid', 'ArcdDiscPaid', 'ArcdCashAcct', 'ArcdCredAcct', 'ArcdTermCode', 'ArcdFrtAllow', 'ArcdCustPo', 'ArcdOrdrNbr', 'ArcdTaxCode1', 'ArcdTaxAllow1', 'ArcdTaxCode2', 'ArcdTaxAllow2', 'ArcdTaxCode3', 'ArcdTaxAllow3', 'ArcdTaxCode4', 'ArcdTaxAllow4', 'ArcdTaxCode5', 'ArcdTaxAllow5', 'ArcdTaxCode6', 'ArcdTaxAllow6', 'ArcdTaxCode7', 'ArcdTaxAllow7', 'ArcdTaxCode8', 'ArcdTaxAllow8', 'ArcdTaxCode9', 'ArcdTaxAllow9', 'ArcdWriteOff', 'ArcdWriteOffReas', 'ArcdComRate', 'ArcdSalesAmt', 'ArcdPayDate', 'ArcdGlPd', 'ArcdRef', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, )
     );
@@ -319,7 +319,7 @@ class ArPaymentTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arcdinvnbr' => 1, 'Arcdinvseq' => 2, 'Arcdpaid' => 3, 'Arcdinvdate' => 4, 'Arcdduedate' => 5, 'Arcdchknbr' => 6, 'Arcdamtdue' => 7, 'Arcdamtpaid' => 8, 'Arcddiscpaid' => 9, 'Arcdcashacct' => 10, 'Arcdcredacct' => 11, 'Arcdtermcode' => 12, 'Arcdfrtallow' => 13, 'Arcdcustpo' => 14, 'Arcdordrnbr' => 15, 'Arcdtaxcode1' => 16, 'Arcdtaxallow1' => 17, 'Arcdtaxcode2' => 18, 'Arcdtaxallow2' => 19, 'Arcdtaxcode3' => 20, 'Arcdtaxallow3' => 21, 'Arcdtaxcode4' => 22, 'Arcdtaxallow4' => 23, 'Arcdtaxcode5' => 24, 'Arcdtaxallow5' => 25, 'Arcdtaxcode6' => 26, 'Arcdtaxallow6' => 27, 'Arcdtaxcode7' => 28, 'Arcdtaxallow7' => 29, 'Arcdtaxcode8' => 30, 'Arcdtaxallow8' => 31, 'Arcdtaxcode9' => 32, 'Arcdtaxallow9' => 33, 'Arcdwriteoff' => 34, 'Arcdwriteoffreas' => 35, 'Arcdcomrate' => 36, 'Arcdsalesamt' => 37, 'Arcdpaydate' => 38, 'Arcdglpd' => 39, 'Arcdref' => 40, 'Dateupdtd' => 41, 'Timeupdtd' => 42, 'Dummy' => 43, ),
         self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arcdinvnbr' => 1, 'arcdinvseq' => 2, 'arcdpaid' => 3, 'arcdinvdate' => 4, 'arcdduedate' => 5, 'arcdchknbr' => 6, 'arcdamtdue' => 7, 'arcdamtpaid' => 8, 'arcddiscpaid' => 9, 'arcdcashacct' => 10, 'arcdcredacct' => 11, 'arcdtermcode' => 12, 'arcdfrtallow' => 13, 'arcdcustpo' => 14, 'arcdordrnbr' => 15, 'arcdtaxcode1' => 16, 'arcdtaxallow1' => 17, 'arcdtaxcode2' => 18, 'arcdtaxallow2' => 19, 'arcdtaxcode3' => 20, 'arcdtaxallow3' => 21, 'arcdtaxcode4' => 22, 'arcdtaxallow4' => 23, 'arcdtaxcode5' => 24, 'arcdtaxallow5' => 25, 'arcdtaxcode6' => 26, 'arcdtaxallow6' => 27, 'arcdtaxcode7' => 28, 'arcdtaxallow7' => 29, 'arcdtaxcode8' => 30, 'arcdtaxallow8' => 31, 'arcdtaxcode9' => 32, 'arcdtaxallow9' => 33, 'arcdwriteoff' => 34, 'arcdwriteoffreas' => 35, 'arcdcomrate' => 36, 'arcdsalesamt' => 37, 'arcdpaydate' => 38, 'arcdglpd' => 39, 'arcdref' => 40, 'dateupdtd' => 41, 'timeupdtd' => 42, 'dummy' => 43, ),
-        self::TYPE_COLNAME       => array(ArPaymentTableMap::COL_ARCUCUSTID => 0, ArPaymentTableMap::COL_ARCDINVNBR => 1, ArPaymentTableMap::COL_ARCDINVSEQ => 2, ArPaymentTableMap::COL_ARCDPAID => 3, ArPaymentTableMap::COL_ARCDINVDATE => 4, ArPaymentTableMap::COL_ARCDDUEDATE => 5, ArPaymentTableMap::COL_ARCDCHKNBR => 6, ArPaymentTableMap::COL_ARCDAMTDUE => 7, ArPaymentTableMap::COL_ARCDAMTPAID => 8, ArPaymentTableMap::COL_ARCDDISCPAID => 9, ArPaymentTableMap::COL_ARCDCASHACCT => 10, ArPaymentTableMap::COL_ARCDCREDACCT => 11, ArPaymentTableMap::COL_ARCDTERMCODE => 12, ArPaymentTableMap::COL_ARCDFRTALLOW => 13, ArPaymentTableMap::COL_ARCDCUSTPO => 14, ArPaymentTableMap::COL_ARCDORDRNBR => 15, ArPaymentTableMap::COL_ARCDTAXCODE1 => 16, ArPaymentTableMap::COL_ARCDTAXALLOW1 => 17, ArPaymentTableMap::COL_ARCDTAXCODE2 => 18, ArPaymentTableMap::COL_ARCDTAXALLOW2 => 19, ArPaymentTableMap::COL_ARCDTAXCODE3 => 20, ArPaymentTableMap::COL_ARCDTAXALLOW3 => 21, ArPaymentTableMap::COL_ARCDTAXCODE4 => 22, ArPaymentTableMap::COL_ARCDTAXALLOW4 => 23, ArPaymentTableMap::COL_ARCDTAXCODE5 => 24, ArPaymentTableMap::COL_ARCDTAXALLOW5 => 25, ArPaymentTableMap::COL_ARCDTAXCODE6 => 26, ArPaymentTableMap::COL_ARCDTAXALLOW6 => 27, ArPaymentTableMap::COL_ARCDTAXCODE7 => 28, ArPaymentTableMap::COL_ARCDTAXALLOW7 => 29, ArPaymentTableMap::COL_ARCDTAXCODE8 => 30, ArPaymentTableMap::COL_ARCDTAXALLOW8 => 31, ArPaymentTableMap::COL_ARCDTAXCODE9 => 32, ArPaymentTableMap::COL_ARCDTAXALLOW9 => 33, ArPaymentTableMap::COL_ARCDWRITEOFF => 34, ArPaymentTableMap::COL_ARCDWRITEOFFREAS => 35, ArPaymentTableMap::COL_ARCDCOMRATE => 36, ArPaymentTableMap::COL_ARCDSALESAMT => 37, ArPaymentTableMap::COL_ARCDPAYDATE => 38, ArPaymentTableMap::COL_ARCDGLPD => 39, ArPaymentTableMap::COL_ARCDREF => 40, ArPaymentTableMap::COL_DATEUPDTD => 41, ArPaymentTableMap::COL_TIMEUPDTD => 42, ArPaymentTableMap::COL_DUMMY => 43, ),
+        self::TYPE_COLNAME       => array(ArPaymentPendingTableMap::COL_ARCUCUSTID => 0, ArPaymentPendingTableMap::COL_ARCDINVNBR => 1, ArPaymentPendingTableMap::COL_ARCDINVSEQ => 2, ArPaymentPendingTableMap::COL_ARCDPAID => 3, ArPaymentPendingTableMap::COL_ARCDINVDATE => 4, ArPaymentPendingTableMap::COL_ARCDDUEDATE => 5, ArPaymentPendingTableMap::COL_ARCDCHKNBR => 6, ArPaymentPendingTableMap::COL_ARCDAMTDUE => 7, ArPaymentPendingTableMap::COL_ARCDAMTPAID => 8, ArPaymentPendingTableMap::COL_ARCDDISCPAID => 9, ArPaymentPendingTableMap::COL_ARCDCASHACCT => 10, ArPaymentPendingTableMap::COL_ARCDCREDACCT => 11, ArPaymentPendingTableMap::COL_ARCDTERMCODE => 12, ArPaymentPendingTableMap::COL_ARCDFRTALLOW => 13, ArPaymentPendingTableMap::COL_ARCDCUSTPO => 14, ArPaymentPendingTableMap::COL_ARCDORDRNBR => 15, ArPaymentPendingTableMap::COL_ARCDTAXCODE1 => 16, ArPaymentPendingTableMap::COL_ARCDTAXALLOW1 => 17, ArPaymentPendingTableMap::COL_ARCDTAXCODE2 => 18, ArPaymentPendingTableMap::COL_ARCDTAXALLOW2 => 19, ArPaymentPendingTableMap::COL_ARCDTAXCODE3 => 20, ArPaymentPendingTableMap::COL_ARCDTAXALLOW3 => 21, ArPaymentPendingTableMap::COL_ARCDTAXCODE4 => 22, ArPaymentPendingTableMap::COL_ARCDTAXALLOW4 => 23, ArPaymentPendingTableMap::COL_ARCDTAXCODE5 => 24, ArPaymentPendingTableMap::COL_ARCDTAXALLOW5 => 25, ArPaymentPendingTableMap::COL_ARCDTAXCODE6 => 26, ArPaymentPendingTableMap::COL_ARCDTAXALLOW6 => 27, ArPaymentPendingTableMap::COL_ARCDTAXCODE7 => 28, ArPaymentPendingTableMap::COL_ARCDTAXALLOW7 => 29, ArPaymentPendingTableMap::COL_ARCDTAXCODE8 => 30, ArPaymentPendingTableMap::COL_ARCDTAXALLOW8 => 31, ArPaymentPendingTableMap::COL_ARCDTAXCODE9 => 32, ArPaymentPendingTableMap::COL_ARCDTAXALLOW9 => 33, ArPaymentPendingTableMap::COL_ARCDWRITEOFF => 34, ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS => 35, ArPaymentPendingTableMap::COL_ARCDCOMRATE => 36, ArPaymentPendingTableMap::COL_ARCDSALESAMT => 37, ArPaymentPendingTableMap::COL_ARCDPAYDATE => 38, ArPaymentPendingTableMap::COL_ARCDGLPD => 39, ArPaymentPendingTableMap::COL_ARCDREF => 40, ArPaymentPendingTableMap::COL_DATEUPDTD => 41, ArPaymentPendingTableMap::COL_TIMEUPDTD => 42, ArPaymentPendingTableMap::COL_DUMMY => 43, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArcdInvNbr' => 1, 'ArcdInvSeq' => 2, 'ArcdPaid' => 3, 'ArcdInvDate' => 4, 'ArcdDueDate' => 5, 'ArcdChkNbr' => 6, 'ArcdAmtDue' => 7, 'ArcdAmtPaid' => 8, 'ArcdDiscPaid' => 9, 'ArcdCashAcct' => 10, 'ArcdCredAcct' => 11, 'ArcdTermCode' => 12, 'ArcdFrtAllow' => 13, 'ArcdCustPo' => 14, 'ArcdOrdrNbr' => 15, 'ArcdTaxCode1' => 16, 'ArcdTaxAllow1' => 17, 'ArcdTaxCode2' => 18, 'ArcdTaxAllow2' => 19, 'ArcdTaxCode3' => 20, 'ArcdTaxAllow3' => 21, 'ArcdTaxCode4' => 22, 'ArcdTaxAllow4' => 23, 'ArcdTaxCode5' => 24, 'ArcdTaxAllow5' => 25, 'ArcdTaxCode6' => 26, 'ArcdTaxAllow6' => 27, 'ArcdTaxCode7' => 28, 'ArcdTaxAllow7' => 29, 'ArcdTaxCode8' => 30, 'ArcdTaxAllow8' => 31, 'ArcdTaxCode9' => 32, 'ArcdTaxAllow9' => 33, 'ArcdWriteOff' => 34, 'ArcdWriteOffReas' => 35, 'ArcdComRate' => 36, 'ArcdSalesAmt' => 37, 'ArcdPayDate' => 38, 'ArcdGlPd' => 39, 'ArcdRef' => 40, 'DateUpdtd' => 41, 'TimeUpdtd' => 42, 'dummy' => 43, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, )
     );
@@ -335,9 +335,9 @@ class ArPaymentTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cash_det');
-        $this->setPhpName('ArPayment');
+        $this->setPhpName('ArPaymentPending');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\ArPayment');
+        $this->setClassName('\\ArPaymentPending');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -409,7 +409,7 @@ class ArPaymentTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \ArPayment $obj A \ArPayment object.
+     * @param \ArPaymentPending $obj A \ArPaymentPending object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -430,12 +430,12 @@ class ArPaymentTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \ArPayment object or a primary key value.
+     * @param mixed $value A \ArPaymentPending object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \ArPayment) {
+            if (is_object($value) && $value instanceof \ArPaymentPending) {
                 $key = serialize([(null === $value->getArcucustid() || is_scalar($value->getArcucustid()) || is_callable([$value->getArcucustid(), '__toString']) ? (string) $value->getArcucustid() : $value->getArcucustid()), (null === $value->getArcdinvnbr() || is_scalar($value->getArcdinvnbr()) || is_callable([$value->getArcdinvnbr(), '__toString']) ? (string) $value->getArcdinvnbr() : $value->getArcdinvnbr()), (null === $value->getArcdinvseq() || is_scalar($value->getArcdinvseq()) || is_callable([$value->getArcdinvseq(), '__toString']) ? (string) $value->getArcdinvseq() : $value->getArcdinvseq())]);
 
             } elseif (is_array($value) && count($value) === 3) {
@@ -446,7 +446,7 @@ class ArPaymentTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \ArPayment object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \ArPaymentPending object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -525,7 +525,7 @@ class ArPaymentTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? ArPaymentTableMap::CLASS_DEFAULT : ArPaymentTableMap::OM_CLASS;
+        return $withPrefix ? ArPaymentPendingTableMap::CLASS_DEFAULT : ArPaymentPendingTableMap::OM_CLASS;
     }
 
     /**
@@ -539,22 +539,22 @@ class ArPaymentTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ArPayment object, last column rank)
+     * @return array           (ArPaymentPending object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = ArPaymentTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = ArPaymentTableMap::getInstanceFromPool($key))) {
+        $key = ArPaymentPendingTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArPaymentPendingTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + ArPaymentTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArPaymentPendingTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ArPaymentTableMap::OM_CLASS;
-            /** @var ArPayment $obj */
+            $cls = ArPaymentPendingTableMap::OM_CLASS;
+            /** @var ArPaymentPending $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            ArPaymentTableMap::addInstanceToPool($obj, $key);
+            ArPaymentPendingTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -577,18 +577,18 @@ class ArPaymentTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = ArPaymentTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = ArPaymentTableMap::getInstanceFromPool($key))) {
+            $key = ArPaymentPendingTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArPaymentPendingTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var ArPayment $obj */
+                /** @var ArPaymentPending $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ArPaymentTableMap::addInstanceToPool($obj, $key);
+                ArPaymentPendingTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -609,50 +609,50 @@ class ArPaymentTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCUCUSTID);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDINVNBR);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDINVSEQ);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDPAID);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDINVDATE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDDUEDATE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDCHKNBR);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDAMTDUE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDAMTPAID);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDDISCPAID);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDCASHACCT);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDCREDACCT);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTERMCODE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDFRTALLOW);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDCUSTPO);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDORDRNBR);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE1);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW1);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE2);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW2);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE3);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW3);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE4);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW4);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE5);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW5);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE6);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW6);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE7);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW7);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE8);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW8);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXCODE9);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDTAXALLOW9);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDWRITEOFF);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDWRITEOFFREAS);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDCOMRATE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDSALESAMT);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDPAYDATE);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDGLPD);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_ARCDREF);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(ArPaymentTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCUCUSTID);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDINVNBR);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDINVSEQ);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDPAID);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDINVDATE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDDUEDATE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDCHKNBR);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDAMTDUE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDAMTPAID);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDDISCPAID);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDCASHACCT);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDCREDACCT);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTERMCODE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDFRTALLOW);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDCUSTPO);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDORDRNBR);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE1);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW1);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE2);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW2);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE3);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW3);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE4);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW4);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE5);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW5);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE6);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW6);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE7);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW7);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE8);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW8);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXCODE9);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDTAXALLOW9);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDWRITEOFF);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDWRITEOFFREAS);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDCOMRATE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDSALESAMT);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDPAYDATE);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDGLPD);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_ARCDREF);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArPaymentPendingTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArcuCustId');
             $criteria->addSelectColumn($alias . '.ArcdInvNbr');
@@ -710,7 +710,7 @@ class ArPaymentTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(ArPaymentTableMap::DATABASE_NAME)->getTable(ArPaymentTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArPaymentPendingTableMap::DATABASE_NAME)->getTable(ArPaymentPendingTableMap::TABLE_NAME);
     }
 
     /**
@@ -718,16 +718,16 @@ class ArPaymentTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArPaymentTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ArPaymentTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ArPaymentTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArPaymentPendingTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArPaymentPendingTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArPaymentPendingTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a ArPayment or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArPaymentPending or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ArPayment object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArPaymentPending object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -738,17 +738,17 @@ class ArPaymentTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \ArPayment) { // it's a model object
+        } elseif ($values instanceof \ArPaymentPending) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ArPaymentTableMap::DATABASE_NAME);
+            $criteria = new Criteria(ArPaymentPendingTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -756,20 +756,20 @@ class ArPaymentTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(ArPaymentTableMap::COL_ARCUCUSTID, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(ArPaymentTableMap::COL_ARCDINVNBR, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(ArPaymentTableMap::COL_ARCDINVSEQ, $value[2]));
+                $criterion = $criteria->getNewCriterion(ArPaymentPendingTableMap::COL_ARCUCUSTID, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(ArPaymentPendingTableMap::COL_ARCDINVNBR, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(ArPaymentPendingTableMap::COL_ARCDINVSEQ, $value[2]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = ArPaymentQuery::create()->mergeWith($criteria);
+        $query = ArPaymentPendingQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            ArPaymentTableMap::clearInstancePool();
+            ArPaymentPendingTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                ArPaymentTableMap::removeInstanceFromPool($singleval);
+                ArPaymentPendingTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -784,13 +784,13 @@ class ArPaymentTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return ArPaymentQuery::create()->doDeleteAll($con);
+        return ArPaymentPendingQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a ArPayment or Criteria object.
+     * Performs an INSERT on the database, given a ArPaymentPending or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ArPayment object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArPaymentPending object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -799,18 +799,18 @@ class ArPaymentTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPaymentPendingTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from ArPayment object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArPaymentPending object
         }
 
 
         // Set the correct dbName
-        $query = ArPaymentQuery::create()->mergeWith($criteria);
+        $query = ArPaymentPendingQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -819,7 +819,7 @@ class ArPaymentTableMap extends TableMap
         });
     }
 
-} // ArPaymentTableMap
+} // ArPaymentPendingTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-ArPaymentTableMap::buildTableMap();
+ArPaymentPendingTableMap::buildTableMap();

@@ -40,11 +40,11 @@ class ArInvoice extends BaseArInvoice {
 
 	/**
 	 * Return AR Payment for Invoice
-	 * @return ArPayment
+	 * @return ArPaymentPending
 	 */
-	public function getArPayment() {
+	public function getArPaymentPending() {
 		if (empty($this->arPayment)) {
-			$this->arPayment = ArPaymentQuery::create()->findOneByInvoicenumber();
+			$this->arPayment = ArPaymentPendingQuery::create()->findOneByInvoicenumber();
 		}
 		return $this->arPayment;
 	}

@@ -2,7 +2,7 @@
 // Dplus Model
 use Dplus\Model\QueryTraits;
 // Base
-use Base\ArPaymentQuery as BaseArPaymentQuery;
+use Base\ArPaymentPendingQuery as BaseArPaymentPendingQuery;
 
 /**
  * Class for performing query and update operations on the 'ar_cash_det' table.
@@ -16,11 +16,11 @@ use Base\ArPaymentQuery as BaseArPaymentQuery;
  * FilterByXXX()
  * 
  * FindOneByXXX()
- * @method  ApBuyer findOneByInvoicenumber(string $invnbr)      Return the first ArPayment filtered by the ArcdInvNbr column
+ * @method  ApBuyer findOneByInvoicenumber(string $invnbr)      Return the first ArPaymentPending filtered by the ArcdInvNbr column
  *
  * FindByXXX()
  *
  */
-class ArPaymentQuery extends BaseArPaymentQuery {
+class ArPaymentPendingQuery extends BaseArPaymentPendingQuery {
 	use QueryTraits;
 }

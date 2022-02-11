@@ -3,12 +3,12 @@
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 // Base
-use Base\ArPayment as BaseArPayment;
+use Base\ArPaymentPending as BaseArPaymentPending;
 
 /**
  * Class for representing a row from the 'ar_cash_det' table.
  */
-class ArPayment extends BaseArPayment {
+class ArPaymentPending extends BaseArPaymentPending {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
