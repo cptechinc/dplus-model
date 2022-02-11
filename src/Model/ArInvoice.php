@@ -18,6 +18,8 @@ class ArInvoice extends BaseArInvoice {
 	const TYPE_PAYMENT = 'M';
 	const TYPE_INVOICE = 'I';
 
+	private $arPayment;
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
@@ -35,4 +37,15 @@ class ArInvoice extends BaseArInvoice {
 		'date'           => 'dateupdtd',
 		'time'           => 'timeupdtd',
 	);
+
+	/**
+	 * Return AR Payment for Invoice
+	 * @return ArPayment
+	 */
+	public function getArPayment() {
+		if (empty($this->arPayment)) {
+			$this->arPayment = ArPaymentQuery::create()->findOneByInvoicenumber();
+		}
+		return $this->arPayment;
+	}
 }
