@@ -18,8 +18,10 @@ class ArPaymentPending extends BaseArPaymentPending {
 	 */
 	const COLUMN_ALIASES = array(
 		'custid'         => 'arcucustid',
+		'paid'           => 'arcdpaid',
 		'invoicenumber'  => 'arcdinvnbr',
 		'invoicenbr'     => 'arcdinvnbr',
+		'invnbr'         => 'arcdinvnbr',
 		'checknbr'       => 'arcdchknbr',
 		'invoicedate'    => 'arcdinvdate',
 		'duedate'        => 'arcdduedate',
@@ -29,6 +31,7 @@ class ArPaymentPending extends BaseArPaymentPending {
 		'termcode'       => 'arcdtermcode',
 		'creditacct'     => 'arcdcredacct',
 		'cashacct'       => 'arcdcashacct',
+		'amountpaid'     => 'arcdamtpaid',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
 	);
