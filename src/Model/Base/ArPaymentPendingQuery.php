@@ -128,7 +128,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArPaymentPendingQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
  * @method     ChildArPaymentPendingQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
  *
- * @method     \CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildArPaymentPendingQuery leftJoinArCashHead($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArCashHead relation
+ * @method     ChildArPaymentPendingQuery rightJoinArCashHead($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArCashHead relation
+ * @method     ChildArPaymentPendingQuery innerJoinArCashHead($relationAlias = null) Adds a INNER JOIN clause to the query using the ArCashHead relation
+ *
+ * @method     ChildArPaymentPendingQuery joinWithArCashHead($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArCashHead relation
+ *
+ * @method     ChildArPaymentPendingQuery leftJoinWithArCashHead() Adds a LEFT JOIN clause and with to the query using the ArCashHead relation
+ * @method     ChildArPaymentPendingQuery rightJoinWithArCashHead() Adds a RIGHT JOIN clause and with to the query using the ArCashHead relation
+ * @method     ChildArPaymentPendingQuery innerJoinWithArCashHead() Adds a INNER JOIN clause and with to the query using the ArCashHead relation
+ *
+ * @method     \CustomerQuery|\ArCashHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildArPaymentPending findOne(ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query
  * @method     ChildArPaymentPending findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArPaymentPending matching the query, or a new ChildArPaymentPending object populated from the query conditions when no match is found
@@ -1941,18 +1951,95 @@ abstract class ArPaymentPendingQuery extends ModelCriteria
     }
 
     /**
-     * Exclude object from result
+     * Filter the query by a related \ArCashHead object
      *
-     * @param   ChildArPaymentPending $arPayment Object to remove from the list of results
+     * @param \ArCashHead|ObjectCollection $arCashHead The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildArPaymentPendingQuery The current query, for fluid interface
+     */
+    public function filterByArCashHead($arCashHead, $comparison = null)
+    {
+        if ($arCashHead instanceof \ArCashHead) {
+            return $this
+                ->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arCashHead->getArcucustid(), $comparison);
+        } elseif ($arCashHead instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(ArPaymentPendingTableMap::COL_ARCUCUSTID, $arCashHead->toKeyValue('PrimaryKey', 'Arcucustid'), $comparison);
+        } else {
+            throw new PropelException('filterByArCashHead() only accepts arguments of type \ArCashHead or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArCashHead relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
      */
-    public function prune($arPayment = null)
+    public function joinArCashHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
-        if ($arPayment) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCUCUSTID), $arPayment->getArcucustid(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVNBR), $arPayment->getArcdinvnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond2', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVSEQ), $arPayment->getArcdinvseq(), Criteria::NOT_EQUAL);
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArCashHead');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArCashHead');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArCashHead relation ArCashHead object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArCashHeadQuery A secondary query class using the current class as primary query
+     */
+    public function useArCashHeadQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArCashHead($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArCashHead', '\ArCashHeadQuery');
+    }
+
+    /**
+     * Exclude object from result
+     *
+     * @param   ChildArPaymentPending $arPaymentPending Object to remove from the list of results
+     *
+     * @return $this|ChildArPaymentPendingQuery The current query, for fluid interface
+     */
+    public function prune($arPaymentPending = null)
+    {
+        if ($arPaymentPending) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCUCUSTID), $arPaymentPending->getArcucustid(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVNBR), $arPaymentPending->getArcdinvnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond2', $this->getAliasedColName(ArPaymentPendingTableMap::COL_ARCDINVSEQ), $arPaymentPending->getArcdinvseq(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1', 'pruneCond2'), Criteria::LOGICAL_OR);
         }
 

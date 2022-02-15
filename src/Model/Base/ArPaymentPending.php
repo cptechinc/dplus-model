@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \ArCashHead as ChildArCashHead;
+use \ArCashHeadQuery as ChildArCashHeadQuery;
 use \ArPaymentPendingQuery as ChildArPaymentPendingQuery;
 use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;
@@ -376,6 +378,11 @@ abstract class ArPaymentPending implements ActiveRecordInterface
      * @var        ChildCustomer
      */
     protected $aCustomer;
+
+    /**
+     * @var        ChildArCashHead
+     */
+    protected $aArCashHead;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -1084,6 +1091,10 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
         if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
             $this->aCustomer = null;
+        }
+
+        if ($this->aArCashHead !== null && $this->aArCashHead->getArcucustid() !== $v) {
+            $this->aArCashHead = null;
         }
 
         return $this;
@@ -2161,6 +2172,9 @@ abstract class ArPaymentPending implements ActiveRecordInterface
         if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
             $this->aCustomer = null;
         }
+        if ($this->aArCashHead !== null && $this->arcucustid !== $this->aArCashHead->getArcucustid()) {
+            $this->aArCashHead = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2201,6 +2215,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aCustomer = null;
+            $this->aArCashHead = null;
         } // if (deep)
     }
 
@@ -2314,6 +2329,13 @@ abstract class ArPaymentPending implements ActiveRecordInterface
                     $affectedRows += $this->aCustomer->save($con);
                 }
                 $this->setCustomer($this->aCustomer);
+            }
+
+            if ($this->aArCashHead !== null) {
+                if ($this->aArCashHead->isModified() || $this->aArCashHead->isNew()) {
+                    $affectedRows += $this->aArCashHead->save($con);
+                }
+                $this->setArCashHead($this->aArCashHead);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -2907,6 +2929,21 @@ abstract class ArPaymentPending implements ActiveRecordInterface
 
                 $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aArCashHead) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arCashHead';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cash_head';
+                        break;
+                    default:
+                        $key = 'ArCashHead';
+                }
+
+                $result[$key] = $this->aArCashHead->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -3440,11 +3477,18 @@ abstract class ArPaymentPending implements ActiveRecordInterface
             null !== $this->getArcdinvnbr() &&
             null !== $this->getArcdinvseq();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
 
         //relation customer to table ar_cust_mast
         if ($this->aCustomer && $hash = spl_object_hash($this->aCustomer)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation header to table ar_cash_head
+        if ($this->aArCashHead && $hash = spl_object_hash($this->aArCashHead)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -3632,6 +3676,57 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildArCashHead object.
+     *
+     * @param  ChildArCashHead $v
+     * @return $this|\ArPaymentPending The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setArCashHead(ChildArCashHead $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid('');
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        $this->aArCashHead = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildArCashHead object, it will not be re-added.
+        if ($v !== null) {
+            $v->addArPaymentPending($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildArCashHead object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildArCashHead The associated ChildArCashHead object.
+     * @throws PropelException
+     */
+    public function getArCashHead(ConnectionInterface $con = null)
+    {
+        if ($this->aArCashHead === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
+            $this->aArCashHead = ChildArCashHeadQuery::create()->findPk($this->arcucustid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aArCashHead->addArPaymentPendings($this);
+             */
+        }
+
+        return $this->aArCashHead;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3640,6 +3735,9 @@ abstract class ArPaymentPending implements ActiveRecordInterface
     {
         if (null !== $this->aCustomer) {
             $this->aCustomer->removeArPaymentPending($this);
+        }
+        if (null !== $this->aArCashHead) {
+            $this->aArCashHead->removeArPaymentPending($this);
         }
         $this->arcucustid = null;
         $this->arcdinvnbr = null;
@@ -3707,6 +3805,7 @@ abstract class ArPaymentPending implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aCustomer = null;
+        $this->aArCashHead = null;
     }
 
     /**

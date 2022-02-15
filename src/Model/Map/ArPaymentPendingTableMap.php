@@ -342,6 +342,7 @@ class ArPaymentPendingTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_cust_mast', 'ArcuCustId', true, 6, '');
+        $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_cash_head', 'ArcuCustId', true, 6, '');
         $this->addPrimaryKey('ArcdInvNbr', 'Arcdinvnbr', 'VARCHAR', true, 10, '');
         $this->addPrimaryKey('ArcdInvSeq', 'Arcdinvseq', 'INTEGER', true, 2, 0);
         $this->addColumn('ArcdPaid', 'Arcdpaid', 'VARCHAR', false, 1, null);
@@ -393,6 +394,13 @@ class ArPaymentPendingTableMap extends TableMap
     public function buildRelations()
     {
         $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, null, false);
+        $this->addRelation('ArCashHead', '\\ArCashHead', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':ArcuCustId',
