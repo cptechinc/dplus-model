@@ -1616,6 +1616,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="gl_dates" idMethod="native" phpName="GlDates">
+    <column name="GldKey" phpName="Gldkey" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="GldFrom1" phpName="Gldfrom1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru1" phpName="Gldthru1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom2" phpName="Gldfrom2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru2" phpName="Gldthru2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom3" phpName="Gldfrom3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru3" phpName="Gldthru3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom4" phpName="Gldfrom4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru4" phpName="Gldthru4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom5" phpName="Gldfrom5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru5" phpName="Gldthru5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom6" phpName="Gldfrom6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru6" phpName="Gldthru6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom7" phpName="Gldfrom7" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru7" phpName="Gldthru7" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom8" phpName="Gldfrom8" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru8" phpName="Gldthru8" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom9" phpName="Gldfrom9" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru9" phpName="Gldthru9" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom10" phpName="Gldfrom10" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru10" phpName="Gldthru10" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom11" phpName="Gldfrom11" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru11" phpName="Gldthru11" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom12" phpName="Gldfrom12" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru12" phpName="Gldthru12" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom13" phpName="Gldfrom13" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru13" phpName="Gldthru13" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom14" phpName="Gldfrom14" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru14" phpName="Gldthru14" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom15" phpName="Gldfrom15" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru15" phpName="Gldthru15" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom16" phpName="Gldfrom16" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru16" phpName="Gldthru16" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom17" phpName="Gldfrom17" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru17" phpName="Gldthru17" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom18" phpName="Gldfrom18" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru18" phpName="Gldthru18" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldFrom19" phpName="Gldfrom19" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="GldThru19" phpName="Gldthru19" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="gl_dist_code" idMethod="native" phpName="GlDistCode">
     <column name="GltbDistCode" phpName="Gltbdistcode" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
     <column name="GltbDistDesc" phpName="Gltbdistdesc" type="VARCHAR" size="20"/>
