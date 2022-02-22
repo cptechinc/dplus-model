@@ -28,6 +28,8 @@ use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \InvSerialMaster as ChildInvSerialMaster;
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
+use \InvWhseLot as ChildInvWhseLot;
+use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemAddonItem as ChildItemAddonItem;
 use \ItemAddonItemQuery as ChildItemAddonItemQuery;
 use \ItemMasterItem as ChildItemMasterItem;
@@ -66,8 +68,6 @@ use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \WarehouseInventory as ChildWarehouseInventory;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
-use \InvWhseLot as ChildInvWhseLot;
-use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
@@ -77,6 +77,7 @@ use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
+use Map\InvWhseLotTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemPricingDiscountTableMap;
@@ -92,7 +93,6 @@ use Map\SalesHistoryLotserialTableMap;
 use Map\SalesOrderLotserialTableMap;
 use Map\SoAllocatedLotserialTableMap;
 use Map\WarehouseInventoryTableMap;
-use Map\InvWhseLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -158,6 +158,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initdesc1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initdesc1;
@@ -165,6 +166,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initdesc2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initdesc2;
@@ -172,6 +174,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbgrup;
@@ -179,6 +182,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initformatcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initformatcode;
@@ -186,6 +190,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initsplit field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $initsplit;
@@ -193,6 +198,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initsherdatecd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initsherdatecd;
@@ -200,6 +206,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initcoreyn field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $initcoreyn;
@@ -207,6 +214,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbusercode1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbusercode1;
@@ -214,6 +222,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbusercode2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbusercode2;
@@ -221,6 +230,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the inittype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inittype;
@@ -228,6 +238,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the inittax field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $inittax;
@@ -235,6 +246,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initrtlpric field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $initrtlpric;
@@ -242,6 +254,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initstatchgd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initstatchgd;
@@ -249,6 +262,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initspecitemcd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initspecitemcd;
@@ -256,6 +270,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initwarrdays field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initwarrdays;
@@ -263,6 +278,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbuomsale field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbuomsale;
@@ -270,6 +286,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initwght field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $initwght;
@@ -277,6 +294,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initbord field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $initbord;
@@ -284,6 +302,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initbaseitemid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initbaseitemid;
@@ -291,6 +310,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initspecificcust field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initspecificcust;
@@ -298,6 +318,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initgivedisc field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $initgivedisc;
@@ -305,6 +326,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initasstcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initasstcode;
@@ -312,6 +334,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initpriclastdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initpriclastdate;
@@ -319,6 +342,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbuompur field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbuompur;
@@ -326,6 +350,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initstancost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $initstancost;
@@ -333,6 +358,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initstancostbase field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initstancostbase;
@@ -340,6 +366,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initstancostlastdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initstancostlastdate;
@@ -347,6 +374,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initminmarg field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $initminmarg;
@@ -354,6 +382,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initvendid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initvendid;
@@ -361,6 +390,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initinspect field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $initinspect;
@@ -368,6 +398,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initstockcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initstockcode;
@@ -375,6 +406,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initsupritemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initsupritemnbr;
@@ -382,6 +414,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initvendshipfrom field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initvendshipfrom;
@@ -389,6 +422,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initcntryoforigin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initcntryoforigin;
@@ -396,6 +430,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initasstqty field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $initasstqty;
@@ -403,6 +438,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbtariffcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbtariffcode;
@@ -410,6 +446,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initpreference field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initpreference;
@@ -417,6 +454,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initproducer field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initproducer;
@@ -424,6 +462,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initdocumentation field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initdocumentation;
@@ -431,6 +470,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initpurchcrtnqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initpurchcrtnqty;
@@ -438,6 +478,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the aptbbuyrcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $aptbbuyrcode;
@@ -445,6 +486,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initlastcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $initlastcost;
@@ -452,6 +494,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initliters field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $initliters;
@@ -459,6 +502,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbmsdscode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbmsdscode;
@@ -466,6 +510,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initrequirefrt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $initrequirefrt;
@@ -473,6 +518,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initmfrtcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initmfrtcode;
@@ -480,6 +526,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initinnerpackqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initinnerpackqty;
@@ -487,6 +534,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initouterpackqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initouterpackqty;
@@ -494,6 +542,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initbasestancost field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $initbasestancost;
@@ -501,6 +550,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initshiptareqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initshiptareqty;
@@ -508,6 +558,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initwgitem field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initwgitem;
@@ -515,6 +566,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbpricgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbpricgrup;
@@ -522,6 +574,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the intbcommgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbcommgrup;
@@ -529,6 +582,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initlastcostdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initlastcostdate;
@@ -536,6 +590,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initqtypercase field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $initqtypercase;
@@ -543,6 +598,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initrevision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $initrevision;
@@ -550,6 +606,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initcommsaleqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $initcommsaleqty;
@@ -557,6 +614,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initcubes field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $initcubes;
@@ -564,6 +622,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the inittimefence field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $inittimefence;
@@ -571,6 +630,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initsrvcminchrg field.
      *
+     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $initsrvcminchrg;
@@ -578,13 +638,47 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the initminmargbase field.
      *
+     * Note: this column has a database default value of: '%'
      * @var        string
      */
     protected $initminmargbase;
 
     /**
+     * The value for the initlmoldpoexptdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $initlmoldpoexptdate;
+
+    /**
+     * The value for the initlmoldporeplcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $initlmoldporeplcost;
+
+    /**
+     * The value for the initlmnewpoordrdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $initlmnewpoordrdate;
+
+    /**
+     * The value for the initlmnewporeplcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $initlmnewporeplcost;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -592,6 +686,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -599,6 +694,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -869,7 +965,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotMaster[]
      */
-    protected $InvLotMastersScheduledForDeletion = null;
+    protected $invLotMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -970,6 +1066,74 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->inititemnbr = '';
+        $this->initdesc1 = '';
+        $this->initdesc2 = '';
+        $this->intbgrup = '';
+        $this->initformatcode = '';
+        $this->initsplit = 'Y';
+        $this->initsherdatecd = '';
+        $this->initcoreyn = 'N';
+        $this->intbusercode1 = '';
+        $this->intbusercode2 = '';
+        $this->inittype = '';
+        $this->inittax = 'Y';
+        $this->initrtlpric = '0.000';
+        $this->initstatchgd = '';
+        $this->initspecitemcd = '';
+        $this->initwarrdays = 0;
+        $this->intbuomsale = '';
+        $this->initwght = '0.0000000';
+        $this->initbord = 'Y';
+        $this->initbaseitemid = '';
+        $this->initspecificcust = '';
+        $this->initgivedisc = 'Y';
+        $this->initasstcode = '';
+        $this->initpriclastdate = '';
+        $this->intbuompur = '';
+        $this->initstancost = '0.0000000';
+        $this->initstancostbase = '';
+        $this->initstancostlastdate = '';
+        $this->initminmarg = '0.0000000';
+        $this->initvendid = '';
+        $this->initinspect = 'N';
+        $this->initstockcode = '';
+        $this->initsupritemnbr = '';
+        $this->initvendshipfrom = '';
+        $this->initcntryoforigin = '';
+        $this->initasstqty = '0.000';
+        $this->intbtariffcode = '';
+        $this->initpreference = '';
+        $this->initproducer = '';
+        $this->initdocumentation = '';
+        $this->initpurchcrtnqty = 0;
+        $this->aptbbuyrcode = '';
+        $this->initlastcost = '0.0000000';
+        $this->initliters = '0.0000';
+        $this->intbmsdscode = '';
+        $this->initrequirefrt = 'N';
+        $this->initmfrtcode = '';
+        $this->initinnerpackqty = 0;
+        $this->initouterpackqty = 0;
+        $this->initbasestancost = '0.00000';
+        $this->initshiptareqty = 0;
+        $this->initwgitem = '';
+        $this->intbpricgrup = '';
+        $this->intbcommgrup = '';
+        $this->initlastcostdate = '';
+        $this->initqtypercase = 1;
+        $this->initrevision = '';
+        $this->initcommsaleqty = 0;
+        $this->initcubes = '0.00000';
+        $this->inittimefence = 0;
+        $this->initsrvcminchrg = '0.0000';
+        $this->initminmargbase = '%';
+        $this->initlmoldpoexptdate = '';
+        $this->initlmoldporeplcost = '0.00000';
+        $this->initlmnewpoordrdate = '';
+        $this->initlmnewporeplcost = '0.00000';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -1814,9 +1978,49 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      *
      * @return string
      */
-    public function getInitMinMargBase()
+    public function getInitminmargbase()
     {
         return $this->initminmargbase;
+    }
+
+    /**
+     * Get the [initlmoldpoexptdate] column value.
+     *
+     * @return string
+     */
+    public function getInitlmoldpoexptdate()
+    {
+        return $this->initlmoldpoexptdate;
+    }
+
+    /**
+     * Get the [initlmoldporeplcost] column value.
+     *
+     * @return string
+     */
+    public function getInitlmoldporeplcost()
+    {
+        return $this->initlmoldporeplcost;
+    }
+
+    /**
+     * Get the [initlmnewpoordrdate] column value.
+     *
+     * @return string
+     */
+    public function getInitlmnewpoordrdate()
+    {
+        return $this->initlmnewpoordrdate;
+    }
+
+    /**
+     * Get the [initlmnewporeplcost] column value.
+     *
+     * @return string
+     */
+    public function getInitlmnewporeplcost()
+    {
+        return $this->initlmnewporeplcost;
     }
 
     /**
@@ -3099,7 +3303,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @param string $v new value
      * @return $this|\ItemMasterItem The current object (for fluent API support)
      */
-    public function setInitMinMargBase($v)
+    public function setInitminmargbase($v)
     {
         if ($v !== null) {
             $v = (string) $v;
@@ -3111,7 +3315,87 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
-    } // setInitMinMargBase()
+    } // setInitminmargbase()
+
+    /**
+     * Set the value of [initlmoldpoexptdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function setInitlmoldpoexptdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->initlmoldpoexptdate !== $v) {
+            $this->initlmoldpoexptdate = $v;
+            $this->modifiedColumns[ItemMasterItemTableMap::COL_INITLMOLDPOEXPTDATE] = true;
+        }
+
+        return $this;
+    } // setInitlmoldpoexptdate()
+
+    /**
+     * Set the value of [initlmoldporeplcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function setInitlmoldporeplcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->initlmoldporeplcost !== $v) {
+            $this->initlmoldporeplcost = $v;
+            $this->modifiedColumns[ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST] = true;
+        }
+
+        return $this;
+    } // setInitlmoldporeplcost()
+
+    /**
+     * Set the value of [initlmnewpoordrdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function setInitlmnewpoordrdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->initlmnewpoordrdate !== $v) {
+            $this->initlmnewpoordrdate = $v;
+            $this->modifiedColumns[ItemMasterItemTableMap::COL_INITLMNEWPOORDRDATE] = true;
+        }
+
+        return $this;
+    } // setInitlmnewpoordrdate()
+
+    /**
+     * Set the value of [initlmnewporeplcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function setInitlmnewporeplcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->initlmnewporeplcost !== $v) {
+            $this->initlmnewporeplcost = $v;
+            $this->modifiedColumns[ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST] = true;
+        }
+
+        return $this;
+    } // setInitlmnewporeplcost()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -3184,6 +3468,278 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function hasOnlyDefaultValues()
     {
             if ($this->inititemnbr !== '') {
+                return false;
+            }
+
+            if ($this->initdesc1 !== '') {
+                return false;
+            }
+
+            if ($this->initdesc2 !== '') {
+                return false;
+            }
+
+            if ($this->intbgrup !== '') {
+                return false;
+            }
+
+            if ($this->initformatcode !== '') {
+                return false;
+            }
+
+            if ($this->initsplit !== 'Y') {
+                return false;
+            }
+
+            if ($this->initsherdatecd !== '') {
+                return false;
+            }
+
+            if ($this->initcoreyn !== 'N') {
+                return false;
+            }
+
+            if ($this->intbusercode1 !== '') {
+                return false;
+            }
+
+            if ($this->intbusercode2 !== '') {
+                return false;
+            }
+
+            if ($this->inittype !== '') {
+                return false;
+            }
+
+            if ($this->inittax !== 'Y') {
+                return false;
+            }
+
+            if ($this->initrtlpric !== '0.000') {
+                return false;
+            }
+
+            if ($this->initstatchgd !== '') {
+                return false;
+            }
+
+            if ($this->initspecitemcd !== '') {
+                return false;
+            }
+
+            if ($this->initwarrdays !== 0) {
+                return false;
+            }
+
+            if ($this->intbuomsale !== '') {
+                return false;
+            }
+
+            if ($this->initwght !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->initbord !== 'Y') {
+                return false;
+            }
+
+            if ($this->initbaseitemid !== '') {
+                return false;
+            }
+
+            if ($this->initspecificcust !== '') {
+                return false;
+            }
+
+            if ($this->initgivedisc !== 'Y') {
+                return false;
+            }
+
+            if ($this->initasstcode !== '') {
+                return false;
+            }
+
+            if ($this->initpriclastdate !== '') {
+                return false;
+            }
+
+            if ($this->intbuompur !== '') {
+                return false;
+            }
+
+            if ($this->initstancost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->initstancostbase !== '') {
+                return false;
+            }
+
+            if ($this->initstancostlastdate !== '') {
+                return false;
+            }
+
+            if ($this->initminmarg !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->initvendid !== '') {
+                return false;
+            }
+
+            if ($this->initinspect !== 'N') {
+                return false;
+            }
+
+            if ($this->initstockcode !== '') {
+                return false;
+            }
+
+            if ($this->initsupritemnbr !== '') {
+                return false;
+            }
+
+            if ($this->initvendshipfrom !== '') {
+                return false;
+            }
+
+            if ($this->initcntryoforigin !== '') {
+                return false;
+            }
+
+            if ($this->initasstqty !== '0.000') {
+                return false;
+            }
+
+            if ($this->intbtariffcode !== '') {
+                return false;
+            }
+
+            if ($this->initpreference !== '') {
+                return false;
+            }
+
+            if ($this->initproducer !== '') {
+                return false;
+            }
+
+            if ($this->initdocumentation !== '') {
+                return false;
+            }
+
+            if ($this->initpurchcrtnqty !== 0) {
+                return false;
+            }
+
+            if ($this->aptbbuyrcode !== '') {
+                return false;
+            }
+
+            if ($this->initlastcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->initliters !== '0.0000') {
+                return false;
+            }
+
+            if ($this->intbmsdscode !== '') {
+                return false;
+            }
+
+            if ($this->initrequirefrt !== 'N') {
+                return false;
+            }
+
+            if ($this->initmfrtcode !== '') {
+                return false;
+            }
+
+            if ($this->initinnerpackqty !== 0) {
+                return false;
+            }
+
+            if ($this->initouterpackqty !== 0) {
+                return false;
+            }
+
+            if ($this->initbasestancost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->initshiptareqty !== 0) {
+                return false;
+            }
+
+            if ($this->initwgitem !== '') {
+                return false;
+            }
+
+            if ($this->intbpricgrup !== '') {
+                return false;
+            }
+
+            if ($this->intbcommgrup !== '') {
+                return false;
+            }
+
+            if ($this->initlastcostdate !== '') {
+                return false;
+            }
+
+            if ($this->initqtypercase !== 1) {
+                return false;
+            }
+
+            if ($this->initrevision !== '') {
+                return false;
+            }
+
+            if ($this->initcommsaleqty !== 0) {
+                return false;
+            }
+
+            if ($this->initcubes !== '0.00000') {
+                return false;
+            }
+
+            if ($this->inittimefence !== 0) {
+                return false;
+            }
+
+            if ($this->initsrvcminchrg !== '0.0000') {
+                return false;
+            }
+
+            if ($this->initminmargbase !== '%') {
+                return false;
+            }
+
+            if ($this->initlmoldpoexptdate !== '') {
+                return false;
+            }
+
+            if ($this->initlmoldporeplcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->initlmnewpoordrdate !== '') {
+                return false;
+            }
+
+            if ($this->initlmnewporeplcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -3396,16 +3952,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : ItemMasterItemTableMap::translateFieldName('Initsrvcminchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initsrvcminchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('InitMinMargBase', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : ItemMasterItemTableMap::translateFieldName('Initminmargbase', TableMap::TYPE_PHPNAME, $indexType)];
             $this->initminmargbase = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlmoldpoexptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->initlmoldpoexptdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlmoldporeplcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->initlmoldporeplcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlmnewpoordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->initlmnewpoordrdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : ItemMasterItemTableMap::translateFieldName('Initlmnewporeplcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->initlmnewporeplcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : ItemMasterItemTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : ItemMasterItemTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : ItemMasterItemTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -3415,7 +3983,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 65; // 65 = ItemMasterItemTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 69; // 69 = ItemMasterItemTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemMasterItem'), 0, $e);
@@ -4382,6 +4950,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITMINMARGBASE)) {
             $modifiedColumns[':p' . $index++]  = 'InitMinMargBase';
         }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMOLDPOEXPTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'InitLmOldPoExptDate';
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InitLmOldPoReplCost';
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMNEWPOORDRDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'InitLmNewPoOrdrDate';
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InitLmNewPoReplCost';
+        }
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -4587,6 +5167,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                         break;
                     case 'InitMinMargBase':
                         $stmt->bindValue($identifier, $this->initminmargbase, PDO::PARAM_STR);
+                        break;
+                    case 'InitLmOldPoExptDate':
+                        $stmt->bindValue($identifier, $this->initlmoldpoexptdate, PDO::PARAM_STR);
+                        break;
+                    case 'InitLmOldPoReplCost':
+                        $stmt->bindValue($identifier, $this->initlmoldporeplcost, PDO::PARAM_STR);
+                        break;
+                    case 'InitLmNewPoOrdrDate':
+                        $stmt->bindValue($identifier, $this->initlmnewpoordrdate, PDO::PARAM_STR);
+                        break;
+                    case 'InitLmNewPoReplCost':
+                        $stmt->bindValue($identifier, $this->initlmnewporeplcost, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -4836,15 +5428,27 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 return $this->getInitsrvcminchrg();
                 break;
             case 61:
-                return $this->getInitMinMargBase();
+                return $this->getInitminmargbase();
                 break;
             case 62:
-                return $this->getDateupdtd();
+                return $this->getInitlmoldpoexptdate();
                 break;
             case 63:
-                return $this->getTimeupdtd();
+                return $this->getInitlmoldporeplcost();
                 break;
             case 64:
+                return $this->getInitlmnewpoordrdate();
+                break;
+            case 65:
+                return $this->getInitlmnewporeplcost();
+                break;
+            case 66:
+                return $this->getDateupdtd();
+                break;
+            case 67:
+                return $this->getTimeupdtd();
+                break;
+            case 68:
                 return $this->getDummy();
                 break;
             default:
@@ -4938,10 +5542,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $keys[58] => $this->getInitcubes(),
             $keys[59] => $this->getInittimefence(),
             $keys[60] => $this->getInitsrvcminchrg(),
-            $keys[61] => $this->getInitMinMargBase(),
-            $keys[62] => $this->getDateupdtd(),
-            $keys[63] => $this->getTimeupdtd(),
-            $keys[64] => $this->getDummy(),
+            $keys[61] => $this->getInitminmargbase(),
+            $keys[62] => $this->getInitlmoldpoexptdate(),
+            $keys[63] => $this->getInitlmoldporeplcost(),
+            $keys[64] => $this->getInitlmnewpoordrdate(),
+            $keys[65] => $this->getInitlmnewporeplcost(),
+            $keys[66] => $this->getDateupdtd(),
+            $keys[67] => $this->getTimeupdtd(),
+            $keys[68] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -5223,7 +5831,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'InvLotMasters';
+                        $key = 'invLotMasters';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_masts';
@@ -5692,15 +6300,27 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 $this->setInitsrvcminchrg($value);
                 break;
             case 61:
-                $this->setInitMinMargBase($value);
+                $this->setInitminmargbase($value);
                 break;
             case 62:
-                $this->setDateupdtd($value);
+                $this->setInitlmoldpoexptdate($value);
                 break;
             case 63:
-                $this->setTimeupdtd($value);
+                $this->setInitlmoldporeplcost($value);
                 break;
             case 64:
+                $this->setInitlmnewpoordrdate($value);
+                break;
+            case 65:
+                $this->setInitlmnewporeplcost($value);
+                break;
+            case 66:
+                $this->setDateupdtd($value);
+                break;
+            case 67:
+                $this->setTimeupdtd($value);
+                break;
+            case 68:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -5913,16 +6533,28 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->setInitsrvcminchrg($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setInitMinMargBase($arr[$keys[61]]);
+            $this->setInitminmargbase($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setDateupdtd($arr[$keys[62]]);
+            $this->setInitlmoldpoexptdate($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setTimeupdtd($arr[$keys[63]]);
+            $this->setInitlmoldporeplcost($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setDummy($arr[$keys[64]]);
+            $this->setInitlmnewpoordrdate($arr[$keys[64]]);
+        }
+        if (array_key_exists($keys[65], $arr)) {
+            $this->setInitlmnewporeplcost($arr[$keys[65]]);
+        }
+        if (array_key_exists($keys[66], $arr)) {
+            $this->setDateupdtd($arr[$keys[66]]);
+        }
+        if (array_key_exists($keys[67], $arr)) {
+            $this->setTimeupdtd($arr[$keys[67]]);
+        }
+        if (array_key_exists($keys[68], $arr)) {
+            $this->setDummy($arr[$keys[68]]);
         }
     }
 
@@ -6151,6 +6783,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITMINMARGBASE)) {
             $criteria->add(ItemMasterItemTableMap::COL_INITMINMARGBASE, $this->initminmargbase);
         }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMOLDPOEXPTDATE)) {
+            $criteria->add(ItemMasterItemTableMap::COL_INITLMOLDPOEXPTDATE, $this->initlmoldpoexptdate);
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST)) {
+            $criteria->add(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST, $this->initlmoldporeplcost);
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMNEWPOORDRDATE)) {
+            $criteria->add(ItemMasterItemTableMap::COL_INITLMNEWPOORDRDATE, $this->initlmnewpoordrdate);
+        }
+        if ($this->isColumnModified(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST)) {
+            $criteria->add(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST, $this->initlmnewporeplcost);
+        }
         if ($this->isColumnModified(ItemMasterItemTableMap::COL_DATEUPDTD)) {
             $criteria->add(ItemMasterItemTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -6314,7 +6958,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $copyObj->setInitcubes($this->getInitcubes());
         $copyObj->setInittimefence($this->getInittimefence());
         $copyObj->setInitsrvcminchrg($this->getInitsrvcminchrg());
-        $copyObj->setInitMinMargBase($this->getInitMinMargBase());
+        $copyObj->setInitminmargbase($this->getInitminmargbase());
+        $copyObj->setInitlmoldpoexptdate($this->getInitlmoldpoexptdate());
+        $copyObj->setInitlmoldporeplcost($this->getInitlmoldporeplcost());
+        $copyObj->setInitlmnewpoordrdate($this->getInitlmnewpoordrdate());
+        $copyObj->setInitlmnewporeplcost($this->getInitlmnewporeplcost());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -6533,7 +7181,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function setUnitofMeasureSale(ChildUnitofMeasureSale $v = null)
     {
         if ($v === null) {
-            $this->setIntbuomsale(NULL);
+            $this->setIntbuomsale('');
         } else {
             $this->setIntbuomsale($v->getIntbuomsale());
         }
@@ -6584,7 +7232,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
     {
         if ($v === null) {
-            $this->setIntbuompur(NULL);
+            $this->setIntbuompur('');
         } else {
             $this->setIntbuompur($v->getIntbuompur());
         }
@@ -6635,7 +7283,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function setInvGroupCode(ChildInvGroupCode $v = null)
     {
         if ($v === null) {
-            $this->setIntbgrup(NULL);
+            $this->setIntbgrup('');
         } else {
             $this->setIntbgrup($v->getIntbgrup());
         }
@@ -6686,7 +7334,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function setInvPriceCode(ChildInvPriceCode $v = null)
     {
         if ($v === null) {
-            $this->setIntbpricgrup(NULL);
+            $this->setIntbpricgrup('');
         } else {
             $this->setIntbpricgrup($v->getIntbpricgrup());
         }
@@ -6737,7 +7385,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function setInvCommissionCode(ChildInvCommissionCode $v = null)
     {
         if ($v === null) {
-            $this->setIntbcommgrup(NULL);
+            $this->setIntbcommgrup('');
         } else {
             $this->setIntbcommgrup($v->getIntbcommgrup());
         }
@@ -6816,9 +7464,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     {
         if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
-            if ($this->aItemPricing === null) {
-				$this->aItemPricing = new ChildItemPricing();
-			}
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
             $this->aItemPricing->setItemMasterItem($this);
         }
@@ -9281,31 +9926,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $InvLotMasters A Propel collection.
+     * @param      Collection $invLotMasters A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setInvLotMasters(Collection $InvLotMasters, ConnectionInterface $con = null)
+    public function setInvLotMasters(Collection $invLotMasters, ConnectionInterface $con = null)
     {
-        /** @var ChildInvLotMaster[] $InvLotMastersToDelete */
-        $InvLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($InvLotMasters);
+        /** @var ChildInvLotMaster[] $invLotMastersToDelete */
+        $invLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($invLotMasters);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->invLotMastersScheduledForDeletion = clone $InvLotMastersToDelete;
+        $this->invLotMastersScheduledForDeletion = clone $invLotMastersToDelete;
 
-        foreach ($InvLotMastersToDelete as $InvLotMasterRemoved) {
-            $InvLotMasterRemoved->setItemMasterItem(null);
+        foreach ($invLotMastersToDelete as $invLotMasterRemoved) {
+            $invLotMasterRemoved->setItemMasterItem(null);
         }
 
         $this->collInvLotMasters = null;
-        foreach ($InvLotMasters as $InvLotMaster) {
-            $this->addInvLotMaster($InvLotMaster);
+        foreach ($invLotMasters as $invLotMaster) {
+            $this->addInvLotMaster($invLotMaster);
         }
 
-        $this->collInvLotMasters = $InvLotMasters;
+        $this->collInvLotMasters = $invLotMasters;
         $this->collInvLotMastersPartial = false;
 
         return $this;
@@ -9371,29 +10016,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to add.
+     * @param ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to add.
      */
-    protected function doAddInvLotMaster(ChildInvLotMaster $InvLotMaster)
+    protected function doAddInvLotMaster(ChildInvLotMaster $invLotMaster)
     {
-        $this->collInvLotMasters[]= $InvLotMaster;
-        $InvLotMaster->setItemMasterItem($this);
+        $this->collInvLotMasters[]= $invLotMaster;
+        $invLotMaster->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to remove.
+     * @param  ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeInvLotMaster(ChildInvLotMaster $InvLotMaster)
+    public function removeInvLotMaster(ChildInvLotMaster $invLotMaster)
     {
-        if ($this->getInvLotMasters()->contains($InvLotMaster)) {
-            $pos = $this->collInvLotMasters->search($InvLotMaster);
+        if ($this->getInvLotMasters()->contains($invLotMaster)) {
+            $pos = $this->collInvLotMasters->search($invLotMaster);
             $this->collInvLotMasters->remove($pos);
             if (null === $this->invLotMastersScheduledForDeletion) {
                 $this->invLotMastersScheduledForDeletion = clone $this->collInvLotMasters;
                 $this->invLotMastersScheduledForDeletion->clear();
             }
-            $this->invLotMastersScheduledForDeletion[]= clone $InvLotMaster;
-            $InvLotMaster->setItemMasterItem(null);
+            $this->invLotMastersScheduledForDeletion[]= clone $invLotMaster;
+            $invLotMaster->setItemMasterItem(null);
         }
 
         return $this;
@@ -13302,6 +13947,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->inittimefence = null;
         $this->initsrvcminchrg = null;
         $this->initminmargbase = null;
+        $this->initlmoldpoexptdate = null;
+        $this->initlmoldporeplcost = null;
+        $this->initlmnewpoordrdate = null;
+        $this->initlmnewporeplcost = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

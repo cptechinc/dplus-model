@@ -80,6 +80,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhbin;
@@ -87,6 +88,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhcycl field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhcycl;
@@ -94,6 +96,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhcntdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhcntdate;
@@ -101,6 +104,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhstat field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $inwhstat;
@@ -108,6 +112,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhabc field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $inwhabc;
@@ -115,6 +120,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhordrpnt field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inwhordrpnt;
@@ -122,6 +128,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhmax field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inwhmax;
@@ -129,6 +136,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhordrqty field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inwhordrqty;
@@ -136,6 +144,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhspecordr field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $inwhspecordr;
@@ -143,6 +152,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhavail field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inwhavail;
@@ -150,6 +160,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwh12motimessold field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $inwh12motimessold;
@@ -157,6 +168,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhfrtin field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $inwhfrtin;
@@ -164,6 +176,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhmaxordrqty field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $inwhmaxordrqty;
@@ -171,6 +184,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhcrtedate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhcrtedate;
@@ -178,6 +192,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhshipbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhshipbin;
@@ -185,6 +200,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhlastpurchponbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhlastpurchponbr;
@@ -192,6 +208,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhlastpurchinvnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhlastpurchinvnbr;
@@ -199,6 +216,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhsupplywhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $inwhsupplywhse;
@@ -206,13 +224,47 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the inwhiisrchslct field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $inwhiisrchslct;
 
     /**
+     * The value for the inwhlmoldpoexptdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $inwhlmoldpoexptdate;
+
+    /**
+     * The value for the inwhlmoldporeplcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $inwhlmoldporeplcost;
+
+    /**
+     * The value for the inwhlmnewpoordrdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $inwhlmnewpoordrdate;
+
+    /**
+     * The value for the inwhlmnewporeplcost field.
+     *
+     * Note: this column has a database default value of: '0.00000'
+     * @var        string
+     */
+    protected $inwhlmnewporeplcost;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -220,6 +272,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -227,6 +280,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -254,6 +308,32 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     {
         $this->inititemnbr = '';
         $this->intbwhse = '';
+        $this->inwhbin = '';
+        $this->inwhcycl = '';
+        $this->inwhcntdate = '';
+        $this->inwhstat = 'A';
+        $this->inwhabc = 'A';
+        $this->inwhordrpnt = '0.0000000';
+        $this->inwhmax = '0.0000000';
+        $this->inwhordrqty = '0.0000000';
+        $this->inwhspecordr = 'N';
+        $this->inwhavail = '0.0000000';
+        $this->inwh12motimessold = 0;
+        $this->inwhfrtin = '0.00';
+        $this->inwhmaxordrqty = '0.0000000';
+        $this->inwhcrtedate = '';
+        $this->inwhshipbin = '';
+        $this->inwhlastpurchponbr = '';
+        $this->inwhlastpurchinvnbr = '';
+        $this->inwhsupplywhse = '';
+        $this->inwhiisrchslct = 'N';
+        $this->inwhlmoldpoexptdate = '';
+        $this->inwhlmoldporeplcost = '0.00000';
+        $this->inwhlmnewpoordrdate = '';
+        $this->inwhlmnewporeplcost = '0.00000';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -691,6 +771,46 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function getInwhiisrchslct()
     {
         return $this->inwhiisrchslct;
+    }
+
+    /**
+     * Get the [inwhlmoldpoexptdate] column value.
+     *
+     * @return string
+     */
+    public function getInwhlmoldpoexptdate()
+    {
+        return $this->inwhlmoldpoexptdate;
+    }
+
+    /**
+     * Get the [inwhlmoldporeplcost] column value.
+     *
+     * @return string
+     */
+    public function getInwhlmoldporeplcost()
+    {
+        return $this->inwhlmoldporeplcost;
+    }
+
+    /**
+     * Get the [inwhlmnewpoordrdate] column value.
+     *
+     * @return string
+     */
+    public function getInwhlmnewpoordrdate()
+    {
+        return $this->inwhlmnewpoordrdate;
+    }
+
+    /**
+     * Get the [inwhlmnewporeplcost] column value.
+     *
+     * @return string
+     */
+    public function getInwhlmnewporeplcost()
+    {
+        return $this->inwhlmnewporeplcost;
     }
 
     /**
@@ -1148,6 +1268,86 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     } // setInwhiisrchslct()
 
     /**
+     * Set the value of [inwhlmoldpoexptdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     */
+    public function setInwhlmoldpoexptdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->inwhlmoldpoexptdate !== $v) {
+            $this->inwhlmoldpoexptdate = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHLMOLDPOEXPTDATE] = true;
+        }
+
+        return $this;
+    } // setInwhlmoldpoexptdate()
+
+    /**
+     * Set the value of [inwhlmoldporeplcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     */
+    public function setInwhlmoldporeplcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->inwhlmoldporeplcost !== $v) {
+            $this->inwhlmoldporeplcost = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHLMOLDPOREPLCOST] = true;
+        }
+
+        return $this;
+    } // setInwhlmoldporeplcost()
+
+    /**
+     * Set the value of [inwhlmnewpoordrdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     */
+    public function setInwhlmnewpoordrdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->inwhlmnewpoordrdate !== $v) {
+            $this->inwhlmnewpoordrdate = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHLMNEWPOORDRDATE] = true;
+        }
+
+        return $this;
+    } // setInwhlmnewpoordrdate()
+
+    /**
+     * Set the value of [inwhlmnewporeplcost] column.
+     *
+     * @param string $v new value
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     */
+    public function setInwhlmnewporeplcost($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->inwhlmnewporeplcost !== $v) {
+            $this->inwhlmnewporeplcost = $v;
+            $this->modifiedColumns[WarehouseInventoryTableMap::COL_INWHLMNEWPOREPLCOST] = true;
+        }
+
+        return $this;
+    } // setInwhlmnewporeplcost()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1222,6 +1422,110 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             }
 
             if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->inwhbin !== '') {
+                return false;
+            }
+
+            if ($this->inwhcycl !== '') {
+                return false;
+            }
+
+            if ($this->inwhcntdate !== '') {
+                return false;
+            }
+
+            if ($this->inwhstat !== 'A') {
+                return false;
+            }
+
+            if ($this->inwhabc !== 'A') {
+                return false;
+            }
+
+            if ($this->inwhordrpnt !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inwhmax !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inwhordrqty !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inwhspecordr !== 'N') {
+                return false;
+            }
+
+            if ($this->inwhavail !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inwh12motimessold !== 0) {
+                return false;
+            }
+
+            if ($this->inwhfrtin !== '0.00') {
+                return false;
+            }
+
+            if ($this->inwhmaxordrqty !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->inwhcrtedate !== '') {
+                return false;
+            }
+
+            if ($this->inwhshipbin !== '') {
+                return false;
+            }
+
+            if ($this->inwhlastpurchponbr !== '') {
+                return false;
+            }
+
+            if ($this->inwhlastpurchinvnbr !== '') {
+                return false;
+            }
+
+            if ($this->inwhsupplywhse !== '') {
+                return false;
+            }
+
+            if ($this->inwhiisrchslct !== 'N') {
+                return false;
+            }
+
+            if ($this->inwhlmoldpoexptdate !== '') {
+                return false;
+            }
+
+            if ($this->inwhlmoldporeplcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->inwhlmnewpoordrdate !== '') {
+                return false;
+            }
+
+            if ($this->inwhlmnewporeplcost !== '0.00000') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1314,13 +1618,25 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhiisrchslct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inwhiisrchslct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlmoldpoexptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhlmoldpoexptdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlmoldporeplcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhlmoldporeplcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlmnewpoordrdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhlmnewpoordrdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : WarehouseInventoryTableMap::translateFieldName('Inwhlmnewporeplcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inwhlmnewporeplcost = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : WarehouseInventoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : WarehouseInventoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : WarehouseInventoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1330,7 +1646,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 24; // 24 = WarehouseInventoryTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 28; // 28 = WarehouseInventoryTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\WarehouseInventory'), 0, $e);
@@ -1606,6 +1922,18 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHIISRCHSLCT)) {
             $modifiedColumns[':p' . $index++]  = 'InwhIISrchSlct';
         }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMOLDPOEXPTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhLmOldPoExptDate';
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMOLDPOREPLCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhLmOldPoReplCost';
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMNEWPOORDRDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhLmNewPoOrdrDate';
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMNEWPOREPLCOST)) {
+            $modifiedColumns[':p' . $index++]  = 'InwhLmNewPoReplCost';
+        }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1688,6 +2016,18 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                         break;
                     case 'InwhIISrchSlct':
                         $stmt->bindValue($identifier, $this->inwhiisrchslct, PDO::PARAM_STR);
+                        break;
+                    case 'InwhLmOldPoExptDate':
+                        $stmt->bindValue($identifier, $this->inwhlmoldpoexptdate, PDO::PARAM_STR);
+                        break;
+                    case 'InwhLmOldPoReplCost':
+                        $stmt->bindValue($identifier, $this->inwhlmoldporeplcost, PDO::PARAM_STR);
+                        break;
+                    case 'InwhLmNewPoOrdrDate':
+                        $stmt->bindValue($identifier, $this->inwhlmnewpoordrdate, PDO::PARAM_STR);
+                        break;
+                    case 'InwhLmNewPoReplCost':
+                        $stmt->bindValue($identifier, $this->inwhlmnewporeplcost, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1817,12 +2157,24 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 return $this->getInwhiisrchslct();
                 break;
             case 21:
-                return $this->getDateupdtd();
+                return $this->getInwhlmoldpoexptdate();
                 break;
             case 22:
-                return $this->getTimeupdtd();
+                return $this->getInwhlmoldporeplcost();
                 break;
             case 23:
+                return $this->getInwhlmnewpoordrdate();
+                break;
+            case 24:
+                return $this->getInwhlmnewporeplcost();
+                break;
+            case 25:
+                return $this->getDateupdtd();
+                break;
+            case 26:
+                return $this->getTimeupdtd();
+                break;
+            case 27:
                 return $this->getDummy();
                 break;
             default:
@@ -1876,9 +2228,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $keys[18] => $this->getInwhlastpurchinvnbr(),
             $keys[19] => $this->getInwhsupplywhse(),
             $keys[20] => $this->getInwhiisrchslct(),
-            $keys[21] => $this->getDateupdtd(),
-            $keys[22] => $this->getTimeupdtd(),
-            $keys[23] => $this->getDummy(),
+            $keys[21] => $this->getInwhlmoldpoexptdate(),
+            $keys[22] => $this->getInwhlmoldporeplcost(),
+            $keys[23] => $this->getInwhlmnewpoordrdate(),
+            $keys[24] => $this->getInwhlmnewporeplcost(),
+            $keys[25] => $this->getDateupdtd(),
+            $keys[26] => $this->getTimeupdtd(),
+            $keys[27] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1999,12 +2355,24 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 $this->setInwhiisrchslct($value);
                 break;
             case 21:
-                $this->setDateupdtd($value);
+                $this->setInwhlmoldpoexptdate($value);
                 break;
             case 22:
-                $this->setTimeupdtd($value);
+                $this->setInwhlmoldporeplcost($value);
                 break;
             case 23:
+                $this->setInwhlmnewpoordrdate($value);
+                break;
+            case 24:
+                $this->setInwhlmnewporeplcost($value);
+                break;
+            case 25:
+                $this->setDateupdtd($value);
+                break;
+            case 26:
+                $this->setTimeupdtd($value);
+                break;
+            case 27:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2097,13 +2465,25 @@ abstract class WarehouseInventory implements ActiveRecordInterface
             $this->setInwhiisrchslct($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setDateupdtd($arr[$keys[21]]);
+            $this->setInwhlmoldpoexptdate($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setTimeupdtd($arr[$keys[22]]);
+            $this->setInwhlmoldporeplcost($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setDummy($arr[$keys[23]]);
+            $this->setInwhlmnewpoordrdate($arr[$keys[23]]);
+        }
+        if (array_key_exists($keys[24], $arr)) {
+            $this->setInwhlmnewporeplcost($arr[$keys[24]]);
+        }
+        if (array_key_exists($keys[25], $arr)) {
+            $this->setDateupdtd($arr[$keys[25]]);
+        }
+        if (array_key_exists($keys[26], $arr)) {
+            $this->setTimeupdtd($arr[$keys[26]]);
+        }
+        if (array_key_exists($keys[27], $arr)) {
+            $this->setDummy($arr[$keys[27]]);
         }
     }
 
@@ -2208,6 +2588,18 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHIISRCHSLCT)) {
             $criteria->add(WarehouseInventoryTableMap::COL_INWHIISRCHSLCT, $this->inwhiisrchslct);
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMOLDPOEXPTDATE)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHLMOLDPOEXPTDATE, $this->inwhlmoldpoexptdate);
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMOLDPOREPLCOST)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHLMOLDPOREPLCOST, $this->inwhlmoldporeplcost);
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMNEWPOORDRDATE)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHLMNEWPOORDRDATE, $this->inwhlmnewpoordrdate);
+        }
+        if ($this->isColumnModified(WarehouseInventoryTableMap::COL_INWHLMNEWPOREPLCOST)) {
+            $criteria->add(WarehouseInventoryTableMap::COL_INWHLMNEWPOREPLCOST, $this->inwhlmnewporeplcost);
         }
         if ($this->isColumnModified(WarehouseInventoryTableMap::COL_DATEUPDTD)) {
             $criteria->add(WarehouseInventoryTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2340,6 +2732,10 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $copyObj->setInwhlastpurchinvnbr($this->getInwhlastpurchinvnbr());
         $copyObj->setInwhsupplywhse($this->getInwhsupplywhse());
         $copyObj->setInwhiisrchslct($this->getInwhiisrchslct());
+        $copyObj->setInwhlmoldpoexptdate($this->getInwhlmoldpoexptdate());
+        $copyObj->setInwhlmoldporeplcost($this->getInwhlmoldporeplcost());
+        $copyObj->setInwhlmnewpoordrdate($this->getInwhlmnewpoordrdate());
+        $copyObj->setInwhlmnewporeplcost($this->getInwhlmnewporeplcost());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2452,6 +2848,10 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $this->inwhlastpurchinvnbr = null;
         $this->inwhsupplywhse = null;
         $this->inwhiisrchslct = null;
+        $this->inwhlmoldpoexptdate = null;
+        $this->inwhlmoldporeplcost = null;
+        $this->inwhlmnewpoordrdate = null;
+        $this->inwhlmnewporeplcost = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

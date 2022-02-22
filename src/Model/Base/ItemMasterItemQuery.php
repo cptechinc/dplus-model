@@ -81,7 +81,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery orderByInitcubes($order = Criteria::ASC) Order by the InitCubes column
  * @method     ChildItemMasterItemQuery orderByInittimefence($order = Criteria::ASC) Order by the InitTimeFence column
  * @method     ChildItemMasterItemQuery orderByInitsrvcminchrg($order = Criteria::ASC) Order by the InitSrvcMinChrg column
- * @method     ChildItemMasterItemQuery orderByInitMinMargBase($order = Criteria::ASC) Order by the InitMinMargBase column
+ * @method     ChildItemMasterItemQuery orderByInitminmargbase($order = Criteria::ASC) Order by the InitMinMargBase column
+ * @method     ChildItemMasterItemQuery orderByInitlmoldpoexptdate($order = Criteria::ASC) Order by the InitLmOldPoExptDate column
+ * @method     ChildItemMasterItemQuery orderByInitlmoldporeplcost($order = Criteria::ASC) Order by the InitLmOldPoReplCost column
+ * @method     ChildItemMasterItemQuery orderByInitlmnewpoordrdate($order = Criteria::ASC) Order by the InitLmNewPoOrdrDate column
+ * @method     ChildItemMasterItemQuery orderByInitlmnewporeplcost($order = Criteria::ASC) Order by the InitLmNewPoReplCost column
  * @method     ChildItemMasterItemQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildItemMasterItemQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildItemMasterItemQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -147,7 +151,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery groupByInitcubes() Group by the InitCubes column
  * @method     ChildItemMasterItemQuery groupByInittimefence() Group by the InitTimeFence column
  * @method     ChildItemMasterItemQuery groupByInitsrvcminchrg() Group by the InitSrvcMinChrg column
- * @method     ChildItemMasterItemQuery groupByInitMinMargBase() Group by the InitMinMargBase column
+ * @method     ChildItemMasterItemQuery groupByInitminmargbase() Group by the InitMinMargBase column
+ * @method     ChildItemMasterItemQuery groupByInitlmoldpoexptdate() Group by the InitLmOldPoExptDate column
+ * @method     ChildItemMasterItemQuery groupByInitlmoldporeplcost() Group by the InitLmOldPoReplCost column
+ * @method     ChildItemMasterItemQuery groupByInitlmnewpoordrdate() Group by the InitLmNewPoOrdrDate column
+ * @method     ChildItemMasterItemQuery groupByInitlmnewporeplcost() Group by the InitLmNewPoReplCost column
  * @method     ChildItemMasterItemQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildItemMasterItemQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildItemMasterItemQuery groupByDummy() Group by the dummy column
@@ -576,7 +584,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem findOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column
  * @method     ChildItemMasterItem findOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column
  * @method     ChildItemMasterItem findOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column
- * @method     ChildItemMasterItem findOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem findOneByInitminmargbase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem findOneByInitlmoldpoexptdate(string $InitLmOldPoExptDate) Return the first ChildItemMasterItem filtered by the InitLmOldPoExptDate column
+ * @method     ChildItemMasterItem findOneByInitlmoldporeplcost(string $InitLmOldPoReplCost) Return the first ChildItemMasterItem filtered by the InitLmOldPoReplCost column
+ * @method     ChildItemMasterItem findOneByInitlmnewpoordrdate(string $InitLmNewPoOrdrDate) Return the first ChildItemMasterItem filtered by the InitLmNewPoOrdrDate column
+ * @method     ChildItemMasterItem findOneByInitlmnewporeplcost(string $InitLmNewPoReplCost) Return the first ChildItemMasterItem filtered by the InitLmNewPoReplCost column
  * @method     ChildItemMasterItem findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column
  * @method     ChildItemMasterItem findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column
  * @method     ChildItemMasterItem findOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column *
@@ -645,7 +657,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem requireOneByInitcubes(string $InitCubes) Return the first ChildItemMasterItem filtered by the InitCubes column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByInittimefence(int $InitTimeFence) Return the first ChildItemMasterItem filtered by the InitTimeFence column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByInitsrvcminchrg(string $InitSrvcMinChrg) Return the first ChildItemMasterItem filtered by the InitSrvcMinChrg column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemMasterItem requireOneByInitMinMargBase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitminmargbase(string $InitMinMargBase) Return the first ChildItemMasterItem filtered by the InitMinMargBase column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitlmoldpoexptdate(string $InitLmOldPoExptDate) Return the first ChildItemMasterItem filtered by the InitLmOldPoExptDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitlmoldporeplcost(string $InitLmOldPoReplCost) Return the first ChildItemMasterItem filtered by the InitLmOldPoReplCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitlmnewpoordrdate(string $InitLmNewPoOrdrDate) Return the first ChildItemMasterItem filtered by the InitLmNewPoOrdrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildItemMasterItem requireOneByInitlmnewporeplcost(string $InitLmNewPoReplCost) Return the first ChildItemMasterItem filtered by the InitLmNewPoReplCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemMasterItem filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemMasterItem filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemMasterItem requireOneByDummy(string $dummy) Return the first ChildItemMasterItem filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -712,7 +728,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItem[]|ObjectCollection findByInitcubes(string $InitCubes) Return ChildItemMasterItem objects filtered by the InitCubes column
  * @method     ChildItemMasterItem[]|ObjectCollection findByInittimefence(int $InitTimeFence) Return ChildItemMasterItem objects filtered by the InitTimeFence column
  * @method     ChildItemMasterItem[]|ObjectCollection findByInitsrvcminchrg(string $InitSrvcMinChrg) Return ChildItemMasterItem objects filtered by the InitSrvcMinChrg column
- * @method     ChildItemMasterItem[]|ObjectCollection findByInitMinMargBase(string $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitminmargbase(string $InitMinMargBase) Return ChildItemMasterItem objects filtered by the InitMinMargBase column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitlmoldpoexptdate(string $InitLmOldPoExptDate) Return ChildItemMasterItem objects filtered by the InitLmOldPoExptDate column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitlmoldporeplcost(string $InitLmOldPoReplCost) Return ChildItemMasterItem objects filtered by the InitLmOldPoReplCost column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitlmnewpoordrdate(string $InitLmNewPoOrdrDate) Return ChildItemMasterItem objects filtered by the InitLmNewPoOrdrDate column
+ * @method     ChildItemMasterItem[]|ObjectCollection findByInitlmnewporeplcost(string $InitLmNewPoReplCost) Return ChildItemMasterItem objects filtered by the InitLmNewPoReplCost column
  * @method     ChildItemMasterItem[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemMasterItem objects filtered by the DateUpdtd column
  * @method     ChildItemMasterItem[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemMasterItem objects filtered by the TimeUpdtd column
  * @method     ChildItemMasterItem[]|ObjectCollection findByDummy(string $dummy) Return ChildItemMasterItem objects filtered by the dummy column
@@ -814,7 +834,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT InitItemNbr, InitDesc1, InitDesc2, IntbGrup, InitFormatCode, InitSplit, InitSherDateCd, InitCoreYN, IntbUserCode1, IntbUserCode2, InitType, InitTax, InitRtlPric, InitStatChgd, InitSpecItemCd, InitWarrDays, IntbUomSale, InitWght, InitBord, InitBaseItemId, InitSpecificCust, InitGiveDisc, InitAsstCode, InitPricLastDate, IntbUomPur, InitStanCost, InitStanCostBase, InitStanCostLastDate, InitMinMarg, InitVendId, InitInspect, InitStockCode, InitSuprItemNbr, InitVendShipFrom, InitCntryOfOrigin, InitAsstQty, IntbTariffCode, InitPreference, InitProducer, InitDocumentation, InitPurchCrtnQty, AptbBuyrCode, InitLastCost, InitLiters, IntbMsdsCode, InitRequireFrt, InitMfrtCode, InitInnerPackQty, InitOuterPackQty, InitBaseStanCost, InitShipTareQty, InitWgItem, IntbPricGrup, IntbCommGrup, InitLastCostDate, InitQtyPerCase, InitRevision, InitCommSaleQty, InitCubes, InitTimeFence, InitSrvcMinChrg, InitMinMargBase, DateUpdtd, TimeUpdtd, dummy FROM inv_item_mast WHERE InitItemNbr = :p0';
+        $sql = 'SELECT InitItemNbr, InitDesc1, InitDesc2, IntbGrup, InitFormatCode, InitSplit, InitSherDateCd, InitCoreYN, IntbUserCode1, IntbUserCode2, InitType, InitTax, InitRtlPric, InitStatChgd, InitSpecItemCd, InitWarrDays, IntbUomSale, InitWght, InitBord, InitBaseItemId, InitSpecificCust, InitGiveDisc, InitAsstCode, InitPricLastDate, IntbUomPur, InitStanCost, InitStanCostBase, InitStanCostLastDate, InitMinMarg, InitVendId, InitInspect, InitStockCode, InitSuprItemNbr, InitVendShipFrom, InitCntryOfOrigin, InitAsstQty, IntbTariffCode, InitPreference, InitProducer, InitDocumentation, InitPurchCrtnQty, AptbBuyrCode, InitLastCost, InitLiters, IntbMsdsCode, InitRequireFrt, InitMfrtCode, InitInnerPackQty, InitOuterPackQty, InitBaseStanCost, InitShipTareQty, InitWgItem, IntbPricGrup, IntbCommGrup, InitLastCostDate, InitQtyPerCase, InitRevision, InitCommSaleQty, InitCubes, InitTimeFence, InitSrvcMinChrg, InitMinMargBase, InitLmOldPoExptDate, InitLmOldPoReplCost, InitLmNewPoOrdrDate, InitLmNewPoReplCost, DateUpdtd, TimeUpdtd, dummy FROM inv_item_mast WHERE InitItemNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -2722,24 +2742,156 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByInitMinMargBase('fooValue');   // WHERE InitMinMargBase = 'fooValue'
-     * $query->filterByInitMinMargBase('%fooValue%', Criteria::LIKE); // WHERE InitMinMargBase LIKE '%fooValue%'
+     * $query->filterByInitminmargbase('fooValue');   // WHERE InitMinMargBase = 'fooValue'
+     * $query->filterByInitminmargbase('%fooValue%', Criteria::LIKE); // WHERE InitMinMargBase LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $initMinMargBase The value to use as filter.
+     * @param     string $initminmargbase The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByInitMinMargBase($initMinMargBase = null, $comparison = null)
+    public function filterByInitminmargbase($initminmargbase = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($initMinMargBase)) {
+            if (is_array($initminmargbase)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initMinMargBase, $comparison);
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITMINMARGBASE, $initminmargbase, $comparison);
+    }
+
+    /**
+     * Filter the query on the InitLmOldPoExptDate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInitlmoldpoexptdate('fooValue');   // WHERE InitLmOldPoExptDate = 'fooValue'
+     * $query->filterByInitlmoldpoexptdate('%fooValue%', Criteria::LIKE); // WHERE InitLmOldPoExptDate LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $initlmoldpoexptdate The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInitlmoldpoexptdate($initlmoldpoexptdate = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($initlmoldpoexptdate)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMOLDPOEXPTDATE, $initlmoldpoexptdate, $comparison);
+    }
+
+    /**
+     * Filter the query on the InitLmOldPoReplCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInitlmoldporeplcost(1234); // WHERE InitLmOldPoReplCost = 1234
+     * $query->filterByInitlmoldporeplcost(array(12, 34)); // WHERE InitLmOldPoReplCost IN (12, 34)
+     * $query->filterByInitlmoldporeplcost(array('min' => 12)); // WHERE InitLmOldPoReplCost > 12
+     * </code>
+     *
+     * @param     mixed $initlmoldporeplcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInitlmoldporeplcost($initlmoldporeplcost = null, $comparison = null)
+    {
+        if (is_array($initlmoldporeplcost)) {
+            $useMinMax = false;
+            if (isset($initlmoldporeplcost['min'])) {
+                $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST, $initlmoldporeplcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($initlmoldporeplcost['max'])) {
+                $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST, $initlmoldporeplcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMOLDPOREPLCOST, $initlmoldporeplcost, $comparison);
+    }
+
+    /**
+     * Filter the query on the InitLmNewPoOrdrDate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInitlmnewpoordrdate('fooValue');   // WHERE InitLmNewPoOrdrDate = 'fooValue'
+     * $query->filterByInitlmnewpoordrdate('%fooValue%', Criteria::LIKE); // WHERE InitLmNewPoOrdrDate LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $initlmnewpoordrdate The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInitlmnewpoordrdate($initlmnewpoordrdate = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($initlmnewpoordrdate)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMNEWPOORDRDATE, $initlmnewpoordrdate, $comparison);
+    }
+
+    /**
+     * Filter the query on the InitLmNewPoReplCost column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByInitlmnewporeplcost(1234); // WHERE InitLmNewPoReplCost = 1234
+     * $query->filterByInitlmnewporeplcost(array(12, 34)); // WHERE InitLmNewPoReplCost IN (12, 34)
+     * $query->filterByInitlmnewporeplcost(array('min' => 12)); // WHERE InitLmNewPoReplCost > 12
+     * </code>
+     *
+     * @param     mixed $initlmnewporeplcost The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInitlmnewporeplcost($initlmnewporeplcost = null, $comparison = null)
+    {
+        if (is_array($initlmnewporeplcost)) {
+            $useMinMax = false;
+            if (isset($initlmnewporeplcost['min'])) {
+                $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST, $initlmnewporeplcost['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($initlmnewporeplcost['max'])) {
+                $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST, $initlmnewporeplcost['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(ItemMasterItemTableMap::COL_INITLMNEWPOREPLCOST, $initlmnewporeplcost, $comparison);
     }
 
     /**
@@ -2852,7 +3004,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinUnitofMeasureSale($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinUnitofMeasureSale($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasureSale');
@@ -2887,7 +3039,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \UnitofMeasureSaleQuery A secondary query class using the current class as primary query
      */
-    public function useUnitofMeasureSaleQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useUnitofMeasureSaleQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinUnitofMeasureSale($relationAlias, $joinType)
@@ -2929,7 +3081,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasurePurchase');
@@ -2964,7 +3116,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \UnitofMeasurePurchaseQuery A secondary query class using the current class as primary query
      */
-    public function useUnitofMeasurePurchaseQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useUnitofMeasurePurchaseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)
@@ -3006,7 +3158,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinInvGroupCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvGroupCode($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvGroupCode');
@@ -3041,7 +3193,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \InvGroupCodeQuery A secondary query class using the current class as primary query
      */
-    public function useInvGroupCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useInvGroupCodeQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinInvGroupCode($relationAlias, $joinType)
@@ -3083,7 +3235,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinInvPriceCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvPriceCode($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvPriceCode');
@@ -3118,7 +3270,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \InvPriceCodeQuery A secondary query class using the current class as primary query
      */
-    public function useInvPriceCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useInvPriceCodeQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinInvPriceCode($relationAlias, $joinType)
@@ -3160,7 +3312,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function joinInvCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinInvCommissionCode($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('InvCommissionCode');
@@ -3195,7 +3347,7 @@ abstract class ItemMasterItemQuery extends ModelCriteria
      *
      * @return \InvCommissionCodeQuery A secondary query class using the current class as primary query
      */
-    public function useInvCommissionCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useInvCommissionCodeQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinInvCommissionCode($relationAlias, $joinType)
@@ -4158,20 +4310,20 @@ abstract class ItemMasterItemQuery extends ModelCriteria
     /**
      * Filter the query by a related \InvLotMaster object
      *
-     * @param \InvLotMaster|ObjectCollection $InvLotMaster the related object to use as filter
+     * @param \InvLotMaster|ObjectCollection $invLotMaster the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildItemMasterItemQuery The current query, for fluid interface
      */
-    public function filterByInvLotMaster($InvLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, $comparison = null)
     {
-        if ($InvLotMaster instanceof \InvLotMaster) {
+        if ($invLotMaster instanceof \InvLotMaster) {
             return $this
-                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison);
-        } elseif ($InvLotMaster instanceof ObjectCollection) {
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invLotMaster->getInititemnbr(), $comparison);
+        } elseif ($invLotMaster instanceof ObjectCollection) {
             return $this
                 ->useInvLotMasterQuery()
-                ->filterByPrimaryKeys($InvLotMaster->getPrimaryKeys())
+                ->filterByPrimaryKeys($invLotMaster->getPrimaryKeys())
                 ->endUse();
         } else {
             throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster or Collection');

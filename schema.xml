@@ -2230,70 +2230,74 @@
   </table>
   <table name="inv_item_mast" idMethod="native" phpName="ItemMasterItem">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
-    <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35"/>
-    <column name="InitDesc2" phpName="Initdesc2" type="VARCHAR" size="35"/>
-    <column name="IntbGrup" phpName="Intbgrup" type="VARCHAR" size="4"/>
-    <column name="InitFormatCode" phpName="Initformatcode" type="VARCHAR" size="2"/>
-    <column name="InitSplit" phpName="Initsplit" type="VARCHAR" size="1"/>
-    <column name="InitSherDateCd" phpName="Initsherdatecd" type="VARCHAR" size="1"/>
-    <column name="InitCoreYN" phpName="Initcoreyn" type="VARCHAR" size="1"/>
-    <column name="IntbUserCode1" phpName="Intbusercode1" type="VARCHAR" size="6"/>
-    <column name="IntbUserCode2" phpName="Intbusercode2" type="VARCHAR" size="6"/>
-    <column name="InitType" phpName="Inittype" type="VARCHAR" size="1"/>
-    <column name="InitTax" phpName="Inittax" type="VARCHAR" size="1"/>
-    <column name="InitRtlPric" phpName="Initrtlpric" type="DECIMAL" size="20" scale="3"/>
-    <column name="InitStatChgd" phpName="Initstatchgd" type="VARCHAR" size="1"/>
-    <column name="InitSpecItemCd" phpName="Initspecitemcd" type="VARCHAR" size="1"/>
-    <column name="InitWarrDays" phpName="Initwarrdays" type="INTEGER" size="5"/>
-    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4"/>
-    <column name="InitWght" phpName="Initwght" type="DECIMAL" size="20" scale="7"/>
-    <column name="InitBord" phpName="Initbord" type="VARCHAR" size="1"/>
-    <column name="InitBaseItemId" phpName="Initbaseitemid" type="VARCHAR" size="30"/>
-    <column name="InitSpecificCust" phpName="Initspecificcust" type="VARCHAR" size="6"/>
-    <column name="InitGiveDisc" phpName="Initgivedisc" type="VARCHAR" size="1"/>
-    <column name="InitAsstCode" phpName="Initasstcode" type="VARCHAR" size="3"/>
-    <column name="InitPricLastDate" phpName="Initpriclastdate" type="VARCHAR" size="8"/>
-    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4"/>
-    <column name="InitStanCost" phpName="Initstancost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InitStanCostBase" phpName="Initstancostbase" type="VARCHAR" size="1"/>
-    <column name="InitStanCostLastDate" phpName="Initstancostlastdate" type="VARCHAR" size="8"/>
-    <column name="InitMinMarg" phpName="Initminmarg" type="DECIMAL" size="20" scale="7"/>
-    <column name="InitVendId" phpName="Initvendid" type="VARCHAR" size="6"/>
-    <column name="InitInspect" phpName="Initinspect" type="VARCHAR" size="1"/>
-    <column name="InitStockCode" phpName="Initstockcode" type="VARCHAR" size="4"/>
-    <column name="InitSuprItemNbr" phpName="Initsupritemnbr" type="VARCHAR" size="30"/>
-    <column name="InitVendShipFrom" phpName="Initvendshipfrom" type="VARCHAR" size="6"/>
-    <column name="InitCntryOfOrigin" phpName="Initcntryoforigin" type="VARCHAR" size="4"/>
-    <column name="InitAsstQty" phpName="Initasstqty" type="DECIMAL" size="20" scale="3"/>
-    <column name="IntbTariffCode" phpName="Intbtariffcode" type="VARCHAR" size="3"/>
-    <column name="InitPreference" phpName="Initpreference" type="VARCHAR" size="1"/>
-    <column name="InitProducer" phpName="Initproducer" type="VARCHAR" size="1"/>
-    <column name="InitDocumentation" phpName="Initdocumentation" type="VARCHAR" size="1"/>
-    <column name="InitPurchCrtnQty" phpName="Initpurchcrtnqty" type="INTEGER" size="6"/>
-    <column name="AptbBuyrCode" phpName="Aptbbuyrcode" type="VARCHAR" size="6"/>
-    <column name="InitLastCost" phpName="Initlastcost" type="DECIMAL" size="20" scale="7"/>
-    <column name="InitLiters" phpName="Initliters" type="DECIMAL" size="20" scale="4"/>
-    <column name="IntbMsdsCode" phpName="Intbmsdscode" type="VARCHAR" size="8"/>
-    <column name="InitRequireFrt" phpName="Initrequirefrt" type="VARCHAR" size="1"/>
-    <column name="InitMfrtCode" phpName="Initmfrtcode" type="VARCHAR" size="20"/>
-    <column name="InitInnerPackQty" phpName="Initinnerpackqty" type="INTEGER" size="4"/>
-    <column name="InitOuterPackQty" phpName="Initouterpackqty" type="INTEGER" size="4"/>
-    <column name="InitBaseStanCost" phpName="Initbasestancost" type="DECIMAL" size="20" scale="5"/>
-    <column name="InitShipTareQty" phpName="Initshiptareqty" type="INTEGER" size="4"/>
-    <column name="InitWgItem" phpName="Initwgitem" type="VARCHAR" size="20"/>
-    <column name="IntbPricGrup" phpName="Intbpricgrup" type="VARCHAR" size="8"/>
-    <column name="IntbCommGrup" phpName="Intbcommgrup" type="VARCHAR" size="8"/>
-    <column name="InitLastCostDate" phpName="Initlastcostdate" type="VARCHAR" size="8"/>
-    <column name="InitQtyPerCase" phpName="Initqtypercase" type="INTEGER" size="8"/>
-    <column name="InitRevision" phpName="Initrevision" type="VARCHAR" size="10"/>
-    <column name="InitCommSaleQty" phpName="Initcommsaleqty" type="INTEGER" size="8"/>
-    <column name="InitCubes" phpName="Initcubes" type="DECIMAL" size="20" scale="5"/>
-    <column name="InitTimeFence" phpName="Inittimefence" type="INTEGER" size="5"/>
-    <column name="InitSrvcMinChrg" phpName="Initsrvcminchrg" type="DECIMAL" size="20" scale="4"/>
-    <column name="InitMinMargBase" phpName="InitMinMargBase" type="VARCHAR" size="1"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="InitDesc2" phpName="Initdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="IntbGrup" phpName="Intbgrup" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InitFormatCode" phpName="Initformatcode" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="InitSplit" phpName="Initsplit" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="InitSherDateCd" phpName="Initsherdatecd" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitCoreYN" phpName="Initcoreyn" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="IntbUserCode1" phpName="Intbusercode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="IntbUserCode2" phpName="Intbusercode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InitType" phpName="Inittype" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitTax" phpName="Inittax" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="InitRtlPric" phpName="Initrtlpric" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
+    <column name="InitStatChgd" phpName="Initstatchgd" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitSpecItemCd" phpName="Initspecitemcd" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitWarrDays" phpName="Initwarrdays" type="INTEGER" size="5" required="true" defaultValue="0"/>
+    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InitWght" phpName="Initwght" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InitBord" phpName="Initbord" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="InitBaseItemId" phpName="Initbaseitemid" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="InitSpecificCust" phpName="Initspecificcust" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InitGiveDisc" phpName="Initgivedisc" type="VARCHAR" size="1" required="true" defaultValue="Y"/>
+    <column name="InitAsstCode" phpName="Initasstcode" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="InitPricLastDate" phpName="Initpriclastdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbUomPur" phpName="Intbuompur" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InitStanCost" phpName="Initstancost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InitStanCostBase" phpName="Initstancostbase" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitStanCostLastDate" phpName="Initstancostlastdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitMinMarg" phpName="Initminmarg" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InitVendId" phpName="Initvendid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InitInspect" phpName="Initinspect" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="InitStockCode" phpName="Initstockcode" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InitSuprItemNbr" phpName="Initsupritemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="InitVendShipFrom" phpName="Initvendshipfrom" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InitCntryOfOrigin" phpName="Initcntryoforigin" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InitAsstQty" phpName="Initasstqty" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
+    <column name="IntbTariffCode" phpName="Intbtariffcode" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="InitPreference" phpName="Initpreference" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitProducer" phpName="Initproducer" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitDocumentation" phpName="Initdocumentation" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="InitPurchCrtnQty" phpName="Initpurchcrtnqty" type="INTEGER" size="6" required="true" defaultValue="0"/>
+    <column name="AptbBuyrCode" phpName="Aptbbuyrcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InitLastCost" phpName="Initlastcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InitLiters" phpName="Initliters" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="IntbMsdsCode" phpName="Intbmsdscode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitRequireFrt" phpName="Initrequirefrt" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="InitMfrtCode" phpName="Initmfrtcode" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InitInnerPackQty" phpName="Initinnerpackqty" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="InitOuterPackQty" phpName="Initouterpackqty" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="InitBaseStanCost" phpName="Initbasestancost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="InitShipTareQty" phpName="Initshiptareqty" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="InitWgItem" phpName="Initwgitem" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="IntbPricGrup" phpName="Intbpricgrup" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbCommGrup" phpName="Intbcommgrup" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitLastCostDate" phpName="Initlastcostdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitQtyPerCase" phpName="Initqtypercase" type="INTEGER" size="8" required="true" defaultValue="1"/>
+    <column name="InitRevision" phpName="Initrevision" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="InitCommSaleQty" phpName="Initcommsaleqty" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="InitCubes" phpName="Initcubes" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="InitTimeFence" phpName="Inittimefence" type="INTEGER" size="5" required="true" defaultValue="0"/>
+    <column name="InitSrvcMinChrg" phpName="Initsrvcminchrg" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
+    <column name="InitMinMargBase" phpName="Initminmargbase" type="VARCHAR" size="1" required="true" defaultValue="%"/>
+    <column name="InitLmOldPoExptDate" phpName="Initlmoldpoexptdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitLmOldPoReplCost" phpName="Initlmoldporeplcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="InitLmNewPoOrdrDate" phpName="Initlmnewpoordrdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InitLmNewPoReplCost" phpName="Initlmnewporeplcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <foreign-key foreignTable="inv_uom_sale" name="uomsale">
       <reference local="IntbUomSale" foreign="IntbUomSale"/>
     </foreign-key>
@@ -2604,28 +2608,32 @@
   <table name="inv_whse_mast" idMethod="native" phpName="WarehouseInventory">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
-    <column name="InwhBin" phpName="Inwhbin" type="VARCHAR" size="8"/>
-    <column name="InwhCycl" phpName="Inwhcycl" type="VARCHAR" size="2"/>
-    <column name="InwhCntDate" phpName="Inwhcntdate" type="VARCHAR" size="8"/>
-    <column name="InwhStat" phpName="Inwhstat" type="VARCHAR" size="1"/>
-    <column name="InwhAbc" phpName="Inwhabc" type="VARCHAR" size="1"/>
-    <column name="InwhOrdrPnt" phpName="Inwhordrpnt" type="DECIMAL" size="20" scale="7"/>
-    <column name="InwhMax" phpName="Inwhmax" type="DECIMAL" size="20" scale="7"/>
-    <column name="InwhOrdrQty" phpName="Inwhordrqty" type="DECIMAL" size="20" scale="7"/>
-    <column name="InwhSpecOrdr" phpName="Inwhspecordr" type="VARCHAR" size="1"/>
-    <column name="InwhAvail" phpName="Inwhavail" type="DECIMAL" size="20" scale="7"/>
-    <column name="Inwh12moTimesSold" phpName="Inwh12motimessold" type="INTEGER" size="8"/>
-    <column name="InwhFrtIn" phpName="Inwhfrtin" type="DECIMAL" size="20" scale="2"/>
-    <column name="InwhMaxOrdrQty" phpName="Inwhmaxordrqty" type="DECIMAL" size="20" scale="7"/>
-    <column name="InwhCrteDate" phpName="Inwhcrtedate" type="VARCHAR" size="8"/>
-    <column name="InwhShipBin" phpName="Inwhshipbin" type="VARCHAR" size="8"/>
-    <column name="InwhLastPurchPoNbr" phpName="Inwhlastpurchponbr" type="VARCHAR" size="8"/>
-    <column name="InwhLastPurchInvNbr" phpName="Inwhlastpurchinvnbr" type="VARCHAR" size="15"/>
-    <column name="InwhSupplyWhse" phpName="Inwhsupplywhse" type="VARCHAR" size="2"/>
-    <column name="InwhIISrchSlct" phpName="Inwhiisrchslct" type="VARCHAR" size="1"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="InwhBin" phpName="Inwhbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhCycl" phpName="Inwhcycl" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="InwhCntDate" phpName="Inwhcntdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhStat" phpName="Inwhstat" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="InwhAbc" phpName="Inwhabc" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="InwhOrdrPnt" phpName="Inwhordrpnt" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InwhMax" phpName="Inwhmax" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InwhOrdrQty" phpName="Inwhordrqty" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InwhSpecOrdr" phpName="Inwhspecordr" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="InwhAvail" phpName="Inwhavail" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="Inwh12moTimesSold" phpName="Inwh12motimessold" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="InwhFrtIn" phpName="Inwhfrtin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="InwhMaxOrdrQty" phpName="Inwhmaxordrqty" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InwhCrteDate" phpName="Inwhcrtedate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhShipBin" phpName="Inwhshipbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhLastPurchPoNbr" phpName="Inwhlastpurchponbr" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhLastPurchInvNbr" phpName="Inwhlastpurchinvnbr" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="InwhSupplyWhse" phpName="Inwhsupplywhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="InwhIISrchSlct" phpName="Inwhiisrchslct" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="InwhLmOldPoExptDate" phpName="Inwhlmoldpoexptdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhLmOldPoReplCost" phpName="Inwhlmoldporeplcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="InwhLmNewPoOrdrDate" phpName="Inwhlmnewpoordrdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InwhLmNewPoReplCost" phpName="Inwhlmnewporeplcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
