@@ -20,6 +20,7 @@ class ApTypeCode extends BaseApTypeCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'id'           => 'aptbtypecode',
 		'code'         => 'aptbtypecode',
 		'description'  => 'aptbtypedesc',
 		'fabricator'   => 'aptbtypefab',

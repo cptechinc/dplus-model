@@ -46,6 +46,7 @@ class WarehouseNote extends BaseWarehouseNote {
 		'whseID'    => 'intbwhse',
 		'whseid'    => 'intbwhse',
 		'note'      => 'qnnote',
+		'form'      => 'qnform',
 		'key2'      => 'qnkey2',
 		'date'      => 'dateupdtd',
 		'time'      => 'timeupdtd',
@@ -53,11 +54,18 @@ class WarehouseNote extends BaseWarehouseNote {
 
 	/**
 	 * Return Description for Note Type
-	 *
 	 * @param  string $type
 	 * @return string
 	 */
 	public static function get_type_description($type) {
 		return self::TYPES_DESCRIPTIONS[$type];
+	}
+
+	/**
+	 * Set Key2
+	 * @return void
+	 */
+	public function generateKey2() {
+		$this->setKey2($this->whseid);
 	}
 }

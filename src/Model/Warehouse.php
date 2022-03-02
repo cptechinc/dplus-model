@@ -31,9 +31,11 @@ class Warehouse extends BaseWarehouse {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'       => 'intbwhse',
+		'code'     => 'intbwhse',
 		'whseid'   => 'intbwhse',
 		'whseID'   => 'intbwhse',
 		'arranged' => 'intbwhsebinrangelist',
+		'binarrangement' => 'intbwhsebinrangelist',
 		'name'     => 'intbwhsename',
 		'address'  => 'intbwhseadr1',
 		'address2' => 'intbwhseadr2',
@@ -45,18 +47,25 @@ class Warehouse extends BaseWarehouse {
 		'phone_prefix' => 'intbwhsephfrst3',
 		'phone_line'   => 'intbwhsephlast4',
 		'phone_ext'    => 'intbwhsephext',
+		'extension'    => 'intbwhsephext',
 		'fax_area'     => 'intbwhsefaxarea',
 		'fax_prefix'   => 'intbwhsefaxfrst3',
 		'fax_line'     => 'intbwhsefaxlast4',
 		'email'        => 'intbwhseemailadr',
 		'bin_qcrga'    => 'intbwhseqcrgabin',
+		'qcbin'         => 'intbwhseqcrgabin',
 		'bin_production' => 'intbwhseprodbin',
+		'productionbin' => 'intbwhseprodbin',
 		'consignment'  => 'intbwhseconsignwhse',
 		'whse_profit'  => 'intbwhseprofwhse',
+		'whseprofit'  => 'intbwhseprofwhse',
 		'whse_asset'   => 'intbwhseasetwhse',
 		'whseasset'    => 'intbwhseasetwhse',
 		'whse_supply'  => 'intbwhsesupplywhse',
+		'whsesupply'  => 'intbwhsesupplywhse',
 		'cash_customer' => 'intbwhsecashcust',
+		'cashcustomer'  => 'intbwhsecashcust',
+		'custid'        => 'intbwhsecashcust',
 		'pickdetail'    => 'intbwhsepickdtl',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
@@ -130,8 +139,6 @@ class Warehouse extends BaseWarehouse {
 	public function count_bins() {
 		return WarehouseBinQuery::create()->filterByWarehouse($this->IntbWhse)->count();
 	}
-
-
 
 	/**
 	 * Return WarehouseBins for this Warehouse

@@ -15,10 +15,10 @@ class ArInvoice extends BaseArInvoice {
 	use MagicMethodTraits;
 
 	const TYPE_MEMO    = 'M';
-	const TYPE_PAYMENT = 'M';
+	const TYPE_PAYMENT = 'P';
 	const TYPE_INVOICE = 'I';
 
-	private $arPayment;
+	private $arPaymentPending;
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -44,9 +44,9 @@ class ArInvoice extends BaseArInvoice {
 	 */
 	public function getArPaymentPending() {
 		if (empty($this->arPayment)) {
-			$this->arPayment = ArPaymentPendingQuery::create()->findOneByInvoicenbr($this->invnbr);
+			$this->arPaymentPending = ArPaymentPendingQuery::create()->findOneByInvoicenbr($this->invnbr);
 		}
-		return $this->arPayment;
+		return $this->arPaymentPending;
 	}
 
 	/**

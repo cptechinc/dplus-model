@@ -23,4 +23,15 @@ use Dplus\Model\QueryTraits;
  */
 class DplusUserQuery extends BaseDplusUserQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query on the UsrcId column
+	 * @param     string $usrcid The value to use as filter.
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return $this|DplusUserQuery The current query, for fluid interface
+	 */
+	public function filterByUserid($usrcid = null, $comparison = null) {
+		return $this->filterByUsrcid($usrcid, $comparison);
+	}
 }

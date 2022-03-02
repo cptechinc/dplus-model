@@ -32,6 +32,12 @@ class ArPaymentPending extends BaseArPaymentPending {
 		'creditacct'     => 'arcdcredacct',
 		'cashacct'       => 'arcdcashacct',
 		'amountpaid'     => 'arcdamtpaid',
+		'amtpaid'        => 'arcdamtpaid',
+		'discount'       => 'arcddiscpaid',
+		'allowfreight'   => 'arcdfrtallow',
+		'reference'      => 'arcdref',
+		'writeoff'      => 'arcdwriteoff',
+		'writeoffreason' => 'arcdwriteoffreason',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
 	);

@@ -19,7 +19,7 @@ class ArCashHead extends BaseArCashHead {
 	 */
 	const COLUMN_ALIASES = [
 		'custid'   => 'arcucustid',
-		'clerkid'  => 'arrchclerkid',
+		'clerkid'  => 'archclerkid',
 		'amount'   => 'archamtrec',
 		'date'     => 'dateupdtd',
 		'time'     => 'timeupdtd'

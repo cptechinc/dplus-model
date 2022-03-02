@@ -49,6 +49,10 @@ class UserPermissionsItm extends BaseUserPermissionsItm {
 		return false;
 	}
 
+	public function hasPermission($permission) {
+		return $this->is_true($permission);
+	}
+
 	/**
 	 * Return if User has Permission for Pricing
 	 * @return bool

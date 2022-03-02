@@ -13,6 +13,7 @@ class ConfigPo extends BaseConfigPo {
 	use MagicMethodTraits;
 
 	const VALUE_TRUE = 'Y';
+	const YN_TRUE = 'Y';
 	const VALUE_HEAD_DETAIL_DETAIL = 'D';
 	const VALUE_HEAD_DETAIL_HEAD   = 'H';
 
@@ -52,8 +53,17 @@ class ConfigPo extends BaseConfigPo {
 		'edit_date_cancel_head_det' => 'potbconfeditcancdate',
 		'edit_date_ack_head_det'    => 'potbconfeditackdate',
 		'force_po_reference'        => 'potbconfforceporef',
-		'controlbuyer'              => 'potbconfbuyercontrol'
+		'controlbuyer'              => 'potbconfbuyercontrol',
+		'usefabrication'            => 'potbconfusefab'
 	);
+
+	/**
+	 * Return if Use Fabrication is true
+	 * @return bool
+	 */
+	public function usefabrication() {
+		return $this->usefabrication == self::YN_TRUE;
+	}
 
 	/**
 	 * Return if PO Item Notes are allowed

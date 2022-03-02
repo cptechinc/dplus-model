@@ -24,6 +24,7 @@ class TariffCode extends BaseTariffCode {
 		'number'       => 'intbtarinbr',
 		'description'  => 'intbtaridesc',
 		'duty_rate'    => 'intbtaridutyratepct',
+		'percent'      => 'intbtaridutyratepct',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
 	);
