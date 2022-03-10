@@ -35,6 +35,6 @@ class DocumentQuery extends BaseDocumentQuery {
 	 * @return $this The current query, for fluid interface
 	 */
 	public function filterByReference1($value = null, $comparison = null) {
-		return $this->filterByDocifld1cd($value, $comparison);
+		return $this->filterByDocifld1($value, $comparison);
 	}
 }
