@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CustomerRouteCodeQuery as ChildCustomerRouteCodeQuery;
+use \ArRouteCodeQuery as ChildArRouteCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerRouteCodeTableMap;
+use Map\ArRouteCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerRouteCode implements ActiveRecordInterface
+abstract class ArRouteCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerRouteCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArRouteCodeTableMap';
 
 
     /**
@@ -103,7 +103,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
-     * Initializes internal state of Base\CustomerRouteCode object.
+     * Initializes internal state of Base\ArRouteCode object.
      */
     public function __construct()
     {
@@ -198,9 +198,9 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerRouteCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerRouteCode</code>, delegates to
-     * <code>equals(CustomerRouteCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArRouteCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArRouteCode</code>, delegates to
+     * <code>equals(ArRouteCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -266,7 +266,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerRouteCode The current object, for fluid interface
+     * @return $this|ArRouteCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -381,7 +381,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * Set the value of [artbroute] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerRouteCode The current object (for fluent API support)
+     * @return $this|\ArRouteCode The current object (for fluent API support)
      */
     public function setArtbroute($v)
     {
@@ -391,7 +391,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
         if ($this->artbroute !== $v) {
             $this->artbroute = $v;
-            $this->modifiedColumns[CustomerRouteCodeTableMap::COL_ARTBROUTE] = true;
+            $this->modifiedColumns[ArRouteCodeTableMap::COL_ARTBROUTE] = true;
         }
 
         return $this;
@@ -401,7 +401,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * Set the value of [artbroutedesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerRouteCode The current object (for fluent API support)
+     * @return $this|\ArRouteCode The current object (for fluent API support)
      */
     public function setArtbroutedesc($v)
     {
@@ -411,7 +411,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
         if ($this->artbroutedesc !== $v) {
             $this->artbroutedesc = $v;
-            $this->modifiedColumns[CustomerRouteCodeTableMap::COL_ARTBROUTEDESC] = true;
+            $this->modifiedColumns[ArRouteCodeTableMap::COL_ARTBROUTEDESC] = true;
         }
 
         return $this;
@@ -421,7 +421,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerRouteCode The current object (for fluent API support)
+     * @return $this|\ArRouteCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -431,7 +431,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerRouteCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArRouteCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -441,7 +441,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerRouteCode The current object (for fluent API support)
+     * @return $this|\ArRouteCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -451,7 +451,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerRouteCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArRouteCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -461,7 +461,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerRouteCode The current object (for fluent API support)
+     * @return $this|\ArRouteCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -471,7 +471,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerRouteCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArRouteCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -513,19 +513,19 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerRouteCodeTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArRouteCodeTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerRouteCodeTableMap::translateFieldName('Artbroutedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArRouteCodeTableMap::translateFieldName('Artbroutedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroutedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerRouteCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArRouteCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerRouteCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArRouteCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerRouteCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArRouteCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -535,10 +535,10 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 5; // 5 = CustomerRouteCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = ArRouteCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerRouteCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArRouteCode'), 0, $e);
         }
     }
 
@@ -580,13 +580,13 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerRouteCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerRouteCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArRouteCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -605,8 +605,8 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerRouteCode::setDeleted()
-     * @see CustomerRouteCode::isDeleted()
+     * @see ArRouteCode::setDeleted()
+     * @see ArRouteCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -615,11 +615,11 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerRouteCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerRouteCodeQuery::create()
+            $deleteQuery = ChildArRouteCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -654,7 +654,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerRouteCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -673,7 +673,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerRouteCodeTableMap::addInstanceToPool($this);
+                ArRouteCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -732,19 +732,19 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_ARTBROUTE)) {
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_ARTBROUTE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbRoute';
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_ARTBROUTEDESC)) {
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_ARTBROUTEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbRouteDesc';
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -812,7 +812,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerRouteCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArRouteCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -866,11 +866,11 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CustomerRouteCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArRouteCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerRouteCode'][$this->hashCode()] = true;
-        $keys = CustomerRouteCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArRouteCode'][$this->hashCode()] = true;
+        $keys = ArRouteCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbroute(),
             $keys[1] => $this->getArtbroutedesc(),
@@ -896,11 +896,11 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerRouteCode
+     * @return $this|\ArRouteCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerRouteCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArRouteCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -911,7 +911,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerRouteCode
+     * @return $this|\ArRouteCode
      */
     public function setByPosition($pos, $value)
     {
@@ -955,7 +955,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerRouteCodeTableMap::getFieldNames($keyType);
+        $keys = ArRouteCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbroute($arr[$keys[0]]);
@@ -991,7 +991,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerRouteCode The current object, for fluid interface
+     * @return $this|\ArRouteCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1011,22 +1011,22 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerRouteCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArRouteCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_ARTBROUTE)) {
-            $criteria->add(CustomerRouteCodeTableMap::COL_ARTBROUTE, $this->artbroute);
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_ARTBROUTE)) {
+            $criteria->add(ArRouteCodeTableMap::COL_ARTBROUTE, $this->artbroute);
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_ARTBROUTEDESC)) {
-            $criteria->add(CustomerRouteCodeTableMap::COL_ARTBROUTEDESC, $this->artbroutedesc);
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_ARTBROUTEDESC)) {
+            $criteria->add(ArRouteCodeTableMap::COL_ARTBROUTEDESC, $this->artbroutedesc);
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerRouteCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArRouteCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerRouteCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArRouteCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerRouteCodeTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerRouteCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArRouteCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArRouteCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1044,8 +1044,8 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerRouteCodeQuery::create();
-        $criteria->add(CustomerRouteCodeTableMap::COL_ARTBROUTE, $this->artbroute);
+        $criteria = ChildArRouteCodeQuery::create();
+        $criteria->add(ArRouteCodeTableMap::COL_ARTBROUTE, $this->artbroute);
 
         return $criteria;
     }
@@ -1107,7 +1107,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerRouteCode (or compatible) type.
+     * @param      object $copyObj An object of \ArRouteCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1133,7 +1133,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerRouteCode Clone of current object.
+     * @return \ArRouteCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1187,7 +1187,7 @@ abstract class CustomerRouteCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerRouteCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArRouteCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

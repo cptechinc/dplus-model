@@ -1,15 +1,14 @@
 <?php
 
-use Base\CustomerRouteCode as BaseCustomerRouteCode;
+use Base\ArRouteCode as BaseArRouteCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'ar_cust_rout' table.
- *
  */
-class CustomerRouteCode extends BaseCustomerRouteCode {
+class ArRouteCode extends BaseArRouteCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

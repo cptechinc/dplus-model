@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerRouteCode;
-use \CustomerRouteCodeQuery;
+use \ArRouteCode;
+use \ArRouteCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerRouteCodeTableMap extends TableMap
+class ArRouteCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerRouteCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerRouteCodeTableMap';
+    const CLASS_NAME = '.Map.ArRouteCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerRouteCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerRouteCode';
+    const OM_CLASS = '\\ArRouteCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerRouteCode';
+    const CLASS_DEFAULT = 'ArRouteCode';
 
     /**
      * The total number of columns
@@ -110,7 +110,7 @@ class CustomerRouteCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbroute', 'Artbroutedesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbroute', 'artbroutedesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerRouteCodeTableMap::COL_ARTBROUTE, CustomerRouteCodeTableMap::COL_ARTBROUTEDESC, CustomerRouteCodeTableMap::COL_DATEUPDTD, CustomerRouteCodeTableMap::COL_TIMEUPDTD, CustomerRouteCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArRouteCodeTableMap::COL_ARTBROUTE, ArRouteCodeTableMap::COL_ARTBROUTEDESC, ArRouteCodeTableMap::COL_DATEUPDTD, ArRouteCodeTableMap::COL_TIMEUPDTD, ArRouteCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbRoute', 'ArtbRouteDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -124,7 +124,7 @@ class CustomerRouteCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbroute' => 0, 'Artbroutedesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
         self::TYPE_CAMELNAME     => array('artbroute' => 0, 'artbroutedesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(CustomerRouteCodeTableMap::COL_ARTBROUTE => 0, CustomerRouteCodeTableMap::COL_ARTBROUTEDESC => 1, CustomerRouteCodeTableMap::COL_DATEUPDTD => 2, CustomerRouteCodeTableMap::COL_TIMEUPDTD => 3, CustomerRouteCodeTableMap::COL_DUMMY => 4, ),
+        self::TYPE_COLNAME       => array(ArRouteCodeTableMap::COL_ARTBROUTE => 0, ArRouteCodeTableMap::COL_ARTBROUTEDESC => 1, ArRouteCodeTableMap::COL_DATEUPDTD => 2, ArRouteCodeTableMap::COL_TIMEUPDTD => 3, ArRouteCodeTableMap::COL_DUMMY => 4, ),
         self::TYPE_FIELDNAME     => array('ArtbRoute' => 0, 'ArtbRouteDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -140,9 +140,9 @@ class CustomerRouteCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_rout');
-        $this->setPhpName('CustomerRouteCode');
+        $this->setPhpName('ArRouteCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerRouteCode');
+        $this->setClassName('\\ArRouteCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -217,7 +217,7 @@ class CustomerRouteCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerRouteCodeTableMap::CLASS_DEFAULT : CustomerRouteCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArRouteCodeTableMap::CLASS_DEFAULT : ArRouteCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -231,22 +231,22 @@ class CustomerRouteCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerRouteCode object, last column rank)
+     * @return array           (ArRouteCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerRouteCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerRouteCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArRouteCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArRouteCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerRouteCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArRouteCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerRouteCodeTableMap::OM_CLASS;
-            /** @var CustomerRouteCode $obj */
+            $cls = ArRouteCodeTableMap::OM_CLASS;
+            /** @var ArRouteCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerRouteCodeTableMap::addInstanceToPool($obj, $key);
+            ArRouteCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -269,18 +269,18 @@ class CustomerRouteCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerRouteCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerRouteCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArRouteCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArRouteCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerRouteCode $obj */
+                /** @var ArRouteCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerRouteCodeTableMap::addInstanceToPool($obj, $key);
+                ArRouteCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -301,11 +301,11 @@ class CustomerRouteCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerRouteCodeTableMap::COL_ARTBROUTE);
-            $criteria->addSelectColumn(CustomerRouteCodeTableMap::COL_ARTBROUTEDESC);
-            $criteria->addSelectColumn(CustomerRouteCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerRouteCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerRouteCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArRouteCodeTableMap::COL_ARTBROUTE);
+            $criteria->addSelectColumn(ArRouteCodeTableMap::COL_ARTBROUTEDESC);
+            $criteria->addSelectColumn(ArRouteCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArRouteCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArRouteCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbRoute');
             $criteria->addSelectColumn($alias . '.ArtbRouteDesc');
@@ -324,7 +324,7 @@ class CustomerRouteCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerRouteCodeTableMap::DATABASE_NAME)->getTable(CustomerRouteCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArRouteCodeTableMap::DATABASE_NAME)->getTable(ArRouteCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -332,16 +332,16 @@ class CustomerRouteCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerRouteCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerRouteCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerRouteCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArRouteCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArRouteCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArRouteCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerRouteCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArRouteCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerRouteCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArRouteCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -352,27 +352,27 @@ class CustomerRouteCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerRouteCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerRouteCode) { // it's a model object
+        } elseif ($values instanceof \ArRouteCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerRouteCodeTableMap::DATABASE_NAME);
-            $criteria->add(CustomerRouteCodeTableMap::COL_ARTBROUTE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArRouteCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArRouteCodeTableMap::COL_ARTBROUTE, (array) $values, Criteria::IN);
         }
 
-        $query = CustomerRouteCodeQuery::create()->mergeWith($criteria);
+        $query = ArRouteCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerRouteCodeTableMap::clearInstancePool();
+            ArRouteCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerRouteCodeTableMap::removeInstanceFromPool($singleval);
+                ArRouteCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -387,13 +387,13 @@ class CustomerRouteCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerRouteCodeQuery::create()->doDeleteAll($con);
+        return ArRouteCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerRouteCode or Criteria object.
+     * Performs an INSERT on the database, given a ArRouteCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerRouteCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArRouteCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -402,18 +402,18 @@ class CustomerRouteCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerRouteCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArRouteCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerRouteCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArRouteCode object
         }
 
 
         // Set the correct dbName
-        $query = CustomerRouteCodeQuery::create()->mergeWith($criteria);
+        $query = ArRouteCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -422,7 +422,7 @@ class CustomerRouteCodeTableMap extends TableMap
         });
     }
 
-} // CustomerRouteCodeTableMap
+} // ArRouteCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerRouteCodeTableMap::buildTableMap();
+ArRouteCodeTableMap::buildTableMap();

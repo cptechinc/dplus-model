@@ -1027,7 +1027,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_rout" idMethod="native" phpName="CustomerRouteCode">
+  <table name="ar_cust_rout" idMethod="native" phpName="ArRouteCode">
     <column name="ArtbRoute" phpName="Artbroute" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="ArtbRouteDesc" phpName="Artbroutedesc" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
