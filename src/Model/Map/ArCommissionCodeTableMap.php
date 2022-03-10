@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerCommissionCode;
-use \CustomerCommissionCodeQuery;
+use \ArCommissionCode;
+use \ArCommissionCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerCommissionCodeTableMap extends TableMap
+class ArCommissionCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerCommissionCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerCommissionCodeTableMap';
+    const CLASS_NAME = '.Map.ArCommissionCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerCommissionCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerCommissionCode';
+    const OM_CLASS = '\\ArCommissionCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerCommissionCode';
+    const CLASS_DEFAULT = 'ArCommissionCode';
 
     /**
      * The total number of columns
@@ -110,7 +110,7 @@ class CustomerCommissionCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbcommcode', 'Artbcommdesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbcommcode', 'artbcommdesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC, CustomerCommissionCodeTableMap::COL_DATEUPDTD, CustomerCommissionCodeTableMap::COL_TIMEUPDTD, CustomerCommissionCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, ArCommissionCodeTableMap::COL_ARTBCOMMDESC, ArCommissionCodeTableMap::COL_DATEUPDTD, ArCommissionCodeTableMap::COL_TIMEUPDTD, ArCommissionCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbCommCode', 'ArtbCommDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -124,7 +124,7 @@ class CustomerCommissionCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbcommcode' => 0, 'Artbcommdesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
         self::TYPE_CAMELNAME     => array('artbcommcode' => 0, 'artbcommdesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE => 0, CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC => 1, CustomerCommissionCodeTableMap::COL_DATEUPDTD => 2, CustomerCommissionCodeTableMap::COL_TIMEUPDTD => 3, CustomerCommissionCodeTableMap::COL_DUMMY => 4, ),
+        self::TYPE_COLNAME       => array(ArCommissionCodeTableMap::COL_ARTBCOMMCODE => 0, ArCommissionCodeTableMap::COL_ARTBCOMMDESC => 1, ArCommissionCodeTableMap::COL_DATEUPDTD => 2, ArCommissionCodeTableMap::COL_TIMEUPDTD => 3, ArCommissionCodeTableMap::COL_DUMMY => 4, ),
         self::TYPE_FIELDNAME     => array('ArtbCommCode' => 0, 'ArtbCommDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -140,9 +140,9 @@ class CustomerCommissionCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_comm');
-        $this->setPhpName('CustomerCommissionCode');
+        $this->setPhpName('ArCommissionCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerCommissionCode');
+        $this->setClassName('\\ArCommissionCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -224,7 +224,7 @@ class CustomerCommissionCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerCommissionCodeTableMap::CLASS_DEFAULT : CustomerCommissionCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArCommissionCodeTableMap::CLASS_DEFAULT : ArCommissionCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -238,22 +238,22 @@ class CustomerCommissionCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerCommissionCode object, last column rank)
+     * @return array           (ArCommissionCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerCommissionCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerCommissionCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArCommissionCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArCommissionCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerCommissionCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArCommissionCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerCommissionCodeTableMap::OM_CLASS;
-            /** @var CustomerCommissionCode $obj */
+            $cls = ArCommissionCodeTableMap::OM_CLASS;
+            /** @var ArCommissionCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerCommissionCodeTableMap::addInstanceToPool($obj, $key);
+            ArCommissionCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -276,18 +276,18 @@ class CustomerCommissionCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerCommissionCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerCommissionCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArCommissionCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArCommissionCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerCommissionCode $obj */
+                /** @var ArCommissionCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerCommissionCodeTableMap::addInstanceToPool($obj, $key);
+                ArCommissionCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -308,11 +308,11 @@ class CustomerCommissionCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE);
-            $criteria->addSelectColumn(CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC);
-            $criteria->addSelectColumn(CustomerCommissionCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerCommissionCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerCommissionCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArCommissionCodeTableMap::COL_ARTBCOMMCODE);
+            $criteria->addSelectColumn(ArCommissionCodeTableMap::COL_ARTBCOMMDESC);
+            $criteria->addSelectColumn(ArCommissionCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArCommissionCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArCommissionCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbCommCode');
             $criteria->addSelectColumn($alias . '.ArtbCommDesc');
@@ -331,7 +331,7 @@ class CustomerCommissionCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerCommissionCodeTableMap::DATABASE_NAME)->getTable(CustomerCommissionCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArCommissionCodeTableMap::DATABASE_NAME)->getTable(ArCommissionCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -339,16 +339,16 @@ class CustomerCommissionCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerCommissionCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerCommissionCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerCommissionCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArCommissionCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArCommissionCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArCommissionCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerCommissionCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArCommissionCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerCommissionCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArCommissionCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -359,27 +359,27 @@ class CustomerCommissionCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerCommissionCode) { // it's a model object
+        } elseif ($values instanceof \ArCommissionCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerCommissionCodeTableMap::DATABASE_NAME);
-            $criteria->add(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArCommissionCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, (array) $values, Criteria::IN);
         }
 
-        $query = CustomerCommissionCodeQuery::create()->mergeWith($criteria);
+        $query = ArCommissionCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerCommissionCodeTableMap::clearInstancePool();
+            ArCommissionCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerCommissionCodeTableMap::removeInstanceFromPool($singleval);
+                ArCommissionCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -394,13 +394,13 @@ class CustomerCommissionCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerCommissionCodeQuery::create()->doDeleteAll($con);
+        return ArCommissionCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerCommissionCode or Criteria object.
+     * Performs an INSERT on the database, given a ArCommissionCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerCommissionCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArCommissionCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -409,18 +409,18 @@ class CustomerCommissionCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerCommissionCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArCommissionCode object
         }
 
 
         // Set the correct dbName
-        $query = CustomerCommissionCodeQuery::create()->mergeWith($criteria);
+        $query = ArCommissionCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -429,7 +429,7 @@ class CustomerCommissionCodeTableMap extends TableMap
         });
     }
 
-} // CustomerCommissionCodeTableMap
+} // ArCommissionCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerCommissionCodeTableMap::buildTableMap();
+ArCommissionCodeTableMap::buildTableMap();

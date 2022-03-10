@@ -3122,10 +3122,10 @@ abstract class Shipvia implements ActiveRecordInterface
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
      * @return ObjectCollection|ChildCustomer[] List of ChildCustomer objects
      */
-    public function getCustomersJoinCustomerCommissionCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getCustomersJoinArCommissionCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
         $query = ChildCustomerQuery::create(null, $criteria);
-        $query->joinWith('CustomerCommissionCode', $joinBehavior);
+        $query->joinWith('ArCommissionCode', $joinBehavior);
 
         return $this->getCustomers($query, $con);
     }

@@ -3,12 +3,12 @@
 namespace Base;
 
 use \Customer as ChildCustomer;
-use \CustomerCommissionCode as ChildCustomerCommissionCode;
-use \CustomerCommissionCodeQuery as ChildCustomerCommissionCodeQuery;
+use \ArCommissionCode as ChildArCommissionCode;
+use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
 use \CustomerQuery as ChildCustomerQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerCommissionCodeTableMap;
+use Map\ArCommissionCodeTableMap;
 use Map\CustomerTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -30,12 +30,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerCommissionCode implements ActiveRecordInterface
+abstract class ArCommissionCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerCommissionCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArCommissionCodeTableMap';
 
 
     /**
@@ -132,7 +132,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CustomerCommissionCode object.
+     * Initializes internal state of Base\ArCommissionCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -229,9 +229,9 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerCommissionCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerCommissionCode</code>, delegates to
-     * <code>equals(CustomerCommissionCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArCommissionCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArCommissionCode</code>, delegates to
+     * <code>equals(ArCommissionCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -297,7 +297,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerCommissionCode The current object, for fluid interface
+     * @return $this|ArCommissionCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -412,7 +412,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * Set the value of [artbcommcode] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function setArtbcommcode($v)
     {
@@ -422,7 +422,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
         if ($this->artbcommcode !== $v) {
             $this->artbcommcode = $v;
-            $this->modifiedColumns[CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE] = true;
+            $this->modifiedColumns[ArCommissionCodeTableMap::COL_ARTBCOMMCODE] = true;
         }
 
         return $this;
@@ -432,7 +432,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * Set the value of [artbcommdesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function setArtbcommdesc($v)
     {
@@ -442,7 +442,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
         if ($this->artbcommdesc !== $v) {
             $this->artbcommdesc = $v;
-            $this->modifiedColumns[CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC] = true;
+            $this->modifiedColumns[ArCommissionCodeTableMap::COL_ARTBCOMMDESC] = true;
         }
 
         return $this;
@@ -452,7 +452,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -462,7 +462,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerCommissionCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArCommissionCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -472,7 +472,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -482,7 +482,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerCommissionCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArCommissionCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -492,7 +492,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -502,7 +502,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerCommissionCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArCommissionCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -548,19 +548,19 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerCommissionCodeTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerCommissionCodeTableMap::translateFieldName('Artbcommdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCommissionCodeTableMap::translateFieldName('Artbcommdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCommissionCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCommissionCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -570,10 +570,10 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 5; // 5 = CustomerCommissionCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = ArCommissionCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerCommissionCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArCommissionCode'), 0, $e);
         }
     }
 
@@ -615,13 +615,13 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerCommissionCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArCommissionCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -642,8 +642,8 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerCommissionCode::setDeleted()
-     * @see CustomerCommissionCode::isDeleted()
+     * @see ArCommissionCode::setDeleted()
+     * @see ArCommissionCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -652,11 +652,11 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerCommissionCodeQuery::create()
+            $deleteQuery = ChildArCommissionCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -691,7 +691,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -710,7 +710,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerCommissionCodeTableMap::addInstanceToPool($this);
+                ArCommissionCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -787,19 +787,19 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE)) {
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_ARTBCOMMCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCommCode';
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC)) {
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_ARTBCOMMDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCommDesc';
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -867,7 +867,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerCommissionCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCommissionCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -922,11 +922,11 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['CustomerCommissionCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArCommissionCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerCommissionCode'][$this->hashCode()] = true;
-        $keys = CustomerCommissionCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArCommissionCode'][$this->hashCode()] = true;
+        $keys = ArCommissionCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbcommcode(),
             $keys[1] => $this->getArtbcommdesc(),
@@ -969,11 +969,11 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerCommissionCode
+     * @return $this|\ArCommissionCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerCommissionCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCommissionCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -984,7 +984,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerCommissionCode
+     * @return $this|\ArCommissionCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1028,7 +1028,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerCommissionCodeTableMap::getFieldNames($keyType);
+        $keys = ArCommissionCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbcommcode($arr[$keys[0]]);
@@ -1064,7 +1064,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerCommissionCode The current object, for fluid interface
+     * @return $this|\ArCommissionCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1084,22 +1084,22 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerCommissionCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArCommissionCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE)) {
-            $criteria->add(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $this->artbcommcode);
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_ARTBCOMMCODE)) {
+            $criteria->add(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $this->artbcommcode);
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC)) {
-            $criteria->add(CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC, $this->artbcommdesc);
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_ARTBCOMMDESC)) {
+            $criteria->add(ArCommissionCodeTableMap::COL_ARTBCOMMDESC, $this->artbcommdesc);
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerCommissionCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArCommissionCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerCommissionCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArCommissionCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerCommissionCodeTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerCommissionCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArCommissionCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArCommissionCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1117,8 +1117,8 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerCommissionCodeQuery::create();
-        $criteria->add(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $this->artbcommcode);
+        $criteria = ChildArCommissionCodeQuery::create();
+        $criteria->add(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $this->artbcommcode);
 
         return $criteria;
     }
@@ -1180,7 +1180,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerCommissionCode (or compatible) type.
+     * @param      object $copyObj An object of \ArCommissionCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1220,7 +1220,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerCommissionCode Clone of current object.
+     * @return \ArCommissionCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1302,7 +1302,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
      * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildCustomerCommissionCode is new, it will return
+     * If this ChildArCommissionCode is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
@@ -1319,7 +1319,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
                 $this->initCustomers();
             } else {
                 $collCustomers = ChildCustomerQuery::create(null, $criteria)
-                    ->filterByCustomerCommissionCode($this)
+                    ->filterByArCommissionCode($this)
                     ->find($con);
 
                 if (null !== $criteria) {
@@ -1362,7 +1362,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      *
      * @param      Collection $customers A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerCommissionCode The current object (for fluent API support)
+     * @return $this|ChildArCommissionCode The current object (for fluent API support)
      */
     public function setCustomers(Collection $customers, ConnectionInterface $con = null)
     {
@@ -1373,7 +1373,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
         $this->customersScheduledForDeletion = $customersToDelete;
 
         foreach ($customersToDelete as $customerRemoved) {
-            $customerRemoved->setCustomerCommissionCode(null);
+            $customerRemoved->setArCommissionCode(null);
         }
 
         $this->collCustomers = null;
@@ -1414,7 +1414,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
             }
 
             return $query
-                ->filterByCustomerCommissionCode($this)
+                ->filterByArCommissionCode($this)
                 ->count($con);
         }
 
@@ -1426,7 +1426,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      * through the ChildCustomer foreign key attribute.
      *
      * @param  ChildCustomer $l ChildCustomer
-     * @return $this|\CustomerCommissionCode The current object (for fluent API support)
+     * @return $this|\ArCommissionCode The current object (for fluent API support)
      */
     public function addCustomer(ChildCustomer $l)
     {
@@ -1452,12 +1452,12 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     protected function doAddCustomer(ChildCustomer $customer)
     {
         $this->collCustomers[]= $customer;
-        $customer->setCustomerCommissionCode($this);
+        $customer->setArCommissionCode($this);
     }
 
     /**
      * @param  ChildCustomer $customer The ChildCustomer object to remove.
-     * @return $this|ChildCustomerCommissionCode The current object (for fluent API support)
+     * @return $this|ChildArCommissionCode The current object (for fluent API support)
      */
     public function removeCustomer(ChildCustomer $customer)
     {
@@ -1469,7 +1469,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
                 $this->customersScheduledForDeletion->clear();
             }
             $this->customersScheduledForDeletion[]= $customer;
-            $customer->setCustomerCommissionCode(null);
+            $customer->setArCommissionCode(null);
         }
 
         return $this;
@@ -1479,13 +1479,13 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this CustomerCommissionCode is new, it will return
-     * an empty collection; or if this CustomerCommissionCode has previously
+     * Otherwise if this ArCommissionCode is new, it will return
+     * an empty collection; or if this ArCommissionCode has previously
      * been saved, it will retrieve related Customers from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in CustomerCommissionCode.
+     * actually need in ArCommissionCode.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -1548,7 +1548,7 @@ abstract class CustomerCommissionCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerCommissionCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArCommissionCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

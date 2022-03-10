@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerCommissionCode as BaseCustomerCommissionCode;
+use Base\ArCommissionCode as BaseArCommissionCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'ar_cust_comm' table.
  *
  */
-class CustomerCommissionCode extends BaseCustomerCommissionCode {
+class ArCommissionCode extends BaseArCommissionCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

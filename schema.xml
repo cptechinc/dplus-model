@@ -792,7 +792,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_comm" idMethod="native" phpName="CustomerCommissionCode">
+  <table name="ar_cust_comm" idMethod="native" phpName="ArCommissionCode">
     <column name="ArtbCommCode" phpName="Artbcommcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCommDesc" phpName="Artbcommdesc" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>

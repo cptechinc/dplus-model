@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerCommissionCodeQuery as BaseCustomerCommissionCodeQuery;
+use Base\ArCommissionCodeQuery as BaseArCommissionCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -20,6 +20,6 @@ use Dplus\Model\QueryTraits;
  *
  * FindByXXX()
  */
-class CustomerCommissionCodeQuery extends BaseCustomerCommissionCodeQuery {
+class ArCommissionCodeQuery extends BaseArCommissionCodeQuery {
 	use QueryTraits;
 }

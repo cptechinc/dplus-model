@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \CustomerCommissionCode as ChildCustomerCommissionCode;
-use \CustomerCommissionCodeQuery as ChildCustomerCommissionCodeQuery;
+use \ArCommissionCode as ChildArCommissionCode;
+use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerCommissionCodeTableMap;
+use Map\ArCommissionCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -20,95 +20,95 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCustomerCommissionCodeQuery orderByArtbcommcode($order = Criteria::ASC) Order by the ArtbCommCode column
- * @method     ChildCustomerCommissionCodeQuery orderByArtbcommdesc($order = Criteria::ASC) Order by the ArtbCommDesc column
- * @method     ChildCustomerCommissionCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildCustomerCommissionCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildCustomerCommissionCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArCommissionCodeQuery orderByArtbcommcode($order = Criteria::ASC) Order by the ArtbCommCode column
+ * @method     ChildArCommissionCodeQuery orderByArtbcommdesc($order = Criteria::ASC) Order by the ArtbCommDesc column
+ * @method     ChildArCommissionCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArCommissionCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArCommissionCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCustomerCommissionCodeQuery groupByArtbcommcode() Group by the ArtbCommCode column
- * @method     ChildCustomerCommissionCodeQuery groupByArtbcommdesc() Group by the ArtbCommDesc column
- * @method     ChildCustomerCommissionCodeQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildCustomerCommissionCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildCustomerCommissionCodeQuery groupByDummy() Group by the dummy column
+ * @method     ChildArCommissionCodeQuery groupByArtbcommcode() Group by the ArtbCommCode column
+ * @method     ChildArCommissionCodeQuery groupByArtbcommdesc() Group by the ArtbCommDesc column
+ * @method     ChildArCommissionCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArCommissionCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArCommissionCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildCustomerCommissionCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildCustomerCommissionCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildCustomerCommissionCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArCommissionCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArCommissionCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArCommissionCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildCustomerCommissionCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildCustomerCommissionCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildCustomerCommissionCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArCommissionCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArCommissionCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArCommissionCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerCommissionCodeQuery leftJoinCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the Customer relation
- * @method     ChildCustomerCommissionCodeQuery rightJoinCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Customer relation
- * @method     ChildCustomerCommissionCodeQuery innerJoinCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery leftJoinCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery rightJoinCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery innerJoinCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the Customer relation
  *
- * @method     ChildCustomerCommissionCodeQuery joinWithCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery joinWithCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Customer relation
  *
- * @method     ChildCustomerCommissionCodeQuery leftJoinWithCustomer() Adds a LEFT JOIN clause and with to the query using the Customer relation
- * @method     ChildCustomerCommissionCodeQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
- * @method     ChildCustomerCommissionCodeQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery leftJoinWithCustomer() Adds a LEFT JOIN clause and with to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
+ * @method     ChildArCommissionCodeQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
  *
  * @method     \CustomerQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
- * @method     ChildCustomerCommissionCode findOne(ConnectionInterface $con = null) Return the first ChildCustomerCommissionCode matching the query
- * @method     ChildCustomerCommissionCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerCommissionCode matching the query, or a new ChildCustomerCommissionCode object populated from the query conditions when no match is found
+ * @method     ChildArCommissionCode findOne(ConnectionInterface $con = null) Return the first ChildArCommissionCode matching the query
+ * @method     ChildArCommissionCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCommissionCode matching the query, or a new ChildArCommissionCode object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerCommissionCode findOneByArtbcommcode(string $ArtbCommCode) Return the first ChildCustomerCommissionCode filtered by the ArtbCommCode column
- * @method     ChildCustomerCommissionCode findOneByArtbcommdesc(string $ArtbCommDesc) Return the first ChildCustomerCommissionCode filtered by the ArtbCommDesc column
- * @method     ChildCustomerCommissionCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerCommissionCode filtered by the DateUpdtd column
- * @method     ChildCustomerCommissionCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerCommissionCode filtered by the TimeUpdtd column
- * @method     ChildCustomerCommissionCode findOneByDummy(string $dummy) Return the first ChildCustomerCommissionCode filtered by the dummy column *
+ * @method     ChildArCommissionCode findOneByArtbcommcode(string $ArtbCommCode) Return the first ChildArCommissionCode filtered by the ArtbCommCode column
+ * @method     ChildArCommissionCode findOneByArtbcommdesc(string $ArtbCommDesc) Return the first ChildArCommissionCode filtered by the ArtbCommDesc column
+ * @method     ChildArCommissionCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCommissionCode filtered by the DateUpdtd column
+ * @method     ChildArCommissionCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCommissionCode filtered by the TimeUpdtd column
+ * @method     ChildArCommissionCode findOneByDummy(string $dummy) Return the first ChildArCommissionCode filtered by the dummy column *
 
- * @method     ChildCustomerCommissionCode requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerCommissionCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerCommissionCode requireOne(ConnectionInterface $con = null) Return the first ChildCustomerCommissionCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCommissionCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOne(ConnectionInterface $con = null) Return the first ChildArCommissionCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerCommissionCode requireOneByArtbcommcode(string $ArtbCommCode) Return the first ChildCustomerCommissionCode filtered by the ArtbCommCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerCommissionCode requireOneByArtbcommdesc(string $ArtbCommDesc) Return the first ChildCustomerCommissionCode filtered by the ArtbCommDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerCommissionCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerCommissionCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerCommissionCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerCommissionCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerCommissionCode requireOneByDummy(string $dummy) Return the first ChildCustomerCommissionCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOneByArtbcommcode(string $ArtbCommCode) Return the first ChildArCommissionCode filtered by the ArtbCommCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOneByArtbcommdesc(string $ArtbCommDesc) Return the first ChildArCommissionCode filtered by the ArtbCommDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArCommissionCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCommissionCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCommissionCode requireOneByDummy(string $dummy) Return the first ChildArCommissionCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerCommissionCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerCommissionCode objects based on current ModelCriteria
- * @method     ChildCustomerCommissionCode[]|ObjectCollection findByArtbcommcode(string $ArtbCommCode) Return ChildCustomerCommissionCode objects filtered by the ArtbCommCode column
- * @method     ChildCustomerCommissionCode[]|ObjectCollection findByArtbcommdesc(string $ArtbCommDesc) Return ChildCustomerCommissionCode objects filtered by the ArtbCommDesc column
- * @method     ChildCustomerCommissionCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerCommissionCode objects filtered by the DateUpdtd column
- * @method     ChildCustomerCommissionCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerCommissionCode objects filtered by the TimeUpdtd column
- * @method     ChildCustomerCommissionCode[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerCommissionCode objects filtered by the dummy column
- * @method     ChildCustomerCommissionCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCommissionCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCommissionCode objects based on current ModelCriteria
+ * @method     ChildArCommissionCode[]|ObjectCollection findByArtbcommcode(string $ArtbCommCode) Return ChildArCommissionCode objects filtered by the ArtbCommCode column
+ * @method     ChildArCommissionCode[]|ObjectCollection findByArtbcommdesc(string $ArtbCommDesc) Return ChildArCommissionCode objects filtered by the ArtbCommDesc column
+ * @method     ChildArCommissionCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCommissionCode objects filtered by the DateUpdtd column
+ * @method     ChildArCommissionCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCommissionCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCommissionCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCommissionCode objects filtered by the dummy column
+ * @method     ChildArCommissionCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class CustomerCommissionCodeQuery extends ModelCriteria
+abstract class ArCommissionCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\CustomerCommissionCodeQuery object.
+     * Initializes internal state of \Base\ArCommissionCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\CustomerCommissionCode', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArCommissionCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildCustomerCommissionCodeQuery object.
+     * Returns a new ChildArCommissionCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildCustomerCommissionCodeQuery
+     * @return ChildArCommissionCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildCustomerCommissionCodeQuery) {
+        if ($criteria instanceof ChildArCommissionCodeQuery) {
             return $criteria;
         }
-        $query = new ChildCustomerCommissionCodeQuery();
+        $query = new ChildArCommissionCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -131,7 +131,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildCustomerCommissionCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArCommissionCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -140,7 +140,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -153,7 +153,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = CustomerCommissionCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArCommissionCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -170,7 +170,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCustomerCommissionCode A model object, or null if the key is not found
+     * @return ChildArCommissionCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -185,10 +185,10 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCustomerCommissionCode $obj */
-            $obj = new ChildCustomerCommissionCode();
+            /** @var ChildArCommissionCode $obj */
+            $obj = new ChildArCommissionCode();
             $obj->hydrate($row);
-            CustomerCommissionCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArCommissionCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -201,7 +201,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildCustomerCommissionCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArCommissionCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -243,12 +243,12 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -256,12 +256,12 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -276,7 +276,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $artbcommcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcommcode($artbcommcode = null, $comparison = null)
     {
@@ -286,7 +286,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $artbcommcode, $comparison);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $artbcommcode, $comparison);
     }
 
     /**
@@ -301,7 +301,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $artbcommdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcommdesc($artbcommdesc = null, $comparison = null)
     {
@@ -311,7 +311,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMDESC, $artbcommdesc, $comparison);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMDESC, $artbcommdesc, $comparison);
     }
 
     /**
@@ -326,7 +326,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -336,7 +336,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -351,7 +351,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -361,7 +361,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -376,7 +376,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -386,7 +386,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArCommissionCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
@@ -395,13 +395,13 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param \Customer|ObjectCollection $customer the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function filterByCustomer($customer, $comparison = null)
     {
         if ($customer instanceof \Customer) {
             return $this
-                ->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $customer->getArtbcommcode(), $comparison);
+                ->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $customer->getArtbcommcode(), $comparison);
         } elseif ($customer instanceof ObjectCollection) {
             return $this
                 ->useCustomerQuery()
@@ -418,7 +418,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
@@ -465,14 +465,14 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerCommissionCode $customerCommissionCode Object to remove from the list of results
+     * @param   ChildArCommissionCode $customerCommissionCode Object to remove from the list of results
      *
-     * @return $this|ChildCustomerCommissionCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
     public function prune($customerCommissionCode = null)
     {
         if ($customerCommissionCode) {
-            $this->addUsingAlias(CustomerCommissionCodeTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->getArtbcommcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->getArtbcommcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -487,7 +487,7 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -498,8 +498,8 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            CustomerCommissionCodeTableMap::clearInstancePool();
-            CustomerCommissionCodeTableMap::clearRelatedInstancePool();
+            ArCommissionCodeTableMap::clearInstancePool();
+            ArCommissionCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -517,26 +517,26 @@ abstract class CustomerCommissionCodeQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerCommissionCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCommissionCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(CustomerCommissionCodeTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArCommissionCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            CustomerCommissionCodeTableMap::removeInstanceFromPool($criteria);
+            ArCommissionCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            CustomerCommissionCodeTableMap::clearRelatedInstancePool();
+            ArCommissionCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // CustomerCommissionCodeQuery
+} // ArCommissionCodeQuery

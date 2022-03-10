@@ -296,15 +296,15 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildCustomerQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerQuery leftJoinCustomerCommissionCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the CustomerCommissionCode relation
- * @method     ChildCustomerQuery rightJoinCustomerCommissionCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CustomerCommissionCode relation
- * @method     ChildCustomerQuery innerJoinCustomerCommissionCode($relationAlias = null) Adds a INNER JOIN clause to the query using the CustomerCommissionCode relation
+ * @method     ChildCustomerQuery leftJoinArCommissionCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArCommissionCode relation
+ * @method     ChildCustomerQuery rightJoinArCommissionCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArCommissionCode relation
+ * @method     ChildCustomerQuery innerJoinArCommissionCode($relationAlias = null) Adds a INNER JOIN clause to the query using the ArCommissionCode relation
  *
- * @method     ChildCustomerQuery joinWithCustomerCommissionCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CustomerCommissionCode relation
+ * @method     ChildCustomerQuery joinWithArCommissionCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArCommissionCode relation
  *
- * @method     ChildCustomerQuery leftJoinWithCustomerCommissionCode() Adds a LEFT JOIN clause and with to the query using the CustomerCommissionCode relation
- * @method     ChildCustomerQuery rightJoinWithCustomerCommissionCode() Adds a RIGHT JOIN clause and with to the query using the CustomerCommissionCode relation
- * @method     ChildCustomerQuery innerJoinWithCustomerCommissionCode() Adds a INNER JOIN clause and with to the query using the CustomerCommissionCode relation
+ * @method     ChildCustomerQuery leftJoinWithArCommissionCode() Adds a LEFT JOIN clause and with to the query using the ArCommissionCode relation
+ * @method     ChildCustomerQuery rightJoinWithArCommissionCode() Adds a RIGHT JOIN clause and with to the query using the ArCommissionCode relation
+ * @method     ChildCustomerQuery innerJoinWithArCommissionCode() Adds a INNER JOIN clause and with to the query using the ArCommissionCode relation
  *
  * @method     ChildCustomerQuery leftJoinShipvia($relationAlias = null) Adds a LEFT JOIN clause to the query using the Shipvia relation
  * @method     ChildCustomerQuery rightJoinShipvia($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Shipvia relation
@@ -406,7 +406,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \CustomerCommissionCodeQuery|\ShipviaQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -5498,18 +5498,18 @@ abstract class CustomerQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \CustomerCommissionCode object
+     * Filter the query by a related \ArCommissionCode object
      *
-     * @param \CustomerCommissionCode|ObjectCollection $customerCommissionCode The related object(s) to use as filter
+     * @param \ArCommissionCode|ObjectCollection $customerCommissionCode The related object(s) to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return ChildCustomerQuery The current query, for fluid interface
      */
-    public function filterByCustomerCommissionCode($customerCommissionCode, $comparison = null)
+    public function filterByArCommissionCode($customerCommissionCode, $comparison = null)
     {
-        if ($customerCommissionCode instanceof \CustomerCommissionCode) {
+        if ($customerCommissionCode instanceof \ArCommissionCode) {
             return $this
                 ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->getArtbcommcode(), $comparison);
         } elseif ($customerCommissionCode instanceof ObjectCollection) {
@@ -5520,22 +5520,22 @@ abstract class CustomerQuery extends ModelCriteria
             return $this
                 ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->toKeyValue('PrimaryKey', 'Artbcommcode'), $comparison);
         } else {
-            throw new PropelException('filterByCustomerCommissionCode() only accepts arguments of type \CustomerCommissionCode or Collection');
+            throw new PropelException('filterByArCommissionCode() only accepts arguments of type \ArCommissionCode or Collection');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the CustomerCommissionCode relation
+     * Adds a JOIN clause to the query using the ArCommissionCode relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinCustomerCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinArCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('CustomerCommissionCode');
+        $relationMap = $tableMap->getRelation('ArCommissionCode');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -5550,14 +5550,14 @@ abstract class CustomerQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'CustomerCommissionCode');
+            $this->addJoinObject($join, 'ArCommissionCode');
         }
 
         return $this;
     }
 
     /**
-     * Use the CustomerCommissionCode relation CustomerCommissionCode object
+     * Use the ArCommissionCode relation ArCommissionCode object
      *
      * @see useQuery()
      *
@@ -5565,13 +5565,13 @@ abstract class CustomerQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \CustomerCommissionCodeQuery A secondary query class using the current class as primary query
+     * @return \ArCommissionCodeQuery A secondary query class using the current class as primary query
      */
-    public function useCustomerCommissionCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useArCommissionCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
         return $this
-            ->joinCustomerCommissionCode($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CustomerCommissionCode', '\CustomerCommissionCodeQuery');
+            ->joinArCommissionCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArCommissionCode', '\ArCommissionCodeQuery');
     }
 
     /**

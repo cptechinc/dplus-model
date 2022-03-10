@@ -11,8 +11,8 @@ use \BookingDayDetail as ChildBookingDayDetail;
 use \BookingDayDetailQuery as ChildBookingDayDetailQuery;
 use \BookingQuery as ChildBookingQuery;
 use \Customer as ChildCustomer;
-use \CustomerCommissionCode as ChildCustomerCommissionCode;
-use \CustomerCommissionCodeQuery as ChildCustomerCommissionCodeQuery;
+use \ArCommissionCode as ChildArCommissionCode;
+use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
@@ -1025,9 +1025,9 @@ abstract class Customer implements ActiveRecordInterface
     protected $dummy;
 
     /**
-     * @var        ChildCustomerCommissionCode
+     * @var        ChildArCommissionCode
      */
-    protected $aCustomerCommissionCode;
+    protected $aArCommissionCode;
 
     /**
      * @var        ChildShipvia
@@ -3319,8 +3319,8 @@ abstract class Customer implements ActiveRecordInterface
             $this->modifiedColumns[CustomerTableMap::COL_ARTBCOMMCODE] = true;
         }
 
-        if ($this->aCustomerCommissionCode !== null && $this->aCustomerCommissionCode->getArtbcommcode() !== $v) {
-            $this->aCustomerCommissionCode = null;
+        if ($this->aArCommissionCode !== null && $this->aArCommissionCode->getArtbcommcode() !== $v) {
+            $this->aArCommissionCode = null;
         }
 
         return $this;
@@ -5857,8 +5857,8 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->aShipvia !== null && $this->artbshipvia !== $this->aShipvia->getArtbshipvia()) {
             $this->aShipvia = null;
         }
-        if ($this->aCustomerCommissionCode !== null && $this->artbcommcode !== $this->aCustomerCommissionCode->getArtbcommcode()) {
-            $this->aCustomerCommissionCode = null;
+        if ($this->aArCommissionCode !== null && $this->artbcommcode !== $this->aArCommissionCode->getArtbcommcode()) {
+            $this->aArCommissionCode = null;
         }
     } // ensureConsistency
 
@@ -5899,7 +5899,7 @@ abstract class Customer implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
-            $this->aCustomerCommissionCode = null;
+            $this->aArCommissionCode = null;
             $this->aShipvia = null;
             $this->collArInvoices = null;
 
@@ -6027,11 +6027,11 @@ abstract class Customer implements ActiveRecordInterface
             // method.  This object relates to these object(s) by a
             // foreign key reference.
 
-            if ($this->aCustomerCommissionCode !== null) {
-                if ($this->aCustomerCommissionCode->isModified() || $this->aCustomerCommissionCode->isNew()) {
-                    $affectedRows += $this->aCustomerCommissionCode->save($con);
+            if ($this->aArCommissionCode !== null) {
+                if ($this->aArCommissionCode->isModified() || $this->aArCommissionCode->isNew()) {
+                    $affectedRows += $this->aArCommissionCode->save($con);
                 }
-                $this->setCustomerCommissionCode($this->aCustomerCommissionCode);
+                $this->setArCommissionCode($this->aArCommissionCode);
             }
 
             if ($this->aShipvia !== null) {
@@ -7664,7 +7664,7 @@ abstract class Customer implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
-            if (null !== $this->aCustomerCommissionCode) {
+            if (null !== $this->aArCommissionCode) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
@@ -7674,10 +7674,10 @@ abstract class Customer implements ActiveRecordInterface
                         $key = 'ar_cust_comm';
                         break;
                     default:
-                        $key = 'CustomerCommissionCode';
+                        $key = 'ArCommissionCode';
                 }
 
-                $result[$key] = $this->aCustomerCommissionCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+                $result[$key] = $this->aArCommissionCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->aShipvia) {
 
@@ -9436,13 +9436,13 @@ abstract class Customer implements ActiveRecordInterface
     }
 
     /**
-     * Declares an association between this object and a ChildCustomerCommissionCode object.
+     * Declares an association between this object and a ChildArCommissionCode object.
      *
-     * @param  ChildCustomerCommissionCode $v
+     * @param  ChildArCommissionCode $v
      * @return $this|\Customer The current object (for fluent API support)
      * @throws PropelException
      */
-    public function setCustomerCommissionCode(ChildCustomerCommissionCode $v = null)
+    public function setArCommissionCode(ChildArCommissionCode $v = null)
     {
         if ($v === null) {
             $this->setArtbcommcode(NULL);
@@ -9450,10 +9450,10 @@ abstract class Customer implements ActiveRecordInterface
             $this->setArtbcommcode($v->getArtbcommcode());
         }
 
-        $this->aCustomerCommissionCode = $v;
+        $this->aArCommissionCode = $v;
 
         // Add binding for other direction of this n:n relationship.
-        // If this object has already been added to the ChildCustomerCommissionCode object, it will not be re-added.
+        // If this object has already been added to the ChildArCommissionCode object, it will not be re-added.
         if ($v !== null) {
             $v->addCustomer($this);
         }
@@ -9464,26 +9464,26 @@ abstract class Customer implements ActiveRecordInterface
 
 
     /**
-     * Get the associated ChildCustomerCommissionCode object
+     * Get the associated ChildArCommissionCode object
      *
      * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildCustomerCommissionCode The associated ChildCustomerCommissionCode object.
+     * @return ChildArCommissionCode The associated ChildArCommissionCode object.
      * @throws PropelException
      */
-    public function getCustomerCommissionCode(ConnectionInterface $con = null)
+    public function getArCommissionCode(ConnectionInterface $con = null)
     {
-        if ($this->aCustomerCommissionCode === null && (($this->artbcommcode !== "" && $this->artbcommcode !== null))) {
-            $this->aCustomerCommissionCode = ChildCustomerCommissionCodeQuery::create()->findPk($this->artbcommcode, $con);
+        if ($this->aArCommissionCode === null && (($this->artbcommcode !== "" && $this->artbcommcode !== null))) {
+            $this->aArCommissionCode = ChildArCommissionCodeQuery::create()->findPk($this->artbcommcode, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aCustomerCommissionCode->addCustomers($this);
+                $this->aArCommissionCode->addCustomers($this);
              */
         }
 
-        return $this->aCustomerCommissionCode;
+        return $this->aArCommissionCode;
     }
 
     /**
@@ -11883,8 +11883,8 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function clear()
     {
-        if (null !== $this->aCustomerCommissionCode) {
-            $this->aCustomerCommissionCode->removeCustomer($this);
+        if (null !== $this->aArCommissionCode) {
+            $this->aArCommissionCode->removeCustomer($this);
         }
         if (null !== $this->aShipvia) {
             $this->aShipvia->removeCustomer($this);
@@ -12097,7 +12097,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
         $this->collItemPricingDiscounts = null;
-        $this->aCustomerCommissionCode = null;
+        $this->aArCommissionCode = null;
         $this->aShipvia = null;
     }
 

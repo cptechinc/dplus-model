@@ -926,7 +926,7 @@ class CustomerTableMap extends TableMap
      */
     public function buildRelations()
     {
-        $this->addRelation('CustomerCommissionCode', '\\CustomerCommissionCode', RelationMap::MANY_TO_ONE, array (
+        $this->addRelation('ArCommissionCode', '\\ArCommissionCode', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (
     0 => ':ArtbCommCode',
