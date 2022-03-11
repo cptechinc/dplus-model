@@ -1133,7 +1133,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_woff" idMethod="native" phpName="CustomerWriteOffCode">
+  <table name="ar_cust_woff" idMethod="native" phpName="ArWriteOffCode">
     <column name="ArtbWoffCode" phpName="Artbwoffcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbWoffDesc" phpName="Artbwoffdesc" type="VARCHAR" size="20"/>
     <column name="ArtbWoffYn" phpName="Artbwoffyn" type="VARCHAR" size="1"/>

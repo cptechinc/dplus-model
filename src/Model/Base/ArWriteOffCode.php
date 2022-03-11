@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CustomerWriteOffCodeQuery as ChildCustomerWriteOffCodeQuery;
+use \ArWriteOffCodeQuery as ChildArWriteOffCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerWriteOffCodeTableMap;
+use Map\ArWriteOffCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerWriteOffCode implements ActiveRecordInterface
+abstract class ArWriteOffCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerWriteOffCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArWriteOffCodeTableMap';
 
 
     /**
@@ -122,7 +122,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CustomerWriteOffCode object.
+     * Initializes internal state of Base\ArWriteOffCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -219,9 +219,9 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerWriteOffCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerWriteOffCode</code>, delegates to
-     * <code>equals(CustomerWriteOffCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArWriteOffCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArWriteOffCode</code>, delegates to
+     * <code>equals(ArWriteOffCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -287,7 +287,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerWriteOffCode The current object, for fluid interface
+     * @return $this|ArWriteOffCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -412,7 +412,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [artbwoffcode] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setArtbwoffcode($v)
     {
@@ -422,7 +422,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->artbwoffcode !== $v) {
             $this->artbwoffcode = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_ARTBWOFFCODE] = true;
         }
 
         return $this;
@@ -432,7 +432,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [artbwoffdesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setArtbwoffdesc($v)
     {
@@ -442,7 +442,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->artbwoffdesc !== $v) {
             $this->artbwoffdesc = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_ARTBWOFFDESC] = true;
         }
 
         return $this;
@@ -452,7 +452,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [artbwoffyn] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setArtbwoffyn($v)
     {
@@ -462,7 +462,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->artbwoffyn !== $v) {
             $this->artbwoffyn = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_ARTBWOFFYN] = true;
         }
 
         return $this;
@@ -472,7 +472,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -482,7 +482,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -492,7 +492,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -502,7 +502,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -512,7 +512,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerWriteOffCode The current object (for fluent API support)
+     * @return $this|\ArWriteOffCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -522,7 +522,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerWriteOffCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -568,22 +568,22 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Artbwoffcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Artbwoffcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbwoffcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Artbwoffdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Artbwoffdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbwoffdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Artbwoffyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Artbwoffyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbwoffyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerWriteOffCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -593,10 +593,10 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = CustomerWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 6; // 6 = ArWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerWriteOffCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArWriteOffCode'), 0, $e);
         }
     }
 
@@ -638,13 +638,13 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerWriteOffCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArWriteOffCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -663,8 +663,8 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerWriteOffCode::setDeleted()
-     * @see CustomerWriteOffCode::isDeleted()
+     * @see ArWriteOffCode::setDeleted()
+     * @see ArWriteOffCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -673,11 +673,11 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerWriteOffCodeQuery::create()
+            $deleteQuery = ChildArWriteOffCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -712,7 +712,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -731,7 +731,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerWriteOffCodeTableMap::addInstanceToPool($this);
+                ArWriteOffCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -790,22 +790,22 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbWoffCode';
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbWoffDesc';
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbWoffYn';
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -876,7 +876,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerWriteOffCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArWriteOffCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -933,11 +933,11 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CustomerWriteOffCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArWriteOffCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerWriteOffCode'][$this->hashCode()] = true;
-        $keys = CustomerWriteOffCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArWriteOffCode'][$this->hashCode()] = true;
+        $keys = ArWriteOffCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbwoffcode(),
             $keys[1] => $this->getArtbwoffdesc(),
@@ -964,11 +964,11 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerWriteOffCode
+     * @return $this|\ArWriteOffCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerWriteOffCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArWriteOffCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -979,7 +979,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerWriteOffCode
+     * @return $this|\ArWriteOffCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1026,7 +1026,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerWriteOffCodeTableMap::getFieldNames($keyType);
+        $keys = ArWriteOffCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbwoffcode($arr[$keys[0]]);
@@ -1065,7 +1065,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerWriteOffCode The current object, for fluid interface
+     * @return $this|\ArWriteOffCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1085,25 +1085,25 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArWriteOffCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $this->artbwoffcode);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $this->artbwoffcode);
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC, $this->artbwoffdesc);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, $this->artbwoffdesc);
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN, $this->artbwoffyn);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFYN, $this->artbwoffyn);
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerWriteOffCodeTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArWriteOffCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1121,8 +1121,8 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerWriteOffCodeQuery::create();
-        $criteria->add(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $this->artbwoffcode);
+        $criteria = ChildArWriteOffCodeQuery::create();
+        $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $this->artbwoffcode);
 
         return $criteria;
     }
@@ -1184,7 +1184,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerWriteOffCode (or compatible) type.
+     * @param      object $copyObj An object of \ArWriteOffCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1211,7 +1211,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerWriteOffCode Clone of current object.
+     * @return \ArWriteOffCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1267,7 +1267,7 @@ abstract class CustomerWriteOffCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerWriteOffCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArWriteOffCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

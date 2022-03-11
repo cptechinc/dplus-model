@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerWriteOffCode as BaseCustomerWriteOffCode;
+use Base\ArWriteOffCode as BaseArWriteOffCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'ar_cust_woff' table.
  *
  */
-class CustomerWriteOffCode extends BaseCustomerWriteOffCode {
+class ArWriteOffCode extends BaseArWriteOffCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

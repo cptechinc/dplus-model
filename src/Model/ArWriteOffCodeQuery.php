@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerWriteOffCodeQuery as BaseCustomerWriteOffCodeQuery;
+use Base\ArWriteOffCodeQuery as BaseArWriteOffCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -8,6 +8,6 @@ use Dplus\Model\QueryTraits;
  * Class for performing query and update operations on the 'ar_cust_woff' table.
  *
  */
-class CustomerWriteOffCodeQuery extends BaseCustomerWriteOffCodeQuery {
+class ArWriteOffCodeQuery extends BaseArWriteOffCodeQuery {
     use QueryTraits;
 }

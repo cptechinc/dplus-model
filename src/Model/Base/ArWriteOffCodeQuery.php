@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \CustomerWriteOffCode as ChildCustomerWriteOffCode;
-use \CustomerWriteOffCodeQuery as ChildCustomerWriteOffCodeQuery;
+use \ArWriteOffCode as ChildArWriteOffCode;
+use \ArWriteOffCodeQuery as ChildArWriteOffCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerWriteOffCodeTableMap;
+use Map\ArWriteOffCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,88 +19,88 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCustomerWriteOffCodeQuery orderByArtbwoffcode($order = Criteria::ASC) Order by the ArtbWoffCode column
- * @method     ChildCustomerWriteOffCodeQuery orderByArtbwoffdesc($order = Criteria::ASC) Order by the ArtbWoffDesc column
- * @method     ChildCustomerWriteOffCodeQuery orderByArtbwoffyn($order = Criteria::ASC) Order by the ArtbWoffYn column
- * @method     ChildCustomerWriteOffCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildCustomerWriteOffCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildCustomerWriteOffCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArWriteOffCodeQuery orderByArtbwoffcode($order = Criteria::ASC) Order by the ArtbWoffCode column
+ * @method     ChildArWriteOffCodeQuery orderByArtbwoffdesc($order = Criteria::ASC) Order by the ArtbWoffDesc column
+ * @method     ChildArWriteOffCodeQuery orderByArtbwoffyn($order = Criteria::ASC) Order by the ArtbWoffYn column
+ * @method     ChildArWriteOffCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArWriteOffCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArWriteOffCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCustomerWriteOffCodeQuery groupByArtbwoffcode() Group by the ArtbWoffCode column
- * @method     ChildCustomerWriteOffCodeQuery groupByArtbwoffdesc() Group by the ArtbWoffDesc column
- * @method     ChildCustomerWriteOffCodeQuery groupByArtbwoffyn() Group by the ArtbWoffYn column
- * @method     ChildCustomerWriteOffCodeQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildCustomerWriteOffCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildCustomerWriteOffCodeQuery groupByDummy() Group by the dummy column
+ * @method     ChildArWriteOffCodeQuery groupByArtbwoffcode() Group by the ArtbWoffCode column
+ * @method     ChildArWriteOffCodeQuery groupByArtbwoffdesc() Group by the ArtbWoffDesc column
+ * @method     ChildArWriteOffCodeQuery groupByArtbwoffyn() Group by the ArtbWoffYn column
+ * @method     ChildArWriteOffCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArWriteOffCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArWriteOffCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildCustomerWriteOffCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildCustomerWriteOffCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildCustomerWriteOffCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArWriteOffCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArWriteOffCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArWriteOffCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildCustomerWriteOffCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildCustomerWriteOffCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildCustomerWriteOffCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArWriteOffCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArWriteOffCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArWriteOffCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerWriteOffCode findOne(ConnectionInterface $con = null) Return the first ChildCustomerWriteOffCode matching the query
- * @method     ChildCustomerWriteOffCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerWriteOffCode matching the query, or a new ChildCustomerWriteOffCode object populated from the query conditions when no match is found
+ * @method     ChildArWriteOffCode findOne(ConnectionInterface $con = null) Return the first ChildArWriteOffCode matching the query
+ * @method     ChildArWriteOffCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArWriteOffCode matching the query, or a new ChildArWriteOffCode object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerWriteOffCode findOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffCode column
- * @method     ChildCustomerWriteOffCode findOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffDesc column
- * @method     ChildCustomerWriteOffCode findOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffYn column
- * @method     ChildCustomerWriteOffCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerWriteOffCode filtered by the DateUpdtd column
- * @method     ChildCustomerWriteOffCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerWriteOffCode filtered by the TimeUpdtd column
- * @method     ChildCustomerWriteOffCode findOneByDummy(string $dummy) Return the first ChildCustomerWriteOffCode filtered by the dummy column *
+ * @method     ChildArWriteOffCode findOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildArWriteOffCode filtered by the ArtbWoffCode column
+ * @method     ChildArWriteOffCode findOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildArWriteOffCode filtered by the ArtbWoffDesc column
+ * @method     ChildArWriteOffCode findOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildArWriteOffCode filtered by the ArtbWoffYn column
+ * @method     ChildArWriteOffCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArWriteOffCode filtered by the DateUpdtd column
+ * @method     ChildArWriteOffCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArWriteOffCode filtered by the TimeUpdtd column
+ * @method     ChildArWriteOffCode findOneByDummy(string $dummy) Return the first ChildArWriteOffCode filtered by the dummy column *
 
- * @method     ChildCustomerWriteOffCode requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerWriteOffCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOne(ConnectionInterface $con = null) Return the first ChildCustomerWriteOffCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requirePk($key, ConnectionInterface $con = null) Return the ChildArWriteOffCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOne(ConnectionInterface $con = null) Return the first ChildArWriteOffCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerWriteOffCode requireOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildCustomerWriteOffCode filtered by the ArtbWoffYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerWriteOffCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerWriteOffCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerWriteOffCode requireOneByDummy(string $dummy) Return the first ChildCustomerWriteOffCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildArWriteOffCode filtered by the ArtbWoffCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildArWriteOffCode filtered by the ArtbWoffDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildArWriteOffCode filtered by the ArtbWoffYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArWriteOffCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArWriteOffCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArWriteOffCode requireOneByDummy(string $dummy) Return the first ChildArWriteOffCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerWriteOffCode objects based on current ModelCriteria
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByArtbwoffcode(string $ArtbWoffCode) Return ChildCustomerWriteOffCode objects filtered by the ArtbWoffCode column
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByArtbwoffdesc(string $ArtbWoffDesc) Return ChildCustomerWriteOffCode objects filtered by the ArtbWoffDesc column
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByArtbwoffyn(string $ArtbWoffYn) Return ChildCustomerWriteOffCode objects filtered by the ArtbWoffYn column
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerWriteOffCode objects filtered by the DateUpdtd column
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerWriteOffCode objects filtered by the TimeUpdtd column
- * @method     ChildCustomerWriteOffCode[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerWriteOffCode objects filtered by the dummy column
- * @method     ChildCustomerWriteOffCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArWriteOffCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArWriteOffCode objects based on current ModelCriteria
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffcode(string $ArtbWoffCode) Return ChildArWriteOffCode objects filtered by the ArtbWoffCode column
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffdesc(string $ArtbWoffDesc) Return ChildArWriteOffCode objects filtered by the ArtbWoffDesc column
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffyn(string $ArtbWoffYn) Return ChildArWriteOffCode objects filtered by the ArtbWoffYn column
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArWriteOffCode objects filtered by the DateUpdtd column
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArWriteOffCode objects filtered by the TimeUpdtd column
+ * @method     ChildArWriteOffCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArWriteOffCode objects filtered by the dummy column
+ * @method     ChildArWriteOffCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class CustomerWriteOffCodeQuery extends ModelCriteria
+abstract class ArWriteOffCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\CustomerWriteOffCodeQuery object.
+     * Initializes internal state of \Base\ArWriteOffCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\CustomerWriteOffCode', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArWriteOffCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildCustomerWriteOffCodeQuery object.
+     * Returns a new ChildArWriteOffCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildCustomerWriteOffCodeQuery
+     * @return ChildArWriteOffCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildCustomerWriteOffCodeQuery) {
+        if ($criteria instanceof ChildArWriteOffCodeQuery) {
             return $criteria;
         }
-        $query = new ChildCustomerWriteOffCodeQuery();
+        $query = new ChildArWriteOffCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -123,7 +123,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildCustomerWriteOffCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArWriteOffCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -132,7 +132,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -145,7 +145,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = CustomerWriteOffCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArWriteOffCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -162,7 +162,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCustomerWriteOffCode A model object, or null if the key is not found
+     * @return ChildArWriteOffCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -177,10 +177,10 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCustomerWriteOffCode $obj */
-            $obj = new ChildCustomerWriteOffCode();
+            /** @var ChildArWriteOffCode $obj */
+            $obj = new ChildArWriteOffCode();
             $obj->hydrate($row);
-            CustomerWriteOffCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArWriteOffCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -193,7 +193,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildCustomerWriteOffCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArWriteOffCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -235,12 +235,12 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -248,12 +248,12 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -268,7 +268,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $artbwoffcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByArtbwoffcode($artbwoffcode = null, $comparison = null)
     {
@@ -278,7 +278,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $artbwoffcode, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $artbwoffcode, $comparison);
     }
 
     /**
@@ -293,7 +293,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $artbwoffdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByArtbwoffdesc($artbwoffdesc = null, $comparison = null)
     {
@@ -303,7 +303,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC, $artbwoffdesc, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, $artbwoffdesc, $comparison);
     }
 
     /**
@@ -318,7 +318,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $artbwoffyn The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByArtbwoffyn($artbwoffyn = null, $comparison = null)
     {
@@ -328,7 +328,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN, $artbwoffyn, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFYN, $artbwoffyn, $comparison);
     }
 
     /**
@@ -343,7 +343,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -353,7 +353,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -368,7 +368,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -378,7 +378,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -393,7 +393,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -403,20 +403,20 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerWriteOffCode $customerWriteOffCode Object to remove from the list of results
+     * @param   ChildArWriteOffCode $customerWriteOffCode Object to remove from the list of results
      *
-     * @return $this|ChildCustomerWriteOffCodeQuery The current query, for fluid interface
+     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
     public function prune($customerWriteOffCode = null)
     {
         if ($customerWriteOffCode) {
-            $this->addUsingAlias(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, $customerWriteOffCode->getArtbwoffcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $customerWriteOffCode->getArtbwoffcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -431,7 +431,7 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -442,8 +442,8 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            CustomerWriteOffCodeTableMap::clearInstancePool();
-            CustomerWriteOffCodeTableMap::clearRelatedInstancePool();
+            ArWriteOffCodeTableMap::clearInstancePool();
+            ArWriteOffCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -461,26 +461,26 @@ abstract class CustomerWriteOffCodeQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArWriteOffCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            CustomerWriteOffCodeTableMap::removeInstanceFromPool($criteria);
+            ArWriteOffCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            CustomerWriteOffCodeTableMap::clearRelatedInstancePool();
+            ArWriteOffCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // CustomerWriteOffCodeQuery
+} // ArWriteOffCodeQuery

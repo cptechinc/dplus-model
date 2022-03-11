@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerWriteOffCode;
-use \CustomerWriteOffCodeQuery;
+use \ArWriteOffCode;
+use \ArWriteOffCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerWriteOffCodeTableMap extends TableMap
+class ArWriteOffCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerWriteOffCodeTableMap';
+    const CLASS_NAME = '.Map.ArWriteOffCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerWriteOffCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerWriteOffCode';
+    const OM_CLASS = '\\ArWriteOffCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerWriteOffCode';
+    const CLASS_DEFAULT = 'ArWriteOffCode';
 
     /**
      * The total number of columns
@@ -115,7 +115,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbwoffcode', 'Artbwoffdesc', 'Artbwoffyn', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbwoffcode', 'artbwoffdesc', 'artbwoffyn', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC, CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN, CustomerWriteOffCodeTableMap::COL_DATEUPDTD, CustomerWriteOffCodeTableMap::COL_TIMEUPDTD, CustomerWriteOffCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, ArWriteOffCodeTableMap::COL_ARTBWOFFYN, ArWriteOffCodeTableMap::COL_DATEUPDTD, ArWriteOffCodeTableMap::COL_TIMEUPDTD, ArWriteOffCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbWoffCode', 'ArtbWoffDesc', 'ArtbWoffYn', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
     );
@@ -129,7 +129,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbwoffcode' => 0, 'Artbwoffdesc' => 1, 'Artbwoffyn' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
         self::TYPE_CAMELNAME     => array('artbwoffcode' => 0, 'artbwoffdesc' => 1, 'artbwoffyn' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE => 0, CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC => 1, CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN => 2, CustomerWriteOffCodeTableMap::COL_DATEUPDTD => 3, CustomerWriteOffCodeTableMap::COL_TIMEUPDTD => 4, CustomerWriteOffCodeTableMap::COL_DUMMY => 5, ),
+        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE => 0, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC => 1, ArWriteOffCodeTableMap::COL_ARTBWOFFYN => 2, ArWriteOffCodeTableMap::COL_DATEUPDTD => 3, ArWriteOffCodeTableMap::COL_TIMEUPDTD => 4, ArWriteOffCodeTableMap::COL_DUMMY => 5, ),
         self::TYPE_FIELDNAME     => array('ArtbWoffCode' => 0, 'ArtbWoffDesc' => 1, 'ArtbWoffYn' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
     );
@@ -145,9 +145,9 @@ class CustomerWriteOffCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_woff');
-        $this->setPhpName('CustomerWriteOffCode');
+        $this->setPhpName('ArWriteOffCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerWriteOffCode');
+        $this->setClassName('\\ArWriteOffCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -223,7 +223,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerWriteOffCodeTableMap::CLASS_DEFAULT : CustomerWriteOffCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArWriteOffCodeTableMap::CLASS_DEFAULT : ArWriteOffCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -237,22 +237,22 @@ class CustomerWriteOffCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerWriteOffCode object, last column rank)
+     * @return array           (ArWriteOffCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerWriteOffCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerWriteOffCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArWriteOffCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArWriteOffCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerWriteOffCodeTableMap::OM_CLASS;
-            /** @var CustomerWriteOffCode $obj */
+            $cls = ArWriteOffCodeTableMap::OM_CLASS;
+            /** @var ArWriteOffCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerWriteOffCodeTableMap::addInstanceToPool($obj, $key);
+            ArWriteOffCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -275,18 +275,18 @@ class CustomerWriteOffCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerWriteOffCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerWriteOffCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArWriteOffCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArWriteOffCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerWriteOffCode $obj */
+                /** @var ArWriteOffCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerWriteOffCodeTableMap::addInstanceToPool($obj, $key);
+                ArWriteOffCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -307,12 +307,12 @@ class CustomerWriteOffCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE);
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_ARTBWOFFDESC);
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_ARTBWOFFYN);
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerWriteOffCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFYN);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbWoffCode');
             $criteria->addSelectColumn($alias . '.ArtbWoffDesc');
@@ -332,7 +332,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerWriteOffCodeTableMap::DATABASE_NAME)->getTable(CustomerWriteOffCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArWriteOffCodeTableMap::DATABASE_NAME)->getTable(ArWriteOffCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -340,16 +340,16 @@ class CustomerWriteOffCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerWriteOffCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerWriteOffCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerWriteOffCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArWriteOffCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArWriteOffCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArWriteOffCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerWriteOffCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArWriteOffCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerWriteOffCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArWriteOffCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -360,27 +360,27 @@ class CustomerWriteOffCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerWriteOffCode) { // it's a model object
+        } elseif ($values instanceof \ArWriteOffCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerWriteOffCodeTableMap::DATABASE_NAME);
-            $criteria->add(CustomerWriteOffCodeTableMap::COL_ARTBWOFFCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArWriteOffCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, (array) $values, Criteria::IN);
         }
 
-        $query = CustomerWriteOffCodeQuery::create()->mergeWith($criteria);
+        $query = ArWriteOffCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerWriteOffCodeTableMap::clearInstancePool();
+            ArWriteOffCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerWriteOffCodeTableMap::removeInstanceFromPool($singleval);
+                ArWriteOffCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -395,13 +395,13 @@ class CustomerWriteOffCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerWriteOffCodeQuery::create()->doDeleteAll($con);
+        return ArWriteOffCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerWriteOffCode or Criteria object.
+     * Performs an INSERT on the database, given a ArWriteOffCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerWriteOffCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArWriteOffCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -410,18 +410,18 @@ class CustomerWriteOffCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerWriteOffCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArWriteOffCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerWriteOffCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArWriteOffCode object
         }
 
 
         // Set the correct dbName
-        $query = CustomerWriteOffCodeQuery::create()->mergeWith($criteria);
+        $query = ArWriteOffCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -430,7 +430,7 @@ class CustomerWriteOffCodeTableMap extends TableMap
         });
     }
 
-} // CustomerWriteOffCodeTableMap
+} // ArWriteOffCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerWriteOffCodeTableMap::buildTableMap();
+ArWriteOffCodeTableMap::buildTableMap();
