@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CreditCardDigitGet;
-use \CreditCardDigitGetQuery;
+use \ArCreditCardCode;
+use \ArCreditCardCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CreditCardDigitGetTableMap extends TableMap
+class ArCreditCardCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CreditCardDigitGetTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CreditCardDigitGetTableMap';
+    const CLASS_NAME = '.Map.ArCreditCardCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CreditCardDigitGetTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CreditCardDigitGet';
+    const OM_CLASS = '\\ArCreditCardCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CreditCardDigitGet';
+    const CLASS_DEFAULT = 'ArCreditCardCode';
 
     /**
      * The total number of columns
@@ -145,7 +145,7 @@ class CreditCardDigitGetTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbcrcdcode', 'Artbcrcdname', 'Artbcrcdglacct', 'Artbcrcdcustid', 'Artbcrcdchrgglacct', 'Artbcrcdchrgrate', 'Artbcrcdchrgtrancost', 'Artbcrcdccsurchgpct', 'Artbcrcdlmccsurchgpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbcrcdcode', 'artbcrcdname', 'artbcrcdglacct', 'artbcrcdcustid', 'artbcrcdchrgglacct', 'artbcrcdchrgrate', 'artbcrcdchrgtrancost', 'artbcrcdccsurchgpct', 'artbcrcdlmccsurchgpct', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, CreditCardDigitGetTableMap::COL_ARTBCRCDNAME, CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT, CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST, CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT, CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT, CreditCardDigitGetTableMap::COL_DATEUPDTD, CreditCardDigitGetTableMap::COL_TIMEUPDTD, CreditCardDigitGetTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, ArCreditCardCodeTableMap::COL_DATEUPDTD, ArCreditCardCodeTableMap::COL_TIMEUPDTD, ArCreditCardCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbCrcdCode', 'ArtbCrcdName', 'ArtbCrcdGlAcct', 'ArtbCrcdCustId', 'ArtbCrcdChrgGlAcct', 'ArtbCrcdChrgRate', 'ArtbCrcdChrgTranCost', 'ArtbCrcdCcSurchgPct', 'ArtbCrcdLmCcSurchgPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -159,7 +159,7 @@ class CreditCardDigitGetTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbcrcdcode' => 0, 'Artbcrcdname' => 1, 'Artbcrcdglacct' => 2, 'Artbcrcdcustid' => 3, 'Artbcrcdchrgglacct' => 4, 'Artbcrcdchrgrate' => 5, 'Artbcrcdchrgtrancost' => 6, 'Artbcrcdccsurchgpct' => 7, 'Artbcrcdlmccsurchgpct' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
         self::TYPE_CAMELNAME     => array('artbcrcdcode' => 0, 'artbcrcdname' => 1, 'artbcrcdglacct' => 2, 'artbcrcdcustid' => 3, 'artbcrcdchrgglacct' => 4, 'artbcrcdchrgrate' => 5, 'artbcrcdchrgtrancost' => 6, 'artbcrcdccsurchgpct' => 7, 'artbcrcdlmccsurchgpct' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE => 0, CreditCardDigitGetTableMap::COL_ARTBCRCDNAME => 1, CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT => 2, CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID => 3, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT => 4, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE => 5, CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST => 6, CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT => 7, CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT => 8, CreditCardDigitGetTableMap::COL_DATEUPDTD => 9, CreditCardDigitGetTableMap::COL_TIMEUPDTD => 10, CreditCardDigitGetTableMap::COL_DUMMY => 11, ),
+        self::TYPE_COLNAME       => array(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE => 0, ArCreditCardCodeTableMap::COL_ARTBCRCDNAME => 1, ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT => 2, ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID => 3, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT => 4, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE => 5, ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST => 6, ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT => 7, ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT => 8, ArCreditCardCodeTableMap::COL_DATEUPDTD => 9, ArCreditCardCodeTableMap::COL_TIMEUPDTD => 10, ArCreditCardCodeTableMap::COL_DUMMY => 11, ),
         self::TYPE_FIELDNAME     => array('ArtbCrcdCode' => 0, 'ArtbCrcdName' => 1, 'ArtbCrcdGlAcct' => 2, 'ArtbCrcdCustId' => 3, 'ArtbCrcdChrgGlAcct' => 4, 'ArtbCrcdChrgRate' => 5, 'ArtbCrcdChrgTranCost' => 6, 'ArtbCrcdCcSurchgPct' => 7, 'ArtbCrcdLmCcSurchgPct' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -175,9 +175,9 @@ class CreditCardDigitGetTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_crcd');
-        $this->setPhpName('CreditCardDigitGet');
+        $this->setPhpName('ArCreditCardCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CreditCardDigitGet');
+        $this->setClassName('\\ArCreditCardCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -259,7 +259,7 @@ class CreditCardDigitGetTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CreditCardDigitGetTableMap::CLASS_DEFAULT : CreditCardDigitGetTableMap::OM_CLASS;
+        return $withPrefix ? ArCreditCardCodeTableMap::CLASS_DEFAULT : ArCreditCardCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -273,22 +273,22 @@ class CreditCardDigitGetTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CreditCardDigitGet object, last column rank)
+     * @return array           (ArCreditCardCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CreditCardDigitGetTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CreditCardDigitGetTableMap::getInstanceFromPool($key))) {
+        $key = ArCreditCardCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArCreditCardCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CreditCardDigitGetTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArCreditCardCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CreditCardDigitGetTableMap::OM_CLASS;
-            /** @var CreditCardDigitGet $obj */
+            $cls = ArCreditCardCodeTableMap::OM_CLASS;
+            /** @var ArCreditCardCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CreditCardDigitGetTableMap::addInstanceToPool($obj, $key);
+            ArCreditCardCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -311,18 +311,18 @@ class CreditCardDigitGetTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CreditCardDigitGetTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CreditCardDigitGetTableMap::getInstanceFromPool($key))) {
+            $key = ArCreditCardCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArCreditCardCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CreditCardDigitGet $obj */
+                /** @var ArCreditCardCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CreditCardDigitGetTableMap::addInstanceToPool($obj, $key);
+                ArCreditCardCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -343,18 +343,18 @@ class CreditCardDigitGetTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDNAME);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CreditCardDigitGetTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArCreditCardCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbCrcdCode');
             $criteria->addSelectColumn($alias . '.ArtbCrcdName');
@@ -380,7 +380,7 @@ class CreditCardDigitGetTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CreditCardDigitGetTableMap::DATABASE_NAME)->getTable(CreditCardDigitGetTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArCreditCardCodeTableMap::DATABASE_NAME)->getTable(ArCreditCardCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -388,16 +388,16 @@ class CreditCardDigitGetTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CreditCardDigitGetTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CreditCardDigitGetTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CreditCardDigitGetTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArCreditCardCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArCreditCardCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArCreditCardCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CreditCardDigitGet or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArCreditCardCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CreditCardDigitGet object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArCreditCardCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -408,27 +408,27 @@ class CreditCardDigitGetTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CreditCardDigitGet) { // it's a model object
+        } elseif ($values instanceof \ArCreditCardCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CreditCardDigitGetTableMap::DATABASE_NAME);
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArCreditCardCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, (array) $values, Criteria::IN);
         }
 
-        $query = CreditCardDigitGetQuery::create()->mergeWith($criteria);
+        $query = ArCreditCardCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CreditCardDigitGetTableMap::clearInstancePool();
+            ArCreditCardCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CreditCardDigitGetTableMap::removeInstanceFromPool($singleval);
+                ArCreditCardCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -443,13 +443,13 @@ class CreditCardDigitGetTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CreditCardDigitGetQuery::create()->doDeleteAll($con);
+        return ArCreditCardCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CreditCardDigitGet or Criteria object.
+     * Performs an INSERT on the database, given a ArCreditCardCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CreditCardDigitGet object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArCreditCardCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -458,18 +458,18 @@ class CreditCardDigitGetTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CreditCardDigitGet object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArCreditCardCode object
         }
 
 
         // Set the correct dbName
-        $query = CreditCardDigitGetQuery::create()->mergeWith($criteria);
+        $query = ArCreditCardCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -478,7 +478,7 @@ class CreditCardDigitGetTableMap extends TableMap
         });
     }
 
-} // CreditCardDigitGetTableMap
+} // ArCreditCardCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CreditCardDigitGetTableMap::buildTableMap();
+ArCreditCardCodeTableMap::buildTableMap();

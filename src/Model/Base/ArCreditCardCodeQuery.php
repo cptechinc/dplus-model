@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \CreditCardDigitGet as ChildCreditCardDigitGet;
-use \CreditCardDigitGetQuery as ChildCreditCardDigitGetQuery;
+use \ArCreditCardCode as ChildArCreditCardCode;
+use \ArCreditCardCodeQuery as ChildArCreditCardCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CreditCardDigitGetTableMap;
+use Map\ArCreditCardCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,118 +19,118 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdcode($order = Criteria::ASC) Order by the ArtbCrcdCode column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdname($order = Criteria::ASC) Order by the ArtbCrcdName column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdglacct($order = Criteria::ASC) Order by the ArtbCrcdGlAcct column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdcustid($order = Criteria::ASC) Order by the ArtbCrcdCustId column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdchrgglacct($order = Criteria::ASC) Order by the ArtbCrcdChrgGlAcct column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdchrgrate($order = Criteria::ASC) Order by the ArtbCrcdChrgRate column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdchrgtrancost($order = Criteria::ASC) Order by the ArtbCrcdChrgTranCost column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdccsurchgpct($order = Criteria::ASC) Order by the ArtbCrcdCcSurchgPct column
- * @method     ChildCreditCardDigitGetQuery orderByArtbcrcdlmccsurchgpct($order = Criteria::ASC) Order by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildCreditCardDigitGetQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildCreditCardDigitGetQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildCreditCardDigitGetQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdcode($order = Criteria::ASC) Order by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdname($order = Criteria::ASC) Order by the ArtbCrcdName column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdglacct($order = Criteria::ASC) Order by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdcustid($order = Criteria::ASC) Order by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdchrgglacct($order = Criteria::ASC) Order by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdchrgrate($order = Criteria::ASC) Order by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdchrgtrancost($order = Criteria::ASC) Order by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdccsurchgpct($order = Criteria::ASC) Order by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCodeQuery orderByArtbcrcdlmccsurchgpct($order = Criteria::ASC) Order by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArCreditCardCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArCreditCardCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdcode() Group by the ArtbCrcdCode column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdname() Group by the ArtbCrcdName column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdglacct() Group by the ArtbCrcdGlAcct column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdcustid() Group by the ArtbCrcdCustId column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdchrgglacct() Group by the ArtbCrcdChrgGlAcct column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdchrgrate() Group by the ArtbCrcdChrgRate column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdchrgtrancost() Group by the ArtbCrcdChrgTranCost column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdccsurchgpct() Group by the ArtbCrcdCcSurchgPct column
- * @method     ChildCreditCardDigitGetQuery groupByArtbcrcdlmccsurchgpct() Group by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildCreditCardDigitGetQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildCreditCardDigitGetQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildCreditCardDigitGetQuery groupByDummy() Group by the dummy column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdcode() Group by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdname() Group by the ArtbCrcdName column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdglacct() Group by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdcustid() Group by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdchrgglacct() Group by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdchrgrate() Group by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdchrgtrancost() Group by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdccsurchgpct() Group by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCodeQuery groupByArtbcrcdlmccsurchgpct() Group by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArCreditCardCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArCreditCardCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildCreditCardDigitGetQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildCreditCardDigitGetQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildCreditCardDigitGetQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArCreditCardCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArCreditCardCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArCreditCardCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildCreditCardDigitGetQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildCreditCardDigitGetQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildCreditCardDigitGetQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArCreditCardCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArCreditCardCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArCreditCardCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCreditCardDigitGet findOne(ConnectionInterface $con = null) Return the first ChildCreditCardDigitGet matching the query
- * @method     ChildCreditCardDigitGet findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCreditCardDigitGet matching the query, or a new ChildCreditCardDigitGet object populated from the query conditions when no match is found
+ * @method     ChildArCreditCardCode findOne(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query
+ * @method     ChildArCreditCardCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query, or a new ChildArCreditCardCode object populated from the query conditions when no match is found
  *
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCode column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdName column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdGlAcct column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCustId column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgGlAcct column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgRate column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgTranCost column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCcSurchgPct column
- * @method     ChildCreditCardDigitGet findOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildCreditCardDigitGet findOneByDateupdtd(string $DateUpdtd) Return the first ChildCreditCardDigitGet filtered by the DateUpdtd column
- * @method     ChildCreditCardDigitGet findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCreditCardDigitGet filtered by the TimeUpdtd column
- * @method     ChildCreditCardDigitGet findOneByDummy(string $dummy) Return the first ChildCreditCardDigitGet filtered by the dummy column *
+ * @method     ChildArCreditCardCode findOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildArCreditCardCode filtered by the ArtbCrcdName column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCode findOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCreditCardCode filtered by the DateUpdtd column
+ * @method     ChildArCreditCardCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCreditCardCode filtered by the TimeUpdtd column
+ * @method     ChildArCreditCardCode findOneByDummy(string $dummy) Return the first ChildArCreditCardCode filtered by the dummy column *
 
- * @method     ChildCreditCardDigitGet requirePk($key, ConnectionInterface $con = null) Return the ChildCreditCardDigitGet by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOne(ConnectionInterface $con = null) Return the first ChildCreditCardDigitGet matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCreditCardCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOne(ConnectionInterface $con = null) Return the first ChildArCreditCardCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgRate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdChrgTranCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdCcSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildCreditCardDigitGet filtered by the ArtbCrcdLmCcSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCreditCardDigitGet filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCreditCardDigitGet filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCreditCardDigitGet requireOneByDummy(string $dummy) Return the first ChildCreditCardDigitGet filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdcode(string $ArtbCrcdCode) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdname(string $ArtbCrcdName) Return the first ChildArCreditCardCode filtered by the ArtbCrcdName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdcustid(string $ArtbCrcdCustId) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgGlAcct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgRate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return the first ChildArCreditCardCode filtered by the ArtbCrcdChrgTranCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdCcSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return the first ChildArCreditCardCode filtered by the ArtbCrcdLmCcSurchgPct column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArCreditCardCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCreditCardCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCreditCardCode requireOneByDummy(string $dummy) Return the first ChildArCreditCardCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCreditCardDigitGet[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCreditCardDigitGet objects based on current ModelCriteria
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdcode(string $ArtbCrcdCode) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdCode column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdname(string $ArtbCrcdName) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdName column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdGlAcct column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdcustid(string $ArtbCrcdCustId) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdCustId column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdChrgGlAcct column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdChrgRate column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdChrgTranCost column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdCcSurchgPct column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return ChildCreditCardDigitGet objects filtered by the ArtbCrcdLmCcSurchgPct column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCreditCardDigitGet objects filtered by the DateUpdtd column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCreditCardDigitGet objects filtered by the TimeUpdtd column
- * @method     ChildCreditCardDigitGet[]|ObjectCollection findByDummy(string $dummy) Return ChildCreditCardDigitGet objects filtered by the dummy column
- * @method     ChildCreditCardDigitGet[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCreditCardCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCreditCardCode objects based on current ModelCriteria
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdcode(string $ArtbCrcdCode) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCode column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdname(string $ArtbCrcdName) Return ChildArCreditCardCode objects filtered by the ArtbCrcdName column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdglacct(string $ArtbCrcdGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdGlAcct column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdcustid(string $ArtbCrcdCustId) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCustId column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgglacct(string $ArtbCrcdChrgGlAcct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgGlAcct column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgrate(string $ArtbCrcdChrgRate) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgRate column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdchrgtrancost(string $ArtbCrcdChrgTranCost) Return ChildArCreditCardCode objects filtered by the ArtbCrcdChrgTranCost column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdccsurchgpct(string $ArtbCrcdCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdCcSurchgPct column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByArtbcrcdlmccsurchgpct(string $ArtbCrcdLmCcSurchgPct) Return ChildArCreditCardCode objects filtered by the ArtbCrcdLmCcSurchgPct column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCreditCardCode objects filtered by the DateUpdtd column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCreditCardCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCreditCardCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCreditCardCode objects filtered by the dummy column
+ * @method     ChildArCreditCardCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class CreditCardDigitGetQuery extends ModelCriteria
+abstract class ArCreditCardCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\CreditCardDigitGetQuery object.
+     * Initializes internal state of \Base\ArCreditCardCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\CreditCardDigitGet', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArCreditCardCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildCreditCardDigitGetQuery object.
+     * Returns a new ChildArCreditCardCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildCreditCardDigitGetQuery
+     * @return ChildArCreditCardCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildCreditCardDigitGetQuery) {
+        if ($criteria instanceof ChildArCreditCardCodeQuery) {
             return $criteria;
         }
-        $query = new ChildCreditCardDigitGetQuery();
+        $query = new ChildArCreditCardCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -153,7 +153,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildCreditCardDigitGet|array|mixed the result, formatted by the current formatter
+     * @return ChildArCreditCardCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -162,7 +162,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -175,7 +175,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = CreditCardDigitGetTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArCreditCardCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -192,7 +192,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCreditCardDigitGet A model object, or null if the key is not found
+     * @return ChildArCreditCardCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -207,10 +207,10 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCreditCardDigitGet $obj */
-            $obj = new ChildCreditCardDigitGet();
+            /** @var ChildArCreditCardCode $obj */
+            $obj = new ChildArCreditCardCode();
             $obj->hydrate($row);
-            CreditCardDigitGetTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArCreditCardCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -223,7 +223,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildCreditCardDigitGet|array|mixed the result, formatted by the current formatter
+     * @return ChildArCreditCardCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -265,12 +265,12 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -278,12 +278,12 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -298,7 +298,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $artbcrcdcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdcode($artbcrcdcode = null, $comparison = null)
     {
@@ -308,7 +308,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $artbcrcdcode, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $artbcrcdcode, $comparison);
     }
 
     /**
@@ -323,7 +323,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $artbcrcdname The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdname($artbcrcdname = null, $comparison = null)
     {
@@ -333,7 +333,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDNAME, $artbcrcdname, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, $artbcrcdname, $comparison);
     }
 
     /**
@@ -348,7 +348,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $artbcrcdglacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdglacct($artbcrcdglacct = null, $comparison = null)
     {
@@ -358,7 +358,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT, $artbcrcdglacct, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, $artbcrcdglacct, $comparison);
     }
 
     /**
@@ -373,7 +373,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $artbcrcdcustid The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdcustid($artbcrcdcustid = null, $comparison = null)
     {
@@ -383,7 +383,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID, $artbcrcdcustid, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, $artbcrcdcustid, $comparison);
     }
 
     /**
@@ -398,7 +398,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $artbcrcdchrgglacct The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdchrgglacct($artbcrcdchrgglacct = null, $comparison = null)
     {
@@ -408,7 +408,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT, $artbcrcdchrgglacct, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, $artbcrcdchrgglacct, $comparison);
     }
 
     /**
@@ -427,18 +427,18 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdchrgrate($artbcrcdchrgrate = null, $comparison = null)
     {
         if (is_array($artbcrcdchrgrate)) {
             $useMinMax = false;
             if (isset($artbcrcdchrgrate['min'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($artbcrcdchrgrate['max'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -449,7 +449,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $artbcrcdchrgrate, $comparison);
     }
 
     /**
@@ -468,18 +468,18 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdchrgtrancost($artbcrcdchrgtrancost = null, $comparison = null)
     {
         if (is_array($artbcrcdchrgtrancost)) {
             $useMinMax = false;
             if (isset($artbcrcdchrgtrancost['min'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($artbcrcdchrgtrancost['max'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -490,7 +490,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $artbcrcdchrgtrancost, $comparison);
     }
 
     /**
@@ -509,18 +509,18 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdccsurchgpct($artbcrcdccsurchgpct = null, $comparison = null)
     {
         if (is_array($artbcrcdccsurchgpct)) {
             $useMinMax = false;
             if (isset($artbcrcdccsurchgpct['min'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($artbcrcdccsurchgpct['max'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -531,7 +531,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $artbcrcdccsurchgpct, $comparison);
     }
 
     /**
@@ -550,18 +550,18 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcrcdlmccsurchgpct($artbcrcdlmccsurchgpct = null, $comparison = null)
     {
         if (is_array($artbcrcdlmccsurchgpct)) {
             $useMinMax = false;
             if (isset($artbcrcdlmccsurchgpct['min'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct['min'], Criteria::GREATER_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
             if (isset($artbcrcdlmccsurchgpct['max'])) {
-                $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct['max'], Criteria::LESS_EQUAL);
+                $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -572,7 +572,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $artbcrcdlmccsurchgpct, $comparison);
     }
 
     /**
@@ -587,7 +587,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -597,7 +597,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -612,7 +612,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -622,7 +622,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -637,7 +637,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -647,20 +647,20 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CreditCardDigitGetTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArCreditCardCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCreditCardDigitGet $creditCardDigitGet Object to remove from the list of results
+     * @param   ChildArCreditCardCode $creditCardDigitGet Object to remove from the list of results
      *
-     * @return $this|ChildCreditCardDigitGetQuery The current query, for fluid interface
+     * @return $this|ChildArCreditCardCodeQuery The current query, for fluid interface
      */
     public function prune($creditCardDigitGet = null)
     {
         if ($creditCardDigitGet) {
-            $this->addUsingAlias(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $creditCardDigitGet->getArtbcrcdcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $creditCardDigitGet->getArtbcrcdcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -675,7 +675,7 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -686,8 +686,8 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            CreditCardDigitGetTableMap::clearInstancePool();
-            CreditCardDigitGetTableMap::clearRelatedInstancePool();
+            ArCreditCardCodeTableMap::clearInstancePool();
+            ArCreditCardCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -705,26 +705,26 @@ abstract class CreditCardDigitGetQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(CreditCardDigitGetTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArCreditCardCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            CreditCardDigitGetTableMap::removeInstanceFromPool($criteria);
+            ArCreditCardCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            CreditCardDigitGetTableMap::clearRelatedInstancePool();
+            ArCreditCardCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // CreditCardDigitGetQuery
+} // ArCreditCardCodeQuery

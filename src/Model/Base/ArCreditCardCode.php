@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CreditCardDigitGetQuery as ChildCreditCardDigitGetQuery;
+use \ArCreditCardCodeQuery as ChildArCreditCardCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CreditCardDigitGetTableMap;
+use Map\ArCreditCardCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CreditCardDigitGet implements ActiveRecordInterface
+abstract class ArCreditCardCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CreditCardDigitGetTableMap';
+    const TABLE_MAP = '\\Map\\ArCreditCardCodeTableMap';
 
 
     /**
@@ -164,7 +164,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CreditCardDigitGet object.
+     * Initializes internal state of Base\ArCreditCardCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -261,9 +261,9 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CreditCardDigitGet</code> instance.  If
-     * <code>obj</code> is an instance of <code>CreditCardDigitGet</code>, delegates to
-     * <code>equals(CreditCardDigitGet)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArCreditCardCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArCreditCardCode</code>, delegates to
+     * <code>equals(ArCreditCardCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -329,7 +329,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CreditCardDigitGet The current object, for fluid interface
+     * @return $this|ArCreditCardCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -514,7 +514,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdcode] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdcode($v)
     {
@@ -524,7 +524,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdcode !== $v) {
             $this->artbcrcdcode = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCODE] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCODE] = true;
         }
 
         return $this;
@@ -534,7 +534,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdname] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdname($v)
     {
@@ -544,7 +544,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdname !== $v) {
             $this->artbcrcdname = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDNAME] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDNAME] = true;
         }
 
         return $this;
@@ -554,7 +554,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdglacct] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdglacct($v)
     {
@@ -564,7 +564,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdglacct !== $v) {
             $this->artbcrcdglacct = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT] = true;
         }
 
         return $this;
@@ -574,7 +574,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdcustid] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdcustid($v)
     {
@@ -584,7 +584,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdcustid !== $v) {
             $this->artbcrcdcustid = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID] = true;
         }
 
         return $this;
@@ -594,7 +594,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdchrgglacct] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdchrgglacct($v)
     {
@@ -604,7 +604,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdchrgglacct !== $v) {
             $this->artbcrcdchrgglacct = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT] = true;
         }
 
         return $this;
@@ -614,7 +614,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdchrgrate] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdchrgrate($v)
     {
@@ -624,7 +624,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdchrgrate !== $v) {
             $this->artbcrcdchrgrate = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE] = true;
         }
 
         return $this;
@@ -634,7 +634,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdchrgtrancost] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdchrgtrancost($v)
     {
@@ -644,7 +644,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdchrgtrancost !== $v) {
             $this->artbcrcdchrgtrancost = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST] = true;
         }
 
         return $this;
@@ -654,7 +654,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdccsurchgpct] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdccsurchgpct($v)
     {
@@ -664,7 +664,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdccsurchgpct !== $v) {
             $this->artbcrcdccsurchgpct = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT] = true;
         }
 
         return $this;
@@ -674,7 +674,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [artbcrcdlmccsurchgpct] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setArtbcrcdlmccsurchgpct($v)
     {
@@ -684,7 +684,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->artbcrcdlmccsurchgpct !== $v) {
             $this->artbcrcdlmccsurchgpct = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT] = true;
         }
 
         return $this;
@@ -694,7 +694,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -704,7 +704,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -714,7 +714,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -724,7 +724,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -734,7 +734,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CreditCardDigitGet The current object (for fluent API support)
+     * @return $this|\ArCreditCardCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -744,7 +744,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CreditCardDigitGetTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArCreditCardCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -790,40 +790,40 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdchrgglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdchrgglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdchrgglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdchrgrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdchrgrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdchrgrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdchrgtrancost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdchrgtrancost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdchrgtrancost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdccsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdccsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdccsurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Artbcrcdlmccsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Artbcrcdlmccsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcrcdlmccsurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CreditCardDigitGetTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCreditCardCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -833,10 +833,10 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 12; // 12 = CreditCardDigitGetTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 12; // 12 = ArCreditCardCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CreditCardDigitGet'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArCreditCardCode'), 0, $e);
         }
     }
 
@@ -878,13 +878,13 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCreditCardDigitGetQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArCreditCardCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -903,8 +903,8 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CreditCardDigitGet::setDeleted()
-     * @see CreditCardDigitGet::isDeleted()
+     * @see ArCreditCardCode::setDeleted()
+     * @see ArCreditCardCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -913,11 +913,11 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCreditCardDigitGetQuery::create()
+            $deleteQuery = ChildArCreditCardCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -952,7 +952,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CreditCardDigitGetTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCreditCardCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -971,7 +971,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CreditCardDigitGetTableMap::addInstanceToPool($this);
+                ArCreditCardCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1030,40 +1030,40 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdCode';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDNAME)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdName';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdGlAcct';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdCustId';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdChrgGlAcct';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdChrgRate';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdChrgTranCost';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdCcSurchgPct';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCrcdLmCcSurchgPct';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1152,7 +1152,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CreditCardDigitGetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCreditCardCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1227,11 +1227,11 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CreditCardDigitGet'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArCreditCardCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CreditCardDigitGet'][$this->hashCode()] = true;
-        $keys = CreditCardDigitGetTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArCreditCardCode'][$this->hashCode()] = true;
+        $keys = ArCreditCardCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbcrcdcode(),
             $keys[1] => $this->getArtbcrcdname(),
@@ -1264,11 +1264,11 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CreditCardDigitGet
+     * @return $this|\ArCreditCardCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CreditCardDigitGetTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCreditCardCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1279,7 +1279,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CreditCardDigitGet
+     * @return $this|\ArCreditCardCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1344,7 +1344,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CreditCardDigitGetTableMap::getFieldNames($keyType);
+        $keys = ArCreditCardCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbcrcdcode($arr[$keys[0]]);
@@ -1401,7 +1401,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CreditCardDigitGet The current object, for fluid interface
+     * @return $this|\ArCreditCardCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1421,43 +1421,43 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CreditCardDigitGetTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArCreditCardCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $this->artbcrcdcode);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $this->artbcrcdcode);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDNAME)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDNAME, $this->artbcrcdname);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDNAME, $this->artbcrcdname);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDGLACCT, $this->artbcrcdglacct);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDGLACCT, $this->artbcrcdglacct);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCUSTID, $this->artbcrcdcustid);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCUSTID, $this->artbcrcdcustid);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGGLACCT, $this->artbcrcdchrgglacct);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGGLACCT, $this->artbcrcdchrgglacct);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGRATE, $this->artbcrcdchrgrate);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGRATE, $this->artbcrcdchrgrate);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCHRGTRANCOST, $this->artbcrcdchrgtrancost);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCHRGTRANCOST, $this->artbcrcdchrgtrancost);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCCSURCHGPCT, $this->artbcrcdccsurchgpct);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCCSURCHGPCT, $this->artbcrcdccsurchgpct);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $this->artbcrcdlmccsurchgpct);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDLMCCSURCHGPCT, $this->artbcrcdlmccsurchgpct);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CreditCardDigitGetTableMap::COL_DUMMY)) {
-            $criteria->add(CreditCardDigitGetTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArCreditCardCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArCreditCardCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1475,8 +1475,8 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCreditCardDigitGetQuery::create();
-        $criteria->add(CreditCardDigitGetTableMap::COL_ARTBCRCDCODE, $this->artbcrcdcode);
+        $criteria = ChildArCreditCardCodeQuery::create();
+        $criteria->add(ArCreditCardCodeTableMap::COL_ARTBCRCDCODE, $this->artbcrcdcode);
 
         return $criteria;
     }
@@ -1538,7 +1538,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CreditCardDigitGet (or compatible) type.
+     * @param      object $copyObj An object of \ArCreditCardCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1571,7 +1571,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CreditCardDigitGet Clone of current object.
+     * @return \ArCreditCardCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1633,7 +1633,7 @@ abstract class CreditCardDigitGet implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CreditCardDigitGetTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArCreditCardCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

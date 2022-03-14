@@ -1,6 +1,6 @@
 <?php
 
-use Base\CreditCardDigitGetQuery as BaseCreditCardDigitGetQuery;
+use Base\ArCreditCardCodeQuery as BaseArCreditCardCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  *
  * FindOneByXXX()
- * @method  CreditCardDigitGet findOneByCode(string $code)      Return the first artbcrcdcode filtered by the artbcrcdcode column
+ * @method  ArCreditCardCode findOneByCode(string $code)      Return the first artbcrcdcode filtered by the artbcrcdcode column
  *
  * FindByXXX()
  *
  *
  */
-class CreditCardDigitGetQuery extends BaseCreditCardDigitGetQuery {
+class ArCreditCardCodeQuery extends BaseArCreditCardCodeQuery {
 	use QueryTraits;
 }
