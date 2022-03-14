@@ -25,7 +25,7 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class ArStandardIndustrialClassimplements ActiveRecordInterface
+abstract class ArStandardIndustrialClass implements ActiveRecordInterface
 {
     /**
      * TableMap class name

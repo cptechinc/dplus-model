@@ -58,7 +58,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Base\\ArRouteCode' => __DIR__ . '/../..' . '/src/Model/Base/ArRouteCode.php',
         'Base\\ArRouteCodeQuery' => __DIR__ . '/../..' . '/src/Model/Base/ArRouteCodeQuery.php',
         'Base\\ArStandardIndustrialClassQuery' => __DIR__ . '/../..' . '/src/Model/Base/ArStandardIndustrialClassQuery.php',
-        'Base\\ArStandardIndustrialClassimplements' => __DIR__ . '/../..' . '/src/Model/Base/ArStandardIndustrialClass.php',
+        'Base\\ArStandardIndustrialClass implements' => __DIR__ . '/../..' . '/src/Model/Base/ArStandardIndustrialClass.php',
         'Base\\ArTermsCode' => __DIR__ . '/../..' . '/src/Model/Base/ArTermsCode.php',
         'Base\\ArTermsCodeQuery' => __DIR__ . '/../..' . '/src/Model/Base/ArTermsCodeQuery.php',
         'Base\\ArWriteOffCode' => __DIR__ . '/../..' . '/src/Model/Base/ArWriteOffCode.php',

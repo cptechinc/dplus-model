@@ -57,7 +57,7 @@ return array(
     'Base\\ArRouteCode' => $baseDir . '/src/Model/Base/ArRouteCode.php',
     'Base\\ArRouteCodeQuery' => $baseDir . '/src/Model/Base/ArRouteCodeQuery.php',
     'Base\\ArStandardIndustrialClassQuery' => $baseDir . '/src/Model/Base/ArStandardIndustrialClassQuery.php',
-    'Base\\ArStandardIndustrialClassimplements' => $baseDir . '/src/Model/Base/ArStandardIndustrialClass.php',
+    'Base\\ArStandardIndustrialClass implements' => $baseDir . '/src/Model/Base/ArStandardIndustrialClass.php',
     'Base\\ArTermsCode' => $baseDir . '/src/Model/Base/ArTermsCode.php',
     'Base\\ArTermsCodeQuery' => $baseDir . '/src/Model/Base/ArTermsCodeQuery.php',
     'Base\\ArWriteOffCode' => $baseDir . '/src/Model/Base/ArWriteOffCode.php',
