@@ -13,6 +13,7 @@ class ArPriceCode extends BaseArPriceCode {
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 4;
+	const YN_TRUE = 'Y';
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -24,6 +25,7 @@ class ArPriceCode extends BaseArPriceCode {
 		'description'  => 'artbpricdesc',
 		'surcharge'    => 'artbpricusesurchg',
 		'percentage'   => 'artbpricsurchgpct',
+		'percent'      => 'artbpricsurchgpct',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
@@ -34,5 +36,14 @@ class ArPriceCode extends BaseArPriceCode {
 	 */
 	public function get_max_length_code() {
 		return self::MAX_LENGTH_CODE;
+	}
+
+	/**
+	 * Return if this Price Code is a Surcharge
+	 *
+	 * @return bool
+	 */
+	public function isSurcharge() {
+		return $this->surcharge == self::YN_TRUE;
 	}
 }
