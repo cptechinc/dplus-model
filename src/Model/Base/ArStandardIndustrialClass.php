@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \ArStandardIndustryClassQuery as ChildArStandardIndustryClassQuery;
+use \ArStandardIndustrialClassQuery as ChildArStandardIndustrialClassQuery;
 use \Exception;
 use \PDO;
-use Map\ArStandardIndustryClassTableMap;
+use Map\ArStandardIndustrialClassTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class ArStandardIndustryClassimplements ActiveRecordInterface
+abstract class ArStandardIndustrialClassimplements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\ArStandardIndustryClassTableMap';
+    const TABLE_MAP = '\\Map\\ArStandardIndustrialClassTableMap';
 
 
     /**
@@ -115,7 +115,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\ArStandardIndustryClassobject.
+     * Initializes internal state of Base\ArStandardIndustrialClassobject.
      * @see applyDefaults()
      */
     public function __construct()
@@ -212,9 +212,9 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>ArStandardIndustryClass</code> instance.  If
-     * <code>obj</code> is an instance of <code>ArStandardIndustryClass</code>, delegates to
-     * <code>equals(ArStandardIndustryClass)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArStandardIndustrialClass</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArStandardIndustrialClass</code>, delegates to
+     * <code>equals(ArStandardIndustrialClass)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -280,7 +280,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|ArStandardIndustryClassThe current object, for fluid interface
+     * @return $this|ArStandardIndustrialClassThe current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -395,7 +395,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * Set the value of [artbsiccode] column.
      *
      * @param string $v new value
-     * @return $this|\ArStandardIndustryClassThe current object (for fluent API support)
+     * @return $this|\ArStandardIndustrialClassThe current object (for fluent API support)
      */
     public function setArtbsiccode($v)
     {
@@ -405,7 +405,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
         if ($this->artbsiccode !== $v) {
             $this->artbsiccode = $v;
-            $this->modifiedColumns[ArStandardIndustryClassTableMap::COL_ARTBSICCODE] = true;
+            $this->modifiedColumns[ArStandardIndustrialClassTableMap::COL_ARTBSICCODE] = true;
         }
 
         return $this;
@@ -415,7 +415,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * Set the value of [artbsicdesc] column.
      *
      * @param string $v new value
-     * @return $this|\ArStandardIndustryClassThe current object (for fluent API support)
+     * @return $this|\ArStandardIndustrialClassThe current object (for fluent API support)
      */
     public function setArtbsicdesc($v)
     {
@@ -425,7 +425,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
         if ($this->artbsicdesc !== $v) {
             $this->artbsicdesc = $v;
-            $this->modifiedColumns[ArStandardIndustryClassTableMap::COL_ARTBSICDESC] = true;
+            $this->modifiedColumns[ArStandardIndustrialClassTableMap::COL_ARTBSICDESC] = true;
         }
 
         return $this;
@@ -435,7 +435,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ArStandardIndustryClassThe current object (for fluent API support)
+     * @return $this|\ArStandardIndustrialClassThe current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -445,7 +445,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[ArStandardIndustryClassTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArStandardIndustrialClassTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -455,7 +455,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ArStandardIndustryClassThe current object (for fluent API support)
+     * @return $this|\ArStandardIndustrialClassThe current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -465,7 +465,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[ArStandardIndustryClassTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArStandardIndustrialClassTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -475,7 +475,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\ArStandardIndustryClassThe current object (for fluent API support)
+     * @return $this|\ArStandardIndustrialClassThe current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -485,7 +485,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[ArStandardIndustryClassTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArStandardIndustrialClassTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -531,19 +531,19 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArStandardIndustryClassTableMap::translateFieldName('Artbsiccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArStandardIndustrialClassTableMap::translateFieldName('Artbsiccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsiccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArStandardIndustryClassTableMap::translateFieldName('Artbsicdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArStandardIndustrialClassTableMap::translateFieldName('Artbsicdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsicdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArStandardIndustryClassTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArStandardIndustrialClassTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArStandardIndustryClassTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArStandardIndustrialClassTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArStandardIndustryClassTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArStandardIndustrialClassTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -553,10 +553,10 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 5; // 5 = ArStandardIndustryClassTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = ArStandardIndustrialClassTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\ArStandardIndustryClass'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArStandardIndustrialClass'), 0, $e);
         }
     }
 
@@ -598,13 +598,13 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildArStandardIndustryClassQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArStandardIndustrialClassQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -623,8 +623,8 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see ArStandardIndustryClass::setDeleted()
-     * @see ArStandardIndustryClass::isDeleted()
+     * @see ArStandardIndustrialClass::setDeleted()
+     * @see ArStandardIndustrialClass::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -633,11 +633,11 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildArStandardIndustryClassQuery::create()
+            $deleteQuery = ChildArStandardIndustrialClassQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -672,7 +672,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -691,7 +691,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                ArStandardIndustryClassTableMap::addInstanceToPool($this);
+                ArStandardIndustrialClassTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -750,19 +750,19 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_ARTBSICCODE)) {
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbSicCode';
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_ARTBSICDESC)) {
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_ARTBSICDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbSicDesc';
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -830,7 +830,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ArStandardIndustryClassTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArStandardIndustrialClassTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -884,11 +884,11 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['ArStandardIndustryClass'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArStandardIndustrialClass'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['ArStandardIndustryClass'][$this->hashCode()] = true;
-        $keys = ArStandardIndustryClassTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArStandardIndustrialClass'][$this->hashCode()] = true;
+        $keys = ArStandardIndustrialClassTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbsiccode(),
             $keys[1] => $this->getArtbsicdesc(),
@@ -914,11 +914,11 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ArStandardIndustryClass
+     * @return $this|\ArStandardIndustrialClass
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ArStandardIndustryClassTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArStandardIndustrialClassTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -929,7 +929,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\ArStandardIndustryClass
+     * @return $this|\ArStandardIndustrialClass
      */
     public function setByPosition($pos, $value)
     {
@@ -973,7 +973,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = ArStandardIndustryClassTableMap::getFieldNames($keyType);
+        $keys = ArStandardIndustrialClassTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbsiccode($arr[$keys[0]]);
@@ -1009,7 +1009,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ArStandardIndustryClassThe current object, for fluid interface
+     * @return $this|\ArStandardIndustrialClassThe current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1029,22 +1029,22 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(ArStandardIndustryClassTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArStandardIndustrialClassTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_ARTBSICCODE)) {
-            $criteria->add(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $this->artbsiccode);
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE)) {
+            $criteria->add(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $this->artbsiccode);
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_ARTBSICDESC)) {
-            $criteria->add(ArStandardIndustryClassTableMap::COL_ARTBSICDESC, $this->artbsicdesc);
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_ARTBSICDESC)) {
+            $criteria->add(ArStandardIndustrialClassTableMap::COL_ARTBSICDESC, $this->artbsicdesc);
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_DATEUPDTD)) {
-            $criteria->add(ArStandardIndustryClassTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArStandardIndustrialClassTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(ArStandardIndustryClassTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArStandardIndustrialClassTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(ArStandardIndustryClassTableMap::COL_DUMMY)) {
-            $criteria->add(ArStandardIndustryClassTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArStandardIndustrialClassTableMap::COL_DUMMY)) {
+            $criteria->add(ArStandardIndustrialClassTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1062,8 +1062,8 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildArStandardIndustryClassQuery::create();
-        $criteria->add(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $this->artbsiccode);
+        $criteria = ChildArStandardIndustrialClassQuery::create();
+        $criteria->add(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $this->artbsiccode);
 
         return $criteria;
     }
@@ -1125,7 +1125,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ArStandardIndustryClass(or compatible) type.
+     * @param      object $copyObj An object of \ArStandardIndustrialClass(or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1151,7 +1151,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \ArStandardIndustryClassClone of current object.
+     * @return \ArStandardIndustrialClassClone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1206,7 +1206,7 @@ abstract class ArStandardIndustryClassimplements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ArStandardIndustryClassTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArStandardIndustrialClassTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

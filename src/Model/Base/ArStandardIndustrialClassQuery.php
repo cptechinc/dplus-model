@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \ArStandardIndustryClassas ChildArStandardIndustryClass;
-use \ArStandardIndustryClassQuery as ChildArStandardIndustryClassQuery;
+use \ArStandardIndustrialClassas ChildArStandardIndustrialClass;
+use \ArStandardIndustrialClassQuery as ChildArStandardIndustrialClassQuery;
 use \Exception;
 use \PDO;
-use Map\ArStandardIndustryClassTableMap;
+use Map\ArStandardIndustrialClassTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,83 +19,83 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildArStandardIndustryClassQuery orderByArtbsiccode($order = Criteria::ASC) Order by the ArtbSicCode column
- * @method     ChildArStandardIndustryClassQuery orderByArtbsicdesc($order = Criteria::ASC) Order by the ArtbSicDesc column
- * @method     ChildArStandardIndustryClassQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildArStandardIndustryClassQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildArStandardIndustryClassQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArStandardIndustrialClassQuery orderByArtbsiccode($order = Criteria::ASC) Order by the ArtbSicCode column
+ * @method     ChildArStandardIndustrialClassQuery orderByArtbsicdesc($order = Criteria::ASC) Order by the ArtbSicDesc column
+ * @method     ChildArStandardIndustrialClassQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArStandardIndustrialClassQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArStandardIndustrialClassQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildArStandardIndustryClassQuery groupByArtbsiccode() Group by the ArtbSicCode column
- * @method     ChildArStandardIndustryClassQuery groupByArtbsicdesc() Group by the ArtbSicDesc column
- * @method     ChildArStandardIndustryClassQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildArStandardIndustryClassQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildArStandardIndustryClassQuery groupByDummy() Group by the dummy column
+ * @method     ChildArStandardIndustrialClassQuery groupByArtbsiccode() Group by the ArtbSicCode column
+ * @method     ChildArStandardIndustrialClassQuery groupByArtbsicdesc() Group by the ArtbSicDesc column
+ * @method     ChildArStandardIndustrialClassQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArStandardIndustrialClassQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArStandardIndustrialClassQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildArStandardIndustryClassQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildArStandardIndustryClassQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildArStandardIndustryClassQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArStandardIndustrialClassQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArStandardIndustrialClassQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArStandardIndustrialClassQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildArStandardIndustryClassQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildArStandardIndustryClassQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildArStandardIndustryClassQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArStandardIndustrialClassQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArStandardIndustrialClassQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArStandardIndustrialClassQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildArStandardIndustryClassfindOne(ConnectionInterface $con = null) Return the first ChildArStandardIndustryClassmatching the query
- * @method     ChildArStandardIndustryClassfindOneOrCreate(ConnectionInterface $con = null) Return the first ChildArStandardIndustryClassmatching the query, or a new ChildArStandardIndustryClassobject populated from the query conditions when no match is found
+ * @method     ChildArStandardIndustrialClassfindOne(ConnectionInterface $con = null) Return the first ChildArStandardIndustrialClassmatching the query
+ * @method     ChildArStandardIndustrialClassfindOneOrCreate(ConnectionInterface $con = null) Return the first ChildArStandardIndustrialClassmatching the query, or a new ChildArStandardIndustrialClassobject populated from the query conditions when no match is found
  *
- * @method     ChildArStandardIndustryClassfindOneByArtbsiccode(string $ArtbSicCode) Return the first ChildArStandardIndustryClassfiltered by the ArtbSicCode column
- * @method     ChildArStandardIndustryClassfindOneByArtbsicdesc(string $ArtbSicDesc) Return the first ChildArStandardIndustryClassfiltered by the ArtbSicDesc column
- * @method     ChildArStandardIndustryClassfindOneByDateupdtd(string $DateUpdtd) Return the first ChildArStandardIndustryClassfiltered by the DateUpdtd column
- * @method     ChildArStandardIndustryClassfindOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArStandardIndustryClassfiltered by the TimeUpdtd column
- * @method     ChildArStandardIndustryClassfindOneByDummy(string $dummy) Return the first ChildArStandardIndustryClassfiltered by the dummy column *
+ * @method     ChildArStandardIndustrialClassfindOneByArtbsiccode(string $ArtbSicCode) Return the first ChildArStandardIndustrialClassfiltered by the ArtbSicCode column
+ * @method     ChildArStandardIndustrialClassfindOneByArtbsicdesc(string $ArtbSicDesc) Return the first ChildArStandardIndustrialClassfiltered by the ArtbSicDesc column
+ * @method     ChildArStandardIndustrialClassfindOneByDateupdtd(string $DateUpdtd) Return the first ChildArStandardIndustrialClassfiltered by the DateUpdtd column
+ * @method     ChildArStandardIndustrialClassfindOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArStandardIndustrialClassfiltered by the TimeUpdtd column
+ * @method     ChildArStandardIndustrialClassfindOneByDummy(string $dummy) Return the first ChildArStandardIndustrialClassfiltered by the dummy column *
 
- * @method     ChildArStandardIndustryClassrequirePk($key, ConnectionInterface $con = null) Return the ChildArStandardIndustryClassby primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArStandardIndustryClassrequireOne(ConnectionInterface $con = null) Return the first ChildArStandardIndustryClassmatching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequirePk($key, ConnectionInterface $con = null) Return the ChildArStandardIndustrialClassby primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOne(ConnectionInterface $con = null) Return the first ChildArStandardIndustrialClassmatching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArStandardIndustryClassrequireOneByArtbsiccode(string $ArtbSicCode) Return the first ChildArStandardIndustryClassfiltered by the ArtbSicCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArStandardIndustryClassrequireOneByArtbsicdesc(string $ArtbSicDesc) Return the first ChildArStandardIndustryClassfiltered by the ArtbSicDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArStandardIndustryClassrequireOneByDateupdtd(string $DateUpdtd) Return the first ChildArStandardIndustryClassfiltered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArStandardIndustryClassrequireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArStandardIndustryClassfiltered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArStandardIndustryClassrequireOneByDummy(string $dummy) Return the first ChildArStandardIndustryClassfiltered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOneByArtbsiccode(string $ArtbSicCode) Return the first ChildArStandardIndustrialClassfiltered by the ArtbSicCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOneByArtbsicdesc(string $ArtbSicDesc) Return the first ChildArStandardIndustrialClassfiltered by the ArtbSicDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOneByDateupdtd(string $DateUpdtd) Return the first ChildArStandardIndustrialClassfiltered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArStandardIndustrialClassfiltered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArStandardIndustrialClassrequireOneByDummy(string $dummy) Return the first ChildArStandardIndustrialClassfiltered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildArStandardIndustryClass[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArStandardIndustryClassobjects based on current ModelCriteria
- * @method     ChildArStandardIndustryClass[]|ObjectCollection findByArtbsiccode(string $ArtbSicCode) Return ChildArStandardIndustryClassobjects filtered by the ArtbSicCode column
- * @method     ChildArStandardIndustryClass[]|ObjectCollection findByArtbsicdesc(string $ArtbSicDesc) Return ChildArStandardIndustryClassobjects filtered by the ArtbSicDesc column
- * @method     ChildArStandardIndustryClass[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArStandardIndustryClassobjects filtered by the DateUpdtd column
- * @method     ChildArStandardIndustryClass[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArStandardIndustryClassobjects filtered by the TimeUpdtd column
- * @method     ChildArStandardIndustryClass[]|ObjectCollection findByDummy(string $dummy) Return ChildArStandardIndustryClassobjects filtered by the dummy column
- * @method     ChildArStandardIndustryClass[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArStandardIndustrialClassobjects based on current ModelCriteria
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection findByArtbsiccode(string $ArtbSicCode) Return ChildArStandardIndustrialClassobjects filtered by the ArtbSicCode column
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection findByArtbsicdesc(string $ArtbSicDesc) Return ChildArStandardIndustrialClassobjects filtered by the ArtbSicDesc column
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArStandardIndustrialClassobjects filtered by the DateUpdtd column
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArStandardIndustrialClassobjects filtered by the TimeUpdtd column
+ * @method     ChildArStandardIndustrialClass[]|ObjectCollection findByDummy(string $dummy) Return ChildArStandardIndustrialClassobjects filtered by the dummy column
+ * @method     ChildArStandardIndustrialClass[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class ArStandardIndustryClassQuery extends ModelCriteria
+abstract class ArStandardIndustrialClassQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\ArStandardIndustryClassQuery object.
+     * Initializes internal state of \Base\ArStandardIndustrialClassQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\ArStandardIndustryClass', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArStandardIndustrialClass', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildArStandardIndustryClassQuery object.
+     * Returns a new ChildArStandardIndustrialClassQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildArStandardIndustryClassQuery
+     * @return ChildArStandardIndustrialClassQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildArStandardIndustryClassQuery) {
+        if ($criteria instanceof ChildArStandardIndustrialClassQuery) {
             return $criteria;
         }
-        $query = new ChildArStandardIndustryClassQuery();
+        $query = new ChildArStandardIndustrialClassQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -118,7 +118,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildArStandardIndustryClass|array|mixed the result, formatted by the current formatter
+     * @return ChildArStandardIndustrialClass|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -127,7 +127,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -140,7 +140,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = ArStandardIndustryClassTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArStandardIndustrialClassTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -157,7 +157,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildArStandardIndustryClassA model object, or null if the key is not found
+     * @return ChildArStandardIndustrialClassA model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -172,10 +172,10 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildArStandardIndustryClass$obj */
-            $obj = new ChildArStandardIndustryClass();
+            /** @var ChildArStandardIndustrialClass$obj */
+            $obj = new ChildArStandardIndustrialClass();
             $obj->hydrate($row);
-            ArStandardIndustryClassTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArStandardIndustrialClassTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -188,7 +188,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildArStandardIndustryClass|array|mixed the result, formatted by the current formatter
+     * @return ChildArStandardIndustrialClass|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -230,12 +230,12 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -243,12 +243,12 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -263,7 +263,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     string $artbsiccode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByArtbsiccode($artbsiccode = null, $comparison = null)
     {
@@ -273,7 +273,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $artbsiccode, $comparison);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $artbsiccode, $comparison);
     }
 
     /**
@@ -288,7 +288,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     string $artbsicdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByArtbsicdesc($artbsicdesc = null, $comparison = null)
     {
@@ -298,7 +298,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_ARTBSICDESC, $artbsicdesc, $comparison);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_ARTBSICDESC, $artbsicdesc, $comparison);
     }
 
     /**
@@ -313,7 +313,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -373,20 +373,20 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildArStandardIndustryClass$standardIndustClass Object to remove from the list of results
+     * @param   ChildArStandardIndustrialClass$standardIndustClass Object to remove from the list of results
      *
-     * @return $this|ChildArStandardIndustryClassQuery The current query, for fluid interface
+     * @return $this|ChildArStandardIndustrialClassQuery The current query, for fluid interface
      */
     public function prune($standardIndustClass = null)
     {
         if ($standardIndustClass) {
-            $this->addUsingAlias(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, $standardIndustClass->getArtbsiccode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArStandardIndustrialClassTableMap::COL_ARTBSICCODE, $standardIndustClass->getArtbsiccode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -401,7 +401,7 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -412,8 +412,8 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            ArStandardIndustryClassTableMap::clearInstancePool();
-            ArStandardIndustryClassTableMap::clearRelatedInstancePool();
+            ArStandardIndustrialClassTableMap::clearInstancePool();
+            ArStandardIndustrialClassTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -431,26 +431,26 @@ abstract class ArStandardIndustryClassQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustrialClassTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(ArStandardIndustryClassTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArStandardIndustrialClassTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            ArStandardIndustryClassTableMap::removeInstanceFromPool($criteria);
+            ArStandardIndustrialClassTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            ArStandardIndustryClassTableMap::clearRelatedInstancePool();
+            ArStandardIndustrialClassTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // ArStandardIndustryClassQuery
+} // ArStandardIndustrialClassQuery
