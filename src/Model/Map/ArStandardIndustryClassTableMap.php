@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \StandardIndustClass;
-use \StandardIndustClassQuery;
+use \ArStandardIndustryClass;
+use \ArStandardIndustryClassQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class StandardIndustClassTableMap extends TableMap
+class ArStandardIndustryClassTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class StandardIndustClassTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.StandardIndustClassTableMap';
+    const CLASS_NAME = '.Map.ArStandardIndustryClassTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class StandardIndustClassTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\StandardIndustClass';
+    const OM_CLASS = '\\ArStandardIndustryClass';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'StandardIndustClass';
+    const CLASS_DEFAULT = 'ArStandardIndustryClass';
 
     /**
      * The total number of columns
@@ -110,7 +110,7 @@ class StandardIndustClassTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbsiccode', 'Artbsicdesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbsiccode', 'artbsicdesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(StandardIndustClassTableMap::COL_ARTBSICCODE, StandardIndustClassTableMap::COL_ARTBSICDESC, StandardIndustClassTableMap::COL_DATEUPDTD, StandardIndustClassTableMap::COL_TIMEUPDTD, StandardIndustClassTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, ArStandardIndustryClassTableMap::COL_ARTBSICDESC, ArStandardIndustryClassTableMap::COL_DATEUPDTD, ArStandardIndustryClassTableMap::COL_TIMEUPDTD, ArStandardIndustryClassTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbSicCode', 'ArtbSicDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -124,7 +124,7 @@ class StandardIndustClassTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbsiccode' => 0, 'Artbsicdesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
         self::TYPE_CAMELNAME     => array('artbsiccode' => 0, 'artbsicdesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(StandardIndustClassTableMap::COL_ARTBSICCODE => 0, StandardIndustClassTableMap::COL_ARTBSICDESC => 1, StandardIndustClassTableMap::COL_DATEUPDTD => 2, StandardIndustClassTableMap::COL_TIMEUPDTD => 3, StandardIndustClassTableMap::COL_DUMMY => 4, ),
+        self::TYPE_COLNAME       => array(ArStandardIndustryClassTableMap::COL_ARTBSICCODE => 0, ArStandardIndustryClassTableMap::COL_ARTBSICDESC => 1, ArStandardIndustryClassTableMap::COL_DATEUPDTD => 2, ArStandardIndustryClassTableMap::COL_TIMEUPDTD => 3, ArStandardIndustryClassTableMap::COL_DUMMY => 4, ),
         self::TYPE_FIELDNAME     => array('ArtbSicCode' => 0, 'ArtbSicDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -140,9 +140,9 @@ class StandardIndustClassTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_sic');
-        $this->setPhpName('StandardIndustClass');
+        $this->setPhpName('ArStandardIndustryClass');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\StandardIndustClass');
+        $this->setClassName('\\ArStandardIndustryClass');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -217,7 +217,7 @@ class StandardIndustClassTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? StandardIndustClassTableMap::CLASS_DEFAULT : StandardIndustClassTableMap::OM_CLASS;
+        return $withPrefix ? ArStandardIndustryClassTableMap::CLASS_DEFAULT : ArStandardIndustryClassTableMap::OM_CLASS;
     }
 
     /**
@@ -231,22 +231,22 @@ class StandardIndustClassTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (StandardIndustClass object, last column rank)
+     * @return array           (ArStandardIndustryClassobject, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = StandardIndustClassTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = StandardIndustClassTableMap::getInstanceFromPool($key))) {
+        $key = ArStandardIndustryClassTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArStandardIndustryClassTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + StandardIndustClassTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArStandardIndustryClassTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = StandardIndustClassTableMap::OM_CLASS;
-            /** @var StandardIndustClass $obj */
+            $cls = ArStandardIndustryClassTableMap::OM_CLASS;
+            /** @var ArStandardIndustryClass$obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            StandardIndustClassTableMap::addInstanceToPool($obj, $key);
+            ArStandardIndustryClassTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -269,18 +269,18 @@ class StandardIndustClassTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = StandardIndustClassTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = StandardIndustClassTableMap::getInstanceFromPool($key))) {
+            $key = ArStandardIndustryClassTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArStandardIndustryClassTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var StandardIndustClass $obj */
+                /** @var ArStandardIndustryClass$obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                StandardIndustClassTableMap::addInstanceToPool($obj, $key);
+                ArStandardIndustryClassTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -301,11 +301,11 @@ class StandardIndustClassTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(StandardIndustClassTableMap::COL_ARTBSICCODE);
-            $criteria->addSelectColumn(StandardIndustClassTableMap::COL_ARTBSICDESC);
-            $criteria->addSelectColumn(StandardIndustClassTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(StandardIndustClassTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(StandardIndustClassTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArStandardIndustryClassTableMap::COL_ARTBSICCODE);
+            $criteria->addSelectColumn(ArStandardIndustryClassTableMap::COL_ARTBSICDESC);
+            $criteria->addSelectColumn(ArStandardIndustryClassTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArStandardIndustryClassTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArStandardIndustryClassTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbSicCode');
             $criteria->addSelectColumn($alias . '.ArtbSicDesc');
@@ -324,7 +324,7 @@ class StandardIndustClassTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(StandardIndustClassTableMap::DATABASE_NAME)->getTable(StandardIndustClassTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArStandardIndustryClassTableMap::DATABASE_NAME)->getTable(ArStandardIndustryClassTableMap::TABLE_NAME);
     }
 
     /**
@@ -332,16 +332,16 @@ class StandardIndustClassTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(StandardIndustClassTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(StandardIndustClassTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new StandardIndustClassTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArStandardIndustryClassTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArStandardIndustryClassTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArStandardIndustryClassTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a StandardIndustClass or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArStandardIndustryClassor Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or StandardIndustClass object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArStandardIndustryClassobject or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -352,27 +352,27 @@ class StandardIndustClassTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(StandardIndustClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \StandardIndustClass) { // it's a model object
+        } elseif ($values instanceof \ArStandardIndustryClass) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(StandardIndustClassTableMap::DATABASE_NAME);
-            $criteria->add(StandardIndustClassTableMap::COL_ARTBSICCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArStandardIndustryClassTableMap::DATABASE_NAME);
+            $criteria->add(ArStandardIndustryClassTableMap::COL_ARTBSICCODE, (array) $values, Criteria::IN);
         }
 
-        $query = StandardIndustClassQuery::create()->mergeWith($criteria);
+        $query = ArStandardIndustryClassQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            StandardIndustClassTableMap::clearInstancePool();
+            ArStandardIndustryClassTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                StandardIndustClassTableMap::removeInstanceFromPool($singleval);
+                ArStandardIndustryClassTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -387,13 +387,13 @@ class StandardIndustClassTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return StandardIndustClassQuery::create()->doDeleteAll($con);
+        return ArStandardIndustryClassQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a StandardIndustClass or Criteria object.
+     * Performs an INSERT on the database, given a ArStandardIndustryClassor Criteria object.
      *
-     * @param mixed               $criteria Criteria or StandardIndustClass object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArStandardIndustryClassobject containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -402,18 +402,18 @@ class StandardIndustClassTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(StandardIndustClassTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArStandardIndustryClassTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from StandardIndustClass object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArStandardIndustryClassobject
         }
 
 
         // Set the correct dbName
-        $query = StandardIndustClassQuery::create()->mergeWith($criteria);
+        $query = ArStandardIndustryClassQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -422,7 +422,7 @@ class StandardIndustClassTableMap extends TableMap
         });
     }
 
-} // StandardIndustClassTableMap
+} // ArStandardIndustryClassTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-StandardIndustClassTableMap::buildTableMap();
+ArStandardIndustryClassTableMap::buildTableMap();

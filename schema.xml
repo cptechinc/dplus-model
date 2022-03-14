@@ -1037,7 +1037,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_sic" idMethod="native" phpName="StandardIndustClass">
+  <table name="ar_cust_sic" idMethod="native" phpName="ArStandardIndustryClass">
     <column name="ArtbSicCode" phpName="Artbsiccode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbSicDesc" phpName="Artbsicdesc" type="VARCHAR" size="40"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>

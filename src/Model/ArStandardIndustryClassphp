@@ -1,6 +1,6 @@
 <?php
 
-use Base\StandardIndustClass as BaseStandardIndustClass;
+use Base\ArStandardIndustryClass as BaseArStandardIndustryClass;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ar_cust_sic' table.
  */
-class StandardIndustClass extends BaseStandardIndustClass {
+class ArStandardIndustryClass extends BaseArStandardIndustryClass {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 

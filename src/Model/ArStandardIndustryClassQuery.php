@@ -1,6 +1,6 @@
 <?php
 
-use Base\StandardIndustClassQuery as BaseStandardIndustClassQuery;
+use Base\ArStandardIndustryClassQuery as BaseArStandardIndustryClassQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -22,6 +22,6 @@ use Dplus\Model\QueryTraits;
  *
  *
  */
-class StandardIndustClassQuery extends BaseStandardIndustClassQuery {
+class ArStandardIndustryClassQuery extends BaseArStandardIndustryClassQuery {
 	use QueryTraits;
 }
