@@ -29,6 +29,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'ArPaymentPendingQuery' => __DIR__ . '/../..' . '/src/Model/ArPaymentPendingQuery.php',
         'ArRouteCode' => __DIR__ . '/../..' . '/src/Model/ArRouteCode.php',
         'ArRouteCodeQuery' => __DIR__ . '/../..' . '/src/Model/ArRouteCodeQuery.php',
+        'ArStandardIndustryClass' => __DIR__ . '/../..' . '/src/Model/ArStandardIndustryClass.php',
         'ArStandardIndustryClassQuery' => __DIR__ . '/../..' . '/src/Model/ArStandardIndustryClassQuery.php',
         'ArTermsCode' => __DIR__ . '/../..' . '/src/Model/ArTermsCode.php',
         'ArTermsCodeQuery' => __DIR__ . '/../..' . '/src/Model/ArTermsCodeQuery.php',

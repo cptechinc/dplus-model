@@ -28,6 +28,7 @@ return array(
     'ArPaymentPendingQuery' => $baseDir . '/src/Model/ArPaymentPendingQuery.php',
     'ArRouteCode' => $baseDir . '/src/Model/ArRouteCode.php',
     'ArRouteCodeQuery' => $baseDir . '/src/Model/ArRouteCodeQuery.php',
+    'ArStandardIndustryClass' => $baseDir . '/src/Model/ArStandardIndustryClass.php',
     'ArStandardIndustryClassQuery' => $baseDir . '/src/Model/ArStandardIndustryClassQuery.php',
     'ArTermsCode' => $baseDir . '/src/Model/ArTermsCode.php',
     'ArTermsCodeQuery' => $baseDir . '/src/Model/ArTermsCodeQuery.php',
