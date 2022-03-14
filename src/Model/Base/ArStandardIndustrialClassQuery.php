@@ -2,7 +2,7 @@
 
 namespace Base;
 
-use \ArStandardIndustrialClassas ChildArStandardIndustrialClass;
+use \ArStandardIndustrialClass as ChildArStandardIndustrialClass;
 use \ArStandardIndustrialClassQuery as ChildArStandardIndustrialClassQuery;
 use \Exception;
 use \PDO;
