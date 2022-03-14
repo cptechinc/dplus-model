@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CustomerPriceCodeQuery as ChildCustomerPriceCodeQuery;
+use \ArPriceCodeQuery as ChildArPriceCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerPriceCodeTableMap;
+use Map\ArPriceCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerPriceCode implements ActiveRecordInterface
+abstract class ArPriceCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerPriceCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArPriceCodeTableMap';
 
 
     /**
@@ -129,7 +129,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CustomerPriceCode object.
+     * Initializes internal state of Base\ArPriceCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -226,9 +226,9 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerPriceCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerPriceCode</code>, delegates to
-     * <code>equals(CustomerPriceCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArPriceCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArPriceCode</code>, delegates to
+     * <code>equals(ArPriceCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -294,7 +294,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerPriceCode The current object, for fluid interface
+     * @return $this|ArPriceCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -429,7 +429,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [artbpriccode] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setArtbpriccode($v)
     {
@@ -439,7 +439,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->artbpriccode !== $v) {
             $this->artbpriccode = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_ARTBPRICCODE] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_ARTBPRICCODE] = true;
         }
 
         return $this;
@@ -449,7 +449,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [artbpricdesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setArtbpricdesc($v)
     {
@@ -459,7 +459,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->artbpricdesc !== $v) {
             $this->artbpricdesc = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_ARTBPRICDESC] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_ARTBPRICDESC] = true;
         }
 
         return $this;
@@ -469,7 +469,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [artbpricusesurchg] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setArtbpricusesurchg($v)
     {
@@ -479,7 +479,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->artbpricusesurchg !== $v) {
             $this->artbpricusesurchg = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG] = true;
         }
 
         return $this;
@@ -489,7 +489,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [artbpricsurchgpct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setArtbpricsurchgpct($v)
     {
@@ -499,7 +499,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->artbpricsurchgpct !== $v) {
             $this->artbpricsurchgpct = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT] = true;
         }
 
         return $this;
@@ -509,7 +509,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -519,7 +519,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -529,7 +529,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -539,7 +539,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -549,7 +549,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerPriceCode The current object (for fluent API support)
+     * @return $this|\ArPriceCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -559,7 +559,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerPriceCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArPriceCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -605,25 +605,25 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArPriceCodeTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpriccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Artbpricdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArPriceCodeTableMap::translateFieldName('Artbpricdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpricdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Artbpricusesurchg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArPriceCodeTableMap::translateFieldName('Artbpricusesurchg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpricusesurchg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Artbpricsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArPriceCodeTableMap::translateFieldName('Artbpricsurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpricsurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArPriceCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArPriceCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerPriceCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArPriceCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -633,10 +633,10 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 7; // 7 = CustomerPriceCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 7; // 7 = ArPriceCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerPriceCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArPriceCode'), 0, $e);
         }
     }
 
@@ -678,13 +678,13 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerPriceCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerPriceCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArPriceCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -703,8 +703,8 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerPriceCode::setDeleted()
-     * @see CustomerPriceCode::isDeleted()
+     * @see ArPriceCode::setDeleted()
+     * @see ArPriceCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -713,11 +713,11 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerPriceCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerPriceCodeQuery::create()
+            $deleteQuery = ChildArPriceCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -752,7 +752,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerPriceCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -771,7 +771,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerPriceCodeTableMap::addInstanceToPool($this);
+                ArPriceCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -830,25 +830,25 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICCODE)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbPricCode';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICDESC)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbPricDesc';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbPricUseSurchg';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbPricSurchgPct';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -922,7 +922,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerPriceCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArPriceCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -982,11 +982,11 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CustomerPriceCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArPriceCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerPriceCode'][$this->hashCode()] = true;
-        $keys = CustomerPriceCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArPriceCode'][$this->hashCode()] = true;
+        $keys = ArPriceCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbpriccode(),
             $keys[1] => $this->getArtbpricdesc(),
@@ -1014,11 +1014,11 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerPriceCode
+     * @return $this|\ArPriceCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerPriceCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArPriceCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1029,7 +1029,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerPriceCode
+     * @return $this|\ArPriceCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1079,7 +1079,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerPriceCodeTableMap::getFieldNames($keyType);
+        $keys = ArPriceCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbpriccode($arr[$keys[0]]);
@@ -1121,7 +1121,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerPriceCode The current object, for fluid interface
+     * @return $this|\ArPriceCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1141,28 +1141,28 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerPriceCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArPriceCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICCODE)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICCODE, $this->artbpriccode);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICCODE)) {
+            $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICCODE, $this->artbpriccode);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICDESC)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICDESC, $this->artbpricdesc);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICDESC)) {
+            $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICDESC, $this->artbpricdesc);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG, $this->artbpricusesurchg);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG)) {
+            $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, $this->artbpricusesurchg);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, $this->artbpricsurchgpct);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT)) {
+            $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, $this->artbpricsurchgpct);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArPriceCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArPriceCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerPriceCodeTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerPriceCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArPriceCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArPriceCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1180,8 +1180,8 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerPriceCodeQuery::create();
-        $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICCODE, $this->artbpriccode);
+        $criteria = ChildArPriceCodeQuery::create();
+        $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICCODE, $this->artbpriccode);
 
         return $criteria;
     }
@@ -1243,7 +1243,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerPriceCode (or compatible) type.
+     * @param      object $copyObj An object of \ArPriceCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1271,7 +1271,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerPriceCode Clone of current object.
+     * @return \ArPriceCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1328,7 +1328,7 @@ abstract class CustomerPriceCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerPriceCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArPriceCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerPriceCode;
-use \CustomerPriceCodeQuery;
+use \ArPriceCode;
+use \ArPriceCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerPriceCodeTableMap extends TableMap
+class ArPriceCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerPriceCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerPriceCodeTableMap';
+    const CLASS_NAME = '.Map.ArPriceCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerPriceCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerPriceCode';
+    const OM_CLASS = '\\ArPriceCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerPriceCode';
+    const CLASS_DEFAULT = 'ArPriceCode';
 
     /**
      * The total number of columns
@@ -120,7 +120,7 @@ class CustomerPriceCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbpriccode', 'Artbpricdesc', 'Artbpricusesurchg', 'Artbpricsurchgpct', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbpriccode', 'artbpricdesc', 'artbpricusesurchg', 'artbpricsurchgpct', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerPriceCodeTableMap::COL_ARTBPRICCODE, CustomerPriceCodeTableMap::COL_ARTBPRICDESC, CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG, CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, CustomerPriceCodeTableMap::COL_DATEUPDTD, CustomerPriceCodeTableMap::COL_TIMEUPDTD, CustomerPriceCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArPriceCodeTableMap::COL_ARTBPRICCODE, ArPriceCodeTableMap::COL_ARTBPRICDESC, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT, ArPriceCodeTableMap::COL_DATEUPDTD, ArPriceCodeTableMap::COL_TIMEUPDTD, ArPriceCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbPricCode', 'ArtbPricDesc', 'ArtbPricUseSurchg', 'ArtbPricSurchgPct', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
@@ -134,7 +134,7 @@ class CustomerPriceCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbpriccode' => 0, 'Artbpricdesc' => 1, 'Artbpricusesurchg' => 2, 'Artbpricsurchgpct' => 3, 'Dateupdtd' => 4, 'Timeupdtd' => 5, 'Dummy' => 6, ),
         self::TYPE_CAMELNAME     => array('artbpriccode' => 0, 'artbpricdesc' => 1, 'artbpricusesurchg' => 2, 'artbpricsurchgpct' => 3, 'dateupdtd' => 4, 'timeupdtd' => 5, 'dummy' => 6, ),
-        self::TYPE_COLNAME       => array(CustomerPriceCodeTableMap::COL_ARTBPRICCODE => 0, CustomerPriceCodeTableMap::COL_ARTBPRICDESC => 1, CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG => 2, CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT => 3, CustomerPriceCodeTableMap::COL_DATEUPDTD => 4, CustomerPriceCodeTableMap::COL_TIMEUPDTD => 5, CustomerPriceCodeTableMap::COL_DUMMY => 6, ),
+        self::TYPE_COLNAME       => array(ArPriceCodeTableMap::COL_ARTBPRICCODE => 0, ArPriceCodeTableMap::COL_ARTBPRICDESC => 1, ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG => 2, ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT => 3, ArPriceCodeTableMap::COL_DATEUPDTD => 4, ArPriceCodeTableMap::COL_TIMEUPDTD => 5, ArPriceCodeTableMap::COL_DUMMY => 6, ),
         self::TYPE_FIELDNAME     => array('ArtbPricCode' => 0, 'ArtbPricDesc' => 1, 'ArtbPricUseSurchg' => 2, 'ArtbPricSurchgPct' => 3, 'DateUpdtd' => 4, 'TimeUpdtd' => 5, 'dummy' => 6, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, )
     );
@@ -150,9 +150,9 @@ class CustomerPriceCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_price');
-        $this->setPhpName('CustomerPriceCode');
+        $this->setPhpName('ArPriceCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerPriceCode');
+        $this->setClassName('\\ArPriceCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -229,7 +229,7 @@ class CustomerPriceCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerPriceCodeTableMap::CLASS_DEFAULT : CustomerPriceCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArPriceCodeTableMap::CLASS_DEFAULT : ArPriceCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -243,22 +243,22 @@ class CustomerPriceCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerPriceCode object, last column rank)
+     * @return array           (ArPriceCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerPriceCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerPriceCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArPriceCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArPriceCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerPriceCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArPriceCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerPriceCodeTableMap::OM_CLASS;
-            /** @var CustomerPriceCode $obj */
+            $cls = ArPriceCodeTableMap::OM_CLASS;
+            /** @var ArPriceCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerPriceCodeTableMap::addInstanceToPool($obj, $key);
+            ArPriceCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -281,18 +281,18 @@ class CustomerPriceCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerPriceCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerPriceCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArPriceCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArPriceCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerPriceCode $obj */
+                /** @var ArPriceCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerPriceCodeTableMap::addInstanceToPool($obj, $key);
+                ArPriceCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -313,13 +313,13 @@ class CustomerPriceCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_ARTBPRICCODE);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_ARTBPRICDESC);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_ARTBPRICUSESURCHG);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_ARTBPRICSURCHGPCT);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerPriceCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICCODE);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICDESC);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICUSESURCHG);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_ARTBPRICSURCHGPCT);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArPriceCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbPricCode');
             $criteria->addSelectColumn($alias . '.ArtbPricDesc');
@@ -340,7 +340,7 @@ class CustomerPriceCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerPriceCodeTableMap::DATABASE_NAME)->getTable(CustomerPriceCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArPriceCodeTableMap::DATABASE_NAME)->getTable(ArPriceCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -348,16 +348,16 @@ class CustomerPriceCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerPriceCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerPriceCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerPriceCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArPriceCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArPriceCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArPriceCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerPriceCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArPriceCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerPriceCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArPriceCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -368,27 +368,27 @@ class CustomerPriceCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerPriceCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerPriceCode) { // it's a model object
+        } elseif ($values instanceof \ArPriceCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerPriceCodeTableMap::DATABASE_NAME);
-            $criteria->add(CustomerPriceCodeTableMap::COL_ARTBPRICCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArPriceCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArPriceCodeTableMap::COL_ARTBPRICCODE, (array) $values, Criteria::IN);
         }
 
-        $query = CustomerPriceCodeQuery::create()->mergeWith($criteria);
+        $query = ArPriceCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerPriceCodeTableMap::clearInstancePool();
+            ArPriceCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerPriceCodeTableMap::removeInstanceFromPool($singleval);
+                ArPriceCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -403,13 +403,13 @@ class CustomerPriceCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerPriceCodeQuery::create()->doDeleteAll($con);
+        return ArPriceCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerPriceCode or Criteria object.
+     * Performs an INSERT on the database, given a ArPriceCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerPriceCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArPriceCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -418,18 +418,18 @@ class CustomerPriceCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerPriceCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArPriceCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerPriceCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArPriceCode object
         }
 
 
         // Set the correct dbName
-        $query = CustomerPriceCodeQuery::create()->mergeWith($criteria);
+        $query = ArPriceCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -438,7 +438,7 @@ class CustomerPriceCodeTableMap extends TableMap
         });
     }
 
-} // CustomerPriceCodeTableMap
+} // ArPriceCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerPriceCodeTableMap::buildTableMap();
+ArPriceCodeTableMap::buildTableMap();

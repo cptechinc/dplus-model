@@ -249,8 +249,8 @@ class Customer extends BaseCustomer {
 	 * @return string
 	 */
 	public function pricecode() {
-		$q = CustomerPriceCodeQuery::create();
-		$q->select(CustomerPriceCode::aliasproperty('description'));
+		$q = ArPriceCodeQuery::create();
+		$q->select(ArPriceCode::aliasproperty('description'));
 		$q->filterByCode($this->pricecode);
 
 		if ($q->count() === 0) {
