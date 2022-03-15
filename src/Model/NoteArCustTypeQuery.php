@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerTypeNotesQuery as BaseCustomerTypeNotesQuery;
+use Base\NoteArCustTypeQuery as BaseNoteArCustTypeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -14,18 +14,18 @@ use Dplus\Model\QueryTraits;
  * Magic Methods (NOTE these are the ones in use, not necessarily all the available ones)
  * -----------------------------------------------------------------------------------------
  * FilterByXXX()
- * @method  CustomerTypeNotesQuery filterByTypecode(string $typecode)      Filter the Query by the artbtypecode column
+ * @method  NoteArCustTypeQuery filterByTypecode(string $typecode)      Filter the Query by the artbtypecode column
  * 
  * FindOneByXXX()
  * 
  *
  * FindByXXX()
  */
-class CustomerTypeNotesQuery extends BaseCustomerTypeNotesQuery {
+class NoteArCustTypeQuery extends BaseNoteArCustTypeQuery {
 	use QueryTraits;
 
 	public function filterByTypeAlias($typecodealias) {
-		$notetype = CustomerTypeNotes::TYPE_ALIASES[$typecodealias];
+		$notetype = NoteArCustType::TYPE_ALIASES[$typecodealias];
 		return $this->filterByQntype($notetype);
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerTypeNotes as BaseCustomerTypeNotes;
+use Base\NoteArCustType as BaseNoteArCustType;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'notes_cust_type' table.
  */
-class CustomerTypeNotes extends BaseCustomerTypeNotes {
+class NoteArCustType extends BaseNoteArCustType {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

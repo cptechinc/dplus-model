@@ -2722,7 +2722,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_cust_type" idMethod="native" phpName="CustomerTypeNotes">
+  <table name="notes_cust_type" idMethod="native" phpName="NoteArCustType">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
     <column name="ArtbTypeCode" phpName="Artbtypecode" type="VARCHAR" size="4"/>

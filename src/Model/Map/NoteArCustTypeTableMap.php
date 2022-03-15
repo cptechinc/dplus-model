@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerTypeNotes;
-use \CustomerTypeNotesQuery;
+use \NoteArCustType;
+use \NoteArCustTypeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerTypeNotesTableMap extends TableMap
+class NoteArCustTypeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerTypeNotesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerTypeNotesTableMap';
+    const CLASS_NAME = '.Map.NoteArCustTypeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerTypeNotesTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerTypeNotes';
+    const OM_CLASS = '\\NoteArCustType';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerTypeNotes';
+    const CLASS_DEFAULT = 'NoteArCustType';
 
     /**
      * The total number of columns
@@ -135,7 +135,7 @@ class CustomerTypeNotesTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Artbtypecode', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'artbtypecode', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerTypeNotesTableMap::COL_QNTYPE, CustomerTypeNotesTableMap::COL_QNTYPEDESC, CustomerTypeNotesTableMap::COL_ARTBTYPECODE, CustomerTypeNotesTableMap::COL_QNSEQ, CustomerTypeNotesTableMap::COL_QNNOTE, CustomerTypeNotesTableMap::COL_QNKEY2, CustomerTypeNotesTableMap::COL_QNFORM, CustomerTypeNotesTableMap::COL_DATEUPDTD, CustomerTypeNotesTableMap::COL_TIMEUPDTD, CustomerTypeNotesTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(NoteArCustTypeTableMap::COL_QNTYPE, NoteArCustTypeTableMap::COL_QNTYPEDESC, NoteArCustTypeTableMap::COL_ARTBTYPECODE, NoteArCustTypeTableMap::COL_QNSEQ, NoteArCustTypeTableMap::COL_QNNOTE, NoteArCustTypeTableMap::COL_QNKEY2, NoteArCustTypeTableMap::COL_QNFORM, NoteArCustTypeTableMap::COL_DATEUPDTD, NoteArCustTypeTableMap::COL_TIMEUPDTD, NoteArCustTypeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'ArtbTypeCode', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -149,7 +149,7 @@ class CustomerTypeNotesTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Artbtypecode' => 2, 'Qnseq' => 3, 'Qnnote' => 4, 'Qnkey2' => 5, 'Qnform' => 6, 'Dateupdtd' => 7, 'Timeupdtd' => 8, 'Dummy' => 9, ),
         self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'artbtypecode' => 2, 'qnseq' => 3, 'qnnote' => 4, 'qnkey2' => 5, 'qnform' => 6, 'dateupdtd' => 7, 'timeupdtd' => 8, 'dummy' => 9, ),
-        self::TYPE_COLNAME       => array(CustomerTypeNotesTableMap::COL_QNTYPE => 0, CustomerTypeNotesTableMap::COL_QNTYPEDESC => 1, CustomerTypeNotesTableMap::COL_ARTBTYPECODE => 2, CustomerTypeNotesTableMap::COL_QNSEQ => 3, CustomerTypeNotesTableMap::COL_QNNOTE => 4, CustomerTypeNotesTableMap::COL_QNKEY2 => 5, CustomerTypeNotesTableMap::COL_QNFORM => 6, CustomerTypeNotesTableMap::COL_DATEUPDTD => 7, CustomerTypeNotesTableMap::COL_TIMEUPDTD => 8, CustomerTypeNotesTableMap::COL_DUMMY => 9, ),
+        self::TYPE_COLNAME       => array(NoteArCustTypeTableMap::COL_QNTYPE => 0, NoteArCustTypeTableMap::COL_QNTYPEDESC => 1, NoteArCustTypeTableMap::COL_ARTBTYPECODE => 2, NoteArCustTypeTableMap::COL_QNSEQ => 3, NoteArCustTypeTableMap::COL_QNNOTE => 4, NoteArCustTypeTableMap::COL_QNKEY2 => 5, NoteArCustTypeTableMap::COL_QNFORM => 6, NoteArCustTypeTableMap::COL_DATEUPDTD => 7, NoteArCustTypeTableMap::COL_TIMEUPDTD => 8, NoteArCustTypeTableMap::COL_DUMMY => 9, ),
         self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'ArtbTypeCode' => 2, 'QnSeq' => 3, 'QnNote' => 4, 'QnKey2' => 5, 'QnForm' => 6, 'DateUpdtd' => 7, 'TimeUpdtd' => 8, 'dummy' => 9, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, )
     );
@@ -165,9 +165,9 @@ class CustomerTypeNotesTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_cust_type');
-        $this->setPhpName('CustomerTypeNotes');
+        $this->setPhpName('NoteArCustType');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerTypeNotes');
+        $this->setClassName('\\NoteArCustType');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -198,7 +198,7 @@ class CustomerTypeNotesTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \CustomerTypeNotes $obj A \CustomerTypeNotes object.
+     * @param \NoteArCustType $obj A \NoteArCustType object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -219,12 +219,12 @@ class CustomerTypeNotesTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \CustomerTypeNotes object or a primary key value.
+     * @param mixed $value A \NoteArCustType object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \CustomerTypeNotes) {
+            if (is_object($value) && $value instanceof \NoteArCustType) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -235,7 +235,7 @@ class CustomerTypeNotesTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \CustomerTypeNotes object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NoteArCustType object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -319,7 +319,7 @@ class CustomerTypeNotesTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerTypeNotesTableMap::CLASS_DEFAULT : CustomerTypeNotesTableMap::OM_CLASS;
+        return $withPrefix ? NoteArCustTypeTableMap::CLASS_DEFAULT : NoteArCustTypeTableMap::OM_CLASS;
     }
 
     /**
@@ -333,22 +333,22 @@ class CustomerTypeNotesTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerTypeNotes object, last column rank)
+     * @return array           (NoteArCustType object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerTypeNotesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerTypeNotesTableMap::getInstanceFromPool($key))) {
+        $key = NoteArCustTypeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = NoteArCustTypeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerTypeNotesTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + NoteArCustTypeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerTypeNotesTableMap::OM_CLASS;
-            /** @var CustomerTypeNotes $obj */
+            $cls = NoteArCustTypeTableMap::OM_CLASS;
+            /** @var NoteArCustType $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerTypeNotesTableMap::addInstanceToPool($obj, $key);
+            NoteArCustTypeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -371,18 +371,18 @@ class CustomerTypeNotesTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerTypeNotesTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerTypeNotesTableMap::getInstanceFromPool($key))) {
+            $key = NoteArCustTypeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = NoteArCustTypeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerTypeNotes $obj */
+                /** @var NoteArCustType $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerTypeNotesTableMap::addInstanceToPool($obj, $key);
+                NoteArCustTypeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -403,16 +403,16 @@ class CustomerTypeNotesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_ARTBTYPECODE);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerTypeNotesTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_ARTBTYPECODE);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(NoteArCustTypeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnType');
             $criteria->addSelectColumn($alias . '.QnTypeDesc');
@@ -436,7 +436,7 @@ class CustomerTypeNotesTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerTypeNotesTableMap::DATABASE_NAME)->getTable(CustomerTypeNotesTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(NoteArCustTypeTableMap::DATABASE_NAME)->getTable(NoteArCustTypeTableMap::TABLE_NAME);
     }
 
     /**
@@ -444,16 +444,16 @@ class CustomerTypeNotesTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerTypeNotesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerTypeNotesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerTypeNotesTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteArCustTypeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(NoteArCustTypeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new NoteArCustTypeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerTypeNotes or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a NoteArCustType or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerTypeNotes object or primary key or array of primary keys
+     * @param mixed               $values Criteria or NoteArCustType object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -464,17 +464,17 @@ class CustomerTypeNotesTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteArCustTypeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerTypeNotes) { // it's a model object
+        } elseif ($values instanceof \NoteArCustType) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerTypeNotesTableMap::DATABASE_NAME);
+            $criteria = new Criteria(NoteArCustTypeTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -482,21 +482,21 @@ class CustomerTypeNotesTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(CustomerTypeNotesTableMap::COL_QNTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(CustomerTypeNotesTableMap::COL_QNSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(CustomerTypeNotesTableMap::COL_QNKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(CustomerTypeNotesTableMap::COL_QNFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(NoteArCustTypeTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(NoteArCustTypeTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteArCustTypeTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteArCustTypeTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = CustomerTypeNotesQuery::create()->mergeWith($criteria);
+        $query = NoteArCustTypeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerTypeNotesTableMap::clearInstancePool();
+            NoteArCustTypeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerTypeNotesTableMap::removeInstanceFromPool($singleval);
+                NoteArCustTypeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -511,13 +511,13 @@ class CustomerTypeNotesTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerTypeNotesQuery::create()->doDeleteAll($con);
+        return NoteArCustTypeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerTypeNotes or Criteria object.
+     * Performs an INSERT on the database, given a NoteArCustType or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerTypeNotes object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or NoteArCustType object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -526,18 +526,18 @@ class CustomerTypeNotesTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteArCustTypeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerTypeNotes object
+            $criteria = $criteria->buildCriteria(); // build Criteria from NoteArCustType object
         }
 
 
         // Set the correct dbName
-        $query = CustomerTypeNotesQuery::create()->mergeWith($criteria);
+        $query = NoteArCustTypeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -546,7 +546,7 @@ class CustomerTypeNotesTableMap extends TableMap
         });
     }
 
-} // CustomerTypeNotesTableMap
+} // NoteArCustTypeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerTypeNotesTableMap::buildTableMap();
+NoteArCustTypeTableMap::buildTableMap();

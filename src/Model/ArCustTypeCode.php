@@ -47,11 +47,11 @@ class ArCustTypeCode extends BaseArCustTypeCode {
 
 	/**
 	 * Return the number of Notes filtered by the Note Type
-	 * @param  string $notetype Note Type see CustomerTypeNotes::TYPES
+	 * @param  string $notetype Note Type see NoteArCustType::TYPES
 	 * @return int
 	 */
 	public function count_notetype($notetype) {
-		$q = CustomerTypeNotesQuery::create();
+		$q = NoteArCustTypeQuery::create();
 		$q->filterByType($notetype);
 		$q->filterByCustomertype($this->code);
 		return $q->count();
@@ -59,11 +59,11 @@ class ArCustTypeCode extends BaseArCustTypeCode {
 
 	/**
 	 * Return the Notes filtered by the Note Type
-	 * @param  string $notetype Note Type see CustomerTypeNotes::TYPES
+	 * @param  string $notetype Note Type see NoteArCustType::TYPES
 	 * @return int
 	 */
 	public function get_notetype($notetype) {
-		$q = CustomerTypeNotesQuery::create();
+		$q = NoteArCustTypeQuery::create();
 		$q->filterByType($notetype);
 		$q->filterByCustomertype($this->code);
 		return $q->find();
