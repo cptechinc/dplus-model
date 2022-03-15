@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerTypeCodeQuery as BaseCustomerTypeCodeQuery;
+use Base\ArCustTypeCodeQuery as BaseArCustTypeCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  * 
  * FindOneByXXX()
- * @method  ApBuyer findOneByCode(string $code)      Return the first CustomerTypeCode filtered by the ArtbTypeCode column
+ * @method  ApBuyer findOneByCode(string $code)      Return the first ArCustTypeCode filtered by the ArtbTypeCode column
  *
  * FindByXXX()
  *
  *
  */
-class CustomerTypeCodeQuery extends BaseCustomerTypeCodeQuery {
+class ArCustTypeCodeQuery extends BaseArCustTypeCodeQuery {
 	use QueryTraits;
 }

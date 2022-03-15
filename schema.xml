@@ -1112,7 +1112,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_type" idMethod="native" phpName="CustomerTypeCode">
+  <table name="ar_cust_type" idMethod="native" phpName="ArCustTypeCode">
     <column name="ArtbTypeCode" phpName="Artbtypecode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCtypDesc" phpName="Artbctypdesc" type="VARCHAR" size="20"/>
     <column name="ArtbCtypArAcct" phpName="Artbctyparacct" type="VARCHAR" size="9"/>

@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \CustomerTypeCodeQuery as ChildCustomerTypeCodeQuery;
+use \ArCustTypeCodeQuery as ChildArCustTypeCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerTypeCodeTableMap;
+use Map\ArCustTypeCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerTypeCode implements ActiveRecordInterface
+abstract class ArCustTypeCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerTypeCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArCustTypeCodeTableMap';
 
 
     /**
@@ -192,7 +192,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CustomerTypeCode object.
+     * Initializes internal state of Base\ArCustTypeCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -289,9 +289,9 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerTypeCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerTypeCode</code>, delegates to
-     * <code>equals(CustomerTypeCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArCustTypeCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArCustTypeCode</code>, delegates to
+     * <code>equals(ArCustTypeCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -357,7 +357,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerTypeCode The current object, for fluid interface
+     * @return $this|ArCustTypeCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -582,7 +582,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbtypecode] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbtypecode($v)
     {
@@ -592,7 +592,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbtypecode !== $v) {
             $this->artbtypecode = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBTYPECODE] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBTYPECODE] = true;
         }
 
         return $this;
@@ -602,7 +602,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypdesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypdesc($v)
     {
@@ -612,7 +612,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypdesc !== $v) {
             $this->artbctypdesc = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPDESC] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPDESC] = true;
         }
 
         return $this;
@@ -622,7 +622,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctyparacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctyparacct($v)
     {
@@ -632,7 +632,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctyparacct !== $v) {
             $this->artbctyparacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT] = true;
         }
 
         return $this;
@@ -642,7 +642,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypfrtacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypfrtacct($v)
     {
@@ -652,7 +652,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypfrtacct !== $v) {
             $this->artbctypfrtacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT] = true;
         }
 
         return $this;
@@ -662,7 +662,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypmiscacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypmiscacct($v)
     {
@@ -672,7 +672,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypmiscacct !== $v) {
             $this->artbctypmiscacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT] = true;
         }
 
         return $this;
@@ -682,7 +682,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypcashacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypcashacct($v)
     {
@@ -692,7 +692,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypcashacct !== $v) {
             $this->artbctypcashacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT] = true;
         }
 
         return $this;
@@ -702,7 +702,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypfincacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypfincacct($v)
     {
@@ -712,7 +712,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypfincacct !== $v) {
             $this->artbctypfincacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT] = true;
         }
 
         return $this;
@@ -722,7 +722,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypdiscacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypdiscacct($v)
     {
@@ -732,7 +732,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypdiscacct !== $v) {
             $this->artbctypdiscacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT] = true;
         }
 
         return $this;
@@ -742,7 +742,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypsaleacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypsaleacct($v)
     {
@@ -752,7 +752,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypsaleacct !== $v) {
             $this->artbctypsaleacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT] = true;
         }
 
         return $this;
@@ -762,7 +762,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypcogsacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypcogsacct($v)
     {
@@ -772,7 +772,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypcogsacct !== $v) {
             $this->artbctypcogsacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT] = true;
         }
 
         return $this;
@@ -782,7 +782,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypcredacct] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypcredacct($v)
     {
@@ -792,7 +792,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypcredacct !== $v) {
             $this->artbctypcredacct = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT] = true;
         }
 
         return $this;
@@ -802,7 +802,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypmail] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypmail($v)
     {
@@ -812,7 +812,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypmail !== $v) {
             $this->artbctypmail = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL] = true;
         }
 
         return $this;
@@ -822,7 +822,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [artbctypaprvneedemail] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setArtbctypaprvneedemail($v)
     {
@@ -832,7 +832,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->artbctypaprvneedemail !== $v) {
             $this->artbctypaprvneedemail = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL] = true;
         }
 
         return $this;
@@ -842,7 +842,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -852,7 +852,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -862,7 +862,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -872,7 +872,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -882,7 +882,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerTypeCode The current object (for fluent API support)
+     * @return $this|\ArCustTypeCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -892,7 +892,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerTypeCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArCustTypeCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -938,52 +938,52 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbtypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctyparacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctyparacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctyparacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypfrtacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypfrtacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypfrtacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypmiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypmiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypcashacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypcashacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypcashacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypfincacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypfincacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypfincacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypdiscacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypdiscacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypsaleacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypsaleacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypsaleacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypcogsacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypcogsacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypcogsacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypcredacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypcredacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypcredacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypmail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypmail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypmail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Artbctypaprvneedemail', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Artbctypaprvneedemail', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctypaprvneedemail = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerTypeCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ArCustTypeCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -993,10 +993,10 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 16; // 16 = CustomerTypeCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 16; // 16 = ArCustTypeCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerTypeCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArCustTypeCode'), 0, $e);
         }
     }
 
@@ -1038,13 +1038,13 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerTypeCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerTypeCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArCustTypeCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1063,8 +1063,8 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerTypeCode::setDeleted()
-     * @see CustomerTypeCode::isDeleted()
+     * @see ArCustTypeCode::setDeleted()
+     * @see ArCustTypeCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1073,11 +1073,11 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerTypeCodeQuery::create()
+            $deleteQuery = ChildArCustTypeCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1112,7 +1112,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1131,7 +1131,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerTypeCodeTableMap::addInstanceToPool($this);
+                ArCustTypeCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1190,52 +1190,52 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBTYPECODE)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBTYPECODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbTypeCode';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPDESC)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypDesc';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypArAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypFrtAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypMiscAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypCashAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypFincAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypDiscAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypSaleAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypCogsAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypCredAcct';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypMail';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtypAprvNeedEmail';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1336,7 +1336,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerTypeCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCustTypeCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1423,11 +1423,11 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['CustomerTypeCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArCustTypeCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerTypeCode'][$this->hashCode()] = true;
-        $keys = CustomerTypeCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArCustTypeCode'][$this->hashCode()] = true;
+        $keys = ArCustTypeCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbtypecode(),
             $keys[1] => $this->getArtbctypdesc(),
@@ -1464,11 +1464,11 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerTypeCode
+     * @return $this|\ArCustTypeCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerTypeCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCustTypeCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1479,7 +1479,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerTypeCode
+     * @return $this|\ArCustTypeCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1556,7 +1556,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerTypeCodeTableMap::getFieldNames($keyType);
+        $keys = ArCustTypeCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbtypecode($arr[$keys[0]]);
@@ -1625,7 +1625,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerTypeCode The current object, for fluid interface
+     * @return $this|\ArCustTypeCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1645,55 +1645,55 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerTypeCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArCustTypeCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBTYPECODE)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBTYPECODE, $this->artbtypecode);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBTYPECODE)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $this->artbtypecode);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPDESC)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPDESC, $this->artbctypdesc);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC, $this->artbctypdesc);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT, $this->artbctyparacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT, $this->artbctyparacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT, $this->artbctypfrtacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT, $this->artbctypfrtacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT, $this->artbctypmiscacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT, $this->artbctypmiscacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT, $this->artbctypcashacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT, $this->artbctypcashacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT, $this->artbctypfincacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT, $this->artbctypfincacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT, $this->artbctypdiscacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT, $this->artbctypdiscacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT, $this->artbctypsaleacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT, $this->artbctypsaleacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, $this->artbctypcogsacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, $this->artbctypcogsacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT, $this->artbctypcredacct);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT, $this->artbctypcredacct);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL, $this->artbctypmail);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL, $this->artbctypmail);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, $this->artbctypaprvneedemail);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, $this->artbctypaprvneedemail);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerTypeCodeTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerTypeCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArCustTypeCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArCustTypeCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1711,8 +1711,8 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerTypeCodeQuery::create();
-        $criteria->add(CustomerTypeCodeTableMap::COL_ARTBTYPECODE, $this->artbtypecode);
+        $criteria = ChildArCustTypeCodeQuery::create();
+        $criteria->add(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, $this->artbtypecode);
 
         return $criteria;
     }
@@ -1774,7 +1774,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerTypeCode (or compatible) type.
+     * @param      object $copyObj An object of \ArCustTypeCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1811,7 +1811,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerTypeCode Clone of current object.
+     * @return \ArCustTypeCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1877,7 +1877,7 @@ abstract class CustomerTypeCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerTypeCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArCustTypeCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

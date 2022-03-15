@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerTypeCode;
-use \CustomerTypeCodeQuery;
+use \ArCustTypeCode;
+use \ArCustTypeCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerTypeCodeTableMap extends TableMap
+class ArCustTypeCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerTypeCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerTypeCodeTableMap';
+    const CLASS_NAME = '.Map.ArCustTypeCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class CustomerTypeCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerTypeCode';
+    const OM_CLASS = '\\ArCustTypeCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerTypeCode';
+    const CLASS_DEFAULT = 'ArCustTypeCode';
 
     /**
      * The total number of columns
@@ -165,7 +165,7 @@ class CustomerTypeCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbtypecode', 'Artbctypdesc', 'Artbctyparacct', 'Artbctypfrtacct', 'Artbctypmiscacct', 'Artbctypcashacct', 'Artbctypfincacct', 'Artbctypdiscacct', 'Artbctypsaleacct', 'Artbctypcogsacct', 'Artbctypcredacct', 'Artbctypmail', 'Artbctypaprvneedemail', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbtypecode', 'artbctypdesc', 'artbctyparacct', 'artbctypfrtacct', 'artbctypmiscacct', 'artbctypcashacct', 'artbctypfincacct', 'artbctypdiscacct', 'artbctypsaleacct', 'artbctypcogsacct', 'artbctypcredacct', 'artbctypmail', 'artbctypaprvneedemail', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerTypeCodeTableMap::COL_ARTBTYPECODE, CustomerTypeCodeTableMap::COL_ARTBCTYPDESC, CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT, CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL, CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, CustomerTypeCodeTableMap::COL_DATEUPDTD, CustomerTypeCodeTableMap::COL_TIMEUPDTD, CustomerTypeCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, ArCustTypeCodeTableMap::COL_ARTBCTYPDESC, ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT, ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL, ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL, ArCustTypeCodeTableMap::COL_DATEUPDTD, ArCustTypeCodeTableMap::COL_TIMEUPDTD, ArCustTypeCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbTypeCode', 'ArtbCtypDesc', 'ArtbCtypArAcct', 'ArtbCtypFrtAcct', 'ArtbCtypMiscAcct', 'ArtbCtypCashAcct', 'ArtbCtypFincAcct', 'ArtbCtypDiscAcct', 'ArtbCtypSaleAcct', 'ArtbCtypCogsAcct', 'ArtbCtypCredAcct', 'ArtbCtypMail', 'ArtbCtypAprvNeedEmail', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
@@ -179,7 +179,7 @@ class CustomerTypeCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbtypecode' => 0, 'Artbctypdesc' => 1, 'Artbctyparacct' => 2, 'Artbctypfrtacct' => 3, 'Artbctypmiscacct' => 4, 'Artbctypcashacct' => 5, 'Artbctypfincacct' => 6, 'Artbctypdiscacct' => 7, 'Artbctypsaleacct' => 8, 'Artbctypcogsacct' => 9, 'Artbctypcredacct' => 10, 'Artbctypmail' => 11, 'Artbctypaprvneedemail' => 12, 'Dateupdtd' => 13, 'Timeupdtd' => 14, 'Dummy' => 15, ),
         self::TYPE_CAMELNAME     => array('artbtypecode' => 0, 'artbctypdesc' => 1, 'artbctyparacct' => 2, 'artbctypfrtacct' => 3, 'artbctypmiscacct' => 4, 'artbctypcashacct' => 5, 'artbctypfincacct' => 6, 'artbctypdiscacct' => 7, 'artbctypsaleacct' => 8, 'artbctypcogsacct' => 9, 'artbctypcredacct' => 10, 'artbctypmail' => 11, 'artbctypaprvneedemail' => 12, 'dateupdtd' => 13, 'timeupdtd' => 14, 'dummy' => 15, ),
-        self::TYPE_COLNAME       => array(CustomerTypeCodeTableMap::COL_ARTBTYPECODE => 0, CustomerTypeCodeTableMap::COL_ARTBCTYPDESC => 1, CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT => 2, CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT => 3, CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT => 4, CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT => 5, CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT => 6, CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT => 7, CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT => 8, CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT => 9, CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT => 10, CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL => 11, CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL => 12, CustomerTypeCodeTableMap::COL_DATEUPDTD => 13, CustomerTypeCodeTableMap::COL_TIMEUPDTD => 14, CustomerTypeCodeTableMap::COL_DUMMY => 15, ),
+        self::TYPE_COLNAME       => array(ArCustTypeCodeTableMap::COL_ARTBTYPECODE => 0, ArCustTypeCodeTableMap::COL_ARTBCTYPDESC => 1, ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT => 2, ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT => 3, ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT => 4, ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT => 5, ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT => 6, ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT => 7, ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT => 8, ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT => 9, ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT => 10, ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL => 11, ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL => 12, ArCustTypeCodeTableMap::COL_DATEUPDTD => 13, ArCustTypeCodeTableMap::COL_TIMEUPDTD => 14, ArCustTypeCodeTableMap::COL_DUMMY => 15, ),
         self::TYPE_FIELDNAME     => array('ArtbTypeCode' => 0, 'ArtbCtypDesc' => 1, 'ArtbCtypArAcct' => 2, 'ArtbCtypFrtAcct' => 3, 'ArtbCtypMiscAcct' => 4, 'ArtbCtypCashAcct' => 5, 'ArtbCtypFincAcct' => 6, 'ArtbCtypDiscAcct' => 7, 'ArtbCtypSaleAcct' => 8, 'ArtbCtypCogsAcct' => 9, 'ArtbCtypCredAcct' => 10, 'ArtbCtypMail' => 11, 'ArtbCtypAprvNeedEmail' => 12, 'DateUpdtd' => 13, 'TimeUpdtd' => 14, 'dummy' => 15, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, )
     );
@@ -195,9 +195,9 @@ class CustomerTypeCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_type');
-        $this->setPhpName('CustomerTypeCode');
+        $this->setPhpName('ArCustTypeCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerTypeCode');
+        $this->setClassName('\\ArCustTypeCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -283,7 +283,7 @@ class CustomerTypeCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerTypeCodeTableMap::CLASS_DEFAULT : CustomerTypeCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArCustTypeCodeTableMap::CLASS_DEFAULT : ArCustTypeCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -297,22 +297,22 @@ class CustomerTypeCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerTypeCode object, last column rank)
+     * @return array           (ArCustTypeCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerTypeCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerTypeCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArCustTypeCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArCustTypeCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerTypeCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArCustTypeCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerTypeCodeTableMap::OM_CLASS;
-            /** @var CustomerTypeCode $obj */
+            $cls = ArCustTypeCodeTableMap::OM_CLASS;
+            /** @var ArCustTypeCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerTypeCodeTableMap::addInstanceToPool($obj, $key);
+            ArCustTypeCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -335,18 +335,18 @@ class CustomerTypeCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerTypeCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerTypeCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArCustTypeCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArCustTypeCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerTypeCode $obj */
+                /** @var ArCustTypeCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerTypeCodeTableMap::addInstanceToPool($obj, $key);
+                ArCustTypeCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -367,22 +367,22 @@ class CustomerTypeCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBTYPECODE);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPDESC);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPARACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPFRTACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPMISCACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPCASHACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPFINCACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPDISCACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPSALEACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPCOGSACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPCREDACCT);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPMAIL);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerTypeCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBTYPECODE);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPDESC);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPARACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPFRTACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPMISCACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPCASHACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPFINCACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPDISCACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPSALEACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPCOGSACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPCREDACCT);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPMAIL);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_ARTBCTYPAPRVNEEDEMAIL);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArCustTypeCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbTypeCode');
             $criteria->addSelectColumn($alias . '.ArtbCtypDesc');
@@ -412,7 +412,7 @@ class CustomerTypeCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerTypeCodeTableMap::DATABASE_NAME)->getTable(CustomerTypeCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArCustTypeCodeTableMap::DATABASE_NAME)->getTable(ArCustTypeCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -420,16 +420,16 @@ class CustomerTypeCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerTypeCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerTypeCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerTypeCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArCustTypeCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArCustTypeCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArCustTypeCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerTypeCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArCustTypeCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerTypeCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArCustTypeCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -440,27 +440,27 @@ class CustomerTypeCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerTypeCode) { // it's a model object
+        } elseif ($values instanceof \ArCustTypeCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerTypeCodeTableMap::DATABASE_NAME);
-            $criteria->add(CustomerTypeCodeTableMap::COL_ARTBTYPECODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArCustTypeCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArCustTypeCodeTableMap::COL_ARTBTYPECODE, (array) $values, Criteria::IN);
         }
 
-        $query = CustomerTypeCodeQuery::create()->mergeWith($criteria);
+        $query = ArCustTypeCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerTypeCodeTableMap::clearInstancePool();
+            ArCustTypeCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerTypeCodeTableMap::removeInstanceFromPool($singleval);
+                ArCustTypeCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -475,13 +475,13 @@ class CustomerTypeCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerTypeCodeQuery::create()->doDeleteAll($con);
+        return ArCustTypeCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerTypeCode or Criteria object.
+     * Performs an INSERT on the database, given a ArCustTypeCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerTypeCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArCustTypeCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -490,18 +490,18 @@ class CustomerTypeCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerTypeCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTypeCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerTypeCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArCustTypeCode object
         }
 
 
         // Set the correct dbName
-        $query = CustomerTypeCodeQuery::create()->mergeWith($criteria);
+        $query = ArCustTypeCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -510,7 +510,7 @@ class CustomerTypeCodeTableMap extends TableMap
         });
     }
 
-} // CustomerTypeCodeTableMap
+} // ArCustTypeCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerTypeCodeTableMap::buildTableMap();
+ArCustTypeCodeTableMap::buildTableMap();

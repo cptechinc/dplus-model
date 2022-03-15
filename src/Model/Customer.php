@@ -219,8 +219,8 @@ class Customer extends BaseCustomer {
 	 * @return string
 	 */
 	public function type() {
-		$q = CustomerTypeCodeQuery::create();
-		$q->select(CustomerTypeCode::aliasproperty('description'));
+		$q = ArCustTypeCodeQuery::create();
+		$q->select(ArCustTypeCode::aliasproperty('description'));
 		$q->filterByCode($this->type);
 
 		if ($q->count() === 0) {
