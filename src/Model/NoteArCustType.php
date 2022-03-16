@@ -9,7 +9,7 @@ use Dplus\Model\MagicMethodTraits;
  * Class for representing a row from the 'ar_cust_type' table.
  *
  */
-class ArCustTypeCode extends BaseArCustTypeCode {
+class NoteArCustTypeCode extends BaseArCustTypeCode {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 

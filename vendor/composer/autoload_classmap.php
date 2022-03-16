@@ -691,6 +691,7 @@ return array(
     'MsaSysopCodeQuery' => $baseDir . '/src/Model/MsaSysopCodeQuery.php',
     'MsdsCode' => $baseDir . '/src/Model/MsdsCode.php',
     'MsdsCodeQuery' => $baseDir . '/src/Model/MsdsCodeQuery.php',
+    'NoteArCustTypeCode' => $baseDir . '/src/Model/NoteArCustType.php',
     'NoteArCustTypeQuery' => $baseDir . '/src/Model/NoteArCustTypeQuery.php',
     'NoteMmsc' => $baseDir . '/src/Model/NoteMmsc.php',
     'NoteMmscQuery' => $baseDir . '/src/Model/NoteMmscQuery.php',

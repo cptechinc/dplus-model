@@ -692,6 +692,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'MsaSysopCodeQuery' => __DIR__ . '/../..' . '/src/Model/MsaSysopCodeQuery.php',
         'MsdsCode' => __DIR__ . '/../..' . '/src/Model/MsdsCode.php',
         'MsdsCodeQuery' => __DIR__ . '/../..' . '/src/Model/MsdsCodeQuery.php',
+        'NoteArCustTypeCode' => __DIR__ . '/../..' . '/src/Model/NoteArCustType.php',
         'NoteArCustTypeQuery' => __DIR__ . '/../..' . '/src/Model/NoteArCustTypeQuery.php',
         'NoteMmsc' => __DIR__ . '/../..' . '/src/Model/NoteMmsc.php',
         'NoteMmscQuery' => __DIR__ . '/../..' . '/src/Model/NoteMmscQuery.php',
