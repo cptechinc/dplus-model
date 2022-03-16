@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \CustomerUserCode as ChildCustomerUserCode;
-use \CustomerUserCodeQuery as ChildCustomerUserCodeQuery;
+use \ArCustUserCode as ChildArCustUserCode;
+use \ArCustUserCodeQuery as ChildArCustUserCodeQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerUserCodeTableMap;
+use Map\ArCustUserCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,83 +19,83 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildCustomerUserCodeQuery orderByArtbcusrcode($order = Criteria::ASC) Order by the ArtbCusrCode column
- * @method     ChildCustomerUserCodeQuery orderByArtbcusrdesc($order = Criteria::ASC) Order by the ArtbCusrDesc column
- * @method     ChildCustomerUserCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildCustomerUserCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildCustomerUserCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArCustUserCodeQuery orderByArtbcusrcode($order = Criteria::ASC) Order by the ArtbCusrCode column
+ * @method     ChildArCustUserCodeQuery orderByArtbcusrdesc($order = Criteria::ASC) Order by the ArtbCusrDesc column
+ * @method     ChildArCustUserCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArCustUserCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArCustUserCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildCustomerUserCodeQuery groupByArtbcusrcode() Group by the ArtbCusrCode column
- * @method     ChildCustomerUserCodeQuery groupByArtbcusrdesc() Group by the ArtbCusrDesc column
- * @method     ChildCustomerUserCodeQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildCustomerUserCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildCustomerUserCodeQuery groupByDummy() Group by the dummy column
+ * @method     ChildArCustUserCodeQuery groupByArtbcusrcode() Group by the ArtbCusrCode column
+ * @method     ChildArCustUserCodeQuery groupByArtbcusrdesc() Group by the ArtbCusrDesc column
+ * @method     ChildArCustUserCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArCustUserCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArCustUserCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildCustomerUserCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildCustomerUserCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildCustomerUserCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArCustUserCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArCustUserCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArCustUserCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildCustomerUserCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildCustomerUserCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildCustomerUserCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArCustUserCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArCustUserCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArCustUserCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildCustomerUserCode findOne(ConnectionInterface $con = null) Return the first ChildCustomerUserCode matching the query
- * @method     ChildCustomerUserCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerUserCode matching the query, or a new ChildCustomerUserCode object populated from the query conditions when no match is found
+ * @method     ChildArCustUserCode findOne(ConnectionInterface $con = null) Return the first ChildArCustUserCode matching the query
+ * @method     ChildArCustUserCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCustUserCode matching the query, or a new ChildArCustUserCode object populated from the query conditions when no match is found
  *
- * @method     ChildCustomerUserCode findOneByArtbcusrcode(string $ArtbCusrCode) Return the first ChildCustomerUserCode filtered by the ArtbCusrCode column
- * @method     ChildCustomerUserCode findOneByArtbcusrdesc(string $ArtbCusrDesc) Return the first ChildCustomerUserCode filtered by the ArtbCusrDesc column
- * @method     ChildCustomerUserCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerUserCode filtered by the DateUpdtd column
- * @method     ChildCustomerUserCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerUserCode filtered by the TimeUpdtd column
- * @method     ChildCustomerUserCode findOneByDummy(string $dummy) Return the first ChildCustomerUserCode filtered by the dummy column *
+ * @method     ChildArCustUserCode findOneByArtbcusrcode(string $ArtbCusrCode) Return the first ChildArCustUserCode filtered by the ArtbCusrCode column
+ * @method     ChildArCustUserCode findOneByArtbcusrdesc(string $ArtbCusrDesc) Return the first ChildArCustUserCode filtered by the ArtbCusrDesc column
+ * @method     ChildArCustUserCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustUserCode filtered by the DateUpdtd column
+ * @method     ChildArCustUserCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustUserCode filtered by the TimeUpdtd column
+ * @method     ChildArCustUserCode findOneByDummy(string $dummy) Return the first ChildArCustUserCode filtered by the dummy column *
 
- * @method     ChildCustomerUserCode requirePk($key, ConnectionInterface $con = null) Return the ChildCustomerUserCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerUserCode requireOne(ConnectionInterface $con = null) Return the first ChildCustomerUserCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCustUserCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOne(ConnectionInterface $con = null) Return the first ChildArCustUserCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerUserCode requireOneByArtbcusrcode(string $ArtbCusrCode) Return the first ChildCustomerUserCode filtered by the ArtbCusrCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerUserCode requireOneByArtbcusrdesc(string $ArtbCusrDesc) Return the first ChildCustomerUserCode filtered by the ArtbCusrDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerUserCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerUserCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerUserCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerUserCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerUserCode requireOneByDummy(string $dummy) Return the first ChildCustomerUserCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOneByArtbcusrcode(string $ArtbCusrCode) Return the first ChildArCustUserCode filtered by the ArtbCusrCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOneByArtbcusrdesc(string $ArtbCusrDesc) Return the first ChildArCustUserCode filtered by the ArtbCusrDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustUserCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustUserCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustUserCode requireOneByDummy(string $dummy) Return the first ChildArCustUserCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildCustomerUserCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomerUserCode objects based on current ModelCriteria
- * @method     ChildCustomerUserCode[]|ObjectCollection findByArtbcusrcode(string $ArtbCusrCode) Return ChildCustomerUserCode objects filtered by the ArtbCusrCode column
- * @method     ChildCustomerUserCode[]|ObjectCollection findByArtbcusrdesc(string $ArtbCusrDesc) Return ChildCustomerUserCode objects filtered by the ArtbCusrDesc column
- * @method     ChildCustomerUserCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerUserCode objects filtered by the DateUpdtd column
- * @method     ChildCustomerUserCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerUserCode objects filtered by the TimeUpdtd column
- * @method     ChildCustomerUserCode[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerUserCode objects filtered by the dummy column
- * @method     ChildCustomerUserCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCustUserCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCustUserCode objects based on current ModelCriteria
+ * @method     ChildArCustUserCode[]|ObjectCollection findByArtbcusrcode(string $ArtbCusrCode) Return ChildArCustUserCode objects filtered by the ArtbCusrCode column
+ * @method     ChildArCustUserCode[]|ObjectCollection findByArtbcusrdesc(string $ArtbCusrDesc) Return ChildArCustUserCode objects filtered by the ArtbCusrDesc column
+ * @method     ChildArCustUserCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCustUserCode objects filtered by the DateUpdtd column
+ * @method     ChildArCustUserCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCustUserCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCustUserCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCustUserCode objects filtered by the dummy column
+ * @method     ChildArCustUserCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class CustomerUserCodeQuery extends ModelCriteria
+abstract class ArCustUserCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\CustomerUserCodeQuery object.
+     * Initializes internal state of \Base\ArCustUserCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\CustomerUserCode', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArCustUserCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildCustomerUserCodeQuery object.
+     * Returns a new ChildArCustUserCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildCustomerUserCodeQuery
+     * @return ChildArCustUserCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildCustomerUserCodeQuery) {
+        if ($criteria instanceof ChildArCustUserCodeQuery) {
             return $criteria;
         }
-        $query = new ChildCustomerUserCodeQuery();
+        $query = new ChildArCustUserCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -118,7 +118,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildCustomerUserCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArCustUserCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -127,7 +127,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCustUserCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -140,7 +140,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = CustomerUserCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArCustUserCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -157,7 +157,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildCustomerUserCode A model object, or null if the key is not found
+     * @return ChildArCustUserCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -172,10 +172,10 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildCustomerUserCode $obj */
-            $obj = new ChildCustomerUserCode();
+            /** @var ChildArCustUserCode $obj */
+            $obj = new ChildArCustUserCode();
             $obj->hydrate($row);
-            CustomerUserCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArCustUserCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -188,7 +188,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildCustomerUserCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArCustUserCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -230,12 +230,12 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_ARTBCUSRCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_ARTBCUSRCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -243,12 +243,12 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_ARTBCUSRCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_ARTBCUSRCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -263,7 +263,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     string $artbcusrcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcusrcode($artbcusrcode = null, $comparison = null)
     {
@@ -273,7 +273,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_ARTBCUSRCODE, $artbcusrcode, $comparison);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_ARTBCUSRCODE, $artbcusrcode, $comparison);
     }
 
     /**
@@ -288,7 +288,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     string $artbcusrdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByArtbcusrdesc($artbcusrdesc = null, $comparison = null)
     {
@@ -298,7 +298,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_ARTBCUSRDESC, $artbcusrdesc, $comparison);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_ARTBCUSRDESC, $artbcusrdesc, $comparison);
     }
 
     /**
@@ -313,7 +313,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -373,20 +373,20 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(CustomerUserCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArCustUserCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildCustomerUserCode $customerUserCode Object to remove from the list of results
+     * @param   ChildArCustUserCode $customerUserCode Object to remove from the list of results
      *
-     * @return $this|ChildCustomerUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArCustUserCodeQuery The current query, for fluid interface
      */
     public function prune($customerUserCode = null)
     {
         if ($customerUserCode) {
-            $this->addUsingAlias(CustomerUserCodeTableMap::COL_ARTBCUSRCODE, $customerUserCode->getArtbcusrcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArCustUserCodeTableMap::COL_ARTBCUSRCODE, $customerUserCode->getArtbcusrcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -401,7 +401,7 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustUserCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -412,8 +412,8 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            CustomerUserCodeTableMap::clearInstancePool();
-            CustomerUserCodeTableMap::clearRelatedInstancePool();
+            ArCustUserCodeTableMap::clearInstancePool();
+            ArCustUserCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -431,26 +431,26 @@ abstract class CustomerUserCodeQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustUserCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(CustomerUserCodeTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArCustUserCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            CustomerUserCodeTableMap::removeInstanceFromPool($criteria);
+            ArCustUserCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            CustomerUserCodeTableMap::clearRelatedInstancePool();
+            ArCustUserCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // CustomerUserCodeQuery
+} // ArCustUserCodeQuery

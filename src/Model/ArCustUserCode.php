@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerUserCode as BaseCustomerUserCode;
+use Base\ArCustUserCode as BaseArCustUserCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ar_cust_cusr' table.
  */
-class CustomerUserCode extends BaseCustomerUserCode {
+class ArCustUserCode extends BaseArCustUserCode {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 

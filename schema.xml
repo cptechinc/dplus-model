@@ -839,7 +839,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_cusr" idMethod="native" phpName="CustomerUserCode">
+  <table name="ar_cust_cusr" idMethod="native" phpName="ArCustUserCode">
     <column name="ArtbCusrCode" phpName="Artbcusrcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCusrDesc" phpName="Artbcusrdesc" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>

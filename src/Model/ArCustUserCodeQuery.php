@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerUserCodeQuery as BaseCustomerUserCodeQuery;
+use Base\ArCustUserCodeQuery as BaseArCustUserCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -22,6 +22,6 @@ use Dplus\Model\QueryTraits;
  *
  *
  */
-class CustomerUserCodeQuery extends BaseCustomerUserCodeQuery {
+class ArCustUserCodeQuery extends BaseArCustUserCodeQuery {
 	use QueryTraits;
 }
