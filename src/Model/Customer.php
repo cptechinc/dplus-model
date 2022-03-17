@@ -47,8 +47,6 @@ class Customer extends BaseCustomer {
 		'salesperson1' => 'arspsaleper1',
 		'salesperson2' => 'arspsaleper2',
 		'salesperson3' => 'arspsaleper3',
-		'shipvia'      => 'artbshipvia',
-		'termscode'    => 'artmtermcd',
 		'lastsaledate' => 'arculastsaledate',
 		'mtd_sales'    => 'arcusalemtd',
 		'mtd_invoices' => 'arcuinvmtd',
@@ -60,13 +58,29 @@ class Customer extends BaseCustomer {
 		'financecharge'  => 'arcunewfc', // Current Finance Charge
 		'warehouse'      => 'intbwhse',
 		'whseid'         => 'intbwhse',
-		'taxcode'        => 'artbmtaxcode',
-		'type'           => 'artbtypecode',
-		'pricecode'      => 'artbpriccode',
+		'remitwhseid'    => 'arcuremitwhse',
 		'credithold'     => 'arcucredhold',
+		'shipcomplete'   => 'arcushipcomp',
 		'taxexemptcode'  => 'arcutaxexemnbr',
+		'taxexemptnbr'   => 'arcutaxexemnbr',
 		'active'         => 'arcuactiveinactive',
 		'require_po'     => 'arcucustpoparam',
+		'allowBackorder' => 'arcubord',
+		'allowFinancecharge' => 'arcufinchrg',
+		'additonaldiscount' => 'arcuaddlpricdisc',
+		// AR Codes
+		'taxcode'        => 'artbmtaxcode',
+		'type'           => 'artbtypecode',
+		'typecode'       => 'artbtypecode',
+		'pricecode'      => 'artbpriccode',
+		'commcode'       => 'artbcommcode',
+		'shipvia'      => 'artbshipvia',
+		'shipviacode'  => 'artbshipvia',
+		'termscode'    => 'artmtermcd',
+		'stmtcode'     => 'arcustmtcode',
+		// Datetime
+		'date'         => 'dateupdtd',
+		'time'         => 'timeupdtd'
 	);
 
 	/**
