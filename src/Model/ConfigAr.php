@@ -14,13 +14,12 @@ class ConfigAr extends BaseConfigAr {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
-	/**
-	 * Web Program Code
-	 * Y = Yes
-	 * N = No
-	 * @var string
-	 */
-	protected $artbconfuseweb;
+	const YN_TRUE = 'Y';
+
+	const GL_REPORT_TYPES_DESCRIPTIONS = array(
+		'I' => 'inventory',
+		'C' => 'customer'
+	);
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -32,12 +31,28 @@ class ConfigAr extends BaseConfigAr {
 		'web_group'      => 'artbconfuseweb',
 		'columns_notes_statement' => 'ArtbConfStmtCols',
 		'columns_notes_invoice'   => 'ArtbConfInvCols',
+		'defaultSalespersonid'    => 'artbconfspdef',
+		'defaultWarehouseid'      => 'artbconfwhse',
+		'defaultCustType'         => 'artbconftypedef',
+		'defaultShipviaCode'      => 'artbconfsviadef',
+		'defaultTermsCode'        => 'artbconftermdef',
+		'defaultTaxCode'          => 'artbconftaxdef',
+		'defaultStmtCode'         => 'artbconfstmtdef',
+		'usePriceCode'            => 'artbconfusepriccode',
+		'defaultPriceCode'        => 'artbconfpricdef',
+		'useCommCode'             => 'artbconfusecommcode',
+		'defaultCommCode'         => 'artbconfcommdef',
+		'defaultAllowBackorder'   => 'artbconfallowbo',
+		'defaultAllowFinancecharge'    => 'artbconfallowfc'
 	);
 
-	const GL_REPORT_TYPES_DESCRIPTIONS = array(
-		'I' => 'inventory',
-		'C' => 'customer'
-	);
+	/**
+	 * Web Program Code
+	 * Y = Yes
+	 * N = No
+	 * @var string
+	 */
+	protected $artbconfuseweb;
 
 	/**
 	 * Returns the Description for the GL Report Type
@@ -46,7 +61,26 @@ class ConfigAr extends BaseConfigAr {
 	public function glReportType() {
 		return self::GL_REPORT_TYPES_DESCRIPTIONS[strtoupper($this->gl_report_type)];
 	}
-	
+
+/* =============================================================
+	Bool Property Functions
+============================================================= */
+	/**
+	 * Use Comm Code?
+	 * @return bool
+	 */
+	public function useCommCode() {
+		return $this->useCommCode == self::YN_TRUE;
+	}
+
+	/**
+	 * Use Price Code?
+	 * @return bool
+	 */
+	public function usePriceCode() {
+		return $this->usePriceCode == self::YN_TRUE;
+	}
+
 	/**
 	 * Returns if the Web Program is Yes
 	 * @return bool
@@ -54,7 +88,7 @@ class ConfigAr extends BaseConfigAr {
 	public function isWebGroup() {
 		return strtoupper($this->web_group) == 'Y';
 	}
-	
+
 /* =============================================================
 	Legacy Functions
 ============================================================= */
