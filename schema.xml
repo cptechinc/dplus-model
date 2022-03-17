@@ -5179,6 +5179,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="state_codes" idMethod="native" phpName="StateCode">
+    <column name="StatId" phpName="Statid" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="StatName" phpName="Statname" type="VARCHAR" size="40" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="sys_config" idMethod="native" phpName="ConfigSys">
     <column name="ScfgKey" phpName="Scfgkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="ScfgCustId" phpName="Scfgcustid" type="VARCHAR" size="6"/>
