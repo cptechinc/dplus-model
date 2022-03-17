@@ -83,11 +83,14 @@ class Customer extends BaseCustomer {
 		'time'         => 'timeupdtd'
 	);
 
+/* =============================================================
+	Boolean property Functions
+============================================================= */
 	/**
 	 * Return if Customer Is Active
 	 * @return bool
 	 */
-	public function is_active() {
+	public function isActive() {
 		return $this->active == self::STATUS_ACTIVE;
 	}
 
@@ -95,7 +98,7 @@ class Customer extends BaseCustomer {
 	 * Return if PO is required
 	 * @return bool
 	 */
-	public function require_po() {
+	public function requirePo() {
 		return in_array($this->require_po, self::REQUIRE_PO_FORCED);
 	}
 
@@ -103,113 +106,119 @@ class Customer extends BaseCustomer {
 	 * Return if Customer has Credit Hold
 	 * @return bool
 	 */
-	public function has_credithold() {
+	public function hasCredithold() {
 		return strtoupper($this->credithold) == self::YN_TRUE;
 	}
 
 	/**
-	 * Returns CustomerShipto objects for Customer
-	 *
-	 * @return ObjectCollection[] CustomerShipto
+	 * Returns if Customer is Tax Exempt
+	 * @return bool
 	 */
-	public function get_shiptos() {
-		$query = new CustomerShiptoQuery();
-		return $query->findByCustid($this->id);
+	public function isTaxexempt() {
+		return empty($this->arcutaxexemnbr) === false;
 	}
 
 	/**
-	 * Returns the Number of CustomerShiptos with this Customer ID
-	 *
-	 * @return int Number of CustomerShipto
+	 * Return if shipcomplete is true
+	 * @return bool
 	 */
-	public function count_shiptos() {
-		$query = new CustomerShiptoQuery();
-		return $query->countByCustid($this->id);
+	public function shipcomplete() {
+		return strtoupper($this->credithold) == self::YN_TRUE;
 	}
 
-	/**
-	 * Return CustomerShipto
-	 *
-	 * @param string $shiptoid
-	 * @return CustomerShipto
-	 */
-	public function get_shipto($shiptoid) {
-		$query = new CustomerShiptoQuery();
-		$query->filterByCustid($this->id);
-		return $query->findOne();
-	}
-
+/* =============================================================
+	Property Functions
+============================================================= */
 	/**
 	 * Returns the total Sales Amount of the last specified months
-	 *
 	 * @param  int  $months Number of Months Back
 	 * @return float        Total Sales Amount
 	 */
-	public function get_lastxmonthsamount(int $months = 1) {
+	public function getLastXMonthsSalesAmt(int $months = 1) {
 		$query = new CustomerQuery();
 		return $query->get_lastxmonthsamount($this->id, $months);
 	}
 
 	/**
 	 * Returns the total Number of Invoices in the last #months
-	 *
 	 * @param  int  $months Number of Months Back
 	 * @return int          Number of Invoices
 	 */
-	public function get_lastxmonthscount(int $months = 1) {
+	public function getLastXMonthsSalesCount(int $months = 1) {
 		$query = new CustomerQuery();
 		return $query->get_lastxmonthscount($this->id, $months);
 	}
 
 	/**
 	 * Return Sales Amount for $months back
-	 *
 	 * @param  int   $monthsback
 	 * @return float             Sales Amount
 	 */
-	public function get_24monthsale($monthsback = 1) {
+	public function getXMonthsBackSalesAmt($monthsback = 1) {
 		$property = "arcusale24mo$monthsback";
 		return $this->$property;
 	}
 
 	/**
-	 * Return Invoice Count for $months back
-	 *
+	 * Return Sales Amount for $months back
 	 * @param  int   $monthsback
 	 * @return float             Sales Amount
 	 */
-	public function get_24monthinvoicecount($monthsback = 1) {
+	public function getXMonthsBackSalesCount($monthsback = 1) {
 		$property = "arcuinv24mo$monthsback";
 		return $this->$property;
 	}
 
+/* =============================================================
+	Query-based Functions
+============================================================= */
 	/**
-	 * Returns if Customer is Tax Exempt
-	 *
-	 * @return bool
+	 * Return the number of SalesOrders for this customer
+	 * @return int
 	 */
-	public function is_taxexempt() {
-		return !empty($this->arcutaxexemnbr);
-	}
-
-	/**
-	 * Returns the Number of open orders this customer has
-	 * @return int Number of Customer Open Orders
-	 */
-	public function get_orders_count() {
+	public function countSalesOrders() {
 		$query = new SalesOrderQuery();
 		$query->filterbyCustId($this->id);
 		return $query->count();
 	}
 
 	/**
-	 * Returns the Sum of the Sales Orders totals for this Customer ID
-	 * @return float SUM(salesordertotal)
+	 * Return the Sum of Order Totals for this Customer
+	 * @return float
 	 */
-	public function get_orders_amount() {
+	public function getSalesOrdersAmt() {
 		$query = new SalesOrderQuery();
 		$query->filterbyCustId($this->id);
 		$query->select_sum_ordertotal();
+		return $query->findOne();
+	}
+
+	/**
+	 * Returns CustomerShipto objects for Customer
+	 * @return ObjectCollection[] CustomerShipto
+	 */
+	public function getShiptos() {
+		$q = new CustomerShiptoQuery();
+		return $q->findByCustid($this->id);
+	}
+
+	/**
+	 * Returns the Number of CustomerShiptos with this Customer ID
+	 * @return int Number of CustomerShipto
+	 */
+	public function countShiptos() {
+		$query = new CustomerShiptoQuery();
+		return $query->filterByCustid($this->id)->count();
+	}
+
+	/**
+	 * Return CustomerShipto
+	 * @param string $shiptoid
+	 * @return CustomerShipto
+	 */
+	public function getShipto($shiptoid) {
+		$query = new CustomerShiptoQuery();
+		$query->filterByCustid($this->id);
 		return $query->findOne();
 	}
 
@@ -272,4 +281,21 @@ class Customer extends BaseCustomer {
 		}
 		return $q->findOne();
 	}
+
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function is_active() {return $this->isActive();}
+	public function require_po() {return $this->requirePo();}
+	public function has_credithold() {return $this->hasCredithold();}
+	public function get_shiptos() {return $this->getShiptos();}
+	public function count_shiptos() {return $this->countShiptos();}
+	public function get_shipto($shiptoid) {return $this->getShipto($shiptoid);}
+	public function get_lastxmonthsamount(int $months = 1) {return $this->getLastXMonthsSalesAmt($months);}
+	public function get_lastxmonthscount(int $months = 1) {return $this->getLastXMonthsSalesCount($months);}
+	public function get_24monthsale($monthsback = 1) {return $this->getXMonthsBackSaleAmt($monthsback);}
+	public function get_24monthinvoicecount($monthsback = 1) {return $this->getXMonthsBackSalesCount($monthsback);}
+	public function is_taxexempt() {return $this->isTaxexempt();}
+	public function get_orders_count() {$this->countSalesOrders();}
+	public function get_orders_amount() {$this->getSalesOrdersAmt();}
 }
