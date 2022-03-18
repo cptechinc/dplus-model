@@ -993,7 +993,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_mtax" idMethod="native" phpName="TaxCodeMaster">
+  <table name="ar_cust_mtax" idMethod="native" phpName="ArTaxCode">
     <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbMtaxDesc" phpName="Artbmtaxdesc" type="VARCHAR" size="20"/>
     <column name="ArtbMtaxPct" phpName="Artbmtaxpct" type="DECIMAL" size="20" scale="3"/>

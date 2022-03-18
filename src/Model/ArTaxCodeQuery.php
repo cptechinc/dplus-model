@@ -1,6 +1,6 @@
 <?php
 
-use Base\TaxCodeMasterQuery as BaseTaxCodeMasterQuery;
+use Base\ArTaxCodeQuery as BaseArTaxCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -16,12 +16,12 @@ use Dplus\Model\QueryTraits;
  * FilterByXXX()
  *
  * FindOneByXXX()
- * @method  TaxCodeMaster findOneByCode(string $code)      Return the first TaxCodeMaster filtered by the artbmtaxcode column
+ * @method  ArTaxCode findOneByCode(string $code)      Return the first ArTaxCode filtered by the artbmtaxcode column
  *
  * FindByXXX()
  *
  *
  */
-class TaxCodeMasterQuery extends BaseTaxCodeMasterQuery {
+class ArTaxCodeQuery extends BaseArTaxCodeQuery {
 	use QueryTraits;
 }

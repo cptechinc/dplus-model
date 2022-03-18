@@ -172,15 +172,6 @@ class Customer extends BaseCustomer {
 /* =============================================================
 	Query-based Functions
 ============================================================= */
-	/**
-	 * Return the number of SalesOrders for this customer
-	 * @return int
-	 */
-	public function countSalesOrders() {
-		$query = new SalesOrderQuery();
-		$query->filterbyCustId($this->id);
-		return $query->count();
-	}
 
 	/**
 	 * Return the Sum of Order Totals for this Customer
@@ -227,8 +218,8 @@ class Customer extends BaseCustomer {
 	 * @return string
 	 */
 	public function taxcode() {
-		$q = TaxCodeMasterQuery::create();
-		$q->select(TaxCodeMaster::aliasproperty('description'));
+		$q = ArTaxCodeQuery::create();
+		$q->select(ArTaxCode::aliasproperty('description'));
 		$q->filterById($this->taxcode);
 
 		if ($q->count() === 0) {

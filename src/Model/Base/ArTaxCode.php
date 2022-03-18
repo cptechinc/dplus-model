@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \TaxCodeMasterQuery as ChildTaxCodeMasterQuery;
+use \ArTaxCodeQuery as ChildArTaxCodeQuery;
 use \Exception;
 use \PDO;
-use Map\TaxCodeMasterTableMap;
+use Map\ArTaxCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class TaxCodeMaster implements ActiveRecordInterface
+abstract class ArTaxCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\TaxCodeMasterTableMap';
+    const TABLE_MAP = '\\Map\\ArTaxCodeTableMap';
 
 
     /**
@@ -199,7 +199,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\TaxCodeMaster object.
+     * Initializes internal state of Base\ArTaxCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -296,9 +296,9 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>TaxCodeMaster</code> instance.  If
-     * <code>obj</code> is an instance of <code>TaxCodeMaster</code>, delegates to
-     * <code>equals(TaxCodeMaster)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArTaxCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArTaxCode</code>, delegates to
+     * <code>equals(ArTaxCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -364,7 +364,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|TaxCodeMaster The current object, for fluid interface
+     * @return $this|ArTaxCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -599,7 +599,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxcode] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxcode($v)
     {
@@ -609,7 +609,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxcode !== $v) {
             $this->artbmtaxcode = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXCODE] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXCODE] = true;
         }
 
         return $this;
@@ -619,7 +619,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxdesc] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxdesc($v)
     {
@@ -629,7 +629,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxdesc !== $v) {
             $this->artbmtaxdesc = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXDESC] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXDESC] = true;
         }
 
         return $this;
@@ -639,7 +639,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxpct] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxpct($v)
     {
@@ -649,7 +649,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxpct !== $v) {
             $this->artbmtaxpct = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXPCT] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXPCT] = true;
         }
 
         return $this;
@@ -659,7 +659,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxglacct] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxglacct($v)
     {
@@ -669,7 +669,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxglacct !== $v) {
             $this->artbmtaxglacct = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXGLACCT] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXGLACCT] = true;
         }
 
         return $this;
@@ -679,7 +679,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxnote1] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxnote1($v)
     {
@@ -689,7 +689,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxnote1 !== $v) {
             $this->artbmtaxnote1 = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXNOTE1] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXNOTE1] = true;
         }
 
         return $this;
@@ -699,7 +699,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxnote2] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxnote2($v)
     {
@@ -709,7 +709,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxnote2 !== $v) {
             $this->artbmtaxnote2 = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXNOTE2] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXNOTE2] = true;
         }
 
         return $this;
@@ -719,7 +719,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxnote3] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxnote3($v)
     {
@@ -729,7 +729,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxnote3 !== $v) {
             $this->artbmtaxnote3 = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXNOTE3] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXNOTE3] = true;
         }
 
         return $this;
@@ -739,7 +739,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxnote4] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxnote4($v)
     {
@@ -749,7 +749,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxnote4 !== $v) {
             $this->artbmtaxnote4 = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXNOTE4] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXNOTE4] = true;
         }
 
         return $this;
@@ -759,7 +759,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxmaxcost] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxmaxcost($v)
     {
@@ -769,7 +769,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxmaxcost !== $v) {
             $this->artbmtaxmaxcost = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXMAXCOST] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXMAXCOST] = true;
         }
 
         return $this;
@@ -779,7 +779,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxpercigar] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxpercigar($v)
     {
@@ -789,7 +789,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxpercigar !== $v) {
             $this->artbmtaxpercigar = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXPERCIGAR] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXPERCIGAR] = true;
         }
 
         return $this;
@@ -799,7 +799,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxtaxtype] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxtaxtype($v)
     {
@@ -809,7 +809,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxtaxtype !== $v) {
             $this->artbmtaxtaxtype = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXTAXTYPE] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXTAXTYPE] = true;
         }
 
         return $this;
@@ -819,7 +819,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxtaxfrt] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxtaxfrt($v)
     {
@@ -829,7 +829,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxtaxfrt !== $v) {
             $this->artbmtaxtaxfrt = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXTAXFRT] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXTAXFRT] = true;
         }
 
         return $this;
@@ -839,7 +839,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxfrttax] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxfrttax($v)
     {
@@ -849,7 +849,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxfrttax !== $v) {
             $this->artbmtaxfrttax = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXFRTTAX] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXFRTTAX] = true;
         }
 
         return $this;
@@ -859,7 +859,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [artbmtaxlimit] column.
      *
      * @param int $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setArtbmtaxlimit($v)
     {
@@ -869,7 +869,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->artbmtaxlimit !== $v) {
             $this->artbmtaxlimit = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_ARTBMTAXLIMIT] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_ARTBMTAXLIMIT] = true;
         }
 
         return $this;
@@ -879,7 +879,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -889,7 +889,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -899,7 +899,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -909,7 +909,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -919,7 +919,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeMaster The current object (for fluent API support)
+     * @return $this|\ArTaxCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -929,7 +929,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[TaxCodeMasterTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArTaxCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -975,55 +975,55 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxnote1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxnote1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxnote1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxnote2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxnote2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxnote2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxnote3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxnote3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxnote3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxnote4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxnote4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxnote4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxmaxcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxmaxcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxmaxcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxpercigar', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxpercigar', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxpercigar = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxtaxtype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxtaxtype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxtaxtype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxtaxfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxtaxfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxtaxfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxfrttax', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxfrttax', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxfrttax = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : TaxCodeMasterTableMap::translateFieldName('Artbmtaxlimit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArTaxCodeTableMap::translateFieldName('Artbmtaxlimit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxlimit = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : TaxCodeMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArTaxCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : TaxCodeMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : ArTaxCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : TaxCodeMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : ArTaxCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1033,10 +1033,10 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 17; // 17 = TaxCodeMasterTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 17; // 17 = ArTaxCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\TaxCodeMaster'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArTaxCode'), 0, $e);
         }
     }
 
@@ -1078,13 +1078,13 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(TaxCodeMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildTaxCodeMasterQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArTaxCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1103,8 +1103,8 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see TaxCodeMaster::setDeleted()
-     * @see TaxCodeMaster::isDeleted()
+     * @see ArTaxCode::setDeleted()
+     * @see ArTaxCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1113,11 +1113,11 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildTaxCodeMasterQuery::create()
+            $deleteQuery = ChildArTaxCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1152,7 +1152,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArTaxCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1171,7 +1171,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                TaxCodeMasterTableMap::addInstanceToPool($this);
+                ArTaxCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1230,55 +1230,55 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXCODE)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXDESC)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxDesc';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXPCT)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXPCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxPct';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXGLACCT)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXGLACCT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxGlAcct';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE1)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE1)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxNote1';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE2)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE2)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxNote2';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE3)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE3)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxNote3';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE4)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE4)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxNote4';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXMAXCOST)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXMAXCOST)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxMaxCost';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXPERCIGAR)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXPERCIGAR)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxPerCigar';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXTAXTYPE)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXTAXTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxTaxType';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXTAXFRT)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXTAXFRT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxTaxFrt';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXFRTTAX)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXFRTTAX)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxFrtTax';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXLIMIT)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXLIMIT)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbMtaxLimit';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1382,7 +1382,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = TaxCodeMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArTaxCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1472,11 +1472,11 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['TaxCodeMaster'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArTaxCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['TaxCodeMaster'][$this->hashCode()] = true;
-        $keys = TaxCodeMasterTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArTaxCode'][$this->hashCode()] = true;
+        $keys = ArTaxCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbmtaxcode(),
             $keys[1] => $this->getArtbmtaxdesc(),
@@ -1514,11 +1514,11 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\TaxCodeMaster
+     * @return $this|\ArTaxCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = TaxCodeMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArTaxCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1529,7 +1529,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\TaxCodeMaster
+     * @return $this|\ArTaxCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1609,7 +1609,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = TaxCodeMasterTableMap::getFieldNames($keyType);
+        $keys = ArTaxCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbmtaxcode($arr[$keys[0]]);
@@ -1681,7 +1681,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\TaxCodeMaster The current object, for fluid interface
+     * @return $this|\ArTaxCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1701,58 +1701,58 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(TaxCodeMasterTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArTaxCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXCODE)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXDESC)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXDESC, $this->artbmtaxdesc);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXDESC)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXDESC, $this->artbmtaxdesc);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXPCT)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXPCT, $this->artbmtaxpct);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXPCT)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXPCT, $this->artbmtaxpct);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXGLACCT)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXGLACCT, $this->artbmtaxglacct);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXGLACCT)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXGLACCT, $this->artbmtaxglacct);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE1)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE1, $this->artbmtaxnote1);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE1)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXNOTE1, $this->artbmtaxnote1);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE2)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE2, $this->artbmtaxnote2);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE2)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXNOTE2, $this->artbmtaxnote2);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE3)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE3, $this->artbmtaxnote3);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE3)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXNOTE3, $this->artbmtaxnote3);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE4)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXNOTE4, $this->artbmtaxnote4);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXNOTE4)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXNOTE4, $this->artbmtaxnote4);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXMAXCOST)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXMAXCOST, $this->artbmtaxmaxcost);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXMAXCOST)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXMAXCOST, $this->artbmtaxmaxcost);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXPERCIGAR)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXPERCIGAR, $this->artbmtaxpercigar);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXPERCIGAR)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXPERCIGAR, $this->artbmtaxpercigar);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXTAXTYPE)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXTAXTYPE, $this->artbmtaxtaxtype);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXTAXTYPE)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXTAXTYPE, $this->artbmtaxtaxtype);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXTAXFRT)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXTAXFRT, $this->artbmtaxtaxfrt);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXTAXFRT)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXTAXFRT, $this->artbmtaxtaxfrt);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXFRTTAX)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXFRTTAX, $this->artbmtaxfrttax);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXFRTTAX)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXFRTTAX, $this->artbmtaxfrttax);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_ARTBMTAXLIMIT)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXLIMIT, $this->artbmtaxlimit);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_ARTBMTAXLIMIT)) {
+            $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXLIMIT, $this->artbmtaxlimit);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_DATEUPDTD)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArTaxCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArTaxCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(TaxCodeMasterTableMap::COL_DUMMY)) {
-            $criteria->add(TaxCodeMasterTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArTaxCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArTaxCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1770,8 +1770,8 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildTaxCodeMasterQuery::create();
-        $criteria->add(TaxCodeMasterTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        $criteria = ChildArTaxCodeQuery::create();
+        $criteria->add(ArTaxCodeTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
 
         return $criteria;
     }
@@ -1833,7 +1833,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \TaxCodeMaster (or compatible) type.
+     * @param      object $copyObj An object of \ArTaxCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1871,7 +1871,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \TaxCodeMaster Clone of current object.
+     * @return \ArTaxCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1938,7 +1938,7 @@ abstract class TaxCodeMaster implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(TaxCodeMasterTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArTaxCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
