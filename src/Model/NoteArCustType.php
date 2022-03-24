@@ -1,50 +1,72 @@
 <?php
 
-use Base\ArCustTypeCode as BaseArCustTypeCode;
+use Base\ArCustType as BaseArCustType;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
 
 /**
- * Class for representing a row from the 'ar_cust_type' table.
- *
+ * Class for representing a row from the 'notes_cust_type' table.
  */
-class NoteArCustTypeCode extends BaseArCustTypeCode {
+class NoteArCustType extends BaseNoteArCustType {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
 	const MAX_LENGTH_CODE = 4;
 
 	/**
+	 * Note Types
+	 */
+	const TYPES = array(
+		'SCTP',
+		'ICTP',
+		'PCTP',
+		'KCTP'
+	);
+
+	/**
+	 * Note Types
+	 */
+	const TYPE_ALIASES = array(
+		'statement' => 'SCTP',
+		'invoice'   => 'ICTP',
+		'pick'      => 'PCTP',
+		'pack'      => 'KCTP'
+	);
+
+	/**
+	 * Note Types
+	 */
+	const TYPES_DESCRIPTIONS = array(
+		'SCTP' => 'statement',
+		'ICTP' => 'invoice',
+		'PCTP' => 'pick ticket',
+		'KCTP' => 'pack ticket'
+	);
+
+	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'id'          => 'artbtypecode',
-		'code'        => 'artbtypecode',
-		'description' => 'artbctypdesc',
-		'mail_list'   => 'artbctypmail',
-		'maillist'    => 'artbctypmail',
-		'order_approval_email' => 'artbctypaprvneedemail',
-		'email'       => 'artbctypaprvneedemail',
-		'glsales'     => 'artbctypsaleacct',
-		'glcredits'   => 'artbctypcredacct',
-		'glcogs'      => 'artbctypcogsacct', // COST OF GOODS
-		'glfreight'   => 'artbctypfrtacct',
-		'glmisc'      => 'artbctypmiscacct',
-		'glcash'      => 'artbctypcashacct',
-		'glar'        => 'artbctyparacct',
-		'glfinance'   => 'artbctypfincacct',
-		'gldiscounts' => 'artbctypdiscacct',
-		'date'         => 'dateupdtd',
-		'time'         => 'timeupdtd',
+		'type'          => 'qntype',
+		'description'   => 'qntypedesc',
+		'typecode'      => 'artbtypecode',
+		'customertype'  => 'artbtypecode',
+		'sequence'      => 'qnseq',
+		'note'          => 'qnnote',
+		'key2'          => 'qnkey2',
+		'date'          => 'dateupdtd',
+		'time'          => 'timeupdtd',
 	);
 
 	/**
-	 * Return Max Length of Characters allowed for Code
-	 * @return int
+	 * Return  Description for the Note Type
+	 * @param  string $type Note Type see self::TYPES
+	 * @return string
 	 */
-	public function get_max_length_code() {
-		return self::MAX_LENGTH_CODE;
+	public static function get_type_description($type) {
+		return self::TYPES_DESCRIPTIONS[$type];
 	}
+
 }
