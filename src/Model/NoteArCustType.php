@@ -1,6 +1,6 @@
 <?php
 
-use Base\ArCustType as BaseArCustType;
+use Base\NoteArCustType as BaseNoteArCustType;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
