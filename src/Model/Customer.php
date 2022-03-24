@@ -67,7 +67,7 @@ class Customer extends BaseCustomer {
 		'require_po'     => 'arcucustpoparam',
 		'allowBackorder' => 'arcubord',
 		'allowFinancecharge' => 'arcufinchrg',
-		'additonaldiscount' => 'arcuaddlpricdisc',
+		'additionaldiscount' => 'arcuaddlpricdisc',
 		// AR Codes
 		'taxcode'        => 'artbmtaxcode',
 		'type'           => 'artbtypecode',

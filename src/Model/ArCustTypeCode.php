@@ -20,21 +20,24 @@ class ArCustTypeCode extends BaseArCustTypeCode {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'id'          => 'artbtypecode',
 		'code'        => 'artbtypecode',
 		'description' => 'artbctypdesc',
-		'mail_list'    => 'artbctypmail',
+		'mail_list'   => 'artbctypmail',
+		'maillist'    => 'artbctypmail',
 		'order_approval_email' => 'artbctypaprvneedemail',
+		'email'       => 'artbctypaprvneedemail',
+		'glsales'     => 'artbctypsaleacct',
+		'glcredits'   => 'artbctypcredacct',
+		'glcogs'      => 'artbctypcogsacct', // COST OF GOODS
+		'glfreight'   => 'artbctypfrtacct',
+		'glmisc'      => 'artbctypmiscacct',
+		'glcash'      => 'artbctypcashacct',
+		'glar'        => 'artbctyparacct',
+		'glfinance'   => 'artbctypfincacct',
+		'gldiscounts' => 'artbctypdiscacct',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',
-		'account_sales'   => 'artbctypsaleacct',
-		'account_credits' => 'artbctypcredacct',
-		'account_cogs'    => 'artbctypcogsacct', // COST OF GOODS
-		'account_freight' => 'artbctypfrtacct',
-		'account_misc'    => 'artbctypmiscacct',
-		'account_cash'    => 'artbctypcashacct',
-		'account_ar'      => 'artbctyparacct',
-		'account_finance' => 'artbctypfincacct',
-		'account_discounts' => 'artbctypdiscacct',
 	);
 
 	/**
