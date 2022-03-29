@@ -60,53 +60,50 @@ class Vendor extends BaseVendor {
 		'ytd_invoices_count'   => 'apveicntytd'
 	);
 
+
 	/**
-	 * Get Buyer X name
-	 *
-	 * @return string
+	 * Return Buyer Name for Buyer number
+	 * @param  int $nbr
+	 * @return void
 	 */
-	public function get_buyer_x_name(int $buyernumber) {
-		$property = "apvebuyrcode$buyernumber";
+	public function getBuyerNameX(int $nbr) {
+		$prop = "apvebuyrcode$nbr";
 		$q = ApBuyerQuery::create();
 		$q->select(ApBuyer::get_aliasproperty('name'));
-		return $q->findOneByCode($this->$property);
+		return $q->findOneByCode($this->$prop);
 	}
 
 	/**
 	 * Get Vendor Phone Number
-	 *
 	 * @return string
 	 */
 	public function getPhone() {
-		$q = $this->get_phonebookquery();
+		$q = $this->getPhoneBookQuery();
 		$q->select(PhoneBook::get_aliasproperty('phone'));
 		return $q->findOne();
 	}
 
 	/**
 	 * Get Vendor Fax Number
-	 *
 	 * @return string
 	 */
 	public function getFax() {
-		$q = $this->get_phonebookquery();
+		$q = $this->getPhoneBookQuery();
 		$q->select(PhoneBook::get_aliasproperty('fax'));
 		return $q->findOne();
 	}
 
 	/**
 	 * Return Vendor Contact
-	 *
 	 * @return PhoneBook
 	 */
 	public function getVendorcontact() {
-		$q = $this->get_phonebookquery();
+		$q = $this->getPhoneBookQuery();
 		return $q->findOne();
 	}
 
 	/**
 	 * Return Vendor Contacts
-	 *
 	 * @return PhoneBook[]|ObjectCollection
 	 */
 	public function getContacts() {
@@ -119,10 +116,9 @@ class Vendor extends BaseVendor {
 
 	/**
 	 * Return Phonebook Query with Vendor Filters applied
-	 *
 	 * @return PhoneBookQuery
 	 */
-	public function get_phonebookquery() {
+	public function getPhoneBookQuery() {
 		$q = PhoneBookQuery::create();
 		$q->filterTypeVendor();
 		$q->filterByVendorid($this->id);
@@ -131,12 +127,23 @@ class Vendor extends BaseVendor {
 	}
 
 	/**
+	 * Returns all the PO Numbers associated with this Vendor
+	 * @return array
+	 */
+	public function getPoNbrs() {
+		$q = PurchaseOrderQuery::create();
+		$q->select(PurchaseOrder::get_aliasproperty('ponbr'));
+		$q->filterByVendorid($this->vendorID);
+		return $q->find()->toArray();
+	}
+
+	/**
 	 * Returns the Amount Left the Current Purchase Orders
 	 * NOTE: Checks for detail status is not closed and that It is not released
 	 * @return float
 	 */
-	public function get_purchaseorders_amt() {
-		$ponbrs = $this->get_ponumbers();
+	public function getPurchaseOrdersAmtLeft() {
+		$ponbrs = $this->getPoNbrs();
 		$q = PurchaseOrderDetailQuery::create();
 		$sql = "SELECT (PodtQtyOrd - ifnull(PordQtyRec, 0)) * PodtCost as amt
 				FROM po_detail
@@ -144,20 +151,20 @@ class Vendor extends BaseVendor {
 				ON po_receipt_det.PohdNbr = po_detail.PohdNbr AND po_receipt_det.PodtLine = po_detail.PodtLine
 				WHERE po_detail.PohdNbr IN (:ponbrs)
 				AND PodtStat != 'C' AND PodtRel != 'N'";
-		$params = array(':ponbrs' => implode(',', $ponbrs));
-		$results = $q->execute_query($sql, $params);
+		$params = [':ponbrs' => implode(',', $ponbrs)];
+		$results = $q->executeQuery($sql, $params);
 		return $results->fetchColumn();
 	}
 
 	/**
 	 * Return the Total Invoices amount for this Vendor
-	 *
 	 * @return float
 	 */
-	public function get_invoices_amt() {
+	public function getInvoicesTotalAmt() {
+		$column = APInvoice::get_aliasproperty('total');
+
 		$q = ApInvoiceQuery::create();
 		$q->filterByVendorid($this->vendorid);
-		$column = APInvoice::get_aliasproperty('total');
 		$q->withColumn("SUM($column)", 'total');
 		$q->select('total');
 		$q->filterByChecknumber(0);
@@ -166,58 +173,51 @@ class Vendor extends BaseVendor {
 	}
 
 	/**
-	 * Returns all the PO Numbers associated with this Vendor
-	 *
-	 * @return array
-	 */
-	public function get_ponumbers() {
-		$q = PurchaseOrderQuery::create();
-		$q->select(PurchaseOrder::get_aliasproperty('ponbr'));
-		$q->filterByVendorid($this->vendorID);
-		return $q->find()->toArray();
-	}
-
-	/**
 	 * Return the number of Purchases in the last X Months
-	 *
-	 * @param  int    $monthsback Number of Months to go back
+	 * @param  int    $monthsback  Number of Months to go back
 	 * @return int
 	 */
-	public function count_last_x_months_purchases(int $monthsback = 1) {
-		$q = VendorQuery::create();
-		return $q->count_last_x_months_purchases($this->vendorid, $monthsback);
+	public function countLastXMonthsPurchases(int $monthsback = 1) {
+		return VendorQuery::create()->countLastXMonthsPurchases($this->vendorid, $monthsback);
 	}
 
 	/**
 	 * Return the total of Purchases Made in the last X Months
-	 *
-	 * @param  int    $monthsback Number of Months to go back
+	 * @param  int    $monthsback  Number of Months to go back
 	 * @return float
 	 */
-	public function get_last_x_months_purchases_amt(int $monthsback = 1) {
-		$q = VendorQuery::create();
-		return $q->get_last_x_months_purchases_amt($this->vendorid, $monthsback);
+	public function getLastXMonthsPurchasesTotalAmt(int $monthsback = 1) {
+		return VendorQuery::create()->getLastXMonthsPurchasesTotalAmt($this->vendorid, $monthsback);
 	}
 
 	/**
 	 * Return the number of Invoices in the last X Months
-	 *
 	 * @param  int    $monthsback Number of Months to go back
 	 * @return int
 	 */
-	public function count_last_x_months_invoices(int $monthsback = 1) {
-		$q = VendorQuery::create();
-		return $q->count_last_x_months_invoices($this->vendorid, $monthsback);
+	public function countLastXMonthsInvoices(int $monthsback = 1) {
+		return VendorQuery::create()->countLastXMonthsInvoices($this->vendorid, $monthsback);
 	}
 
 	/**
 	 * Return the total of Invoices in the last X Months
-	 *
 	 * @param  int    $monthsback Number of Months to go back
 	 * @return float
 	 */
-	public function get_last_x_months_invoices_amt(int $monthsback = 1) {
-		$q = VendorQuery::create();
-		return $q->get_last_x_months_invoices_amt($this->vendorid, $monthsback);
+	public function getLastXMonthsInvoicesTotalAmt(int $monthsback = 1) {
+		return VendorQuery::create()->getLastXMonthsInvoicesTotalAmtt($this->vendorid, $monthsback);
 	}
+
+/* =============================================================
+	Legacy Functions
+============================================================= */
+	public function get_buyer_x_name($nbr) {return $this->getBuyerNameX($nbr);}
+	public function get_phonebookquery() {return $this->getPhoneBookQuery();}
+	public function get_ponumbers() {return $this->getPoNbrs();}
+	public function get_purchaseorders_amt() {return $this->getPurchaseOrdersAmt();}
+	public function get_invoices_amt() {return $this->getInvoicesTotalAmt();}
+	public function count_last_x_months_purchases(int $monthsback = 1) {return $this->countLastXMonthsPurchases($monthsback);}
+	public function get_last_x_months_purchases_amt(int $monthsback = 1) {return $this->getLastXMonthsPurchasesTotalAmt($monthsback);}
+	public function count_last_x_months_invoices(int $monthsback = 1) {return $this->countLastXMonthsInvoices($monthsback);}
+	public function get_last_x_months_invoices_amt(int $monthsback = 1) {return $this->getLastXMonthsInvoicesTotalAmt($monthsback);}
 }
