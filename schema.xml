@@ -4540,193 +4540,196 @@
     </vendor>
   </table>
   <table name="so_head_hist" idMethod="native" phpName="SalesHistory">
-    <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
-    <column name="OehhYear" phpName="Oehhyear" type="VARCHAR" size="4"/>
-    <column name="OehhStat" phpName="Oehhstat" type="VARCHAR" size="1"/>
-    <column name="OehhHold" phpName="Oehhhold" type="VARCHAR" size="1"/>
-    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
-    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6"/>
-    <column name="OehhStName" phpName="Oehhstname" type="VARCHAR" size="30"/>
-    <column name="OehhStLastName" phpName="Oehhstlastname" type="VARCHAR" size="15"/>
-    <column name="OehhStFirstName" phpName="Oehhstfirstname" type="VARCHAR" size="14"/>
-    <column name="OehhStAdr1" phpName="Oehhstadr1" type="VARCHAR" size="30"/>
-    <column name="OehhStAdr2" phpName="Oehhstadr2" type="VARCHAR" size="30"/>
-    <column name="OehhStAdr3" phpName="Oehhstadr3" type="VARCHAR" size="30"/>
-    <column name="OehhStCtry" phpName="Oehhstctry" type="VARCHAR" size="4"/>
-    <column name="OehhStCity" phpName="Oehhstcity" type="VARCHAR" size="16"/>
-    <column name="OehhStStat" phpName="Oehhststat" type="VARCHAR" size="2"/>
-    <column name="OehhStZipCode" phpName="Oehhstzipcode" type="VARCHAR" size="10"/>
-    <column name="OehhCustPo" phpName="Oehhcustpo" type="VARCHAR" size="20"/>
-    <column name="OehhOrdrDate" phpName="Oehhordrdate" type="VARCHAR" size="8"/>
-    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
-    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
-    <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10"/>
-    <column name="OehhInvDate" phpName="Oehhinvdate" type="VARCHAR" size="8"/>
-    <column name="OehhGLPd" phpName="Oehhglpd" type="INTEGER" size="2"/>
-    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
-    <column name="OehhSp1Pct" phpName="Oehhsp1pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
-    <column name="OehhSp2Pct" phpName="Oehhsp2pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
-    <column name="OehhSp3Pct" phpName="Oehhsp3pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhCntrNbr" phpName="Oehhcntrnbr" type="INTEGER" size="8"/>
-    <column name="OehhWiBatch" phpName="Oehhwibatch" type="INTEGER" size="8"/>
-    <column name="OehhDropRelHold" phpName="Oehhdroprelhold" type="VARCHAR" size="1"/>
-    <column name="OehhTaxSub" phpName="Oehhtaxsub" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhNonTaxSub" phpName="Oehhnontaxsub" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhTaxTot" phpName="Oehhtaxtot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhFrtTot" phpName="Oehhfrttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhMiscTot" phpName="Oehhmisctot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhOrdrTot" phpName="Oehhordrtot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhCostTot" phpName="Oehhcosttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhSpCommLock" phpName="Oehhspcommlock" type="VARCHAR" size="1"/>
-    <column name="OehhTakenDate" phpName="Oehhtakendate" type="VARCHAR" size="8"/>
-    <column name="OehhTakenTime" phpName="Oehhtakentime" type="VARCHAR" size="4"/>
-    <column name="OehhPickDate" phpName="Oehhpickdate" type="VARCHAR" size="8"/>
-    <column name="OehhPickTime" phpName="Oehhpicktime" type="VARCHAR" size="4"/>
-    <column name="OehhPackDate" phpName="Oehhpackdate" type="VARCHAR" size="8"/>
-    <column name="OehhPackTime" phpName="Oehhpacktime" type="VARCHAR" size="4"/>
-    <column name="OehhVerifyDate" phpName="Oehhverifydate" type="VARCHAR" size="8"/>
-    <column name="OehhVerifyTime" phpName="Oehhverifytime" type="VARCHAR" size="4"/>
-    <column name="OehhCreditMemo" phpName="Oehhcreditmemo" type="VARCHAR" size="1"/>
-    <column name="OehhBookedYn" phpName="Oehhbookedyn" type="VARCHAR" size="1"/>
-    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="2"/>
-    <column name="OehhBtStat" phpName="Oehhbtstat" type="VARCHAR" size="2"/>
-    <column name="OehhShipComp" phpName="Oehhshipcomp" type="VARCHAR" size="1"/>
-    <column name="OehhCwoFlag" phpName="Oehhcwoflag" type="VARCHAR" size="1"/>
-    <column name="OehhDivision" phpName="Oehhdivision" type="VARCHAR" size="8"/>
-    <column name="OehhTakenCode" phpName="Oehhtakencode" type="VARCHAR" size="8"/>
-    <column name="OehhPickCode" phpName="Oehhpickcode" type="VARCHAR" size="8"/>
-    <column name="OehhPackCode" phpName="Oehhpackcode" type="VARCHAR" size="8"/>
-    <column name="OehhVerifyCode" phpName="Oehhverifycode" type="VARCHAR" size="8"/>
-    <column name="OehhTotDisc" phpName="Oehhtotdisc" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhEdiRefNbrQual" phpName="Oehhedirefnbrqual" type="VARCHAR" size="3"/>
-    <column name="OehhUserCode1" phpName="Oehhusercode1" type="VARCHAR" size="8"/>
-    <column name="OehhUserCode2" phpName="Oehhusercode2" type="VARCHAR" size="8"/>
-    <column name="OehhUserCode3" phpName="Oehhusercode3" type="VARCHAR" size="8"/>
-    <column name="OehhUserCode4" phpName="Oehhusercode4" type="VARCHAR" size="8"/>
-    <column name="OehhExchCtry" phpName="Oehhexchctry" type="VARCHAR" size="4"/>
-    <column name="OehhExchRate" phpName="Oehhexchrate" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhWghtTot" phpName="Oehhwghttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhWghtOride" phpName="Oehhwghtoride" type="VARCHAR" size="1"/>
-    <column name="OehhCcInfo" phpName="Oehhccinfo" type="VARCHAR" size="1"/>
-    <column name="OehhBoxCount" phpName="Oehhboxcount" type="INTEGER" size="5"/>
-    <column name="OehhRqstDate" phpName="Oehhrqstdate" type="VARCHAR" size="8"/>
-    <column name="OehhCancDate" phpName="Oehhcancdate" type="VARCHAR" size="8"/>
-    <column name="OehhCrntUser" phpName="Oehhcrntuser" type="VARCHAR" size="12"/>
-    <column name="OehhReleaseNbr" phpName="Oehhreleasenbr" type="VARCHAR" size="20"/>
-    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
-    <column name="OehhBordBuildDate" phpName="Oehhbordbuilddate" type="VARCHAR" size="8"/>
-    <column name="OehhDeptCode" phpName="Oehhdeptcode" type="VARCHAR" size="8"/>
-    <column name="OehhFrtInEntered" phpName="Oehhfrtinentered" type="VARCHAR" size="1"/>
-    <column name="OehhDropShipEntered" phpName="Oehhdropshipentered" type="VARCHAR" size="1"/>
-    <column name="OehhErFlag" phpName="Oehherflag" type="VARCHAR" size="1"/>
-    <column name="OehhFrtIn" phpName="Oehhfrtin" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDropShip" phpName="Oehhdropship" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhMinOrder" phpName="Oehhminorder" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhContractTerms" phpName="Oehhcontractterms" type="VARCHAR" size="1"/>
-    <column name="OehhDropShipBilled" phpName="Oehhdropshipbilled" type="VARCHAR" size="1"/>
-    <column name="OehhOrdTyp" phpName="Oehhordtyp" type="VARCHAR" size="1"/>
-    <column name="OehhTrackNbr" phpName="Oehhtracknbr" type="VARCHAR" size="15"/>
-    <column name="OehhSource" phpName="Oehhsource" type="VARCHAR" size="1"/>
-    <column name="OehhCcAprv" phpName="Oehhccaprv" type="VARCHAR" size="6"/>
-    <column name="OehhPickFmatType" phpName="Oehhpickfmattype" type="VARCHAR" size="1"/>
-    <column name="OehhInvcFmatType" phpName="Oehhinvcfmattype" type="VARCHAR" size="1"/>
-    <column name="OehhCashAmt" phpName="Oehhcashamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhCheckAmt" phpName="Oehhcheckamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhCheckNbr" phpName="Oehhchecknbr" type="VARCHAR" size="8"/>
-    <column name="OehhDepositAmt" phpName="Oehhdepositamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDepositNbr" phpName="Oehhdepositnbr" type="VARCHAR" size="8"/>
-    <column name="OehhCcAmt" phpName="Oehhccamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhOTaxSub" phpName="Oehhotaxsub" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhONonTaxSub" phpName="Oehhonontaxsub" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhOTaxTot" phpName="Oehhotaxtot" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhOOrdrTot" phpName="Oehhoordrtot" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhPickPrintDate" phpName="Oehhpickprintdate" type="VARCHAR" size="8"/>
-    <column name="OehhPickPrintTime" phpName="Oehhpickprinttime" type="VARCHAR" size="4"/>
-    <column name="OehhCont" phpName="Oehhcont" type="VARCHAR" size="20"/>
-    <column name="OehhContTeleIntl" phpName="Oehhcontteleintl" type="VARCHAR" size="1"/>
-    <column name="OehhContTeleNbr" phpName="Oehhconttelenbr" type="VARCHAR" size="22"/>
-    <column name="OehhContTeleExt" phpName="Oehhcontteleext" type="VARCHAR" size="7"/>
-    <column name="OehhContFaxIntl" phpName="Oehhcontfaxintl" type="VARCHAR" size="1"/>
-    <column name="OehhContFaxNbr" phpName="Oehhcontfaxnbr" type="VARCHAR" size="22"/>
-    <column name="OehhShipAcct" phpName="Oehhshipacct" type="VARCHAR" size="10"/>
-    <column name="OehhChgDue" phpName="Oehhchgdue" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhAddlPricDisc" phpName="Oehhaddlpricdisc" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhAllShip" phpName="Oehhallship" type="VARCHAR" size="2"/>
-    <column name="OehhQtyOrderAmt" phpName="Oehhqtyorderamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhCreditApplied" phpName="Oehhcreditapplied" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhInvcPrintDate" phpName="Oehhinvcprintdate" type="VARCHAR" size="8"/>
-    <column name="OehhInvcPrintTime" phpName="Oehhinvcprinttime" type="VARCHAR" size="4"/>
-    <column name="OehhDiscFrt" phpName="Oehhdiscfrt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhOrideShipComp" phpName="Oehhorideshipcomp" type="VARCHAR" size="1"/>
-    <column name="OehhContEmail" phpName="Oehhcontemail" type="VARCHAR" size="50"/>
-    <column name="OehhManualFrt" phpName="Oehhmanualfrt" type="VARCHAR" size="1"/>
-    <column name="OehhInternalFrt" phpName="Oehhinternalfrt" type="VARCHAR" size="1"/>
-    <column name="OehhFrtCost" phpName="Oehhfrtcost" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhRoute" phpName="Oehhroute" type="VARCHAR" size="4"/>
-    <column name="OehhRouteSeq" phpName="Oehhrouteseq" type="INTEGER" size="4"/>
-    <column name="OehhFrtTaxCode1" phpName="Oehhfrttaxcode1" type="VARCHAR" size="6"/>
-    <column name="OehhFrtTaxAmt1" phpName="Oehhfrttaxamt1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhFrtTaxCode2" phpName="Oehhfrttaxcode2" type="VARCHAR" size="6"/>
-    <column name="OehhFrtTaxAmt2" phpName="Oehhfrttaxamt2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhFrtTaxCode3" phpName="Oehhfrttaxcode3" type="VARCHAR" size="6"/>
-    <column name="OehhFrtTaxAmt3" phpName="Oehhfrttaxamt3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhFrtTaxCode4" phpName="Oehhfrttaxcode4" type="VARCHAR" size="6"/>
-    <column name="OehhFrtTaxAmt4" phpName="Oehhfrttaxamt4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhFrtTaxCode5" phpName="Oehhfrttaxcode5" type="VARCHAR" size="6"/>
-    <column name="OehhFrtTaxAmt5" phpName="Oehhfrttaxamt5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhEdi855Sent" phpName="Oehhedi855sent" type="VARCHAR" size="1"/>
-    <column name="OehhFrt3rdParty" phpName="Oehhfrt3rdparty" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhFob" phpName="Oehhfob" type="VARCHAR" size="15"/>
-    <column name="OehhConfirmImagYn" phpName="Oehhconfirmimagyn" type="VARCHAR" size="1"/>
-    <column name="OehhIndustConform" phpName="Oehhindustconform" type="VARCHAR" size="1"/>
-    <column name="OehhCstkConsign" phpName="Oehhcstkconsign" type="VARCHAR" size="1"/>
-    <column name="OehhLmDelayCapSent" phpName="Oehhlmdelaycapsent" type="VARCHAR" size="1"/>
-    <column name="OehhMfgId" phpName="Oehhmfgid" type="VARCHAR" size="6"/>
-    <column name="OehhStoreId" phpName="Oehhstoreid" type="VARCHAR" size="6"/>
-    <column name="OehhPickQueue" phpName="Oehhpickqueue" type="VARCHAR" size="1"/>
-    <column name="OehhArrvDate" phpName="Oehharrvdate" type="VARCHAR" size="8"/>
-    <column name="OehhSurchgStat" phpName="Oehhsurchgstat" type="VARCHAR" size="1"/>
-    <column name="OehhFrtGrup" phpName="Oehhfrtgrup" type="VARCHAR" size="2"/>
-    <column name="OehhCommOride" phpName="Oehhcommoride" type="VARCHAR" size="1"/>
-    <column name="OehhChrgSplt" phpName="Oehhchrgsplt" type="VARCHAR" size="1"/>
-    <column name="OehhAcCcAprv" phpName="Oehhacccaprv" type="VARCHAR" size="8"/>
-    <column name="OehhOrigOrdrNbr" phpName="Oehhorigordrnbr" type="VARCHAR" size="10"/>
-    <column name="OehhPostDate" phpName="Oehhpostdate" type="VARCHAR" size="8"/>
-    <column name="OehhDiscDate1" phpName="Oehhdiscdate1" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct1" phpName="Oehhdiscpct1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate1" phpName="Oehhduedate1" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt1" phpName="Oehhdueamt1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct1" phpName="Oehhduepct1" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhDiscDate2" phpName="Oehhdiscdate2" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct2" phpName="Oehhdiscpct2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate2" phpName="Oehhduedate2" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt2" phpName="Oehhdueamt2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct2" phpName="Oehhduepct2" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhDiscDate3" phpName="Oehhdiscdate3" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct3" phpName="Oehhdiscpct3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate3" phpName="Oehhduedate3" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt3" phpName="Oehhdueamt3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct3" phpName="Oehhduepct3" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhDiscDate4" phpName="Oehhdiscdate4" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct4" phpName="Oehhdiscpct4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate4" phpName="Oehhduedate4" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt4" phpName="Oehhdueamt4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct4" phpName="Oehhduepct4" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhDiscDate5" phpName="Oehhdiscdate5" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct5" phpName="Oehhdiscpct5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate5" phpName="Oehhduedate5" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt5" phpName="Oehhdueamt5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct5" phpName="Oehhduepct5" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehhDiscDate6" phpName="Oehhdiscdate6" type="VARCHAR" size="8"/>
-    <column name="OehhDiscPct6" phpName="Oehhdiscpct6" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDueDate6" phpName="Oehhduedate6" type="VARCHAR" size="8"/>
-    <column name="OehhDueAmt6" phpName="Oehhdueamt6" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehhDuePct6" phpName="Oehhduepct6" type="DECIMAL" size="20" scale="7"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="OehhNbr" phpName="Oehhnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OehhYear" phpName="Oehhyear" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhStat" phpName="Oehhstat" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhHold" phpName="Oehhhold" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhStName" phpName="Oehhstname" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehhStLastName" phpName="Oehhstlastname" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehhStFirstName" phpName="Oehhstfirstname" type="VARCHAR" size="14" required="true" defaultValue=""/>
+    <column name="OehhStAdr1" phpName="Oehhstadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehhStAdr2" phpName="Oehhstadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehhStAdr3" phpName="Oehhstadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehhStCtry" phpName="Oehhstctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhStCity" phpName="Oehhstcity" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="OehhStStat" phpName="Oehhststat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhStZipCode" phpName="Oehhstzipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehhCustPo" phpName="Oehhcustpo" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehhOrdrDate" phpName="Oehhordrdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehhInvDate" phpName="Oehhinvdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhGLPd" phpName="Oehhglpd" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhSp1Pct" phpName="Oehhsp1pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhSp2Pct" phpName="Oehhsp2pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhSp3Pct" phpName="Oehhsp3pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhCntrNbr" phpName="Oehhcntrnbr" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="OehhWiBatch" phpName="Oehhwibatch" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="OehhDropRelHold" phpName="Oehhdroprelhold" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhTaxSub" phpName="Oehhtaxsub" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhNonTaxSub" phpName="Oehhnontaxsub" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhTaxTot" phpName="Oehhtaxtot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhFrtTot" phpName="Oehhfrttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhMiscTot" phpName="Oehhmisctot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhOrdrTot" phpName="Oehhordrtot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhCostTot" phpName="Oehhcosttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhSpCommLock" phpName="Oehhspcommlock" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhTakenDate" phpName="Oehhtakendate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhTakenTime" phpName="Oehhtakentime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhPickDate" phpName="Oehhpickdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhPickTime" phpName="Oehhpicktime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhPackDate" phpName="Oehhpackdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhPackTime" phpName="Oehhpacktime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhVerifyDate" phpName="Oehhverifydate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhVerifyTime" phpName="Oehhverifytime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhCreditMemo" phpName="Oehhcreditmemo" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhBookedYn" phpName="Oehhbookedyn" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhBtStat" phpName="Oehhbtstat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhShipComp" phpName="Oehhshipcomp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhCwoFlag" phpName="Oehhcwoflag" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhDivision" phpName="Oehhdivision" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhTakenCode" phpName="Oehhtakencode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhPickCode" phpName="Oehhpickcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhPackCode" phpName="Oehhpackcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhVerifyCode" phpName="Oehhverifycode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhTotDisc" phpName="Oehhtotdisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhEdiRefNbrQual" phpName="Oehhedirefnbrqual" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="OehhUserCode1" phpName="Oehhusercode1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhUserCode2" phpName="Oehhusercode2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhUserCode3" phpName="Oehhusercode3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhUserCode4" phpName="Oehhusercode4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhExchCtry" phpName="Oehhexchctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhExchRate" phpName="Oehhexchrate" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhWghtTot" phpName="Oehhwghttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhWghtOride" phpName="Oehhwghtoride" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhCcInfo" phpName="Oehhccinfo" type="VARCHAR" size="1" required="true" defaultValue="B"/>
+    <column name="OehhBoxCount" phpName="Oehhboxcount" type="INTEGER" size="5" required="true" defaultValue="0"/>
+    <column name="OehhRqstDate" phpName="Oehhrqstdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhCancDate" phpName="Oehhcancdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhCrntUser" phpName="Oehhcrntuser" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="OehhReleaseNbr" phpName="Oehhreleasenbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhBordBuildDate" phpName="Oehhbordbuilddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDeptCode" phpName="Oehhdeptcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhFrtInEntered" phpName="Oehhfrtinentered" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhDropShipEntered" phpName="Oehhdropshipentered" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhErFlag" phpName="Oehherflag" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhFrtIn" phpName="Oehhfrtin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDropShip" phpName="Oehhdropship" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhMinOrder" phpName="Oehhminorder" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhContractTerms" phpName="Oehhcontractterms" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhDropShipBilled" phpName="Oehhdropshipbilled" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhOrdTyp" phpName="Oehhordtyp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhTrackNbr" phpName="Oehhtracknbr" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehhSource" phpName="Oehhsource" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhCcAprv" phpName="Oehhccaprv" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhPickFmatType" phpName="Oehhpickfmattype" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhInvcFmatType" phpName="Oehhinvcfmattype" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhCashAmt" phpName="Oehhcashamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhCheckAmt" phpName="Oehhcheckamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhCheckNbr" phpName="Oehhchecknbr" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDepositAmt" phpName="Oehhdepositamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDepositNbr" phpName="Oehhdepositnbr" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhCcAmt" phpName="Oehhccamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhOTaxSub" phpName="Oehhotaxsub" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhONonTaxSub" phpName="Oehhonontaxsub" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhOTaxTot" phpName="Oehhotaxtot" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhOOrdrTot" phpName="Oehhoordrtot" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhPickPrintDate" phpName="Oehhpickprintdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhPickPrintTime" phpName="Oehhpickprinttime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhCont" phpName="Oehhcont" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehhContTeleIntl" phpName="Oehhcontteleintl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhContTeleNbr" phpName="Oehhconttelenbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="OehhContTeleExt" phpName="Oehhcontteleext" type="VARCHAR" size="7" required="true" defaultValue=""/>
+    <column name="OehhContFaxIntl" phpName="Oehhcontfaxintl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhContFaxNbr" phpName="Oehhcontfaxnbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="OehhShipAcct" phpName="Oehhshipacct" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehhChgDue" phpName="Oehhchgdue" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhAddlPricDisc" phpName="Oehhaddlpricdisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhAllShip" phpName="Oehhallship" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhQtyOrderAmt" phpName="Oehhqtyorderamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhCreditApplied" phpName="Oehhcreditapplied" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhInvcPrintDate" phpName="Oehhinvcprintdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhInvcPrintTime" phpName="Oehhinvcprinttime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhDiscFrt" phpName="Oehhdiscfrt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhOrideShipComp" phpName="Oehhorideshipcomp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhContEmail" phpName="Oehhcontemail" type="VARCHAR" size="50" required="true" defaultValue=""/>
+    <column name="OehhManualFrt" phpName="Oehhmanualfrt" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhInternalFrt" phpName="Oehhinternalfrt" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhFrtCost" phpName="Oehhfrtcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhRoute" phpName="Oehhroute" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehhRouteSeq" phpName="Oehhrouteseq" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="OehhFrtTaxCode1" phpName="Oehhfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt1" phpName="Oehhfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode2" phpName="Oehhfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt2" phpName="Oehhfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode3" phpName="Oehhfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt3" phpName="Oehhfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode4" phpName="Oehhfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt4" phpName="Oehhfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFrtTaxCode5" phpName="Oehhfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhFrtTaxAmt5" phpName="Oehhfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhEdi855Sent" phpName="Oehhedi855sent" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhFrt3rdParty" phpName="Oehhfrt3rdparty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhFob" phpName="Oehhfob" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehhConfirmImagYn" phpName="Oehhconfirmimagyn" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhIndustConform" phpName="Oehhindustconform" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhCstkConsign" phpName="Oehhcstkconsign" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhLmDelayCapSent" phpName="Oehhlmdelaycapsent" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhMfgId" phpName="Oehhmfgid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhStoreId" phpName="Oehhstoreid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehhPickQueue" phpName="Oehhpickqueue" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehhArrvDate" phpName="Oehharrvdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhSurchgStat" phpName="Oehhsurchgstat" type="VARCHAR" size="1" required="true" defaultValue="C"/>
+    <column name="OehhFrtGrup" phpName="Oehhfrtgrup" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehhCommOride" phpName="Oehhcommoride" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhChrgSplt" phpName="Oehhchrgsplt" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehhAcCcAprv" phpName="Oehhacccaprv" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhOrigOrdrNbr" phpName="Oehhorigordrnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehhPostDate" phpName="Oehhpostdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscDate1" phpName="Oehhdiscdate1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct1" phpName="Oehhdiscpct1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate1" phpName="Oehhduedate1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt1" phpName="Oehhdueamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct1" phpName="Oehhduepct1" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhDiscDate2" phpName="Oehhdiscdate2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct2" phpName="Oehhdiscpct2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate2" phpName="Oehhduedate2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt2" phpName="Oehhdueamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct2" phpName="Oehhduepct2" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhDiscDate3" phpName="Oehhdiscdate3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct3" phpName="Oehhdiscpct3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate3" phpName="Oehhduedate3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt3" phpName="Oehhdueamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct3" phpName="Oehhduepct3" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhDiscDate4" phpName="Oehhdiscdate4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct4" phpName="Oehhdiscpct4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate4" phpName="Oehhduedate4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt4" phpName="Oehhdueamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct4" phpName="Oehhduepct4" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhDiscDate5" phpName="Oehhdiscdate5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct5" phpName="Oehhdiscpct5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate5" phpName="Oehhduedate5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt5" phpName="Oehhdueamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct5" phpName="Oehhduepct5" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhDiscDate6" phpName="Oehhdiscdate6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDiscPct6" phpName="Oehhdiscpct6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDueDate6" phpName="Oehhduedate6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehhDueAmt6" phpName="Oehhdueamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehhDuePct6" phpName="Oehhduepct6" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehhRefNbr" phpName="Oehhrefnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehhAcProgNbr" phpName="Oehhacprognbr" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="OehhAcProgExpDate" phpName="Oehhacprogexpdate" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
       <reference local="ArcuCustId" foreign="ArcuCustId"/>
     </foreign-key>
@@ -4739,192 +4742,195 @@
     </vendor>
   </table>
   <table name="so_header" idMethod="native" phpName="SalesOrder">
-    <column name="OehdNbr" phpName="Oehdnbr" type="VARCHAR" size="10" primaryKey="true" required="true"/>
-    <column name="OehdStat" phpName="Oehdstat" type="VARCHAR" size="1"/>
-    <column name="OehdHold" phpName="Oehdhold" type="VARCHAR" size="1"/>
-    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
-    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6"/>
-    <column name="OehdStName" phpName="Oehdstname" type="VARCHAR" size="30"/>
-    <column name="OehdStLastName" phpName="Oehdstlastname" type="VARCHAR" size="15"/>
-    <column name="OehdStFirstName" phpName="Oehdstfirstname" type="VARCHAR" size="14"/>
-    <column name="OehdStAdr1" phpName="Oehdstadr1" type="VARCHAR" size="30"/>
-    <column name="OehdStAdr2" phpName="Oehdstadr2" type="VARCHAR" size="30"/>
-    <column name="OehdStAdr3" phpName="Oehdstadr3" type="VARCHAR" size="30"/>
-    <column name="OehdStCtry" phpName="Oehdstctry" type="VARCHAR" size="4"/>
-    <column name="OehdStCity" phpName="Oehdstcity" type="VARCHAR" size="16"/>
-    <column name="OehdStStat" phpName="Oehdststat" type="VARCHAR" size="2"/>
-    <column name="OehdStZipCode" phpName="Oehdstzipcode" type="VARCHAR" size="10"/>
-    <column name="OehdCustPo" phpName="Oehdcustpo" type="VARCHAR" size="20"/>
-    <column name="OehdOrdrDate" phpName="Oehdordrdate" type="INTEGER" size="8"/>
-    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
-    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
-    <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10"/>
-    <column name="OehdInvDate" phpName="Oehdinvdate" type="VARCHAR" size="8"/>
-    <column name="OehdGLPd" phpName="Oehdglpd" type="INTEGER" size="2"/>
-    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
-    <column name="OehdSp1Pct" phpName="Oehdsp1pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
-    <column name="OehdSp2Pct" phpName="Oehdsp2pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
-    <column name="OehdSp3Pct" phpName="Oehdsp3pct" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdCntrNbr" phpName="Oehdcntrnbr" type="INTEGER" size="8"/>
-    <column name="OehdWiBatch" phpName="Oehdwibatch" type="INTEGER" size="8"/>
-    <column name="OehdDropRelHold" phpName="Oehddroprelhold" type="VARCHAR" size="1"/>
-    <column name="OehdTaxSub" phpName="Oehdtaxsub" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdNonTaxSub" phpName="Oehdnontaxsub" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdTaxTot" phpName="Oehdtaxtot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdFrtTot" phpName="Oehdfrttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdMiscTot" phpName="Oehdmisctot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdOrdrTot" phpName="Oehdordrtot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdCostTot" phpName="Oehdcosttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdSpCommLock" phpName="Oehdspcommlock" type="VARCHAR" size="1"/>
-    <column name="OehdTakenDate" phpName="Oehdtakendate" type="VARCHAR" size="8"/>
-    <column name="OehdTakenTime" phpName="Oehdtakentime" type="VARCHAR" size="4"/>
-    <column name="OehdPickDate" phpName="Oehdpickdate" type="VARCHAR" size="8"/>
-    <column name="OehdPickTime" phpName="Oehdpicktime" type="VARCHAR" size="4"/>
-    <column name="OehdPackDate" phpName="Oehdpackdate" type="VARCHAR" size="8"/>
-    <column name="OehdPackTime" phpName="Oehdpacktime" type="VARCHAR" size="4"/>
-    <column name="OehdVerifyDate" phpName="Oehdverifydate" type="VARCHAR" size="8"/>
-    <column name="OehdVerifyTime" phpName="Oehdverifytime" type="VARCHAR" size="4"/>
-    <column name="OehdCreditMemo" phpName="Oehdcreditmemo" type="VARCHAR" size="1"/>
-    <column name="OehdBookedYn" phpName="Oehdbookedyn" type="VARCHAR" size="1"/>
-    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="2"/>
-    <column name="OehdBtStat" phpName="Oehdbtstat" type="VARCHAR" size="2"/>
-    <column name="OehdShipComp" phpName="Oehdshipcomp" type="VARCHAR" size="1"/>
-    <column name="OehdCwoFlag" phpName="Oehdcwoflag" type="VARCHAR" size="1"/>
-    <column name="OehdDivision" phpName="Oehddivision" type="VARCHAR" size="8"/>
-    <column name="OehdTakenCode" phpName="Oehdtakencode" type="VARCHAR" size="8"/>
-    <column name="OehdPickCode" phpName="Oehdpickcode" type="VARCHAR" size="8"/>
-    <column name="OehdPackCode" phpName="Oehdpackcode" type="VARCHAR" size="8"/>
-    <column name="OehdVerifyCode" phpName="Oehdverifycode" type="VARCHAR" size="8"/>
-    <column name="OehdTotDisc" phpName="Oehdtotdisc" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdEdiRefNbrQual" phpName="Oehdedirefnbrqual" type="VARCHAR" size="3"/>
-    <column name="OehdUserCode1" phpName="Oehdusercode1" type="VARCHAR" size="8"/>
-    <column name="OehdUserCode2" phpName="Oehdusercode2" type="VARCHAR" size="8"/>
-    <column name="OehdUserCode3" phpName="Oehdusercode3" type="VARCHAR" size="8"/>
-    <column name="OehdUserCode4" phpName="Oehdusercode4" type="VARCHAR" size="8"/>
-    <column name="OehdExchCtry" phpName="Oehdexchctry" type="VARCHAR" size="4"/>
-    <column name="OehdExchRate" phpName="Oehdexchrate" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdWghtTot" phpName="Oehdwghttot" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdWghtOride" phpName="Oehdwghtoride" type="VARCHAR" size="1"/>
-    <column name="OehdCcInfo" phpName="Oehdccinfo" type="VARCHAR" size="1"/>
-    <column name="OehdBoxCount" phpName="Oehdboxcount" type="INTEGER" size="5"/>
-    <column name="OehdRqstDate" phpName="Oehdrqstdate" type="VARCHAR" size="8"/>
-    <column name="OehdCancDate" phpName="Oehdcancdate" type="VARCHAR" size="8"/>
-    <column name="OehdCrntUser" phpName="Oehdcrntuser" type="VARCHAR" size="12"/>
-    <column name="OehdReleaseNbr" phpName="Oehdreleasenbr" type="VARCHAR" size="20"/>
-    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
-    <column name="OehdBordBuildDate" phpName="Oehdbordbuilddate" type="VARCHAR" size="8"/>
-    <column name="OehdDeptCode" phpName="Oehddeptcode" type="VARCHAR" size="8"/>
-    <column name="OehdFrtInEntered" phpName="Oehdfrtinentered" type="VARCHAR" size="1"/>
-    <column name="OehdDropShipEntered" phpName="Oehddropshipentered" type="VARCHAR" size="1"/>
-    <column name="OehdErFlag" phpName="Oehderflag" type="VARCHAR" size="1"/>
-    <column name="OehdFrtIn" phpName="Oehdfrtin" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDropShip" phpName="Oehddropship" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdMinOrder" phpName="Oehdminorder" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdContractTerms" phpName="Oehdcontractterms" type="VARCHAR" size="1"/>
-    <column name="OehdDropShipBilled" phpName="Oehddropshipbilled" type="VARCHAR" size="1"/>
-    <column name="OehdOrdTyp" phpName="Oehdordtyp" type="VARCHAR" size="1"/>
-    <column name="OehdTrackNbr" phpName="Oehdtracknbr" type="VARCHAR" size="15"/>
-    <column name="OehdSource" phpName="Oehdsource" type="VARCHAR" size="1"/>
-    <column name="OehdCcAprv" phpName="Oehdccaprv" type="VARCHAR" size="6"/>
-    <column name="OehdPickFmatType" phpName="Oehdpickfmattype" type="VARCHAR" size="1"/>
-    <column name="OehdInvcFmatType" phpName="Oehdinvcfmattype" type="VARCHAR" size="1"/>
-    <column name="OehdCashAmt" phpName="Oehdcashamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdCheckAmt" phpName="Oehdcheckamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdCheckNbr" phpName="Oehdchecknbr" type="VARCHAR" size="8"/>
-    <column name="OehdDepositAmt" phpName="Oehddepositamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDepositNbr" phpName="Oehddepositnbr" type="VARCHAR" size="8"/>
-    <column name="OehdCcAmt" phpName="Oehdccamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdOTaxSub" phpName="Oehdotaxsub" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdONonTaxSub" phpName="Oehdonontaxsub" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdOTaxTot" phpName="Oehdotaxtot" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdOOrdrTot" phpName="Oehdoordrtot" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdPickPrintDate" phpName="Oehdpickprintdate" type="VARCHAR" size="8"/>
-    <column name="OehdPickPrintTime" phpName="Oehdpickprinttime" type="VARCHAR" size="4"/>
-    <column name="OehdCont" phpName="Oehdcont" type="VARCHAR" size="20"/>
-    <column name="OehdContTeleIntl" phpName="Oehdcontteleintl" type="VARCHAR" size="1"/>
-    <column name="OehdContTeleNbr" phpName="Oehdconttelenbr" type="VARCHAR" size="22"/>
-    <column name="OehdContTeleExt" phpName="Oehdcontteleext" type="VARCHAR" size="7"/>
-    <column name="OehdContFaxIntl" phpName="Oehdcontfaxintl" type="VARCHAR" size="1"/>
-    <column name="OehdContFaxNbr" phpName="Oehdcontfaxnbr" type="VARCHAR" size="22"/>
-    <column name="OehdShipAcct" phpName="Oehdshipacct" type="VARCHAR" size="10"/>
-    <column name="OehdChgDue" phpName="Oehdchgdue" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdAddlPricDisc" phpName="Oehdaddlpricdisc" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdAllShip" phpName="Oehdallship" type="VARCHAR" size="2"/>
-    <column name="OehdQtyOrderAmt" phpName="Oehdqtyorderamt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdCreditApplied" phpName="Oehdcreditapplied" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdInvcPrintDate" phpName="Oehdinvcprintdate" type="VARCHAR" size="8"/>
-    <column name="OehdInvcPrintTime" phpName="Oehdinvcprinttime" type="VARCHAR" size="4"/>
-    <column name="OehdDiscFrt" phpName="Oehddiscfrt" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdOrideShipComp" phpName="Oehdorideshipcomp" type="VARCHAR" size="1"/>
-    <column name="OehdContEmail" phpName="Oehdcontemail" type="VARCHAR" size="50"/>
-    <column name="OehdManualFrt" phpName="Oehdmanualfrt" type="VARCHAR" size="1"/>
-    <column name="OehdInternalFrt" phpName="Oehdinternalfrt" type="VARCHAR" size="1"/>
-    <column name="OehdFrtCost" phpName="Oehdfrtcost" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdRoute" phpName="Oehdroute" type="VARCHAR" size="4"/>
-    <column name="OehdRouteSeq" phpName="Oehdrouteseq" type="INTEGER" size="4"/>
-    <column name="OehdFrtTaxCode1" phpName="Oehdfrttaxcode1" type="VARCHAR" size="6"/>
-    <column name="OehdFrtTaxAmt1" phpName="Oehdfrttaxamt1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdFrtTaxCode2" phpName="Oehdfrttaxcode2" type="VARCHAR" size="6"/>
-    <column name="OehdFrtTaxAmt2" phpName="Oehdfrttaxamt2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdFrtTaxCode3" phpName="Oehdfrttaxcode3" type="VARCHAR" size="6"/>
-    <column name="OehdFrtTaxAmt3" phpName="Oehdfrttaxamt3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdFrtTaxCode4" phpName="Oehdfrttaxcode4" type="VARCHAR" size="6"/>
-    <column name="OehdFrtTaxAmt4" phpName="Oehdfrttaxamt4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdFrtTaxCode5" phpName="Oehdfrttaxcode5" type="VARCHAR" size="6"/>
-    <column name="OehdFrtTaxAmt5" phpName="Oehdfrttaxamt5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdEdi855Sent" phpName="Oehdedi855sent" type="VARCHAR" size="1"/>
-    <column name="OehdFrt3rdParty" phpName="Oehdfrt3rdparty" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdFob" phpName="Oehdfob" type="VARCHAR" size="15"/>
-    <column name="OehdConfirmImagYn" phpName="Oehdconfirmimagyn" type="VARCHAR" size="1"/>
-    <column name="OehdIndustConform" phpName="Oehdindustconform" type="VARCHAR" size="1"/>
-    <column name="OehdCstkConsign" phpName="Oehdcstkconsign" type="VARCHAR" size="1"/>
-    <column name="OehdLmDelayCapSent" phpName="Oehdlmdelaycapsent" type="VARCHAR" size="1"/>
-    <column name="OehdMfgId" phpName="Oehdmfgid" type="VARCHAR" size="6"/>
-    <column name="OehdStoreId" phpName="Oehdstoreid" type="VARCHAR" size="6"/>
-    <column name="OehdPickQueue" phpName="Oehdpickqueue" type="VARCHAR" size="1"/>
-    <column name="OehdArrvDate" phpName="Oehdarrvdate" type="VARCHAR" size="8"/>
-    <column name="OehdSurchgStat" phpName="Oehdsurchgstat" type="VARCHAR" size="1"/>
-    <column name="OehdFrtGrup" phpName="Oehdfrtgrup" type="VARCHAR" size="2"/>
-    <column name="OehdCommOride" phpName="Oehdcommoride" type="VARCHAR" size="1"/>
-    <column name="OehdChrgSplt" phpName="Oehdchrgsplt" type="VARCHAR" size="1"/>
-    <column name="OehdAcCcAprv" phpName="Oehdacccaprv" type="VARCHAR" size="8"/>
-    <column name="OehdOrigOrdrNbr" phpName="Oehdorigordrnbr" type="VARCHAR" size="10"/>
-    <column name="OehdPostDate" phpName="Oehdpostdate" type="VARCHAR" size="8"/>
-    <column name="OehdDiscDate1" phpName="Oehddiscdate1" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct1" phpName="Oehddiscpct1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate1" phpName="Oehdduedate1" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt1" phpName="Oehddueamt1" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct1" phpName="Oehdduepct1" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdDiscDate2" phpName="Oehddiscdate2" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct2" phpName="Oehddiscpct2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate2" phpName="Oehdduedate2" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt2" phpName="Oehddueamt2" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct2" phpName="Oehdduepct2" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdDiscDate3" phpName="Oehddiscdate3" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct3" phpName="Oehddiscpct3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate3" phpName="Oehdduedate3" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt3" phpName="Oehddueamt3" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct3" phpName="Oehdduepct3" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdDiscDate4" phpName="Oehddiscdate4" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct4" phpName="Oehddiscpct4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate4" phpName="Oehdduedate4" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt4" phpName="Oehddueamt4" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct4" phpName="Oehdduepct4" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdDiscDate5" phpName="Oehddiscdate5" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct5" phpName="Oehddiscpct5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate5" phpName="Oehdduedate5" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt5" phpName="Oehddueamt5" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct5" phpName="Oehdduepct5" type="DECIMAL" size="20" scale="7"/>
-    <column name="OehdDiscDate6" phpName="Oehddiscdate6" type="VARCHAR" size="8"/>
-    <column name="OehdDiscPct6" phpName="Oehddiscpct6" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDueDate6" phpName="Oehdduedate6" type="VARCHAR" size="8"/>
-    <column name="OehdDueAmt6" phpName="Oehddueamt6" type="DECIMAL" size="20" scale="2"/>
-    <column name="OehdDuePct6" phpName="Oehdduepct6" type="DECIMAL" size="20" scale="7"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
-    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <column name="OehdNbr" phpName="Oehdnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OehdStat" phpName="Oehdstat" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdHold" phpName="Oehdhold" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdStName" phpName="Oehdstname" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehdStLastName" phpName="Oehdstlastname" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehdStFirstName" phpName="Oehdstfirstname" type="VARCHAR" size="14" required="true" defaultValue=""/>
+    <column name="OehdStAdr1" phpName="Oehdstadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehdStAdr2" phpName="Oehdstadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehdStAdr3" phpName="Oehdstadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="OehdStCtry" phpName="Oehdstctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdStCity" phpName="Oehdstcity" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="OehdStStat" phpName="Oehdststat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdStZipCode" phpName="Oehdstzipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehdCustPo" phpName="Oehdcustpo" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehdOrdrDate" phpName="Oehdordrdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="ArinInvNbr" phpName="Arininvnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehdInvDate" phpName="Oehdinvdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdGLPd" phpName="Oehdglpd" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdSp1Pct" phpName="Oehdsp1pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdSp2Pct" phpName="Oehdsp2pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdSp3Pct" phpName="Oehdsp3pct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdCntrNbr" phpName="Oehdcntrnbr" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="OehdWiBatch" phpName="Oehdwibatch" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="OehdDropRelHold" phpName="Oehddroprelhold" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdTaxSub" phpName="Oehdtaxsub" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdNonTaxSub" phpName="Oehdnontaxsub" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdTaxTot" phpName="Oehdtaxtot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdFrtTot" phpName="Oehdfrttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdMiscTot" phpName="Oehdmisctot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdOrdrTot" phpName="Oehdordrtot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdCostTot" phpName="Oehdcosttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdSpCommLock" phpName="Oehdspcommlock" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdTakenDate" phpName="Oehdtakendate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdTakenTime" phpName="Oehdtakentime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdPickDate" phpName="Oehdpickdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdPickTime" phpName="Oehdpicktime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdPackDate" phpName="Oehdpackdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdPackTime" phpName="Oehdpacktime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdVerifyDate" phpName="Oehdverifydate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdVerifyTime" phpName="Oehdverifytime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdCreditMemo" phpName="Oehdcreditmemo" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdBookedYn" phpName="Oehdbookedyn" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdBtStat" phpName="Oehdbtstat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdShipComp" phpName="Oehdshipcomp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdCwoFlag" phpName="Oehdcwoflag" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdDivision" phpName="Oehddivision" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdTakenCode" phpName="Oehdtakencode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdPickCode" phpName="Oehdpickcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdPackCode" phpName="Oehdpackcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdVerifyCode" phpName="Oehdverifycode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdTotDisc" phpName="Oehdtotdisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdEdiRefNbrQual" phpName="Oehdedirefnbrqual" type="VARCHAR" size="3" required="true" defaultValue=""/>
+    <column name="OehdUserCode1" phpName="Oehdusercode1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdUserCode2" phpName="Oehdusercode2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdUserCode3" phpName="Oehdusercode3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdUserCode4" phpName="Oehdusercode4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdExchCtry" phpName="Oehdexchctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdExchRate" phpName="Oehdexchrate" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdWghtTot" phpName="Oehdwghttot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdWghtOride" phpName="Oehdwghtoride" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdCcInfo" phpName="Oehdccinfo" type="VARCHAR" size="1" required="true" defaultValue="B"/>
+    <column name="OehdBoxCount" phpName="Oehdboxcount" type="INTEGER" size="5" required="true" defaultValue="0"/>
+    <column name="OehdRqstDate" phpName="Oehdrqstdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdCancDate" phpName="Oehdcancdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdCrntUser" phpName="Oehdcrntuser" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="OehdReleaseNbr" phpName="Oehdreleasenbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdBordBuildDate" phpName="Oehdbordbuilddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDeptCode" phpName="Oehddeptcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdFrtInEntered" phpName="Oehdfrtinentered" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdDropShipEntered" phpName="Oehddropshipentered" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdErFlag" phpName="Oehderflag" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdFrtIn" phpName="Oehdfrtin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDropShip" phpName="Oehddropship" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdMinOrder" phpName="Oehdminorder" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdContractTerms" phpName="Oehdcontractterms" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdDropShipBilled" phpName="Oehddropshipbilled" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdOrdTyp" phpName="Oehdordtyp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdTrackNbr" phpName="Oehdtracknbr" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehdSource" phpName="Oehdsource" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdCcAprv" phpName="Oehdccaprv" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdPickFmatType" phpName="Oehdpickfmattype" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdInvcFmatType" phpName="Oehdinvcfmattype" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdCashAmt" phpName="Oehdcashamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdCheckAmt" phpName="Oehdcheckamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdCheckNbr" phpName="Oehdchecknbr" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDepositAmt" phpName="Oehddepositamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDepositNbr" phpName="Oehddepositnbr" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdCcAmt" phpName="Oehdccamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdOTaxSub" phpName="Oehdotaxsub" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdONonTaxSub" phpName="Oehdonontaxsub" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdOTaxTot" phpName="Oehdotaxtot" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdOOrdrTot" phpName="Oehdoordrtot" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdPickPrintDate" phpName="Oehdpickprintdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdPickPrintTime" phpName="Oehdpickprinttime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdCont" phpName="Oehdcont" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehdContTeleIntl" phpName="Oehdcontteleintl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdContTeleNbr" phpName="Oehdconttelenbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="OehdContTeleExt" phpName="Oehdcontteleext" type="VARCHAR" size="7" required="true" defaultValue=""/>
+    <column name="OehdContFaxIntl" phpName="Oehdcontfaxintl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdContFaxNbr" phpName="Oehdcontfaxnbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="OehdShipAcct" phpName="Oehdshipacct" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehdChgDue" phpName="Oehdchgdue" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdAddlPricDisc" phpName="Oehdaddlpricdisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdAllShip" phpName="Oehdallship" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdQtyOrderAmt" phpName="Oehdqtyorderamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdCreditApplied" phpName="Oehdcreditapplied" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdInvcPrintDate" phpName="Oehdinvcprintdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdInvcPrintTime" phpName="Oehdinvcprinttime" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdDiscFrt" phpName="Oehddiscfrt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdOrideShipComp" phpName="Oehdorideshipcomp" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdContEmail" phpName="Oehdcontemail" type="VARCHAR" size="50" required="true" defaultValue=""/>
+    <column name="OehdManualFrt" phpName="Oehdmanualfrt" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdInternalFrt" phpName="Oehdinternalfrt" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdFrtCost" phpName="Oehdfrtcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdRoute" phpName="Oehdroute" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OehdRouteSeq" phpName="Oehdrouteseq" type="INTEGER" size="4" required="true" defaultValue="0"/>
+    <column name="OehdFrtTaxCode1" phpName="Oehdfrttaxcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt1" phpName="Oehdfrttaxamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode2" phpName="Oehdfrttaxcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt2" phpName="Oehdfrttaxamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode3" phpName="Oehdfrttaxcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt3" phpName="Oehdfrttaxamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode4" phpName="Oehdfrttaxcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt4" phpName="Oehdfrttaxamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFrtTaxCode5" phpName="Oehdfrttaxcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdFrtTaxAmt5" phpName="Oehdfrttaxamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdEdi855Sent" phpName="Oehdedi855sent" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdFrt3rdParty" phpName="Oehdfrt3rdparty" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdFob" phpName="Oehdfob" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OehdConfirmImagYn" phpName="Oehdconfirmimagyn" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdIndustConform" phpName="Oehdindustconform" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdCstkConsign" phpName="Oehdcstkconsign" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdLmDelayCapSent" phpName="Oehdlmdelaycapsent" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdMfgId" phpName="Oehdmfgid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdStoreId" phpName="Oehdstoreid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="OehdPickQueue" phpName="Oehdpickqueue" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="OehdArrvDate" phpName="Oehdarrvdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdSurchgStat" phpName="Oehdsurchgstat" type="VARCHAR" size="1" required="true" defaultValue="C"/>
+    <column name="OehdFrtGrup" phpName="Oehdfrtgrup" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="OehdCommOride" phpName="Oehdcommoride" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdChrgSplt" phpName="Oehdchrgsplt" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="OehdAcCcAprv" phpName="Oehdacccaprv" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdOrigOrdrNbr" phpName="Oehdorigordrnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OehdPostDate" phpName="Oehdpostdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscDate1" phpName="Oehddiscdate1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct1" phpName="Oehddiscpct1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate1" phpName="Oehdduedate1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt1" phpName="Oehddueamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct1" phpName="Oehdduepct1" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdDiscDate2" phpName="Oehddiscdate2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct2" phpName="Oehddiscpct2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate2" phpName="Oehdduedate2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt2" phpName="Oehddueamt2" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct2" phpName="Oehdduepct2" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdDiscDate3" phpName="Oehddiscdate3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct3" phpName="Oehddiscpct3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate3" phpName="Oehdduedate3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt3" phpName="Oehddueamt3" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct3" phpName="Oehdduepct3" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdDiscDate4" phpName="Oehddiscdate4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct4" phpName="Oehddiscpct4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate4" phpName="Oehdduedate4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt4" phpName="Oehddueamt4" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct4" phpName="Oehdduepct4" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdDiscDate5" phpName="Oehddiscdate5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct5" phpName="Oehddiscpct5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate5" phpName="Oehdduedate5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt5" phpName="Oehddueamt5" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct5" phpName="Oehdduepct5" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdDiscDate6" phpName="Oehddiscdate6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDiscPct6" phpName="Oehddiscpct6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDueDate6" phpName="Oehdduedate6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OehdDueAmt6" phpName="Oehddueamt6" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OehdDuePct6" phpName="Oehdduepct6" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OehdRefNbr" phpName="Oehdrefnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OehdAcProgNbr" phpName="Oehdacprognbr" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="OehdAcProgExpDate" phpName="Oehdacprogexpdate" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <index name="default">
       <index-column name="OehdNbr"/>
       <index-column name="OehdOrdrDate"/>

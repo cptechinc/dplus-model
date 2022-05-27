@@ -203,6 +203,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery orderByOehdduedate6($order = Criteria::ASC) Order by the OehdDueDate6 column
  * @method     ChildSalesOrderQuery orderByOehddueamt6($order = Criteria::ASC) Order by the OehdDueAmt6 column
  * @method     ChildSalesOrderQuery orderByOehdduepct6($order = Criteria::ASC) Order by the OehdDuePct6 column
+ * @method     ChildSalesOrderQuery orderByOehdrefnbr($order = Criteria::ASC) Order by the OehdRefNbr column
+ * @method     ChildSalesOrderQuery orderByOehdacprognbr($order = Criteria::ASC) Order by the OehdAcProgNbr column
+ * @method     ChildSalesOrderQuery orderByOehdacprogexpdate($order = Criteria::ASC) Order by the OehdAcProgExpDate column
  * @method     ChildSalesOrderQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildSalesOrderQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildSalesOrderQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -390,6 +393,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery groupByOehdduedate6() Group by the OehdDueDate6 column
  * @method     ChildSalesOrderQuery groupByOehddueamt6() Group by the OehdDueAmt6 column
  * @method     ChildSalesOrderQuery groupByOehdduepct6() Group by the OehdDuePct6 column
+ * @method     ChildSalesOrderQuery groupByOehdrefnbr() Group by the OehdRefNbr column
+ * @method     ChildSalesOrderQuery groupByOehdacprognbr() Group by the OehdAcProgNbr column
+ * @method     ChildSalesOrderQuery groupByOehdacprogexpdate() Group by the OehdAcProgExpDate column
  * @method     ChildSalesOrderQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildSalesOrderQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildSalesOrderQuery groupByDummy() Group by the dummy column
@@ -483,7 +489,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder findOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column
  * @method     ChildSalesOrder findOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column
  * @method     ChildSalesOrder findOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column
- * @method     ChildSalesOrder findOneByOehdordrdate(int $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder findOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column
  * @method     ChildSalesOrder findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column
  * @method     ChildSalesOrder findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column
  * @method     ChildSalesOrder findOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column
@@ -650,6 +656,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder findOneByOehdduedate6(string $OehdDueDate6) Return the first ChildSalesOrder filtered by the OehdDueDate6 column
  * @method     ChildSalesOrder findOneByOehddueamt6(string $OehdDueAmt6) Return the first ChildSalesOrder filtered by the OehdDueAmt6 column
  * @method     ChildSalesOrder findOneByOehdduepct6(string $OehdDuePct6) Return the first ChildSalesOrder filtered by the OehdDuePct6 column
+ * @method     ChildSalesOrder findOneByOehdrefnbr(string $OehdRefNbr) Return the first ChildSalesOrder filtered by the OehdRefNbr column
+ * @method     ChildSalesOrder findOneByOehdacprognbr(string $OehdAcProgNbr) Return the first ChildSalesOrder filtered by the OehdAcProgNbr column
+ * @method     ChildSalesOrder findOneByOehdacprogexpdate(string $OehdAcProgExpDate) Return the first ChildSalesOrder filtered by the OehdAcProgExpDate column
  * @method     ChildSalesOrder findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrder filtered by the DateUpdtd column
  * @method     ChildSalesOrder findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrder filtered by the TimeUpdtd column
  * @method     ChildSalesOrder findOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column *
@@ -673,7 +682,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requireOneByOehdststat(string $OehdStStat) Return the first ChildSalesOrder filtered by the OehdStStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdstzipcode(string $OehdStZipCode) Return the first ChildSalesOrder filtered by the OehdStZipCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdcustpo(string $OehdCustPo) Return the first ChildSalesOrder filtered by the OehdCustPo column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrder requireOneByOehdordrdate(int $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdordrdate(string $OehdOrdrDate) Return the first ChildSalesOrder filtered by the OehdOrdrDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArtmtermcd(string $ArtmTermCd) Return the first ChildSalesOrder filtered by the ArtmTermCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArtbshipvia(string $ArtbShipVia) Return the first ChildSalesOrder filtered by the ArtbShipVia column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArininvnbr(string $ArinInvNbr) Return the first ChildSalesOrder filtered by the ArinInvNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -840,6 +849,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requireOneByOehdduedate6(string $OehdDueDate6) Return the first ChildSalesOrder filtered by the OehdDueDate6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehddueamt6(string $OehdDueAmt6) Return the first ChildSalesOrder filtered by the OehdDueAmt6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdduepct6(string $OehdDuePct6) Return the first ChildSalesOrder filtered by the OehdDuePct6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdrefnbr(string $OehdRefNbr) Return the first ChildSalesOrder filtered by the OehdRefNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdacprognbr(string $OehdAcProgNbr) Return the first ChildSalesOrder filtered by the OehdAcProgNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdacprogexpdate(string $OehdAcProgExpDate) Return the first ChildSalesOrder filtered by the OehdAcProgExpDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesOrder filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesOrder filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -861,7 +873,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdststat(string $OehdStStat) Return ChildSalesOrder objects filtered by the OehdStStat column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdstzipcode(string $OehdStZipCode) Return ChildSalesOrder objects filtered by the OehdStZipCode column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdcustpo(string $OehdCustPo) Return ChildSalesOrder objects filtered by the OehdCustPo column
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrdate(int $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdordrdate(string $OehdOrdrDate) Return ChildSalesOrder objects filtered by the OehdOrdrDate column
  * @method     ChildSalesOrder[]|ObjectCollection findByArtmtermcd(string $ArtmTermCd) Return ChildSalesOrder objects filtered by the ArtmTermCd column
  * @method     ChildSalesOrder[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildSalesOrder objects filtered by the ArtbShipVia column
  * @method     ChildSalesOrder[]|ObjectCollection findByArininvnbr(string $ArinInvNbr) Return ChildSalesOrder objects filtered by the ArinInvNbr column
@@ -1028,6 +1040,9 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdduedate6(string $OehdDueDate6) Return ChildSalesOrder objects filtered by the OehdDueDate6 column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehddueamt6(string $OehdDueAmt6) Return ChildSalesOrder objects filtered by the OehdDueAmt6 column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdduepct6(string $OehdDuePct6) Return ChildSalesOrder objects filtered by the OehdDuePct6 column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdrefnbr(string $OehdRefNbr) Return ChildSalesOrder objects filtered by the OehdRefNbr column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdacprognbr(string $OehdAcProgNbr) Return ChildSalesOrder objects filtered by the OehdAcProgNbr column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdacprogexpdate(string $OehdAcProgExpDate) Return ChildSalesOrder objects filtered by the OehdAcProgExpDate column
  * @method     ChildSalesOrder[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesOrder objects filtered by the DateUpdtd column
  * @method     ChildSalesOrder[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesOrder objects filtered by the TimeUpdtd column
  * @method     ChildSalesOrder[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesOrder objects filtered by the dummy column
@@ -1129,7 +1144,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehdNbr, OehdStat, OehdHold, ArcuCustId, ArstShipId, OehdStName, OehdStLastName, OehdStFirstName, OehdStAdr1, OehdStAdr2, OehdStAdr3, OehdStCtry, OehdStCity, OehdStStat, OehdStZipCode, OehdCustPo, OehdOrdrDate, ArtmTermCd, ArtbShipVia, ArinInvNbr, OehdInvDate, OehdGLPd, ArspSalePer1, OehdSp1Pct, ArspSalePer2, OehdSp2Pct, ArspSalePer3, OehdSp3Pct, OehdCntrNbr, OehdWiBatch, OehdDropRelHold, OehdTaxSub, OehdNonTaxSub, OehdTaxTot, OehdFrtTot, OehdMiscTot, OehdOrdrTot, OehdCostTot, OehdSpCommLock, OehdTakenDate, OehdTakenTime, OehdPickDate, OehdPickTime, OehdPackDate, OehdPackTime, OehdVerifyDate, OehdVerifyTime, OehdCreditMemo, OehdBookedYn, IntbWhseOrig, OehdBtStat, OehdShipComp, OehdCwoFlag, OehdDivision, OehdTakenCode, OehdPickCode, OehdPackCode, OehdVerifyCode, OehdTotDisc, OehdEdiRefNbrQual, OehdUserCode1, OehdUserCode2, OehdUserCode3, OehdUserCode4, OehdExchCtry, OehdExchRate, OehdWghtTot, OehdWghtOride, OehdCcInfo, OehdBoxCount, OehdRqstDate, OehdCancDate, OehdCrntUser, OehdReleaseNbr, IntbWhse, OehdBordBuildDate, OehdDeptCode, OehdFrtInEntered, OehdDropShipEntered, OehdErFlag, OehdFrtIn, OehdDropShip, OehdMinOrder, OehdContractTerms, OehdDropShipBilled, OehdOrdTyp, OehdTrackNbr, OehdSource, OehdCcAprv, OehdPickFmatType, OehdInvcFmatType, OehdCashAmt, OehdCheckAmt, OehdCheckNbr, OehdDepositAmt, OehdDepositNbr, OehdCcAmt, OehdOTaxSub, OehdONonTaxSub, OehdOTaxTot, OehdOOrdrTot, OehdPickPrintDate, OehdPickPrintTime, OehdCont, OehdContTeleIntl, OehdContTeleNbr, OehdContTeleExt, OehdContFaxIntl, OehdContFaxNbr, OehdShipAcct, OehdChgDue, OehdAddlPricDisc, OehdAllShip, OehdQtyOrderAmt, OehdCreditApplied, OehdInvcPrintDate, OehdInvcPrintTime, OehdDiscFrt, OehdOrideShipComp, OehdContEmail, OehdManualFrt, OehdInternalFrt, OehdFrtCost, OehdRoute, OehdRouteSeq, OehdFrtTaxCode1, OehdFrtTaxAmt1, OehdFrtTaxCode2, OehdFrtTaxAmt2, OehdFrtTaxCode3, OehdFrtTaxAmt3, OehdFrtTaxCode4, OehdFrtTaxAmt4, OehdFrtTaxCode5, OehdFrtTaxAmt5, OehdEdi855Sent, OehdFrt3rdParty, OehdFob, OehdConfirmImagYn, OehdIndustConform, OehdCstkConsign, OehdLmDelayCapSent, OehdMfgId, OehdStoreId, OehdPickQueue, OehdArrvDate, OehdSurchgStat, OehdFrtGrup, OehdCommOride, OehdChrgSplt, OehdAcCcAprv, OehdOrigOrdrNbr, OehdPostDate, OehdDiscDate1, OehdDiscPct1, OehdDueDate1, OehdDueAmt1, OehdDuePct1, OehdDiscDate2, OehdDiscPct2, OehdDueDate2, OehdDueAmt2, OehdDuePct2, OehdDiscDate3, OehdDiscPct3, OehdDueDate3, OehdDueAmt3, OehdDuePct3, OehdDiscDate4, OehdDiscPct4, OehdDueDate4, OehdDueAmt4, OehdDuePct4, OehdDiscDate5, OehdDiscPct5, OehdDueDate5, OehdDueAmt5, OehdDuePct5, OehdDiscDate6, OehdDiscPct6, OehdDueDate6, OehdDueAmt6, OehdDuePct6, DateUpdtd, TimeUpdtd, dummy FROM so_header WHERE OehdNbr = :p0';
+        $sql = 'SELECT OehdNbr, OehdStat, OehdHold, ArcuCustId, ArstShipId, OehdStName, OehdStLastName, OehdStFirstName, OehdStAdr1, OehdStAdr2, OehdStAdr3, OehdStCtry, OehdStCity, OehdStStat, OehdStZipCode, OehdCustPo, OehdOrdrDate, ArtmTermCd, ArtbShipVia, ArinInvNbr, OehdInvDate, OehdGLPd, ArspSalePer1, OehdSp1Pct, ArspSalePer2, OehdSp2Pct, ArspSalePer3, OehdSp3Pct, OehdCntrNbr, OehdWiBatch, OehdDropRelHold, OehdTaxSub, OehdNonTaxSub, OehdTaxTot, OehdFrtTot, OehdMiscTot, OehdOrdrTot, OehdCostTot, OehdSpCommLock, OehdTakenDate, OehdTakenTime, OehdPickDate, OehdPickTime, OehdPackDate, OehdPackTime, OehdVerifyDate, OehdVerifyTime, OehdCreditMemo, OehdBookedYn, IntbWhseOrig, OehdBtStat, OehdShipComp, OehdCwoFlag, OehdDivision, OehdTakenCode, OehdPickCode, OehdPackCode, OehdVerifyCode, OehdTotDisc, OehdEdiRefNbrQual, OehdUserCode1, OehdUserCode2, OehdUserCode3, OehdUserCode4, OehdExchCtry, OehdExchRate, OehdWghtTot, OehdWghtOride, OehdCcInfo, OehdBoxCount, OehdRqstDate, OehdCancDate, OehdCrntUser, OehdReleaseNbr, IntbWhse, OehdBordBuildDate, OehdDeptCode, OehdFrtInEntered, OehdDropShipEntered, OehdErFlag, OehdFrtIn, OehdDropShip, OehdMinOrder, OehdContractTerms, OehdDropShipBilled, OehdOrdTyp, OehdTrackNbr, OehdSource, OehdCcAprv, OehdPickFmatType, OehdInvcFmatType, OehdCashAmt, OehdCheckAmt, OehdCheckNbr, OehdDepositAmt, OehdDepositNbr, OehdCcAmt, OehdOTaxSub, OehdONonTaxSub, OehdOTaxTot, OehdOOrdrTot, OehdPickPrintDate, OehdPickPrintTime, OehdCont, OehdContTeleIntl, OehdContTeleNbr, OehdContTeleExt, OehdContFaxIntl, OehdContFaxNbr, OehdShipAcct, OehdChgDue, OehdAddlPricDisc, OehdAllShip, OehdQtyOrderAmt, OehdCreditApplied, OehdInvcPrintDate, OehdInvcPrintTime, OehdDiscFrt, OehdOrideShipComp, OehdContEmail, OehdManualFrt, OehdInternalFrt, OehdFrtCost, OehdRoute, OehdRouteSeq, OehdFrtTaxCode1, OehdFrtTaxAmt1, OehdFrtTaxCode2, OehdFrtTaxAmt2, OehdFrtTaxCode3, OehdFrtTaxAmt3, OehdFrtTaxCode4, OehdFrtTaxAmt4, OehdFrtTaxCode5, OehdFrtTaxAmt5, OehdEdi855Sent, OehdFrt3rdParty, OehdFob, OehdConfirmImagYn, OehdIndustConform, OehdCstkConsign, OehdLmDelayCapSent, OehdMfgId, OehdStoreId, OehdPickQueue, OehdArrvDate, OehdSurchgStat, OehdFrtGrup, OehdCommOride, OehdChrgSplt, OehdAcCcAprv, OehdOrigOrdrNbr, OehdPostDate, OehdDiscDate1, OehdDiscPct1, OehdDueDate1, OehdDueAmt1, OehdDuePct1, OehdDiscDate2, OehdDiscPct2, OehdDueDate2, OehdDueAmt2, OehdDuePct2, OehdDiscDate3, OehdDiscPct3, OehdDueDate3, OehdDueAmt3, OehdDuePct3, OehdDiscDate4, OehdDiscPct4, OehdDueDate4, OehdDueAmt4, OehdDuePct4, OehdDiscDate5, OehdDiscPct5, OehdDueDate5, OehdDueAmt5, OehdDuePct5, OehdDiscDate6, OehdDiscPct6, OehdDueDate6, OehdDueAmt6, OehdDuePct6, OehdRefNbr, OehdAcProgNbr, OehdAcProgExpDate, DateUpdtd, TimeUpdtd, dummy FROM so_header WHERE OehdNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -1624,35 +1639,19 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehdordrdate(1234); // WHERE OehdOrdrDate = 1234
-     * $query->filterByOehdordrdate(array(12, 34)); // WHERE OehdOrdrDate IN (12, 34)
-     * $query->filterByOehdordrdate(array('min' => 12)); // WHERE OehdOrdrDate > 12
+     * $query->filterByOehdordrdate('fooValue');   // WHERE OehdOrdrDate = 'fooValue'
+     * $query->filterByOehdordrdate('%fooValue%', Criteria::LIKE); // WHERE OehdOrdrDate LIKE '%fooValue%'
      * </code>
      *
-     * @param     mixed $oehdordrdate The value to use as filter.
-     *              Use scalar values for equality.
-     *              Use array values for in_array() equivalent.
-     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $oehdordrdate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
     public function filterByOehdordrdate($oehdordrdate = null, $comparison = null)
     {
-        if (is_array($oehdordrdate)) {
-            $useMinMax = false;
-            if (isset($oehdordrdate['min'])) {
-                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate['min'], Criteria::GREATER_EQUAL);
-                $useMinMax = true;
-            }
-            if (isset($oehdordrdate['max'])) {
-                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDORDRDATE, $oehdordrdate['max'], Criteria::LESS_EQUAL);
-                $useMinMax = true;
-            }
-            if ($useMinMax) {
-                return $this;
-            }
-            if (null === $comparison) {
+        if (null === $comparison) {
+            if (is_array($oehdordrdate)) {
                 $comparison = Criteria::IN;
             }
         }
@@ -6755,6 +6754,81 @@ abstract class SalesOrderQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query on the OehdRefNbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehdrefnbr('fooValue');   // WHERE OehdRefNbr = 'fooValue'
+     * $query->filterByOehdrefnbr('%fooValue%', Criteria::LIKE); // WHERE OehdRefNbr LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehdrefnbr The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterByOehdrefnbr($oehdrefnbr = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehdrefnbr)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDREFNBR, $oehdrefnbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehdAcProgNbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehdacprognbr('fooValue');   // WHERE OehdAcProgNbr = 'fooValue'
+     * $query->filterByOehdacprognbr('%fooValue%', Criteria::LIKE); // WHERE OehdAcProgNbr LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehdacprognbr The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterByOehdacprognbr($oehdacprognbr = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehdacprognbr)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGNBR, $oehdacprognbr, $comparison);
+    }
+
+    /**
+     * Filter the query on the OehdAcProgExpDate column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOehdacprogexpdate('fooValue');   // WHERE OehdAcProgExpDate = 'fooValue'
+     * $query->filterByOehdacprogexpdate('%fooValue%', Criteria::LIKE); // WHERE OehdAcProgExpDate LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oehdacprogexpdate The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterByOehdacprogexpdate($oehdacprogexpdate = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oehdacprogexpdate)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesOrderTableMap::COL_OEHDACPROGEXPDATE, $oehdacprogexpdate, $comparison);
+    }
+
+    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -6864,7 +6938,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -6899,7 +6973,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
-    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
@@ -6935,7 +7009,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
-    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomerShipto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('CustomerShipto');
@@ -6970,7 +7044,7 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * @return \CustomerShiptoQuery A secondary query class using the current class as primary query
      */
-    public function useCustomerShiptoQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useCustomerShiptoQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)

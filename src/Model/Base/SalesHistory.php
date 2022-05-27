@@ -77,6 +77,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhnbr;
@@ -84,6 +85,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhyear field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhyear;
@@ -91,6 +93,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstat field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhstat;
@@ -98,6 +101,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhhold field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhhold;
@@ -105,6 +109,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arcucustid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucustid;
@@ -112,6 +117,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arstshipid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arstshipid;
@@ -119,6 +125,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstname;
@@ -126,6 +133,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstlastname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstlastname;
@@ -133,6 +141,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstfirstname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstfirstname;
@@ -140,6 +149,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstadr1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstadr1;
@@ -147,6 +157,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstadr2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstadr2;
@@ -154,6 +165,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstadr3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstadr3;
@@ -161,6 +173,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstctry;
@@ -168,6 +181,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstcity field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstcity;
@@ -175,6 +189,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhststat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhststat;
@@ -182,6 +197,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstzipcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstzipcode;
@@ -189,6 +205,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcustpo field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcustpo;
@@ -196,6 +213,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhordrdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhordrdate;
@@ -203,6 +221,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the artmtermcd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artmtermcd;
@@ -210,6 +229,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the artbshipvia field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbshipvia;
@@ -217,6 +237,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arininvnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arininvnbr;
@@ -224,6 +245,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhinvdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhinvdate;
@@ -231,6 +253,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhglpd field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehhglpd;
@@ -238,6 +261,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arspsaleper1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper1;
@@ -245,6 +269,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhsp1pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhsp1pct;
@@ -252,6 +277,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arspsaleper2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper2;
@@ -259,6 +285,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhsp2pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhsp2pct;
@@ -266,6 +293,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the arspsaleper3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper3;
@@ -273,6 +301,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhsp3pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhsp3pct;
@@ -280,6 +309,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcntrnbr field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehhcntrnbr;
@@ -287,6 +317,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhwibatch field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehhwibatch;
@@ -294,6 +325,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdroprelhold field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdroprelhold;
@@ -301,6 +333,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtaxsub field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhtaxsub;
@@ -308,6 +341,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhnontaxsub field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhnontaxsub;
@@ -315,6 +349,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtaxtot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhtaxtot;
@@ -322,6 +357,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhfrttot;
@@ -329,6 +365,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhmisctot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhmisctot;
@@ -336,6 +373,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhordrtot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhordrtot;
@@ -343,6 +381,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcosttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhcosttot;
@@ -350,6 +389,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhspcommlock field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhspcommlock;
@@ -357,6 +397,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtakendate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhtakendate;
@@ -364,6 +405,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtakentime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhtakentime;
@@ -371,6 +413,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpickdate;
@@ -378,6 +421,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpicktime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpicktime;
@@ -385,6 +429,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpackdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpackdate;
@@ -392,6 +437,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpacktime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpacktime;
@@ -399,6 +445,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhverifydate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhverifydate;
@@ -406,6 +453,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhverifytime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhverifytime;
@@ -413,6 +461,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcreditmemo field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcreditmemo;
@@ -420,6 +469,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhbookedyn field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhbookedyn;
@@ -427,6 +477,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the intbwhseorig field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseorig;
@@ -434,6 +485,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhbtstat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhbtstat;
@@ -441,6 +493,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhshipcomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhshipcomp;
@@ -448,6 +501,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcwoflag field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcwoflag;
@@ -455,6 +509,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdivision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdivision;
@@ -462,6 +517,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtakencode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhtakencode;
@@ -469,6 +525,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpickcode;
@@ -476,6 +533,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpackcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpackcode;
@@ -483,6 +541,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhverifycode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhverifycode;
@@ -490,6 +549,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtotdisc field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhtotdisc;
@@ -497,6 +557,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhedirefnbrqual field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhedirefnbrqual;
@@ -504,6 +565,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhusercode1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhusercode1;
@@ -511,6 +573,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhusercode2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhusercode2;
@@ -518,6 +581,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhusercode3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhusercode3;
@@ -525,6 +589,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhusercode4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhusercode4;
@@ -532,6 +597,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhexchctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhexchctry;
@@ -539,6 +605,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhexchrate field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhexchrate;
@@ -546,6 +613,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhwghttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhwghttot;
@@ -553,6 +621,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhwghtoride field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhwghtoride;
@@ -560,6 +629,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhccinfo field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $oehhccinfo;
@@ -567,6 +637,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhboxcount field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehhboxcount;
@@ -574,6 +645,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhrqstdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhrqstdate;
@@ -581,6 +653,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcancdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcancdate;
@@ -588,6 +661,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcrntuser field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcrntuser;
@@ -595,6 +669,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhreleasenbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhreleasenbr;
@@ -602,6 +677,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the intbwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhse;
@@ -609,6 +685,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhbordbuilddate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhbordbuilddate;
@@ -616,6 +693,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdeptcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdeptcode;
@@ -623,6 +701,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrtinentered field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhfrtinentered;
@@ -630,6 +709,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdropshipentered field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhdropshipentered;
@@ -637,6 +717,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehherflag field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehherflag;
@@ -644,6 +725,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrtin field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrtin;
@@ -651,6 +733,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdropship field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdropship;
@@ -658,6 +741,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhminorder field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhminorder;
@@ -665,6 +749,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontractterms field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhcontractterms;
@@ -672,6 +757,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdropshipbilled field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhdropshipbilled;
@@ -679,6 +765,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhordtyp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhordtyp;
@@ -686,6 +773,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhtracknbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhtracknbr;
@@ -693,6 +781,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhsource field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhsource;
@@ -700,6 +789,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhccaprv field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhccaprv;
@@ -707,6 +797,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickfmattype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpickfmattype;
@@ -714,6 +805,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhinvcfmattype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhinvcfmattype;
@@ -721,6 +813,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcashamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhcashamt;
@@ -728,6 +821,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcheckamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhcheckamt;
@@ -735,6 +829,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhchecknbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhchecknbr;
@@ -742,6 +837,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdepositamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdepositamt;
@@ -749,6 +845,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdepositnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdepositnbr;
@@ -756,6 +853,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhccamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhccamt;
@@ -763,6 +861,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhotaxsub field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhotaxsub;
@@ -770,6 +869,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhonontaxsub field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhonontaxsub;
@@ -777,6 +877,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhotaxtot field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhotaxtot;
@@ -784,6 +885,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhoordrtot field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhoordrtot;
@@ -791,6 +893,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickprintdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpickprintdate;
@@ -798,6 +901,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickprinttime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpickprinttime;
@@ -805,6 +909,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcont field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcont;
@@ -812,6 +917,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontteleintl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhcontteleintl;
@@ -819,6 +925,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhconttelenbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhconttelenbr;
@@ -826,6 +933,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontteleext field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcontteleext;
@@ -833,6 +941,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontfaxintl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhcontfaxintl;
@@ -840,6 +949,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontfaxnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcontfaxnbr;
@@ -847,6 +957,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhshipacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhshipacct;
@@ -854,6 +965,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhchgdue field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhchgdue;
@@ -861,6 +973,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhaddlpricdisc field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhaddlpricdisc;
@@ -868,6 +981,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhallship field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhallship;
@@ -875,6 +989,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhqtyorderamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhqtyorderamt;
@@ -882,6 +997,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcreditapplied field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhcreditapplied;
@@ -889,6 +1005,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhinvcprintdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhinvcprintdate;
@@ -896,6 +1013,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhinvcprinttime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhinvcprinttime;
@@ -903,6 +1021,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscfrt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscfrt;
@@ -910,6 +1029,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhorideshipcomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhorideshipcomp;
@@ -917,6 +1037,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcontemail field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcontemail;
@@ -924,6 +1045,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhmanualfrt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhmanualfrt;
@@ -931,6 +1053,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhinternalfrt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhinternalfrt;
@@ -938,6 +1061,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrtcost field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrtcost;
@@ -945,6 +1069,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhroute field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhroute;
@@ -952,6 +1077,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhrouteseq field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehhrouteseq;
@@ -959,6 +1085,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxcode1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrttaxcode1;
@@ -966,6 +1093,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxamt1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrttaxamt1;
@@ -973,6 +1101,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxcode2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrttaxcode2;
@@ -980,6 +1109,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxamt2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrttaxamt2;
@@ -987,6 +1117,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxcode3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrttaxcode3;
@@ -994,6 +1125,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxamt3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrttaxamt3;
@@ -1001,6 +1133,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxcode4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrttaxcode4;
@@ -1008,6 +1141,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxamt4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrttaxamt4;
@@ -1015,6 +1149,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxcode5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrttaxcode5;
@@ -1022,6 +1157,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrttaxamt5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrttaxamt5;
@@ -1029,6 +1165,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhedi855sent field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhedi855sent;
@@ -1036,6 +1173,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrt3rdparty field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhfrt3rdparty;
@@ -1043,6 +1181,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfob field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfob;
@@ -1050,6 +1189,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhconfirmimagyn field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhconfirmimagyn;
@@ -1057,6 +1197,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhindustconform field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhindustconform;
@@ -1064,6 +1205,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcstkconsign field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcstkconsign;
@@ -1071,6 +1213,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhlmdelaycapsent field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhlmdelaycapsent;
@@ -1078,6 +1221,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhmfgid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhmfgid;
@@ -1085,6 +1229,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhstoreid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhstoreid;
@@ -1092,6 +1237,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpickqueue field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehhpickqueue;
@@ -1099,6 +1245,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehharrvdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehharrvdate;
@@ -1106,6 +1253,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhsurchgstat field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $oehhsurchgstat;
@@ -1113,6 +1261,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhfrtgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhfrtgrup;
@@ -1120,6 +1269,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhcommoride field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhcommoride;
@@ -1127,6 +1277,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhchrgsplt field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhchrgsplt;
@@ -1134,6 +1285,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhacccaprv field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhacccaprv;
@@ -1141,6 +1293,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhorigordrnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhorigordrnbr;
@@ -1148,6 +1301,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhpostdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhpostdate;
@@ -1155,6 +1309,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate1;
@@ -1162,6 +1317,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct1;
@@ -1169,6 +1325,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate1;
@@ -1176,6 +1333,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt1;
@@ -1183,6 +1341,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct1 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct1;
@@ -1190,6 +1349,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate2;
@@ -1197,6 +1357,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct2;
@@ -1204,6 +1365,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate2;
@@ -1211,6 +1373,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt2;
@@ -1218,6 +1381,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct2 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct2;
@@ -1225,6 +1389,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate3;
@@ -1232,6 +1397,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct3;
@@ -1239,6 +1405,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate3;
@@ -1246,6 +1413,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt3;
@@ -1253,6 +1421,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct3 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct3;
@@ -1260,6 +1429,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate4;
@@ -1267,6 +1437,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct4;
@@ -1274,6 +1445,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate4;
@@ -1281,6 +1453,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt4;
@@ -1288,6 +1461,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct4 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct4;
@@ -1295,6 +1469,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate5;
@@ -1302,6 +1477,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct5;
@@ -1309,6 +1485,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate5;
@@ -1316,6 +1493,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt5;
@@ -1323,6 +1501,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct5 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct5;
@@ -1330,6 +1509,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscdate6 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhdiscdate6;
@@ -1337,6 +1517,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdiscpct6 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdiscpct6;
@@ -1344,6 +1525,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduedate6 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehhduedate6;
@@ -1351,6 +1533,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhdueamt6 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehhdueamt6;
@@ -1358,13 +1541,39 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhduepct6 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehhduepct6;
 
     /**
+     * The value for the oehhrefnbr field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhrefnbr;
+
+    /**
+     * The value for the oehhacprognbr field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhacprognbr;
+
+    /**
+     * The value for the oehhacprogexpdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehhacprogexpdate;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1372,6 +1581,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1379,6 +1589,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1438,10 +1649,212 @@ abstract class SalesHistory implements ActiveRecordInterface
     protected $salesHistoryLotserialsScheduledForDeletion = null;
 
     /**
+     * Applies default values to this object.
+     * This method should be called from the object's constructor (or
+     * equivalent initialization method).
+     * @see __construct()
+     */
+    public function applyDefaultValues()
+    {
+        $this->oehhnbr = '';
+        $this->oehhyear = '';
+        $this->oehhstat = 'N';
+        $this->oehhhold = 'N';
+        $this->arcucustid = '';
+        $this->arstshipid = '';
+        $this->oehhstname = '';
+        $this->oehhstlastname = '';
+        $this->oehhstfirstname = '';
+        $this->oehhstadr1 = '';
+        $this->oehhstadr2 = '';
+        $this->oehhstadr3 = '';
+        $this->oehhstctry = '';
+        $this->oehhstcity = '';
+        $this->oehhststat = '';
+        $this->oehhstzipcode = '';
+        $this->oehhcustpo = '';
+        $this->oehhordrdate = '';
+        $this->artmtermcd = '';
+        $this->artbshipvia = '';
+        $this->arininvnbr = '';
+        $this->oehhinvdate = '';
+        $this->oehhglpd = 0;
+        $this->arspsaleper1 = '';
+        $this->oehhsp1pct = '0.00';
+        $this->arspsaleper2 = '';
+        $this->oehhsp2pct = '0.00';
+        $this->arspsaleper3 = '';
+        $this->oehhsp3pct = '0.00';
+        $this->oehhcntrnbr = 0;
+        $this->oehhwibatch = 0;
+        $this->oehhdroprelhold = '';
+        $this->oehhtaxsub = '0.0000000';
+        $this->oehhnontaxsub = '0.0000000';
+        $this->oehhtaxtot = '0.0000000';
+        $this->oehhfrttot = '0.0000000';
+        $this->oehhmisctot = '0.0000000';
+        $this->oehhordrtot = '0.0000000';
+        $this->oehhcosttot = '0.0000000';
+        $this->oehhspcommlock = 'N';
+        $this->oehhtakendate = '';
+        $this->oehhtakentime = '';
+        $this->oehhpickdate = '';
+        $this->oehhpicktime = '';
+        $this->oehhpackdate = '';
+        $this->oehhpacktime = '';
+        $this->oehhverifydate = '';
+        $this->oehhverifytime = '';
+        $this->oehhcreditmemo = '';
+        $this->oehhbookedyn = '';
+        $this->intbwhseorig = '';
+        $this->oehhbtstat = '';
+        $this->oehhshipcomp = 'N';
+        $this->oehhcwoflag = '';
+        $this->oehhdivision = '';
+        $this->oehhtakencode = '';
+        $this->oehhpickcode = '';
+        $this->oehhpackcode = '';
+        $this->oehhverifycode = '';
+        $this->oehhtotdisc = '0.00';
+        $this->oehhedirefnbrqual = '';
+        $this->oehhusercode1 = '';
+        $this->oehhusercode2 = '';
+        $this->oehhusercode3 = '';
+        $this->oehhusercode4 = '';
+        $this->oehhexchctry = '';
+        $this->oehhexchrate = '0.0000000';
+        $this->oehhwghttot = '0.0000000';
+        $this->oehhwghtoride = 'N';
+        $this->oehhccinfo = 'B';
+        $this->oehhboxcount = 0;
+        $this->oehhrqstdate = '';
+        $this->oehhcancdate = '';
+        $this->oehhcrntuser = '';
+        $this->oehhreleasenbr = '';
+        $this->intbwhse = '';
+        $this->oehhbordbuilddate = '';
+        $this->oehhdeptcode = '';
+        $this->oehhfrtinentered = 'N';
+        $this->oehhdropshipentered = 'N';
+        $this->oehherflag = 'N';
+        $this->oehhfrtin = '0.00';
+        $this->oehhdropship = '0.00';
+        $this->oehhminorder = '0.00';
+        $this->oehhcontractterms = 'N';
+        $this->oehhdropshipbilled = 'N';
+        $this->oehhordtyp = 'N';
+        $this->oehhtracknbr = '';
+        $this->oehhsource = '';
+        $this->oehhccaprv = '';
+        $this->oehhpickfmattype = '';
+        $this->oehhinvcfmattype = '';
+        $this->oehhcashamt = '0.00';
+        $this->oehhcheckamt = '0.00';
+        $this->oehhchecknbr = '';
+        $this->oehhdepositamt = '0.00';
+        $this->oehhdepositnbr = '';
+        $this->oehhccamt = '0.00';
+        $this->oehhotaxsub = '0.00';
+        $this->oehhonontaxsub = '0.00';
+        $this->oehhotaxtot = '0.00';
+        $this->oehhoordrtot = '0.00';
+        $this->oehhpickprintdate = '';
+        $this->oehhpickprinttime = '';
+        $this->oehhcont = '';
+        $this->oehhcontteleintl = 'N';
+        $this->oehhconttelenbr = '';
+        $this->oehhcontteleext = '';
+        $this->oehhcontfaxintl = 'N';
+        $this->oehhcontfaxnbr = '';
+        $this->oehhshipacct = '';
+        $this->oehhchgdue = '0.00';
+        $this->oehhaddlpricdisc = '0.00';
+        $this->oehhallship = '';
+        $this->oehhqtyorderamt = '0.00';
+        $this->oehhcreditapplied = '0.00';
+        $this->oehhinvcprintdate = '';
+        $this->oehhinvcprinttime = '';
+        $this->oehhdiscfrt = '0.00';
+        $this->oehhorideshipcomp = 'N';
+        $this->oehhcontemail = '';
+        $this->oehhmanualfrt = 'N';
+        $this->oehhinternalfrt = 'N';
+        $this->oehhfrtcost = '0.00';
+        $this->oehhroute = '';
+        $this->oehhrouteseq = 0;
+        $this->oehhfrttaxcode1 = '';
+        $this->oehhfrttaxamt1 = '0.00';
+        $this->oehhfrttaxcode2 = '';
+        $this->oehhfrttaxamt2 = '0.00';
+        $this->oehhfrttaxcode3 = '';
+        $this->oehhfrttaxamt3 = '0.00';
+        $this->oehhfrttaxcode4 = '';
+        $this->oehhfrttaxamt4 = '0.00';
+        $this->oehhfrttaxcode5 = '';
+        $this->oehhfrttaxamt5 = '0.00';
+        $this->oehhedi855sent = '';
+        $this->oehhfrt3rdparty = '0.00';
+        $this->oehhfob = '';
+        $this->oehhconfirmimagyn = 'N';
+        $this->oehhindustconform = '';
+        $this->oehhcstkconsign = '';
+        $this->oehhlmdelaycapsent = '';
+        $this->oehhmfgid = '';
+        $this->oehhstoreid = '';
+        $this->oehhpickqueue = 'N';
+        $this->oehharrvdate = '';
+        $this->oehhsurchgstat = 'C';
+        $this->oehhfrtgrup = '';
+        $this->oehhcommoride = '';
+        $this->oehhchrgsplt = '';
+        $this->oehhacccaprv = '';
+        $this->oehhorigordrnbr = '';
+        $this->oehhpostdate = '';
+        $this->oehhdiscdate1 = '';
+        $this->oehhdiscpct1 = '0.00';
+        $this->oehhduedate1 = '';
+        $this->oehhdueamt1 = '0.00';
+        $this->oehhduepct1 = '0.0000000';
+        $this->oehhdiscdate2 = '';
+        $this->oehhdiscpct2 = '0.00';
+        $this->oehhduedate2 = '';
+        $this->oehhdueamt2 = '0.00';
+        $this->oehhduepct2 = '0.0000000';
+        $this->oehhdiscdate3 = '';
+        $this->oehhdiscpct3 = '0.00';
+        $this->oehhduedate3 = '';
+        $this->oehhdueamt3 = '0.00';
+        $this->oehhduepct3 = '0.0000000';
+        $this->oehhdiscdate4 = '';
+        $this->oehhdiscpct4 = '0.00';
+        $this->oehhduedate4 = '';
+        $this->oehhdueamt4 = '0.00';
+        $this->oehhduepct4 = '0.0000000';
+        $this->oehhdiscdate5 = '';
+        $this->oehhdiscpct5 = '0.00';
+        $this->oehhduedate5 = '';
+        $this->oehhdueamt5 = '0.00';
+        $this->oehhduepct5 = '0.0000000';
+        $this->oehhdiscdate6 = '';
+        $this->oehhdiscpct6 = '0.00';
+        $this->oehhduedate6 = '';
+        $this->oehhdueamt6 = '0.00';
+        $this->oehhduepct6 = '0.0000000';
+        $this->oehhrefnbr = '';
+        $this->oehhacprognbr = '';
+        $this->oehhacprogexpdate = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
+    }
+
+    /**
      * Initializes internal state of Base\SalesHistory object.
+     * @see applyDefaults()
      */
     public function __construct()
     {
+        $this->applyDefaultValues();
     }
 
     /**
@@ -3500,6 +3913,36 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function getOehhduepct6()
     {
         return $this->oehhduepct6;
+    }
+
+    /**
+     * Get the [oehhrefnbr] column value.
+     *
+     * @return string
+     */
+    public function getOehhrefnbr()
+    {
+        return $this->oehhrefnbr;
+    }
+
+    /**
+     * Get the [oehhacprognbr] column value.
+     *
+     * @return string
+     */
+    public function getOehhacprognbr()
+    {
+        return $this->oehhacprognbr;
+    }
+
+    /**
+     * Get the [oehhacprogexpdate] column value.
+     *
+     * @return string
+     */
+    public function getOehhacprogexpdate()
+    {
+        return $this->oehhacprogexpdate;
     }
 
     /**
@@ -7225,6 +7668,66 @@ abstract class SalesHistory implements ActiveRecordInterface
     } // setOehhduepct6()
 
     /**
+     * Set the value of [oehhrefnbr] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhrefnbr($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhrefnbr !== $v) {
+            $this->oehhrefnbr = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHREFNBR] = true;
+        }
+
+        return $this;
+    } // setOehhrefnbr()
+
+    /**
+     * Set the value of [oehhacprognbr] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhacprognbr($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhacprognbr !== $v) {
+            $this->oehhacprognbr = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHACPROGNBR] = true;
+        }
+
+        return $this;
+    } // setOehhacprognbr()
+
+    /**
+     * Set the value of [oehhacprogexpdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistory The current object (for fluent API support)
+     */
+    public function setOehhacprogexpdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehhacprogexpdate !== $v) {
+            $this->oehhacprogexpdate = $v;
+            $this->modifiedColumns[SalesHistoryTableMap::COL_OEHHACPROGEXPDATE] = true;
+        }
+
+        return $this;
+    } // setOehhacprogexpdate()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -7294,6 +7797,766 @@ abstract class SalesHistory implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->oehhnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhyear !== '') {
+                return false;
+            }
+
+            if ($this->oehhstat !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhhold !== 'N') {
+                return false;
+            }
+
+            if ($this->arcucustid !== '') {
+                return false;
+            }
+
+            if ($this->arstshipid !== '') {
+                return false;
+            }
+
+            if ($this->oehhstname !== '') {
+                return false;
+            }
+
+            if ($this->oehhstlastname !== '') {
+                return false;
+            }
+
+            if ($this->oehhstfirstname !== '') {
+                return false;
+            }
+
+            if ($this->oehhstadr1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhstadr2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhstadr3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhstctry !== '') {
+                return false;
+            }
+
+            if ($this->oehhstcity !== '') {
+                return false;
+            }
+
+            if ($this->oehhststat !== '') {
+                return false;
+            }
+
+            if ($this->oehhstzipcode !== '') {
+                return false;
+            }
+
+            if ($this->oehhcustpo !== '') {
+                return false;
+            }
+
+            if ($this->oehhordrdate !== '') {
+                return false;
+            }
+
+            if ($this->artmtermcd !== '') {
+                return false;
+            }
+
+            if ($this->artbshipvia !== '') {
+                return false;
+            }
+
+            if ($this->arininvnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhinvdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhglpd !== 0) {
+                return false;
+            }
+
+            if ($this->arspsaleper1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhsp1pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->arspsaleper2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhsp2pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->arspsaleper3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhsp3pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhcntrnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oehhwibatch !== 0) {
+                return false;
+            }
+
+            if ($this->oehhdroprelhold !== '') {
+                return false;
+            }
+
+            if ($this->oehhtaxsub !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhnontaxsub !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhtaxtot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhfrttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhmisctot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhordrtot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhcosttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhspcommlock !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhtakendate !== '') {
+                return false;
+            }
+
+            if ($this->oehhtakentime !== '') {
+                return false;
+            }
+
+            if ($this->oehhpickdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhpicktime !== '') {
+                return false;
+            }
+
+            if ($this->oehhpackdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhpacktime !== '') {
+                return false;
+            }
+
+            if ($this->oehhverifydate !== '') {
+                return false;
+            }
+
+            if ($this->oehhverifytime !== '') {
+                return false;
+            }
+
+            if ($this->oehhcreditmemo !== '') {
+                return false;
+            }
+
+            if ($this->oehhbookedyn !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseorig !== '') {
+                return false;
+            }
+
+            if ($this->oehhbtstat !== '') {
+                return false;
+            }
+
+            if ($this->oehhshipcomp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhcwoflag !== '') {
+                return false;
+            }
+
+            if ($this->oehhdivision !== '') {
+                return false;
+            }
+
+            if ($this->oehhtakencode !== '') {
+                return false;
+            }
+
+            if ($this->oehhpickcode !== '') {
+                return false;
+            }
+
+            if ($this->oehhpackcode !== '') {
+                return false;
+            }
+
+            if ($this->oehhverifycode !== '') {
+                return false;
+            }
+
+            if ($this->oehhtotdisc !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhedirefnbrqual !== '') {
+                return false;
+            }
+
+            if ($this->oehhusercode1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhusercode2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhusercode3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhusercode4 !== '') {
+                return false;
+            }
+
+            if ($this->oehhexchctry !== '') {
+                return false;
+            }
+
+            if ($this->oehhexchrate !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhwghttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhwghtoride !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhccinfo !== 'B') {
+                return false;
+            }
+
+            if ($this->oehhboxcount !== 0) {
+                return false;
+            }
+
+            if ($this->oehhrqstdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhcancdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhcrntuser !== '') {
+                return false;
+            }
+
+            if ($this->oehhreleasenbr !== '') {
+                return false;
+            }
+
+            if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->oehhbordbuilddate !== '') {
+                return false;
+            }
+
+            if ($this->oehhdeptcode !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrtinentered !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhdropshipentered !== 'N') {
+                return false;
+            }
+
+            if ($this->oehherflag !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhfrtin !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhdropship !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhminorder !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhcontractterms !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhdropshipbilled !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhordtyp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhtracknbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhsource !== '') {
+                return false;
+            }
+
+            if ($this->oehhccaprv !== '') {
+                return false;
+            }
+
+            if ($this->oehhpickfmattype !== '') {
+                return false;
+            }
+
+            if ($this->oehhinvcfmattype !== '') {
+                return false;
+            }
+
+            if ($this->oehhcashamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhcheckamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhchecknbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhdepositamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhdepositnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhccamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhotaxsub !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhonontaxsub !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhotaxtot !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhoordrtot !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhpickprintdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhpickprinttime !== '') {
+                return false;
+            }
+
+            if ($this->oehhcont !== '') {
+                return false;
+            }
+
+            if ($this->oehhcontteleintl !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhconttelenbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhcontteleext !== '') {
+                return false;
+            }
+
+            if ($this->oehhcontfaxintl !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhcontfaxnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhshipacct !== '') {
+                return false;
+            }
+
+            if ($this->oehhchgdue !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhaddlpricdisc !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhallship !== '') {
+                return false;
+            }
+
+            if ($this->oehhqtyorderamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhcreditapplied !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhinvcprintdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhinvcprinttime !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscfrt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhorideshipcomp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhcontemail !== '') {
+                return false;
+            }
+
+            if ($this->oehhmanualfrt !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhinternalfrt !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhfrtcost !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhroute !== '') {
+                return false;
+            }
+
+            if ($this->oehhrouteseq !== 0) {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode4 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxcode5 !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrttaxamt5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhedi855sent !== '') {
+                return false;
+            }
+
+            if ($this->oehhfrt3rdparty !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhfob !== '') {
+                return false;
+            }
+
+            if ($this->oehhconfirmimagyn !== 'N') {
+                return false;
+            }
+
+            if ($this->oehhindustconform !== '') {
+                return false;
+            }
+
+            if ($this->oehhcstkconsign !== '') {
+                return false;
+            }
+
+            if ($this->oehhlmdelaycapsent !== '') {
+                return false;
+            }
+
+            if ($this->oehhmfgid !== '') {
+                return false;
+            }
+
+            if ($this->oehhstoreid !== '') {
+                return false;
+            }
+
+            if ($this->oehhpickqueue !== 'N') {
+                return false;
+            }
+
+            if ($this->oehharrvdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhsurchgstat !== 'C') {
+                return false;
+            }
+
+            if ($this->oehhfrtgrup !== '') {
+                return false;
+            }
+
+            if ($this->oehhcommoride !== '') {
+                return false;
+            }
+
+            if ($this->oehhchrgsplt !== '') {
+                return false;
+            }
+
+            if ($this->oehhacccaprv !== '') {
+                return false;
+            }
+
+            if ($this->oehhorigordrnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhpostdate !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate1 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct1 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate2 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct2 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate3 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct3 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate4 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate4 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct4 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate5 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate5 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct5 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhdiscdate6 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdiscpct6 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduedate6 !== '') {
+                return false;
+            }
+
+            if ($this->oehhdueamt6 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehhduepct6 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehhrefnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhacprognbr !== '') {
+                return false;
+            }
+
+            if ($this->oehhacprogexpdate !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -7872,13 +9135,22 @@ abstract class SalesHistory implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhduepct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhduepct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesHistoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhrefnbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhacprognbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehhacprogexpdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : SalesHistoryTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesHistoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesHistoryTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesHistoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 189 + $startcol : SalesHistoryTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -7888,7 +9160,7 @@ abstract class SalesHistory implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 187; // 187 = SalesHistoryTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 190; // 190 = SalesHistoryTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesHistory'), 0, $e);
@@ -8724,6 +9996,15 @@ abstract class SalesHistory implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHDUEPCT6)) {
             $modifiedColumns[':p' . $index++]  = 'OehhDuePct6';
         }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHREFNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhRefNbr';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhAcProgNbr';
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGEXPDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'OehhAcProgExpDate';
+        }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -9295,6 +10576,15 @@ abstract class SalesHistory implements ActiveRecordInterface
                         break;
                     case 'OehhDuePct6':
                         $stmt->bindValue($identifier, $this->oehhduepct6, PDO::PARAM_STR);
+                        break;
+                    case 'OehhRefNbr':
+                        $stmt->bindValue($identifier, $this->oehhrefnbr, PDO::PARAM_STR);
+                        break;
+                    case 'OehhAcProgNbr':
+                        $stmt->bindValue($identifier, $this->oehhacprognbr, PDO::PARAM_STR);
+                        break;
+                    case 'OehhAcProgExpDate':
+                        $stmt->bindValue($identifier, $this->oehhacprogexpdate, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -9913,12 +11203,21 @@ abstract class SalesHistory implements ActiveRecordInterface
                 return $this->getOehhduepct6();
                 break;
             case 184:
-                return $this->getDateupdtd();
+                return $this->getOehhrefnbr();
                 break;
             case 185:
-                return $this->getTimeupdtd();
+                return $this->getOehhacprognbr();
                 break;
             case 186:
+                return $this->getOehhacprogexpdate();
+                break;
+            case 187:
+                return $this->getDateupdtd();
+                break;
+            case 188:
+                return $this->getTimeupdtd();
+                break;
+            case 189:
                 return $this->getDummy();
                 break;
             default:
@@ -10135,9 +11434,12 @@ abstract class SalesHistory implements ActiveRecordInterface
             $keys[181] => $this->getOehhduedate6(),
             $keys[182] => $this->getOehhdueamt6(),
             $keys[183] => $this->getOehhduepct6(),
-            $keys[184] => $this->getDateupdtd(),
-            $keys[185] => $this->getTimeupdtd(),
-            $keys[186] => $this->getDummy(),
+            $keys[184] => $this->getOehhrefnbr(),
+            $keys[185] => $this->getOehhacprognbr(),
+            $keys[186] => $this->getOehhacprogexpdate(),
+            $keys[187] => $this->getDateupdtd(),
+            $keys[188] => $this->getTimeupdtd(),
+            $keys[189] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -10807,12 +12109,21 @@ abstract class SalesHistory implements ActiveRecordInterface
                 $this->setOehhduepct6($value);
                 break;
             case 184:
-                $this->setDateupdtd($value);
+                $this->setOehhrefnbr($value);
                 break;
             case 185:
-                $this->setTimeupdtd($value);
+                $this->setOehhacprognbr($value);
                 break;
             case 186:
+                $this->setOehhacprogexpdate($value);
+                break;
+            case 187:
+                $this->setDateupdtd($value);
+                break;
+            case 188:
+                $this->setTimeupdtd($value);
+                break;
+            case 189:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -11394,13 +12705,22 @@ abstract class SalesHistory implements ActiveRecordInterface
             $this->setOehhduepct6($arr[$keys[183]]);
         }
         if (array_key_exists($keys[184], $arr)) {
-            $this->setDateupdtd($arr[$keys[184]]);
+            $this->setOehhrefnbr($arr[$keys[184]]);
         }
         if (array_key_exists($keys[185], $arr)) {
-            $this->setTimeupdtd($arr[$keys[185]]);
+            $this->setOehhacprognbr($arr[$keys[185]]);
         }
         if (array_key_exists($keys[186], $arr)) {
-            $this->setDummy($arr[$keys[186]]);
+            $this->setOehhacprogexpdate($arr[$keys[186]]);
+        }
+        if (array_key_exists($keys[187], $arr)) {
+            $this->setDateupdtd($arr[$keys[187]]);
+        }
+        if (array_key_exists($keys[188], $arr)) {
+            $this->setTimeupdtd($arr[$keys[188]]);
+        }
+        if (array_key_exists($keys[189], $arr)) {
+            $this->setDummy($arr[$keys[189]]);
         }
     }
 
@@ -11995,6 +13315,15 @@ abstract class SalesHistory implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHDUEPCT6)) {
             $criteria->add(SalesHistoryTableMap::COL_OEHHDUEPCT6, $this->oehhduepct6);
         }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHREFNBR)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHREFNBR, $this->oehhrefnbr);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGNBR)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHACPROGNBR, $this->oehhacprognbr);
+        }
+        if ($this->isColumnModified(SalesHistoryTableMap::COL_OEHHACPROGEXPDATE)) {
+            $criteria->add(SalesHistoryTableMap::COL_OEHHACPROGEXPDATE, $this->oehhacprogexpdate);
+        }
         if ($this->isColumnModified(SalesHistoryTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesHistoryTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -12274,6 +13603,9 @@ abstract class SalesHistory implements ActiveRecordInterface
         $copyObj->setOehhduedate6($this->getOehhduedate6());
         $copyObj->setOehhdueamt6($this->getOehhdueamt6());
         $copyObj->setOehhduepct6($this->getOehhduepct6());
+        $copyObj->setOehhrefnbr($this->getOehhrefnbr());
+        $copyObj->setOehhacprognbr($this->getOehhacprognbr());
+        $copyObj->setOehhacprogexpdate($this->getOehhacprogexpdate());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -12340,7 +13672,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function setCustomer(ChildCustomer $v = null)
     {
         if ($v === null) {
-            $this->setArcucustid(NULL);
+            $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
@@ -12391,13 +13723,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
         if ($v === null) {
-            $this->setArcucustid(NULL);
+            $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
 
         if ($v === null) {
-            $this->setArstshipid(NULL);
+            $this->setArstshipid('');
         } else {
             $this->setArstshipid($v->getArstshipid());
         }
@@ -13419,11 +14751,15 @@ abstract class SalesHistory implements ActiveRecordInterface
         $this->oehhduedate6 = null;
         $this->oehhdueamt6 = null;
         $this->oehhduepct6 = null;
+        $this->oehhrefnbr = null;
+        $this->oehhacprognbr = null;
+        $this->oehhacprogexpdate = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
+        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);

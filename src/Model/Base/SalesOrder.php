@@ -80,6 +80,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdnbr;
@@ -87,6 +88,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstat field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdstat;
@@ -94,6 +96,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdhold field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdhold;
@@ -101,6 +104,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arcucustid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucustid;
@@ -108,6 +112,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arstshipid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arstshipid;
@@ -115,6 +120,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstname;
@@ -122,6 +128,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstlastname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstlastname;
@@ -129,6 +136,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstfirstname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstfirstname;
@@ -136,6 +144,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstadr1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstadr1;
@@ -143,6 +152,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstadr2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstadr2;
@@ -150,6 +160,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstadr3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstadr3;
@@ -157,6 +168,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstctry;
@@ -164,6 +176,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstcity field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstcity;
@@ -171,6 +184,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdststat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdststat;
@@ -178,6 +192,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstzipcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstzipcode;
@@ -185,6 +200,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcustpo field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcustpo;
@@ -192,13 +208,15 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdordrdate field.
      *
-     * @var        int
+     * Note: this column has a database default value of: ''
+     * @var        string
      */
     protected $oehdordrdate;
 
     /**
      * The value for the artmtermcd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artmtermcd;
@@ -206,6 +224,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the artbshipvia field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbshipvia;
@@ -213,6 +232,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arininvnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arininvnbr;
@@ -220,6 +240,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdinvdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdinvdate;
@@ -227,6 +248,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdglpd field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehdglpd;
@@ -234,6 +256,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arspsaleper1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper1;
@@ -241,6 +264,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdsp1pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdsp1pct;
@@ -248,6 +272,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arspsaleper2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper2;
@@ -255,6 +280,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdsp2pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdsp2pct;
@@ -262,6 +288,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the arspsaleper3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper3;
@@ -269,6 +296,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdsp3pct field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdsp3pct;
@@ -276,6 +304,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcntrnbr field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehdcntrnbr;
@@ -283,6 +312,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdwibatch field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehdwibatch;
@@ -290,6 +320,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddroprelhold field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddroprelhold;
@@ -297,6 +328,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtaxsub field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdtaxsub;
@@ -304,6 +336,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdnontaxsub field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdnontaxsub;
@@ -311,6 +344,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtaxtot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdtaxtot;
@@ -318,6 +352,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdfrttot;
@@ -325,6 +360,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdmisctot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdmisctot;
@@ -332,6 +368,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdordrtot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdordrtot;
@@ -339,6 +376,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcosttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdcosttot;
@@ -346,6 +384,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdspcommlock field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdspcommlock;
@@ -353,6 +392,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtakendate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdtakendate;
@@ -360,6 +400,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtakentime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdtakentime;
@@ -367,6 +408,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpickdate;
@@ -374,6 +416,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpicktime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpicktime;
@@ -381,6 +424,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpackdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpackdate;
@@ -388,6 +432,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpacktime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpacktime;
@@ -395,6 +440,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdverifydate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdverifydate;
@@ -402,6 +448,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdverifytime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdverifytime;
@@ -409,6 +456,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcreditmemo field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcreditmemo;
@@ -416,6 +464,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdbookedyn field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdbookedyn;
@@ -423,6 +472,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the intbwhseorig field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhseorig;
@@ -430,6 +480,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdbtstat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdbtstat;
@@ -437,6 +488,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdshipcomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdshipcomp;
@@ -444,6 +496,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcwoflag field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcwoflag;
@@ -451,6 +504,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddivision field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddivision;
@@ -458,6 +512,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtakencode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdtakencode;
@@ -465,6 +520,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpickcode;
@@ -472,6 +528,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpackcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpackcode;
@@ -479,6 +536,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdverifycode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdverifycode;
@@ -486,6 +544,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtotdisc field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdtotdisc;
@@ -493,6 +552,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdedirefnbrqual field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdedirefnbrqual;
@@ -500,6 +560,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdusercode1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdusercode1;
@@ -507,6 +568,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdusercode2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdusercode2;
@@ -514,6 +576,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdusercode3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdusercode3;
@@ -521,6 +584,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdusercode4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdusercode4;
@@ -528,6 +592,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdexchctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdexchctry;
@@ -535,6 +600,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdexchrate field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdexchrate;
@@ -542,6 +608,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdwghttot field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdwghttot;
@@ -549,6 +616,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdwghtoride field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdwghtoride;
@@ -556,6 +624,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdccinfo field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $oehdccinfo;
@@ -563,6 +632,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdboxcount field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehdboxcount;
@@ -570,6 +640,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdrqstdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdrqstdate;
@@ -577,6 +648,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcancdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcancdate;
@@ -584,6 +656,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcrntuser field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcrntuser;
@@ -591,6 +664,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdreleasenbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdreleasenbr;
@@ -598,6 +672,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the intbwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhse;
@@ -605,6 +680,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdbordbuilddate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdbordbuilddate;
@@ -612,6 +688,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddeptcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddeptcode;
@@ -619,6 +696,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrtinentered field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdfrtinentered;
@@ -626,6 +704,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddropshipentered field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehddropshipentered;
@@ -633,6 +712,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehderflag field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehderflag;
@@ -640,6 +720,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrtin field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrtin;
@@ -647,6 +728,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddropship field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddropship;
@@ -654,6 +736,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdminorder field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdminorder;
@@ -661,6 +744,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontractterms field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdcontractterms;
@@ -668,6 +752,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddropshipbilled field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehddropshipbilled;
@@ -675,6 +760,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdordtyp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdordtyp;
@@ -682,6 +768,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdtracknbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdtracknbr;
@@ -689,6 +776,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdsource field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdsource;
@@ -696,6 +784,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdccaprv field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdccaprv;
@@ -703,6 +792,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickfmattype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpickfmattype;
@@ -710,6 +800,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdinvcfmattype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdinvcfmattype;
@@ -717,6 +808,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcashamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdcashamt;
@@ -724,6 +816,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcheckamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdcheckamt;
@@ -731,6 +824,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdchecknbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdchecknbr;
@@ -738,6 +832,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddepositamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddepositamt;
@@ -745,6 +840,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddepositnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddepositnbr;
@@ -752,6 +848,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdccamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdccamt;
@@ -759,6 +856,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdotaxsub field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdotaxsub;
@@ -766,6 +864,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdonontaxsub field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdonontaxsub;
@@ -773,6 +872,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdotaxtot field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdotaxtot;
@@ -780,6 +880,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdoordrtot field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdoordrtot;
@@ -787,6 +888,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickprintdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpickprintdate;
@@ -794,6 +896,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickprinttime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpickprinttime;
@@ -801,6 +904,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcont field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcont;
@@ -808,6 +912,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontteleintl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdcontteleintl;
@@ -815,6 +920,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdconttelenbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdconttelenbr;
@@ -822,6 +928,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontteleext field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcontteleext;
@@ -829,6 +936,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontfaxintl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdcontfaxintl;
@@ -836,6 +944,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontfaxnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcontfaxnbr;
@@ -843,6 +952,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdshipacct field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdshipacct;
@@ -850,6 +960,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdchgdue field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdchgdue;
@@ -857,6 +968,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdaddlpricdisc field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdaddlpricdisc;
@@ -864,6 +976,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdallship field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdallship;
@@ -871,6 +984,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdqtyorderamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdqtyorderamt;
@@ -878,6 +992,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcreditapplied field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdcreditapplied;
@@ -885,6 +1000,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdinvcprintdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdinvcprintdate;
@@ -892,6 +1008,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdinvcprinttime field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdinvcprinttime;
@@ -899,6 +1016,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscfrt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscfrt;
@@ -906,6 +1024,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdorideshipcomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdorideshipcomp;
@@ -913,6 +1032,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcontemail field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcontemail;
@@ -920,6 +1040,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdmanualfrt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdmanualfrt;
@@ -927,6 +1048,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdinternalfrt field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdinternalfrt;
@@ -934,6 +1056,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrtcost field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrtcost;
@@ -941,6 +1064,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdroute field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdroute;
@@ -948,6 +1072,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdrouteseq field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehdrouteseq;
@@ -955,6 +1080,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxcode1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrttaxcode1;
@@ -962,6 +1088,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxamt1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrttaxamt1;
@@ -969,6 +1096,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxcode2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrttaxcode2;
@@ -976,6 +1104,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxamt2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrttaxamt2;
@@ -983,6 +1112,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxcode3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrttaxcode3;
@@ -990,6 +1120,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxamt3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrttaxamt3;
@@ -997,6 +1128,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxcode4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrttaxcode4;
@@ -1004,6 +1136,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxamt4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrttaxamt4;
@@ -1011,6 +1144,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxcode5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrttaxcode5;
@@ -1018,6 +1152,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrttaxamt5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrttaxamt5;
@@ -1025,6 +1160,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdedi855sent field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdedi855sent;
@@ -1032,6 +1168,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrt3rdparty field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehdfrt3rdparty;
@@ -1039,6 +1176,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfob field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfob;
@@ -1046,6 +1184,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdconfirmimagyn field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdconfirmimagyn;
@@ -1053,6 +1192,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdindustconform field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdindustconform;
@@ -1060,6 +1200,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcstkconsign field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcstkconsign;
@@ -1067,6 +1208,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdlmdelaycapsent field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdlmdelaycapsent;
@@ -1074,6 +1216,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdmfgid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdmfgid;
@@ -1081,6 +1224,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdstoreid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdstoreid;
@@ -1088,6 +1232,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpickqueue field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $oehdpickqueue;
@@ -1095,6 +1240,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdarrvdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdarrvdate;
@@ -1102,6 +1248,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdsurchgstat field.
      *
+     * Note: this column has a database default value of: 'C'
      * @var        string
      */
     protected $oehdsurchgstat;
@@ -1109,6 +1256,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdfrtgrup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdfrtgrup;
@@ -1116,6 +1264,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdcommoride field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdcommoride;
@@ -1123,6 +1272,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdchrgsplt field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdchrgsplt;
@@ -1130,6 +1280,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdacccaprv field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdacccaprv;
@@ -1137,6 +1288,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdorigordrnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdorigordrnbr;
@@ -1144,6 +1296,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdpostdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdpostdate;
@@ -1151,6 +1304,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate1;
@@ -1158,6 +1312,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct1;
@@ -1165,6 +1320,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate1;
@@ -1172,6 +1328,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt1 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt1;
@@ -1179,6 +1336,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct1 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct1;
@@ -1186,6 +1344,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate2;
@@ -1193,6 +1352,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct2;
@@ -1200,6 +1360,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate2;
@@ -1207,6 +1368,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt2 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt2;
@@ -1214,6 +1376,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct2 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct2;
@@ -1221,6 +1384,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate3;
@@ -1228,6 +1392,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct3;
@@ -1235,6 +1400,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate3;
@@ -1242,6 +1408,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt3 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt3;
@@ -1249,6 +1416,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct3 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct3;
@@ -1256,6 +1424,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate4;
@@ -1263,6 +1432,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct4;
@@ -1270,6 +1440,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate4 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate4;
@@ -1277,6 +1448,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt4 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt4;
@@ -1284,6 +1456,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct4 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct4;
@@ -1291,6 +1464,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate5;
@@ -1298,6 +1472,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct5;
@@ -1305,6 +1480,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate5 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate5;
@@ -1312,6 +1488,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt5 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt5;
@@ -1319,6 +1496,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct5 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct5;
@@ -1326,6 +1504,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscdate6 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehddiscdate6;
@@ -1333,6 +1512,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddiscpct6 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddiscpct6;
@@ -1340,6 +1520,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduedate6 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehdduedate6;
@@ -1347,6 +1528,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehddueamt6 field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehddueamt6;
@@ -1354,13 +1536,39 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdduepct6 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oehdduepct6;
 
     /**
+     * The value for the oehdrefnbr field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehdrefnbr;
+
+    /**
+     * The value for the oehdacprognbr field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehdacprognbr;
+
+    /**
+     * The value for the oehdacprogexpdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oehdacprogexpdate;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1368,6 +1576,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1375,6 +1584,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1446,10 +1656,211 @@ abstract class SalesOrder implements ActiveRecordInterface
     protected $soAllocatedLotserialsScheduledForDeletion = null;
 
     /**
+     * Applies default values to this object.
+     * This method should be called from the object's constructor (or
+     * equivalent initialization method).
+     * @see __construct()
+     */
+    public function applyDefaultValues()
+    {
+        $this->oehdnbr = '';
+        $this->oehdstat = 'N';
+        $this->oehdhold = 'N';
+        $this->arcucustid = '';
+        $this->arstshipid = '';
+        $this->oehdstname = '';
+        $this->oehdstlastname = '';
+        $this->oehdstfirstname = '';
+        $this->oehdstadr1 = '';
+        $this->oehdstadr2 = '';
+        $this->oehdstadr3 = '';
+        $this->oehdstctry = '';
+        $this->oehdstcity = '';
+        $this->oehdststat = '';
+        $this->oehdstzipcode = '';
+        $this->oehdcustpo = '';
+        $this->oehdordrdate = '';
+        $this->artmtermcd = '';
+        $this->artbshipvia = '';
+        $this->arininvnbr = '';
+        $this->oehdinvdate = '';
+        $this->oehdglpd = 0;
+        $this->arspsaleper1 = '';
+        $this->oehdsp1pct = '0.00';
+        $this->arspsaleper2 = '';
+        $this->oehdsp2pct = '0.00';
+        $this->arspsaleper3 = '';
+        $this->oehdsp3pct = '0.00';
+        $this->oehdcntrnbr = 0;
+        $this->oehdwibatch = 0;
+        $this->oehddroprelhold = '';
+        $this->oehdtaxsub = '0.0000000';
+        $this->oehdnontaxsub = '0.0000000';
+        $this->oehdtaxtot = '0.0000000';
+        $this->oehdfrttot = '0.0000000';
+        $this->oehdmisctot = '0.0000000';
+        $this->oehdordrtot = '0.0000000';
+        $this->oehdcosttot = '0.0000000';
+        $this->oehdspcommlock = 'N';
+        $this->oehdtakendate = '';
+        $this->oehdtakentime = '';
+        $this->oehdpickdate = '';
+        $this->oehdpicktime = '';
+        $this->oehdpackdate = '';
+        $this->oehdpacktime = '';
+        $this->oehdverifydate = '';
+        $this->oehdverifytime = '';
+        $this->oehdcreditmemo = '';
+        $this->oehdbookedyn = '';
+        $this->intbwhseorig = '';
+        $this->oehdbtstat = '';
+        $this->oehdshipcomp = 'N';
+        $this->oehdcwoflag = '';
+        $this->oehddivision = '';
+        $this->oehdtakencode = '';
+        $this->oehdpickcode = '';
+        $this->oehdpackcode = '';
+        $this->oehdverifycode = '';
+        $this->oehdtotdisc = '0.00';
+        $this->oehdedirefnbrqual = '';
+        $this->oehdusercode1 = '';
+        $this->oehdusercode2 = '';
+        $this->oehdusercode3 = '';
+        $this->oehdusercode4 = '';
+        $this->oehdexchctry = '';
+        $this->oehdexchrate = '0.0000000';
+        $this->oehdwghttot = '0.0000000';
+        $this->oehdwghtoride = 'N';
+        $this->oehdccinfo = 'B';
+        $this->oehdboxcount = 0;
+        $this->oehdrqstdate = '';
+        $this->oehdcancdate = '';
+        $this->oehdcrntuser = '';
+        $this->oehdreleasenbr = '';
+        $this->intbwhse = '';
+        $this->oehdbordbuilddate = '';
+        $this->oehddeptcode = '';
+        $this->oehdfrtinentered = 'N';
+        $this->oehddropshipentered = 'N';
+        $this->oehderflag = 'N';
+        $this->oehdfrtin = '0.00';
+        $this->oehddropship = '0.00';
+        $this->oehdminorder = '0.00';
+        $this->oehdcontractterms = 'N';
+        $this->oehddropshipbilled = 'N';
+        $this->oehdordtyp = 'N';
+        $this->oehdtracknbr = '';
+        $this->oehdsource = '';
+        $this->oehdccaprv = '';
+        $this->oehdpickfmattype = '';
+        $this->oehdinvcfmattype = '';
+        $this->oehdcashamt = '0.00';
+        $this->oehdcheckamt = '0.00';
+        $this->oehdchecknbr = '';
+        $this->oehddepositamt = '0.00';
+        $this->oehddepositnbr = '';
+        $this->oehdccamt = '0.00';
+        $this->oehdotaxsub = '0.00';
+        $this->oehdonontaxsub = '0.00';
+        $this->oehdotaxtot = '0.00';
+        $this->oehdoordrtot = '0.00';
+        $this->oehdpickprintdate = '';
+        $this->oehdpickprinttime = '';
+        $this->oehdcont = '';
+        $this->oehdcontteleintl = 'N';
+        $this->oehdconttelenbr = '';
+        $this->oehdcontteleext = '';
+        $this->oehdcontfaxintl = 'N';
+        $this->oehdcontfaxnbr = '';
+        $this->oehdshipacct = '';
+        $this->oehdchgdue = '0.00';
+        $this->oehdaddlpricdisc = '0.00';
+        $this->oehdallship = '';
+        $this->oehdqtyorderamt = '0.00';
+        $this->oehdcreditapplied = '0.00';
+        $this->oehdinvcprintdate = '';
+        $this->oehdinvcprinttime = '';
+        $this->oehddiscfrt = '0.00';
+        $this->oehdorideshipcomp = 'N';
+        $this->oehdcontemail = '';
+        $this->oehdmanualfrt = 'N';
+        $this->oehdinternalfrt = 'N';
+        $this->oehdfrtcost = '0.00';
+        $this->oehdroute = '';
+        $this->oehdrouteseq = 0;
+        $this->oehdfrttaxcode1 = '';
+        $this->oehdfrttaxamt1 = '0.00';
+        $this->oehdfrttaxcode2 = '';
+        $this->oehdfrttaxamt2 = '0.00';
+        $this->oehdfrttaxcode3 = '';
+        $this->oehdfrttaxamt3 = '0.00';
+        $this->oehdfrttaxcode4 = '';
+        $this->oehdfrttaxamt4 = '0.00';
+        $this->oehdfrttaxcode5 = '';
+        $this->oehdfrttaxamt5 = '0.00';
+        $this->oehdedi855sent = '';
+        $this->oehdfrt3rdparty = '0.00';
+        $this->oehdfob = '';
+        $this->oehdconfirmimagyn = 'N';
+        $this->oehdindustconform = '';
+        $this->oehdcstkconsign = '';
+        $this->oehdlmdelaycapsent = '';
+        $this->oehdmfgid = '';
+        $this->oehdstoreid = '';
+        $this->oehdpickqueue = 'N';
+        $this->oehdarrvdate = '';
+        $this->oehdsurchgstat = 'C';
+        $this->oehdfrtgrup = '';
+        $this->oehdcommoride = '';
+        $this->oehdchrgsplt = '';
+        $this->oehdacccaprv = '';
+        $this->oehdorigordrnbr = '';
+        $this->oehdpostdate = '';
+        $this->oehddiscdate1 = '';
+        $this->oehddiscpct1 = '0.00';
+        $this->oehdduedate1 = '';
+        $this->oehddueamt1 = '0.00';
+        $this->oehdduepct1 = '0.0000000';
+        $this->oehddiscdate2 = '';
+        $this->oehddiscpct2 = '0.00';
+        $this->oehdduedate2 = '';
+        $this->oehddueamt2 = '0.00';
+        $this->oehdduepct2 = '0.0000000';
+        $this->oehddiscdate3 = '';
+        $this->oehddiscpct3 = '0.00';
+        $this->oehdduedate3 = '';
+        $this->oehddueamt3 = '0.00';
+        $this->oehdduepct3 = '0.0000000';
+        $this->oehddiscdate4 = '';
+        $this->oehddiscpct4 = '0.00';
+        $this->oehdduedate4 = '';
+        $this->oehddueamt4 = '0.00';
+        $this->oehdduepct4 = '0.0000000';
+        $this->oehddiscdate5 = '';
+        $this->oehddiscpct5 = '0.00';
+        $this->oehdduedate5 = '';
+        $this->oehddueamt5 = '0.00';
+        $this->oehdduepct5 = '0.0000000';
+        $this->oehddiscdate6 = '';
+        $this->oehddiscpct6 = '0.00';
+        $this->oehdduedate6 = '';
+        $this->oehddueamt6 = '0.00';
+        $this->oehdduepct6 = '0.0000000';
+        $this->oehdrefnbr = '';
+        $this->oehdacprognbr = '';
+        $this->oehdacprogexpdate = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
+    }
+
+    /**
      * Initializes internal state of Base\SalesOrder object.
+     * @see applyDefaults()
      */
     public function __construct()
     {
+        $this->applyDefaultValues();
     }
 
     /**
@@ -1833,7 +2244,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the [oehdordrdate] column value.
      *
-     * @return int
+     * @return string
      */
     public function getOehdordrdate()
     {
@@ -3501,6 +3912,36 @@ abstract class SalesOrder implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oehdrefnbr] column value.
+     *
+     * @return string
+     */
+    public function getOehdrefnbr()
+    {
+        return $this->oehdrefnbr;
+    }
+
+    /**
+     * Get the [oehdacprognbr] column value.
+     *
+     * @return string
+     */
+    public function getOehdacprognbr()
+    {
+        return $this->oehdacprognbr;
+    }
+
+    /**
+     * Get the [oehdacprogexpdate] column value.
+     *
+     * @return string
+     */
+    public function getOehdacprogexpdate()
+    {
+        return $this->oehdacprogexpdate;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -3865,13 +4306,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Set the value of [oehdordrdate] column.
      *
-     * @param int $v new value
+     * @param string $v new value
      * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdordrdate($v)
     {
         if ($v !== null) {
-            $v = (int) $v;
+            $v = (string) $v;
         }
 
         if ($this->oehdordrdate !== $v) {
@@ -7203,6 +7644,66 @@ abstract class SalesOrder implements ActiveRecordInterface
     } // setOehdduepct6()
 
     /**
+     * Set the value of [oehdrefnbr] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     */
+    public function setOehdrefnbr($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehdrefnbr !== $v) {
+            $this->oehdrefnbr = $v;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDREFNBR] = true;
+        }
+
+        return $this;
+    } // setOehdrefnbr()
+
+    /**
+     * Set the value of [oehdacprognbr] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     */
+    public function setOehdacprognbr($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehdacprognbr !== $v) {
+            $this->oehdacprognbr = $v;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDACPROGNBR] = true;
+        }
+
+        return $this;
+    } // setOehdacprognbr()
+
+    /**
+     * Set the value of [oehdacprogexpdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrder The current object (for fluent API support)
+     */
+    public function setOehdacprogexpdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oehdacprogexpdate !== $v) {
+            $this->oehdacprogexpdate = $v;
+            $this->modifiedColumns[SalesOrderTableMap::COL_OEHDACPROGEXPDATE] = true;
+        }
+
+        return $this;
+    } // setOehdacprogexpdate()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -7272,6 +7773,762 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->oehdnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdstat !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdhold !== 'N') {
+                return false;
+            }
+
+            if ($this->arcucustid !== '') {
+                return false;
+            }
+
+            if ($this->arstshipid !== '') {
+                return false;
+            }
+
+            if ($this->oehdstname !== '') {
+                return false;
+            }
+
+            if ($this->oehdstlastname !== '') {
+                return false;
+            }
+
+            if ($this->oehdstfirstname !== '') {
+                return false;
+            }
+
+            if ($this->oehdstadr1 !== '') {
+                return false;
+            }
+
+            if ($this->oehdstadr2 !== '') {
+                return false;
+            }
+
+            if ($this->oehdstadr3 !== '') {
+                return false;
+            }
+
+            if ($this->oehdstctry !== '') {
+                return false;
+            }
+
+            if ($this->oehdstcity !== '') {
+                return false;
+            }
+
+            if ($this->oehdststat !== '') {
+                return false;
+            }
+
+            if ($this->oehdstzipcode !== '') {
+                return false;
+            }
+
+            if ($this->oehdcustpo !== '') {
+                return false;
+            }
+
+            if ($this->oehdordrdate !== '') {
+                return false;
+            }
+
+            if ($this->artmtermcd !== '') {
+                return false;
+            }
+
+            if ($this->artbshipvia !== '') {
+                return false;
+            }
+
+            if ($this->arininvnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdinvdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdglpd !== 0) {
+                return false;
+            }
+
+            if ($this->arspsaleper1 !== '') {
+                return false;
+            }
+
+            if ($this->oehdsp1pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->arspsaleper2 !== '') {
+                return false;
+            }
+
+            if ($this->oehdsp2pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->arspsaleper3 !== '') {
+                return false;
+            }
+
+            if ($this->oehdsp3pct !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdcntrnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oehdwibatch !== 0) {
+                return false;
+            }
+
+            if ($this->oehddroprelhold !== '') {
+                return false;
+            }
+
+            if ($this->oehdtaxsub !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdnontaxsub !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdtaxtot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdfrttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdmisctot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdordrtot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdcosttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdspcommlock !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdtakendate !== '') {
+                return false;
+            }
+
+            if ($this->oehdtakentime !== '') {
+                return false;
+            }
+
+            if ($this->oehdpickdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdpicktime !== '') {
+                return false;
+            }
+
+            if ($this->oehdpackdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdpacktime !== '') {
+                return false;
+            }
+
+            if ($this->oehdverifydate !== '') {
+                return false;
+            }
+
+            if ($this->oehdverifytime !== '') {
+                return false;
+            }
+
+            if ($this->oehdcreditmemo !== '') {
+                return false;
+            }
+
+            if ($this->oehdbookedyn !== '') {
+                return false;
+            }
+
+            if ($this->intbwhseorig !== '') {
+                return false;
+            }
+
+            if ($this->oehdbtstat !== '') {
+                return false;
+            }
+
+            if ($this->oehdshipcomp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdcwoflag !== '') {
+                return false;
+            }
+
+            if ($this->oehddivision !== '') {
+                return false;
+            }
+
+            if ($this->oehdtakencode !== '') {
+                return false;
+            }
+
+            if ($this->oehdpickcode !== '') {
+                return false;
+            }
+
+            if ($this->oehdpackcode !== '') {
+                return false;
+            }
+
+            if ($this->oehdverifycode !== '') {
+                return false;
+            }
+
+            if ($this->oehdtotdisc !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdedirefnbrqual !== '') {
+                return false;
+            }
+
+            if ($this->oehdusercode1 !== '') {
+                return false;
+            }
+
+            if ($this->oehdusercode2 !== '') {
+                return false;
+            }
+
+            if ($this->oehdusercode3 !== '') {
+                return false;
+            }
+
+            if ($this->oehdusercode4 !== '') {
+                return false;
+            }
+
+            if ($this->oehdexchctry !== '') {
+                return false;
+            }
+
+            if ($this->oehdexchrate !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdwghttot !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdwghtoride !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdccinfo !== 'B') {
+                return false;
+            }
+
+            if ($this->oehdboxcount !== 0) {
+                return false;
+            }
+
+            if ($this->oehdrqstdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdcancdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdcrntuser !== '') {
+                return false;
+            }
+
+            if ($this->oehdreleasenbr !== '') {
+                return false;
+            }
+
+            if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->oehdbordbuilddate !== '') {
+                return false;
+            }
+
+            if ($this->oehddeptcode !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrtinentered !== 'N') {
+                return false;
+            }
+
+            if ($this->oehddropshipentered !== 'N') {
+                return false;
+            }
+
+            if ($this->oehderflag !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdfrtin !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehddropship !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdminorder !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdcontractterms !== 'N') {
+                return false;
+            }
+
+            if ($this->oehddropshipbilled !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdordtyp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdtracknbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdsource !== '') {
+                return false;
+            }
+
+            if ($this->oehdccaprv !== '') {
+                return false;
+            }
+
+            if ($this->oehdpickfmattype !== '') {
+                return false;
+            }
+
+            if ($this->oehdinvcfmattype !== '') {
+                return false;
+            }
+
+            if ($this->oehdcashamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdcheckamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdchecknbr !== '') {
+                return false;
+            }
+
+            if ($this->oehddepositamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehddepositnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdccamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdotaxsub !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdonontaxsub !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdotaxtot !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdoordrtot !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdpickprintdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdpickprinttime !== '') {
+                return false;
+            }
+
+            if ($this->oehdcont !== '') {
+                return false;
+            }
+
+            if ($this->oehdcontteleintl !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdconttelenbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdcontteleext !== '') {
+                return false;
+            }
+
+            if ($this->oehdcontfaxintl !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdcontfaxnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdshipacct !== '') {
+                return false;
+            }
+
+            if ($this->oehdchgdue !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdaddlpricdisc !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdallship !== '') {
+                return false;
+            }
+
+            if ($this->oehdqtyorderamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdcreditapplied !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdinvcprintdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdinvcprinttime !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscfrt !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdorideshipcomp !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdcontemail !== '') {
+                return false;
+            }
+
+            if ($this->oehdmanualfrt !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdinternalfrt !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdfrtcost !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdroute !== '') {
+                return false;
+            }
+
+            if ($this->oehdrouteseq !== 0) {
+                return false;
+            }
+
+            if ($this->oehdfrttaxcode1 !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxamt1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxcode2 !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxamt2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxcode3 !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxamt3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxcode4 !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxamt4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxcode5 !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrttaxamt5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdedi855sent !== '') {
+                return false;
+            }
+
+            if ($this->oehdfrt3rdparty !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdfob !== '') {
+                return false;
+            }
+
+            if ($this->oehdconfirmimagyn !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdindustconform !== '') {
+                return false;
+            }
+
+            if ($this->oehdcstkconsign !== '') {
+                return false;
+            }
+
+            if ($this->oehdlmdelaycapsent !== '') {
+                return false;
+            }
+
+            if ($this->oehdmfgid !== '') {
+                return false;
+            }
+
+            if ($this->oehdstoreid !== '') {
+                return false;
+            }
+
+            if ($this->oehdpickqueue !== 'N') {
+                return false;
+            }
+
+            if ($this->oehdarrvdate !== '') {
+                return false;
+            }
+
+            if ($this->oehdsurchgstat !== 'C') {
+                return false;
+            }
+
+            if ($this->oehdfrtgrup !== '') {
+                return false;
+            }
+
+            if ($this->oehdcommoride !== '') {
+                return false;
+            }
+
+            if ($this->oehdchrgsplt !== '') {
+                return false;
+            }
+
+            if ($this->oehdacccaprv !== '') {
+                return false;
+            }
+
+            if ($this->oehdorigordrnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdpostdate !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscdate1 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate1 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt1 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct1 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehddiscdate2 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate2 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt2 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct2 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehddiscdate3 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate3 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt3 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct3 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehddiscdate4 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate4 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt4 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct4 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehddiscdate5 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate5 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt5 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct5 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehddiscdate6 !== '') {
+                return false;
+            }
+
+            if ($this->oehddiscpct6 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduedate6 !== '') {
+                return false;
+            }
+
+            if ($this->oehddueamt6 !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehdduepct6 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oehdrefnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdacprognbr !== '') {
+                return false;
+            }
+
+            if ($this->oehdacprogexpdate !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -7347,7 +8604,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             $this->oehdcustpo = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderTableMap::translateFieldName('Oehdordrdate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehdordrdate = (null !== $col) ? (int) $col : null;
+            $this->oehdordrdate = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
@@ -7847,13 +9104,22 @@ abstract class SalesOrder implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 182 + $startcol : SalesOrderTableMap::translateFieldName('Oehdduepct6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdduepct6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 183 + $startcol : SalesOrderTableMap::translateFieldName('Oehdrefnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehdrefnbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprognbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehdacprognbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesOrderTableMap::translateFieldName('Oehdacprogexpdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oehdacprogexpdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 186 + $startcol : SalesOrderTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 184 + $startcol : SalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 187 + $startcol : SalesOrderTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 185 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 188 + $startcol : SalesOrderTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -7863,7 +9129,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 186; // 186 = SalesOrderTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 189; // 189 = SalesOrderTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesOrder'), 0, $e);
@@ -8715,6 +9981,15 @@ abstract class SalesOrder implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT6)) {
             $modifiedColumns[':p' . $index++]  = 'OehdDuePct6';
         }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDREFNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OehdRefNbr';
+        }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACPROGNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OehdAcProgNbr';
+        }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACPROGEXPDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'OehdAcProgExpDate';
+        }
         if ($this->isColumnModified(SalesOrderTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -8784,7 +10059,7 @@ abstract class SalesOrder implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->oehdcustpo, PDO::PARAM_STR);
                         break;
                     case 'OehdOrdrDate':
-                        $stmt->bindValue($identifier, $this->oehdordrdate, PDO::PARAM_INT);
+                        $stmt->bindValue($identifier, $this->oehdordrdate, PDO::PARAM_STR);
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
@@ -9283,6 +10558,15 @@ abstract class SalesOrder implements ActiveRecordInterface
                         break;
                     case 'OehdDuePct6':
                         $stmt->bindValue($identifier, $this->oehdduepct6, PDO::PARAM_STR);
+                        break;
+                    case 'OehdRefNbr':
+                        $stmt->bindValue($identifier, $this->oehdrefnbr, PDO::PARAM_STR);
+                        break;
+                    case 'OehdAcProgNbr':
+                        $stmt->bindValue($identifier, $this->oehdacprognbr, PDO::PARAM_STR);
+                        break;
+                    case 'OehdAcProgExpDate':
+                        $stmt->bindValue($identifier, $this->oehdacprogexpdate, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -9898,12 +11182,21 @@ abstract class SalesOrder implements ActiveRecordInterface
                 return $this->getOehdduepct6();
                 break;
             case 183:
-                return $this->getDateupdtd();
+                return $this->getOehdrefnbr();
                 break;
             case 184:
-                return $this->getTimeupdtd();
+                return $this->getOehdacprognbr();
                 break;
             case 185:
+                return $this->getOehdacprogexpdate();
+                break;
+            case 186:
+                return $this->getDateupdtd();
+                break;
+            case 187:
+                return $this->getTimeupdtd();
+                break;
+            case 188:
                 return $this->getDummy();
                 break;
             default:
@@ -10119,9 +11412,12 @@ abstract class SalesOrder implements ActiveRecordInterface
             $keys[180] => $this->getOehdduedate6(),
             $keys[181] => $this->getOehddueamt6(),
             $keys[182] => $this->getOehdduepct6(),
-            $keys[183] => $this->getDateupdtd(),
-            $keys[184] => $this->getTimeupdtd(),
-            $keys[185] => $this->getDummy(),
+            $keys[183] => $this->getOehdrefnbr(),
+            $keys[184] => $this->getOehdacprognbr(),
+            $keys[185] => $this->getOehdacprogexpdate(),
+            $keys[186] => $this->getDateupdtd(),
+            $keys[187] => $this->getTimeupdtd(),
+            $keys[188] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -10803,12 +12099,21 @@ abstract class SalesOrder implements ActiveRecordInterface
                 $this->setOehdduepct6($value);
                 break;
             case 183:
-                $this->setDateupdtd($value);
+                $this->setOehdrefnbr($value);
                 break;
             case 184:
-                $this->setTimeupdtd($value);
+                $this->setOehdacprognbr($value);
                 break;
             case 185:
+                $this->setOehdacprogexpdate($value);
+                break;
+            case 186:
+                $this->setDateupdtd($value);
+                break;
+            case 187:
+                $this->setTimeupdtd($value);
+                break;
+            case 188:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -11387,13 +12692,22 @@ abstract class SalesOrder implements ActiveRecordInterface
             $this->setOehdduepct6($arr[$keys[182]]);
         }
         if (array_key_exists($keys[183], $arr)) {
-            $this->setDateupdtd($arr[$keys[183]]);
+            $this->setOehdrefnbr($arr[$keys[183]]);
         }
         if (array_key_exists($keys[184], $arr)) {
-            $this->setTimeupdtd($arr[$keys[184]]);
+            $this->setOehdacprognbr($arr[$keys[184]]);
         }
         if (array_key_exists($keys[185], $arr)) {
-            $this->setDummy($arr[$keys[185]]);
+            $this->setOehdacprogexpdate($arr[$keys[185]]);
+        }
+        if (array_key_exists($keys[186], $arr)) {
+            $this->setDateupdtd($arr[$keys[186]]);
+        }
+        if (array_key_exists($keys[187], $arr)) {
+            $this->setTimeupdtd($arr[$keys[187]]);
+        }
+        if (array_key_exists($keys[188], $arr)) {
+            $this->setDummy($arr[$keys[188]]);
         }
     }
 
@@ -11985,6 +13299,15 @@ abstract class SalesOrder implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDDUEPCT6)) {
             $criteria->add(SalesOrderTableMap::COL_OEHDDUEPCT6, $this->oehdduepct6);
         }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDREFNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDREFNBR, $this->oehdrefnbr);
+        }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACPROGNBR)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDACPROGNBR, $this->oehdacprognbr);
+        }
+        if ($this->isColumnModified(SalesOrderTableMap::COL_OEHDACPROGEXPDATE)) {
+            $criteria->add(SalesOrderTableMap::COL_OEHDACPROGEXPDATE, $this->oehdacprogexpdate);
+        }
         if ($this->isColumnModified(SalesOrderTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesOrderTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -12263,6 +13586,9 @@ abstract class SalesOrder implements ActiveRecordInterface
         $copyObj->setOehdduedate6($this->getOehdduedate6());
         $copyObj->setOehddueamt6($this->getOehddueamt6());
         $copyObj->setOehdduepct6($this->getOehdduepct6());
+        $copyObj->setOehdrefnbr($this->getOehdrefnbr());
+        $copyObj->setOehdacprognbr($this->getOehdacprognbr());
+        $copyObj->setOehdacprogexpdate($this->getOehdacprogexpdate());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -12335,7 +13661,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function setCustomer(ChildCustomer $v = null)
     {
         if ($v === null) {
-            $this->setArcucustid(NULL);
+            $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
@@ -12386,13 +13712,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function setCustomerShipto(ChildCustomerShipto $v = null)
     {
         if ($v === null) {
-            $this->setArcucustid(NULL);
+            $this->setArcucustid('');
         } else {
             $this->setArcucustid($v->getArcucustid());
         }
 
         if ($v === null) {
-            $this->setArstshipid(NULL);
+            $this->setArstshipid('');
         } else {
             $this->setArstshipid($v->getArstshipid());
         }
@@ -13720,11 +15046,15 @@ abstract class SalesOrder implements ActiveRecordInterface
         $this->oehdduedate6 = null;
         $this->oehddueamt6 = null;
         $this->oehdduepct6 = null;
+        $this->oehdrefnbr = null;
+        $this->oehdacprognbr = null;
+        $this->oehdacprogexpdate = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
         $this->alreadyInSave = false;
         $this->clearAllReferences();
+        $this->applyDefaultValues();
         $this->resetModified();
         $this->setNew(true);
         $this->setDeleted(false);
@@ -13789,7 +15119,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -13801,7 +15131,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -13813,7 +15143,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -13825,7 +15155,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -13849,7 +15179,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -13861,7 +15191,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -13873,7 +15203,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 
