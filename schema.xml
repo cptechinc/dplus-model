@@ -989,6 +989,9 @@
     <foreign-key foreignTable="ar_cust_svia" name="shipvia" skipSql="true">
       <reference local="ArtbShipVia" foreign="ArtbShipVia"/>
     </foreign-key>
+    <foreign-key foreignTable="so_frtrate" name="freightrate" skipSql="true">
+      <reference local="ArcuChrgFrt" foreign="SfrtRateCode"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -4535,6 +4538,18 @@
     <foreign-key foreignTable="so_header" name="salesorder" skipSql="true">
       <reference local="OehdNbr" foreign="OehdNbr"/>
     </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_frtrate" idMethod="native" phpName="SoFreightRate">
+    <column name="SfrtRateCode" phpName="Sfrtratecode" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
+    <column name="SfrtRateDesc" phpName="Sfrtratedesc" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="SfrtAddOn" phpName="Sfrtaddon" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="SfrtTripChrg" phpName="Sfrttripchrg" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

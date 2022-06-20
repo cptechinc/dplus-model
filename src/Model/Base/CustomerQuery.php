@@ -316,6 +316,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithShipvia() Adds a RIGHT JOIN clause and with to the query using the Shipvia relation
  * @method     ChildCustomerQuery innerJoinWithShipvia() Adds a INNER JOIN clause and with to the query using the Shipvia relation
  *
+ * @method     ChildCustomerQuery leftJoinSoFreightRate($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoFreightRate relation
+ * @method     ChildCustomerQuery rightJoinSoFreightRate($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoFreightRate relation
+ * @method     ChildCustomerQuery innerJoinSoFreightRate($relationAlias = null) Adds a INNER JOIN clause to the query using the SoFreightRate relation
+ *
+ * @method     ChildCustomerQuery joinWithSoFreightRate($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoFreightRate relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithSoFreightRate() Adds a LEFT JOIN clause and with to the query using the SoFreightRate relation
+ * @method     ChildCustomerQuery rightJoinWithSoFreightRate() Adds a RIGHT JOIN clause and with to the query using the SoFreightRate relation
+ * @method     ChildCustomerQuery innerJoinWithSoFreightRate() Adds a INNER JOIN clause and with to the query using the SoFreightRate relation
+ *
+ * @method     ChildCustomerQuery leftJoinArPaymentPending($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArPaymentPending relation
+ * @method     ChildCustomerQuery rightJoinArPaymentPending($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArPaymentPending relation
+ * @method     ChildCustomerQuery innerJoinArPaymentPending($relationAlias = null) Adds a INNER JOIN clause to the query using the ArPaymentPending relation
+ *
+ * @method     ChildCustomerQuery joinWithArPaymentPending($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArPaymentPending relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithArPaymentPending() Adds a LEFT JOIN clause and with to the query using the ArPaymentPending relation
+ * @method     ChildCustomerQuery rightJoinWithArPaymentPending() Adds a RIGHT JOIN clause and with to the query using the ArPaymentPending relation
+ * @method     ChildCustomerQuery innerJoinWithArPaymentPending() Adds a INNER JOIN clause and with to the query using the ArPaymentPending relation
+ *
+ * @method     ChildCustomerQuery leftJoinArCashHead($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArCashHead relation
+ * @method     ChildCustomerQuery rightJoinArCashHead($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArCashHead relation
+ * @method     ChildCustomerQuery innerJoinArCashHead($relationAlias = null) Adds a INNER JOIN clause to the query using the ArCashHead relation
+ *
+ * @method     ChildCustomerQuery joinWithArCashHead($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArCashHead relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithArCashHead() Adds a LEFT JOIN clause and with to the query using the ArCashHead relation
+ * @method     ChildCustomerQuery rightJoinWithArCashHead() Adds a RIGHT JOIN clause and with to the query using the ArCashHead relation
+ * @method     ChildCustomerQuery innerJoinWithArCashHead() Adds a INNER JOIN clause and with to the query using the ArCashHead relation
+ *
  * @method     ChildCustomerQuery leftJoinArInvoice($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArInvoice relation
  * @method     ChildCustomerQuery rightJoinArInvoice($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArInvoice relation
  * @method     ChildCustomerQuery innerJoinArInvoice($relationAlias = null) Adds a INNER JOIN clause to the query using the ArInvoice relation
@@ -406,7 +436,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \ArCommissionCodeQuery|\ShipviaQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -5500,25 +5530,25 @@ abstract class CustomerQuery extends ModelCriteria
     /**
      * Filter the query by a related \ArCommissionCode object
      *
-     * @param \ArCommissionCode|ObjectCollection $customerCommissionCode The related object(s) to use as filter
+     * @param \ArCommissionCode|ObjectCollection $arCommissionCode The related object(s) to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return ChildCustomerQuery The current query, for fluid interface
      */
-    public function filterByArCommissionCode($customerCommissionCode, $comparison = null)
+    public function filterByArCommissionCode($arCommissionCode, $comparison = null)
     {
-        if ($customerCommissionCode instanceof \ArCommissionCode) {
+        if ($arCommissionCode instanceof \ArCommissionCode) {
             return $this
-                ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->getArtbcommcode(), $comparison);
-        } elseif ($customerCommissionCode instanceof ObjectCollection) {
+                ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $arCommissionCode->getArtbcommcode(), $comparison);
+        } elseif ($arCommissionCode instanceof ObjectCollection) {
             if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
 
             return $this
-                ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->toKeyValue('PrimaryKey', 'Artbcommcode'), $comparison);
+                ->addUsingAlias(CustomerTableMap::COL_ARTBCOMMCODE, $arCommissionCode->toKeyValue('PrimaryKey', 'Artbcommcode'), $comparison);
         } else {
             throw new PropelException('filterByArCommissionCode() only accepts arguments of type \ArCommissionCode or Collection');
         }
@@ -5649,6 +5679,229 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinShipvia($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'Shipvia', '\ShipviaQuery');
+    }
+
+    /**
+     * Filter the query by a related \SoFreightRate object
+     *
+     * @param \SoFreightRate|ObjectCollection $soFreightRate The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterBySoFreightRate($soFreightRate, $comparison = null)
+    {
+        if ($soFreightRate instanceof \SoFreightRate) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCHRGFRT, $soFreightRate->getSfrtratecode(), $comparison);
+        } elseif ($soFreightRate instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCHRGFRT, $soFreightRate->toKeyValue('PrimaryKey', 'Sfrtratecode'), $comparison);
+        } else {
+            throw new PropelException('filterBySoFreightRate() only accepts arguments of type \SoFreightRate or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoFreightRate relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinSoFreightRate($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoFreightRate');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoFreightRate');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoFreightRate relation SoFreightRate object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoFreightRateQuery A secondary query class using the current class as primary query
+     */
+    public function useSoFreightRateQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinSoFreightRate($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoFreightRate', '\SoFreightRateQuery');
+    }
+
+    /**
+     * Filter the query by a related \ArPaymentPending object
+     *
+     * @param \ArPaymentPending|ObjectCollection $arPaymentPending the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByArPaymentPending($arPaymentPending, $comparison = null)
+    {
+        if ($arPaymentPending instanceof \ArPaymentPending) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $arPaymentPending->getArcucustid(), $comparison);
+        } elseif ($arPaymentPending instanceof ObjectCollection) {
+            return $this
+                ->useArPaymentPendingQuery()
+                ->filterByPrimaryKeys($arPaymentPending->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByArPaymentPending() only accepts arguments of type \ArPaymentPending or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArPaymentPending relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinArPaymentPending($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArPaymentPending');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArPaymentPending');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArPaymentPending relation ArPaymentPending object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArPaymentPendingQuery A secondary query class using the current class as primary query
+     */
+    public function useArPaymentPendingQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArPaymentPending($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArPaymentPending', '\ArPaymentPendingQuery');
+    }
+
+    /**
+     * Filter the query by a related \ArCashHead object
+     *
+     * @param \ArCashHead|ObjectCollection $arCashHead the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByArCashHead($arCashHead, $comparison = null)
+    {
+        if ($arCashHead instanceof \ArCashHead) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $arCashHead->getArcucustid(), $comparison);
+        } elseif ($arCashHead instanceof ObjectCollection) {
+            return $this
+                ->useArCashHeadQuery()
+                ->filterByPrimaryKeys($arCashHead->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByArCashHead() only accepts arguments of type \ArCashHead or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArCashHead relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinArCashHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArCashHead');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArCashHead');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArCashHead relation ArCashHead object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArCashHeadQuery A secondary query class using the current class as primary query
+     */
+    public function useArCashHeadQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArCashHead($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArCashHead', '\ArCashHeadQuery');
     }
 
     /**
@@ -6120,7 +6373,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesHistory');
@@ -6155,7 +6408,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return \SalesHistoryQuery A secondary query class using the current class as primary query
      */
-    public function useSalesHistoryQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSalesHistoryQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinSalesHistory($relationAlias, $joinType)
@@ -6193,7 +6446,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrder');
@@ -6228,7 +6481,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return \SalesOrderQuery A secondary query class using the current class as primary query
      */
-    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)

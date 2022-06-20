@@ -78,6 +78,7 @@ class Customer extends BaseCustomer {
 		'shipviacode'  => 'artbshipvia',
 		'termscode'    => 'artmtermcd',
 		'stmtcode'     => 'arcustmtcode',
+		'freightratecode'  => 'arcuchrgfrt',
 		// Datetime
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
@@ -125,6 +126,15 @@ class Customer extends BaseCustomer {
 	public function shipcomplete() {
 		return strtoupper($this->credithold) == self::YN_TRUE;
 	}
+
+	/**
+	 * Returns if Customer has a So Freight Rate Code
+	 * @return bool
+	 */
+	public function hasFreightRateCode() {
+		return empty($this->freightratecode) === false;
+	}
+
 
 /* =============================================================
 	Property Functions

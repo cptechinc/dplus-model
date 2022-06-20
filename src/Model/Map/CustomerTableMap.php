@@ -895,7 +895,7 @@ class CustomerTableMap extends TableMap
         $this->addColumn('ArcuAddlPricDisc', 'Arcuaddlpricdisc', 'DECIMAL', false, 20, null);
         $this->addColumn('ArcuActiveInactive', 'Arcuactiveinactive', 'VARCHAR', false, 1, null);
         $this->addColumn('ArcuInactiveDate', 'Arcuinactivedate', 'VARCHAR', false, 8, null);
-        $this->addColumn('ArcuChrgFrt', 'Arcuchrgfrt', 'VARCHAR', false, 1, null);
+        $this->addForeignKey('ArcuChrgFrt', 'Arcuchrgfrt', 'VARCHAR', 'so_frtrate', 'SfrtRateCode', false, 1, null);
         $this->addColumn('ArcuCoreXDays', 'Arcucorexdays', 'INTEGER', false, 6, null);
         $this->addColumn('ArcuContractNbr', 'Arcucontractnbr', 'VARCHAR', false, 6, null);
         $this->addColumn('ArcuCoreLF', 'Arcucorelf', 'VARCHAR', false, 1, null);
@@ -938,6 +938,27 @@ class CustomerTableMap extends TableMap
   array (
     0 => ':ArtbShipVia',
     1 => ':ArtbShipVia',
+  ),
+), null, null, null, false);
+        $this->addRelation('SoFreightRate', '\\SoFreightRate', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuChrgFrt',
+    1 => ':SfrtRateCode',
+  ),
+), null, null, null, false);
+        $this->addRelation('ArPaymentPending', '\\ArPaymentPending', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ArPaymentPendings', false);
+        $this->addRelation('ArCashHead', '\\ArCashHead', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
         $this->addRelation('ArInvoice', '\\ArInvoice', RelationMap::ONE_TO_MANY, array (

@@ -2,8 +2,14 @@
 
 namespace Base;
 
+use \ArCashHead as ChildArCashHead;
+use \ArCashHeadQuery as ChildArCashHeadQuery;
+use \ArCommissionCode as ChildArCommissionCode;
+use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
 use \ArInvoice as ChildArInvoice;
 use \ArInvoiceQuery as ChildArInvoiceQuery;
+use \ArPaymentPending as ChildArPaymentPending;
+use \ArPaymentPendingQuery as ChildArPaymentPendingQuery;
 use \Booking as ChildBooking;
 use \BookingDayCustomer as ChildBookingDayCustomer;
 use \BookingDayCustomerQuery as ChildBookingDayCustomerQuery;
@@ -11,8 +17,6 @@ use \BookingDayDetail as ChildBookingDayDetail;
 use \BookingDayDetailQuery as ChildBookingDayDetailQuery;
 use \BookingQuery as ChildBookingQuery;
 use \Customer as ChildCustomer;
-use \ArCommissionCode as ChildArCommissionCode;
-use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
@@ -26,9 +30,12 @@ use \SalesOrder as ChildSalesOrder;
 use \SalesOrderQuery as ChildSalesOrderQuery;
 use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
+use \SoFreightRate as ChildSoFreightRate;
+use \SoFreightRateQuery as ChildSoFreightRateQuery;
 use \Exception;
 use \PDO;
 use Map\ArInvoiceTableMap;
+use Map\ArPaymentPendingTableMap;
 use Map\BookingDayCustomerTableMap;
 use Map\BookingDayDetailTableMap;
 use Map\BookingTableMap;
@@ -1035,6 +1042,22 @@ abstract class Customer implements ActiveRecordInterface
     protected $aShipvia;
 
     /**
+     * @var        ChildSoFreightRate
+     */
+    protected $aSoFreightRate;
+
+    /**
+     * @var        ObjectCollection|ChildArPaymentPending[] Collection to store aggregation of ChildArPaymentPending objects.
+     */
+    protected $collArPaymentPendings;
+    protected $collArPaymentPendingsPartial;
+
+    /**
+     * @var        ChildArCashHead one-to-one related ChildArCashHead object
+     */
+    protected $singleArCashHead;
+
+    /**
      * @var        ObjectCollection|ChildArInvoice[] Collection to store aggregation of ChildArInvoice objects.
      */
     protected $collArInvoices;
@@ -1095,6 +1118,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildArPaymentPending[]
+     */
+    protected $arPaymentPendingsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -4923,6 +4952,10 @@ abstract class Customer implements ActiveRecordInterface
             $this->modifiedColumns[CustomerTableMap::COL_ARCUCHRGFRT] = true;
         }
 
+        if ($this->aSoFreightRate !== null && $this->aSoFreightRate->getSfrtratecode() !== $v) {
+            $this->aSoFreightRate = null;
+        }
+
         return $this;
     } // setArcuchrgfrt()
 
@@ -5860,6 +5893,9 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->aArCommissionCode !== null && $this->artbcommcode !== $this->aArCommissionCode->getArtbcommcode()) {
             $this->aArCommissionCode = null;
         }
+        if ($this->aSoFreightRate !== null && $this->arcuchrgfrt !== $this->aSoFreightRate->getSfrtratecode()) {
+            $this->aSoFreightRate = null;
+        }
     } // ensureConsistency
 
     /**
@@ -5901,6 +5937,11 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->aArCommissionCode = null;
             $this->aShipvia = null;
+            $this->aSoFreightRate = null;
+            $this->collArPaymentPendings = null;
+
+            $this->singleArCashHead = null;
+
             $this->collArInvoices = null;
 
             $this->collCustomerShiptos = null;
@@ -6041,6 +6082,13 @@ abstract class Customer implements ActiveRecordInterface
                 $this->setShipvia($this->aShipvia);
             }
 
+            if ($this->aSoFreightRate !== null) {
+                if ($this->aSoFreightRate->isModified() || $this->aSoFreightRate->isNew()) {
+                    $affectedRows += $this->aSoFreightRate->save($con);
+                }
+                $this->setSoFreightRate($this->aSoFreightRate);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -6050,6 +6098,29 @@ abstract class Customer implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->arPaymentPendingsScheduledForDeletion !== null) {
+                if (!$this->arPaymentPendingsScheduledForDeletion->isEmpty()) {
+                    \ArPaymentPendingQuery::create()
+                        ->filterByPrimaryKeys($this->arPaymentPendingsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->arPaymentPendingsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collArPaymentPendings !== null) {
+                foreach ($this->collArPaymentPendings as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->singleArCashHead !== null) {
+                if (!$this->singleArCashHead->isDeleted() && ($this->singleArCashHead->isNew() || $this->singleArCashHead->isModified())) {
+                    $affectedRows += $this->singleArCashHead->save($con);
+                }
             }
 
             if ($this->arInvoicesScheduledForDeletion !== null) {
@@ -6158,10 +6229,9 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->salesHistoriesScheduledForDeletion !== null) {
                 if (!$this->salesHistoriesScheduledForDeletion->isEmpty()) {
-                    foreach ($this->salesHistoriesScheduledForDeletion as $salesHistory) {
-                        // need to save related object because we set the relation to null
-                        $salesHistory->save($con);
-                    }
+                    \SalesHistoryQuery::create()
+                        ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
                     $this->salesHistoriesScheduledForDeletion = null;
                 }
             }
@@ -6176,10 +6246,9 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->salesOrdersScheduledForDeletion !== null) {
                 if (!$this->salesOrdersScheduledForDeletion->isEmpty()) {
-                    foreach ($this->salesOrdersScheduledForDeletion as $salesOrder) {
-                        // need to save related object because we set the relation to null
-                        $salesOrder->save($con);
-                    }
+                    \SalesOrderQuery::create()
+                        ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
                     $this->salesOrdersScheduledForDeletion = null;
                 }
             }
@@ -7668,7 +7737,7 @@ abstract class Customer implements ActiveRecordInterface
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'customerCommissionCode';
+                        $key = 'arCommissionCode';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'ar_cust_comm';
@@ -7693,6 +7762,51 @@ abstract class Customer implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aShipvia->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aSoFreightRate) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'soFreightRate';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_frtrate';
+                        break;
+                    default:
+                        $key = 'SoFreightRate';
+                }
+
+                $result[$key] = $this->aSoFreightRate->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collArPaymentPendings) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arPaymentPendings';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cash_dets';
+                        break;
+                    default:
+                        $key = 'ArPaymentPendings';
+                }
+
+                $result[$key] = $this->collArPaymentPendings->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->singleArCashHead) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arCashHead';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cash_head';
+                        break;
+                    default:
+                        $key = 'ArCashHead';
+                }
+
+                $result[$key] = $this->singleArCashHead->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
             if (null !== $this->collArInvoices) {
 
@@ -9352,6 +9466,17 @@ abstract class Customer implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getArPaymentPendings() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addArPaymentPending($relObj->copy($deepCopy));
+                }
+            }
+
+            $relObj = $this->getArCashHead();
+            if ($relObj) {
+                $copyObj->setArCashHead($relObj->copy($deepCopy));
+            }
+
             foreach ($this->getArInvoices() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addArInvoice($relObj->copy($deepCopy));
@@ -9537,6 +9662,57 @@ abstract class Customer implements ActiveRecordInterface
         return $this->aShipvia;
     }
 
+    /**
+     * Declares an association between this object and a ChildSoFreightRate object.
+     *
+     * @param  ChildSoFreightRate $v
+     * @return $this|\Customer The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setSoFreightRate(ChildSoFreightRate $v = null)
+    {
+        if ($v === null) {
+            $this->setArcuchrgfrt(NULL);
+        } else {
+            $this->setArcuchrgfrt($v->getSfrtratecode());
+        }
+
+        $this->aSoFreightRate = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildSoFreightRate object, it will not be re-added.
+        if ($v !== null) {
+            $v->addCustomer($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildSoFreightRate object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildSoFreightRate The associated ChildSoFreightRate object.
+     * @throws PropelException
+     */
+    public function getSoFreightRate(ConnectionInterface $con = null)
+    {
+        if ($this->aSoFreightRate === null && (($this->arcuchrgfrt !== "" && $this->arcuchrgfrt !== null))) {
+            $this->aSoFreightRate = ChildSoFreightRateQuery::create()->findPk($this->arcuchrgfrt, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aSoFreightRate->addCustomers($this);
+             */
+        }
+
+        return $this->aSoFreightRate;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -9548,6 +9724,10 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ArPaymentPending' == $relationName) {
+            $this->initArPaymentPendings();
+            return;
+        }
         if ('ArInvoice' == $relationName) {
             $this->initArInvoices();
             return;
@@ -9584,6 +9764,295 @@ abstract class Customer implements ActiveRecordInterface
             $this->initItemPricingDiscounts();
             return;
         }
+    }
+
+    /**
+     * Clears out the collArPaymentPendings collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addArPaymentPendings()
+     */
+    public function clearArPaymentPendings()
+    {
+        $this->collArPaymentPendings = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collArPaymentPendings collection loaded partially.
+     */
+    public function resetPartialArPaymentPendings($v = true)
+    {
+        $this->collArPaymentPendingsPartial = $v;
+    }
+
+    /**
+     * Initializes the collArPaymentPendings collection.
+     *
+     * By default this just sets the collArPaymentPendings collection to an empty array (like clearcollArPaymentPendings());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initArPaymentPendings($overrideExisting = true)
+    {
+        if (null !== $this->collArPaymentPendings && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ArPaymentPendingTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collArPaymentPendings = new $collectionClassName;
+        $this->collArPaymentPendings->setModel('\ArPaymentPending');
+    }
+
+    /**
+     * Gets an array of ChildArPaymentPending objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildArPaymentPending[] List of ChildArPaymentPending objects
+     * @throws PropelException
+     */
+    public function getArPaymentPendings(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
+        if (null === $this->collArPaymentPendings || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collArPaymentPendings) {
+                // return empty collection
+                $this->initArPaymentPendings();
+            } else {
+                $collArPaymentPendings = ChildArPaymentPendingQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collArPaymentPendingsPartial && count($collArPaymentPendings)) {
+                        $this->initArPaymentPendings(false);
+
+                        foreach ($collArPaymentPendings as $obj) {
+                            if (false == $this->collArPaymentPendings->contains($obj)) {
+                                $this->collArPaymentPendings->append($obj);
+                            }
+                        }
+
+                        $this->collArPaymentPendingsPartial = true;
+                    }
+
+                    return $collArPaymentPendings;
+                }
+
+                if ($partial && $this->collArPaymentPendings) {
+                    foreach ($this->collArPaymentPendings as $obj) {
+                        if ($obj->isNew()) {
+                            $collArPaymentPendings[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collArPaymentPendings = $collArPaymentPendings;
+                $this->collArPaymentPendingsPartial = false;
+            }
+        }
+
+        return $this->collArPaymentPendings;
+    }
+
+    /**
+     * Sets a collection of ChildArPaymentPending objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $arPaymentPendings A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setArPaymentPendings(Collection $arPaymentPendings, ConnectionInterface $con = null)
+    {
+        /** @var ChildArPaymentPending[] $arPaymentPendingsToDelete */
+        $arPaymentPendingsToDelete = $this->getArPaymentPendings(new Criteria(), $con)->diff($arPaymentPendings);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->arPaymentPendingsScheduledForDeletion = clone $arPaymentPendingsToDelete;
+
+        foreach ($arPaymentPendingsToDelete as $arPaymentPendingRemoved) {
+            $arPaymentPendingRemoved->setCustomer(null);
+        }
+
+        $this->collArPaymentPendings = null;
+        foreach ($arPaymentPendings as $arPaymentPending) {
+            $this->addArPaymentPending($arPaymentPending);
+        }
+
+        $this->collArPaymentPendings = $arPaymentPendings;
+        $this->collArPaymentPendingsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ArPaymentPending objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ArPaymentPending objects.
+     * @throws PropelException
+     */
+    public function countArPaymentPendings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArPaymentPendingsPartial && !$this->isNew();
+        if (null === $this->collArPaymentPendings || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collArPaymentPendings) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getArPaymentPendings());
+            }
+
+            $query = ChildArPaymentPendingQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collArPaymentPendings);
+    }
+
+    /**
+     * Method called to associate a ChildArPaymentPending object to this object
+     * through the ChildArPaymentPending foreign key attribute.
+     *
+     * @param  ChildArPaymentPending $l ChildArPaymentPending
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addArPaymentPending(ChildArPaymentPending $l)
+    {
+        if ($this->collArPaymentPendings === null) {
+            $this->initArPaymentPendings();
+            $this->collArPaymentPendingsPartial = true;
+        }
+
+        if (!$this->collArPaymentPendings->contains($l)) {
+            $this->doAddArPaymentPending($l);
+
+            if ($this->arPaymentPendingsScheduledForDeletion and $this->arPaymentPendingsScheduledForDeletion->contains($l)) {
+                $this->arPaymentPendingsScheduledForDeletion->remove($this->arPaymentPendingsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildArPaymentPending $arPaymentPending The ChildArPaymentPending object to add.
+     */
+    protected function doAddArPaymentPending(ChildArPaymentPending $arPaymentPending)
+    {
+        $this->collArPaymentPendings[]= $arPaymentPending;
+        $arPaymentPending->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildArPaymentPending $arPaymentPending The ChildArPaymentPending object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeArPaymentPending(ChildArPaymentPending $arPaymentPending)
+    {
+        if ($this->getArPaymentPendings()->contains($arPaymentPending)) {
+            $pos = $this->collArPaymentPendings->search($arPaymentPending);
+            $this->collArPaymentPendings->remove($pos);
+            if (null === $this->arPaymentPendingsScheduledForDeletion) {
+                $this->arPaymentPendingsScheduledForDeletion = clone $this->collArPaymentPendings;
+                $this->arPaymentPendingsScheduledForDeletion->clear();
+            }
+            $this->arPaymentPendingsScheduledForDeletion[]= clone $arPaymentPending;
+            $arPaymentPending->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related ArPaymentPendings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildArPaymentPending[] List of ChildArPaymentPending objects
+     */
+    public function getArPaymentPendingsJoinArCashHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildArPaymentPendingQuery::create(null, $criteria);
+        $query->joinWith('ArCashHead', $joinBehavior);
+
+        return $this->getArPaymentPendings($query, $con);
+    }
+
+    /**
+     * Gets a single ChildArCashHead object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildArCashHead
+     * @throws PropelException
+     */
+    public function getArCashHead(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleArCashHead === null && !$this->isNew()) {
+            $this->singleArCashHead = ChildArCashHeadQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleArCashHead;
+    }
+
+    /**
+     * Sets a single ChildArCashHead object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildArCashHead $v ChildArCashHead
+     * @return $this|\Customer The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setArCashHead(ChildArCashHead $v = null)
+    {
+        $this->singleArCashHead = $v;
+
+        // Make sure that that the passed-in ChildArCashHead isn't already associated with this object
+        if ($v !== null && $v->getCustomer(null, false) === null) {
+            $v->setCustomer($this);
+        }
+
+        return $this;
     }
 
     /**
@@ -11341,7 +11810,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->salesHistoriesScheduledForDeletion = clone $this->collSalesHistories;
                 $this->salesHistoriesScheduledForDeletion->clear();
             }
-            $this->salesHistoriesScheduledForDeletion[]= $salesHistory;
+            $this->salesHistoriesScheduledForDeletion[]= clone $salesHistory;
             $salesHistory->setCustomer(null);
         }
 
@@ -11591,7 +12060,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->salesOrdersScheduledForDeletion = clone $this->collSalesOrders;
                 $this->salesOrdersScheduledForDeletion->clear();
             }
-            $this->salesOrdersScheduledForDeletion[]= $salesOrder;
+            $this->salesOrdersScheduledForDeletion[]= clone $salesOrder;
             $salesOrder->setCustomer(null);
         }
 
@@ -11889,6 +12358,9 @@ abstract class Customer implements ActiveRecordInterface
         if (null !== $this->aShipvia) {
             $this->aShipvia->removeCustomer($this);
         }
+        if (null !== $this->aSoFreightRate) {
+            $this->aSoFreightRate->removeCustomer($this);
+        }
         $this->arcucustid = null;
         $this->arcuname = null;
         $this->arcuadr1 = null;
@@ -12041,6 +12513,14 @@ abstract class Customer implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collArPaymentPendings) {
+                foreach ($this->collArPaymentPendings as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->singleArCashHead) {
+                $this->singleArCashHead->clearAllReferences($deep);
+            }
             if ($this->collArInvoices) {
                 foreach ($this->collArInvoices as $o) {
                     $o->clearAllReferences($deep);
@@ -12088,6 +12568,8 @@ abstract class Customer implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collArPaymentPendings = null;
+        $this->singleArCashHead = null;
         $this->collArInvoices = null;
         $this->collCustomerShiptos = null;
         $this->collItemXrefCustomerNotes = null;
@@ -12099,6 +12581,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collItemPricingDiscounts = null;
         $this->aArCommissionCode = null;
         $this->aShipvia = null;
+        $this->aSoFreightRate = null;
     }
 
     /**
