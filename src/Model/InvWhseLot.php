@@ -24,6 +24,8 @@ class InvWhseLot extends BaseInvWhseLot {
 		'whse'			=> 'intbwhse',
 		'whseid'		=> 'intbwhse',
 		'lotserial' 	=> 'inltlotser',
+		'lotref'        => 'inltlotref',
+		'lotreference'  => 'inltlotref',
 		'qty'			=> 'inltonhand',
 		'bin'			=> 'inltbin',
 		'binid' 		=> 'inltbin',
