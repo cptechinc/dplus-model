@@ -36,6 +36,7 @@ class ArTermsCode extends BaseArTermsCode {
 		'type'             => 'artmtype',
 		'hold'             => 'artmhold',
 		'exp_date'         => 'artmexpiredate',
+		'expiredate'       => 'artmexpiredate',
 		'freight_allow'    => 'artmfrtallow',
 		'cc_prefix'        => 'artmccprefix',
 		'split1'           => 'artmsplit1',
