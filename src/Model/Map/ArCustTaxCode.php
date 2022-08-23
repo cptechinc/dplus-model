@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \TaxCodeCustomer;
-use \TaxCodeCustomerQuery;
+use \ArCustTaxCode;
+use \ArCustTaxCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class TaxCodeCustomerTableMap extends TableMap
+class ArCustTaxCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class TaxCodeCustomerTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.TaxCodeCustomerTableMap';
+    const CLASS_NAME = '.Map.ArCustTaxCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class TaxCodeCustomerTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\TaxCodeCustomer';
+    const OM_CLASS = '\\ArCustTaxCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'TaxCodeCustomer';
+    const CLASS_DEFAULT = 'ArCustTaxCode';
 
     /**
      * The total number of columns
@@ -160,7 +160,7 @@ class TaxCodeCustomerTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbctaxcode', 'Artbctaxdesc', 'Artbctaxcode1', 'Artbctaxcode2', 'Artbctaxcode3', 'Artbctaxcode4', 'Artbctaxcode5', 'Artbctaxcode6', 'Artbctaxcode7', 'Artbctaxcode8', 'Artbctaxcode9', 'Artbctaxcode10', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbctaxcode', 'artbctaxdesc', 'artbctaxcode1', 'artbctaxcode2', 'artbctaxcode3', 'artbctaxcode4', 'artbctaxcode5', 'artbctaxcode6', 'artbctaxcode7', 'artbctaxcode8', 'artbctaxcode9', 'artbctaxcode10', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, TaxCodeCustomerTableMap::COL_ARTBCTAXDESC, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10, TaxCodeCustomerTableMap::COL_DATEUPDTD, TaxCodeCustomerTableMap::COL_TIMEUPDTD, TaxCodeCustomerTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, ArCustTaxCodeTableMap::COL_ARTBCTAXDESC, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10, ArCustTaxCodeTableMap::COL_DATEUPDTD, ArCustTaxCodeTableMap::COL_TIMEUPDTD, ArCustTaxCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbCtaxCode', 'ArtbCtaxDesc', 'ArtbCtaxCode1', 'ArtbCtaxCode2', 'ArtbCtaxCode3', 'ArtbCtaxCode4', 'ArtbCtaxCode5', 'ArtbCtaxCode6', 'ArtbCtaxCode7', 'ArtbCtaxCode8', 'ArtbCtaxCode9', 'ArtbCtaxCode10', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
     );
@@ -174,7 +174,7 @@ class TaxCodeCustomerTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbctaxcode' => 0, 'Artbctaxdesc' => 1, 'Artbctaxcode1' => 2, 'Artbctaxcode2' => 3, 'Artbctaxcode3' => 4, 'Artbctaxcode4' => 5, 'Artbctaxcode5' => 6, 'Artbctaxcode6' => 7, 'Artbctaxcode7' => 8, 'Artbctaxcode8' => 9, 'Artbctaxcode9' => 10, 'Artbctaxcode10' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
         self::TYPE_CAMELNAME     => array('artbctaxcode' => 0, 'artbctaxdesc' => 1, 'artbctaxcode1' => 2, 'artbctaxcode2' => 3, 'artbctaxcode3' => 4, 'artbctaxcode4' => 5, 'artbctaxcode5' => 6, 'artbctaxcode6' => 7, 'artbctaxcode7' => 8, 'artbctaxcode8' => 9, 'artbctaxcode9' => 10, 'artbctaxcode10' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE => 0, TaxCodeCustomerTableMap::COL_ARTBCTAXDESC => 1, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1 => 2, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2 => 3, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3 => 4, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4 => 5, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5 => 6, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6 => 7, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7 => 8, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8 => 9, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9 => 10, TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10 => 11, TaxCodeCustomerTableMap::COL_DATEUPDTD => 12, TaxCodeCustomerTableMap::COL_TIMEUPDTD => 13, TaxCodeCustomerTableMap::COL_DUMMY => 14, ),
+        self::TYPE_COLNAME       => array(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE => 0, ArCustTaxCodeTableMap::COL_ARTBCTAXDESC => 1, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1 => 2, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2 => 3, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3 => 4, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4 => 5, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5 => 6, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6 => 7, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7 => 8, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8 => 9, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9 => 10, ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10 => 11, ArCustTaxCodeTableMap::COL_DATEUPDTD => 12, ArCustTaxCodeTableMap::COL_TIMEUPDTD => 13, ArCustTaxCodeTableMap::COL_DUMMY => 14, ),
         self::TYPE_FIELDNAME     => array('ArtbCtaxCode' => 0, 'ArtbCtaxDesc' => 1, 'ArtbCtaxCode1' => 2, 'ArtbCtaxCode2' => 3, 'ArtbCtaxCode3' => 4, 'ArtbCtaxCode4' => 5, 'ArtbCtaxCode5' => 6, 'ArtbCtaxCode6' => 7, 'ArtbCtaxCode7' => 8, 'ArtbCtaxCode8' => 9, 'ArtbCtaxCode9' => 10, 'ArtbCtaxCode10' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
     );
@@ -190,9 +190,9 @@ class TaxCodeCustomerTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_ctax');
-        $this->setPhpName('TaxCodeCustomer');
+        $this->setPhpName('ArCustTaxCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\TaxCodeCustomer');
+        $this->setClassName('\\ArCustTaxCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -277,7 +277,7 @@ class TaxCodeCustomerTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? TaxCodeCustomerTableMap::CLASS_DEFAULT : TaxCodeCustomerTableMap::OM_CLASS;
+        return $withPrefix ? ArCustTaxCodeTableMap::CLASS_DEFAULT : ArCustTaxCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -291,22 +291,22 @@ class TaxCodeCustomerTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (TaxCodeCustomer object, last column rank)
+     * @return array           (ArCustTaxCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = TaxCodeCustomerTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = TaxCodeCustomerTableMap::getInstanceFromPool($key))) {
+        $key = ArCustTaxCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArCustTaxCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + TaxCodeCustomerTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArCustTaxCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = TaxCodeCustomerTableMap::OM_CLASS;
-            /** @var TaxCodeCustomer $obj */
+            $cls = ArCustTaxCodeTableMap::OM_CLASS;
+            /** @var ArCustTaxCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            TaxCodeCustomerTableMap::addInstanceToPool($obj, $key);
+            ArCustTaxCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -329,18 +329,18 @@ class TaxCodeCustomerTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = TaxCodeCustomerTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = TaxCodeCustomerTableMap::getInstanceFromPool($key))) {
+            $key = ArCustTaxCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArCustTaxCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var TaxCodeCustomer $obj */
+                /** @var ArCustTaxCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                TaxCodeCustomerTableMap::addInstanceToPool($obj, $key);
+                ArCustTaxCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -361,21 +361,21 @@ class TaxCodeCustomerTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXDESC);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(TaxCodeCustomerTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXDESC);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArCustTaxCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbCtaxCode');
             $criteria->addSelectColumn($alias . '.ArtbCtaxDesc');
@@ -404,7 +404,7 @@ class TaxCodeCustomerTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(TaxCodeCustomerTableMap::DATABASE_NAME)->getTable(TaxCodeCustomerTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArCustTaxCodeTableMap::DATABASE_NAME)->getTable(ArCustTaxCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -412,16 +412,16 @@ class TaxCodeCustomerTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(TaxCodeCustomerTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(TaxCodeCustomerTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new TaxCodeCustomerTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArCustTaxCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArCustTaxCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArCustTaxCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a TaxCodeCustomer or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArCustTaxCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or TaxCodeCustomer object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArCustTaxCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -432,27 +432,27 @@ class TaxCodeCustomerTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \TaxCodeCustomer) { // it's a model object
+        } elseif ($values instanceof \ArCustTaxCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(TaxCodeCustomerTableMap::DATABASE_NAME);
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArCustTaxCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, (array) $values, Criteria::IN);
         }
 
-        $query = TaxCodeCustomerQuery::create()->mergeWith($criteria);
+        $query = ArCustTaxCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            TaxCodeCustomerTableMap::clearInstancePool();
+            ArCustTaxCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                TaxCodeCustomerTableMap::removeInstanceFromPool($singleval);
+                ArCustTaxCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -467,13 +467,13 @@ class TaxCodeCustomerTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return TaxCodeCustomerQuery::create()->doDeleteAll($con);
+        return ArCustTaxCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a TaxCodeCustomer or Criteria object.
+     * Performs an INSERT on the database, given a ArCustTaxCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or TaxCodeCustomer object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArCustTaxCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -482,18 +482,18 @@ class TaxCodeCustomerTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from TaxCodeCustomer object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArCustTaxCode object
         }
 
 
         // Set the correct dbName
-        $query = TaxCodeCustomerQuery::create()->mergeWith($criteria);
+        $query = ArCustTaxCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -502,7 +502,7 @@ class TaxCodeCustomerTableMap extends TableMap
         });
     }
 
-} // TaxCodeCustomerTableMap
+} // ArCustTaxCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-TaxCodeCustomerTableMap::buildTableMap();
+ArCustTaxCodeTableMap::buildTableMap();

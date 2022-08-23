@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \TaxCodeCustomerQuery as ChildTaxCodeCustomerQuery;
+use \ArCustTaxCodeQuery as ChildArCustTaxCodeQuery;
 use \Exception;
 use \PDO;
-use Map\TaxCodeCustomerTableMap;
+use Map\ArCustTaxCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class TaxCodeCustomer implements ActiveRecordInterface
+abstract class ArCustTaxCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\TaxCodeCustomerTableMap';
+    const TABLE_MAP = '\\Map\\ArCustTaxCodeTableMap';
 
 
     /**
@@ -185,7 +185,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\TaxCodeCustomer object.
+     * Initializes internal state of Base\ArCustTaxCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -282,9 +282,9 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>TaxCodeCustomer</code> instance.  If
-     * <code>obj</code> is an instance of <code>TaxCodeCustomer</code>, delegates to
-     * <code>equals(TaxCodeCustomer)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArCustTaxCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArCustTaxCode</code>, delegates to
+     * <code>equals(ArCustTaxCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -350,7 +350,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|TaxCodeCustomer The current object, for fluid interface
+     * @return $this|ArCustTaxCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -565,7 +565,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode($v)
     {
@@ -575,7 +575,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode !== $v) {
             $this->artbctaxcode = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
@@ -585,7 +585,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxdesc] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxdesc($v)
     {
@@ -595,7 +595,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxdesc !== $v) {
             $this->artbctaxdesc = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXDESC] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXDESC] = true;
         }
 
         return $this;
@@ -605,7 +605,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode1] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode1($v)
     {
@@ -615,7 +615,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode1 !== $v) {
             $this->artbctaxcode1 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1] = true;
         }
 
         return $this;
@@ -625,7 +625,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode2] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode2($v)
     {
@@ -635,7 +635,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode2 !== $v) {
             $this->artbctaxcode2 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2] = true;
         }
 
         return $this;
@@ -645,7 +645,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode3] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode3($v)
     {
@@ -655,7 +655,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode3 !== $v) {
             $this->artbctaxcode3 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3] = true;
         }
 
         return $this;
@@ -665,7 +665,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode4] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode4($v)
     {
@@ -675,7 +675,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode4 !== $v) {
             $this->artbctaxcode4 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4] = true;
         }
 
         return $this;
@@ -685,7 +685,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode5] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode5($v)
     {
@@ -695,7 +695,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode5 !== $v) {
             $this->artbctaxcode5 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5] = true;
         }
 
         return $this;
@@ -705,7 +705,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode6] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode6($v)
     {
@@ -715,7 +715,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode6 !== $v) {
             $this->artbctaxcode6 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6] = true;
         }
 
         return $this;
@@ -725,7 +725,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode7] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode7($v)
     {
@@ -735,7 +735,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode7 !== $v) {
             $this->artbctaxcode7 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7] = true;
         }
 
         return $this;
@@ -745,7 +745,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode8] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode8($v)
     {
@@ -755,7 +755,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode8 !== $v) {
             $this->artbctaxcode8 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8] = true;
         }
 
         return $this;
@@ -765,7 +765,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode9] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode9($v)
     {
@@ -775,7 +775,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode9 !== $v) {
             $this->artbctaxcode9 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9] = true;
         }
 
         return $this;
@@ -785,7 +785,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [artbctaxcode10] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setArtbctaxcode10($v)
     {
@@ -795,7 +795,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->artbctaxcode10 !== $v) {
             $this->artbctaxcode10 = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10] = true;
         }
 
         return $this;
@@ -805,7 +805,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -815,7 +815,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -825,7 +825,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -835,7 +835,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -845,7 +845,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\TaxCodeCustomer The current object (for fluent API support)
+     * @return $this|\ArCustTaxCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -855,7 +855,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[TaxCodeCustomerTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -901,49 +901,49 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Artbctaxcode10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : TaxCodeCustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -953,10 +953,10 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = TaxCodeCustomerTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 15; // 15 = ArCustTaxCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\TaxCodeCustomer'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArCustTaxCode'), 0, $e);
         }
     }
 
@@ -998,13 +998,13 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildTaxCodeCustomerQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArCustTaxCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1023,8 +1023,8 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see TaxCodeCustomer::setDeleted()
-     * @see TaxCodeCustomer::isDeleted()
+     * @see ArCustTaxCode::setDeleted()
+     * @see ArCustTaxCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1033,11 +1033,11 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildTaxCodeCustomerQuery::create()
+            $deleteQuery = ChildArCustTaxCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1072,7 +1072,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1091,7 +1091,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                TaxCodeCustomerTableMap::addInstanceToPool($this);
+                ArCustTaxCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1150,49 +1150,49 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXDESC)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxDesc';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode1';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode2';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode3';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode4';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode5';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode6';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode7';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode8';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode9';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode10';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -1290,7 +1290,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = TaxCodeCustomerTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCustTaxCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1374,11 +1374,11 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['TaxCodeCustomer'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArCustTaxCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['TaxCodeCustomer'][$this->hashCode()] = true;
-        $keys = TaxCodeCustomerTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArCustTaxCode'][$this->hashCode()] = true;
+        $keys = ArCustTaxCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbctaxcode(),
             $keys[1] => $this->getArtbctaxdesc(),
@@ -1414,11 +1414,11 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\TaxCodeCustomer
+     * @return $this|\ArCustTaxCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = TaxCodeCustomerTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArCustTaxCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1429,7 +1429,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\TaxCodeCustomer
+     * @return $this|\ArCustTaxCode
      */
     public function setByPosition($pos, $value)
     {
@@ -1503,7 +1503,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = TaxCodeCustomerTableMap::getFieldNames($keyType);
+        $keys = ArCustTaxCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbctaxcode($arr[$keys[0]]);
@@ -1569,7 +1569,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\TaxCodeCustomer The current object, for fluid interface
+     * @return $this|\ArCustTaxCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1589,52 +1589,52 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(TaxCodeCustomerTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArCustTaxCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXDESC)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXDESC, $this->artbctaxdesc);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXDESC)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXDESC, $this->artbctaxdesc);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1, $this->artbctaxcode1);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1, $this->artbctaxcode1);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2, $this->artbctaxcode2);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2, $this->artbctaxcode2);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3, $this->artbctaxcode3);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3, $this->artbctaxcode3);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4, $this->artbctaxcode4);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4, $this->artbctaxcode4);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5, $this->artbctaxcode5);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5, $this->artbctaxcode5);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6, $this->artbctaxcode6);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6, $this->artbctaxcode6);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7, $this->artbctaxcode7);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7, $this->artbctaxcode7);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8, $this->artbctaxcode8);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8, $this->artbctaxcode8);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9, $this->artbctaxcode9);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9, $this->artbctaxcode9);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10, $this->artbctaxcode10);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10, $this->artbctaxcode10);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_DATEUPDTD)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(TaxCodeCustomerTableMap::COL_DUMMY)) {
-            $criteria->add(TaxCodeCustomerTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArCustTaxCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1652,8 +1652,8 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildTaxCodeCustomerQuery::create();
-        $criteria->add(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
+        $criteria = ChildArCustTaxCodeQuery::create();
+        $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
 
         return $criteria;
     }
@@ -1715,7 +1715,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \TaxCodeCustomer (or compatible) type.
+     * @param      object $copyObj An object of \ArCustTaxCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1751,7 +1751,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \TaxCodeCustomer Clone of current object.
+     * @return \ArCustTaxCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1816,7 +1816,7 @@ abstract class TaxCodeCustomer implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(TaxCodeCustomerTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArCustTaxCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

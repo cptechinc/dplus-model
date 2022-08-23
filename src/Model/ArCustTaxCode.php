@@ -1,6 +1,6 @@
 <?php
 
-use Base\TaxCodeCustomer as BaseTaxCodeCustomer;
+use Base\ArCustTaxCode as BaseArCustTaxCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ar_cust_ctax' table.
  */
-class TaxCodeCustomer extends BaseTaxCodeCustomer {
+class ArCustTaxCode extends BaseArCustTaxCode {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 

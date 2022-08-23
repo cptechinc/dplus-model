@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \TaxCodeCustomer as ChildTaxCodeCustomer;
-use \TaxCodeCustomerQuery as ChildTaxCodeCustomerQuery;
+use \ArCustTaxCode as ChildArCustTaxCode;
+use \ArCustTaxCodeQuery as ChildArCustTaxCodeQuery;
 use \Exception;
 use \PDO;
-use Map\TaxCodeCustomerTableMap;
+use Map\ArCustTaxCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,133 +19,133 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxdesc($order = Criteria::ASC) Order by the ArtbCtaxDesc column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode1($order = Criteria::ASC) Order by the ArtbCtaxCode1 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode2($order = Criteria::ASC) Order by the ArtbCtaxCode2 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode3($order = Criteria::ASC) Order by the ArtbCtaxCode3 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode4($order = Criteria::ASC) Order by the ArtbCtaxCode4 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode5($order = Criteria::ASC) Order by the ArtbCtaxCode5 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode6($order = Criteria::ASC) Order by the ArtbCtaxCode6 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode7($order = Criteria::ASC) Order by the ArtbCtaxCode7 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode8($order = Criteria::ASC) Order by the ArtbCtaxCode8 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode9($order = Criteria::ASC) Order by the ArtbCtaxCode9 column
- * @method     ChildTaxCodeCustomerQuery orderByArtbctaxcode10($order = Criteria::ASC) Order by the ArtbCtaxCode10 column
- * @method     ChildTaxCodeCustomerQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildTaxCodeCustomerQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildTaxCodeCustomerQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxdesc($order = Criteria::ASC) Order by the ArtbCtaxDesc column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode1($order = Criteria::ASC) Order by the ArtbCtaxCode1 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode2($order = Criteria::ASC) Order by the ArtbCtaxCode2 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode3($order = Criteria::ASC) Order by the ArtbCtaxCode3 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode4($order = Criteria::ASC) Order by the ArtbCtaxCode4 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode5($order = Criteria::ASC) Order by the ArtbCtaxCode5 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode6($order = Criteria::ASC) Order by the ArtbCtaxCode6 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode7($order = Criteria::ASC) Order by the ArtbCtaxCode7 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode8($order = Criteria::ASC) Order by the ArtbCtaxCode8 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode9($order = Criteria::ASC) Order by the ArtbCtaxCode9 column
+ * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode10($order = Criteria::ASC) Order by the ArtbCtaxCode10 column
+ * @method     ChildArCustTaxCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArCustTaxCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArCustTaxCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxdesc() Group by the ArtbCtaxDesc column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode1() Group by the ArtbCtaxCode1 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode2() Group by the ArtbCtaxCode2 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode3() Group by the ArtbCtaxCode3 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode4() Group by the ArtbCtaxCode4 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode5() Group by the ArtbCtaxCode5 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode6() Group by the ArtbCtaxCode6 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode7() Group by the ArtbCtaxCode7 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode8() Group by the ArtbCtaxCode8 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode9() Group by the ArtbCtaxCode9 column
- * @method     ChildTaxCodeCustomerQuery groupByArtbctaxcode10() Group by the ArtbCtaxCode10 column
- * @method     ChildTaxCodeCustomerQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildTaxCodeCustomerQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildTaxCodeCustomerQuery groupByDummy() Group by the dummy column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxdesc() Group by the ArtbCtaxDesc column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode1() Group by the ArtbCtaxCode1 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode2() Group by the ArtbCtaxCode2 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode3() Group by the ArtbCtaxCode3 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode4() Group by the ArtbCtaxCode4 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode5() Group by the ArtbCtaxCode5 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode6() Group by the ArtbCtaxCode6 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode7() Group by the ArtbCtaxCode7 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode8() Group by the ArtbCtaxCode8 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode9() Group by the ArtbCtaxCode9 column
+ * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode10() Group by the ArtbCtaxCode10 column
+ * @method     ChildArCustTaxCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArCustTaxCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArCustTaxCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildTaxCodeCustomerQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildTaxCodeCustomerQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildTaxCodeCustomerQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArCustTaxCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArCustTaxCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArCustTaxCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildTaxCodeCustomerQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildTaxCodeCustomerQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildTaxCodeCustomerQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArCustTaxCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArCustTaxCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArCustTaxCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildTaxCodeCustomer findOne(ConnectionInterface $con = null) Return the first ChildTaxCodeCustomer matching the query
- * @method     ChildTaxCodeCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildTaxCodeCustomer matching the query, or a new ChildTaxCodeCustomer object populated from the query conditions when no match is found
+ * @method     ChildArCustTaxCode findOne(ConnectionInterface $con = null) Return the first ChildArCustTaxCode matching the query
+ * @method     ChildArCustTaxCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArCustTaxCode matching the query, or a new ChildArCustTaxCode object populated from the query conditions when no match is found
  *
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxdesc(string $ArtbCtaxDesc) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxDesc column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode1(string $ArtbCtaxCode1) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode1 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode2(string $ArtbCtaxCode2) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode2 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode3(string $ArtbCtaxCode3) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode3 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode4(string $ArtbCtaxCode4) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode4 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode5(string $ArtbCtaxCode5) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode5 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode6(string $ArtbCtaxCode6) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode6 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode7 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode8 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode9 column
- * @method     ChildTaxCodeCustomer findOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode10 column
- * @method     ChildTaxCodeCustomer findOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeCustomer filtered by the DateUpdtd column
- * @method     ChildTaxCodeCustomer findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeCustomer filtered by the TimeUpdtd column
- * @method     ChildTaxCodeCustomer findOneByDummy(string $dummy) Return the first ChildTaxCodeCustomer filtered by the dummy column *
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode column
+ * @method     ChildArCustTaxCode findOneByArtbctaxdesc(string $ArtbCtaxDesc) Return the first ChildArCustTaxCode filtered by the ArtbCtaxDesc column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode1(string $ArtbCtaxCode1) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode1 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode2(string $ArtbCtaxCode2) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode2 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode3(string $ArtbCtaxCode3) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode3 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode4(string $ArtbCtaxCode4) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode4 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode5(string $ArtbCtaxCode5) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode5 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode6(string $ArtbCtaxCode6) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode6 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode7 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode8 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode9 column
+ * @method     ChildArCustTaxCode findOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode10 column
+ * @method     ChildArCustTaxCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTaxCode filtered by the DateUpdtd column
+ * @method     ChildArCustTaxCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTaxCode filtered by the TimeUpdtd column
+ * @method     ChildArCustTaxCode findOneByDummy(string $dummy) Return the first ChildArCustTaxCode filtered by the dummy column *
 
- * @method     ChildTaxCodeCustomer requirePk($key, ConnectionInterface $con = null) Return the ChildTaxCodeCustomer by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOne(ConnectionInterface $con = null) Return the first ChildTaxCodeCustomer matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requirePk($key, ConnectionInterface $con = null) Return the ChildArCustTaxCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOne(ConnectionInterface $con = null) Return the first ChildArCustTaxCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxdesc(string $ArtbCtaxDesc) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode1(string $ArtbCtaxCode1) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode2(string $ArtbCtaxCode2) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode3(string $ArtbCtaxCode3) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode4(string $ArtbCtaxCode4) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode5(string $ArtbCtaxCode5) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode6(string $ArtbCtaxCode6) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildTaxCodeCustomer filtered by the ArtbCtaxCode10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByDateupdtd(string $DateUpdtd) Return the first ChildTaxCodeCustomer filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildTaxCodeCustomer filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildTaxCodeCustomer requireOneByDummy(string $dummy) Return the first ChildTaxCodeCustomer filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxdesc(string $ArtbCtaxDesc) Return the first ChildArCustTaxCode filtered by the ArtbCtaxDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode1(string $ArtbCtaxCode1) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode2(string $ArtbCtaxCode2) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode3(string $ArtbCtaxCode3) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode4(string $ArtbCtaxCode4) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode4 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode5(string $ArtbCtaxCode5) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode5 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode6(string $ArtbCtaxCode6) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode6 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTaxCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTaxCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArCustTaxCode requireOneByDummy(string $dummy) Return the first ChildArCustTaxCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildTaxCodeCustomer[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildTaxCodeCustomer objects based on current ModelCriteria
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxdesc(string $ArtbCtaxDesc) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxDesc column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode1(string $ArtbCtaxCode1) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode1 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode2(string $ArtbCtaxCode2) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode2 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode3(string $ArtbCtaxCode3) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode3 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode4(string $ArtbCtaxCode4) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode4 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode5(string $ArtbCtaxCode5) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode5 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode6(string $ArtbCtaxCode6) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode6 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode7(string $ArtbCtaxCode7) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode7 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode8(string $ArtbCtaxCode8) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode8 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode9(string $ArtbCtaxCode9) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode9 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByArtbctaxcode10(string $ArtbCtaxCode10) Return ChildTaxCodeCustomer objects filtered by the ArtbCtaxCode10 column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildTaxCodeCustomer objects filtered by the DateUpdtd column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildTaxCodeCustomer objects filtered by the TimeUpdtd column
- * @method     ChildTaxCodeCustomer[]|ObjectCollection findByDummy(string $dummy) Return ChildTaxCodeCustomer objects filtered by the dummy column
- * @method     ChildTaxCodeCustomer[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArCustTaxCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArCustTaxCode objects based on current ModelCriteria
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxdesc(string $ArtbCtaxDesc) Return ChildArCustTaxCode objects filtered by the ArtbCtaxDesc column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode1(string $ArtbCtaxCode1) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode1 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode2(string $ArtbCtaxCode2) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode2 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode3(string $ArtbCtaxCode3) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode3 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode4(string $ArtbCtaxCode4) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode4 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode5(string $ArtbCtaxCode5) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode5 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode6(string $ArtbCtaxCode6) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode6 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode7(string $ArtbCtaxCode7) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode7 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode8(string $ArtbCtaxCode8) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode8 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode9(string $ArtbCtaxCode9) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode9 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode10(string $ArtbCtaxCode10) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode10 column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCustTaxCode objects filtered by the DateUpdtd column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCustTaxCode objects filtered by the TimeUpdtd column
+ * @method     ChildArCustTaxCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCustTaxCode objects filtered by the dummy column
+ * @method     ChildArCustTaxCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class TaxCodeCustomerQuery extends ModelCriteria
+abstract class ArCustTaxCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\TaxCodeCustomerQuery object.
+     * Initializes internal state of \Base\ArCustTaxCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\TaxCodeCustomer', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArCustTaxCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildTaxCodeCustomerQuery object.
+     * Returns a new ChildArCustTaxCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildTaxCodeCustomerQuery
+     * @return ChildArCustTaxCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildTaxCodeCustomerQuery) {
+        if ($criteria instanceof ChildArCustTaxCodeQuery) {
             return $criteria;
         }
-        $query = new ChildTaxCodeCustomerQuery();
+        $query = new ChildArCustTaxCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -168,7 +168,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildTaxCodeCustomer|array|mixed the result, formatted by the current formatter
+     * @return ChildArCustTaxCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -177,7 +177,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -190,7 +190,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = TaxCodeCustomerTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArCustTaxCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -207,7 +207,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildTaxCodeCustomer A model object, or null if the key is not found
+     * @return ChildArCustTaxCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -222,10 +222,10 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildTaxCodeCustomer $obj */
-            $obj = new ChildTaxCodeCustomer();
+            /** @var ChildArCustTaxCode $obj */
+            $obj = new ChildArCustTaxCode();
             $obj->hydrate($row);
-            TaxCodeCustomerTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArCustTaxCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -238,7 +238,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildTaxCodeCustomer|array|mixed the result, formatted by the current formatter
+     * @return ChildArCustTaxCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -280,12 +280,12 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -293,12 +293,12 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -313,7 +313,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxdesc($artbctaxdesc = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXDESC, $artbctaxdesc, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXDESC, $artbctaxdesc, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode1 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode1($artbctaxcode1 = null, $comparison = null)
     {
@@ -373,7 +373,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE1, $artbctaxcode1, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE1, $artbctaxcode1, $comparison);
     }
 
     /**
@@ -388,7 +388,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode2 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode2($artbctaxcode2 = null, $comparison = null)
     {
@@ -398,7 +398,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE2, $artbctaxcode2, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE2, $artbctaxcode2, $comparison);
     }
 
     /**
@@ -413,7 +413,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode3 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode3($artbctaxcode3 = null, $comparison = null)
     {
@@ -423,7 +423,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE3, $artbctaxcode3, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE3, $artbctaxcode3, $comparison);
     }
 
     /**
@@ -438,7 +438,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode4 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode4($artbctaxcode4 = null, $comparison = null)
     {
@@ -448,7 +448,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE4, $artbctaxcode4, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE4, $artbctaxcode4, $comparison);
     }
 
     /**
@@ -463,7 +463,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode5 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode5($artbctaxcode5 = null, $comparison = null)
     {
@@ -473,7 +473,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE5, $artbctaxcode5, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE5, $artbctaxcode5, $comparison);
     }
 
     /**
@@ -488,7 +488,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode6 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode6($artbctaxcode6 = null, $comparison = null)
     {
@@ -498,7 +498,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE6, $artbctaxcode6, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE6, $artbctaxcode6, $comparison);
     }
 
     /**
@@ -513,7 +513,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode7 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode7($artbctaxcode7 = null, $comparison = null)
     {
@@ -523,7 +523,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE7, $artbctaxcode7, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE7, $artbctaxcode7, $comparison);
     }
 
     /**
@@ -538,7 +538,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode8 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode8($artbctaxcode8 = null, $comparison = null)
     {
@@ -548,7 +548,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE8, $artbctaxcode8, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE8, $artbctaxcode8, $comparison);
     }
 
     /**
@@ -563,7 +563,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode9 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode9($artbctaxcode9 = null, $comparison = null)
     {
@@ -573,7 +573,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE9, $artbctaxcode9, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9, $artbctaxcode9, $comparison);
     }
 
     /**
@@ -588,7 +588,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $artbctaxcode10 The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByArtbctaxcode10($artbctaxcode10 = null, $comparison = null)
     {
@@ -598,7 +598,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE10, $artbctaxcode10, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10, $artbctaxcode10, $comparison);
     }
 
     /**
@@ -613,7 +613,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -623,7 +623,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -638,7 +638,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -648,7 +648,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -663,7 +663,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -673,20 +673,20 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(TaxCodeCustomerTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildTaxCodeCustomer $taxCodeCustomer Object to remove from the list of results
+     * @param   ChildArCustTaxCode $taxCodeCustomer Object to remove from the list of results
      *
-     * @return $this|ChildTaxCodeCustomerQuery The current query, for fluid interface
+     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
     public function prune($taxCodeCustomer = null)
     {
         if ($taxCodeCustomer) {
-            $this->addUsingAlias(TaxCodeCustomerTableMap::COL_ARTBCTAXCODE, $taxCodeCustomer->getArtbctaxcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $taxCodeCustomer->getArtbctaxcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -701,7 +701,7 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -712,8 +712,8 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            TaxCodeCustomerTableMap::clearInstancePool();
-            TaxCodeCustomerTableMap::clearRelatedInstancePool();
+            ArCustTaxCodeTableMap::clearInstancePool();
+            ArCustTaxCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -731,26 +731,26 @@ abstract class TaxCodeCustomerQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(TaxCodeCustomerTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArCustTaxCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(TaxCodeCustomerTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArCustTaxCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            TaxCodeCustomerTableMap::removeInstanceFromPool($criteria);
+            ArCustTaxCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            TaxCodeCustomerTableMap::clearRelatedInstancePool();
+            ArCustTaxCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // TaxCodeCustomerQuery
+} // ArCustTaxCodeQuery

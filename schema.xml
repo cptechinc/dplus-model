@@ -819,7 +819,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_ctax" idMethod="native" phpName="TaxCodeCustomer">
+  <table name="ar_cust_ctax" idMethod="native" phpName="ArCustTaxCode">
     <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbCtaxDesc" phpName="Artbctaxdesc" type="VARCHAR" size="20"/>
     <column name="ArtbCtaxCode1" phpName="Artbctaxcode1" type="VARCHAR" size="6"/>
