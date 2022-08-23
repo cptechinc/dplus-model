@@ -2,11 +2,11 @@
 
 namespace Base;
 
-use \ShiptoUserCode as ChildShiptoUserCode;
-use \ShiptoUserCodeQuery as ChildShiptoUserCodeQuery;
+use \ArShiptoUserCode as ChildArShiptoUserCode;
+use \ArShiptoUserCodeQuery as ChildArShiptoUserCodeQuery;
 use \Exception;
 use \PDO;
-use Map\ShiptoUserCodeTableMap;
+use Map\ArShiptoUserCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,83 +19,83 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
- * @method     ChildShiptoUserCodeQuery orderByArtbsusrcode($order = Criteria::ASC) Order by the ArtbSusrCode column
- * @method     ChildShiptoUserCodeQuery orderByArtbsusrdesc($order = Criteria::ASC) Order by the ArtbSusrDesc column
- * @method     ChildShiptoUserCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
- * @method     ChildShiptoUserCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
- * @method     ChildShiptoUserCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
+ * @method     ChildArShiptoUserCodeQuery orderByArtbsusrcode($order = Criteria::ASC) Order by the ArtbSusrCode column
+ * @method     ChildArShiptoUserCodeQuery orderByArtbsusrdesc($order = Criteria::ASC) Order by the ArtbSusrDesc column
+ * @method     ChildArShiptoUserCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
+ * @method     ChildArShiptoUserCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
+ * @method     ChildArShiptoUserCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
- * @method     ChildShiptoUserCodeQuery groupByArtbsusrcode() Group by the ArtbSusrCode column
- * @method     ChildShiptoUserCodeQuery groupByArtbsusrdesc() Group by the ArtbSusrDesc column
- * @method     ChildShiptoUserCodeQuery groupByDateupdtd() Group by the DateUpdtd column
- * @method     ChildShiptoUserCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
- * @method     ChildShiptoUserCodeQuery groupByDummy() Group by the dummy column
+ * @method     ChildArShiptoUserCodeQuery groupByArtbsusrcode() Group by the ArtbSusrCode column
+ * @method     ChildArShiptoUserCodeQuery groupByArtbsusrdesc() Group by the ArtbSusrDesc column
+ * @method     ChildArShiptoUserCodeQuery groupByDateupdtd() Group by the DateUpdtd column
+ * @method     ChildArShiptoUserCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
+ * @method     ChildArShiptoUserCodeQuery groupByDummy() Group by the dummy column
  *
- * @method     ChildShiptoUserCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
- * @method     ChildShiptoUserCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
- * @method     ChildShiptoUserCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
+ * @method     ChildArShiptoUserCodeQuery leftJoin($relation) Adds a LEFT JOIN clause to the query
+ * @method     ChildArShiptoUserCodeQuery rightJoin($relation) Adds a RIGHT JOIN clause to the query
+ * @method     ChildArShiptoUserCodeQuery innerJoin($relation) Adds a INNER JOIN clause to the query
  *
- * @method     ChildShiptoUserCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
- * @method     ChildShiptoUserCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
- * @method     ChildShiptoUserCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ * @method     ChildArShiptoUserCodeQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
+ * @method     ChildArShiptoUserCodeQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
+ * @method     ChildArShiptoUserCodeQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
- * @method     ChildShiptoUserCode findOne(ConnectionInterface $con = null) Return the first ChildShiptoUserCode matching the query
- * @method     ChildShiptoUserCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildShiptoUserCode matching the query, or a new ChildShiptoUserCode object populated from the query conditions when no match is found
+ * @method     ChildArShiptoUserCode findOne(ConnectionInterface $con = null) Return the first ChildArShiptoUserCode matching the query
+ * @method     ChildArShiptoUserCode findOneOrCreate(ConnectionInterface $con = null) Return the first ChildArShiptoUserCode matching the query, or a new ChildArShiptoUserCode object populated from the query conditions when no match is found
  *
- * @method     ChildShiptoUserCode findOneByArtbsusrcode(string $ArtbSusrCode) Return the first ChildShiptoUserCode filtered by the ArtbSusrCode column
- * @method     ChildShiptoUserCode findOneByArtbsusrdesc(string $ArtbSusrDesc) Return the first ChildShiptoUserCode filtered by the ArtbSusrDesc column
- * @method     ChildShiptoUserCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildShiptoUserCode filtered by the DateUpdtd column
- * @method     ChildShiptoUserCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShiptoUserCode filtered by the TimeUpdtd column
- * @method     ChildShiptoUserCode findOneByDummy(string $dummy) Return the first ChildShiptoUserCode filtered by the dummy column *
+ * @method     ChildArShiptoUserCode findOneByArtbsusrcode(string $ArtbSusrCode) Return the first ChildArShiptoUserCode filtered by the ArtbSusrCode column
+ * @method     ChildArShiptoUserCode findOneByArtbsusrdesc(string $ArtbSusrDesc) Return the first ChildArShiptoUserCode filtered by the ArtbSusrDesc column
+ * @method     ChildArShiptoUserCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArShiptoUserCode filtered by the DateUpdtd column
+ * @method     ChildArShiptoUserCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArShiptoUserCode filtered by the TimeUpdtd column
+ * @method     ChildArShiptoUserCode findOneByDummy(string $dummy) Return the first ChildArShiptoUserCode filtered by the dummy column *
 
- * @method     ChildShiptoUserCode requirePk($key, ConnectionInterface $con = null) Return the ChildShiptoUserCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShiptoUserCode requireOne(ConnectionInterface $con = null) Return the first ChildShiptoUserCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requirePk($key, ConnectionInterface $con = null) Return the ChildArShiptoUserCode by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOne(ConnectionInterface $con = null) Return the first ChildArShiptoUserCode matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildShiptoUserCode requireOneByArtbsusrcode(string $ArtbSusrCode) Return the first ChildShiptoUserCode filtered by the ArtbSusrCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShiptoUserCode requireOneByArtbsusrdesc(string $ArtbSusrDesc) Return the first ChildShiptoUserCode filtered by the ArtbSusrDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShiptoUserCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildShiptoUserCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShiptoUserCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildShiptoUserCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildShiptoUserCode requireOneByDummy(string $dummy) Return the first ChildShiptoUserCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOneByArtbsusrcode(string $ArtbSusrCode) Return the first ChildArShiptoUserCode filtered by the ArtbSusrCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOneByArtbsusrdesc(string $ArtbSusrDesc) Return the first ChildArShiptoUserCode filtered by the ArtbSusrDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArShiptoUserCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArShiptoUserCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildArShiptoUserCode requireOneByDummy(string $dummy) Return the first ChildArShiptoUserCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildShiptoUserCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildShiptoUserCode objects based on current ModelCriteria
- * @method     ChildShiptoUserCode[]|ObjectCollection findByArtbsusrcode(string $ArtbSusrCode) Return ChildShiptoUserCode objects filtered by the ArtbSusrCode column
- * @method     ChildShiptoUserCode[]|ObjectCollection findByArtbsusrdesc(string $ArtbSusrDesc) Return ChildShiptoUserCode objects filtered by the ArtbSusrDesc column
- * @method     ChildShiptoUserCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildShiptoUserCode objects filtered by the DateUpdtd column
- * @method     ChildShiptoUserCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildShiptoUserCode objects filtered by the TimeUpdtd column
- * @method     ChildShiptoUserCode[]|ObjectCollection findByDummy(string $dummy) Return ChildShiptoUserCode objects filtered by the dummy column
- * @method     ChildShiptoUserCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
+ * @method     ChildArShiptoUserCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArShiptoUserCode objects based on current ModelCriteria
+ * @method     ChildArShiptoUserCode[]|ObjectCollection findByArtbsusrcode(string $ArtbSusrCode) Return ChildArShiptoUserCode objects filtered by the ArtbSusrCode column
+ * @method     ChildArShiptoUserCode[]|ObjectCollection findByArtbsusrdesc(string $ArtbSusrDesc) Return ChildArShiptoUserCode objects filtered by the ArtbSusrDesc column
+ * @method     ChildArShiptoUserCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArShiptoUserCode objects filtered by the DateUpdtd column
+ * @method     ChildArShiptoUserCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArShiptoUserCode objects filtered by the TimeUpdtd column
+ * @method     ChildArShiptoUserCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArShiptoUserCode objects filtered by the dummy column
+ * @method     ChildArShiptoUserCode[]|\Propel\Runtime\Util\PropelModelPager paginate($page = 1, $maxPerPage = 10, ConnectionInterface $con = null) Issue a SELECT query based on the current ModelCriteria and uses a page and a maximum number of results per page to compute an offset and a limit
  *
  */
-abstract class ShiptoUserCodeQuery extends ModelCriteria
+abstract class ArShiptoUserCodeQuery extends ModelCriteria
 {
     protected $entityNotFoundExceptionClass = '\\Propel\\Runtime\\Exception\\EntityNotFoundException';
 
     /**
-     * Initializes internal state of \Base\ShiptoUserCodeQuery object.
+     * Initializes internal state of \Base\ArShiptoUserCodeQuery object.
      *
      * @param     string $dbName The database name
      * @param     string $modelName The phpName of a model, e.g. 'Book'
      * @param     string $modelAlias The alias for the model in this query, e.g. 'b'
      */
-    public function __construct($dbName = 'default', $modelName = '\\ShiptoUserCode', $modelAlias = null)
+    public function __construct($dbName = 'default', $modelName = '\\ArShiptoUserCode', $modelAlias = null)
     {
         parent::__construct($dbName, $modelName, $modelAlias);
     }
 
     /**
-     * Returns a new ChildShiptoUserCodeQuery object.
+     * Returns a new ChildArShiptoUserCodeQuery object.
      *
      * @param     string $modelAlias The alias of a model in the query
      * @param     Criteria $criteria Optional Criteria to build the query from
      *
-     * @return ChildShiptoUserCodeQuery
+     * @return ChildArShiptoUserCodeQuery
      */
     public static function create($modelAlias = null, Criteria $criteria = null)
     {
-        if ($criteria instanceof ChildShiptoUserCodeQuery) {
+        if ($criteria instanceof ChildArShiptoUserCodeQuery) {
             return $criteria;
         }
-        $query = new ChildShiptoUserCodeQuery();
+        $query = new ChildArShiptoUserCodeQuery();
         if (null !== $modelAlias) {
             $query->setModelAlias($modelAlias);
         }
@@ -118,7 +118,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param mixed $key Primary key to use for the query
      * @param ConnectionInterface $con an optional connection object
      *
-     * @return ChildShiptoUserCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArShiptoUserCode|array|mixed the result, formatted by the current formatter
      */
     public function findPk($key, ConnectionInterface $con = null)
     {
@@ -127,7 +127,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         $this->basePreSelect($con);
@@ -140,7 +140,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             return $this->findPkComplex($key, $con);
         }
 
-        if ((null !== ($obj = ShiptoUserCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
+        if ((null !== ($obj = ArShiptoUserCodeTableMap::getInstanceFromPool(null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key)))) {
             // the object is already in the instance pool
             return $obj;
         }
@@ -157,7 +157,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
-     * @return ChildShiptoUserCode A model object, or null if the key is not found
+     * @return ChildArShiptoUserCode A model object, or null if the key is not found
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
@@ -172,10 +172,10 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
         }
         $obj = null;
         if ($row = $stmt->fetch(\PDO::FETCH_NUM)) {
-            /** @var ChildShiptoUserCode $obj */
-            $obj = new ChildShiptoUserCode();
+            /** @var ChildArShiptoUserCode $obj */
+            $obj = new ChildArShiptoUserCode();
             $obj->hydrate($row);
-            ShiptoUserCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
+            ArShiptoUserCodeTableMap::addInstanceToPool($obj, null === $key || is_scalar($key) || is_callable([$key, '__toString']) ? (string) $key : $key);
         }
         $stmt->closeCursor();
 
@@ -188,7 +188,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     mixed $key Primary key to use for the query
      * @param     ConnectionInterface $con A connection object
      *
-     * @return ChildShiptoUserCode|array|mixed the result, formatted by the current formatter
+     * @return ChildArShiptoUserCode|array|mixed the result, formatted by the current formatter
      */
     protected function findPkComplex($key, ConnectionInterface $con)
     {
@@ -230,12 +230,12 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      *
      * @param     mixed $key Primary key to use for the query
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $key, Criteria::EQUAL);
     }
 
     /**
@@ -243,12 +243,12 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      *
      * @param     array $keys The list of primary key to use for the query
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $keys, Criteria::IN);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $keys, Criteria::IN);
     }
 
     /**
@@ -263,7 +263,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     string $artbsusrcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByArtbsusrcode($artbsusrcode = null, $comparison = null)
     {
@@ -273,7 +273,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $artbsusrcode, $comparison);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $artbsusrcode, $comparison);
     }
 
     /**
@@ -288,7 +288,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     string $artbsusrdesc The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByArtbsusrdesc($artbsusrdesc = null, $comparison = null)
     {
@@ -298,7 +298,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_ARTBSUSRDESC, $artbsusrdesc, $comparison);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC, $artbsusrdesc, $comparison);
     }
 
     /**
@@ -313,7 +313,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     string $dateupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByDateupdtd($dateupdtd = null, $comparison = null)
     {
@@ -323,7 +323,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_DATEUPDTD, $dateupdtd, $comparison);
     }
 
     /**
@@ -338,7 +338,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     string $timeupdtd The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByTimeupdtd($timeupdtd = null, $comparison = null)
     {
@@ -348,7 +348,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_TIMEUPDTD, $timeupdtd, $comparison);
     }
 
     /**
@@ -363,7 +363,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
      * @param     string $dummy The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function filterByDummy($dummy = null, $comparison = null)
     {
@@ -373,20 +373,20 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(ShiptoUserCodeTableMap::COL_DUMMY, $dummy, $comparison);
+        return $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_DUMMY, $dummy, $comparison);
     }
 
     /**
      * Exclude object from result
      *
-     * @param   ChildShiptoUserCode $shiptoUserCode Object to remove from the list of results
+     * @param   ChildArShiptoUserCode $shiptoUserCode Object to remove from the list of results
      *
-     * @return $this|ChildShiptoUserCodeQuery The current query, for fluid interface
+     * @return $this|ChildArShiptoUserCodeQuery The current query, for fluid interface
      */
     public function prune($shiptoUserCode = null)
     {
         if ($shiptoUserCode) {
-            $this->addUsingAlias(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $shiptoUserCode->getArtbsusrcode(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $shiptoUserCode->getArtbsusrcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
@@ -401,7 +401,7 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
     public function doDeleteAll(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         // use transaction because $criteria could contain info
@@ -412,8 +412,8 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
             // Because this db requires some delete cascade/set null emulation, we have to
             // clear the cached instance *after* the emulation has happened (since
             // instances get re-added by the select statement contained therein).
-            ShiptoUserCodeTableMap::clearInstancePool();
-            ShiptoUserCodeTableMap::clearRelatedInstancePool();
+            ArShiptoUserCodeTableMap::clearInstancePool();
+            ArShiptoUserCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
@@ -431,26 +431,26 @@ abstract class ShiptoUserCodeQuery extends ModelCriteria
     public function delete(ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         $criteria = $this;
 
         // Set the correct dbName
-        $criteria->setDbName(ShiptoUserCodeTableMap::DATABASE_NAME);
+        $criteria->setDbName(ArShiptoUserCodeTableMap::DATABASE_NAME);
 
         // use transaction because $criteria could contain info
         // for more than one table or we could emulating ON DELETE CASCADE, etc.
         return $con->transaction(function () use ($con, $criteria) {
             $affectedRows = 0; // initialize var to track total num of affected rows
 
-            ShiptoUserCodeTableMap::removeInstanceFromPool($criteria);
+            ArShiptoUserCodeTableMap::removeInstanceFromPool($criteria);
 
             $affectedRows += ModelCriteria::delete($con);
-            ShiptoUserCodeTableMap::clearRelatedInstancePool();
+            ArShiptoUserCodeTableMap::clearRelatedInstancePool();
 
             return $affectedRows;
         });
     }
 
-} // ShiptoUserCodeQuery
+} // ArShiptoUserCodeQuery

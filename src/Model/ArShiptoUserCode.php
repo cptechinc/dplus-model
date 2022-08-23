@@ -1,6 +1,6 @@
 <?php
 
-use Base\ShiptoUserCode as BaseShiptoUserCode;
+use Base\ArShiptoUserCode as BaseArShiptoUserCode;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'ar_cust_susr' table.
  */
-class ShiptoUserCode extends BaseShiptoUserCode {
+class ArShiptoUserCode extends BaseArShiptoUserCode {
     use ThrowErrorTrait;
 	use MagicMethodTraits;
 

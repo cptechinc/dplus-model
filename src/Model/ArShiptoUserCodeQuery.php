@@ -1,6 +1,6 @@
 <?php
 
-use Base\ShiptoUserCodeQuery as BaseShiptoUserCodeQuery;
+use Base\ArShiptoUserCodeQuery as BaseArShiptoUserCodeQuery;
 
 use Dplus\Model\QueryTraits;
 
@@ -22,6 +22,6 @@ use Dplus\Model\QueryTraits;
  *
  *
  */
-class ShiptoUserCodeQuery extends BaseShiptoUserCodeQuery {
+class ArShiptoUserCodeQuery extends BaseArShiptoUserCodeQuery {
 	use QueryTraits;
 }

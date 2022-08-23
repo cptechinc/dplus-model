@@ -1060,7 +1060,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cust_susr" idMethod="native" phpName="ShiptoUserCode">
+  <table name="ar_cust_susr" idMethod="native" phpName="ArShiptoUserCode">
     <column name="ArtbSusrCode" phpName="Artbsusrcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtbSusrDesc" phpName="Artbsusrdesc" type="VARCHAR" size="20"/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>

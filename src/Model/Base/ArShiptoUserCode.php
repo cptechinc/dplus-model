@@ -2,10 +2,10 @@
 
 namespace Base;
 
-use \ShiptoUserCodeQuery as ChildShiptoUserCodeQuery;
+use \ArShiptoUserCodeQuery as ChildArShiptoUserCodeQuery;
 use \Exception;
 use \PDO;
-use Map\ShiptoUserCodeTableMap;
+use Map\ArShiptoUserCodeTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,12 +25,12 @@ use Propel\Runtime\Parser\AbstractParser;
  *
  * @package    propel.generator..Base
  */
-abstract class ShiptoUserCode implements ActiveRecordInterface
+abstract class ArShiptoUserCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\ShiptoUserCodeTableMap';
+    const TABLE_MAP = '\\Map\\ArShiptoUserCodeTableMap';
 
 
     /**
@@ -115,7 +115,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\ShiptoUserCode object.
+     * Initializes internal state of Base\ArShiptoUserCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -212,9 +212,9 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>ShiptoUserCode</code> instance.  If
-     * <code>obj</code> is an instance of <code>ShiptoUserCode</code>, delegates to
-     * <code>equals(ShiptoUserCode)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>ArShiptoUserCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>ArShiptoUserCode</code>, delegates to
+     * <code>equals(ArShiptoUserCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -280,7 +280,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|ShiptoUserCode The current object, for fluid interface
+     * @return $this|ArShiptoUserCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -395,7 +395,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * Set the value of [artbsusrcode] column.
      *
      * @param string $v new value
-     * @return $this|\ShiptoUserCode The current object (for fluent API support)
+     * @return $this|\ArShiptoUserCode The current object (for fluent API support)
      */
     public function setArtbsusrcode($v)
     {
@@ -405,7 +405,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
         if ($this->artbsusrcode !== $v) {
             $this->artbsusrcode = $v;
-            $this->modifiedColumns[ShiptoUserCodeTableMap::COL_ARTBSUSRCODE] = true;
+            $this->modifiedColumns[ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE] = true;
         }
 
         return $this;
@@ -415,7 +415,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * Set the value of [artbsusrdesc] column.
      *
      * @param string $v new value
-     * @return $this|\ShiptoUserCode The current object (for fluent API support)
+     * @return $this|\ArShiptoUserCode The current object (for fluent API support)
      */
     public function setArtbsusrdesc($v)
     {
@@ -425,7 +425,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
         if ($this->artbsusrdesc !== $v) {
             $this->artbsusrdesc = $v;
-            $this->modifiedColumns[ShiptoUserCodeTableMap::COL_ARTBSUSRDESC] = true;
+            $this->modifiedColumns[ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC] = true;
         }
 
         return $this;
@@ -435,7 +435,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ShiptoUserCode The current object (for fluent API support)
+     * @return $this|\ArShiptoUserCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -445,7 +445,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[ShiptoUserCodeTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[ArShiptoUserCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -455,7 +455,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\ShiptoUserCode The current object (for fluent API support)
+     * @return $this|\ArShiptoUserCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -465,7 +465,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[ShiptoUserCodeTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[ArShiptoUserCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -475,7 +475,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\ShiptoUserCode The current object (for fluent API support)
+     * @return $this|\ArShiptoUserCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -485,7 +485,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[ShiptoUserCodeTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[ArShiptoUserCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -531,19 +531,19 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ShiptoUserCodeTableMap::translateFieldName('Artbsusrcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : ArShiptoUserCodeTableMap::translateFieldName('Artbsusrcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsusrcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ShiptoUserCodeTableMap::translateFieldName('Artbsusrdesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArShiptoUserCodeTableMap::translateFieldName('Artbsusrdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbsusrdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ShiptoUserCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArShiptoUserCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ShiptoUserCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArShiptoUserCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ShiptoUserCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArShiptoUserCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -553,10 +553,10 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 5; // 5 = ShiptoUserCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = ArShiptoUserCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\ShiptoUserCode'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\ArShiptoUserCode'), 0, $e);
         }
     }
 
@@ -598,13 +598,13 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildShiptoUserCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildArShiptoUserCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -623,8 +623,8 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see ShiptoUserCode::setDeleted()
-     * @see ShiptoUserCode::isDeleted()
+     * @see ArShiptoUserCode::setDeleted()
+     * @see ArShiptoUserCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -633,11 +633,11 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildShiptoUserCodeQuery::create()
+            $deleteQuery = ChildArShiptoUserCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -672,7 +672,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -691,7 +691,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                ShiptoUserCodeTableMap::addInstanceToPool($this);
+                ArShiptoUserCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -750,19 +750,19 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE)) {
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbSusrCode';
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_ARTBSUSRDESC)) {
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbSusrDesc';
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
@@ -830,7 +830,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ShiptoUserCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArShiptoUserCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -884,11 +884,11 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
     {
 
-        if (isset($alreadyDumpedObjects['ShiptoUserCode'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['ArShiptoUserCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['ShiptoUserCode'][$this->hashCode()] = true;
-        $keys = ShiptoUserCodeTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['ArShiptoUserCode'][$this->hashCode()] = true;
+        $keys = ArShiptoUserCodeTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getArtbsusrcode(),
             $keys[1] => $this->getArtbsusrdesc(),
@@ -914,11 +914,11 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\ShiptoUserCode
+     * @return $this|\ArShiptoUserCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = ShiptoUserCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = ArShiptoUserCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -929,7 +929,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\ShiptoUserCode
+     * @return $this|\ArShiptoUserCode
      */
     public function setByPosition($pos, $value)
     {
@@ -973,7 +973,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = ShiptoUserCodeTableMap::getFieldNames($keyType);
+        $keys = ArShiptoUserCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setArtbsusrcode($arr[$keys[0]]);
@@ -1009,7 +1009,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\ShiptoUserCode The current object, for fluid interface
+     * @return $this|\ArShiptoUserCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1029,22 +1029,22 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(ShiptoUserCodeTableMap::DATABASE_NAME);
+        $criteria = new Criteria(ArShiptoUserCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE)) {
-            $criteria->add(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $this->artbsusrcode);
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE)) {
+            $criteria->add(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $this->artbsusrcode);
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_ARTBSUSRDESC)) {
-            $criteria->add(ShiptoUserCodeTableMap::COL_ARTBSUSRDESC, $this->artbsusrdesc);
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC)) {
+            $criteria->add(ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC, $this->artbsusrdesc);
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_DATEUPDTD)) {
-            $criteria->add(ShiptoUserCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(ArShiptoUserCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(ShiptoUserCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(ArShiptoUserCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(ShiptoUserCodeTableMap::COL_DUMMY)) {
-            $criteria->add(ShiptoUserCodeTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(ArShiptoUserCodeTableMap::COL_DUMMY)) {
+            $criteria->add(ArShiptoUserCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1062,8 +1062,8 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildShiptoUserCodeQuery::create();
-        $criteria->add(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $this->artbsusrcode);
+        $criteria = ChildArShiptoUserCodeQuery::create();
+        $criteria->add(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, $this->artbsusrcode);
 
         return $criteria;
     }
@@ -1125,7 +1125,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \ShiptoUserCode (or compatible) type.
+     * @param      object $copyObj An object of \ArShiptoUserCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1151,7 +1151,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \ShiptoUserCode Clone of current object.
+     * @return \ArShiptoUserCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1206,7 +1206,7 @@ abstract class ShiptoUserCode implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(ShiptoUserCodeTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(ArShiptoUserCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

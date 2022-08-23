@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \ShiptoUserCode;
-use \ShiptoUserCodeQuery;
+use \ArShiptoUserCode;
+use \ArShiptoUserCodeQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class ShiptoUserCodeTableMap extends TableMap
+class ArShiptoUserCodeTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class ShiptoUserCodeTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ShiptoUserCodeTableMap';
+    const CLASS_NAME = '.Map.ArShiptoUserCodeTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ShiptoUserCodeTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\ShiptoUserCode';
+    const OM_CLASS = '\\ArShiptoUserCode';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'ShiptoUserCode';
+    const CLASS_DEFAULT = 'ArShiptoUserCode';
 
     /**
      * The total number of columns
@@ -110,7 +110,7 @@ class ShiptoUserCodeTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Artbsusrcode', 'Artbsusrdesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('artbsusrcode', 'artbsusrdesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, ShiptoUserCodeTableMap::COL_ARTBSUSRDESC, ShiptoUserCodeTableMap::COL_DATEUPDTD, ShiptoUserCodeTableMap::COL_TIMEUPDTD, ShiptoUserCodeTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC, ArShiptoUserCodeTableMap::COL_DATEUPDTD, ArShiptoUserCodeTableMap::COL_TIMEUPDTD, ArShiptoUserCodeTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArtbSusrCode', 'ArtbSusrDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -124,7 +124,7 @@ class ShiptoUserCodeTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Artbsusrcode' => 0, 'Artbsusrdesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
         self::TYPE_CAMELNAME     => array('artbsusrcode' => 0, 'artbsusrdesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
-        self::TYPE_COLNAME       => array(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE => 0, ShiptoUserCodeTableMap::COL_ARTBSUSRDESC => 1, ShiptoUserCodeTableMap::COL_DATEUPDTD => 2, ShiptoUserCodeTableMap::COL_TIMEUPDTD => 3, ShiptoUserCodeTableMap::COL_DUMMY => 4, ),
+        self::TYPE_COLNAME       => array(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE => 0, ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC => 1, ArShiptoUserCodeTableMap::COL_DATEUPDTD => 2, ArShiptoUserCodeTableMap::COL_TIMEUPDTD => 3, ArShiptoUserCodeTableMap::COL_DUMMY => 4, ),
         self::TYPE_FIELDNAME     => array('ArtbSusrCode' => 0, 'ArtbSusrDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
@@ -140,9 +140,9 @@ class ShiptoUserCodeTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cust_susr');
-        $this->setPhpName('ShiptoUserCode');
+        $this->setPhpName('ArShiptoUserCode');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\ShiptoUserCode');
+        $this->setClassName('\\ArShiptoUserCode');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -217,7 +217,7 @@ class ShiptoUserCodeTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? ShiptoUserCodeTableMap::CLASS_DEFAULT : ShiptoUserCodeTableMap::OM_CLASS;
+        return $withPrefix ? ArShiptoUserCodeTableMap::CLASS_DEFAULT : ArShiptoUserCodeTableMap::OM_CLASS;
     }
 
     /**
@@ -231,22 +231,22 @@ class ShiptoUserCodeTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (ShiptoUserCode object, last column rank)
+     * @return array           (ArShiptoUserCode object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = ShiptoUserCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = ShiptoUserCodeTableMap::getInstanceFromPool($key))) {
+        $key = ArShiptoUserCodeTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArShiptoUserCodeTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + ShiptoUserCodeTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArShiptoUserCodeTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ShiptoUserCodeTableMap::OM_CLASS;
-            /** @var ShiptoUserCode $obj */
+            $cls = ArShiptoUserCodeTableMap::OM_CLASS;
+            /** @var ArShiptoUserCode $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            ShiptoUserCodeTableMap::addInstanceToPool($obj, $key);
+            ArShiptoUserCodeTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -269,18 +269,18 @@ class ShiptoUserCodeTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = ShiptoUserCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = ShiptoUserCodeTableMap::getInstanceFromPool($key))) {
+            $key = ArShiptoUserCodeTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArShiptoUserCodeTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var ShiptoUserCode $obj */
+                /** @var ArShiptoUserCode $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ShiptoUserCodeTableMap::addInstanceToPool($obj, $key);
+                ArShiptoUserCodeTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -301,11 +301,11 @@ class ShiptoUserCodeTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE);
-            $criteria->addSelectColumn(ShiptoUserCodeTableMap::COL_ARTBSUSRDESC);
-            $criteria->addSelectColumn(ShiptoUserCodeTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(ShiptoUserCodeTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(ShiptoUserCodeTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE);
+            $criteria->addSelectColumn(ArShiptoUserCodeTableMap::COL_ARTBSUSRDESC);
+            $criteria->addSelectColumn(ArShiptoUserCodeTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArShiptoUserCodeTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArShiptoUserCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbSusrCode');
             $criteria->addSelectColumn($alias . '.ArtbSusrDesc');
@@ -324,7 +324,7 @@ class ShiptoUserCodeTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(ShiptoUserCodeTableMap::DATABASE_NAME)->getTable(ShiptoUserCodeTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArShiptoUserCodeTableMap::DATABASE_NAME)->getTable(ArShiptoUserCodeTableMap::TABLE_NAME);
     }
 
     /**
@@ -332,16 +332,16 @@ class ShiptoUserCodeTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ShiptoUserCodeTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ShiptoUserCodeTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ShiptoUserCodeTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArShiptoUserCodeTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArShiptoUserCodeTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArShiptoUserCodeTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a ShiptoUserCode or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArShiptoUserCode or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or ShiptoUserCode object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArShiptoUserCode object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -352,27 +352,27 @@ class ShiptoUserCodeTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \ShiptoUserCode) { // it's a model object
+        } elseif ($values instanceof \ArShiptoUserCode) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ShiptoUserCodeTableMap::DATABASE_NAME);
-            $criteria->add(ShiptoUserCodeTableMap::COL_ARTBSUSRCODE, (array) $values, Criteria::IN);
+            $criteria = new Criteria(ArShiptoUserCodeTableMap::DATABASE_NAME);
+            $criteria->add(ArShiptoUserCodeTableMap::COL_ARTBSUSRCODE, (array) $values, Criteria::IN);
         }
 
-        $query = ShiptoUserCodeQuery::create()->mergeWith($criteria);
+        $query = ArShiptoUserCodeQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            ShiptoUserCodeTableMap::clearInstancePool();
+            ArShiptoUserCodeTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                ShiptoUserCodeTableMap::removeInstanceFromPool($singleval);
+                ArShiptoUserCodeTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -387,13 +387,13 @@ class ShiptoUserCodeTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return ShiptoUserCodeQuery::create()->doDeleteAll($con);
+        return ArShiptoUserCodeQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a ShiptoUserCode or Criteria object.
+     * Performs an INSERT on the database, given a ArShiptoUserCode or Criteria object.
      *
-     * @param mixed               $criteria Criteria or ShiptoUserCode object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArShiptoUserCode object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -402,18 +402,18 @@ class ShiptoUserCodeTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ShiptoUserCodeTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArShiptoUserCodeTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from ShiptoUserCode object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArShiptoUserCode object
         }
 
 
         // Set the correct dbName
-        $query = ShiptoUserCodeQuery::create()->mergeWith($criteria);
+        $query = ArShiptoUserCodeQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -422,7 +422,7 @@ class ShiptoUserCodeTableMap extends TableMap
         });
     }
 
-} // ShiptoUserCodeTableMap
+} // ArShiptoUserCodeTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-ShiptoUserCodeTableMap::buildTableMap();
+ArShiptoUserCodeTableMap::buildTableMap();
