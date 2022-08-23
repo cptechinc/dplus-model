@@ -56,6 +56,16 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	);
 
 	/**
+	* @var        PurchaseOrder
+	*/
+	protected $aPurchaseOrder;
+
+	/**
+	* @var        PurchaseOrderDetail
+	*/
+	protected $aPurchaseOrderDetail;
+
+	/**
 	 * Return Special Order Description
 	 * @return string
 	 */
@@ -87,5 +97,21 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	 */
 	public function getItem() {
 		return ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+	}
+
+	/**
+	 * Return PurchaseOrder Associated with this SalesOrderDetail
+	 * @return PurchaseOrder
+	 */
+	public function getPurchaseOrder() {
+		if ($this->aPurchaseOrder instanceof PurchaseOrder) {
+			return $this->aPurchaseOrder;
+		}
+		if (intval($this->ponbr) == 0) {
+			$this->aPurchaseOrder = new PurchaseOrder();
+			return $this->aPurchaseOrder;
+		}
+		$this->aPurchaseOrder = PurchaseOrderQuery::create()->findOneByPonbr($this->ponbr);
+		return $this->aPurchaseOrder;
 	}
 }
