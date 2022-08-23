@@ -17,22 +17,17 @@ class NoteArCustType extends BaseNoteArCustType {
 	/**
 	 * Note Types
 	 */
-	const TYPES = array(
-		'SCTP',
-		'ICTP',
-		'PCTP',
-		'KCTP'
-	);
+	const TYPES = ['SCTP', 'ICTP', 'PCTP', 'KCTP'];
 
 	/**
 	 * Note Types
 	 */
-	const TYPE_ALIASES = array(
+	const TYPE_ALIASES = [
 		'statement' => 'SCTP',
 		'invoice'   => 'ICTP',
 		'pick'      => 'PCTP',
 		'pack'      => 'KCTP'
-	);
+	];
 
 	/**
 	 * Note Types
@@ -68,5 +63,4 @@ class NoteArCustType extends BaseNoteArCustType {
 	public static function get_type_description($type) {
 		return self::TYPES_DESCRIPTIONS[$type];
 	}
-
 }
