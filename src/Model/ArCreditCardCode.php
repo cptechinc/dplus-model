@@ -27,6 +27,7 @@ class ArCreditCardCode extends BaseArCreditCardCode {
 		'glaccountnbr'            => 'artbcrcdglacct',
 		'custid'                  => 'artbcrcdcustid',
 		'charge_gl_account'       => 'artbcrcdchrgglacct',
+		'gl_account_charge'       => 'artbcrcdchrgglacct',
 		'glchargeaccountnbr'      => 'artbcrcdchrgglacct',
 		'charge_rate'             => 'artbcrcdchrgrate',
 		'servicerate'             => 'artbcrcdchrgrate',
