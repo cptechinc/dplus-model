@@ -326,6 +326,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithSoFreightRate() Adds a RIGHT JOIN clause and with to the query using the SoFreightRate relation
  * @method     ChildCustomerQuery innerJoinWithSoFreightRate() Adds a INNER JOIN clause and with to the query using the SoFreightRate relation
  *
+ * @method     ChildCustomerQuery leftJoinArCust3partyFreight($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArCust3partyFreight relation
+ * @method     ChildCustomerQuery rightJoinArCust3partyFreight($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArCust3partyFreight relation
+ * @method     ChildCustomerQuery innerJoinArCust3partyFreight($relationAlias = null) Adds a INNER JOIN clause to the query using the ArCust3partyFreight relation
+ *
+ * @method     ChildCustomerQuery joinWithArCust3partyFreight($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArCust3partyFreight relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithArCust3partyFreight() Adds a LEFT JOIN clause and with to the query using the ArCust3partyFreight relation
+ * @method     ChildCustomerQuery rightJoinWithArCust3partyFreight() Adds a RIGHT JOIN clause and with to the query using the ArCust3partyFreight relation
+ * @method     ChildCustomerQuery innerJoinWithArCust3partyFreight() Adds a INNER JOIN clause and with to the query using the ArCust3partyFreight relation
+ *
  * @method     ChildCustomerQuery leftJoinArPaymentPending($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArPaymentPending relation
  * @method     ChildCustomerQuery rightJoinArPaymentPending($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArPaymentPending relation
  * @method     ChildCustomerQuery innerJoinArPaymentPending($relationAlias = null) Adds a INNER JOIN clause to the query using the ArPaymentPending relation
@@ -436,7 +446,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -5756,6 +5766,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinSoFreightRate($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SoFreightRate', '\SoFreightRateQuery');
+    }
+
+    /**
+     * Filter the query by a related \ArCust3partyFreight object
+     *
+     * @param \ArCust3partyFreight|ObjectCollection $arCust3partyFreight the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByArCust3partyFreight($arCust3partyFreight, $comparison = null)
+    {
+        if ($arCust3partyFreight instanceof \ArCust3partyFreight) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $arCust3partyFreight->getArcucustid(), $comparison);
+        } elseif ($arCust3partyFreight instanceof ObjectCollection) {
+            return $this
+                ->useArCust3partyFreightQuery()
+                ->filterByPrimaryKeys($arCust3partyFreight->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByArCust3partyFreight() only accepts arguments of type \ArCust3partyFreight or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArCust3partyFreight relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinArCust3partyFreight($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArCust3partyFreight');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArCust3partyFreight');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArCust3partyFreight relation ArCust3partyFreight object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArCust3partyFreightQuery A secondary query class using the current class as primary query
+     */
+    public function useArCust3partyFreightQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArCust3partyFreight($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArCust3partyFreight', '\ArCust3partyFreightQuery');
     }
 
     /**

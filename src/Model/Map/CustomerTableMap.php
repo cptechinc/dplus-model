@@ -947,6 +947,13 @@ class CustomerTableMap extends TableMap
     1 => ':SfrtRateCode',
   ),
 ), null, null, null, false);
+        $this->addRelation('ArCust3partyFreight', '\\ArCust3partyFreight', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ArCust3partyFreights', false);
         $this->addRelation('ArPaymentPending', '\\ArPaymentPending', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

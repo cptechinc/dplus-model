@@ -577,6 +577,34 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_3party" idMethod="native" phpName="ArCust3partyFreight">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="Ar3pAcctNbr" phpName="Ar3pacctnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>
+    <column name="Ar3pName" phpName="Ar3pname" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="Ar3pAdr1" phpName="Ar3padr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="Ar3pAdr2" phpName="Ar3padr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="Ar3pAdr3" phpName="Ar3padr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="Ar3pCtry" phpName="Ar3pctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="Ar3pCity" phpName="Ar3pcity" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="Ar3pStat" phpName="Ar3pstat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="Ar3pZipCode" phpName="Ar3pzipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="Ar3pIntl" phpName="Ar3pintl" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="Ar3pTeleNbr" phpName="Ar3ptelenbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="Ar3pTeleExt" phpName="Ar3pteleext" type="VARCHAR" size="7" required="true" defaultValue=""/>
+    <column name="Ar3pItelNbr" phpName="Ar3pitelnbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="Ar3pItelExt" phpName="Ar3pitelext" type="VARCHAR" size="7" required="true" defaultValue=""/>
+    <column name="Ar3pFaxNbr" phpName="Ar3pfaxnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="Ar3pIfaxNbr" phpName="Ar3pifaxnbr" type="VARCHAR" size="22" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="ar_cash_det" idMethod="native" phpName="ArPaymentPending">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcdInvNbr" phpName="Arcdinvnbr" type="VARCHAR" size="10" primaryKey="true" required="true" defaultValue=""/>

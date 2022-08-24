@@ -6,6 +6,8 @@ use \ArCashHead as ChildArCashHead;
 use \ArCashHeadQuery as ChildArCashHeadQuery;
 use \ArCommissionCode as ChildArCommissionCode;
 use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
+use \ArCust3partyFreight as ChildArCust3partyFreight;
+use \ArCust3partyFreightQuery as ChildArCust3partyFreightQuery;
 use \ArInvoice as ChildArInvoice;
 use \ArInvoiceQuery as ChildArInvoiceQuery;
 use \ArPaymentPending as ChildArPaymentPending;
@@ -34,6 +36,7 @@ use \SoFreightRate as ChildSoFreightRate;
 use \SoFreightRateQuery as ChildSoFreightRateQuery;
 use \Exception;
 use \PDO;
+use Map\ArCust3partyFreightTableMap;
 use Map\ArInvoiceTableMap;
 use Map\ArPaymentPendingTableMap;
 use Map\BookingDayCustomerTableMap;
@@ -1047,6 +1050,12 @@ abstract class Customer implements ActiveRecordInterface
     protected $aSoFreightRate;
 
     /**
+     * @var        ObjectCollection|ChildArCust3partyFreight[] Collection to store aggregation of ChildArCust3partyFreight objects.
+     */
+    protected $collArCust3partyFreights;
+    protected $collArCust3partyFreightsPartial;
+
+    /**
      * @var        ObjectCollection|ChildArPaymentPending[] Collection to store aggregation of ChildArPaymentPending objects.
      */
     protected $collArPaymentPendings;
@@ -1118,6 +1127,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildArCust3partyFreight[]
+     */
+    protected $arCust3partyFreightsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -5938,6 +5953,8 @@ abstract class Customer implements ActiveRecordInterface
             $this->aArCommissionCode = null;
             $this->aShipvia = null;
             $this->aSoFreightRate = null;
+            $this->collArCust3partyFreights = null;
+
             $this->collArPaymentPendings = null;
 
             $this->singleArCashHead = null;
@@ -6098,6 +6115,23 @@ abstract class Customer implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->arCust3partyFreightsScheduledForDeletion !== null) {
+                if (!$this->arCust3partyFreightsScheduledForDeletion->isEmpty()) {
+                    \ArCust3partyFreightQuery::create()
+                        ->filterByPrimaryKeys($this->arCust3partyFreightsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->arCust3partyFreightsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collArCust3partyFreights !== null) {
+                foreach ($this->collArCust3partyFreights as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->arPaymentPendingsScheduledForDeletion !== null) {
@@ -7777,6 +7811,21 @@ abstract class Customer implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aSoFreightRate->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collArCust3partyFreights) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arCust3partyFreights';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_3parties';
+                        break;
+                    default:
+                        $key = 'ArCust3partyFreights';
+                }
+
+                $result[$key] = $this->collArCust3partyFreights->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collArPaymentPendings) {
 
@@ -9466,6 +9515,12 @@ abstract class Customer implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getArCust3partyFreights() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addArCust3partyFreight($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getArPaymentPendings() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addArPaymentPending($relObj->copy($deepCopy));
@@ -9724,6 +9779,10 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ArCust3partyFreight' == $relationName) {
+            $this->initArCust3partyFreights();
+            return;
+        }
         if ('ArPaymentPending' == $relationName) {
             $this->initArPaymentPendings();
             return;
@@ -9764,6 +9823,234 @@ abstract class Customer implements ActiveRecordInterface
             $this->initItemPricingDiscounts();
             return;
         }
+    }
+
+    /**
+     * Clears out the collArCust3partyFreights collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addArCust3partyFreights()
+     */
+    public function clearArCust3partyFreights()
+    {
+        $this->collArCust3partyFreights = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collArCust3partyFreights collection loaded partially.
+     */
+    public function resetPartialArCust3partyFreights($v = true)
+    {
+        $this->collArCust3partyFreightsPartial = $v;
+    }
+
+    /**
+     * Initializes the collArCust3partyFreights collection.
+     *
+     * By default this just sets the collArCust3partyFreights collection to an empty array (like clearcollArCust3partyFreights());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initArCust3partyFreights($overrideExisting = true)
+    {
+        if (null !== $this->collArCust3partyFreights && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ArCust3partyFreightTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collArCust3partyFreights = new $collectionClassName;
+        $this->collArCust3partyFreights->setModel('\ArCust3partyFreight');
+    }
+
+    /**
+     * Gets an array of ChildArCust3partyFreight objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildArCust3partyFreight[] List of ChildArCust3partyFreight objects
+     * @throws PropelException
+     */
+    public function getArCust3partyFreights(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArCust3partyFreightsPartial && !$this->isNew();
+        if (null === $this->collArCust3partyFreights || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collArCust3partyFreights) {
+                // return empty collection
+                $this->initArCust3partyFreights();
+            } else {
+                $collArCust3partyFreights = ChildArCust3partyFreightQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collArCust3partyFreightsPartial && count($collArCust3partyFreights)) {
+                        $this->initArCust3partyFreights(false);
+
+                        foreach ($collArCust3partyFreights as $obj) {
+                            if (false == $this->collArCust3partyFreights->contains($obj)) {
+                                $this->collArCust3partyFreights->append($obj);
+                            }
+                        }
+
+                        $this->collArCust3partyFreightsPartial = true;
+                    }
+
+                    return $collArCust3partyFreights;
+                }
+
+                if ($partial && $this->collArCust3partyFreights) {
+                    foreach ($this->collArCust3partyFreights as $obj) {
+                        if ($obj->isNew()) {
+                            $collArCust3partyFreights[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collArCust3partyFreights = $collArCust3partyFreights;
+                $this->collArCust3partyFreightsPartial = false;
+            }
+        }
+
+        return $this->collArCust3partyFreights;
+    }
+
+    /**
+     * Sets a collection of ChildArCust3partyFreight objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $arCust3partyFreights A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setArCust3partyFreights(Collection $arCust3partyFreights, ConnectionInterface $con = null)
+    {
+        /** @var ChildArCust3partyFreight[] $arCust3partyFreightsToDelete */
+        $arCust3partyFreightsToDelete = $this->getArCust3partyFreights(new Criteria(), $con)->diff($arCust3partyFreights);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->arCust3partyFreightsScheduledForDeletion = clone $arCust3partyFreightsToDelete;
+
+        foreach ($arCust3partyFreightsToDelete as $arCust3partyFreightRemoved) {
+            $arCust3partyFreightRemoved->setCustomer(null);
+        }
+
+        $this->collArCust3partyFreights = null;
+        foreach ($arCust3partyFreights as $arCust3partyFreight) {
+            $this->addArCust3partyFreight($arCust3partyFreight);
+        }
+
+        $this->collArCust3partyFreights = $arCust3partyFreights;
+        $this->collArCust3partyFreightsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ArCust3partyFreight objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ArCust3partyFreight objects.
+     * @throws PropelException
+     */
+    public function countArCust3partyFreights(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArCust3partyFreightsPartial && !$this->isNew();
+        if (null === $this->collArCust3partyFreights || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collArCust3partyFreights) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getArCust3partyFreights());
+            }
+
+            $query = ChildArCust3partyFreightQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collArCust3partyFreights);
+    }
+
+    /**
+     * Method called to associate a ChildArCust3partyFreight object to this object
+     * through the ChildArCust3partyFreight foreign key attribute.
+     *
+     * @param  ChildArCust3partyFreight $l ChildArCust3partyFreight
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addArCust3partyFreight(ChildArCust3partyFreight $l)
+    {
+        if ($this->collArCust3partyFreights === null) {
+            $this->initArCust3partyFreights();
+            $this->collArCust3partyFreightsPartial = true;
+        }
+
+        if (!$this->collArCust3partyFreights->contains($l)) {
+            $this->doAddArCust3partyFreight($l);
+
+            if ($this->arCust3partyFreightsScheduledForDeletion and $this->arCust3partyFreightsScheduledForDeletion->contains($l)) {
+                $this->arCust3partyFreightsScheduledForDeletion->remove($this->arCust3partyFreightsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildArCust3partyFreight $arCust3partyFreight The ChildArCust3partyFreight object to add.
+     */
+    protected function doAddArCust3partyFreight(ChildArCust3partyFreight $arCust3partyFreight)
+    {
+        $this->collArCust3partyFreights[]= $arCust3partyFreight;
+        $arCust3partyFreight->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildArCust3partyFreight $arCust3partyFreight The ChildArCust3partyFreight object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeArCust3partyFreight(ChildArCust3partyFreight $arCust3partyFreight)
+    {
+        if ($this->getArCust3partyFreights()->contains($arCust3partyFreight)) {
+            $pos = $this->collArCust3partyFreights->search($arCust3partyFreight);
+            $this->collArCust3partyFreights->remove($pos);
+            if (null === $this->arCust3partyFreightsScheduledForDeletion) {
+                $this->arCust3partyFreightsScheduledForDeletion = clone $this->collArCust3partyFreights;
+                $this->arCust3partyFreightsScheduledForDeletion->clear();
+            }
+            $this->arCust3partyFreightsScheduledForDeletion[]= clone $arCust3partyFreight;
+            $arCust3partyFreight->setCustomer(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -12513,6 +12800,11 @@ abstract class Customer implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collArCust3partyFreights) {
+                foreach ($this->collArCust3partyFreights as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collArPaymentPendings) {
                 foreach ($this->collArPaymentPendings as $o) {
                     $o->clearAllReferences($deep);
@@ -12568,6 +12860,7 @@ abstract class Customer implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collArCust3partyFreights = null;
         $this->collArPaymentPendings = null;
         $this->singleArCashHead = null;
         $this->collArInvoices = null;
