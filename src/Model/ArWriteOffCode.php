@@ -23,8 +23,6 @@ class ArWriteOffCode extends BaseArWriteOffCode {
 		'id'		   => 'artbwoffcode',
 		'code'		   => 'artbwoffcode',
 		'description'  => 'artbwoffdesc',
-		'yesno' 	   => 'artbwoffyn',
-		'writeoff' 	   => 'artbwoffyn',
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd'
 	);
