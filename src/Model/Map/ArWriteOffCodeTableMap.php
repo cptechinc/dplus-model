@@ -59,7 +59,7 @@ class ArWriteOffCodeTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 6;
+    const NUM_COLUMNS = 5;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class ArWriteOffCodeTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 6;
+    const NUM_HYDRATE_COLUMNS = 5;
 
     /**
      * the column name for the ArtbWoffCode field
@@ -80,11 +80,6 @@ class ArWriteOffCodeTableMap extends TableMap
      * the column name for the ArtbWoffDesc field
      */
     const COL_ARTBWOFFDESC = 'ar_cust_woff.ArtbWoffDesc';
-
-    /**
-     * the column name for the ArtbWoffYn field
-     */
-    const COL_ARTBWOFFYN = 'ar_cust_woff.ArtbWoffYn';
 
     /**
      * the column name for the DateUpdtd field
@@ -113,11 +108,11 @@ class ArWriteOffCodeTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Artbwoffcode', 'Artbwoffdesc', 'Artbwoffyn', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('artbwoffcode', 'artbwoffdesc', 'artbwoffyn', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, ArWriteOffCodeTableMap::COL_ARTBWOFFYN, ArWriteOffCodeTableMap::COL_DATEUPDTD, ArWriteOffCodeTableMap::COL_TIMEUPDTD, ArWriteOffCodeTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('ArtbWoffCode', 'ArtbWoffDesc', 'ArtbWoffYn', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Artbwoffcode', 'Artbwoffdesc', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('artbwoffcode', 'artbwoffdesc', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, ArWriteOffCodeTableMap::COL_DATEUPDTD, ArWriteOffCodeTableMap::COL_TIMEUPDTD, ArWriteOffCodeTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('ArtbWoffCode', 'ArtbWoffDesc', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
 
     /**
@@ -127,11 +122,11 @@ class ArWriteOffCodeTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Artbwoffcode' => 0, 'Artbwoffdesc' => 1, 'Artbwoffyn' => 2, 'Dateupdtd' => 3, 'Timeupdtd' => 4, 'Dummy' => 5, ),
-        self::TYPE_CAMELNAME     => array('artbwoffcode' => 0, 'artbwoffdesc' => 1, 'artbwoffyn' => 2, 'dateupdtd' => 3, 'timeupdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE => 0, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC => 1, ArWriteOffCodeTableMap::COL_ARTBWOFFYN => 2, ArWriteOffCodeTableMap::COL_DATEUPDTD => 3, ArWriteOffCodeTableMap::COL_TIMEUPDTD => 4, ArWriteOffCodeTableMap::COL_DUMMY => 5, ),
-        self::TYPE_FIELDNAME     => array('ArtbWoffCode' => 0, 'ArtbWoffDesc' => 1, 'ArtbWoffYn' => 2, 'DateUpdtd' => 3, 'TimeUpdtd' => 4, 'dummy' => 5, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, )
+        self::TYPE_PHPNAME       => array('Artbwoffcode' => 0, 'Artbwoffdesc' => 1, 'Dateupdtd' => 2, 'Timeupdtd' => 3, 'Dummy' => 4, ),
+        self::TYPE_CAMELNAME     => array('artbwoffcode' => 0, 'artbwoffdesc' => 1, 'dateupdtd' => 2, 'timeupdtd' => 3, 'dummy' => 4, ),
+        self::TYPE_COLNAME       => array(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE => 0, ArWriteOffCodeTableMap::COL_ARTBWOFFDESC => 1, ArWriteOffCodeTableMap::COL_DATEUPDTD => 2, ArWriteOffCodeTableMap::COL_TIMEUPDTD => 3, ArWriteOffCodeTableMap::COL_DUMMY => 4, ),
+        self::TYPE_FIELDNAME     => array('ArtbWoffCode' => 0, 'ArtbWoffDesc' => 1, 'DateUpdtd' => 2, 'TimeUpdtd' => 3, 'dummy' => 4, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, )
     );
 
     /**
@@ -153,7 +148,6 @@ class ArWriteOffCodeTableMap extends TableMap
         // columns
         $this->addPrimaryKey('ArtbWoffCode', 'Artbwoffcode', 'VARCHAR', true, 8, '');
         $this->addColumn('ArtbWoffDesc', 'Artbwoffdesc', 'VARCHAR', false, 20, null);
-        $this->addColumn('ArtbWoffYn', 'Artbwoffyn', 'VARCHAR', false, 1, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
@@ -309,14 +303,12 @@ class ArWriteOffCodeTableMap extends TableMap
         if (null === $alias) {
             $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE);
             $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC);
-            $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_ARTBWOFFYN);
             $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(ArWriteOffCodeTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArtbWoffCode');
             $criteria->addSelectColumn($alias . '.ArtbWoffDesc');
-            $criteria->addSelectColumn($alias . '.ArtbWoffYn');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

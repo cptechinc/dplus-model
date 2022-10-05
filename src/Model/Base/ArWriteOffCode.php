@@ -75,13 +75,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
     protected $artbwoffdesc;
 
     /**
-     * The value for the artbwoffyn field.
-     *
-     * @var        string
-     */
-    protected $artbwoffyn;
-
-    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -369,16 +362,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbwoffyn] column value.
-     *
-     * @return string
-     */
-    public function getArtbwoffyn()
-    {
-        return $this->artbwoffyn;
-    }
-
-    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -447,26 +430,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
 
         return $this;
     } // setArtbwoffdesc()
-
-    /**
-     * Set the value of [artbwoffyn] column.
-     *
-     * @param string $v new value
-     * @return $this|\ArWriteOffCode The current object (for fluent API support)
-     */
-    public function setArtbwoffyn($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->artbwoffyn !== $v) {
-            $this->artbwoffyn = $v;
-            $this->modifiedColumns[ArWriteOffCodeTableMap::COL_ARTBWOFFYN] = true;
-        }
-
-        return $this;
-    } // setArtbwoffyn()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -574,16 +537,13 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Artbwoffdesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbwoffdesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Artbwoffyn', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbwoffyn = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : ArWriteOffCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -593,7 +553,7 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 6; // 6 = ArWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = ArWriteOffCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ArWriteOffCode'), 0, $e);
@@ -796,9 +756,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
         if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbWoffDesc';
         }
-        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbWoffYn';
-        }
         if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -824,9 +781,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
                         break;
                     case 'ArtbWoffDesc':
                         $stmt->bindValue($identifier, $this->artbwoffdesc, PDO::PARAM_STR);
-                        break;
-                    case 'ArtbWoffYn':
-                        $stmt->bindValue($identifier, $this->artbwoffyn, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -899,15 +853,12 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
                 return $this->getArtbwoffdesc();
                 break;
             case 2:
-                return $this->getArtbwoffyn();
-                break;
-            case 3:
                 return $this->getDateupdtd();
                 break;
-            case 4:
+            case 3:
                 return $this->getTimeupdtd();
                 break;
-            case 5:
+            case 4:
                 return $this->getDummy();
                 break;
             default:
@@ -941,10 +892,9 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
         $result = array(
             $keys[0] => $this->getArtbwoffcode(),
             $keys[1] => $this->getArtbwoffdesc(),
-            $keys[2] => $this->getArtbwoffyn(),
-            $keys[3] => $this->getDateupdtd(),
-            $keys[4] => $this->getTimeupdtd(),
-            $keys[5] => $this->getDummy(),
+            $keys[2] => $this->getDateupdtd(),
+            $keys[3] => $this->getTimeupdtd(),
+            $keys[4] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -991,15 +941,12 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
                 $this->setArtbwoffdesc($value);
                 break;
             case 2:
-                $this->setArtbwoffyn($value);
-                break;
-            case 3:
                 $this->setDateupdtd($value);
                 break;
-            case 4:
+            case 3:
                 $this->setTimeupdtd($value);
                 break;
-            case 5:
+            case 4:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1035,16 +982,13 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
             $this->setArtbwoffdesc($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setArtbwoffyn($arr[$keys[2]]);
+            $this->setDateupdtd($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setDateupdtd($arr[$keys[3]]);
+            $this->setTimeupdtd($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setTimeupdtd($arr[$keys[4]]);
-        }
-        if (array_key_exists($keys[5], $arr)) {
-            $this->setDummy($arr[$keys[5]]);
+            $this->setDummy($arr[$keys[4]]);
         }
     }
 
@@ -1092,9 +1036,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC)) {
             $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFDESC, $this->artbwoffdesc);
-        }
-        if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_ARTBWOFFYN)) {
-            $criteria->add(ArWriteOffCodeTableMap::COL_ARTBWOFFYN, $this->artbwoffyn);
         }
         if ($this->isColumnModified(ArWriteOffCodeTableMap::COL_DATEUPDTD)) {
             $criteria->add(ArWriteOffCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1193,7 +1134,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
     {
         $copyObj->setArtbwoffcode($this->getArtbwoffcode());
         $copyObj->setArtbwoffdesc($this->getArtbwoffdesc());
-        $copyObj->setArtbwoffyn($this->getArtbwoffyn());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1233,7 +1173,6 @@ abstract class ArWriteOffCode implements ActiveRecordInterface
     {
         $this->artbwoffcode = null;
         $this->artbwoffdesc = null;
-        $this->artbwoffyn = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

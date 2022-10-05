@@ -21,14 +21,12 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildArWriteOffCodeQuery orderByArtbwoffcode($order = Criteria::ASC) Order by the ArtbWoffCode column
  * @method     ChildArWriteOffCodeQuery orderByArtbwoffdesc($order = Criteria::ASC) Order by the ArtbWoffDesc column
- * @method     ChildArWriteOffCodeQuery orderByArtbwoffyn($order = Criteria::ASC) Order by the ArtbWoffYn column
  * @method     ChildArWriteOffCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildArWriteOffCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildArWriteOffCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
  * @method     ChildArWriteOffCodeQuery groupByArtbwoffcode() Group by the ArtbWoffCode column
  * @method     ChildArWriteOffCodeQuery groupByArtbwoffdesc() Group by the ArtbWoffDesc column
- * @method     ChildArWriteOffCodeQuery groupByArtbwoffyn() Group by the ArtbWoffYn column
  * @method     ChildArWriteOffCodeQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildArWriteOffCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildArWriteOffCodeQuery groupByDummy() Group by the dummy column
@@ -46,7 +44,6 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildArWriteOffCode findOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildArWriteOffCode filtered by the ArtbWoffCode column
  * @method     ChildArWriteOffCode findOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildArWriteOffCode filtered by the ArtbWoffDesc column
- * @method     ChildArWriteOffCode findOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildArWriteOffCode filtered by the ArtbWoffYn column
  * @method     ChildArWriteOffCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArWriteOffCode filtered by the DateUpdtd column
  * @method     ChildArWriteOffCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArWriteOffCode filtered by the TimeUpdtd column
  * @method     ChildArWriteOffCode findOneByDummy(string $dummy) Return the first ChildArWriteOffCode filtered by the dummy column *
@@ -56,7 +53,6 @@ use Propel\Runtime\Exception\PropelException;
  *
  * @method     ChildArWriteOffCode requireOneByArtbwoffcode(string $ArtbWoffCode) Return the first ChildArWriteOffCode filtered by the ArtbWoffCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArWriteOffCode requireOneByArtbwoffdesc(string $ArtbWoffDesc) Return the first ChildArWriteOffCode filtered by the ArtbWoffDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArWriteOffCode requireOneByArtbwoffyn(string $ArtbWoffYn) Return the first ChildArWriteOffCode filtered by the ArtbWoffYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArWriteOffCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArWriteOffCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArWriteOffCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArWriteOffCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArWriteOffCode requireOneByDummy(string $dummy) Return the first ChildArWriteOffCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -64,7 +60,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArWriteOffCode[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildArWriteOffCode objects based on current ModelCriteria
  * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffcode(string $ArtbWoffCode) Return ChildArWriteOffCode objects filtered by the ArtbWoffCode column
  * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffdesc(string $ArtbWoffDesc) Return ChildArWriteOffCode objects filtered by the ArtbWoffDesc column
- * @method     ChildArWriteOffCode[]|ObjectCollection findByArtbwoffyn(string $ArtbWoffYn) Return ChildArWriteOffCode objects filtered by the ArtbWoffYn column
  * @method     ChildArWriteOffCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArWriteOffCode objects filtered by the DateUpdtd column
  * @method     ChildArWriteOffCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArWriteOffCode objects filtered by the TimeUpdtd column
  * @method     ChildArWriteOffCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArWriteOffCode objects filtered by the dummy column
@@ -166,7 +161,7 @@ abstract class ArWriteOffCodeQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArtbWoffCode, ArtbWoffDesc, ArtbWoffYn, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_woff WHERE ArtbWoffCode = :p0';
+        $sql = 'SELECT ArtbWoffCode, ArtbWoffDesc, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_woff WHERE ArtbWoffCode = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -307,31 +302,6 @@ abstract class ArWriteOffCodeQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbWoffYn column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArtbwoffyn('fooValue');   // WHERE ArtbWoffYn = 'fooValue'
-     * $query->filterByArtbwoffyn('%fooValue%', Criteria::LIKE); // WHERE ArtbWoffYn LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $artbwoffyn The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
-     */
-    public function filterByArtbwoffyn($artbwoffyn = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($artbwoffyn)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFYN, $artbwoffyn, $comparison);
-    }
-
-    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -409,14 +379,14 @@ abstract class ArWriteOffCodeQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildArWriteOffCode $customerWriteOffCode Object to remove from the list of results
+     * @param   ChildArWriteOffCode $arWriteOffCode Object to remove from the list of results
      *
      * @return $this|ChildArWriteOffCodeQuery The current query, for fluid interface
      */
-    public function prune($customerWriteOffCode = null)
+    public function prune($arWriteOffCode = null)
     {
-        if ($customerWriteOffCode) {
-            $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $customerWriteOffCode->getArtbwoffcode(), Criteria::NOT_EQUAL);
+        if ($arWriteOffCode) {
+            $this->addUsingAlias(ArWriteOffCodeTableMap::COL_ARTBWOFFCODE, $arWriteOffCode->getArtbwoffcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;
