@@ -101,7 +101,7 @@ class ConfigAp extends BaseConfigAp {
 	 * @return bool
 	 */
 	public function confirmUpdateItmCost() {
-		return $this->confirm_update_itm_cost();
+		return strtoupper($this->confirmupdateitmcost) == self::YN_TRUE;
 	}
 
 	/**
