@@ -51,16 +51,26 @@ class NoteArCustType extends BaseNoteArCustType {
 		'sequence'      => 'qnseq',
 		'note'          => 'qnnote',
 		'key2'          => 'qnkey2',
+		'form'          => 'qnform',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd',
 	);
 
 	/**
-	 * Return  Description for the Note Type
+	 * Return Description for the Note Type
 	 * @param  string $type Note Type see self::TYPES
 	 * @return string
 	 */
 	public static function get_type_description($type) {
 		return self::TYPES_DESCRIPTIONS[$type];
+	}
+
+	/**
+	 * Return NoteArCustType
+	 * @return NoteArCustType
+	 */
+	public static function new() {
+		$note = new self();
+		return $note;
 	}
 }
