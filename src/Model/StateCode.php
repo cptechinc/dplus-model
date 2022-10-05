@@ -18,8 +18,8 @@ class StateCode extends BaseStateCode {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'            => 'statid',
-		'code'          => 'stateid',
-		'abbreviation'  => 'stateid',
+		'code'          => 'statid',
+		'abbreviation'  => 'statid',
 		'description'   => 'statname',
 		'name'          => 'statname',
 		'date'          => 'dateupdtd',
