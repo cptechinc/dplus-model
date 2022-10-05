@@ -79,10 +79,10 @@ class ItemXrefCustomerNote extends BaseItemXrefCustomerNote {
 		$key2 = $key2_itemID.$this->custid;
 		$this->setKey2($key2);
 	}
+	
 	/**
-	 * Return new ItemOrderNote
-	 *
-	 * @return void
+	 * Return new ItemXrefCustomerNote
+	 * @return ItemXrefCustomerNote
 	 */
 	public static function new() {
 		$item = new ItemXrefCustomerNote();
