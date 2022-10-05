@@ -267,11 +267,12 @@ class ItemXrefVendor extends BaseItemXrefVendor {
 		if ($this->listprice == 0 || empty($this->uom_purchase)) {
 			$this->init();
 		}
-		
-		if ($this->imitem->UnitofMeasureSale) {
-			return ($this->getEachlistprice()) * $this->imitem->UnitofMeasureSale->conversion;
+
+		if (empty($this->imitem)) {
+			return 0;
 		}
-		return 0;
+		
+		return ($this->getEachlistprice()) * $this->imitem->UnitofMeasureSale->conversion;
 	}
 
 /* =============================================================
