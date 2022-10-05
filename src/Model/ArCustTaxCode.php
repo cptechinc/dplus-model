@@ -23,7 +23,7 @@ class ArCustTaxCode extends BaseArCustTaxCode {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'		   => 'artbctaxcode',
-		'code'		   => 'artbctaxdode',
+		'code'		   => 'artbctaxcode',
 		'description'  => 'artbctaxdesc',
 		'code1' 	   => 'artbctaxcode1',
 		'code2' 	   => 'artbctaxcode2',
