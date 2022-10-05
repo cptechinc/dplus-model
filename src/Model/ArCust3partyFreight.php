@@ -30,14 +30,17 @@ class ArCust3partyFreight extends BaseArCust3partyFreight {
 		'address3'        => 'ar3padr3',
 		'country'         => 'ar3pctry',
 		'city'            => 'ar3pcity',
-		'state'           => 'ar3pstate',
+		'state'           => 'ar3pstat',
 		'zip'             => 'ar3pzipcode',
 		'international'   => 'ar3pintl',
-		'phone'           => 'ar3ptelnbr',
-		'extension'        => 'ar3ptelnbr',
-		'fax'              => 'ar3pfaxnbr',
-		'date'		       => 'dateupdtd',
-		'time'		       => 'timeupdtd',
+		'phone'           => 'ar3ptelenbr',
+		'phoneintl'       => 'ar3pitelnbr',
+		'extension'       => 'ar3pteleext',
+		'extensionintl'   => 'ar3pitelext',
+		'fax'             => 'ar3pfaxnbr',
+		'faxintl'         => 'ar3pifaxnbr',
+		'date'		      => 'dateupdtd',
+		'time'		      => 'timeupdtd',
 	);
 
 	/**
