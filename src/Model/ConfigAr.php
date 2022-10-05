@@ -43,7 +43,14 @@ class ConfigAr extends BaseConfigAr {
 		'useCommCode'             => 'artbconfusecommcode',
 		'defaultCommCode'         => 'artbconfcommdef',
 		'defaultAllowBackorder'   => 'artbconfallowbo',
-		'defaultAllowFinancecharge'    => 'artbconfallowfc'
+		'defaultAllowFinancecharge'    => 'artbconfallowfc',
+		'defaultGlCodeFreight'    => 'artbconffrtacct',
+		'defaultGlCodeFreight'    => 'artbconffrtacct',
+		'defaultGlCodeMisc'       => 'artbconfmiscacct',
+		'defaultGlCodeAr'         => 'artbconfaracct',
+		'defaultGlCodeCash'       => 'artbconfcashacct',
+		'defaultGlCodeFinance'    => 'artbconffincacct',
+		'defaultGlCodeDiscounts'  => 'artbconfdiscacct',
 	);
 
 	/**
