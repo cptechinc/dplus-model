@@ -20,6 +20,7 @@ use Propel\Runtime\Exception\PropelException;
  *
  *
  *
+ * @method     ChildCustomerQuery orderByRid($order = Criteria::ASC) Order by the CustRecNbr column
  * @method     ChildCustomerQuery orderByArcucustid($order = Criteria::ASC) Order by the ArcuCustId column
  * @method     ChildCustomerQuery orderByArcuname($order = Criteria::ASC) Order by the ArcuName column
  * @method     ChildCustomerQuery orderByArcuadr1($order = Criteria::ASC) Order by the ArcuAdr1 column
@@ -154,6 +155,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildCustomerQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
  *
+ * @method     ChildCustomerQuery groupByRid() Group by the CustRecNbr column
  * @method     ChildCustomerQuery groupByArcucustid() Group by the ArcuCustId column
  * @method     ChildCustomerQuery groupByArcuname() Group by the ArcuName column
  * @method     ChildCustomerQuery groupByArcuadr1() Group by the ArcuAdr1 column
@@ -451,6 +453,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
  *
+ * @method     ChildCustomer findOneByRid(int $CustRecNbr) Return the first ChildCustomer filtered by the CustRecNbr column
  * @method     ChildCustomer findOneByArcucustid(string $ArcuCustId) Return the first ChildCustomer filtered by the ArcuCustId column
  * @method     ChildCustomer findOneByArcuname(string $ArcuName) Return the first ChildCustomer filtered by the ArcuName column
  * @method     ChildCustomer findOneByArcuadr1(string $ArcuAdr1) Return the first ChildCustomer filtered by the ArcuAdr1 column
@@ -588,6 +591,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer requirePk($key, ConnectionInterface $con = null) Return the ChildCustomer by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
+ * @method     ChildCustomer requireOneByRid(int $CustRecNbr) Return the first ChildCustomer filtered by the CustRecNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArcucustid(string $ArcuCustId) Return the first ChildCustomer filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArcuname(string $ArcuName) Return the first ChildCustomer filtered by the ArcuName column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArcuadr1(string $ArcuAdr1) Return the first ChildCustomer filtered by the ArcuAdr1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -723,6 +727,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer requireOneByDummy(string $dummy) Return the first ChildCustomer filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildCustomer[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildCustomer objects based on current ModelCriteria
+ * @method     ChildCustomer[]|ObjectCollection findByRid(int $CustRecNbr) Return ChildCustomer objects filtered by the CustRecNbr column
  * @method     ChildCustomer[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildCustomer objects filtered by the ArcuCustId column
  * @method     ChildCustomer[]|ObjectCollection findByArcuname(string $ArcuName) Return ChildCustomer objects filtered by the ArcuName column
  * @method     ChildCustomer[]|ObjectCollection findByArcuadr1(string $ArcuAdr1) Return ChildCustomer objects filtered by the ArcuAdr1 column
@@ -954,10 +959,10 @@ abstract class CustomerQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArcuName, ArcuAdr1, ArcuAdr2, ArcuAdr3, ArcuCtry, ArcuCity, ArcuStat, ArcuZipCode, ArcuDeliveryDays, ArcuRemitWhse, ArcuShipBin, ArcuAllowAddOns, ArcuLmEcommCustId, ArcuGsUse2ndBin, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbMtaxCode, ArcuTaxExemNbr, IntbWhse, ArcuPricLvl, ArcuShipComp, ArcuTxbl, ArcuPostal, ArtbShipVia, ArcuBord, ArtbTypeCode, ArtbPricCode, ArtbCommCode, ArtmTermCd, ArcuCredLmt, ArcuStmtCode, ArcuCredHold, ArcuFinChrg, ArcuUserCode, ArcuNewFc, ArcuUnpdFc, ArcuCurBal, ArcuBalOdue1, ArcuBalOdue2, ArcuBalOdue3, ArcuSaleMtd, ArcuInvMtd, ArcuSaleYtd, ArcuInvYtd, ArcuDateOpen, ArcuLastSaleDate, ArcuHighBal, ArcuBigSaleMo, ArcuLastPayDate, ArcuAvgPayDays, ArcuUpsZone, ArcuHighBalDate, ArcuSale24mo1, ArcuInv24mo1, ArcuSale24mo2, ArcuInv24mo2, ArcuSale24mo3, ArcuInv24mo3, ArcuSale24mo4, ArcuInv24mo4, ArcuSale24mo5, ArcuInv24mo5, ArcuSale24mo6, ArcuInv24mo6, ArcuSale24mo7, ArcuInv24mo7, ArcuSale24mo8, ArcuInv24mo8, ArcuSale24mo9, ArcuInv24mo9, ArcuSale24mo10, ArcuInv24mo10, ArcuSale24mo11, ArcuInv24mo11, ArcuSale24mo12, ArcuInv24mo12, ArcuSale24mo13, ArcuInv24mo13, ArcuSale24mo14, ArcuInv24mo14, ArcuSale24mo15, ArcuInv24mo15, ArcuSale24mo16, ArcuInv24mo16, ArcuSale24mo17, ArcuInv24mo17, ArcuSale24mo18, ArcuInv24mo18, ArcuSale24mo19, ArcuInv24mo19, ArcuSale24mo20, ArcuInv24mo20, ArcuSale24mo21, ArcuInv24mo21, ArcuSale24mo22, ArcuInv24mo22, ArcuSale24mo23, ArcuInv24mo23, ArcuSale24mo24, ArcuInv24mo24, ArcuLastPayAmt, ArcuOrdrTot, ArcuUseFrtIn, ArcuMyVendId, ArcuAddlPricDisc, ArcuActiveInactive, ArcuInactiveDate, ArcuChrgFrt, ArcuCoreXDays, ArcuContractNbr, ArcuCoreLF, ArcuCoreBankId, ArcuDunsNbr, ArcuRfmlValu, ArcuCustPoParam, ArcuAgeLevel, ArtbRoute, ArcuWgTaxCode, ArcuAcptSupercede, ArcuMstrCustId, ArcuSurchgPct, ArcuAllowSplit, ArcuLineMin, ArcuOrdrMin, ArcuUpsAcctNbr, ArcuPrtMatCert, ArcuFobInputYn, ArcuFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_mast WHERE ArcuCustId = :p0';
+        $sql = 'SELECT CustRecNbr, ArcuCustId, ArcuName, ArcuAdr1, ArcuAdr2, ArcuAdr3, ArcuCtry, ArcuCity, ArcuStat, ArcuZipCode, ArcuDeliveryDays, ArcuRemitWhse, ArcuShipBin, ArcuAllowAddOns, ArcuLmEcommCustId, ArcuGsUse2ndBin, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbMtaxCode, ArcuTaxExemNbr, IntbWhse, ArcuPricLvl, ArcuShipComp, ArcuTxbl, ArcuPostal, ArtbShipVia, ArcuBord, ArtbTypeCode, ArtbPricCode, ArtbCommCode, ArtmTermCd, ArcuCredLmt, ArcuStmtCode, ArcuCredHold, ArcuFinChrg, ArcuUserCode, ArcuNewFc, ArcuUnpdFc, ArcuCurBal, ArcuBalOdue1, ArcuBalOdue2, ArcuBalOdue3, ArcuSaleMtd, ArcuInvMtd, ArcuSaleYtd, ArcuInvYtd, ArcuDateOpen, ArcuLastSaleDate, ArcuHighBal, ArcuBigSaleMo, ArcuLastPayDate, ArcuAvgPayDays, ArcuUpsZone, ArcuHighBalDate, ArcuSale24mo1, ArcuInv24mo1, ArcuSale24mo2, ArcuInv24mo2, ArcuSale24mo3, ArcuInv24mo3, ArcuSale24mo4, ArcuInv24mo4, ArcuSale24mo5, ArcuInv24mo5, ArcuSale24mo6, ArcuInv24mo6, ArcuSale24mo7, ArcuInv24mo7, ArcuSale24mo8, ArcuInv24mo8, ArcuSale24mo9, ArcuInv24mo9, ArcuSale24mo10, ArcuInv24mo10, ArcuSale24mo11, ArcuInv24mo11, ArcuSale24mo12, ArcuInv24mo12, ArcuSale24mo13, ArcuInv24mo13, ArcuSale24mo14, ArcuInv24mo14, ArcuSale24mo15, ArcuInv24mo15, ArcuSale24mo16, ArcuInv24mo16, ArcuSale24mo17, ArcuInv24mo17, ArcuSale24mo18, ArcuInv24mo18, ArcuSale24mo19, ArcuInv24mo19, ArcuSale24mo20, ArcuInv24mo20, ArcuSale24mo21, ArcuInv24mo21, ArcuSale24mo22, ArcuInv24mo22, ArcuSale24mo23, ArcuInv24mo23, ArcuSale24mo24, ArcuInv24mo24, ArcuLastPayAmt, ArcuOrdrTot, ArcuUseFrtIn, ArcuMyVendId, ArcuAddlPricDisc, ArcuActiveInactive, ArcuInactiveDate, ArcuChrgFrt, ArcuCoreXDays, ArcuContractNbr, ArcuCoreLF, ArcuCoreBankId, ArcuDunsNbr, ArcuRfmlValu, ArcuCustPoParam, ArcuAgeLevel, ArtbRoute, ArcuWgTaxCode, ArcuAcptSupercede, ArcuMstrCustId, ArcuSurchgPct, ArcuAllowSplit, ArcuLineMin, ArcuOrdrMin, ArcuUpsAcctNbr, ArcuPrtMatCert, ArcuFobInputYn, ArcuFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_mast WHERE CustRecNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -1028,7 +1033,7 @@ abstract class CustomerQuery extends ModelCriteria
     public function filterByPrimaryKey($key)
     {
 
-        return $this->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $key, Criteria::EQUAL);
+        return $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $key, Criteria::EQUAL);
     }
 
     /**
@@ -1041,7 +1046,48 @@ abstract class CustomerQuery extends ModelCriteria
     public function filterByPrimaryKeys($keys)
     {
 
-        return $this->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $keys, Criteria::IN);
+        return $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $keys, Criteria::IN);
+    }
+
+    /**
+     * Filter the query on the CustRecNbr column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByRid(1234); // WHERE CustRecNbr = 1234
+     * $query->filterByRid(array(12, 34)); // WHERE CustRecNbr IN (12, 34)
+     * $query->filterByRid(array('min' => 12)); // WHERE CustRecNbr > 12
+     * </code>
+     *
+     * @param     mixed $rid The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByRid($rid = null, $comparison = null)
+    {
+        if (is_array($rid)) {
+            $useMinMax = false;
+            if (isset($rid['min'])) {
+                $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $rid['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($rid['max'])) {
+                $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $rid['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $rid, $comparison);
     }
 
     /**
@@ -5572,7 +5618,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinArCommissionCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinArCommissionCode($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('ArCommissionCode');
@@ -5607,7 +5653,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return \ArCommissionCodeQuery A secondary query class using the current class as primary query
      */
-    public function useArCommissionCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useArCommissionCodeQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinArCommissionCode($relationAlias, $joinType)
@@ -5649,7 +5695,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinShipvia($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinShipvia($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Shipvia');
@@ -5684,7 +5730,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return \ShipviaQuery A secondary query class using the current class as primary query
      */
-    public function useShipviaQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useShipviaQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinShipvia($relationAlias, $joinType)
@@ -5726,7 +5772,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function joinSoFreightRate($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSoFreightRate($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SoFreightRate');
@@ -5761,7 +5807,7 @@ abstract class CustomerQuery extends ModelCriteria
      *
      * @return \SoFreightRateQuery A secondary query class using the current class as primary query
      */
-    public function useSoFreightRateQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSoFreightRateQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinSoFreightRate($relationAlias, $joinType)
@@ -6654,7 +6700,7 @@ abstract class CustomerQuery extends ModelCriteria
     public function prune($customer = null)
     {
         if ($customer) {
-            $this->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $customer->getArcucustid(), Criteria::NOT_EQUAL);
+            $this->addUsingAlias(CustomerTableMap::COL_CUSTRECNBR, $customer->getRid(), Criteria::NOT_EQUAL);
         }
 
         return $this;

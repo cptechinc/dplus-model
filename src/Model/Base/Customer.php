@@ -103,6 +103,13 @@ abstract class Customer implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
+     * The value for the custrecnbr field.
+     *
+     * @var        int
+     */
+    protected $custrecnbr;
+
+    /**
      * The value for the arcucustid field.
      *
      * Note: this column has a database default value of: ''
@@ -113,6 +120,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuname;
@@ -120,6 +128,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuadr1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuadr1;
@@ -127,6 +136,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuadr2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuadr2;
@@ -134,6 +144,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuadr3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuadr3;
@@ -141,6 +152,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuctry field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuctry;
@@ -148,6 +160,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucity field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucity;
@@ -155,6 +168,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcustat field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcustat;
@@ -162,6 +176,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuzipcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuzipcode;
@@ -169,6 +184,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcudeliverydays field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcudeliverydays;
@@ -176,6 +192,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuremitwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuremitwhse;
@@ -183,6 +200,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcushipbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcushipbin;
@@ -190,6 +208,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuallowaddons field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcuallowaddons;
@@ -197,6 +216,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arculmecommcustid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arculmecommcustid;
@@ -204,6 +224,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcugsuse2ndbin field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcugsuse2ndbin;
@@ -211,6 +232,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arspsaleper1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper1;
@@ -218,6 +240,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arspsaleper2 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper2;
@@ -225,6 +248,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arspsaleper3 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arspsaleper3;
@@ -232,6 +256,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbmtaxcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbmtaxcode;
@@ -239,6 +264,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcutaxexemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcutaxexemnbr;
@@ -246,6 +272,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the intbwhse field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbwhse;
@@ -253,6 +280,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcupriclvl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcupriclvl;
@@ -260,6 +288,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcushipcomp field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcushipcomp;
@@ -267,6 +296,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcutxbl field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcutxbl;
@@ -274,6 +304,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcupostal field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $arcupostal;
@@ -281,6 +312,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbshipvia field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbshipvia;
@@ -288,6 +320,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcubord field.
      *
+     * Note: this column has a database default value of: 'I'
      * @var        string
      */
     protected $arcubord;
@@ -295,6 +328,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbtypecode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbtypecode;
@@ -302,6 +336,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbpriccode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbpriccode;
@@ -309,6 +344,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbcommcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbcommcode;
@@ -316,6 +352,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artmtermcd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artmtermcd;
@@ -323,6 +360,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucredlmt field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $arcucredlmt;
@@ -330,6 +368,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcustmtcode field.
      *
+     * Note: this column has a database default value of: 'B'
      * @var        string
      */
     protected $arcustmtcode;
@@ -337,6 +376,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucredhold field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcucredhold;
@@ -344,6 +384,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcufinchrg field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $arcufinchrg;
@@ -351,6 +392,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuusercode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuusercode;
@@ -358,6 +400,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcunewfc field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcunewfc;
@@ -365,6 +408,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuunpdfc field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcuunpdfc;
@@ -372,6 +416,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucurbal field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcucurbal;
@@ -379,6 +424,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcubalodue1 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcubalodue1;
@@ -386,6 +432,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcubalodue2 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcubalodue2;
@@ -393,6 +440,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcubalodue3 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcubalodue3;
@@ -400,6 +448,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusalemtd field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusalemtd;
@@ -407,6 +456,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinvmtd field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinvmtd;
@@ -414,6 +464,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusaleytd field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusaleytd;
@@ -421,6 +472,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinvytd field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinvytd;
@@ -428,6 +480,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcudateopen field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcudateopen;
@@ -435,6 +488,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arculastsaledate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arculastsaledate;
@@ -442,6 +496,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuhighbal field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcuhighbal;
@@ -449,6 +504,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcubigsalemo field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcubigsalemo;
@@ -456,6 +512,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arculastpaydate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arculastpaydate;
@@ -463,6 +520,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuavgpaydays field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuavgpaydays;
@@ -470,6 +528,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuupszone field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuupszone;
@@ -477,6 +536,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuhighbaldate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuhighbaldate;
@@ -484,6 +544,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo1 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo1;
@@ -491,6 +552,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo1 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo1;
@@ -498,6 +560,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo2 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo2;
@@ -505,6 +568,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo2 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo2;
@@ -512,6 +576,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo3 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo3;
@@ -519,6 +584,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo3 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo3;
@@ -526,6 +592,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo4 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo4;
@@ -533,6 +600,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo4 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo4;
@@ -540,6 +608,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo5 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo5;
@@ -547,6 +616,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo5 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo5;
@@ -554,6 +624,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo6 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo6;
@@ -561,6 +632,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo6 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo6;
@@ -568,6 +640,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo7 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo7;
@@ -575,6 +648,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo7 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo7;
@@ -582,6 +656,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo8 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo8;
@@ -589,6 +664,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo8 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo8;
@@ -596,6 +672,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo9 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo9;
@@ -603,6 +680,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo9 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo9;
@@ -610,6 +688,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo10 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo10;
@@ -617,6 +696,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo10 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo10;
@@ -624,6 +704,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo11 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo11;
@@ -631,6 +712,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo11 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo11;
@@ -638,6 +720,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo12 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo12;
@@ -645,6 +728,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo12 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo12;
@@ -652,6 +736,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo13 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo13;
@@ -659,6 +744,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo13 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo13;
@@ -666,6 +752,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo14 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo14;
@@ -673,6 +760,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo14 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo14;
@@ -680,6 +768,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo15 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo15;
@@ -687,6 +776,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo15 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo15;
@@ -694,6 +784,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo16 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo16;
@@ -701,6 +792,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo16 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo16;
@@ -708,6 +800,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo17 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo17;
@@ -715,6 +808,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo17 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo17;
@@ -722,6 +816,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo18 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo18;
@@ -729,6 +824,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo18 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo18;
@@ -736,6 +832,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo19 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo19;
@@ -743,6 +840,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo19 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo19;
@@ -750,6 +848,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo20 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo20;
@@ -757,6 +856,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo20 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo20;
@@ -764,6 +864,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo21 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo21;
@@ -771,6 +872,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo21 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo21;
@@ -778,6 +880,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo22 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo22;
@@ -785,6 +888,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo22 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo22;
@@ -792,6 +896,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo23 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo23;
@@ -799,6 +904,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo23 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo23;
@@ -806,6 +912,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusale24mo24 field.
      *
+     * Note: this column has a database default value of: '0.00000'
      * @var        string
      */
     protected $arcusale24mo24;
@@ -813,6 +920,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinv24mo24 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuinv24mo24;
@@ -820,6 +928,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arculastpayamt field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $arculastpayamt;
@@ -827,6 +936,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuordrtot field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $arcuordrtot;
@@ -834,6 +944,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuusefrtin field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcuusefrtin;
@@ -841,6 +952,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcumyvendid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcumyvendid;
@@ -848,6 +960,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuaddlpricdisc field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $arcuaddlpricdisc;
@@ -855,6 +968,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuactiveinactive field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $arcuactiveinactive;
@@ -862,6 +976,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuinactivedate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuinactivedate;
@@ -869,6 +984,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuchrgfrt field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $arcuchrgfrt;
@@ -876,6 +992,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucorexdays field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcucorexdays;
@@ -883,6 +1000,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucontractnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucontractnbr;
@@ -890,6 +1008,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucorelf field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucorelf;
@@ -897,6 +1016,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucorebankid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcucorebankid;
@@ -904,6 +1024,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcudunsnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcudunsnbr;
@@ -911,6 +1032,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcurfmlvalu field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcurfmlvalu;
@@ -918,6 +1040,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcucustpoparam field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $arcucustpoparam;
@@ -925,6 +1048,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuagelevel field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $arcuagelevel;
@@ -932,6 +1056,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the artbroute field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $artbroute;
@@ -939,6 +1064,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuwgtaxcode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuwgtaxcode;
@@ -946,6 +1072,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuacptsupercede field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $arcuacptsupercede;
@@ -953,6 +1080,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcumstrcustid field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcumstrcustid;
@@ -960,6 +1088,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcusurchgpct field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $arcusurchgpct;
@@ -967,6 +1096,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuallowsplit field.
      *
+     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $arcuallowsplit;
@@ -974,6 +1104,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arculinemin field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $arculinemin;
@@ -981,6 +1112,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuordrmin field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $arcuordrmin;
@@ -988,6 +1120,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuupsacctnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuupsacctnbr;
@@ -995,6 +1128,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcuprtmatcert field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcuprtmatcert;
@@ -1002,6 +1136,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcufobinputyn field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $arcufobinputyn;
@@ -1009,6 +1144,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the arcufobperlb field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $arcufobperlb;
@@ -1016,6 +1152,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1023,6 +1160,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1030,6 +1168,7 @@ abstract class Customer implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1203,6 +1342,138 @@ abstract class Customer implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->arcucustid = '';
+        $this->arcuname = '';
+        $this->arcuadr1 = '';
+        $this->arcuadr2 = '';
+        $this->arcuadr3 = '';
+        $this->arcuctry = '';
+        $this->arcucity = '';
+        $this->arcustat = '';
+        $this->arcuzipcode = '';
+        $this->arcudeliverydays = 0;
+        $this->arcuremitwhse = '';
+        $this->arcushipbin = '';
+        $this->arcuallowaddons = 'N';
+        $this->arculmecommcustid = '';
+        $this->arcugsuse2ndbin = '';
+        $this->arspsaleper1 = '';
+        $this->arspsaleper2 = '';
+        $this->arspsaleper3 = '';
+        $this->artbmtaxcode = '';
+        $this->arcutaxexemnbr = '';
+        $this->intbwhse = '';
+        $this->arcupriclvl = 'N';
+        $this->arcushipcomp = 'N';
+        $this->arcutxbl = 'N';
+        $this->arcupostal = 'Y';
+        $this->artbshipvia = '';
+        $this->arcubord = 'I';
+        $this->artbtypecode = '';
+        $this->artbpriccode = '';
+        $this->artbcommcode = '';
+        $this->artmtermcd = '';
+        $this->arcucredlmt = '0.000';
+        $this->arcustmtcode = 'B';
+        $this->arcucredhold = 'N';
+        $this->arcufinchrg = 'Y';
+        $this->arcuusercode = '';
+        $this->arcunewfc = '0.00000';
+        $this->arcuunpdfc = '0.00000';
+        $this->arcucurbal = '0.00000';
+        $this->arcubalodue1 = '0.00000';
+        $this->arcubalodue2 = '0.00000';
+        $this->arcubalodue3 = '0.00000';
+        $this->arcusalemtd = '0.00000';
+        $this->arcuinvmtd = 0;
+        $this->arcusaleytd = '0.00000';
+        $this->arcuinvytd = 0;
+        $this->arcudateopen = '';
+        $this->arculastsaledate = '';
+        $this->arcuhighbal = '0.00000';
+        $this->arcubigsalemo = '0.00000';
+        $this->arculastpaydate = '';
+        $this->arcuavgpaydays = 0;
+        $this->arcuupszone = '';
+        $this->arcuhighbaldate = '';
+        $this->arcusale24mo1 = '0.00000';
+        $this->arcuinv24mo1 = 0;
+        $this->arcusale24mo2 = '0.00000';
+        $this->arcuinv24mo2 = 0;
+        $this->arcusale24mo3 = '0.00000';
+        $this->arcuinv24mo3 = 0;
+        $this->arcusale24mo4 = '0.00000';
+        $this->arcuinv24mo4 = 0;
+        $this->arcusale24mo5 = '0.00000';
+        $this->arcuinv24mo5 = 0;
+        $this->arcusale24mo6 = '0.00000';
+        $this->arcuinv24mo6 = 0;
+        $this->arcusale24mo7 = '0.00000';
+        $this->arcuinv24mo7 = 0;
+        $this->arcusale24mo8 = '0.00000';
+        $this->arcuinv24mo8 = 0;
+        $this->arcusale24mo9 = '0.00000';
+        $this->arcuinv24mo9 = 0;
+        $this->arcusale24mo10 = '0.00000';
+        $this->arcuinv24mo10 = 0;
+        $this->arcusale24mo11 = '0.00000';
+        $this->arcuinv24mo11 = 0;
+        $this->arcusale24mo12 = '0.00000';
+        $this->arcuinv24mo12 = 0;
+        $this->arcusale24mo13 = '0.00000';
+        $this->arcuinv24mo13 = 0;
+        $this->arcusale24mo14 = '0.00000';
+        $this->arcuinv24mo14 = 0;
+        $this->arcusale24mo15 = '0.00000';
+        $this->arcuinv24mo15 = 0;
+        $this->arcusale24mo16 = '0.00000';
+        $this->arcuinv24mo16 = 0;
+        $this->arcusale24mo17 = '0.00000';
+        $this->arcuinv24mo17 = 0;
+        $this->arcusale24mo18 = '0.00000';
+        $this->arcuinv24mo18 = 0;
+        $this->arcusale24mo19 = '0.00000';
+        $this->arcuinv24mo19 = 0;
+        $this->arcusale24mo20 = '0.00000';
+        $this->arcuinv24mo20 = 0;
+        $this->arcusale24mo21 = '0.00000';
+        $this->arcuinv24mo21 = 0;
+        $this->arcusale24mo22 = '0.00000';
+        $this->arcuinv24mo22 = 0;
+        $this->arcusale24mo23 = '0.00000';
+        $this->arcuinv24mo23 = 0;
+        $this->arcusale24mo24 = '0.00000';
+        $this->arcuinv24mo24 = 0;
+        $this->arculastpayamt = '0.00';
+        $this->arcuordrtot = '0.00';
+        $this->arcuusefrtin = 'N';
+        $this->arcumyvendid = '';
+        $this->arcuaddlpricdisc = '0.00';
+        $this->arcuactiveinactive = 'A';
+        $this->arcuinactivedate = '';
+        $this->arcuchrgfrt = 'A';
+        $this->arcucorexdays = 0;
+        $this->arcucontractnbr = '';
+        $this->arcucorelf = '';
+        $this->arcucorebankid = '';
+        $this->arcudunsnbr = '';
+        $this->arcurfmlvalu = 0;
+        $this->arcucustpoparam = 'N';
+        $this->arcuagelevel = 0;
+        $this->artbroute = '';
+        $this->arcuwgtaxcode = '';
+        $this->arcuacptsupercede = 'Y';
+        $this->arcumstrcustid = '';
+        $this->arcusurchgpct = '0.000';
+        $this->arcuallowsplit = 'Y';
+        $this->arculinemin = '0.00';
+        $this->arcuordrmin = '0.00';
+        $this->arcuupsacctnbr = '';
+        $this->arcuprtmatcert = '';
+        $this->arcufobinputyn = '';
+        $this->arcufobperlb = '0.000';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -1430,6 +1701,16 @@ abstract class Customer implements ActiveRecordInterface
         }
 
         return $propertyNames;
+    }
+
+    /**
+     * Get the [custrecnbr] column value.
+     *
+     * @return int
+     */
+    public function getRid()
+    {
+        return $this->custrecnbr;
     }
 
     /**
@@ -2761,6 +3042,26 @@ abstract class Customer implements ActiveRecordInterface
     {
         return $this->dummy;
     }
+
+    /**
+     * Set the value of [custrecnbr] column.
+     *
+     * @param int $v new value
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function setRid($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->custrecnbr !== $v) {
+            $this->custrecnbr = $v;
+            $this->modifiedColumns[CustomerTableMap::COL_CUSTRECNBR] = true;
+        }
+
+        return $this;
+    } // setRid()
 
     /**
      * Set the value of [arcucustid] column.
@@ -5448,6 +5749,534 @@ abstract class Customer implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->arcuname !== '') {
+                return false;
+            }
+
+            if ($this->arcuadr1 !== '') {
+                return false;
+            }
+
+            if ($this->arcuadr2 !== '') {
+                return false;
+            }
+
+            if ($this->arcuadr3 !== '') {
+                return false;
+            }
+
+            if ($this->arcuctry !== '') {
+                return false;
+            }
+
+            if ($this->arcucity !== '') {
+                return false;
+            }
+
+            if ($this->arcustat !== '') {
+                return false;
+            }
+
+            if ($this->arcuzipcode !== '') {
+                return false;
+            }
+
+            if ($this->arcudeliverydays !== 0) {
+                return false;
+            }
+
+            if ($this->arcuremitwhse !== '') {
+                return false;
+            }
+
+            if ($this->arcushipbin !== '') {
+                return false;
+            }
+
+            if ($this->arcuallowaddons !== 'N') {
+                return false;
+            }
+
+            if ($this->arculmecommcustid !== '') {
+                return false;
+            }
+
+            if ($this->arcugsuse2ndbin !== '') {
+                return false;
+            }
+
+            if ($this->arspsaleper1 !== '') {
+                return false;
+            }
+
+            if ($this->arspsaleper2 !== '') {
+                return false;
+            }
+
+            if ($this->arspsaleper3 !== '') {
+                return false;
+            }
+
+            if ($this->artbmtaxcode !== '') {
+                return false;
+            }
+
+            if ($this->arcutaxexemnbr !== '') {
+                return false;
+            }
+
+            if ($this->intbwhse !== '') {
+                return false;
+            }
+
+            if ($this->arcupriclvl !== 'N') {
+                return false;
+            }
+
+            if ($this->arcushipcomp !== 'N') {
+                return false;
+            }
+
+            if ($this->arcutxbl !== 'N') {
+                return false;
+            }
+
+            if ($this->arcupostal !== 'Y') {
+                return false;
+            }
+
+            if ($this->artbshipvia !== '') {
+                return false;
+            }
+
+            if ($this->arcubord !== 'I') {
+                return false;
+            }
+
+            if ($this->artbtypecode !== '') {
+                return false;
+            }
+
+            if ($this->artbpriccode !== '') {
+                return false;
+            }
+
+            if ($this->artbcommcode !== '') {
+                return false;
+            }
+
+            if ($this->artmtermcd !== '') {
+                return false;
+            }
+
+            if ($this->arcucredlmt !== '0.000') {
+                return false;
+            }
+
+            if ($this->arcustmtcode !== 'B') {
+                return false;
+            }
+
+            if ($this->arcucredhold !== 'N') {
+                return false;
+            }
+
+            if ($this->arcufinchrg !== 'Y') {
+                return false;
+            }
+
+            if ($this->arcuusercode !== '') {
+                return false;
+            }
+
+            if ($this->arcunewfc !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuunpdfc !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcucurbal !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcubalodue1 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcubalodue2 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcubalodue3 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcusalemtd !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinvmtd !== 0) {
+                return false;
+            }
+
+            if ($this->arcusaleytd !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinvytd !== 0) {
+                return false;
+            }
+
+            if ($this->arcudateopen !== '') {
+                return false;
+            }
+
+            if ($this->arculastsaledate !== '') {
+                return false;
+            }
+
+            if ($this->arcuhighbal !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcubigsalemo !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arculastpaydate !== '') {
+                return false;
+            }
+
+            if ($this->arcuavgpaydays !== 0) {
+                return false;
+            }
+
+            if ($this->arcuupszone !== '') {
+                return false;
+            }
+
+            if ($this->arcuhighbaldate !== '') {
+                return false;
+            }
+
+            if ($this->arcusale24mo1 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo1 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo2 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo2 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo3 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo3 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo4 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo4 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo5 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo5 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo6 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo6 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo7 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo7 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo8 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo8 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo9 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo9 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo10 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo10 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo11 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo11 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo12 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo12 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo13 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo13 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo14 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo14 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo15 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo15 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo16 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo16 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo17 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo17 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo18 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo18 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo19 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo19 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo20 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo20 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo21 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo21 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo22 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo22 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo23 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo23 !== 0) {
+                return false;
+            }
+
+            if ($this->arcusale24mo24 !== '0.00000') {
+                return false;
+            }
+
+            if ($this->arcuinv24mo24 !== 0) {
+                return false;
+            }
+
+            if ($this->arculastpayamt !== '0.00') {
+                return false;
+            }
+
+            if ($this->arcuordrtot !== '0.00') {
+                return false;
+            }
+
+            if ($this->arcuusefrtin !== 'N') {
+                return false;
+            }
+
+            if ($this->arcumyvendid !== '') {
+                return false;
+            }
+
+            if ($this->arcuaddlpricdisc !== '0.00') {
+                return false;
+            }
+
+            if ($this->arcuactiveinactive !== 'A') {
+                return false;
+            }
+
+            if ($this->arcuinactivedate !== '') {
+                return false;
+            }
+
+            if ($this->arcuchrgfrt !== 'A') {
+                return false;
+            }
+
+            if ($this->arcucorexdays !== 0) {
+                return false;
+            }
+
+            if ($this->arcucontractnbr !== '') {
+                return false;
+            }
+
+            if ($this->arcucorelf !== '') {
+                return false;
+            }
+
+            if ($this->arcucorebankid !== '') {
+                return false;
+            }
+
+            if ($this->arcudunsnbr !== '') {
+                return false;
+            }
+
+            if ($this->arcurfmlvalu !== 0) {
+                return false;
+            }
+
+            if ($this->arcucustpoparam !== 'N') {
+                return false;
+            }
+
+            if ($this->arcuagelevel !== 0) {
+                return false;
+            }
+
+            if ($this->artbroute !== '') {
+                return false;
+            }
+
+            if ($this->arcuwgtaxcode !== '') {
+                return false;
+            }
+
+            if ($this->arcuacptsupercede !== 'Y') {
+                return false;
+            }
+
+            if ($this->arcumstrcustid !== '') {
+                return false;
+            }
+
+            if ($this->arcusurchgpct !== '0.000') {
+                return false;
+            }
+
+            if ($this->arcuallowsplit !== 'Y') {
+                return false;
+            }
+
+            if ($this->arculinemin !== '0.00') {
+                return false;
+            }
+
+            if ($this->arcuordrmin !== '0.00') {
+                return false;
+            }
+
+            if ($this->arcuupsacctnbr !== '') {
+                return false;
+            }
+
+            if ($this->arcuprtmatcert !== '') {
+                return false;
+            }
+
+            if ($this->arcufobinputyn !== '') {
+                return false;
+            }
+
+            if ($this->arcufobperlb !== '0.000') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
+                return false;
+            }
+
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -5474,403 +6303,406 @@ abstract class Customer implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerTableMap::translateFieldName('Rid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->custrecnbr = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerTableMap::translateFieldName('Arcuname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerTableMap::translateFieldName('Arcuname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerTableMap::translateFieldName('Arcuadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerTableMap::translateFieldName('Arcuadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerTableMap::translateFieldName('Arcuadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerTableMap::translateFieldName('Arcuadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerTableMap::translateFieldName('Arcuadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerTableMap::translateFieldName('Arcuadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerTableMap::translateFieldName('Arcuctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerTableMap::translateFieldName('Arcuctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerTableMap::translateFieldName('Arcucity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerTableMap::translateFieldName('Arcucity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerTableMap::translateFieldName('Arcustat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerTableMap::translateFieldName('Arcustat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcustat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerTableMap::translateFieldName('Arcuzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerTableMap::translateFieldName('Arcuzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerTableMap::translateFieldName('Arcudeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerTableMap::translateFieldName('Arcudeliverydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudeliverydays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerTableMap::translateFieldName('Arcuremitwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerTableMap::translateFieldName('Arcuremitwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuremitwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerTableMap::translateFieldName('Arcushipbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerTableMap::translateFieldName('Arcushipbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcushipbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerTableMap::translateFieldName('Arcuallowaddons', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerTableMap::translateFieldName('Arcuallowaddons', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuallowaddons = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerTableMap::translateFieldName('Arculmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerTableMap::translateFieldName('Arculmecommcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculmecommcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerTableMap::translateFieldName('Arcugsuse2ndbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerTableMap::translateFieldName('Arcugsuse2ndbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcugsuse2ndbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerTableMap::translateFieldName('Arcutaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerTableMap::translateFieldName('Arcutaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcutaxexemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
             $this->intbwhse = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : CustomerTableMap::translateFieldName('Arcupriclvl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerTableMap::translateFieldName('Arcupriclvl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcupriclvl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : CustomerTableMap::translateFieldName('Arcushipcomp', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerTableMap::translateFieldName('Arcushipcomp', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcushipcomp = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : CustomerTableMap::translateFieldName('Arcutxbl', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerTableMap::translateFieldName('Arcutxbl', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcutxbl = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : CustomerTableMap::translateFieldName('Arcupostal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerTableMap::translateFieldName('Arcupostal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcupostal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : CustomerTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerTableMap::translateFieldName('Artbshipvia', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbshipvia = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : CustomerTableMap::translateFieldName('Arcubord', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerTableMap::translateFieldName('Arcubord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubord = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : CustomerTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerTableMap::translateFieldName('Artbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbtypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : CustomerTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpriccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : CustomerTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerTableMap::translateFieldName('Artbcommcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbcommcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : CustomerTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : CustomerTableMap::translateFieldName('Arcucredlmt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerTableMap::translateFieldName('Arcucredlmt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucredlmt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : CustomerTableMap::translateFieldName('Arcustmtcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerTableMap::translateFieldName('Arcustmtcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcustmtcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : CustomerTableMap::translateFieldName('Arcucredhold', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerTableMap::translateFieldName('Arcucredhold', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucredhold = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : CustomerTableMap::translateFieldName('Arcufinchrg', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerTableMap::translateFieldName('Arcufinchrg', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufinchrg = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : CustomerTableMap::translateFieldName('Arcuusercode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerTableMap::translateFieldName('Arcuusercode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuusercode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : CustomerTableMap::translateFieldName('Arcunewfc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerTableMap::translateFieldName('Arcunewfc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcunewfc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : CustomerTableMap::translateFieldName('Arcuunpdfc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerTableMap::translateFieldName('Arcuunpdfc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuunpdfc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : CustomerTableMap::translateFieldName('Arcucurbal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerTableMap::translateFieldName('Arcucurbal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucurbal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerTableMap::translateFieldName('Arcubalodue3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubalodue3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : CustomerTableMap::translateFieldName('Arcusalemtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerTableMap::translateFieldName('Arcusalemtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusalemtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : CustomerTableMap::translateFieldName('Arcuinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerTableMap::translateFieldName('Arcuinvmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinvmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : CustomerTableMap::translateFieldName('Arcusaleytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerTableMap::translateFieldName('Arcusaleytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusaleytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : CustomerTableMap::translateFieldName('Arcuinvytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerTableMap::translateFieldName('Arcuinvytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinvytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : CustomerTableMap::translateFieldName('Arcudateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerTableMap::translateFieldName('Arcudateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : CustomerTableMap::translateFieldName('Arculastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerTableMap::translateFieldName('Arculastsaledate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastsaledate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbal', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbal', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuhighbal = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : CustomerTableMap::translateFieldName('Arcubigsalemo', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerTableMap::translateFieldName('Arcubigsalemo', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcubigsalemo = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : CustomerTableMap::translateFieldName('Arculastpaydate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerTableMap::translateFieldName('Arculastpaydate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastpaydate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : CustomerTableMap::translateFieldName('Arcuavgpaydays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerTableMap::translateFieldName('Arcuavgpaydays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuavgpaydays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : CustomerTableMap::translateFieldName('Arcuupszone', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerTableMap::translateFieldName('Arcuupszone', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuupszone = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbaldate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerTableMap::translateFieldName('Arcuhighbaldate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuhighbaldate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo1 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo2 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo3 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo4 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo5 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo6 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo7 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo8 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo9 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : CustomerTableMap::translateFieldName('Arcusale24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusale24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : CustomerTableMap::translateFieldName('Arcuinv24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinv24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : CustomerTableMap::translateFieldName('Arculastpayamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : CustomerTableMap::translateFieldName('Arculastpayamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculastpayamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : CustomerTableMap::translateFieldName('Arcuordrtot', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : CustomerTableMap::translateFieldName('Arcuordrtot', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuordrtot = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : CustomerTableMap::translateFieldName('Arcuusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : CustomerTableMap::translateFieldName('Arcuusefrtin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuusefrtin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : CustomerTableMap::translateFieldName('Arcumyvendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : CustomerTableMap::translateFieldName('Arcumyvendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcumyvendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : CustomerTableMap::translateFieldName('Arcuaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : CustomerTableMap::translateFieldName('Arcuaddlpricdisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuaddlpricdisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : CustomerTableMap::translateFieldName('Arcuactiveinactive', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : CustomerTableMap::translateFieldName('Arcuactiveinactive', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuactiveinactive = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : CustomerTableMap::translateFieldName('Arcuinactivedate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : CustomerTableMap::translateFieldName('Arcuinactivedate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuinactivedate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : CustomerTableMap::translateFieldName('Arcuchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : CustomerTableMap::translateFieldName('Arcuchrgfrt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuchrgfrt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : CustomerTableMap::translateFieldName('Arcucorexdays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : CustomerTableMap::translateFieldName('Arcucorexdays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorexdays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : CustomerTableMap::translateFieldName('Arcucontractnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : CustomerTableMap::translateFieldName('Arcucontractnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucontractnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : CustomerTableMap::translateFieldName('Arcucorelf', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : CustomerTableMap::translateFieldName('Arcucorelf', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorelf = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : CustomerTableMap::translateFieldName('Arcucorebankid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : CustomerTableMap::translateFieldName('Arcucorebankid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucorebankid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : CustomerTableMap::translateFieldName('Arcudunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : CustomerTableMap::translateFieldName('Arcudunsnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcudunsnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : CustomerTableMap::translateFieldName('Arcurfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : CustomerTableMap::translateFieldName('Arcurfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcurfmlvalu = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : CustomerTableMap::translateFieldName('Arcucustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : CustomerTableMap::translateFieldName('Arcucustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustpoparam = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : CustomerTableMap::translateFieldName('Arcuagelevel', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : CustomerTableMap::translateFieldName('Arcuagelevel', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuagelevel = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : CustomerTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : CustomerTableMap::translateFieldName('Artbroute', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroute = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : CustomerTableMap::translateFieldName('Arcuwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : CustomerTableMap::translateFieldName('Arcuwgtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuwgtaxcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : CustomerTableMap::translateFieldName('Arcuacptsupercede', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : CustomerTableMap::translateFieldName('Arcuacptsupercede', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuacptsupercede = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : CustomerTableMap::translateFieldName('Arcumstrcustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : CustomerTableMap::translateFieldName('Arcumstrcustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcumstrcustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : CustomerTableMap::translateFieldName('Arcusurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : CustomerTableMap::translateFieldName('Arcusurchgpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcusurchgpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : CustomerTableMap::translateFieldName('Arcuallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : CustomerTableMap::translateFieldName('Arcuallowsplit', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuallowsplit = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : CustomerTableMap::translateFieldName('Arculinemin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : CustomerTableMap::translateFieldName('Arculinemin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arculinemin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : CustomerTableMap::translateFieldName('Arcuordrmin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : CustomerTableMap::translateFieldName('Arcuordrmin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuordrmin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : CustomerTableMap::translateFieldName('Arcuupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : CustomerTableMap::translateFieldName('Arcuupsacctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuupsacctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : CustomerTableMap::translateFieldName('Arcuprtmatcert', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : CustomerTableMap::translateFieldName('Arcuprtmatcert', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcuprtmatcert = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : CustomerTableMap::translateFieldName('Arcufobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : CustomerTableMap::translateFieldName('Arcufobinputyn', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufobinputyn = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : CustomerTableMap::translateFieldName('Arcufobperlb', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : CustomerTableMap::translateFieldName('Arcufobperlb', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcufobperlb = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : CustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : CustomerTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : CustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : CustomerTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : CustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : CustomerTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -5880,7 +6712,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 133; // 133 = CustomerTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 134; // 134 = CustomerTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Customer'), 0, $e);
@@ -6332,8 +7164,15 @@ abstract class Customer implements ActiveRecordInterface
         $modifiedColumns = array();
         $index = 0;
 
+        $this->modifiedColumns[CustomerTableMap::COL_CUSTRECNBR] = true;
+        if (null !== $this->custrecnbr) {
+            throw new PropelException('Cannot insert a value for auto-increment primary key (' . CustomerTableMap::COL_CUSTRECNBR . ')');
+        }
 
          // check the columns in natural order for more readable SQL queries
+        if ($this->isColumnModified(CustomerTableMap::COL_CUSTRECNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'CustRecNbr';
+        }
         if ($this->isColumnModified(CustomerTableMap::COL_ARCUCUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'ArcuCustId';
         }
@@ -6744,6 +7583,9 @@ abstract class Customer implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
+                    case 'CustRecNbr':
+                        $stmt->bindValue($identifier, $this->custrecnbr, PDO::PARAM_INT);
+                        break;
                     case 'ArcuCustId':
                         $stmt->bindValue($identifier, $this->arcucustid, PDO::PARAM_STR);
                         break;
@@ -7151,6 +7993,13 @@ abstract class Customer implements ActiveRecordInterface
             throw new PropelException(sprintf('Unable to execute INSERT statement [%s]', $sql), 0, $e);
         }
 
+        try {
+            $pk = $con->lastInsertId();
+        } catch (Exception $e) {
+            throw new PropelException('Unable to get autoincrement id.', 0, $e);
+        }
+        $this->setRid($pk);
+
         $this->setNew(false);
     }
 
@@ -7199,402 +8048,405 @@ abstract class Customer implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getArcucustid();
+                return $this->getRid();
                 break;
             case 1:
-                return $this->getArcuname();
+                return $this->getArcucustid();
                 break;
             case 2:
-                return $this->getArcuadr1();
+                return $this->getArcuname();
                 break;
             case 3:
-                return $this->getArcuadr2();
+                return $this->getArcuadr1();
                 break;
             case 4:
-                return $this->getArcuadr3();
+                return $this->getArcuadr2();
                 break;
             case 5:
-                return $this->getArcuctry();
+                return $this->getArcuadr3();
                 break;
             case 6:
-                return $this->getArcucity();
+                return $this->getArcuctry();
                 break;
             case 7:
-                return $this->getArcustat();
+                return $this->getArcucity();
                 break;
             case 8:
-                return $this->getArcuzipcode();
+                return $this->getArcustat();
                 break;
             case 9:
-                return $this->getArcudeliverydays();
+                return $this->getArcuzipcode();
                 break;
             case 10:
-                return $this->getArcuremitwhse();
+                return $this->getArcudeliverydays();
                 break;
             case 11:
-                return $this->getArcushipbin();
+                return $this->getArcuremitwhse();
                 break;
             case 12:
-                return $this->getArcuallowaddons();
+                return $this->getArcushipbin();
                 break;
             case 13:
-                return $this->getArculmecommcustid();
+                return $this->getArcuallowaddons();
                 break;
             case 14:
-                return $this->getArcugsuse2ndbin();
+                return $this->getArculmecommcustid();
                 break;
             case 15:
-                return $this->getArspsaleper1();
+                return $this->getArcugsuse2ndbin();
                 break;
             case 16:
-                return $this->getArspsaleper2();
+                return $this->getArspsaleper1();
                 break;
             case 17:
-                return $this->getArspsaleper3();
+                return $this->getArspsaleper2();
                 break;
             case 18:
-                return $this->getArtbmtaxcode();
+                return $this->getArspsaleper3();
                 break;
             case 19:
-                return $this->getArcutaxexemnbr();
+                return $this->getArtbmtaxcode();
                 break;
             case 20:
-                return $this->getIntbwhse();
+                return $this->getArcutaxexemnbr();
                 break;
             case 21:
-                return $this->getArcupriclvl();
+                return $this->getIntbwhse();
                 break;
             case 22:
-                return $this->getArcushipcomp();
+                return $this->getArcupriclvl();
                 break;
             case 23:
-                return $this->getArcutxbl();
+                return $this->getArcushipcomp();
                 break;
             case 24:
-                return $this->getArcupostal();
+                return $this->getArcutxbl();
                 break;
             case 25:
-                return $this->getArtbshipvia();
+                return $this->getArcupostal();
                 break;
             case 26:
-                return $this->getArcubord();
+                return $this->getArtbshipvia();
                 break;
             case 27:
-                return $this->getArtbtypecode();
+                return $this->getArcubord();
                 break;
             case 28:
-                return $this->getArtbpriccode();
+                return $this->getArtbtypecode();
                 break;
             case 29:
-                return $this->getArtbcommcode();
+                return $this->getArtbpriccode();
                 break;
             case 30:
-                return $this->getArtmtermcd();
+                return $this->getArtbcommcode();
                 break;
             case 31:
-                return $this->getArcucredlmt();
+                return $this->getArtmtermcd();
                 break;
             case 32:
-                return $this->getArcustmtcode();
+                return $this->getArcucredlmt();
                 break;
             case 33:
-                return $this->getArcucredhold();
+                return $this->getArcustmtcode();
                 break;
             case 34:
-                return $this->getArcufinchrg();
+                return $this->getArcucredhold();
                 break;
             case 35:
-                return $this->getArcuusercode();
+                return $this->getArcufinchrg();
                 break;
             case 36:
-                return $this->getArcunewfc();
+                return $this->getArcuusercode();
                 break;
             case 37:
-                return $this->getArcuunpdfc();
+                return $this->getArcunewfc();
                 break;
             case 38:
-                return $this->getArcucurbal();
+                return $this->getArcuunpdfc();
                 break;
             case 39:
-                return $this->getArcubalodue1();
+                return $this->getArcucurbal();
                 break;
             case 40:
-                return $this->getArcubalodue2();
+                return $this->getArcubalodue1();
                 break;
             case 41:
-                return $this->getArcubalodue3();
+                return $this->getArcubalodue2();
                 break;
             case 42:
-                return $this->getArcusalemtd();
+                return $this->getArcubalodue3();
                 break;
             case 43:
-                return $this->getArcuinvmtd();
+                return $this->getArcusalemtd();
                 break;
             case 44:
-                return $this->getArcusaleytd();
+                return $this->getArcuinvmtd();
                 break;
             case 45:
-                return $this->getArcuinvytd();
+                return $this->getArcusaleytd();
                 break;
             case 46:
-                return $this->getArcudateopen();
+                return $this->getArcuinvytd();
                 break;
             case 47:
-                return $this->getArculastsaledate();
+                return $this->getArcudateopen();
                 break;
             case 48:
-                return $this->getArcuhighbal();
+                return $this->getArculastsaledate();
                 break;
             case 49:
-                return $this->getArcubigsalemo();
+                return $this->getArcuhighbal();
                 break;
             case 50:
-                return $this->getArculastpaydate();
+                return $this->getArcubigsalemo();
                 break;
             case 51:
-                return $this->getArcuavgpaydays();
+                return $this->getArculastpaydate();
                 break;
             case 52:
-                return $this->getArcuupszone();
+                return $this->getArcuavgpaydays();
                 break;
             case 53:
-                return $this->getArcuhighbaldate();
+                return $this->getArcuupszone();
                 break;
             case 54:
-                return $this->getArcusale24mo1();
+                return $this->getArcuhighbaldate();
                 break;
             case 55:
-                return $this->getArcuinv24mo1();
+                return $this->getArcusale24mo1();
                 break;
             case 56:
-                return $this->getArcusale24mo2();
+                return $this->getArcuinv24mo1();
                 break;
             case 57:
-                return $this->getArcuinv24mo2();
+                return $this->getArcusale24mo2();
                 break;
             case 58:
-                return $this->getArcusale24mo3();
+                return $this->getArcuinv24mo2();
                 break;
             case 59:
-                return $this->getArcuinv24mo3();
+                return $this->getArcusale24mo3();
                 break;
             case 60:
-                return $this->getArcusale24mo4();
+                return $this->getArcuinv24mo3();
                 break;
             case 61:
-                return $this->getArcuinv24mo4();
+                return $this->getArcusale24mo4();
                 break;
             case 62:
-                return $this->getArcusale24mo5();
+                return $this->getArcuinv24mo4();
                 break;
             case 63:
-                return $this->getArcuinv24mo5();
+                return $this->getArcusale24mo5();
                 break;
             case 64:
-                return $this->getArcusale24mo6();
+                return $this->getArcuinv24mo5();
                 break;
             case 65:
-                return $this->getArcuinv24mo6();
+                return $this->getArcusale24mo6();
                 break;
             case 66:
-                return $this->getArcusale24mo7();
+                return $this->getArcuinv24mo6();
                 break;
             case 67:
-                return $this->getArcuinv24mo7();
+                return $this->getArcusale24mo7();
                 break;
             case 68:
-                return $this->getArcusale24mo8();
+                return $this->getArcuinv24mo7();
                 break;
             case 69:
-                return $this->getArcuinv24mo8();
+                return $this->getArcusale24mo8();
                 break;
             case 70:
-                return $this->getArcusale24mo9();
+                return $this->getArcuinv24mo8();
                 break;
             case 71:
-                return $this->getArcuinv24mo9();
+                return $this->getArcusale24mo9();
                 break;
             case 72:
-                return $this->getArcusale24mo10();
+                return $this->getArcuinv24mo9();
                 break;
             case 73:
-                return $this->getArcuinv24mo10();
+                return $this->getArcusale24mo10();
                 break;
             case 74:
-                return $this->getArcusale24mo11();
+                return $this->getArcuinv24mo10();
                 break;
             case 75:
-                return $this->getArcuinv24mo11();
+                return $this->getArcusale24mo11();
                 break;
             case 76:
-                return $this->getArcusale24mo12();
+                return $this->getArcuinv24mo11();
                 break;
             case 77:
-                return $this->getArcuinv24mo12();
+                return $this->getArcusale24mo12();
                 break;
             case 78:
-                return $this->getArcusale24mo13();
+                return $this->getArcuinv24mo12();
                 break;
             case 79:
-                return $this->getArcuinv24mo13();
+                return $this->getArcusale24mo13();
                 break;
             case 80:
-                return $this->getArcusale24mo14();
+                return $this->getArcuinv24mo13();
                 break;
             case 81:
-                return $this->getArcuinv24mo14();
+                return $this->getArcusale24mo14();
                 break;
             case 82:
-                return $this->getArcusale24mo15();
+                return $this->getArcuinv24mo14();
                 break;
             case 83:
-                return $this->getArcuinv24mo15();
+                return $this->getArcusale24mo15();
                 break;
             case 84:
-                return $this->getArcusale24mo16();
+                return $this->getArcuinv24mo15();
                 break;
             case 85:
-                return $this->getArcuinv24mo16();
+                return $this->getArcusale24mo16();
                 break;
             case 86:
-                return $this->getArcusale24mo17();
+                return $this->getArcuinv24mo16();
                 break;
             case 87:
-                return $this->getArcuinv24mo17();
+                return $this->getArcusale24mo17();
                 break;
             case 88:
-                return $this->getArcusale24mo18();
+                return $this->getArcuinv24mo17();
                 break;
             case 89:
-                return $this->getArcuinv24mo18();
+                return $this->getArcusale24mo18();
                 break;
             case 90:
-                return $this->getArcusale24mo19();
+                return $this->getArcuinv24mo18();
                 break;
             case 91:
-                return $this->getArcuinv24mo19();
+                return $this->getArcusale24mo19();
                 break;
             case 92:
-                return $this->getArcusale24mo20();
+                return $this->getArcuinv24mo19();
                 break;
             case 93:
-                return $this->getArcuinv24mo20();
+                return $this->getArcusale24mo20();
                 break;
             case 94:
-                return $this->getArcusale24mo21();
+                return $this->getArcuinv24mo20();
                 break;
             case 95:
-                return $this->getArcuinv24mo21();
+                return $this->getArcusale24mo21();
                 break;
             case 96:
-                return $this->getArcusale24mo22();
+                return $this->getArcuinv24mo21();
                 break;
             case 97:
-                return $this->getArcuinv24mo22();
+                return $this->getArcusale24mo22();
                 break;
             case 98:
-                return $this->getArcusale24mo23();
+                return $this->getArcuinv24mo22();
                 break;
             case 99:
-                return $this->getArcuinv24mo23();
+                return $this->getArcusale24mo23();
                 break;
             case 100:
-                return $this->getArcusale24mo24();
+                return $this->getArcuinv24mo23();
                 break;
             case 101:
-                return $this->getArcuinv24mo24();
+                return $this->getArcusale24mo24();
                 break;
             case 102:
-                return $this->getArculastpayamt();
+                return $this->getArcuinv24mo24();
                 break;
             case 103:
-                return $this->getArcuordrtot();
+                return $this->getArculastpayamt();
                 break;
             case 104:
-                return $this->getArcuusefrtin();
+                return $this->getArcuordrtot();
                 break;
             case 105:
-                return $this->getArcumyvendid();
+                return $this->getArcuusefrtin();
                 break;
             case 106:
-                return $this->getArcuaddlpricdisc();
+                return $this->getArcumyvendid();
                 break;
             case 107:
-                return $this->getArcuactiveinactive();
+                return $this->getArcuaddlpricdisc();
                 break;
             case 108:
-                return $this->getArcuinactivedate();
+                return $this->getArcuactiveinactive();
                 break;
             case 109:
-                return $this->getArcuchrgfrt();
+                return $this->getArcuinactivedate();
                 break;
             case 110:
-                return $this->getArcucorexdays();
+                return $this->getArcuchrgfrt();
                 break;
             case 111:
-                return $this->getArcucontractnbr();
+                return $this->getArcucorexdays();
                 break;
             case 112:
-                return $this->getArcucorelf();
+                return $this->getArcucontractnbr();
                 break;
             case 113:
-                return $this->getArcucorebankid();
+                return $this->getArcucorelf();
                 break;
             case 114:
-                return $this->getArcudunsnbr();
+                return $this->getArcucorebankid();
                 break;
             case 115:
-                return $this->getArcurfmlvalu();
+                return $this->getArcudunsnbr();
                 break;
             case 116:
-                return $this->getArcucustpoparam();
+                return $this->getArcurfmlvalu();
                 break;
             case 117:
-                return $this->getArcuagelevel();
+                return $this->getArcucustpoparam();
                 break;
             case 118:
-                return $this->getArtbroute();
+                return $this->getArcuagelevel();
                 break;
             case 119:
-                return $this->getArcuwgtaxcode();
+                return $this->getArtbroute();
                 break;
             case 120:
-                return $this->getArcuacptsupercede();
+                return $this->getArcuwgtaxcode();
                 break;
             case 121:
-                return $this->getArcumstrcustid();
+                return $this->getArcuacptsupercede();
                 break;
             case 122:
-                return $this->getArcusurchgpct();
+                return $this->getArcumstrcustid();
                 break;
             case 123:
-                return $this->getArcuallowsplit();
+                return $this->getArcusurchgpct();
                 break;
             case 124:
-                return $this->getArculinemin();
+                return $this->getArcuallowsplit();
                 break;
             case 125:
-                return $this->getArcuordrmin();
+                return $this->getArculinemin();
                 break;
             case 126:
-                return $this->getArcuupsacctnbr();
+                return $this->getArcuordrmin();
                 break;
             case 127:
-                return $this->getArcuprtmatcert();
+                return $this->getArcuupsacctnbr();
                 break;
             case 128:
-                return $this->getArcufobinputyn();
+                return $this->getArcuprtmatcert();
                 break;
             case 129:
-                return $this->getArcufobperlb();
+                return $this->getArcufobinputyn();
                 break;
             case 130:
-                return $this->getDateupdtd();
+                return $this->getArcufobperlb();
                 break;
             case 131:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 132:
+                return $this->getTimeupdtd();
+                break;
+            case 133:
                 return $this->getDummy();
                 break;
             default:
@@ -7627,139 +8479,140 @@ abstract class Customer implements ActiveRecordInterface
         $alreadyDumpedObjects['Customer'][$this->hashCode()] = true;
         $keys = CustomerTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getArcucustid(),
-            $keys[1] => $this->getArcuname(),
-            $keys[2] => $this->getArcuadr1(),
-            $keys[3] => $this->getArcuadr2(),
-            $keys[4] => $this->getArcuadr3(),
-            $keys[5] => $this->getArcuctry(),
-            $keys[6] => $this->getArcucity(),
-            $keys[7] => $this->getArcustat(),
-            $keys[8] => $this->getArcuzipcode(),
-            $keys[9] => $this->getArcudeliverydays(),
-            $keys[10] => $this->getArcuremitwhse(),
-            $keys[11] => $this->getArcushipbin(),
-            $keys[12] => $this->getArcuallowaddons(),
-            $keys[13] => $this->getArculmecommcustid(),
-            $keys[14] => $this->getArcugsuse2ndbin(),
-            $keys[15] => $this->getArspsaleper1(),
-            $keys[16] => $this->getArspsaleper2(),
-            $keys[17] => $this->getArspsaleper3(),
-            $keys[18] => $this->getArtbmtaxcode(),
-            $keys[19] => $this->getArcutaxexemnbr(),
-            $keys[20] => $this->getIntbwhse(),
-            $keys[21] => $this->getArcupriclvl(),
-            $keys[22] => $this->getArcushipcomp(),
-            $keys[23] => $this->getArcutxbl(),
-            $keys[24] => $this->getArcupostal(),
-            $keys[25] => $this->getArtbshipvia(),
-            $keys[26] => $this->getArcubord(),
-            $keys[27] => $this->getArtbtypecode(),
-            $keys[28] => $this->getArtbpriccode(),
-            $keys[29] => $this->getArtbcommcode(),
-            $keys[30] => $this->getArtmtermcd(),
-            $keys[31] => $this->getArcucredlmt(),
-            $keys[32] => $this->getArcustmtcode(),
-            $keys[33] => $this->getArcucredhold(),
-            $keys[34] => $this->getArcufinchrg(),
-            $keys[35] => $this->getArcuusercode(),
-            $keys[36] => $this->getArcunewfc(),
-            $keys[37] => $this->getArcuunpdfc(),
-            $keys[38] => $this->getArcucurbal(),
-            $keys[39] => $this->getArcubalodue1(),
-            $keys[40] => $this->getArcubalodue2(),
-            $keys[41] => $this->getArcubalodue3(),
-            $keys[42] => $this->getArcusalemtd(),
-            $keys[43] => $this->getArcuinvmtd(),
-            $keys[44] => $this->getArcusaleytd(),
-            $keys[45] => $this->getArcuinvytd(),
-            $keys[46] => $this->getArcudateopen(),
-            $keys[47] => $this->getArculastsaledate(),
-            $keys[48] => $this->getArcuhighbal(),
-            $keys[49] => $this->getArcubigsalemo(),
-            $keys[50] => $this->getArculastpaydate(),
-            $keys[51] => $this->getArcuavgpaydays(),
-            $keys[52] => $this->getArcuupszone(),
-            $keys[53] => $this->getArcuhighbaldate(),
-            $keys[54] => $this->getArcusale24mo1(),
-            $keys[55] => $this->getArcuinv24mo1(),
-            $keys[56] => $this->getArcusale24mo2(),
-            $keys[57] => $this->getArcuinv24mo2(),
-            $keys[58] => $this->getArcusale24mo3(),
-            $keys[59] => $this->getArcuinv24mo3(),
-            $keys[60] => $this->getArcusale24mo4(),
-            $keys[61] => $this->getArcuinv24mo4(),
-            $keys[62] => $this->getArcusale24mo5(),
-            $keys[63] => $this->getArcuinv24mo5(),
-            $keys[64] => $this->getArcusale24mo6(),
-            $keys[65] => $this->getArcuinv24mo6(),
-            $keys[66] => $this->getArcusale24mo7(),
-            $keys[67] => $this->getArcuinv24mo7(),
-            $keys[68] => $this->getArcusale24mo8(),
-            $keys[69] => $this->getArcuinv24mo8(),
-            $keys[70] => $this->getArcusale24mo9(),
-            $keys[71] => $this->getArcuinv24mo9(),
-            $keys[72] => $this->getArcusale24mo10(),
-            $keys[73] => $this->getArcuinv24mo10(),
-            $keys[74] => $this->getArcusale24mo11(),
-            $keys[75] => $this->getArcuinv24mo11(),
-            $keys[76] => $this->getArcusale24mo12(),
-            $keys[77] => $this->getArcuinv24mo12(),
-            $keys[78] => $this->getArcusale24mo13(),
-            $keys[79] => $this->getArcuinv24mo13(),
-            $keys[80] => $this->getArcusale24mo14(),
-            $keys[81] => $this->getArcuinv24mo14(),
-            $keys[82] => $this->getArcusale24mo15(),
-            $keys[83] => $this->getArcuinv24mo15(),
-            $keys[84] => $this->getArcusale24mo16(),
-            $keys[85] => $this->getArcuinv24mo16(),
-            $keys[86] => $this->getArcusale24mo17(),
-            $keys[87] => $this->getArcuinv24mo17(),
-            $keys[88] => $this->getArcusale24mo18(),
-            $keys[89] => $this->getArcuinv24mo18(),
-            $keys[90] => $this->getArcusale24mo19(),
-            $keys[91] => $this->getArcuinv24mo19(),
-            $keys[92] => $this->getArcusale24mo20(),
-            $keys[93] => $this->getArcuinv24mo20(),
-            $keys[94] => $this->getArcusale24mo21(),
-            $keys[95] => $this->getArcuinv24mo21(),
-            $keys[96] => $this->getArcusale24mo22(),
-            $keys[97] => $this->getArcuinv24mo22(),
-            $keys[98] => $this->getArcusale24mo23(),
-            $keys[99] => $this->getArcuinv24mo23(),
-            $keys[100] => $this->getArcusale24mo24(),
-            $keys[101] => $this->getArcuinv24mo24(),
-            $keys[102] => $this->getArculastpayamt(),
-            $keys[103] => $this->getArcuordrtot(),
-            $keys[104] => $this->getArcuusefrtin(),
-            $keys[105] => $this->getArcumyvendid(),
-            $keys[106] => $this->getArcuaddlpricdisc(),
-            $keys[107] => $this->getArcuactiveinactive(),
-            $keys[108] => $this->getArcuinactivedate(),
-            $keys[109] => $this->getArcuchrgfrt(),
-            $keys[110] => $this->getArcucorexdays(),
-            $keys[111] => $this->getArcucontractnbr(),
-            $keys[112] => $this->getArcucorelf(),
-            $keys[113] => $this->getArcucorebankid(),
-            $keys[114] => $this->getArcudunsnbr(),
-            $keys[115] => $this->getArcurfmlvalu(),
-            $keys[116] => $this->getArcucustpoparam(),
-            $keys[117] => $this->getArcuagelevel(),
-            $keys[118] => $this->getArtbroute(),
-            $keys[119] => $this->getArcuwgtaxcode(),
-            $keys[120] => $this->getArcuacptsupercede(),
-            $keys[121] => $this->getArcumstrcustid(),
-            $keys[122] => $this->getArcusurchgpct(),
-            $keys[123] => $this->getArcuallowsplit(),
-            $keys[124] => $this->getArculinemin(),
-            $keys[125] => $this->getArcuordrmin(),
-            $keys[126] => $this->getArcuupsacctnbr(),
-            $keys[127] => $this->getArcuprtmatcert(),
-            $keys[128] => $this->getArcufobinputyn(),
-            $keys[129] => $this->getArcufobperlb(),
-            $keys[130] => $this->getDateupdtd(),
-            $keys[131] => $this->getTimeupdtd(),
-            $keys[132] => $this->getDummy(),
+            $keys[0] => $this->getRid(),
+            $keys[1] => $this->getArcucustid(),
+            $keys[2] => $this->getArcuname(),
+            $keys[3] => $this->getArcuadr1(),
+            $keys[4] => $this->getArcuadr2(),
+            $keys[5] => $this->getArcuadr3(),
+            $keys[6] => $this->getArcuctry(),
+            $keys[7] => $this->getArcucity(),
+            $keys[8] => $this->getArcustat(),
+            $keys[9] => $this->getArcuzipcode(),
+            $keys[10] => $this->getArcudeliverydays(),
+            $keys[11] => $this->getArcuremitwhse(),
+            $keys[12] => $this->getArcushipbin(),
+            $keys[13] => $this->getArcuallowaddons(),
+            $keys[14] => $this->getArculmecommcustid(),
+            $keys[15] => $this->getArcugsuse2ndbin(),
+            $keys[16] => $this->getArspsaleper1(),
+            $keys[17] => $this->getArspsaleper2(),
+            $keys[18] => $this->getArspsaleper3(),
+            $keys[19] => $this->getArtbmtaxcode(),
+            $keys[20] => $this->getArcutaxexemnbr(),
+            $keys[21] => $this->getIntbwhse(),
+            $keys[22] => $this->getArcupriclvl(),
+            $keys[23] => $this->getArcushipcomp(),
+            $keys[24] => $this->getArcutxbl(),
+            $keys[25] => $this->getArcupostal(),
+            $keys[26] => $this->getArtbshipvia(),
+            $keys[27] => $this->getArcubord(),
+            $keys[28] => $this->getArtbtypecode(),
+            $keys[29] => $this->getArtbpriccode(),
+            $keys[30] => $this->getArtbcommcode(),
+            $keys[31] => $this->getArtmtermcd(),
+            $keys[32] => $this->getArcucredlmt(),
+            $keys[33] => $this->getArcustmtcode(),
+            $keys[34] => $this->getArcucredhold(),
+            $keys[35] => $this->getArcufinchrg(),
+            $keys[36] => $this->getArcuusercode(),
+            $keys[37] => $this->getArcunewfc(),
+            $keys[38] => $this->getArcuunpdfc(),
+            $keys[39] => $this->getArcucurbal(),
+            $keys[40] => $this->getArcubalodue1(),
+            $keys[41] => $this->getArcubalodue2(),
+            $keys[42] => $this->getArcubalodue3(),
+            $keys[43] => $this->getArcusalemtd(),
+            $keys[44] => $this->getArcuinvmtd(),
+            $keys[45] => $this->getArcusaleytd(),
+            $keys[46] => $this->getArcuinvytd(),
+            $keys[47] => $this->getArcudateopen(),
+            $keys[48] => $this->getArculastsaledate(),
+            $keys[49] => $this->getArcuhighbal(),
+            $keys[50] => $this->getArcubigsalemo(),
+            $keys[51] => $this->getArculastpaydate(),
+            $keys[52] => $this->getArcuavgpaydays(),
+            $keys[53] => $this->getArcuupszone(),
+            $keys[54] => $this->getArcuhighbaldate(),
+            $keys[55] => $this->getArcusale24mo1(),
+            $keys[56] => $this->getArcuinv24mo1(),
+            $keys[57] => $this->getArcusale24mo2(),
+            $keys[58] => $this->getArcuinv24mo2(),
+            $keys[59] => $this->getArcusale24mo3(),
+            $keys[60] => $this->getArcuinv24mo3(),
+            $keys[61] => $this->getArcusale24mo4(),
+            $keys[62] => $this->getArcuinv24mo4(),
+            $keys[63] => $this->getArcusale24mo5(),
+            $keys[64] => $this->getArcuinv24mo5(),
+            $keys[65] => $this->getArcusale24mo6(),
+            $keys[66] => $this->getArcuinv24mo6(),
+            $keys[67] => $this->getArcusale24mo7(),
+            $keys[68] => $this->getArcuinv24mo7(),
+            $keys[69] => $this->getArcusale24mo8(),
+            $keys[70] => $this->getArcuinv24mo8(),
+            $keys[71] => $this->getArcusale24mo9(),
+            $keys[72] => $this->getArcuinv24mo9(),
+            $keys[73] => $this->getArcusale24mo10(),
+            $keys[74] => $this->getArcuinv24mo10(),
+            $keys[75] => $this->getArcusale24mo11(),
+            $keys[76] => $this->getArcuinv24mo11(),
+            $keys[77] => $this->getArcusale24mo12(),
+            $keys[78] => $this->getArcuinv24mo12(),
+            $keys[79] => $this->getArcusale24mo13(),
+            $keys[80] => $this->getArcuinv24mo13(),
+            $keys[81] => $this->getArcusale24mo14(),
+            $keys[82] => $this->getArcuinv24mo14(),
+            $keys[83] => $this->getArcusale24mo15(),
+            $keys[84] => $this->getArcuinv24mo15(),
+            $keys[85] => $this->getArcusale24mo16(),
+            $keys[86] => $this->getArcuinv24mo16(),
+            $keys[87] => $this->getArcusale24mo17(),
+            $keys[88] => $this->getArcuinv24mo17(),
+            $keys[89] => $this->getArcusale24mo18(),
+            $keys[90] => $this->getArcuinv24mo18(),
+            $keys[91] => $this->getArcusale24mo19(),
+            $keys[92] => $this->getArcuinv24mo19(),
+            $keys[93] => $this->getArcusale24mo20(),
+            $keys[94] => $this->getArcuinv24mo20(),
+            $keys[95] => $this->getArcusale24mo21(),
+            $keys[96] => $this->getArcuinv24mo21(),
+            $keys[97] => $this->getArcusale24mo22(),
+            $keys[98] => $this->getArcuinv24mo22(),
+            $keys[99] => $this->getArcusale24mo23(),
+            $keys[100] => $this->getArcuinv24mo23(),
+            $keys[101] => $this->getArcusale24mo24(),
+            $keys[102] => $this->getArcuinv24mo24(),
+            $keys[103] => $this->getArculastpayamt(),
+            $keys[104] => $this->getArcuordrtot(),
+            $keys[105] => $this->getArcuusefrtin(),
+            $keys[106] => $this->getArcumyvendid(),
+            $keys[107] => $this->getArcuaddlpricdisc(),
+            $keys[108] => $this->getArcuactiveinactive(),
+            $keys[109] => $this->getArcuinactivedate(),
+            $keys[110] => $this->getArcuchrgfrt(),
+            $keys[111] => $this->getArcucorexdays(),
+            $keys[112] => $this->getArcucontractnbr(),
+            $keys[113] => $this->getArcucorelf(),
+            $keys[114] => $this->getArcucorebankid(),
+            $keys[115] => $this->getArcudunsnbr(),
+            $keys[116] => $this->getArcurfmlvalu(),
+            $keys[117] => $this->getArcucustpoparam(),
+            $keys[118] => $this->getArcuagelevel(),
+            $keys[119] => $this->getArtbroute(),
+            $keys[120] => $this->getArcuwgtaxcode(),
+            $keys[121] => $this->getArcuacptsupercede(),
+            $keys[122] => $this->getArcumstrcustid(),
+            $keys[123] => $this->getArcusurchgpct(),
+            $keys[124] => $this->getArcuallowsplit(),
+            $keys[125] => $this->getArculinemin(),
+            $keys[126] => $this->getArcuordrmin(),
+            $keys[127] => $this->getArcuupsacctnbr(),
+            $keys[128] => $this->getArcuprtmatcert(),
+            $keys[129] => $this->getArcufobinputyn(),
+            $keys[130] => $this->getArcufobperlb(),
+            $keys[131] => $this->getDateupdtd(),
+            $keys[132] => $this->getTimeupdtd(),
+            $keys[133] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -8027,402 +8880,405 @@ abstract class Customer implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setArcucustid($value);
+                $this->setRid($value);
                 break;
             case 1:
-                $this->setArcuname($value);
+                $this->setArcucustid($value);
                 break;
             case 2:
-                $this->setArcuadr1($value);
+                $this->setArcuname($value);
                 break;
             case 3:
-                $this->setArcuadr2($value);
+                $this->setArcuadr1($value);
                 break;
             case 4:
-                $this->setArcuadr3($value);
+                $this->setArcuadr2($value);
                 break;
             case 5:
-                $this->setArcuctry($value);
+                $this->setArcuadr3($value);
                 break;
             case 6:
-                $this->setArcucity($value);
+                $this->setArcuctry($value);
                 break;
             case 7:
-                $this->setArcustat($value);
+                $this->setArcucity($value);
                 break;
             case 8:
-                $this->setArcuzipcode($value);
+                $this->setArcustat($value);
                 break;
             case 9:
-                $this->setArcudeliverydays($value);
+                $this->setArcuzipcode($value);
                 break;
             case 10:
-                $this->setArcuremitwhse($value);
+                $this->setArcudeliverydays($value);
                 break;
             case 11:
-                $this->setArcushipbin($value);
+                $this->setArcuremitwhse($value);
                 break;
             case 12:
-                $this->setArcuallowaddons($value);
+                $this->setArcushipbin($value);
                 break;
             case 13:
-                $this->setArculmecommcustid($value);
+                $this->setArcuallowaddons($value);
                 break;
             case 14:
-                $this->setArcugsuse2ndbin($value);
+                $this->setArculmecommcustid($value);
                 break;
             case 15:
-                $this->setArspsaleper1($value);
+                $this->setArcugsuse2ndbin($value);
                 break;
             case 16:
-                $this->setArspsaleper2($value);
+                $this->setArspsaleper1($value);
                 break;
             case 17:
-                $this->setArspsaleper3($value);
+                $this->setArspsaleper2($value);
                 break;
             case 18:
-                $this->setArtbmtaxcode($value);
+                $this->setArspsaleper3($value);
                 break;
             case 19:
-                $this->setArcutaxexemnbr($value);
+                $this->setArtbmtaxcode($value);
                 break;
             case 20:
-                $this->setIntbwhse($value);
+                $this->setArcutaxexemnbr($value);
                 break;
             case 21:
-                $this->setArcupriclvl($value);
+                $this->setIntbwhse($value);
                 break;
             case 22:
-                $this->setArcushipcomp($value);
+                $this->setArcupriclvl($value);
                 break;
             case 23:
-                $this->setArcutxbl($value);
+                $this->setArcushipcomp($value);
                 break;
             case 24:
-                $this->setArcupostal($value);
+                $this->setArcutxbl($value);
                 break;
             case 25:
-                $this->setArtbshipvia($value);
+                $this->setArcupostal($value);
                 break;
             case 26:
-                $this->setArcubord($value);
+                $this->setArtbshipvia($value);
                 break;
             case 27:
-                $this->setArtbtypecode($value);
+                $this->setArcubord($value);
                 break;
             case 28:
-                $this->setArtbpriccode($value);
+                $this->setArtbtypecode($value);
                 break;
             case 29:
-                $this->setArtbcommcode($value);
+                $this->setArtbpriccode($value);
                 break;
             case 30:
-                $this->setArtmtermcd($value);
+                $this->setArtbcommcode($value);
                 break;
             case 31:
-                $this->setArcucredlmt($value);
+                $this->setArtmtermcd($value);
                 break;
             case 32:
-                $this->setArcustmtcode($value);
+                $this->setArcucredlmt($value);
                 break;
             case 33:
-                $this->setArcucredhold($value);
+                $this->setArcustmtcode($value);
                 break;
             case 34:
-                $this->setArcufinchrg($value);
+                $this->setArcucredhold($value);
                 break;
             case 35:
-                $this->setArcuusercode($value);
+                $this->setArcufinchrg($value);
                 break;
             case 36:
-                $this->setArcunewfc($value);
+                $this->setArcuusercode($value);
                 break;
             case 37:
-                $this->setArcuunpdfc($value);
+                $this->setArcunewfc($value);
                 break;
             case 38:
-                $this->setArcucurbal($value);
+                $this->setArcuunpdfc($value);
                 break;
             case 39:
-                $this->setArcubalodue1($value);
+                $this->setArcucurbal($value);
                 break;
             case 40:
-                $this->setArcubalodue2($value);
+                $this->setArcubalodue1($value);
                 break;
             case 41:
-                $this->setArcubalodue3($value);
+                $this->setArcubalodue2($value);
                 break;
             case 42:
-                $this->setArcusalemtd($value);
+                $this->setArcubalodue3($value);
                 break;
             case 43:
-                $this->setArcuinvmtd($value);
+                $this->setArcusalemtd($value);
                 break;
             case 44:
-                $this->setArcusaleytd($value);
+                $this->setArcuinvmtd($value);
                 break;
             case 45:
-                $this->setArcuinvytd($value);
+                $this->setArcusaleytd($value);
                 break;
             case 46:
-                $this->setArcudateopen($value);
+                $this->setArcuinvytd($value);
                 break;
             case 47:
-                $this->setArculastsaledate($value);
+                $this->setArcudateopen($value);
                 break;
             case 48:
-                $this->setArcuhighbal($value);
+                $this->setArculastsaledate($value);
                 break;
             case 49:
-                $this->setArcubigsalemo($value);
+                $this->setArcuhighbal($value);
                 break;
             case 50:
-                $this->setArculastpaydate($value);
+                $this->setArcubigsalemo($value);
                 break;
             case 51:
-                $this->setArcuavgpaydays($value);
+                $this->setArculastpaydate($value);
                 break;
             case 52:
-                $this->setArcuupszone($value);
+                $this->setArcuavgpaydays($value);
                 break;
             case 53:
-                $this->setArcuhighbaldate($value);
+                $this->setArcuupszone($value);
                 break;
             case 54:
-                $this->setArcusale24mo1($value);
+                $this->setArcuhighbaldate($value);
                 break;
             case 55:
-                $this->setArcuinv24mo1($value);
+                $this->setArcusale24mo1($value);
                 break;
             case 56:
-                $this->setArcusale24mo2($value);
+                $this->setArcuinv24mo1($value);
                 break;
             case 57:
-                $this->setArcuinv24mo2($value);
+                $this->setArcusale24mo2($value);
                 break;
             case 58:
-                $this->setArcusale24mo3($value);
+                $this->setArcuinv24mo2($value);
                 break;
             case 59:
-                $this->setArcuinv24mo3($value);
+                $this->setArcusale24mo3($value);
                 break;
             case 60:
-                $this->setArcusale24mo4($value);
+                $this->setArcuinv24mo3($value);
                 break;
             case 61:
-                $this->setArcuinv24mo4($value);
+                $this->setArcusale24mo4($value);
                 break;
             case 62:
-                $this->setArcusale24mo5($value);
+                $this->setArcuinv24mo4($value);
                 break;
             case 63:
-                $this->setArcuinv24mo5($value);
+                $this->setArcusale24mo5($value);
                 break;
             case 64:
-                $this->setArcusale24mo6($value);
+                $this->setArcuinv24mo5($value);
                 break;
             case 65:
-                $this->setArcuinv24mo6($value);
+                $this->setArcusale24mo6($value);
                 break;
             case 66:
-                $this->setArcusale24mo7($value);
+                $this->setArcuinv24mo6($value);
                 break;
             case 67:
-                $this->setArcuinv24mo7($value);
+                $this->setArcusale24mo7($value);
                 break;
             case 68:
-                $this->setArcusale24mo8($value);
+                $this->setArcuinv24mo7($value);
                 break;
             case 69:
-                $this->setArcuinv24mo8($value);
+                $this->setArcusale24mo8($value);
                 break;
             case 70:
-                $this->setArcusale24mo9($value);
+                $this->setArcuinv24mo8($value);
                 break;
             case 71:
-                $this->setArcuinv24mo9($value);
+                $this->setArcusale24mo9($value);
                 break;
             case 72:
-                $this->setArcusale24mo10($value);
+                $this->setArcuinv24mo9($value);
                 break;
             case 73:
-                $this->setArcuinv24mo10($value);
+                $this->setArcusale24mo10($value);
                 break;
             case 74:
-                $this->setArcusale24mo11($value);
+                $this->setArcuinv24mo10($value);
                 break;
             case 75:
-                $this->setArcuinv24mo11($value);
+                $this->setArcusale24mo11($value);
                 break;
             case 76:
-                $this->setArcusale24mo12($value);
+                $this->setArcuinv24mo11($value);
                 break;
             case 77:
-                $this->setArcuinv24mo12($value);
+                $this->setArcusale24mo12($value);
                 break;
             case 78:
-                $this->setArcusale24mo13($value);
+                $this->setArcuinv24mo12($value);
                 break;
             case 79:
-                $this->setArcuinv24mo13($value);
+                $this->setArcusale24mo13($value);
                 break;
             case 80:
-                $this->setArcusale24mo14($value);
+                $this->setArcuinv24mo13($value);
                 break;
             case 81:
-                $this->setArcuinv24mo14($value);
+                $this->setArcusale24mo14($value);
                 break;
             case 82:
-                $this->setArcusale24mo15($value);
+                $this->setArcuinv24mo14($value);
                 break;
             case 83:
-                $this->setArcuinv24mo15($value);
+                $this->setArcusale24mo15($value);
                 break;
             case 84:
-                $this->setArcusale24mo16($value);
+                $this->setArcuinv24mo15($value);
                 break;
             case 85:
-                $this->setArcuinv24mo16($value);
+                $this->setArcusale24mo16($value);
                 break;
             case 86:
-                $this->setArcusale24mo17($value);
+                $this->setArcuinv24mo16($value);
                 break;
             case 87:
-                $this->setArcuinv24mo17($value);
+                $this->setArcusale24mo17($value);
                 break;
             case 88:
-                $this->setArcusale24mo18($value);
+                $this->setArcuinv24mo17($value);
                 break;
             case 89:
-                $this->setArcuinv24mo18($value);
+                $this->setArcusale24mo18($value);
                 break;
             case 90:
-                $this->setArcusale24mo19($value);
+                $this->setArcuinv24mo18($value);
                 break;
             case 91:
-                $this->setArcuinv24mo19($value);
+                $this->setArcusale24mo19($value);
                 break;
             case 92:
-                $this->setArcusale24mo20($value);
+                $this->setArcuinv24mo19($value);
                 break;
             case 93:
-                $this->setArcuinv24mo20($value);
+                $this->setArcusale24mo20($value);
                 break;
             case 94:
-                $this->setArcusale24mo21($value);
+                $this->setArcuinv24mo20($value);
                 break;
             case 95:
-                $this->setArcuinv24mo21($value);
+                $this->setArcusale24mo21($value);
                 break;
             case 96:
-                $this->setArcusale24mo22($value);
+                $this->setArcuinv24mo21($value);
                 break;
             case 97:
-                $this->setArcuinv24mo22($value);
+                $this->setArcusale24mo22($value);
                 break;
             case 98:
-                $this->setArcusale24mo23($value);
+                $this->setArcuinv24mo22($value);
                 break;
             case 99:
-                $this->setArcuinv24mo23($value);
+                $this->setArcusale24mo23($value);
                 break;
             case 100:
-                $this->setArcusale24mo24($value);
+                $this->setArcuinv24mo23($value);
                 break;
             case 101:
-                $this->setArcuinv24mo24($value);
+                $this->setArcusale24mo24($value);
                 break;
             case 102:
-                $this->setArculastpayamt($value);
+                $this->setArcuinv24mo24($value);
                 break;
             case 103:
-                $this->setArcuordrtot($value);
+                $this->setArculastpayamt($value);
                 break;
             case 104:
-                $this->setArcuusefrtin($value);
+                $this->setArcuordrtot($value);
                 break;
             case 105:
-                $this->setArcumyvendid($value);
+                $this->setArcuusefrtin($value);
                 break;
             case 106:
-                $this->setArcuaddlpricdisc($value);
+                $this->setArcumyvendid($value);
                 break;
             case 107:
-                $this->setArcuactiveinactive($value);
+                $this->setArcuaddlpricdisc($value);
                 break;
             case 108:
-                $this->setArcuinactivedate($value);
+                $this->setArcuactiveinactive($value);
                 break;
             case 109:
-                $this->setArcuchrgfrt($value);
+                $this->setArcuinactivedate($value);
                 break;
             case 110:
-                $this->setArcucorexdays($value);
+                $this->setArcuchrgfrt($value);
                 break;
             case 111:
-                $this->setArcucontractnbr($value);
+                $this->setArcucorexdays($value);
                 break;
             case 112:
-                $this->setArcucorelf($value);
+                $this->setArcucontractnbr($value);
                 break;
             case 113:
-                $this->setArcucorebankid($value);
+                $this->setArcucorelf($value);
                 break;
             case 114:
-                $this->setArcudunsnbr($value);
+                $this->setArcucorebankid($value);
                 break;
             case 115:
-                $this->setArcurfmlvalu($value);
+                $this->setArcudunsnbr($value);
                 break;
             case 116:
-                $this->setArcucustpoparam($value);
+                $this->setArcurfmlvalu($value);
                 break;
             case 117:
-                $this->setArcuagelevel($value);
+                $this->setArcucustpoparam($value);
                 break;
             case 118:
-                $this->setArtbroute($value);
+                $this->setArcuagelevel($value);
                 break;
             case 119:
-                $this->setArcuwgtaxcode($value);
+                $this->setArtbroute($value);
                 break;
             case 120:
-                $this->setArcuacptsupercede($value);
+                $this->setArcuwgtaxcode($value);
                 break;
             case 121:
-                $this->setArcumstrcustid($value);
+                $this->setArcuacptsupercede($value);
                 break;
             case 122:
-                $this->setArcusurchgpct($value);
+                $this->setArcumstrcustid($value);
                 break;
             case 123:
-                $this->setArcuallowsplit($value);
+                $this->setArcusurchgpct($value);
                 break;
             case 124:
-                $this->setArculinemin($value);
+                $this->setArcuallowsplit($value);
                 break;
             case 125:
-                $this->setArcuordrmin($value);
+                $this->setArculinemin($value);
                 break;
             case 126:
-                $this->setArcuupsacctnbr($value);
+                $this->setArcuordrmin($value);
                 break;
             case 127:
-                $this->setArcuprtmatcert($value);
+                $this->setArcuupsacctnbr($value);
                 break;
             case 128:
-                $this->setArcufobinputyn($value);
+                $this->setArcuprtmatcert($value);
                 break;
             case 129:
-                $this->setArcufobperlb($value);
+                $this->setArcufobinputyn($value);
                 break;
             case 130:
-                $this->setDateupdtd($value);
+                $this->setArcufobperlb($value);
                 break;
             case 131:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 132:
+                $this->setTimeupdtd($value);
+                break;
+            case 133:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -8452,403 +9308,406 @@ abstract class Customer implements ActiveRecordInterface
         $keys = CustomerTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setArcucustid($arr[$keys[0]]);
+            $this->setRid($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setArcuname($arr[$keys[1]]);
+            $this->setArcucustid($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setArcuadr1($arr[$keys[2]]);
+            $this->setArcuname($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setArcuadr2($arr[$keys[3]]);
+            $this->setArcuadr1($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setArcuadr3($arr[$keys[4]]);
+            $this->setArcuadr2($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setArcuctry($arr[$keys[5]]);
+            $this->setArcuadr3($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setArcucity($arr[$keys[6]]);
+            $this->setArcuctry($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setArcustat($arr[$keys[7]]);
+            $this->setArcucity($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setArcuzipcode($arr[$keys[8]]);
+            $this->setArcustat($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setArcudeliverydays($arr[$keys[9]]);
+            $this->setArcuzipcode($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setArcuremitwhse($arr[$keys[10]]);
+            $this->setArcudeliverydays($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setArcushipbin($arr[$keys[11]]);
+            $this->setArcuremitwhse($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setArcuallowaddons($arr[$keys[12]]);
+            $this->setArcushipbin($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setArculmecommcustid($arr[$keys[13]]);
+            $this->setArcuallowaddons($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setArcugsuse2ndbin($arr[$keys[14]]);
+            $this->setArculmecommcustid($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setArspsaleper1($arr[$keys[15]]);
+            $this->setArcugsuse2ndbin($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setArspsaleper2($arr[$keys[16]]);
+            $this->setArspsaleper1($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setArspsaleper3($arr[$keys[17]]);
+            $this->setArspsaleper2($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[18]]);
+            $this->setArspsaleper3($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setArcutaxexemnbr($arr[$keys[19]]);
+            $this->setArtbmtaxcode($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setIntbwhse($arr[$keys[20]]);
+            $this->setArcutaxexemnbr($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setArcupriclvl($arr[$keys[21]]);
+            $this->setIntbwhse($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setArcushipcomp($arr[$keys[22]]);
+            $this->setArcupriclvl($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setArcutxbl($arr[$keys[23]]);
+            $this->setArcushipcomp($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setArcupostal($arr[$keys[24]]);
+            $this->setArcutxbl($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setArtbshipvia($arr[$keys[25]]);
+            $this->setArcupostal($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setArcubord($arr[$keys[26]]);
+            $this->setArtbshipvia($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setArtbtypecode($arr[$keys[27]]);
+            $this->setArcubord($arr[$keys[27]]);
         }
         if (array_key_exists($keys[28], $arr)) {
-            $this->setArtbpriccode($arr[$keys[28]]);
+            $this->setArtbtypecode($arr[$keys[28]]);
         }
         if (array_key_exists($keys[29], $arr)) {
-            $this->setArtbcommcode($arr[$keys[29]]);
+            $this->setArtbpriccode($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setArtmtermcd($arr[$keys[30]]);
+            $this->setArtbcommcode($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setArcucredlmt($arr[$keys[31]]);
+            $this->setArtmtermcd($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setArcustmtcode($arr[$keys[32]]);
+            $this->setArcucredlmt($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setArcucredhold($arr[$keys[33]]);
+            $this->setArcustmtcode($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setArcufinchrg($arr[$keys[34]]);
+            $this->setArcucredhold($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setArcuusercode($arr[$keys[35]]);
+            $this->setArcufinchrg($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setArcunewfc($arr[$keys[36]]);
+            $this->setArcuusercode($arr[$keys[36]]);
         }
         if (array_key_exists($keys[37], $arr)) {
-            $this->setArcuunpdfc($arr[$keys[37]]);
+            $this->setArcunewfc($arr[$keys[37]]);
         }
         if (array_key_exists($keys[38], $arr)) {
-            $this->setArcucurbal($arr[$keys[38]]);
+            $this->setArcuunpdfc($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setArcubalodue1($arr[$keys[39]]);
+            $this->setArcucurbal($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setArcubalodue2($arr[$keys[40]]);
+            $this->setArcubalodue1($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setArcubalodue3($arr[$keys[41]]);
+            $this->setArcubalodue2($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setArcusalemtd($arr[$keys[42]]);
+            $this->setArcubalodue3($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setArcuinvmtd($arr[$keys[43]]);
+            $this->setArcusalemtd($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setArcusaleytd($arr[$keys[44]]);
+            $this->setArcuinvmtd($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setArcuinvytd($arr[$keys[45]]);
+            $this->setArcusaleytd($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setArcudateopen($arr[$keys[46]]);
+            $this->setArcuinvytd($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setArculastsaledate($arr[$keys[47]]);
+            $this->setArcudateopen($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setArcuhighbal($arr[$keys[48]]);
+            $this->setArculastsaledate($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setArcubigsalemo($arr[$keys[49]]);
+            $this->setArcuhighbal($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setArculastpaydate($arr[$keys[50]]);
+            $this->setArcubigsalemo($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setArcuavgpaydays($arr[$keys[51]]);
+            $this->setArculastpaydate($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setArcuupszone($arr[$keys[52]]);
+            $this->setArcuavgpaydays($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setArcuhighbaldate($arr[$keys[53]]);
+            $this->setArcuupszone($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setArcusale24mo1($arr[$keys[54]]);
+            $this->setArcuhighbaldate($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setArcuinv24mo1($arr[$keys[55]]);
+            $this->setArcusale24mo1($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setArcusale24mo2($arr[$keys[56]]);
+            $this->setArcuinv24mo1($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setArcuinv24mo2($arr[$keys[57]]);
+            $this->setArcusale24mo2($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setArcusale24mo3($arr[$keys[58]]);
+            $this->setArcuinv24mo2($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setArcuinv24mo3($arr[$keys[59]]);
+            $this->setArcusale24mo3($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setArcusale24mo4($arr[$keys[60]]);
+            $this->setArcuinv24mo3($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setArcuinv24mo4($arr[$keys[61]]);
+            $this->setArcusale24mo4($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setArcusale24mo5($arr[$keys[62]]);
+            $this->setArcuinv24mo4($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setArcuinv24mo5($arr[$keys[63]]);
+            $this->setArcusale24mo5($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setArcusale24mo6($arr[$keys[64]]);
+            $this->setArcuinv24mo5($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setArcuinv24mo6($arr[$keys[65]]);
+            $this->setArcusale24mo6($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setArcusale24mo7($arr[$keys[66]]);
+            $this->setArcuinv24mo6($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setArcuinv24mo7($arr[$keys[67]]);
+            $this->setArcusale24mo7($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setArcusale24mo8($arr[$keys[68]]);
+            $this->setArcuinv24mo7($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setArcuinv24mo8($arr[$keys[69]]);
+            $this->setArcusale24mo8($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setArcusale24mo9($arr[$keys[70]]);
+            $this->setArcuinv24mo8($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setArcuinv24mo9($arr[$keys[71]]);
+            $this->setArcusale24mo9($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setArcusale24mo10($arr[$keys[72]]);
+            $this->setArcuinv24mo9($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setArcuinv24mo10($arr[$keys[73]]);
+            $this->setArcusale24mo10($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setArcusale24mo11($arr[$keys[74]]);
+            $this->setArcuinv24mo10($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setArcuinv24mo11($arr[$keys[75]]);
+            $this->setArcusale24mo11($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setArcusale24mo12($arr[$keys[76]]);
+            $this->setArcuinv24mo11($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setArcuinv24mo12($arr[$keys[77]]);
+            $this->setArcusale24mo12($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setArcusale24mo13($arr[$keys[78]]);
+            $this->setArcuinv24mo12($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setArcuinv24mo13($arr[$keys[79]]);
+            $this->setArcusale24mo13($arr[$keys[79]]);
         }
         if (array_key_exists($keys[80], $arr)) {
-            $this->setArcusale24mo14($arr[$keys[80]]);
+            $this->setArcuinv24mo13($arr[$keys[80]]);
         }
         if (array_key_exists($keys[81], $arr)) {
-            $this->setArcuinv24mo14($arr[$keys[81]]);
+            $this->setArcusale24mo14($arr[$keys[81]]);
         }
         if (array_key_exists($keys[82], $arr)) {
-            $this->setArcusale24mo15($arr[$keys[82]]);
+            $this->setArcuinv24mo14($arr[$keys[82]]);
         }
         if (array_key_exists($keys[83], $arr)) {
-            $this->setArcuinv24mo15($arr[$keys[83]]);
+            $this->setArcusale24mo15($arr[$keys[83]]);
         }
         if (array_key_exists($keys[84], $arr)) {
-            $this->setArcusale24mo16($arr[$keys[84]]);
+            $this->setArcuinv24mo15($arr[$keys[84]]);
         }
         if (array_key_exists($keys[85], $arr)) {
-            $this->setArcuinv24mo16($arr[$keys[85]]);
+            $this->setArcusale24mo16($arr[$keys[85]]);
         }
         if (array_key_exists($keys[86], $arr)) {
-            $this->setArcusale24mo17($arr[$keys[86]]);
+            $this->setArcuinv24mo16($arr[$keys[86]]);
         }
         if (array_key_exists($keys[87], $arr)) {
-            $this->setArcuinv24mo17($arr[$keys[87]]);
+            $this->setArcusale24mo17($arr[$keys[87]]);
         }
         if (array_key_exists($keys[88], $arr)) {
-            $this->setArcusale24mo18($arr[$keys[88]]);
+            $this->setArcuinv24mo17($arr[$keys[88]]);
         }
         if (array_key_exists($keys[89], $arr)) {
-            $this->setArcuinv24mo18($arr[$keys[89]]);
+            $this->setArcusale24mo18($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setArcusale24mo19($arr[$keys[90]]);
+            $this->setArcuinv24mo18($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
-            $this->setArcuinv24mo19($arr[$keys[91]]);
+            $this->setArcusale24mo19($arr[$keys[91]]);
         }
         if (array_key_exists($keys[92], $arr)) {
-            $this->setArcusale24mo20($arr[$keys[92]]);
+            $this->setArcuinv24mo19($arr[$keys[92]]);
         }
         if (array_key_exists($keys[93], $arr)) {
-            $this->setArcuinv24mo20($arr[$keys[93]]);
+            $this->setArcusale24mo20($arr[$keys[93]]);
         }
         if (array_key_exists($keys[94], $arr)) {
-            $this->setArcusale24mo21($arr[$keys[94]]);
+            $this->setArcuinv24mo20($arr[$keys[94]]);
         }
         if (array_key_exists($keys[95], $arr)) {
-            $this->setArcuinv24mo21($arr[$keys[95]]);
+            $this->setArcusale24mo21($arr[$keys[95]]);
         }
         if (array_key_exists($keys[96], $arr)) {
-            $this->setArcusale24mo22($arr[$keys[96]]);
+            $this->setArcuinv24mo21($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setArcuinv24mo22($arr[$keys[97]]);
+            $this->setArcusale24mo22($arr[$keys[97]]);
         }
         if (array_key_exists($keys[98], $arr)) {
-            $this->setArcusale24mo23($arr[$keys[98]]);
+            $this->setArcuinv24mo22($arr[$keys[98]]);
         }
         if (array_key_exists($keys[99], $arr)) {
-            $this->setArcuinv24mo23($arr[$keys[99]]);
+            $this->setArcusale24mo23($arr[$keys[99]]);
         }
         if (array_key_exists($keys[100], $arr)) {
-            $this->setArcusale24mo24($arr[$keys[100]]);
+            $this->setArcuinv24mo23($arr[$keys[100]]);
         }
         if (array_key_exists($keys[101], $arr)) {
-            $this->setArcuinv24mo24($arr[$keys[101]]);
+            $this->setArcusale24mo24($arr[$keys[101]]);
         }
         if (array_key_exists($keys[102], $arr)) {
-            $this->setArculastpayamt($arr[$keys[102]]);
+            $this->setArcuinv24mo24($arr[$keys[102]]);
         }
         if (array_key_exists($keys[103], $arr)) {
-            $this->setArcuordrtot($arr[$keys[103]]);
+            $this->setArculastpayamt($arr[$keys[103]]);
         }
         if (array_key_exists($keys[104], $arr)) {
-            $this->setArcuusefrtin($arr[$keys[104]]);
+            $this->setArcuordrtot($arr[$keys[104]]);
         }
         if (array_key_exists($keys[105], $arr)) {
-            $this->setArcumyvendid($arr[$keys[105]]);
+            $this->setArcuusefrtin($arr[$keys[105]]);
         }
         if (array_key_exists($keys[106], $arr)) {
-            $this->setArcuaddlpricdisc($arr[$keys[106]]);
+            $this->setArcumyvendid($arr[$keys[106]]);
         }
         if (array_key_exists($keys[107], $arr)) {
-            $this->setArcuactiveinactive($arr[$keys[107]]);
+            $this->setArcuaddlpricdisc($arr[$keys[107]]);
         }
         if (array_key_exists($keys[108], $arr)) {
-            $this->setArcuinactivedate($arr[$keys[108]]);
+            $this->setArcuactiveinactive($arr[$keys[108]]);
         }
         if (array_key_exists($keys[109], $arr)) {
-            $this->setArcuchrgfrt($arr[$keys[109]]);
+            $this->setArcuinactivedate($arr[$keys[109]]);
         }
         if (array_key_exists($keys[110], $arr)) {
-            $this->setArcucorexdays($arr[$keys[110]]);
+            $this->setArcuchrgfrt($arr[$keys[110]]);
         }
         if (array_key_exists($keys[111], $arr)) {
-            $this->setArcucontractnbr($arr[$keys[111]]);
+            $this->setArcucorexdays($arr[$keys[111]]);
         }
         if (array_key_exists($keys[112], $arr)) {
-            $this->setArcucorelf($arr[$keys[112]]);
+            $this->setArcucontractnbr($arr[$keys[112]]);
         }
         if (array_key_exists($keys[113], $arr)) {
-            $this->setArcucorebankid($arr[$keys[113]]);
+            $this->setArcucorelf($arr[$keys[113]]);
         }
         if (array_key_exists($keys[114], $arr)) {
-            $this->setArcudunsnbr($arr[$keys[114]]);
+            $this->setArcucorebankid($arr[$keys[114]]);
         }
         if (array_key_exists($keys[115], $arr)) {
-            $this->setArcurfmlvalu($arr[$keys[115]]);
+            $this->setArcudunsnbr($arr[$keys[115]]);
         }
         if (array_key_exists($keys[116], $arr)) {
-            $this->setArcucustpoparam($arr[$keys[116]]);
+            $this->setArcurfmlvalu($arr[$keys[116]]);
         }
         if (array_key_exists($keys[117], $arr)) {
-            $this->setArcuagelevel($arr[$keys[117]]);
+            $this->setArcucustpoparam($arr[$keys[117]]);
         }
         if (array_key_exists($keys[118], $arr)) {
-            $this->setArtbroute($arr[$keys[118]]);
+            $this->setArcuagelevel($arr[$keys[118]]);
         }
         if (array_key_exists($keys[119], $arr)) {
-            $this->setArcuwgtaxcode($arr[$keys[119]]);
+            $this->setArtbroute($arr[$keys[119]]);
         }
         if (array_key_exists($keys[120], $arr)) {
-            $this->setArcuacptsupercede($arr[$keys[120]]);
+            $this->setArcuwgtaxcode($arr[$keys[120]]);
         }
         if (array_key_exists($keys[121], $arr)) {
-            $this->setArcumstrcustid($arr[$keys[121]]);
+            $this->setArcuacptsupercede($arr[$keys[121]]);
         }
         if (array_key_exists($keys[122], $arr)) {
-            $this->setArcusurchgpct($arr[$keys[122]]);
+            $this->setArcumstrcustid($arr[$keys[122]]);
         }
         if (array_key_exists($keys[123], $arr)) {
-            $this->setArcuallowsplit($arr[$keys[123]]);
+            $this->setArcusurchgpct($arr[$keys[123]]);
         }
         if (array_key_exists($keys[124], $arr)) {
-            $this->setArculinemin($arr[$keys[124]]);
+            $this->setArcuallowsplit($arr[$keys[124]]);
         }
         if (array_key_exists($keys[125], $arr)) {
-            $this->setArcuordrmin($arr[$keys[125]]);
+            $this->setArculinemin($arr[$keys[125]]);
         }
         if (array_key_exists($keys[126], $arr)) {
-            $this->setArcuupsacctnbr($arr[$keys[126]]);
+            $this->setArcuordrmin($arr[$keys[126]]);
         }
         if (array_key_exists($keys[127], $arr)) {
-            $this->setArcuprtmatcert($arr[$keys[127]]);
+            $this->setArcuupsacctnbr($arr[$keys[127]]);
         }
         if (array_key_exists($keys[128], $arr)) {
-            $this->setArcufobinputyn($arr[$keys[128]]);
+            $this->setArcuprtmatcert($arr[$keys[128]]);
         }
         if (array_key_exists($keys[129], $arr)) {
-            $this->setArcufobperlb($arr[$keys[129]]);
+            $this->setArcufobinputyn($arr[$keys[129]]);
         }
         if (array_key_exists($keys[130], $arr)) {
-            $this->setDateupdtd($arr[$keys[130]]);
+            $this->setArcufobperlb($arr[$keys[130]]);
         }
         if (array_key_exists($keys[131], $arr)) {
-            $this->setTimeupdtd($arr[$keys[131]]);
+            $this->setDateupdtd($arr[$keys[131]]);
         }
         if (array_key_exists($keys[132], $arr)) {
-            $this->setDummy($arr[$keys[132]]);
+            $this->setTimeupdtd($arr[$keys[132]]);
+        }
+        if (array_key_exists($keys[133], $arr)) {
+            $this->setDummy($arr[$keys[133]]);
         }
     }
 
@@ -8891,6 +9750,9 @@ abstract class Customer implements ActiveRecordInterface
     {
         $criteria = new Criteria(CustomerTableMap::DATABASE_NAME);
 
+        if ($this->isColumnModified(CustomerTableMap::COL_CUSTRECNBR)) {
+            $criteria->add(CustomerTableMap::COL_CUSTRECNBR, $this->custrecnbr);
+        }
         if ($this->isColumnModified(CustomerTableMap::COL_ARCUCUSTID)) {
             $criteria->add(CustomerTableMap::COL_ARCUCUSTID, $this->arcucustid);
         }
@@ -9307,7 +10169,7 @@ abstract class Customer implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildCustomerQuery::create();
-        $criteria->add(CustomerTableMap::COL_ARCUCUSTID, $this->arcucustid);
+        $criteria->add(CustomerTableMap::COL_CUSTRECNBR, $this->custrecnbr);
 
         return $criteria;
     }
@@ -9320,7 +10182,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getArcucustid();
+        $validPk = null !== $this->getRid();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -9336,22 +10198,22 @@ abstract class Customer implements ActiveRecordInterface
 
     /**
      * Returns the primary key for this object (row).
-     * @return string
+     * @return int
      */
     public function getPrimaryKey()
     {
-        return $this->getArcucustid();
+        return $this->getRid();
     }
 
     /**
-     * Generic method to set the primary key (arcucustid column).
+     * Generic method to set the primary key (custrecnbr column).
      *
-     * @param       string $key Primary key.
+     * @param       int $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)
     {
-        $this->setArcucustid($key);
+        $this->setRid($key);
     }
 
     /**
@@ -9360,7 +10222,7 @@ abstract class Customer implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return null === $this->getArcucustid();
+        return null === $this->getRid();
     }
 
     /**
@@ -9590,6 +10452,7 @@ abstract class Customer implements ActiveRecordInterface
 
         if ($makeNew) {
             $copyObj->setNew(true);
+            $copyObj->setRid(NULL); // this is a auto-increment column, so set to default value
         }
     }
 
@@ -9625,7 +10488,7 @@ abstract class Customer implements ActiveRecordInterface
     public function setArCommissionCode(ChildArCommissionCode $v = null)
     {
         if ($v === null) {
-            $this->setArtbcommcode(NULL);
+            $this->setArtbcommcode('');
         } else {
             $this->setArtbcommcode($v->getArtbcommcode());
         }
@@ -9676,7 +10539,7 @@ abstract class Customer implements ActiveRecordInterface
     public function setShipvia(ChildShipvia $v = null)
     {
         if ($v === null) {
-            $this->setArtbshipvia(NULL);
+            $this->setArtbshipvia('');
         } else {
             $this->setArtbshipvia($v->getArtbshipvia());
         }
@@ -9727,7 +10590,7 @@ abstract class Customer implements ActiveRecordInterface
     public function setSoFreightRate(ChildSoFreightRate $v = null)
     {
         if ($v === null) {
-            $this->setArcuchrgfrt(NULL);
+            $this->setArcuchrgfrt('A');
         } else {
             $this->setArcuchrgfrt($v->getSfrtratecode());
         }
@@ -12648,6 +13511,7 @@ abstract class Customer implements ActiveRecordInterface
         if (null !== $this->aSoFreightRate) {
             $this->aSoFreightRate->removeCustomer($this);
         }
+        $this->custrecnbr = null;
         $this->arcucustid = null;
         $this->arcuname = null;
         $this->arcuadr1 = null;
