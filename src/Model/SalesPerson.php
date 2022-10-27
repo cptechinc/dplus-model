@@ -19,6 +19,7 @@ class SalesPerson extends BaseSalesPerson {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'code'         => 'arspsaleper1',
 		'id'           => 'arspsaleper1',
 		'name'         => 'arspname',
 		'userid'       => 'arsplogin',

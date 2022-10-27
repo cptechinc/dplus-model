@@ -48,6 +48,14 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 	}
 
 	/**
+	 * Returns if UPC is the primary UPC
+	 * @return bool
+	 */
+	public function isPrimary() {
+		return strtoupper($this->primary) == 'Y';
+	}
+
+	/**
 	 * Returns if UPC is the Mastercase UPC
 	 *
 	 * @return bool

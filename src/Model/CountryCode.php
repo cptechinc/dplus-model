@@ -25,6 +25,7 @@ class CountryCode extends BaseCountryCode {
 		'iso2'          => 'ctryisoalpha2',
 		'numeric'       => 'ctryisonumeric',
 		'custom_code'   => 'ctrycustomcode',
+		'custom'        => 'ctrycustomcode',
 		'exchange_rate' => 'ctryexchrate',
 		'country_date'  => 'ctrydate',
 		'date'          => 'dateupdtd',

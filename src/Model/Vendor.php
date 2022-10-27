@@ -205,7 +205,7 @@ class Vendor extends BaseVendor {
 	 * @return float
 	 */
 	public function getLastXMonthsInvoicesTotalAmt(int $monthsback = 1) {
-		return VendorQuery::create()->getLastXMonthsInvoicesTotalAmtt($this->vendorid, $monthsback);
+		return VendorQuery::create()->getLastXMonthsInvoicesTotalAmt($this->vendorid, $monthsback);
 	}
 
 /* =============================================================
@@ -214,7 +214,7 @@ class Vendor extends BaseVendor {
 	public function get_buyer_x_name($nbr) {return $this->getBuyerNameX($nbr);}
 	public function get_phonebookquery() {return $this->getPhoneBookQuery();}
 	public function get_ponumbers() {return $this->getPoNbrs();}
-	public function get_purchaseorders_amt() {return $this->getPurchaseOrdersAmt();}
+	public function get_purchaseorders_amt() {return $this->getPurchaseOrdersAmtLeft();}
 	public function get_invoices_amt() {return $this->getInvoicesTotalAmt();}
 	public function count_last_x_months_purchases(int $monthsback = 1) {return $this->countLastXMonthsPurchases($monthsback);}
 	public function get_last_x_months_purchases_amt(int $monthsback = 1) {return $this->getLastXMonthsPurchasesTotalAmt($monthsback);}
