@@ -25,6 +25,14 @@ class CustomerQuery extends BaseCustomerQuery {
 	use QueryTraits;
 
 	/**
+	 * Filter the query on the CustRecNbr column
+	 * @return $this|CustomerQuery The current query, for fluid interface
+	 */
+	public function filterByRid($rid = null, $comparison = null) {
+		return $this->filterByCustrecnbr($rid, $comparison);
+	}
+
+	/**
 	 * Filter the query on the ArcuCustId column
 	 *
 	 * Example usage:
