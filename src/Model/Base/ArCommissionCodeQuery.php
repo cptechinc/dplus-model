@@ -420,7 +420,7 @@ abstract class ArCommissionCodeQuery extends ModelCriteria
      *
      * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -455,7 +455,7 @@ abstract class ArCommissionCodeQuery extends ModelCriteria
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
-    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)
@@ -465,14 +465,14 @@ abstract class ArCommissionCodeQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildArCommissionCode $customerCommissionCode Object to remove from the list of results
+     * @param   ChildArCommissionCode $arCommissionCode Object to remove from the list of results
      *
      * @return $this|ChildArCommissionCodeQuery The current query, for fluid interface
      */
-    public function prune($customerCommissionCode = null)
+    public function prune($arCommissionCode = null)
     {
-        if ($customerCommissionCode) {
-            $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $customerCommissionCode->getArtbcommcode(), Criteria::NOT_EQUAL);
+        if ($arCommissionCode) {
+            $this->addUsingAlias(ArCommissionCodeTableMap::COL_ARTBCOMMCODE, $arCommissionCode->getArtbcommcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;

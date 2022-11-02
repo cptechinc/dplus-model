@@ -3223,7 +3223,9 @@ abstract class ItemPricingDiscount implements ActiveRecordInterface
     public function getCustomer(ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->oepccustid !== "" && $this->oepccustid !== null))) {
-            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->oepccustid, $con);
+            $this->aCustomer = ChildCustomerQuery::create()
+                ->filterByItemPricingDiscount($this) // here
+                ->findOne($con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
