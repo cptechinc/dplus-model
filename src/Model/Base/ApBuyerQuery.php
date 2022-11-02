@@ -450,7 +450,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      *
      * @return $this|ChildApBuyerQuery The current query, for fluid interface
      */
-    public function joinVendor($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinVendor($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Vendor');
@@ -485,7 +485,7 @@ abstract class ApBuyerQuery extends ModelCriteria
      *
      * @return \VendorQuery A secondary query class using the current class as primary query
      */
-    public function useVendorQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useVendorQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinVendor($relationAlias, $joinType)

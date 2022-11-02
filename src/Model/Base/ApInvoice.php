@@ -3397,7 +3397,9 @@ abstract class ApInvoice implements ActiveRecordInterface
     public function getVendor(ConnectionInterface $con = null)
     {
         if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
-            $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
+            $this->aVendor = ChildVendorQuery::create()
+                ->filterByApInvoice($this) // here
+                ->findOne($con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
