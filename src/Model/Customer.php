@@ -32,7 +32,6 @@ class Customer extends BaseCustomer {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
-		'rid'          => 'custrecnbr',
 		'custID'       => 'arcucustid',
 		'id'           => 'arcucustid',
 		'custid'       => 'arcucustid',
