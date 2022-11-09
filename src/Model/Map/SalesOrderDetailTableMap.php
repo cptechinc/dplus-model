@@ -1035,6 +1035,18 @@ class SalesOrderDetailTableMap extends TableMap
     1 => ':OedtLine',
   ),
 ), null, null, 'SoAllocatedLotserials', false);
+        $this->addRelation('SoPickedLotserial', '\\SoPickedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':OedtLine',
+    1 => ':OedtLine',
+  ),
+), null, null, 'SoPickedLotserials', false);
     } // buildRelations()
 
     /**

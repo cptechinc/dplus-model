@@ -352,7 +352,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetailQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
  * @method     ChildSalesOrderDetailQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     \SalesOrderQuery|\SalesOrderLotserialQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildSalesOrderDetailQuery leftJoinSoPickedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderDetailQuery rightJoinSoPickedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderDetailQuery innerJoinSoPickedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildSalesOrderDetailQuery joinWithSoPickedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildSalesOrderDetailQuery leftJoinWithSoPickedLotserial() Adds a LEFT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderDetailQuery rightJoinWithSoPickedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderDetailQuery innerJoinWithSoPickedLotserial() Adds a INNER JOIN clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     \SalesOrderQuery|\SalesOrderLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesOrderDetail findOne(ConnectionInterface $con = null) Return the first ChildSalesOrderDetail matching the query
  * @method     ChildSalesOrderDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrderDetail matching the query, or a new ChildSalesOrderDetail object populated from the query conditions when no match is found
@@ -5730,6 +5740,75 @@ abstract class SalesOrderDetailQuery extends ModelCriteria
         return $this
             ->joinSoAllocatedLotserial($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
+    }
+
+    /**
+     * Filter the query by a related \SoPickedLotserial object
+     *
+     * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesOrderDetailQuery The current query, for fluid interface
+     */
+    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    {
+        if ($soPickedLotserial instanceof \SoPickedLotserial) {
+            return $this
+                ->addUsingAlias(SalesOrderDetailTableMap::COL_OEHDNBR, $soPickedLotserial->getOehdnbr(), $comparison)
+                ->addUsingAlias(SalesOrderDetailTableMap::COL_OEDTLINE, $soPickedLotserial->getOedtline(), $comparison);
+        } else {
+            throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoPickedLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesOrderDetailQuery The current query, for fluid interface
+     */
+    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoPickedLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoPickedLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSoPickedLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSoPickedLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoPickedLotserial', '\SoPickedLotserialQuery');
     }
 
     /**

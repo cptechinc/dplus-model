@@ -5209,6 +5209,43 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_pulled" idMethod="native" phpName="SoPickedLotserial">
+    <column name="OehdNbr" phpName="Oehdnbr" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OedtLine" phpName="Oedtline" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepdLotSer" phpName="Oepdlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepdBin" phpName="Oepdbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OepdPlltNbr" phpName="Oepdplltnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OepdCrtnNbr" phpName="Oepdcrtnnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="OepdQtyShip" phpName="Oepdqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OepdLotRef" phpName="Oepdlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="OepdCntrQty" phpName="Oepdcntrqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="OepdBatch" phpName="Oepdbatch" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="OepdCureDate" phpName="Oepdcuredate" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="OepdPlltType" phpName="Oepdpllttype" type="CHAR" required="true" defaultValue=""/>
+    <column name="OepdLblPrtd" phpName="Oepdlblprtd" type="CHAR" required="true" defaultValue=""/>
+    <column name="OepdOrigBin" phpName="Oepdorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="so_header" name="salesorder" skipSql="true">
+      <reference local="OehdNbr" foreign="OehdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="so_detail" name="salesorderdetail" skipSql="true">
+      <reference local="OehdNbr" foreign="OehdNbr"/>
+      <reference local="OedtLine" foreign="OedtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lotserial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="OepdLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_reas_code" idMethod="native" phpName="SoReasonCode">
     <column name="OetbReasCode" phpName="Oetbreascode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
     <column name="OetbReasDesc" phpName="Oetbreasdesc" type="VARCHAR" size="30"/>
