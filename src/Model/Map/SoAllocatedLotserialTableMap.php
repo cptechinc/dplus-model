@@ -206,8 +206,8 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, null);
-        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_detail', 'OehdNbr', true, 10, null);
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER' , 'so_header', 'OehdNbr', true, 10, 0);
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER' , 'so_detail', 'OehdNbr', true, 10, 0);
         $this->addForeignPrimaryKey('OedtLine', 'Oedtline', 'INTEGER' , 'so_detail', 'OedtLine', true, 4, 0);
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_lot_mast', 'InitItemNbr', true, 30, '');
@@ -215,16 +215,16 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->addPrimaryKey('OeidBin', 'Oeidbin', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('OeidPlltNbr', 'Oeidplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('OeidCrtnNbr', 'Oeidcrtnnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', false, 20, null);
-        $this->addColumn('OeidLotRef', 'Oeidlotref', 'VARCHAR', false, 20, null);
-        $this->addColumn('OeidCntrQty', 'Oeidcntrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('OeidBatch', 'Oeidbatch', 'VARCHAR', false, 15, null);
-        $this->addColumn('OeidCureDate', 'Oeidcuredate', 'VARCHAR', false, 10, null);
-        $this->addColumn('OeidPlltType', 'Oeidpllttype', 'VARCHAR', false, 1, null);
-        $this->addColumn('OeidLblPrtd', 'Oeidlblprtd', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeidLotRef', 'Oeidlotref', 'VARCHAR', true, 20, '');
+        $this->addColumn('OeidCntrQty', 'Oeidcntrqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeidBatch', 'Oeidbatch', 'VARCHAR', true, 15, '');
+        $this->addColumn('OeidCureDate', 'Oeidcuredate', 'VARCHAR', true, 10, '');
+        $this->addColumn('OeidPlltType', 'Oeidpllttype', 'CHAR', true, null, '');
+        $this->addColumn('OeidLblPrtd', 'Oeidlblprtd', 'CHAR', true, null, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -364,7 +364,7 @@ class SoAllocatedLotserialTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)

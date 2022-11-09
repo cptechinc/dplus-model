@@ -80,8 +80,8 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * The value for the oehdnbr field.
      *
-     * Note: this column has a database default value of: ''
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $oehdnbr;
 
@@ -1663,7 +1663,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->oehdnbr = '';
+        $this->oehdnbr = 0;
         $this->oehdstat = 'N';
         $this->oehdhold = 'N';
         $this->arcucustid = '';
@@ -2084,7 +2084,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Get the [oehdnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehdnbr()
     {
@@ -3974,13 +3974,13 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Set the value of [oehdnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SalesOrder The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehdnbr !== $v) {
@@ -7773,7 +7773,7 @@ abstract class SalesOrder implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->oehdnbr !== '') {
+            if ($this->oehdnbr !== 0) {
                 return false;
             }
 
@@ -8556,7 +8556,7 @@ abstract class SalesOrder implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehdnbr = (null !== $col) ? (string) $col : null;
+            $this->oehdnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderTableMap::translateFieldName('Oehdstat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdstat = (null !== $col) ? (string) $col : null;
@@ -10011,7 +10011,7 @@ abstract class SalesOrder implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'OehdNbr':
-                        $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_INT);
                         break;
                     case 'OehdStat':
                         $stmt->bindValue($identifier, $this->oehdstat, PDO::PARAM_STR);
@@ -13363,7 +13363,7 @@ abstract class SalesOrder implements ActiveRecordInterface
 
     /**
      * Returns the primary key for this object (row).
-     * @return string
+     * @return int
      */
     public function getPrimaryKey()
     {
@@ -13373,7 +13373,7 @@ abstract class SalesOrder implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (oehdnbr column).
      *
-     * @param       string $key Primary key.
+     * @param       int $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)

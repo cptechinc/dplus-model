@@ -109,7 +109,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoAllocatedLotserial findOne(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query
  * @method     ChildSoAllocatedLotserial findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query, or a new ChildSoAllocatedLotserial object populated from the query conditions when no match is found
  *
- * @method     ChildSoAllocatedLotserial findOneByOehdnbr(string $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column
+ * @method     ChildSoAllocatedLotserial findOneByOehdnbr(int $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column
  * @method     ChildSoAllocatedLotserial findOneByOedtline(int $OedtLine) Return the first ChildSoAllocatedLotserial filtered by the OedtLine column
  * @method     ChildSoAllocatedLotserial findOneByInititemnbr(string $InitItemNbr) Return the first ChildSoAllocatedLotserial filtered by the InitItemNbr column
  * @method     ChildSoAllocatedLotserial findOneByOeidlotser(string $OeidLotSer) Return the first ChildSoAllocatedLotserial filtered by the OeidLotSer column
@@ -130,7 +130,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoAllocatedLotserial requirePk($key, ConnectionInterface $con = null) Return the ChildSoAllocatedLotserial by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOne(ConnectionInterface $con = null) Return the first ChildSoAllocatedLotserial matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSoAllocatedLotserial requireOneByOehdnbr(string $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoAllocatedLotserial requireOneByOehdnbr(int $OehdNbr) Return the first ChildSoAllocatedLotserial filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOneByOedtline(int $OedtLine) Return the first ChildSoAllocatedLotserial filtered by the OedtLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOneByInititemnbr(string $InitItemNbr) Return the first ChildSoAllocatedLotserial filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoAllocatedLotserial requireOneByOeidlotser(string $OeidLotSer) Return the first ChildSoAllocatedLotserial filtered by the OeidLotSer column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -149,7 +149,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoAllocatedLotserial requireOneByDummy(string $dummy) Return the first ChildSoAllocatedLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSoAllocatedLotserial[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSoAllocatedLotserial objects based on current ModelCriteria
- * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOehdnbr(string $OehdNbr) Return ChildSoAllocatedLotserial objects filtered by the OehdNbr column
+ * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOehdnbr(int $OehdNbr) Return ChildSoAllocatedLotserial objects filtered by the OehdNbr column
  * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOedtline(int $OedtLine) Return ChildSoAllocatedLotserial objects filtered by the OedtLine column
  * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildSoAllocatedLotserial objects filtered by the InitItemNbr column
  * @method     ChildSoAllocatedLotserial[]|ObjectCollection findByOeidlotser(string $OeidLotSer) Return ChildSoAllocatedLotserial objects filtered by the OeidLotSer column
@@ -267,7 +267,7 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
         $sql = 'SELECT OehdNbr, OedtLine, InitItemNbr, OeidLotSer, OeidBin, OeidPlltNbr, OeidCrtnNbr, OeidQtyShip, OeidLotRef, OeidCntrQty, OeidBatch, OeidCureDate, OeidPlltType, OeidLblPrtd, DateUpdtd, TimeUpdtd, dummy FROM so_pre_allo WHERE OehdNbr = :p0 AND OedtLine = :p1 AND InitItemNbr = :p2 AND OeidLotSer = :p3 AND OeidBin = :p4 AND OeidPlltNbr = :p5 AND OeidCrtnNbr = :p6';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->bindValue(':p2', $key[2], PDO::PARAM_STR);
             $stmt->bindValue(':p3', $key[3], PDO::PARAM_STR);
@@ -391,19 +391,39 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehdnbr('fooValue');   // WHERE OehdNbr = 'fooValue'
-     * $query->filterByOehdnbr('%fooValue%', Criteria::LIKE); // WHERE OehdNbr LIKE '%fooValue%'
+     * $query->filterByOehdnbr(1234); // WHERE OehdNbr = 1234
+     * $query->filterByOehdnbr(array(12, 34)); // WHERE OehdNbr IN (12, 34)
+     * $query->filterByOehdnbr(array('min' => 12)); // WHERE OehdNbr > 12
      * </code>
      *
-     * @param     string $oehdnbr The value to use as filter.
+     * @see       filterBySalesOrder()
+     *
+     * @see       filterBySalesOrderDetail()
+     *
+     * @param     mixed $oehdnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSoAllocatedLotserialQuery The current query, for fluid interface
      */
     public function filterByOehdnbr($oehdnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehdnbr)) {
+        if (is_array($oehdnbr)) {
+            $useMinMax = false;
+            if (isset($oehdnbr['min'])) {
+                $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $oehdnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehdnbr['max'])) {
+                $this->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEHDNBR, $oehdnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -1121,19 +1141,19 @@ abstract class SoAllocatedLotserialQuery extends ModelCriteria
     /**
      * Filter the query by a related \InvLotMaster object
      *
-     * @param \InvLotMaster $InvLotMaster The related object to use as filter
+     * @param \InvLotMaster $invLotMaster The related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @throws \Propel\Runtime\Exception\PropelException
      *
      * @return ChildSoAllocatedLotserialQuery The current query, for fluid interface
      */
-    public function filterByInvLotMaster($InvLotMaster, $comparison = null)
+    public function filterByInvLotMaster($invLotMaster, $comparison = null)
     {
-        if ($InvLotMaster instanceof \InvLotMaster) {
+        if ($invLotMaster instanceof \InvLotMaster) {
             return $this
-                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $InvLotMaster->getInititemnbr(), $comparison)
-                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $InvLotMaster->getLotmlotnbr(), $comparison);
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_INITITEMNBR, $invLotMaster->getInititemnbr(), $comparison)
+                ->addUsingAlias(SoAllocatedLotserialTableMap::COL_OEIDLOTSER, $invLotMaster->getLotmlotnbr(), $comparison);
         } else {
             throw new PropelException('filterByInvLotMaster() only accepts arguments of type \InvLotMaster');
         }

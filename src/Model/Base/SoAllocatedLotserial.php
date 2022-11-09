@@ -70,7 +70,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oehdnbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $oehdnbr;
 
@@ -125,6 +126,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidqtyship field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oeidqtyship;
@@ -132,6 +134,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidlotref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeidlotref;
@@ -139,6 +142,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidcntrqty field.
      *
+     * Note: this column has a database default value of: '0'
      * @var        string
      */
     protected $oeidcntrqty;
@@ -146,6 +150,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidbatch field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeidbatch;
@@ -153,6 +158,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidcuredate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeidcuredate;
@@ -160,6 +166,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidpllttype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeidpllttype;
@@ -167,6 +174,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the oeidlblprtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeidlblprtd;
@@ -174,6 +182,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -181,6 +190,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -188,6 +198,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -228,12 +239,23 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
+        $this->oehdnbr = 0;
         $this->oedtline = 0;
         $this->inititemnbr = '';
         $this->oeidlotser = '';
         $this->oeidbin = '';
         $this->oeidplltnbr = 0;
         $this->oeidcrtnnbr = 0;
+        $this->oeidqtyship = '0.0000000';
+        $this->oeidlotref = '';
+        $this->oeidcntrqty = '0';
+        $this->oeidbatch = '';
+        $this->oeidcuredate = '';
+        $this->oeidpllttype = '';
+        $this->oeidlblprtd = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -466,7 +488,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * Get the [oehdnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehdnbr()
     {
@@ -636,13 +658,13 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     /**
      * Set the value of [oehdnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehdnbr !== $v) {
@@ -1007,6 +1029,10 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->oehdnbr !== 0) {
+                return false;
+            }
+
             if ($this->oedtline !== 0) {
                 return false;
             }
@@ -1028,6 +1054,46 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             }
 
             if ($this->oeidcrtnnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oeidqtyship !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oeidlotref !== '') {
+                return false;
+            }
+
+            if ($this->oeidcntrqty !== '0') {
+                return false;
+            }
+
+            if ($this->oeidbatch !== '') {
+                return false;
+            }
+
+            if ($this->oeidcuredate !== '') {
+                return false;
+            }
+
+            if ($this->oeidpllttype !== '') {
+                return false;
+            }
+
+            if ($this->oeidlblprtd !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1058,7 +1124,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehdnbr = (null !== $col) ? (string) $col : null;
+            $this->oehdnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtline = (null !== $col) ? (int) $col : null;
@@ -1430,7 +1496,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'OehdNbr':
-                        $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehdnbr, PDO::PARAM_INT);
                         break;
                     case 'OedtLine':
                         $stmt->bindValue($identifier, $this->oedtline, PDO::PARAM_INT);
@@ -1689,7 +1755,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'InvLotMaster';
+                        $key = 'invLotMaster';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_mast';
@@ -2150,7 +2216,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     public function setSalesOrder(ChildSalesOrder $v = null)
     {
         if ($v === null) {
-            $this->setOehdnbr(NULL);
+            $this->setOehdnbr(0);
         } else {
             $this->setOehdnbr($v->getOehdnbr());
         }
@@ -2177,7 +2243,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      */
     public function getSalesOrder(ConnectionInterface $con = null)
     {
-        if ($this->aSalesOrder === null && (($this->oehdnbr !== "" && $this->oehdnbr !== null))) {
+        if ($this->aSalesOrder === null && ($this->oehdnbr != 0)) {
             $this->aSalesOrder = ChildSalesOrderQuery::create()->findPk($this->oehdnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -2201,7 +2267,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     public function setSalesOrderDetail(ChildSalesOrderDetail $v = null)
     {
         if ($v === null) {
-            $this->setOehdnbr(NULL);
+            $this->setOehdnbr(0);
         } else {
             $this->setOehdnbr($v->getOehdnbr());
         }
@@ -2234,7 +2300,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
      */
     public function getSalesOrderDetail(ConnectionInterface $con = null)
     {
-        if ($this->aSalesOrderDetail === null && (($this->oehdnbr !== "" && $this->oehdnbr !== null) && $this->oedtline != 0)) {
+        if ($this->aSalesOrderDetail === null && ($this->oehdnbr != 0 && $this->oedtline != 0)) {
             $this->aSalesOrderDetail = ChildSalesOrderDetailQuery::create()->findPk(array($this->oehdnbr, $this->oedtline), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference

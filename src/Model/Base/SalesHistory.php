@@ -77,8 +77,8 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * The value for the oehhnbr field.
      *
-     * Note: this column has a database default value of: ''
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $oehhnbr;
 
@@ -1656,7 +1656,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->oehhnbr = '';
+        $this->oehhnbr = 0;
         $this->oehhyear = '';
         $this->oehhstat = 'N';
         $this->oehhhold = 'N';
@@ -2078,7 +2078,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Get the [oehhnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehhnbr()
     {
@@ -3978,13 +3978,13 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Set the value of [oehhnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SalesHistory The current object (for fluent API support)
      */
     public function setOehhnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehhnbr !== $v) {
@@ -7797,7 +7797,7 @@ abstract class SalesHistory implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->oehhnbr !== '') {
+            if ($this->oehhnbr !== 0) {
                 return false;
             }
 
@@ -8584,7 +8584,7 @@ abstract class SalesHistory implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhnbr = (null !== $col) ? (string) $col : null;
+            $this->oehhnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesHistoryTableMap::translateFieldName('Oehhyear', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehhyear = (null !== $col) ? (string) $col : null;
@@ -10026,7 +10026,7 @@ abstract class SalesHistory implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'OehhNbr':
-                        $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_INT);
                         break;
                     case 'OehhYear':
                         $stmt->bindValue($identifier, $this->oehhyear, PDO::PARAM_STR);
@@ -13379,7 +13379,7 @@ abstract class SalesHistory implements ActiveRecordInterface
 
     /**
      * Returns the primary key for this object (row).
-     * @return string
+     * @return int
      */
     public function getPrimaryKey()
     {
@@ -13389,7 +13389,7 @@ abstract class SalesHistory implements ActiveRecordInterface
     /**
      * Generic method to set the primary key (oehhnbr column).
      *
-     * @param       string $key Primary key.
+     * @param       int $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)

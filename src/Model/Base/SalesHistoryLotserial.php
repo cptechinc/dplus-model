@@ -68,7 +68,8 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oehhnbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $oehhnbr;
 
@@ -131,6 +132,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshyear field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshyear;
@@ -138,6 +140,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshqtyship field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $oeshqtyship;
@@ -145,6 +148,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshcntrqty field.
      *
+     * Note: this column has a database default value of: '0'
      * @var        string
      */
     protected $oeshcntrqty;
@@ -152,6 +156,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshspecordr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshspecordr;
@@ -159,6 +164,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshlotref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshlotref;
@@ -166,6 +172,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshbatch field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshbatch;
@@ -173,6 +180,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshcuredate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshcuredate;
@@ -180,6 +188,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshacstatus field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshacstatus;
@@ -187,6 +196,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshtestlot field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshtestlot;
@@ -194,6 +204,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshpllttype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshpllttype;
@@ -201,6 +212,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshtarewght field.
      *
+     * Note: this column has a database default value of: '0.000'
      * @var        string
      */
     protected $oeshtarewght;
@@ -208,6 +220,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshuseup field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshuseup;
@@ -215,13 +228,31 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the oeshlblprtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oeshlblprtd;
 
     /**
+     * The value for the oeshorigbin field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oeshorigbin;
+
+    /**
+     * The value for the oeshactvdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oeshactvdate;
+
+    /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -229,6 +260,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -236,6 +268,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -271,6 +304,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
+        $this->oehhnbr = 0;
         $this->oedhline = 0;
         $this->inititemnbr = '';
         $this->oeshtag = '';
@@ -278,6 +312,24 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         $this->oeshbin = '';
         $this->oeshplltnbr = 0;
         $this->oeshcrtnnbr = 0;
+        $this->oeshyear = '';
+        $this->oeshqtyship = '0.0000000';
+        $this->oeshcntrqty = '0';
+        $this->oeshspecordr = '';
+        $this->oeshlotref = '';
+        $this->oeshbatch = '';
+        $this->oeshcuredate = '';
+        $this->oeshacstatus = '';
+        $this->oeshtestlot = '';
+        $this->oeshpllttype = '';
+        $this->oeshtarewght = '0.000';
+        $this->oeshuseup = '';
+        $this->oeshlblprtd = '';
+        $this->oeshorigbin = '';
+        $this->oeshactvdate = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -510,7 +562,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * Get the [oehhnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehhnbr()
     {
@@ -718,6 +770,26 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oeshorigbin] column value.
+     *
+     * @return string
+     */
+    public function getOeshorigbin()
+    {
+        return $this->oeshorigbin;
+    }
+
+    /**
+     * Get the [oeshactvdate] column value.
+     *
+     * @return string
+     */
+    public function getOeshactvdate()
+    {
+        return $this->oeshactvdate;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -750,13 +822,13 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     /**
      * Set the value of [oehhnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SalesHistoryLotserial The current object (for fluent API support)
      */
     public function setOehhnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehhnbr !== $v) {
@@ -1184,6 +1256,46 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     } // setOeshlblprtd()
 
     /**
+     * Set the value of [oeshorigbin] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistoryLotserial The current object (for fluent API support)
+     */
+    public function setOeshorigbin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oeshorigbin !== $v) {
+            $this->oeshorigbin = $v;
+            $this->modifiedColumns[SalesHistoryLotserialTableMap::COL_OESHORIGBIN] = true;
+        }
+
+        return $this;
+    } // setOeshorigbin()
+
+    /**
+     * Set the value of [oeshactvdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesHistoryLotserial The current object (for fluent API support)
+     */
+    public function setOeshactvdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oeshactvdate !== $v) {
+            $this->oeshactvdate = $v;
+            $this->modifiedColumns[SalesHistoryLotserialTableMap::COL_OESHACTVDATE] = true;
+        }
+
+        return $this;
+    } // setOeshactvdate()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1253,6 +1365,10 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->oehhnbr !== 0) {
+                return false;
+            }
+
             if ($this->oedhline !== 0) {
                 return false;
             }
@@ -1278,6 +1394,78 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
             }
 
             if ($this->oeshcrtnnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oeshyear !== '') {
+                return false;
+            }
+
+            if ($this->oeshqtyship !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->oeshcntrqty !== '0') {
+                return false;
+            }
+
+            if ($this->oeshspecordr !== '') {
+                return false;
+            }
+
+            if ($this->oeshlotref !== '') {
+                return false;
+            }
+
+            if ($this->oeshbatch !== '') {
+                return false;
+            }
+
+            if ($this->oeshcuredate !== '') {
+                return false;
+            }
+
+            if ($this->oeshacstatus !== '') {
+                return false;
+            }
+
+            if ($this->oeshtestlot !== '') {
+                return false;
+            }
+
+            if ($this->oeshpllttype !== '') {
+                return false;
+            }
+
+            if ($this->oeshtarewght !== '0.000') {
+                return false;
+            }
+
+            if ($this->oeshuseup !== '') {
+                return false;
+            }
+
+            if ($this->oeshlblprtd !== '') {
+                return false;
+            }
+
+            if ($this->oeshorigbin !== '') {
+                return false;
+            }
+
+            if ($this->oeshactvdate !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1308,7 +1496,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Oehhnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehhnbr = (null !== $col) ? (string) $col : null;
+            $this->oehhnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Oedhline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhline = (null !== $col) ? (int) $col : null;
@@ -1370,13 +1558,19 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Oeshlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oeshlblprtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Oeshorigbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oeshorigbin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Oeshactvdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oeshactvdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesHistoryLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1386,7 +1580,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 24; // 24 = SalesHistoryLotserialTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 26; // 26 = SalesHistoryLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesHistoryLotserial'), 0, $e);
@@ -1687,6 +1881,12 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHLBLPRTD)) {
             $modifiedColumns[':p' . $index++]  = 'OeshLblPrtd';
         }
+        if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHORIGBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'OeshOrigBin';
+        }
+        if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHACTVDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'OeshActvDate';
+        }
         if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1708,7 +1908,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'OehhNbr':
-                        $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehhnbr, PDO::PARAM_INT);
                         break;
                     case 'OedhLine':
                         $stmt->bindValue($identifier, $this->oedhline, PDO::PARAM_INT);
@@ -1769,6 +1969,12 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
                         break;
                     case 'OeshLblPrtd':
                         $stmt->bindValue($identifier, $this->oeshlblprtd, PDO::PARAM_STR);
+                        break;
+                    case 'OeshOrigBin':
+                        $stmt->bindValue($identifier, $this->oeshorigbin, PDO::PARAM_STR);
+                        break;
+                    case 'OeshActvDate':
+                        $stmt->bindValue($identifier, $this->oeshactvdate, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1898,12 +2104,18 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
                 return $this->getOeshlblprtd();
                 break;
             case 21:
-                return $this->getDateupdtd();
+                return $this->getOeshorigbin();
                 break;
             case 22:
-                return $this->getTimeupdtd();
+                return $this->getOeshactvdate();
                 break;
             case 23:
+                return $this->getDateupdtd();
+                break;
+            case 24:
+                return $this->getTimeupdtd();
+                break;
+            case 25:
                 return $this->getDummy();
                 break;
             default:
@@ -1957,9 +2169,11 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
             $keys[18] => $this->getOeshtarewght(),
             $keys[19] => $this->getOeshuseup(),
             $keys[20] => $this->getOeshlblprtd(),
-            $keys[21] => $this->getDateupdtd(),
-            $keys[22] => $this->getTimeupdtd(),
-            $keys[23] => $this->getDummy(),
+            $keys[21] => $this->getOeshorigbin(),
+            $keys[22] => $this->getOeshactvdate(),
+            $keys[23] => $this->getDateupdtd(),
+            $keys[24] => $this->getTimeupdtd(),
+            $keys[25] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2110,12 +2324,18 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
                 $this->setOeshlblprtd($value);
                 break;
             case 21:
-                $this->setDateupdtd($value);
+                $this->setOeshorigbin($value);
                 break;
             case 22:
-                $this->setTimeupdtd($value);
+                $this->setOeshactvdate($value);
                 break;
             case 23:
+                $this->setDateupdtd($value);
+                break;
+            case 24:
+                $this->setTimeupdtd($value);
+                break;
+            case 25:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2208,13 +2428,19 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
             $this->setOeshlblprtd($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setDateupdtd($arr[$keys[21]]);
+            $this->setOeshorigbin($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setTimeupdtd($arr[$keys[22]]);
+            $this->setOeshactvdate($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setDummy($arr[$keys[23]]);
+            $this->setDateupdtd($arr[$keys[23]]);
+        }
+        if (array_key_exists($keys[24], $arr)) {
+            $this->setTimeupdtd($arr[$keys[24]]);
+        }
+        if (array_key_exists($keys[25], $arr)) {
+            $this->setDummy($arr[$keys[25]]);
         }
     }
 
@@ -2319,6 +2545,12 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHLBLPRTD)) {
             $criteria->add(SalesHistoryLotserialTableMap::COL_OESHLBLPRTD, $this->oeshlblprtd);
+        }
+        if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHORIGBIN)) {
+            $criteria->add(SalesHistoryLotserialTableMap::COL_OESHORIGBIN, $this->oeshorigbin);
+        }
+        if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_OESHACTVDATE)) {
+            $criteria->add(SalesHistoryLotserialTableMap::COL_OESHACTVDATE, $this->oeshactvdate);
         }
         if ($this->isColumnModified(SalesHistoryLotserialTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesHistoryLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2489,6 +2721,8 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         $copyObj->setOeshtarewght($this->getOeshtarewght());
         $copyObj->setOeshuseup($this->getOeshuseup());
         $copyObj->setOeshlblprtd($this->getOeshlblprtd());
+        $copyObj->setOeshorigbin($this->getOeshorigbin());
+        $copyObj->setOeshactvdate($this->getOeshactvdate());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2529,7 +2763,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     public function setSalesHistory(ChildSalesHistory $v = null)
     {
         if ($v === null) {
-            $this->setOehhnbr(NULL);
+            $this->setOehhnbr(0);
         } else {
             $this->setOehhnbr($v->getOehhnbr());
         }
@@ -2556,7 +2790,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
      */
     public function getSalesHistory(ConnectionInterface $con = null)
     {
-        if ($this->aSalesHistory === null && (($this->oehhnbr !== "" && $this->oehhnbr !== null))) {
+        if ($this->aSalesHistory === null && ($this->oehhnbr != 0)) {
             $this->aSalesHistory = ChildSalesHistoryQuery::create()->findPk($this->oehhnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -2580,7 +2814,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
     public function setSalesHistoryDetail(ChildSalesHistoryDetail $v = null)
     {
         if ($v === null) {
-            $this->setOehhnbr(NULL);
+            $this->setOehhnbr(0);
         } else {
             $this->setOehhnbr($v->getOehhnbr());
         }
@@ -2613,7 +2847,7 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
      */
     public function getSalesHistoryDetail(ConnectionInterface $con = null)
     {
-        if ($this->aSalesHistoryDetail === null && (($this->oehhnbr !== "" && $this->oehhnbr !== null) && $this->oedhline != 0)) {
+        if ($this->aSalesHistoryDetail === null && ($this->oehhnbr != 0 && $this->oedhline != 0)) {
             $this->aSalesHistoryDetail = ChildSalesHistoryDetailQuery::create()->findPk(array($this->oehhnbr, $this->oedhline), $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -2715,6 +2949,8 @@ abstract class SalesHistoryLotserial implements ActiveRecordInterface
         $this->oeshtarewght = null;
         $this->oeshuseup = null;
         $this->oeshlblprtd = null;
+        $this->oeshorigbin = null;
+        $this->oeshactvdate = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
