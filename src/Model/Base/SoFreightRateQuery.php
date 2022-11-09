@@ -512,7 +512,7 @@ abstract class SoFreightRateQuery extends ModelCriteria
      *
      * @return $this|ChildSoFreightRateQuery The current query, for fluid interface
      */
-    public function joinCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinCustomer($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('Customer');
@@ -547,7 +547,7 @@ abstract class SoFreightRateQuery extends ModelCriteria
      *
      * @return \CustomerQuery A secondary query class using the current class as primary query
      */
-    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useCustomerQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
     {
         return $this
             ->joinCustomer($relationAlias, $joinType)

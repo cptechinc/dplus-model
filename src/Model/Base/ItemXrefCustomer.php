@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \ItemXrefCustomerQuery as ChildItemXrefCustomerQuery;
@@ -228,6 +230,11 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
+
+    /**
+     * @var        ChildCustomer
+     */
+    protected $aCustomer;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -721,6 +728,10 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($this->arcucustid !== $v) {
             $this->arcucustid = $v;
             $this->modifiedColumns[ItemXrefCustomerTableMap::COL_ARCUCUSTID] = true;
+        }
+
+        if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
+            $this->aCustomer = null;
         }
 
         return $this;
@@ -1312,6 +1323,9 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
+            $this->aCustomer = null;
+        }
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
@@ -1355,6 +1369,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
+            $this->aCustomer = null;
         } // if (deep)
     }
 
@@ -1468,6 +1483,13 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
                     $affectedRows += $this->aItemMasterItem->save($con);
                 }
                 $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
+            if ($this->aCustomer !== null) {
+                if ($this->aCustomer->isModified() || $this->aCustomer->isNew()) {
+                    $affectedRows += $this->aCustomer->save($con);
+                }
+                $this->setCustomer($this->aCustomer);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -1851,6 +1873,21 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aCustomer) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customer';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_mast';
+                        break;
+                    default:
+                        $key = 'Customer';
+                }
+
+                $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -2193,8 +2230,15 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         $validPk = null !== $this->getArcucustid() &&
             null !== $this->getOexrcustitemnbr();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation customer to table ar_cust_mast
+        if ($this->aCustomer && $hash = spl_object_hash($this->aCustomer)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -2355,6 +2399,57 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildCustomer object.
+     *
+     * @param  ChildCustomer $v
+     * @return $this|\ItemXrefCustomer The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomer(ChildCustomer $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid('');
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        $this->aCustomer = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomer object, it will not be re-added.
+        if ($v !== null) {
+            $v->addItemXrefCustomer($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomer object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomer The associated ChildCustomer object.
+     * @throws PropelException
+     */
+    public function getCustomer(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomer->addItemXrefCustomers($this);
+             */
+        }
+
+        return $this->aCustomer;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -2363,6 +2458,9 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
     {
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeItemXrefCustomer($this);
+        }
+        if (null !== $this->aCustomer) {
+            $this->aCustomer->removeItemXrefCustomer($this);
         }
         $this->arcucustid = null;
         $this->oexrcustitemnbr = null;
@@ -2409,6 +2507,7 @@ abstract class ItemXrefCustomer implements ActiveRecordInterface
         } // if ($deep)
 
         $this->aItemMasterItem = null;
+        $this->aCustomer = null;
     }
 
     /**

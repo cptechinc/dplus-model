@@ -2902,9 +2902,7 @@ abstract class Booking implements ActiveRecordInterface
     public function getCustomer(ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
-            $this->aCustomer = ChildCustomerQuery::create()
-                ->filterByBooking($this) // here
-                ->findOne($con);
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be

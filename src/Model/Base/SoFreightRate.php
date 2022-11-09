@@ -865,9 +865,10 @@ abstract class SoFreightRate implements ActiveRecordInterface
 
             if ($this->customersScheduledForDeletion !== null) {
                 if (!$this->customersScheduledForDeletion->isEmpty()) {
-                    \CustomerQuery::create()
-                        ->filterByPrimaryKeys($this->customersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
+                    foreach ($this->customersScheduledForDeletion as $customer) {
+                        // need to save related object because we set the relation to null
+                        $customer->save($con);
+                    }
                     $this->customersScheduledForDeletion = null;
                 }
             }
@@ -1623,7 +1624,7 @@ abstract class SoFreightRate implements ActiveRecordInterface
                 $this->customersScheduledForDeletion = clone $this->collCustomers;
                 $this->customersScheduledForDeletion->clear();
             }
-            $this->customersScheduledForDeletion[]= clone $customer;
+            $this->customersScheduledForDeletion[]= $customer;
             $customer->setSoFreightRate(null);
         }
 

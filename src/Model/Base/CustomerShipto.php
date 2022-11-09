@@ -2,12 +2,10 @@
 
 namespace Base;
 
-use \Booking as ChildBooking;
-use \BookingDayCustomer as ChildBookingDayCustomer;
-use \BookingDayCustomerQuery as ChildBookingDayCustomerQuery;
-use \BookingDayDetail as ChildBookingDayDetail;
-use \BookingDayDetailQuery as ChildBookingDayDetailQuery;
-use \BookingQuery as ChildBookingQuery;
+use \CstkHead as ChildCstkHead;
+use \CstkHeadQuery as ChildCstkHeadQuery;
+use \CstkItem as ChildCstkItem;
+use \CstkItemQuery as ChildCstkItemQuery;
 use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
@@ -18,9 +16,8 @@ use \SalesOrder as ChildSalesOrder;
 use \SalesOrderQuery as ChildSalesOrderQuery;
 use \Exception;
 use \PDO;
-use Map\BookingDayCustomerTableMap;
-use Map\BookingDayDetailTableMap;
-use Map\BookingTableMap;
+use Map\CstkHeadTableMap;
+use Map\CstkItemTableMap;
 use Map\CustomerShiptoTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
@@ -786,22 +783,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $aCustomer;
 
     /**
-     * @var        ObjectCollection|ChildBookingDayCustomer[] Collection to store aggregation of ChildBookingDayCustomer objects.
+     * @var        ObjectCollection|ChildCstkItem[] Collection to store aggregation of ChildCstkItem objects.
      */
-    protected $collBookingDayCustomers;
-    protected $collBookingDayCustomersPartial;
+    protected $collCstkItems;
+    protected $collCstkItemsPartial;
 
     /**
-     * @var        ObjectCollection|ChildBookingDayDetail[] Collection to store aggregation of ChildBookingDayDetail objects.
+     * @var        ObjectCollection|ChildCstkHead[] Collection to store aggregation of ChildCstkHead objects.
      */
-    protected $collBookingDayDetails;
-    protected $collBookingDayDetailsPartial;
-
-    /**
-     * @var        ObjectCollection|ChildBooking[] Collection to store aggregation of ChildBooking objects.
-     */
-    protected $collBookings;
-    protected $collBookingsPartial;
+    protected $collCstkHeads;
+    protected $collCstkHeadsPartial;
 
     /**
      * @var        ObjectCollection|ChildSalesHistory[] Collection to store aggregation of ChildSalesHistory objects.
@@ -825,21 +816,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildBookingDayCustomer[]
+     * @var ObjectCollection|ChildCstkItem[]
      */
-    protected $bookingDayCustomersScheduledForDeletion = null;
+    protected $cstkItemsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildBookingDayDetail[]
+     * @var ObjectCollection|ChildCstkHead[]
      */
-    protected $bookingDayDetailsScheduledForDeletion = null;
-
-    /**
-     * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildBooking[]
-     */
-    protected $bookingsScheduledForDeletion = null;
+    protected $cstkHeadsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -4512,11 +4497,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aCustomer = null;
-            $this->collBookingDayCustomers = null;
+            $this->collCstkItems = null;
 
-            $this->collBookingDayDetails = null;
-
-            $this->collBookings = null;
+            $this->collCstkHeads = null;
 
             $this->collSalesHistories = null;
 
@@ -4648,52 +4631,34 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->bookingDayCustomersScheduledForDeletion !== null) {
-                if (!$this->bookingDayCustomersScheduledForDeletion->isEmpty()) {
-                    \BookingDayCustomerQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayCustomersScheduledForDeletion->getPrimaryKeys(false))
+            if ($this->cstkItemsScheduledForDeletion !== null) {
+                if (!$this->cstkItemsScheduledForDeletion->isEmpty()) {
+                    \CstkItemQuery::create()
+                        ->filterByPrimaryKeys($this->cstkItemsScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
-                    $this->bookingDayCustomersScheduledForDeletion = null;
+                    $this->cstkItemsScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collBookingDayCustomers !== null) {
-                foreach ($this->collBookingDayCustomers as $referrerFK) {
+            if ($this->collCstkItems !== null) {
+                foreach ($this->collCstkItems as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
                 }
             }
 
-            if ($this->bookingDayDetailsScheduledForDeletion !== null) {
-                if (!$this->bookingDayDetailsScheduledForDeletion->isEmpty()) {
-                    \BookingDayDetailQuery::create()
-                        ->filterByPrimaryKeys($this->bookingDayDetailsScheduledForDeletion->getPrimaryKeys(false))
+            if ($this->cstkHeadsScheduledForDeletion !== null) {
+                if (!$this->cstkHeadsScheduledForDeletion->isEmpty()) {
+                    \CstkHeadQuery::create()
+                        ->filterByPrimaryKeys($this->cstkHeadsScheduledForDeletion->getPrimaryKeys(false))
                         ->delete($con);
-                    $this->bookingDayDetailsScheduledForDeletion = null;
+                    $this->cstkHeadsScheduledForDeletion = null;
                 }
             }
 
-            if ($this->collBookingDayDetails !== null) {
-                foreach ($this->collBookingDayDetails as $referrerFK) {
-                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
-                        $affectedRows += $referrerFK->save($con);
-                    }
-                }
-            }
-
-            if ($this->bookingsScheduledForDeletion !== null) {
-                if (!$this->bookingsScheduledForDeletion->isEmpty()) {
-                    foreach ($this->bookingsScheduledForDeletion as $booking) {
-                        // need to save related object because we set the relation to null
-                        $booking->save($con);
-                    }
-                    $this->bookingsScheduledForDeletion = null;
-                }
-            }
-
-            if ($this->collBookings !== null) {
-                foreach ($this->collBookings as $referrerFK) {
+            if ($this->collCstkHeads !== null) {
+                foreach ($this->collCstkHeads as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -4702,9 +4667,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
             if ($this->salesHistoriesScheduledForDeletion !== null) {
                 if (!$this->salesHistoriesScheduledForDeletion->isEmpty()) {
-                    \SalesHistoryQuery::create()
-                        ->filterByPrimaryKeys($this->salesHistoriesScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
+                    foreach ($this->salesHistoriesScheduledForDeletion as $salesHistory) {
+                        // need to save related object because we set the relation to null
+                        $salesHistory->save($con);
+                    }
                     $this->salesHistoriesScheduledForDeletion = null;
                 }
             }
@@ -4719,9 +4685,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
             if ($this->salesOrdersScheduledForDeletion !== null) {
                 if (!$this->salesOrdersScheduledForDeletion->isEmpty()) {
-                    \SalesOrderQuery::create()
-                        ->filterByPrimaryKeys($this->salesOrdersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
+                    foreach ($this->salesOrdersScheduledForDeletion as $salesOrder) {
+                        // need to save related object because we set the relation to null
+                        $salesOrder->save($con);
+                    }
                     $this->salesOrdersScheduledForDeletion = null;
                 }
             }
@@ -5874,50 +5841,35 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
                 $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
-            if (null !== $this->collBookingDayCustomers) {
+            if (null !== $this->collCstkItems) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'bookingDayCustomers';
+                        $key = 'cstkItems';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'so_book_by_day_custs';
+                        $key = 'cust_stock_dets';
                         break;
                     default:
-                        $key = 'BookingDayCustomers';
+                        $key = 'CstkItems';
                 }
 
-                $result[$key] = $this->collBookingDayCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collCstkItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
-            if (null !== $this->collBookingDayDetails) {
+            if (null !== $this->collCstkHeads) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'bookingDayDetails';
+                        $key = 'cstkHeads';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'so_book_by_day_dets';
+                        $key = 'cust_stock_heads';
                         break;
                     default:
-                        $key = 'BookingDayDetails';
+                        $key = 'CstkHeads';
                 }
 
-                $result[$key] = $this->collBookingDayDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
-            }
-            if (null !== $this->collBookings) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'bookings';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'so_book_log_heads';
-                        break;
-                    default:
-                        $key = 'Bookings';
-                }
-
-                $result[$key] = $this->collBookings->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+                $result[$key] = $this->collCstkHeads->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collSalesHistories) {
 
@@ -7157,21 +7109,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
-            foreach ($this->getBookingDayCustomers() as $relObj) {
+            foreach ($this->getCstkItems() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addBookingDayCustomer($relObj->copy($deepCopy));
+                    $copyObj->addCstkItem($relObj->copy($deepCopy));
                 }
             }
 
-            foreach ($this->getBookingDayDetails() as $relObj) {
+            foreach ($this->getCstkHeads() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addBookingDayDetail($relObj->copy($deepCopy));
-                }
-            }
-
-            foreach ($this->getBookings() as $relObj) {
-                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addBooking($relObj->copy($deepCopy));
+                    $copyObj->addCstkHead($relObj->copy($deepCopy));
                 }
             }
 
@@ -7254,9 +7200,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getCustomer(ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
-            $this->aCustomer = ChildCustomerQuery::create()
-                ->filterByCustomerShipto($this) // here
-                ->findOne($con);
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -7280,16 +7224,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
-        if ('BookingDayCustomer' == $relationName) {
-            $this->initBookingDayCustomers();
+        if ('CstkItem' == $relationName) {
+            $this->initCstkItems();
             return;
         }
-        if ('BookingDayDetail' == $relationName) {
-            $this->initBookingDayDetails();
-            return;
-        }
-        if ('Booking' == $relationName) {
-            $this->initBookings();
+        if ('CstkHead' == $relationName) {
+            $this->initCstkHeads();
             return;
         }
         if ('SalesHistory' == $relationName) {
@@ -7303,31 +7243,31 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * Clears out the collBookingDayCustomers collection
+     * Clears out the collCstkItems collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addBookingDayCustomers()
+     * @see        addCstkItems()
      */
-    public function clearBookingDayCustomers()
+    public function clearCstkItems()
     {
-        $this->collBookingDayCustomers = null; // important to set this to NULL since that means it is uninitialized
+        $this->collCstkItems = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collBookingDayCustomers collection loaded partially.
+     * Reset is the collCstkItems collection loaded partially.
      */
-    public function resetPartialBookingDayCustomers($v = true)
+    public function resetPartialCstkItems($v = true)
     {
-        $this->collBookingDayCustomersPartial = $v;
+        $this->collCstkItemsPartial = $v;
     }
 
     /**
-     * Initializes the collBookingDayCustomers collection.
+     * Initializes the collCstkItems collection.
      *
-     * By default this just sets the collBookingDayCustomers collection to an empty array (like clearcollBookingDayCustomers());
+     * By default this just sets the collCstkItems collection to an empty array (like clearcollCstkItems());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -7336,20 +7276,20 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initBookingDayCustomers($overrideExisting = true)
+    public function initCstkItems($overrideExisting = true)
     {
-        if (null !== $this->collBookingDayCustomers && !$overrideExisting) {
+        if (null !== $this->collCstkItems && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = BookingDayCustomerTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = CstkItemTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collBookingDayCustomers = new $collectionClassName;
-        $this->collBookingDayCustomers->setModel('\BookingDayCustomer');
+        $this->collCstkItems = new $collectionClassName;
+        $this->collCstkItems->setModel('\CstkItem');
     }
 
     /**
-     * Gets an array of ChildBookingDayCustomer objects which contain a foreign key that references this object.
+     * Gets an array of ChildCstkItem objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -7359,111 +7299,111 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
      * @throws PropelException
      */
-    public function getBookingDayCustomers(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getCstkItems(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayCustomers) {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
                 // return empty collection
-                $this->initBookingDayCustomers();
+                $this->initCstkItems();
             } else {
-                $collBookingDayCustomers = ChildBookingDayCustomerQuery::create(null, $criteria)
+                $collCstkItems = ChildCstkItemQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collBookingDayCustomersPartial && count($collBookingDayCustomers)) {
-                        $this->initBookingDayCustomers(false);
+                    if (false !== $this->collCstkItemsPartial && count($collCstkItems)) {
+                        $this->initCstkItems(false);
 
-                        foreach ($collBookingDayCustomers as $obj) {
-                            if (false == $this->collBookingDayCustomers->contains($obj)) {
-                                $this->collBookingDayCustomers->append($obj);
+                        foreach ($collCstkItems as $obj) {
+                            if (false == $this->collCstkItems->contains($obj)) {
+                                $this->collCstkItems->append($obj);
                             }
                         }
 
-                        $this->collBookingDayCustomersPartial = true;
+                        $this->collCstkItemsPartial = true;
                     }
 
-                    return $collBookingDayCustomers;
+                    return $collCstkItems;
                 }
 
-                if ($partial && $this->collBookingDayCustomers) {
-                    foreach ($this->collBookingDayCustomers as $obj) {
+                if ($partial && $this->collCstkItems) {
+                    foreach ($this->collCstkItems as $obj) {
                         if ($obj->isNew()) {
-                            $collBookingDayCustomers[] = $obj;
+                            $collCstkItems[] = $obj;
                         }
                     }
                 }
 
-                $this->collBookingDayCustomers = $collBookingDayCustomers;
-                $this->collBookingDayCustomersPartial = false;
+                $this->collCstkItems = $collCstkItems;
+                $this->collCstkItemsPartial = false;
             }
         }
 
-        return $this->collBookingDayCustomers;
+        return $this->collCstkItems;
     }
 
     /**
-     * Sets a collection of ChildBookingDayCustomer objects related by a one-to-many relationship
+     * Sets a collection of ChildCstkItem objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayCustomers A Propel collection.
+     * @param      Collection $cstkItems A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildCustomerShipto The current object (for fluent API support)
      */
-    public function setBookingDayCustomers(Collection $bookingDayCustomers, ConnectionInterface $con = null)
+    public function setCstkItems(Collection $cstkItems, ConnectionInterface $con = null)
     {
-        /** @var ChildBookingDayCustomer[] $bookingDayCustomersToDelete */
-        $bookingDayCustomersToDelete = $this->getBookingDayCustomers(new Criteria(), $con)->diff($bookingDayCustomers);
+        /** @var ChildCstkItem[] $cstkItemsToDelete */
+        $cstkItemsToDelete = $this->getCstkItems(new Criteria(), $con)->diff($cstkItems);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->bookingDayCustomersScheduledForDeletion = clone $bookingDayCustomersToDelete;
+        $this->cstkItemsScheduledForDeletion = clone $cstkItemsToDelete;
 
-        foreach ($bookingDayCustomersToDelete as $bookingDayCustomerRemoved) {
-            $bookingDayCustomerRemoved->setCustomerShipto(null);
+        foreach ($cstkItemsToDelete as $cstkItemRemoved) {
+            $cstkItemRemoved->setCustomerShipto(null);
         }
 
-        $this->collBookingDayCustomers = null;
-        foreach ($bookingDayCustomers as $bookingDayCustomer) {
-            $this->addBookingDayCustomer($bookingDayCustomer);
+        $this->collCstkItems = null;
+        foreach ($cstkItems as $cstkItem) {
+            $this->addCstkItem($cstkItem);
         }
 
-        $this->collBookingDayCustomers = $bookingDayCustomers;
-        $this->collBookingDayCustomersPartial = false;
+        $this->collCstkItems = $cstkItems;
+        $this->collCstkItemsPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related BookingDayCustomer objects.
+     * Returns the number of related CstkItem objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayCustomer objects.
+     * @return int             Count of related CstkItem objects.
      * @throws PropelException
      */
-    public function countBookingDayCustomers(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countCstkItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collBookingDayCustomersPartial && !$this->isNew();
-        if (null === $this->collBookingDayCustomers || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayCustomers) {
+        $partial = $this->collCstkItemsPartial && !$this->isNew();
+        if (null === $this->collCstkItems || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collCstkItems) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getBookingDayCustomers());
+                return count($this->getCstkItems());
             }
 
-            $query = ChildBookingDayCustomerQuery::create(null, $criteria);
+            $query = ChildCstkItemQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -7473,28 +7413,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collBookingDayCustomers);
+        return count($this->collCstkItems);
     }
 
     /**
-     * Method called to associate a ChildBookingDayCustomer object to this object
-     * through the ChildBookingDayCustomer foreign key attribute.
+     * Method called to associate a ChildCstkItem object to this object
+     * through the ChildCstkItem foreign key attribute.
      *
-     * @param  ChildBookingDayCustomer $l ChildBookingDayCustomer
+     * @param  ChildCstkItem $l ChildCstkItem
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
-    public function addBookingDayCustomer(ChildBookingDayCustomer $l)
+    public function addCstkItem(ChildCstkItem $l)
     {
-        if ($this->collBookingDayCustomers === null) {
-            $this->initBookingDayCustomers();
-            $this->collBookingDayCustomersPartial = true;
+        if ($this->collCstkItems === null) {
+            $this->initCstkItems();
+            $this->collCstkItemsPartial = true;
         }
 
-        if (!$this->collBookingDayCustomers->contains($l)) {
-            $this->doAddBookingDayCustomer($l);
+        if (!$this->collCstkItems->contains($l)) {
+            $this->doAddCstkItem($l);
 
-            if ($this->bookingDayCustomersScheduledForDeletion and $this->bookingDayCustomersScheduledForDeletion->contains($l)) {
-                $this->bookingDayCustomersScheduledForDeletion->remove($this->bookingDayCustomersScheduledForDeletion->search($l));
+            if ($this->cstkItemsScheduledForDeletion and $this->cstkItemsScheduledForDeletion->contains($l)) {
+                $this->cstkItemsScheduledForDeletion->remove($this->cstkItemsScheduledForDeletion->search($l));
             }
         }
 
@@ -7502,29 +7442,29 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to add.
+     * @param ChildCstkItem $cstkItem The ChildCstkItem object to add.
      */
-    protected function doAddBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
+    protected function doAddCstkItem(ChildCstkItem $cstkItem)
     {
-        $this->collBookingDayCustomers[]= $bookingDayCustomer;
-        $bookingDayCustomer->setCustomerShipto($this);
+        $this->collCstkItems[]= $cstkItem;
+        $cstkItem->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildBookingDayCustomer $bookingDayCustomer The ChildBookingDayCustomer object to remove.
+     * @param  ChildCstkItem $cstkItem The ChildCstkItem object to remove.
      * @return $this|ChildCustomerShipto The current object (for fluent API support)
      */
-    public function removeBookingDayCustomer(ChildBookingDayCustomer $bookingDayCustomer)
+    public function removeCstkItem(ChildCstkItem $cstkItem)
     {
-        if ($this->getBookingDayCustomers()->contains($bookingDayCustomer)) {
-            $pos = $this->collBookingDayCustomers->search($bookingDayCustomer);
-            $this->collBookingDayCustomers->remove($pos);
-            if (null === $this->bookingDayCustomersScheduledForDeletion) {
-                $this->bookingDayCustomersScheduledForDeletion = clone $this->collBookingDayCustomers;
-                $this->bookingDayCustomersScheduledForDeletion->clear();
+        if ($this->getCstkItems()->contains($cstkItem)) {
+            $pos = $this->collCstkItems->search($cstkItem);
+            $this->collCstkItems->remove($pos);
+            if (null === $this->cstkItemsScheduledForDeletion) {
+                $this->cstkItemsScheduledForDeletion = clone $this->collCstkItems;
+                $this->cstkItemsScheduledForDeletion->clear();
             }
-            $this->bookingDayCustomersScheduledForDeletion[]= clone $bookingDayCustomer;
-            $bookingDayCustomer->setCustomerShipto(null);
+            $this->cstkItemsScheduledForDeletion[]= clone $cstkItem;
+            $cstkItem->setCustomerShipto(null);
         }
 
         return $this;
@@ -7536,7 +7476,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * an identical criteria, it returns the collection.
      * Otherwise if this CustomerShipto is new, it will return
      * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related BookingDayCustomers from storage.
+     * been saved, it will retrieve related CstkItems from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -7545,14 +7485,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
      */
-    public function getBookingDayCustomersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getCstkItemsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildBookingDayCustomerQuery::create(null, $criteria);
-        $query->joinWith('Customer', $joinBehavior);
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
 
-        return $this->getBookingDayCustomers($query, $con);
+        return $this->getCstkItems($query, $con);
     }
 
 
@@ -7561,7 +7501,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * an identical criteria, it returns the collection.
      * Otherwise if this CustomerShipto is new, it will return
      * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related BookingDayCustomers from storage.
+     * been saved, it will retrieve related CstkItems from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -7570,42 +7510,67 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBookingDayCustomer[] List of ChildBookingDayCustomer objects
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
      */
-    public function getBookingDayCustomersJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getCstkItemsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildBookingDayCustomerQuery::create(null, $criteria);
-        $query->joinWith('SalesPerson', $joinBehavior);
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
 
-        return $this->getBookingDayCustomers($query, $con);
+        return $this->getCstkItems($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related CstkItems from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildCstkItem[] List of ChildCstkItem objects
+     */
+    public function getCstkItemsJoinCstkHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildCstkItemQuery::create(null, $criteria);
+        $query->joinWith('CstkHead', $joinBehavior);
+
+        return $this->getCstkItems($query, $con);
     }
 
     /**
-     * Clears out the collBookingDayDetails collection
+     * Clears out the collCstkHeads collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
      * them to be refetched by subsequent calls to accessor method.
      *
      * @return void
-     * @see        addBookingDayDetails()
+     * @see        addCstkHeads()
      */
-    public function clearBookingDayDetails()
+    public function clearCstkHeads()
     {
-        $this->collBookingDayDetails = null; // important to set this to NULL since that means it is uninitialized
+        $this->collCstkHeads = null; // important to set this to NULL since that means it is uninitialized
     }
 
     /**
-     * Reset is the collBookingDayDetails collection loaded partially.
+     * Reset is the collCstkHeads collection loaded partially.
      */
-    public function resetPartialBookingDayDetails($v = true)
+    public function resetPartialCstkHeads($v = true)
     {
-        $this->collBookingDayDetailsPartial = $v;
+        $this->collCstkHeadsPartial = $v;
     }
 
     /**
-     * Initializes the collBookingDayDetails collection.
+     * Initializes the collCstkHeads collection.
      *
-     * By default this just sets the collBookingDayDetails collection to an empty array (like clearcollBookingDayDetails());
+     * By default this just sets the collCstkHeads collection to an empty array (like clearcollCstkHeads());
      * however, you may wish to override this method in your stub class to provide setting appropriate
      * to your application -- for example, setting the initial array to the values stored in database.
      *
@@ -7614,20 +7579,20 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @return void
      */
-    public function initBookingDayDetails($overrideExisting = true)
+    public function initCstkHeads($overrideExisting = true)
     {
-        if (null !== $this->collBookingDayDetails && !$overrideExisting) {
+        if (null !== $this->collCstkHeads && !$overrideExisting) {
             return;
         }
 
-        $collectionClassName = BookingDayDetailTableMap::getTableMap()->getCollectionClassName();
+        $collectionClassName = CstkHeadTableMap::getTableMap()->getCollectionClassName();
 
-        $this->collBookingDayDetails = new $collectionClassName;
-        $this->collBookingDayDetails->setModel('\BookingDayDetail');
+        $this->collCstkHeads = new $collectionClassName;
+        $this->collCstkHeads->setModel('\CstkHead');
     }
 
     /**
-     * Gets an array of ChildBookingDayDetail objects which contain a foreign key that references this object.
+     * Gets an array of ChildCstkHead objects which contain a foreign key that references this object.
      *
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
@@ -7637,111 +7602,111 @@ abstract class CustomerShipto implements ActiveRecordInterface
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @return ObjectCollection|ChildCstkHead[] List of ChildCstkHead objects
      * @throws PropelException
      */
-    public function getBookingDayDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    public function getCstkHeads(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayDetails) {
+        $partial = $this->collCstkHeadsPartial && !$this->isNew();
+        if (null === $this->collCstkHeads || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collCstkHeads) {
                 // return empty collection
-                $this->initBookingDayDetails();
+                $this->initCstkHeads();
             } else {
-                $collBookingDayDetails = ChildBookingDayDetailQuery::create(null, $criteria)
+                $collCstkHeads = ChildCstkHeadQuery::create(null, $criteria)
                     ->filterByCustomerShipto($this)
                     ->find($con);
 
                 if (null !== $criteria) {
-                    if (false !== $this->collBookingDayDetailsPartial && count($collBookingDayDetails)) {
-                        $this->initBookingDayDetails(false);
+                    if (false !== $this->collCstkHeadsPartial && count($collCstkHeads)) {
+                        $this->initCstkHeads(false);
 
-                        foreach ($collBookingDayDetails as $obj) {
-                            if (false == $this->collBookingDayDetails->contains($obj)) {
-                                $this->collBookingDayDetails->append($obj);
+                        foreach ($collCstkHeads as $obj) {
+                            if (false == $this->collCstkHeads->contains($obj)) {
+                                $this->collCstkHeads->append($obj);
                             }
                         }
 
-                        $this->collBookingDayDetailsPartial = true;
+                        $this->collCstkHeadsPartial = true;
                     }
 
-                    return $collBookingDayDetails;
+                    return $collCstkHeads;
                 }
 
-                if ($partial && $this->collBookingDayDetails) {
-                    foreach ($this->collBookingDayDetails as $obj) {
+                if ($partial && $this->collCstkHeads) {
+                    foreach ($this->collCstkHeads as $obj) {
                         if ($obj->isNew()) {
-                            $collBookingDayDetails[] = $obj;
+                            $collCstkHeads[] = $obj;
                         }
                     }
                 }
 
-                $this->collBookingDayDetails = $collBookingDayDetails;
-                $this->collBookingDayDetailsPartial = false;
+                $this->collCstkHeads = $collCstkHeads;
+                $this->collCstkHeadsPartial = false;
             }
         }
 
-        return $this->collBookingDayDetails;
+        return $this->collCstkHeads;
     }
 
     /**
-     * Sets a collection of ChildBookingDayDetail objects related by a one-to-many relationship
+     * Sets a collection of ChildCstkHead objects related by a one-to-many relationship
      * to the current object.
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $bookingDayDetails A Propel collection.
+     * @param      Collection $cstkHeads A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildCustomerShipto The current object (for fluent API support)
      */
-    public function setBookingDayDetails(Collection $bookingDayDetails, ConnectionInterface $con = null)
+    public function setCstkHeads(Collection $cstkHeads, ConnectionInterface $con = null)
     {
-        /** @var ChildBookingDayDetail[] $bookingDayDetailsToDelete */
-        $bookingDayDetailsToDelete = $this->getBookingDayDetails(new Criteria(), $con)->diff($bookingDayDetails);
+        /** @var ChildCstkHead[] $cstkHeadsToDelete */
+        $cstkHeadsToDelete = $this->getCstkHeads(new Criteria(), $con)->diff($cstkHeads);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->bookingDayDetailsScheduledForDeletion = clone $bookingDayDetailsToDelete;
+        $this->cstkHeadsScheduledForDeletion = clone $cstkHeadsToDelete;
 
-        foreach ($bookingDayDetailsToDelete as $bookingDayDetailRemoved) {
-            $bookingDayDetailRemoved->setCustomerShipto(null);
+        foreach ($cstkHeadsToDelete as $cstkHeadRemoved) {
+            $cstkHeadRemoved->setCustomerShipto(null);
         }
 
-        $this->collBookingDayDetails = null;
-        foreach ($bookingDayDetails as $bookingDayDetail) {
-            $this->addBookingDayDetail($bookingDayDetail);
+        $this->collCstkHeads = null;
+        foreach ($cstkHeads as $cstkHead) {
+            $this->addCstkHead($cstkHead);
         }
 
-        $this->collBookingDayDetails = $bookingDayDetails;
-        $this->collBookingDayDetailsPartial = false;
+        $this->collCstkHeads = $cstkHeads;
+        $this->collCstkHeadsPartial = false;
 
         return $this;
     }
 
     /**
-     * Returns the number of related BookingDayDetail objects.
+     * Returns the number of related CstkHead objects.
      *
      * @param      Criteria $criteria
      * @param      boolean $distinct
      * @param      ConnectionInterface $con
-     * @return int             Count of related BookingDayDetail objects.
+     * @return int             Count of related CstkHead objects.
      * @throws PropelException
      */
-    public function countBookingDayDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    public function countCstkHeads(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        $partial = $this->collBookingDayDetailsPartial && !$this->isNew();
-        if (null === $this->collBookingDayDetails || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collBookingDayDetails) {
+        $partial = $this->collCstkHeadsPartial && !$this->isNew();
+        if (null === $this->collCstkHeads || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collCstkHeads) {
                 return 0;
             }
 
             if ($partial && !$criteria) {
-                return count($this->getBookingDayDetails());
+                return count($this->getCstkHeads());
             }
 
-            $query = ChildBookingDayDetailQuery::create(null, $criteria);
+            $query = ChildCstkHeadQuery::create(null, $criteria);
             if ($distinct) {
                 $query->distinct();
             }
@@ -7751,28 +7716,28 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 ->count($con);
         }
 
-        return count($this->collBookingDayDetails);
+        return count($this->collCstkHeads);
     }
 
     /**
-     * Method called to associate a ChildBookingDayDetail object to this object
-     * through the ChildBookingDayDetail foreign key attribute.
+     * Method called to associate a ChildCstkHead object to this object
+     * through the ChildCstkHead foreign key attribute.
      *
-     * @param  ChildBookingDayDetail $l ChildBookingDayDetail
+     * @param  ChildCstkHead $l ChildCstkHead
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
-    public function addBookingDayDetail(ChildBookingDayDetail $l)
+    public function addCstkHead(ChildCstkHead $l)
     {
-        if ($this->collBookingDayDetails === null) {
-            $this->initBookingDayDetails();
-            $this->collBookingDayDetailsPartial = true;
+        if ($this->collCstkHeads === null) {
+            $this->initCstkHeads();
+            $this->collCstkHeadsPartial = true;
         }
 
-        if (!$this->collBookingDayDetails->contains($l)) {
-            $this->doAddBookingDayDetail($l);
+        if (!$this->collCstkHeads->contains($l)) {
+            $this->doAddCstkHead($l);
 
-            if ($this->bookingDayDetailsScheduledForDeletion and $this->bookingDayDetailsScheduledForDeletion->contains($l)) {
-                $this->bookingDayDetailsScheduledForDeletion->remove($this->bookingDayDetailsScheduledForDeletion->search($l));
+            if ($this->cstkHeadsScheduledForDeletion and $this->cstkHeadsScheduledForDeletion->contains($l)) {
+                $this->cstkHeadsScheduledForDeletion->remove($this->cstkHeadsScheduledForDeletion->search($l));
             }
         }
 
@@ -7780,29 +7745,29 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to add.
+     * @param ChildCstkHead $cstkHead The ChildCstkHead object to add.
      */
-    protected function doAddBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
+    protected function doAddCstkHead(ChildCstkHead $cstkHead)
     {
-        $this->collBookingDayDetails[]= $bookingDayDetail;
-        $bookingDayDetail->setCustomerShipto($this);
+        $this->collCstkHeads[]= $cstkHead;
+        $cstkHead->setCustomerShipto($this);
     }
 
     /**
-     * @param  ChildBookingDayDetail $bookingDayDetail The ChildBookingDayDetail object to remove.
+     * @param  ChildCstkHead $cstkHead The ChildCstkHead object to remove.
      * @return $this|ChildCustomerShipto The current object (for fluent API support)
      */
-    public function removeBookingDayDetail(ChildBookingDayDetail $bookingDayDetail)
+    public function removeCstkHead(ChildCstkHead $cstkHead)
     {
-        if ($this->getBookingDayDetails()->contains($bookingDayDetail)) {
-            $pos = $this->collBookingDayDetails->search($bookingDayDetail);
-            $this->collBookingDayDetails->remove($pos);
-            if (null === $this->bookingDayDetailsScheduledForDeletion) {
-                $this->bookingDayDetailsScheduledForDeletion = clone $this->collBookingDayDetails;
-                $this->bookingDayDetailsScheduledForDeletion->clear();
+        if ($this->getCstkHeads()->contains($cstkHead)) {
+            $pos = $this->collCstkHeads->search($cstkHead);
+            $this->collCstkHeads->remove($pos);
+            if (null === $this->cstkHeadsScheduledForDeletion) {
+                $this->cstkHeadsScheduledForDeletion = clone $this->collCstkHeads;
+                $this->cstkHeadsScheduledForDeletion->clear();
             }
-            $this->bookingDayDetailsScheduledForDeletion[]= clone $bookingDayDetail;
-            $bookingDayDetail->setCustomerShipto(null);
+            $this->cstkHeadsScheduledForDeletion[]= clone $cstkHead;
+            $cstkHead->setCustomerShipto(null);
         }
 
         return $this;
@@ -7814,7 +7779,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * an identical criteria, it returns the collection.
      * Otherwise if this CustomerShipto is new, it will return
      * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related BookingDayDetails from storage.
+     * been saved, it will retrieve related CstkHeads from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
@@ -7823,314 +7788,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
      * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
+     * @return ObjectCollection|ChildCstkHead[] List of ChildCstkHead objects
      */
-    public function getBookingDayDetailsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    public function getCstkHeadsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $query = ChildBookingDayDetailQuery::create(null, $criteria);
+        $query = ChildCstkHeadQuery::create(null, $criteria);
         $query->joinWith('Customer', $joinBehavior);
 
-        return $this->getBookingDayDetails($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this CustomerShipto is new, it will return
-     * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related BookingDayDetails from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in CustomerShipto.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBookingDayDetail[] List of ChildBookingDayDetail objects
-     */
-    public function getBookingDayDetailsJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildBookingDayDetailQuery::create(null, $criteria);
-        $query->joinWith('SalesPerson', $joinBehavior);
-
-        return $this->getBookingDayDetails($query, $con);
-    }
-
-    /**
-     * Clears out the collBookings collection
-     *
-     * This does not modify the database; however, it will remove any associated objects, causing
-     * them to be refetched by subsequent calls to accessor method.
-     *
-     * @return void
-     * @see        addBookings()
-     */
-    public function clearBookings()
-    {
-        $this->collBookings = null; // important to set this to NULL since that means it is uninitialized
-    }
-
-    /**
-     * Reset is the collBookings collection loaded partially.
-     */
-    public function resetPartialBookings($v = true)
-    {
-        $this->collBookingsPartial = $v;
-    }
-
-    /**
-     * Initializes the collBookings collection.
-     *
-     * By default this just sets the collBookings collection to an empty array (like clearcollBookings());
-     * however, you may wish to override this method in your stub class to provide setting appropriate
-     * to your application -- for example, setting the initial array to the values stored in database.
-     *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
-     *                                        the collection even if it is not empty
-     *
-     * @return void
-     */
-    public function initBookings($overrideExisting = true)
-    {
-        if (null !== $this->collBookings && !$overrideExisting) {
-            return;
-        }
-
-        $collectionClassName = BookingTableMap::getTableMap()->getCollectionClassName();
-
-        $this->collBookings = new $collectionClassName;
-        $this->collBookings->setModel('\Booking');
-    }
-
-    /**
-     * Gets an array of ChildBooking objects which contain a foreign key that references this object.
-     *
-     * If the $criteria is not null, it is used to always fetch the results from the database.
-     * Otherwise the results are fetched from the database the first time, then cached.
-     * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildCustomerShipto is new, it will return
-     * an empty collection or the current collection; the criteria is ignored on a new object.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
-     * @throws PropelException
-     */
-    public function getBookings(Criteria $criteria = null, ConnectionInterface $con = null)
-    {
-        $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collBookings) {
-                // return empty collection
-                $this->initBookings();
-            } else {
-                $collBookings = ChildBookingQuery::create(null, $criteria)
-                    ->filterByCustomerShipto($this)
-                    ->find($con);
-
-                if (null !== $criteria) {
-                    if (false !== $this->collBookingsPartial && count($collBookings)) {
-                        $this->initBookings(false);
-
-                        foreach ($collBookings as $obj) {
-                            if (false == $this->collBookings->contains($obj)) {
-                                $this->collBookings->append($obj);
-                            }
-                        }
-
-                        $this->collBookingsPartial = true;
-                    }
-
-                    return $collBookings;
-                }
-
-                if ($partial && $this->collBookings) {
-                    foreach ($this->collBookings as $obj) {
-                        if ($obj->isNew()) {
-                            $collBookings[] = $obj;
-                        }
-                    }
-                }
-
-                $this->collBookings = $collBookings;
-                $this->collBookingsPartial = false;
-            }
-        }
-
-        return $this->collBookings;
-    }
-
-    /**
-     * Sets a collection of ChildBooking objects related by a one-to-many relationship
-     * to the current object.
-     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
-     * and new objects from the given Propel collection.
-     *
-     * @param      Collection $bookings A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
-     */
-    public function setBookings(Collection $bookings, ConnectionInterface $con = null)
-    {
-        /** @var ChildBooking[] $bookingsToDelete */
-        $bookingsToDelete = $this->getBookings(new Criteria(), $con)->diff($bookings);
-
-
-        $this->bookingsScheduledForDeletion = $bookingsToDelete;
-
-        foreach ($bookingsToDelete as $bookingRemoved) {
-            $bookingRemoved->setCustomerShipto(null);
-        }
-
-        $this->collBookings = null;
-        foreach ($bookings as $booking) {
-            $this->addBooking($booking);
-        }
-
-        $this->collBookings = $bookings;
-        $this->collBookingsPartial = false;
-
-        return $this;
-    }
-
-    /**
-     * Returns the number of related Booking objects.
-     *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related Booking objects.
-     * @throws PropelException
-     */
-    public function countBookings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
-    {
-        $partial = $this->collBookingsPartial && !$this->isNew();
-        if (null === $this->collBookings || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collBookings) {
-                return 0;
-            }
-
-            if ($partial && !$criteria) {
-                return count($this->getBookings());
-            }
-
-            $query = ChildBookingQuery::create(null, $criteria);
-            if ($distinct) {
-                $query->distinct();
-            }
-
-            return $query
-                ->filterByCustomerShipto($this)
-                ->count($con);
-        }
-
-        return count($this->collBookings);
-    }
-
-    /**
-     * Method called to associate a ChildBooking object to this object
-     * through the ChildBooking foreign key attribute.
-     *
-     * @param  ChildBooking $l ChildBooking
-     * @return $this|\CustomerShipto The current object (for fluent API support)
-     */
-    public function addBooking(ChildBooking $l)
-    {
-        if ($this->collBookings === null) {
-            $this->initBookings();
-            $this->collBookingsPartial = true;
-        }
-
-        if (!$this->collBookings->contains($l)) {
-            $this->doAddBooking($l);
-
-            if ($this->bookingsScheduledForDeletion and $this->bookingsScheduledForDeletion->contains($l)) {
-                $this->bookingsScheduledForDeletion->remove($this->bookingsScheduledForDeletion->search($l));
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param ChildBooking $booking The ChildBooking object to add.
-     */
-    protected function doAddBooking(ChildBooking $booking)
-    {
-        $this->collBookings[]= $booking;
-        $booking->setCustomerShipto($this);
-    }
-
-    /**
-     * @param  ChildBooking $booking The ChildBooking object to remove.
-     * @return $this|ChildCustomerShipto The current object (for fluent API support)
-     */
-    public function removeBooking(ChildBooking $booking)
-    {
-        if ($this->getBookings()->contains($booking)) {
-            $pos = $this->collBookings->search($booking);
-            $this->collBookings->remove($pos);
-            if (null === $this->bookingsScheduledForDeletion) {
-                $this->bookingsScheduledForDeletion = clone $this->collBookings;
-                $this->bookingsScheduledForDeletion->clear();
-            }
-            $this->bookingsScheduledForDeletion[]= clone $booking;
-            $booking->setCustomerShipto(null);
-        }
-
-        return $this;
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this CustomerShipto is new, it will return
-     * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related Bookings from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in CustomerShipto.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
-     */
-    public function getBookingsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildBookingQuery::create(null, $criteria);
-        $query->joinWith('Customer', $joinBehavior);
-
-        return $this->getBookings($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this CustomerShipto is new, it will return
-     * an empty collection; or if this CustomerShipto has previously
-     * been saved, it will retrieve related Bookings from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in CustomerShipto.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildBooking[] List of ChildBooking objects
-     */
-    public function getBookingsJoinSalesPerson(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildBookingQuery::create(null, $criteria);
-        $query->joinWith('SalesPerson', $joinBehavior);
-
-        return $this->getBookings($query, $con);
+        return $this->getCstkHeads($query, $con);
     }
 
     /**
@@ -8762,18 +8427,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
-            if ($this->collBookingDayCustomers) {
-                foreach ($this->collBookingDayCustomers as $o) {
+            if ($this->collCstkItems) {
+                foreach ($this->collCstkItems as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
-            if ($this->collBookingDayDetails) {
-                foreach ($this->collBookingDayDetails as $o) {
-                    $o->clearAllReferences($deep);
-                }
-            }
-            if ($this->collBookings) {
-                foreach ($this->collBookings as $o) {
+            if ($this->collCstkHeads) {
+                foreach ($this->collCstkHeads as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -8789,9 +8449,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
             }
         } // if ($deep)
 
-        $this->collBookingDayCustomers = null;
-        $this->collBookingDayDetails = null;
-        $this->collBookings = null;
+        $this->collCstkItems = null;
+        $this->collCstkHeads = null;
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
         $this->aCustomer = null;

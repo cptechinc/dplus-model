@@ -1436,9 +1436,10 @@ abstract class Shipvia implements ActiveRecordInterface
 
             if ($this->customersScheduledForDeletion !== null) {
                 if (!$this->customersScheduledForDeletion->isEmpty()) {
-                    \CustomerQuery::create()
-                        ->filterByPrimaryKeys($this->customersScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
+                    foreach ($this->customersScheduledForDeletion as $customer) {
+                        // need to save related object because we set the relation to null
+                        $customer->save($con);
+                    }
                     $this->customersScheduledForDeletion = null;
                 }
             }
@@ -3097,7 +3098,7 @@ abstract class Shipvia implements ActiveRecordInterface
                 $this->customersScheduledForDeletion = clone $this->collCustomers;
                 $this->customersScheduledForDeletion->clear();
             }
-            $this->customersScheduledForDeletion[]= clone $customer;
+            $this->customersScheduledForDeletion[]= $customer;
             $customer->setShipvia(null);
         }
 
@@ -3125,31 +3126,6 @@ abstract class Shipvia implements ActiveRecordInterface
     {
         $query = ChildCustomerQuery::create(null, $criteria);
         $query->joinWith('ArCommissionCode', $joinBehavior);
-
-        return $this->getCustomers($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this Shipvia is new, it will return
-     * an empty collection; or if this Shipvia has previously
-     * been saved, it will retrieve related Customers from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in Shipvia.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildCustomer[] List of ChildCustomer objects
-     */
-    public function getCustomersJoinSoFreightRate(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildCustomerQuery::create(null, $criteria);
-        $query->joinWith('SoFreightRate', $joinBehavior);
 
         return $this->getCustomers($query, $con);
     }

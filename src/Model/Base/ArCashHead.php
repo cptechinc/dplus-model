@@ -1798,11 +1798,9 @@ abstract class ArCashHead implements ActiveRecordInterface
     public function getCustomer(ConnectionInterface $con = null)
     {
         if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
-            $this->aCustomer = ChildCustomerQuery::create()
-                ->filterByArCashHead($this) // here
-                ->findOne($con);
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
-            $this->aCustomer->setArCashHead($this);
+            // $this->aCustomer->setArCashHead($this);
         }
 
         return $this->aCustomer;
