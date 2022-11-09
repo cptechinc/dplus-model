@@ -3339,9 +3339,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     public function getVendor(ConnectionInterface $con = null)
     {
         if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
-            $this->aVendor = ChildVendorQuery::create()
-                ->filterByItemXrefVendor($this) // here
-                ->findOne($con);
+            $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be

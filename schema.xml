@@ -387,182 +387,180 @@
     </vendor>
   </table>
   <table name="ap_vend_mast" idMethod="native" phpName="Vendor">
-    <column name="VendRecNbr" phpName="Rid" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveName" phpName="Apvename" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApveAdr1" phpName="Apveadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApveAdr2" phpName="Apveadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApveAdr3" phpName="Apveadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApveCtry" phpName="Apvectry" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ApveCity" phpName="Apvecity" type="VARCHAR" size="16" required="true" defaultValue=""/>
-    <column name="ApveStat" phpName="Apvestat" type="CHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveZipCode" phpName="Apvezipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
-    <column name="ApvePayName" phpName="Apvepayname" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApvePayAdr1" phpName="Apvepayadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApvePayAdr2" phpName="Apvepayadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApvePayAdr3" phpName="Apvepayadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ApvePayCtry" phpName="Apvepayctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ApvePayCity" phpName="Apvepaycity" type="VARCHAR" size="16" required="true" defaultValue=""/>
-    <column name="ApvePayStat" phpName="Apvepaystat" type="CHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApvePayZipCode" phpName="Apvepayzipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
-    <column name="ApveStatus" phpName="Apvestatus" type="CHAR" required="true" defaultValue="A"/>
-    <column name="ApveTakeExpiredDisc" phpName="Apvetakeexpireddisc" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ApvePrintHts" phpName="Apveprinthts" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ApveFabBin" phpName="Apvefabbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
-    <column name="ApveLmPrntBulk" phpName="Apvelmprntbulk" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ApveAllowDropShip" phpName="Apveallowdropship" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="AptbTypeCode" phpName="Aptbtypecode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="AptmTermCode" phpName="Aptmtermcode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ApveSviaCode" phpName="Apvesviacode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ApveOldFob" phpName="Apveoldfob" type="CHAR" required="true" defaultValue=""/>
-    <column name="ApveLeadDays" phpName="Apveleaddays" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveGlAcct" phpName="Apveglacct" type="VARCHAR" size="16" required="true" defaultValue=""/>
-    <column name="Apve1099SsNbr" phpName="Apve1099ssnbr" type="VARCHAR" size="12" required="true" defaultValue=""/>
-    <column name="ApveMinOrdrCode" phpName="Apveminordrcode" type="CHAR" required="true" defaultValue="$"/>
-    <column name="ApveMinOrdrValue" phpName="Apveminordrvalue" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePurMtd" phpName="Apvepurmtd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePoMtd" phpName="Apvepomtd" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvcMtd" phpName="Apveinvcmtd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcntMtd" phpName="Apveicntmtd" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveDateOpen" phpName="Apvedateopen" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ApveLastPurDate" phpName="Apvelastpurdate" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ApvePur24mo01" phpName="Apvepur24mo01" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo01" phpName="Apvepo24mo01" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo01" phpName="Apveinvc24mo01" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo01" phpName="Apveicnt24mo01" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo02" phpName="Apvepur24mo02" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo02" phpName="Apvepo24mo02" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo02" phpName="Apveinvc24mo02" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo02" phpName="Apveicnt24mo02" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo03" phpName="Apvepur24mo03" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo03" phpName="Apvepo24mo03" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo03" phpName="Apveinvc24mo03" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo03" phpName="Apveicnt24mo03" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo04" phpName="Apvepur24mo04" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo04" phpName="Apvepo24mo04" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo04" phpName="Apveinvc24mo04" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo04" phpName="Apveicnt24mo04" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo05" phpName="Apvepur24mo05" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo05" phpName="Apvepo24mo05" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo05" phpName="Apveinvc24mo05" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo05" phpName="Apveicnt24mo05" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo06" phpName="Apvepur24mo06" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo06" phpName="Apvepo24mo06" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo06" phpName="Apveinvc24mo06" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo06" phpName="Apveicnt24mo06" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo07" phpName="Apvepur24mo07" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo07" phpName="Apvepo24mo07" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo07" phpName="Apveinvc24mo07" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo07" phpName="Apveicnt24mo07" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo08" phpName="Apvepur24mo08" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo08" phpName="Apvepo24mo08" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo08" phpName="Apveinvc24mo08" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo08" phpName="Apveicnt24mo08" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo09" phpName="Apvepur24mo09" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo09" phpName="Apvepo24mo09" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo09" phpName="Apveinvc24mo09" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo09" phpName="Apveicnt24mo09" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo10" phpName="Apvepur24mo10" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo10" phpName="Apvepo24mo10" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo10" phpName="Apveinvc24mo10" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo10" phpName="Apveicnt24mo10" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo11" phpName="Apvepur24mo11" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo11" phpName="Apvepo24mo11" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo11" phpName="Apveinvc24mo11" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo11" phpName="Apveicnt24mo11" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo12" phpName="Apvepur24mo12" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo12" phpName="Apvepo24mo12" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo12" phpName="Apveinvc24mo12" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo12" phpName="Apveicnt24mo12" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo13" phpName="Apvepur24mo13" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo13" phpName="Apvepo24mo13" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo13" phpName="Apveinvc24mo13" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo13" phpName="Apveicnt24mo13" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo14" phpName="Apvepur24mo14" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo14" phpName="Apvepo24mo14" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo14" phpName="Apveinvc24mo14" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo14" phpName="Apveicnt24mo14" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo15" phpName="Apvepur24mo15" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo15" phpName="Apvepo24mo15" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo15" phpName="Apveinvc24mo15" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo15" phpName="Apveicnt24mo15" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo16" phpName="Apvepur24mo16" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo16" phpName="Apvepo24mo16" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo16" phpName="Apveinvc24mo16" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo16" phpName="Apveicnt24mo16" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo17" phpName="Apvepur24mo17" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo17" phpName="Apvepo24mo17" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo17" phpName="Apveinvc24mo17" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo17" phpName="Apveicnt24mo17" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo18" phpName="Apvepur24mo18" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo18" phpName="Apvepo24mo18" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo18" phpName="Apveinvc24mo18" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo18" phpName="Apveicnt24mo18" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo19" phpName="Apvepur24mo19" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo19" phpName="Apvepo24mo19" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo19" phpName="Apveinvc24mo19" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo19" phpName="Apveicnt24mo19" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo20" phpName="Apvepur24mo20" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo20" phpName="Apvepo24mo20" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo20" phpName="Apveinvc24mo20" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo20" phpName="Apveicnt24mo20" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo21" phpName="Apvepur24mo21" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo21" phpName="Apvepo24mo21" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo21" phpName="Apveinvc24mo21" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo21" phpName="Apveicnt24mo21" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo22" phpName="Apvepur24mo22" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo22" phpName="Apvepo24mo22" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo22" phpName="Apveinvc24mo22" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo22" phpName="Apveicnt24mo22" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo23" phpName="Apvepur24mo23" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo23" phpName="Apvepo24mo23" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo23" phpName="Apveinvc24mo23" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo23" phpName="Apveicnt24mo23" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePur24mo24" phpName="Apvepur24mo24" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePo24mo24" phpName="Apvepo24mo24" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvc24mo24" phpName="Apveinvc24mo24" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcnt24mo24" phpName="Apveicnt24mo24" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveCrncy" phpName="Apvecrncy" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ApveFrtInAmt" phpName="Apvefrtinamt" type="DECIMAL" size="20" scale="4" required="true" defaultValue="0.0000"/>
-    <column name="ApveOurAcctNbr" phpName="Apveouracctnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
-    <column name="ApveVendDisc" phpName="Apvevenddisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveFob" phpName="Apvefob" type="VARCHAR" size="20" required="true" defaultValue="ORIGIN"/>
-    <column name="ApveRoylPct" phpName="Apveroylpct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePrtPoEOrU" phpName="Apveprtpoeoru" type="CHAR" required="true" defaultValue=""/>
-    <column name="ApveComRate" phpName="Apvecomrate" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveUseLandOnRcpt" phpName="Apveuselandonrcpt" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ApveBuyrWhse1" phpName="Apvebuyrwhse1" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode1" phpName="Apvebuyrcode1" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse2" phpName="Apvebuyrwhse2" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode2" phpName="Apvebuyrcode2" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse3" phpName="Apvebuyrwhse3" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode3" phpName="Apvebuyrcode3" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse4" phpName="Apvebuyrwhse4" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode4" phpName="Apvebuyrcode4" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse5" phpName="Apvebuyrwhse5" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode5" phpName="Apvebuyrcode5" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse6" phpName="Apvebuyrwhse6" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode6" phpName="Apvebuyrcode6" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse7" phpName="Apvebuyrwhse7" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode7" phpName="Apvebuyrcode7" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse8" phpName="Apvebuyrwhse8" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode8" phpName="Apvebuyrcode8" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse9" phpName="Apvebuyrwhse9" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode9" phpName="Apvebuyrcode9" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveBuyrWhse10" phpName="Apvebuyrwhse10" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ApveBuyrCode10" phpName="Apvebuyrcode10" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ApveLandCost" phpName="Apvelandcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveReleaseNbr" phpName="Apvereleasenbr" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveScanStartPos" phpName="Apvescanstartpos" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveScanLength" phpName="Apvescanlength" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ApvePurYtd" phpName="Apvepurytd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApvePoYtd" phpName="Apvepoytd" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveInvcYtd" phpName="Apveinvcytd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ApveIcntYtd" phpName="Apveicntytd" type="INTEGER" size="7" sqlType="int(7) unsigned" required="true" defaultValue="0"/>
-    <column name="ApveUseAch" phpName="Apveuseach" type="CHAR" required="true" defaultValue="N"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ApveName" phpName="Apvename" type="VARCHAR" size="30"/>
+    <column name="ApveAdr1" phpName="Apveadr1" type="VARCHAR" size="30"/>
+    <column name="ApveAdr2" phpName="Apveadr2" type="VARCHAR" size="30"/>
+    <column name="ApveAdr3" phpName="Apveadr3" type="VARCHAR" size="30"/>
+    <column name="ApveCtry" phpName="Apvectry" type="VARCHAR" size="4"/>
+    <column name="ApveCity" phpName="Apvecity" type="VARCHAR" size="16"/>
+    <column name="ApveStat" phpName="Apvestat" type="VARCHAR" size="2"/>
+    <column name="ApveZipCode" phpName="Apvezipcode" type="VARCHAR" size="10"/>
+    <column name="ApvePayName" phpName="Apvepayname" type="VARCHAR" size="30"/>
+    <column name="ApvePayAdr1" phpName="Apvepayadr1" type="VARCHAR" size="30"/>
+    <column name="ApvePayAdr2" phpName="Apvepayadr2" type="VARCHAR" size="30"/>
+    <column name="ApvePayAdr3" phpName="Apvepayadr3" type="VARCHAR" size="30"/>
+    <column name="ApvePayCtry" phpName="Apvepayctry" type="VARCHAR" size="4"/>
+    <column name="ApvePayCity" phpName="Apvepaycity" type="VARCHAR" size="16"/>
+    <column name="ApvePayStat" phpName="Apvepaystat" type="VARCHAR" size="2"/>
+    <column name="ApvePayZipCode" phpName="Apvepayzipcode" type="VARCHAR" size="10"/>
+    <column name="ApveStatus" phpName="Apvestatus" type="VARCHAR" size="1"/>
+    <column name="ApveTakeExpiredDisc" phpName="Apvetakeexpireddisc" type="VARCHAR" size="1"/>
+    <column name="ApvePrintHts" phpName="Apveprinthts" type="VARCHAR" size="1"/>
+    <column name="ApveFabBin" phpName="Apvefabbin" type="VARCHAR" size="8"/>
+    <column name="ApveLmPrntBulk" phpName="Apvelmprntbulk" type="VARCHAR" size="1"/>
+    <column name="ApveAllowDropShip" phpName="Apveallowdropship" type="VARCHAR" size="1"/>
+    <column name="AptbTypeCode" phpName="Aptbtypecode" type="VARCHAR" size="4"/>
+    <column name="AptmTermCode" phpName="Aptmtermcode" type="VARCHAR" size="4"/>
+    <column name="ApveSviaCode" phpName="Apvesviacode" type="VARCHAR" size="4"/>
+    <column name="ApveOldFob" phpName="Apveoldfob" type="VARCHAR" size="1"/>
+    <column name="ApveLeadDays" phpName="Apveleaddays" type="INTEGER" size="4"/>
+    <column name="ApveGlAcct" phpName="Apveglacct" type="VARCHAR" size="16"/>
+    <column name="Apve1099SsNbr" phpName="Apve1099ssnbr" type="VARCHAR" size="12"/>
+    <column name="ApveMinOrdrCode" phpName="Apveminordrcode" type="VARCHAR" size="1"/>
+    <column name="ApveMinOrdrValue" phpName="Apveminordrvalue" type="INTEGER" size="8"/>
+    <column name="ApvePurMtd" phpName="Apvepurmtd" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePoMtd" phpName="Apvepomtd" type="INTEGER" size="7"/>
+    <column name="ApveInvcMtd" phpName="Apveinvcmtd" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcntMtd" phpName="Apveicntmtd" type="INTEGER" size="7"/>
+    <column name="ApveDateOpen" phpName="Apvedateopen" type="VARCHAR" size="8"/>
+    <column name="ApveLastPurDate" phpName="Apvelastpurdate" type="VARCHAR" size="8"/>
+    <column name="ApvePur24mo01" phpName="Apvepur24mo01" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo01" phpName="Apvepo24mo01" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo01" phpName="Apveinvc24mo01" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo01" phpName="Apveicnt24mo01" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo02" phpName="Apvepur24mo02" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo02" phpName="Apvepo24mo02" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo02" phpName="Apveinvc24mo02" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo02" phpName="Apveicnt24mo02" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo03" phpName="Apvepur24mo03" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo03" phpName="Apvepo24mo03" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo03" phpName="Apveinvc24mo03" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo03" phpName="Apveicnt24mo03" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo04" phpName="Apvepur24mo04" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo04" phpName="Apvepo24mo04" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo04" phpName="Apveinvc24mo04" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo04" phpName="Apveicnt24mo04" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo05" phpName="Apvepur24mo05" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo05" phpName="Apvepo24mo05" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo05" phpName="Apveinvc24mo05" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo05" phpName="Apveicnt24mo05" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo06" phpName="Apvepur24mo06" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo06" phpName="Apvepo24mo06" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo06" phpName="Apveinvc24mo06" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo06" phpName="Apveicnt24mo06" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo07" phpName="Apvepur24mo07" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo07" phpName="Apvepo24mo07" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo07" phpName="Apveinvc24mo07" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo07" phpName="Apveicnt24mo07" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo08" phpName="Apvepur24mo08" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo08" phpName="Apvepo24mo08" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo08" phpName="Apveinvc24mo08" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo08" phpName="Apveicnt24mo08" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo09" phpName="Apvepur24mo09" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo09" phpName="Apvepo24mo09" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo09" phpName="Apveinvc24mo09" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo09" phpName="Apveicnt24mo09" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo10" phpName="Apvepur24mo10" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo10" phpName="Apvepo24mo10" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo10" phpName="Apveinvc24mo10" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo10" phpName="Apveicnt24mo10" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo11" phpName="Apvepur24mo11" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo11" phpName="Apvepo24mo11" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo11" phpName="Apveinvc24mo11" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo11" phpName="Apveicnt24mo11" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo12" phpName="Apvepur24mo12" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo12" phpName="Apvepo24mo12" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo12" phpName="Apveinvc24mo12" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo12" phpName="Apveicnt24mo12" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo13" phpName="Apvepur24mo13" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo13" phpName="Apvepo24mo13" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo13" phpName="Apveinvc24mo13" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo13" phpName="Apveicnt24mo13" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo14" phpName="Apvepur24mo14" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo14" phpName="Apvepo24mo14" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo14" phpName="Apveinvc24mo14" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo14" phpName="Apveicnt24mo14" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo15" phpName="Apvepur24mo15" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo15" phpName="Apvepo24mo15" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo15" phpName="Apveinvc24mo15" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo15" phpName="Apveicnt24mo15" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo16" phpName="Apvepur24mo16" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo16" phpName="Apvepo24mo16" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo16" phpName="Apveinvc24mo16" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo16" phpName="Apveicnt24mo16" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo17" phpName="Apvepur24mo17" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo17" phpName="Apvepo24mo17" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo17" phpName="Apveinvc24mo17" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo17" phpName="Apveicnt24mo17" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo18" phpName="Apvepur24mo18" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo18" phpName="Apvepo24mo18" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo18" phpName="Apveinvc24mo18" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo18" phpName="Apveicnt24mo18" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo19" phpName="Apvepur24mo19" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo19" phpName="Apvepo24mo19" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo19" phpName="Apveinvc24mo19" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo19" phpName="Apveicnt24mo19" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo20" phpName="Apvepur24mo20" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo20" phpName="Apvepo24mo20" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo20" phpName="Apveinvc24mo20" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo20" phpName="Apveicnt24mo20" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo21" phpName="Apvepur24mo21" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo21" phpName="Apvepo24mo21" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo21" phpName="Apveinvc24mo21" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo21" phpName="Apveicnt24mo21" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo22" phpName="Apvepur24mo22" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo22" phpName="Apvepo24mo22" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo22" phpName="Apveinvc24mo22" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo22" phpName="Apveicnt24mo22" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo23" phpName="Apvepur24mo23" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo23" phpName="Apvepo24mo23" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo23" phpName="Apveinvc24mo23" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo23" phpName="Apveicnt24mo23" type="INTEGER" size="7"/>
+    <column name="ApvePur24mo24" phpName="Apvepur24mo24" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePo24mo24" phpName="Apvepo24mo24" type="INTEGER" size="7"/>
+    <column name="ApveInvc24mo24" phpName="Apveinvc24mo24" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveIcnt24mo24" phpName="Apveicnt24mo24" type="INTEGER" size="7"/>
+    <column name="ApveCrncy" phpName="Apvecrncy" type="VARCHAR" size="4"/>
+    <column name="ApveFrtInAmt" phpName="Apvefrtinamt" type="DECIMAL" size="20" scale="4"/>
+    <column name="ApveOurAcctNbr" phpName="Apveouracctnbr" type="VARCHAR" size="10"/>
+    <column name="ApveVendDisc" phpName="Apvevenddisc" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveFob" phpName="Apvefob" type="VARCHAR" size="20"/>
+    <column name="ApveRoylPct" phpName="Apveroylpct" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApvePrtPoEOrU" phpName="Apveprtpoeoru" type="VARCHAR" size="1"/>
+    <column name="ApveComRate" phpName="Apvecomrate" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveUseLandOnRcpt" phpName="Apveuselandonrcpt" type="VARCHAR" size="1"/>
+    <column name="ApveBuyrWhse1" phpName="Apvebuyrwhse1" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode1" phpName="Apvebuyrcode1" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse2" phpName="Apvebuyrwhse2" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode2" phpName="Apvebuyrcode2" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse3" phpName="Apvebuyrwhse3" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode3" phpName="Apvebuyrcode3" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse4" phpName="Apvebuyrwhse4" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode4" phpName="Apvebuyrcode4" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse5" phpName="Apvebuyrwhse5" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode5" phpName="Apvebuyrcode5" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse6" phpName="Apvebuyrwhse6" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode6" phpName="Apvebuyrcode6" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse7" phpName="Apvebuyrwhse7" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode7" phpName="Apvebuyrcode7" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse8" phpName="Apvebuyrwhse8" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode8" phpName="Apvebuyrcode8" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse9" phpName="Apvebuyrwhse9" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode9" phpName="Apvebuyrcode9" type="VARCHAR" size="6"/>
+    <column name="ApveBuyrWhse10" phpName="Apvebuyrwhse10" type="VARCHAR" size="2"/>
+    <column name="ApveBuyrCode10" phpName="Apvebuyrcode10" type="VARCHAR" size="6"/>
+    <column name="ApveLandCost" phpName="Apvelandcost" type="DECIMAL" size="20" scale="2"/>
+    <column name="ApveReleaseNbr" phpName="Apvereleasenbr" type="INTEGER" size="4"/>
+    <column name="ApveScanStartPos" phpName="Apvescanstartpos" type="INTEGER" size="4"/>
+    <column name="ApveScanLength" phpName="Apvescanlength" type="INTEGER" size="4"/>
+    <column name="ApvePurYtd" phpName="ApvePurYtd" type="DECIMAL" size="20" scale="2" />
+    <column name="ApvePoYtd" phpName="ApvePoYtd" type="INTEGER" size="7"/>
+    <column name="ApveInvcYtd" phpName="ApveInvcYtd" type="DECIMAL" size="20" scale="2" />
+    <column name="ApveIcntYtd" phpName="ApveIcntYtd" type="INTEGER" size="7"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <foreign-key foreignTable="ap_type_code" name="typecode" skipSql="true">
       <reference local="AptbTypeCode" foreign="AptbTypeCode"/>
     </foreign-key>

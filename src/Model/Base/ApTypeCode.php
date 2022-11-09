@@ -869,9 +869,10 @@ abstract class ApTypeCode implements ActiveRecordInterface
 
             if ($this->vendorsScheduledForDeletion !== null) {
                 if (!$this->vendorsScheduledForDeletion->isEmpty()) {
-                    \VendorQuery::create()
-                        ->filterByPrimaryKeys($this->vendorsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
+                    foreach ($this->vendorsScheduledForDeletion as $vendor) {
+                        // need to save related object because we set the relation to null
+                        $vendor->save($con);
+                    }
                     $this->vendorsScheduledForDeletion = null;
                 }
             }
@@ -1647,7 +1648,7 @@ abstract class ApTypeCode implements ActiveRecordInterface
                 $this->vendorsScheduledForDeletion = clone $this->collVendors;
                 $this->vendorsScheduledForDeletion->clear();
             }
-            $this->vendorsScheduledForDeletion[]= clone $vendor;
+            $this->vendorsScheduledForDeletion[]= $vendor;
             $vendor->setApTypeCode(null);
         }
 

@@ -4,8 +4,6 @@ namespace Base;
 
 use \ApBuyer as ChildApBuyer;
 use \ApBuyerQuery as ChildApBuyerQuery;
-use \ApContact as ChildApContact;
-use \ApContactQuery as ChildApContactQuery;
 use \ApInvoice as ChildApInvoice;
 use \ApInvoiceDetail as ChildApInvoiceDetail;
 use \ApInvoiceDetailQuery as ChildApInvoiceDetailQuery;
@@ -32,7 +30,6 @@ use \VendorShipfrom as ChildVendorShipfrom;
 use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
-use Map\ApContactTableMap;
 use Map\ApInvoiceDetailTableMap;
 use Map\ApInvoiceTableMap;
 use Map\ItemXrefManufacturerTableMap;
@@ -97,13 +94,6 @@ abstract class Vendor implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the vendrecnbr field.
-     *
-     * @var        int
-     */
-    protected $vendrecnbr;
-
-    /**
      * The value for the apvevendid field.
      *
      * Note: this column has a database default value of: ''
@@ -114,7 +104,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvename field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvename;
@@ -122,7 +111,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveadr1 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveadr1;
@@ -130,7 +118,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveadr2 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveadr2;
@@ -138,7 +125,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveadr3 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveadr3;
@@ -146,7 +132,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvectry field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvectry;
@@ -154,7 +139,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvecity field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvecity;
@@ -162,7 +146,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvestat field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvestat;
@@ -170,7 +153,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvezipcode field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvezipcode;
@@ -178,7 +160,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayname field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayname;
@@ -186,7 +167,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayadr1 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayadr1;
@@ -194,7 +174,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayadr2 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayadr2;
@@ -202,7 +181,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayadr3 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayadr3;
@@ -210,7 +188,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayctry field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayctry;
@@ -218,7 +195,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepaycity field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepaycity;
@@ -226,7 +202,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepaystat field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepaystat;
@@ -234,7 +209,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepayzipcode field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvepayzipcode;
@@ -242,7 +216,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvestatus field.
      *
-     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $apvestatus;
@@ -250,7 +223,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvetakeexpireddisc field.
      *
-     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $apvetakeexpireddisc;
@@ -258,7 +230,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveprinthts field.
      *
-     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $apveprinthts;
@@ -266,7 +237,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvefabbin field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvefabbin;
@@ -274,7 +244,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvelmprntbulk field.
      *
-     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $apvelmprntbulk;
@@ -282,7 +251,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveallowdropship field.
      *
-     * Note: this column has a database default value of: 'Y'
      * @var        string
      */
     protected $apveallowdropship;
@@ -290,7 +258,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the aptbtypecode field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $aptbtypecode;
@@ -298,7 +265,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the aptmtermcode field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $aptmtermcode;
@@ -306,7 +272,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvesviacode field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvesviacode;
@@ -314,7 +279,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveoldfob field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveoldfob;
@@ -322,7 +286,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveleaddays field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveleaddays;
@@ -330,7 +293,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveglacct field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveglacct;
@@ -338,7 +300,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apve1099ssnbr field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apve1099ssnbr;
@@ -346,7 +307,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveminordrcode field.
      *
-     * Note: this column has a database default value of: '$'
      * @var        string
      */
     protected $apveminordrcode;
@@ -354,7 +314,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveminordrvalue field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveminordrvalue;
@@ -362,7 +321,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepurmtd field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepurmtd;
@@ -370,7 +328,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepomtd field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepomtd;
@@ -378,7 +335,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvcmtd field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvcmtd;
@@ -386,7 +342,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicntmtd field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicntmtd;
@@ -394,7 +349,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvedateopen field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvedateopen;
@@ -402,7 +356,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvelastpurdate field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvelastpurdate;
@@ -410,7 +363,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo01 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo01;
@@ -418,7 +370,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo01 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo01;
@@ -426,7 +377,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo01 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo01;
@@ -434,7 +384,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo01 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo01;
@@ -442,7 +391,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo02 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo02;
@@ -450,7 +398,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo02 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo02;
@@ -458,7 +405,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo02 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo02;
@@ -466,7 +412,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo02 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo02;
@@ -474,7 +419,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo03 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo03;
@@ -482,7 +426,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo03 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo03;
@@ -490,7 +433,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo03 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo03;
@@ -498,7 +440,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo03 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo03;
@@ -506,7 +447,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo04 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo04;
@@ -514,7 +454,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo04 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo04;
@@ -522,7 +461,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo04 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo04;
@@ -530,7 +468,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo04 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo04;
@@ -538,7 +475,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo05 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo05;
@@ -546,7 +482,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo05 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo05;
@@ -554,7 +489,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo05 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo05;
@@ -562,7 +496,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo05 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo05;
@@ -570,7 +503,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo06 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo06;
@@ -578,7 +510,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo06 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo06;
@@ -586,7 +517,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo06 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo06;
@@ -594,7 +524,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo06 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo06;
@@ -602,7 +531,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo07 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo07;
@@ -610,7 +538,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo07 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo07;
@@ -618,7 +545,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo07 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo07;
@@ -626,7 +552,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo07 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo07;
@@ -634,7 +559,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo08 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo08;
@@ -642,7 +566,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo08 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo08;
@@ -650,7 +573,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo08 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo08;
@@ -658,7 +580,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo08 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo08;
@@ -666,7 +587,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo09 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo09;
@@ -674,7 +594,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo09 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo09;
@@ -682,7 +601,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo09 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo09;
@@ -690,7 +608,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo09 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo09;
@@ -698,7 +615,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo10 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo10;
@@ -706,7 +622,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo10 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo10;
@@ -714,7 +629,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo10 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo10;
@@ -722,7 +636,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo10 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo10;
@@ -730,7 +643,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo11 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo11;
@@ -738,7 +650,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo11 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo11;
@@ -746,7 +657,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo11 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo11;
@@ -754,7 +664,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo11 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo11;
@@ -762,7 +671,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo12 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo12;
@@ -770,7 +678,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo12 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo12;
@@ -778,7 +685,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo12 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo12;
@@ -786,7 +692,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo12 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo12;
@@ -794,7 +699,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo13 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo13;
@@ -802,7 +706,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo13 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo13;
@@ -810,7 +713,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo13 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo13;
@@ -818,7 +720,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo13 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo13;
@@ -826,7 +727,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo14 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo14;
@@ -834,7 +734,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo14 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo14;
@@ -842,7 +741,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo14 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo14;
@@ -850,7 +748,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo14 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo14;
@@ -858,7 +755,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo15 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo15;
@@ -866,7 +762,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo15 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo15;
@@ -874,7 +769,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo15 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo15;
@@ -882,7 +776,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo15 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo15;
@@ -890,7 +783,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo16 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo16;
@@ -898,7 +790,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo16 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo16;
@@ -906,7 +797,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo16 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo16;
@@ -914,7 +804,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo16 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo16;
@@ -922,7 +811,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo17 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo17;
@@ -930,7 +818,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo17 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo17;
@@ -938,7 +825,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo17 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo17;
@@ -946,7 +832,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo17 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo17;
@@ -954,7 +839,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo18 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo18;
@@ -962,7 +846,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo18 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo18;
@@ -970,7 +853,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo18 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo18;
@@ -978,7 +860,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo18 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo18;
@@ -986,7 +867,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo19 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo19;
@@ -994,7 +874,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo19 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo19;
@@ -1002,7 +881,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo19 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo19;
@@ -1010,7 +888,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo19 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo19;
@@ -1018,7 +895,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo20 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo20;
@@ -1026,7 +902,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo20 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo20;
@@ -1034,7 +909,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo20 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo20;
@@ -1042,7 +916,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo20 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo20;
@@ -1050,7 +923,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo21 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo21;
@@ -1058,7 +930,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo21 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo21;
@@ -1066,7 +937,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo21 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo21;
@@ -1074,7 +944,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo21 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo21;
@@ -1082,7 +951,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo22 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo22;
@@ -1090,7 +958,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo22 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo22;
@@ -1098,7 +965,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo22 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo22;
@@ -1106,7 +972,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo22 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo22;
@@ -1114,7 +979,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo23 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo23;
@@ -1122,7 +986,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo23 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo23;
@@ -1130,7 +993,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo23 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo23;
@@ -1138,7 +1000,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo23 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo23;
@@ -1146,7 +1007,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepur24mo24 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepur24mo24;
@@ -1154,7 +1014,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepo24mo24 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepo24mo24;
@@ -1162,7 +1021,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvc24mo24 field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvc24mo24;
@@ -1170,7 +1028,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicnt24mo24 field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicnt24mo24;
@@ -1178,7 +1035,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvecrncy field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvecrncy;
@@ -1186,7 +1042,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvefrtinamt field.
      *
-     * Note: this column has a database default value of: '0.0000'
      * @var        string
      */
     protected $apvefrtinamt;
@@ -1194,7 +1049,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveouracctnbr field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveouracctnbr;
@@ -1202,7 +1056,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvevenddisc field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvevenddisc;
@@ -1210,7 +1063,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvefob field.
      *
-     * Note: this column has a database default value of: 'ORIGIN'
      * @var        string
      */
     protected $apvefob;
@@ -1218,7 +1070,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveroylpct field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveroylpct;
@@ -1226,7 +1077,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveprtpoeoru field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apveprtpoeoru;
@@ -1234,7 +1084,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvecomrate field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvecomrate;
@@ -1242,7 +1091,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveuselandonrcpt field.
      *
-     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $apveuselandonrcpt;
@@ -1250,7 +1098,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse1 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse1;
@@ -1258,7 +1105,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode1 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode1;
@@ -1266,7 +1112,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse2 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse2;
@@ -1274,7 +1119,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode2 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode2;
@@ -1282,7 +1126,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse3 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse3;
@@ -1290,7 +1133,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode3 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode3;
@@ -1298,7 +1140,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse4 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse4;
@@ -1306,7 +1147,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode4 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode4;
@@ -1314,7 +1154,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse5 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse5;
@@ -1322,7 +1161,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode5 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode5;
@@ -1330,7 +1168,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse6 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse6;
@@ -1338,7 +1175,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode6 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode6;
@@ -1346,7 +1182,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse7 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse7;
@@ -1354,7 +1189,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode7 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode7;
@@ -1362,7 +1196,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse8 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse8;
@@ -1370,7 +1203,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode8 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode8;
@@ -1378,7 +1210,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse9 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse9;
@@ -1386,7 +1217,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode9 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode9;
@@ -1394,7 +1224,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrwhse10 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrwhse10;
@@ -1402,7 +1231,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvebuyrcode10 field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $apvebuyrcode10;
@@ -1410,7 +1238,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvelandcost field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvelandcost;
@@ -1418,7 +1245,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvereleasenbr field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvereleasenbr;
@@ -1426,7 +1252,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvescanstartpos field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvescanstartpos;
@@ -1434,7 +1259,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvescanlength field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvescanlength;
@@ -1442,7 +1266,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepurytd field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apvepurytd;
@@ -1450,7 +1273,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apvepoytd field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apvepoytd;
@@ -1458,7 +1280,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveinvcytd field.
      *
-     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $apveinvcytd;
@@ -1466,23 +1287,13 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the apveicntytd field.
      *
-     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $apveicntytd;
 
     /**
-     * The value for the apveuseach field.
-     *
-     * Note: this column has a database default value of: 'N'
-     * @var        string
-     */
-    protected $apveuseach;
-
-    /**
      * The value for the dateupdtd field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -1490,7 +1301,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
-     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -1498,7 +1308,6 @@ abstract class Vendor implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
-     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -1522,12 +1331,6 @@ abstract class Vendor implements ActiveRecordInterface
      * @var        ChildApBuyer
      */
     protected $aApBuyer;
-
-    /**
-     * @var        ObjectCollection|ChildApContact[] Collection to store aggregation of ChildApContact objects.
-     */
-    protected $collApContacts;
-    protected $collApContactsPartial;
 
     /**
      * @var        ObjectCollection|ChildApInvoiceDetail[] Collection to store aggregation of ChildApInvoiceDetail objects.
@@ -1587,12 +1390,6 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildApContact[]
-     */
-    protected $apContactsScheduledForDeletion = null;
-
-    /**
-     * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoiceDetail[]
      */
     protected $apInvoiceDetailsScheduledForDeletion = null;
@@ -1648,180 +1445,6 @@ abstract class Vendor implements ActiveRecordInterface
     public function applyDefaultValues()
     {
         $this->apvevendid = '';
-        $this->apvename = '';
-        $this->apveadr1 = '';
-        $this->apveadr2 = '';
-        $this->apveadr3 = '';
-        $this->apvectry = '';
-        $this->apvecity = '';
-        $this->apvestat = '';
-        $this->apvezipcode = '';
-        $this->apvepayname = '';
-        $this->apvepayadr1 = '';
-        $this->apvepayadr2 = '';
-        $this->apvepayadr3 = '';
-        $this->apvepayctry = '';
-        $this->apvepaycity = '';
-        $this->apvepaystat = '';
-        $this->apvepayzipcode = '';
-        $this->apvestatus = 'A';
-        $this->apvetakeexpireddisc = 'N';
-        $this->apveprinthts = 'N';
-        $this->apvefabbin = '';
-        $this->apvelmprntbulk = 'N';
-        $this->apveallowdropship = 'Y';
-        $this->aptbtypecode = '';
-        $this->aptmtermcode = '';
-        $this->apvesviacode = '';
-        $this->apveoldfob = '';
-        $this->apveleaddays = 0;
-        $this->apveglacct = '';
-        $this->apve1099ssnbr = '';
-        $this->apveminordrcode = '$';
-        $this->apveminordrvalue = 0;
-        $this->apvepurmtd = '0.00';
-        $this->apvepomtd = 0;
-        $this->apveinvcmtd = '0.00';
-        $this->apveicntmtd = 0;
-        $this->apvedateopen = '';
-        $this->apvelastpurdate = '';
-        $this->apvepur24mo01 = '0.00';
-        $this->apvepo24mo01 = 0;
-        $this->apveinvc24mo01 = '0.00';
-        $this->apveicnt24mo01 = 0;
-        $this->apvepur24mo02 = '0.00';
-        $this->apvepo24mo02 = 0;
-        $this->apveinvc24mo02 = '0.00';
-        $this->apveicnt24mo02 = 0;
-        $this->apvepur24mo03 = '0.00';
-        $this->apvepo24mo03 = 0;
-        $this->apveinvc24mo03 = '0.00';
-        $this->apveicnt24mo03 = 0;
-        $this->apvepur24mo04 = '0.00';
-        $this->apvepo24mo04 = 0;
-        $this->apveinvc24mo04 = '0.00';
-        $this->apveicnt24mo04 = 0;
-        $this->apvepur24mo05 = '0.00';
-        $this->apvepo24mo05 = 0;
-        $this->apveinvc24mo05 = '0.00';
-        $this->apveicnt24mo05 = 0;
-        $this->apvepur24mo06 = '0.00';
-        $this->apvepo24mo06 = 0;
-        $this->apveinvc24mo06 = '0.00';
-        $this->apveicnt24mo06 = 0;
-        $this->apvepur24mo07 = '0.00';
-        $this->apvepo24mo07 = 0;
-        $this->apveinvc24mo07 = '0.00';
-        $this->apveicnt24mo07 = 0;
-        $this->apvepur24mo08 = '0.00';
-        $this->apvepo24mo08 = 0;
-        $this->apveinvc24mo08 = '0.00';
-        $this->apveicnt24mo08 = 0;
-        $this->apvepur24mo09 = '0.00';
-        $this->apvepo24mo09 = 0;
-        $this->apveinvc24mo09 = '0.00';
-        $this->apveicnt24mo09 = 0;
-        $this->apvepur24mo10 = '0.00';
-        $this->apvepo24mo10 = 0;
-        $this->apveinvc24mo10 = '0.00';
-        $this->apveicnt24mo10 = 0;
-        $this->apvepur24mo11 = '0.00';
-        $this->apvepo24mo11 = 0;
-        $this->apveinvc24mo11 = '0.00';
-        $this->apveicnt24mo11 = 0;
-        $this->apvepur24mo12 = '0.00';
-        $this->apvepo24mo12 = 0;
-        $this->apveinvc24mo12 = '0.00';
-        $this->apveicnt24mo12 = 0;
-        $this->apvepur24mo13 = '0.00';
-        $this->apvepo24mo13 = 0;
-        $this->apveinvc24mo13 = '0.00';
-        $this->apveicnt24mo13 = 0;
-        $this->apvepur24mo14 = '0.00';
-        $this->apvepo24mo14 = 0;
-        $this->apveinvc24mo14 = '0.00';
-        $this->apveicnt24mo14 = 0;
-        $this->apvepur24mo15 = '0.00';
-        $this->apvepo24mo15 = 0;
-        $this->apveinvc24mo15 = '0.00';
-        $this->apveicnt24mo15 = 0;
-        $this->apvepur24mo16 = '0.00';
-        $this->apvepo24mo16 = 0;
-        $this->apveinvc24mo16 = '0.00';
-        $this->apveicnt24mo16 = 0;
-        $this->apvepur24mo17 = '0.00';
-        $this->apvepo24mo17 = 0;
-        $this->apveinvc24mo17 = '0.00';
-        $this->apveicnt24mo17 = 0;
-        $this->apvepur24mo18 = '0.00';
-        $this->apvepo24mo18 = 0;
-        $this->apveinvc24mo18 = '0.00';
-        $this->apveicnt24mo18 = 0;
-        $this->apvepur24mo19 = '0.00';
-        $this->apvepo24mo19 = 0;
-        $this->apveinvc24mo19 = '0.00';
-        $this->apveicnt24mo19 = 0;
-        $this->apvepur24mo20 = '0.00';
-        $this->apvepo24mo20 = 0;
-        $this->apveinvc24mo20 = '0.00';
-        $this->apveicnt24mo20 = 0;
-        $this->apvepur24mo21 = '0.00';
-        $this->apvepo24mo21 = 0;
-        $this->apveinvc24mo21 = '0.00';
-        $this->apveicnt24mo21 = 0;
-        $this->apvepur24mo22 = '0.00';
-        $this->apvepo24mo22 = 0;
-        $this->apveinvc24mo22 = '0.00';
-        $this->apveicnt24mo22 = 0;
-        $this->apvepur24mo23 = '0.00';
-        $this->apvepo24mo23 = 0;
-        $this->apveinvc24mo23 = '0.00';
-        $this->apveicnt24mo23 = 0;
-        $this->apvepur24mo24 = '0.00';
-        $this->apvepo24mo24 = 0;
-        $this->apveinvc24mo24 = '0.00';
-        $this->apveicnt24mo24 = 0;
-        $this->apvecrncy = '';
-        $this->apvefrtinamt = '0.0000';
-        $this->apveouracctnbr = '';
-        $this->apvevenddisc = '0.00';
-        $this->apvefob = 'ORIGIN';
-        $this->apveroylpct = '0.00';
-        $this->apveprtpoeoru = '';
-        $this->apvecomrate = '0.00';
-        $this->apveuselandonrcpt = 'N';
-        $this->apvebuyrwhse1 = '';
-        $this->apvebuyrcode1 = '';
-        $this->apvebuyrwhse2 = '';
-        $this->apvebuyrcode2 = '';
-        $this->apvebuyrwhse3 = '';
-        $this->apvebuyrcode3 = '';
-        $this->apvebuyrwhse4 = '';
-        $this->apvebuyrcode4 = '';
-        $this->apvebuyrwhse5 = '';
-        $this->apvebuyrcode5 = '';
-        $this->apvebuyrwhse6 = '';
-        $this->apvebuyrcode6 = '';
-        $this->apvebuyrwhse7 = '';
-        $this->apvebuyrcode7 = '';
-        $this->apvebuyrwhse8 = '';
-        $this->apvebuyrcode8 = '';
-        $this->apvebuyrwhse9 = '';
-        $this->apvebuyrcode9 = '';
-        $this->apvebuyrwhse10 = '';
-        $this->apvebuyrcode10 = '';
-        $this->apvelandcost = '0.00';
-        $this->apvereleasenbr = 0;
-        $this->apvescanstartpos = 0;
-        $this->apvescanlength = 0;
-        $this->apvepurytd = '0.00';
-        $this->apvepoytd = 0;
-        $this->apveinvcytd = '0.00';
-        $this->apveicntytd = 0;
-        $this->apveuseach = 'N';
-        $this->dateupdtd = '';
-        $this->timeupdtd = '';
-        $this->dummy = 'P';
     }
 
     /**
@@ -2049,16 +1672,6 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $propertyNames;
-    }
-
-    /**
-     * Get the [vendrecnbr] column value.
-     *
-     * @return int
-     */
-    public function getRid()
-    {
-        return $this->vendrecnbr;
     }
 
     /**
@@ -3736,7 +3349,7 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @return string
      */
-    public function getApvepurytd()
+    public function getApvePurYtd()
     {
         return $this->apvepurytd;
     }
@@ -3746,7 +3359,7 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @return int
      */
-    public function getApvepoytd()
+    public function getApvePoYtd()
     {
         return $this->apvepoytd;
     }
@@ -3756,7 +3369,7 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @return string
      */
-    public function getApveinvcytd()
+    public function getApveInvcYtd()
     {
         return $this->apveinvcytd;
     }
@@ -3766,19 +3379,9 @@ abstract class Vendor implements ActiveRecordInterface
      *
      * @return int
      */
-    public function getApveicntytd()
+    public function getApveIcntYtd()
     {
         return $this->apveicntytd;
-    }
-
-    /**
-     * Get the [apveuseach] column value.
-     *
-     * @return string
-     */
-    public function getApveuseach()
-    {
-        return $this->apveuseach;
     }
 
     /**
@@ -3810,26 +3413,6 @@ abstract class Vendor implements ActiveRecordInterface
     {
         return $this->dummy;
     }
-
-    /**
-     * Set the value of [vendrecnbr] column.
-     *
-     * @param int $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
-     */
-    public function setRid($v)
-    {
-        if ($v !== null) {
-            $v = (int) $v;
-        }
-
-        if ($this->vendrecnbr !== $v) {
-            $this->vendrecnbr = $v;
-            $this->modifiedColumns[VendorTableMap::COL_VENDRECNBR] = true;
-        }
-
-        return $this;
-    } // setRid()
 
     /**
      * Set the value of [apvevendid] column.
@@ -7193,7 +6776,7 @@ abstract class Vendor implements ActiveRecordInterface
      * @param string $v new value
      * @return $this|\Vendor The current object (for fluent API support)
      */
-    public function setApvepurytd($v)
+    public function setApvePurYtd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
@@ -7205,7 +6788,7 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepurytd()
+    } // setApvePurYtd()
 
     /**
      * Set the value of [apvepoytd] column.
@@ -7213,7 +6796,7 @@ abstract class Vendor implements ActiveRecordInterface
      * @param int $v new value
      * @return $this|\Vendor The current object (for fluent API support)
      */
-    public function setApvepoytd($v)
+    public function setApvePoYtd($v)
     {
         if ($v !== null) {
             $v = (int) $v;
@@ -7225,7 +6808,7 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApvepoytd()
+    } // setApvePoYtd()
 
     /**
      * Set the value of [apveinvcytd] column.
@@ -7233,7 +6816,7 @@ abstract class Vendor implements ActiveRecordInterface
      * @param string $v new value
      * @return $this|\Vendor The current object (for fluent API support)
      */
-    public function setApveinvcytd($v)
+    public function setApveInvcYtd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
@@ -7245,7 +6828,7 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveinvcytd()
+    } // setApveInvcYtd()
 
     /**
      * Set the value of [apveicntytd] column.
@@ -7253,7 +6836,7 @@ abstract class Vendor implements ActiveRecordInterface
      * @param int $v new value
      * @return $this|\Vendor The current object (for fluent API support)
      */
-    public function setApveicntytd($v)
+    public function setApveIcntYtd($v)
     {
         if ($v !== null) {
             $v = (int) $v;
@@ -7265,27 +6848,7 @@ abstract class Vendor implements ActiveRecordInterface
         }
 
         return $this;
-    } // setApveicntytd()
-
-    /**
-     * Set the value of [apveuseach] column.
-     *
-     * @param string $v new value
-     * @return $this|\Vendor The current object (for fluent API support)
-     */
-    public function setApveuseach($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->apveuseach !== $v) {
-            $this->apveuseach = $v;
-            $this->modifiedColumns[VendorTableMap::COL_APVEUSEACH] = true;
-        }
-
-        return $this;
-    } // setApveuseach()
+    } // setApveIcntYtd()
 
     /**
      * Set the value of [dateupdtd] column.
@@ -7361,702 +6924,6 @@ abstract class Vendor implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->apvename !== '') {
-                return false;
-            }
-
-            if ($this->apveadr1 !== '') {
-                return false;
-            }
-
-            if ($this->apveadr2 !== '') {
-                return false;
-            }
-
-            if ($this->apveadr3 !== '') {
-                return false;
-            }
-
-            if ($this->apvectry !== '') {
-                return false;
-            }
-
-            if ($this->apvecity !== '') {
-                return false;
-            }
-
-            if ($this->apvestat !== '') {
-                return false;
-            }
-
-            if ($this->apvezipcode !== '') {
-                return false;
-            }
-
-            if ($this->apvepayname !== '') {
-                return false;
-            }
-
-            if ($this->apvepayadr1 !== '') {
-                return false;
-            }
-
-            if ($this->apvepayadr2 !== '') {
-                return false;
-            }
-
-            if ($this->apvepayadr3 !== '') {
-                return false;
-            }
-
-            if ($this->apvepayctry !== '') {
-                return false;
-            }
-
-            if ($this->apvepaycity !== '') {
-                return false;
-            }
-
-            if ($this->apvepaystat !== '') {
-                return false;
-            }
-
-            if ($this->apvepayzipcode !== '') {
-                return false;
-            }
-
-            if ($this->apvestatus !== 'A') {
-                return false;
-            }
-
-            if ($this->apvetakeexpireddisc !== 'N') {
-                return false;
-            }
-
-            if ($this->apveprinthts !== 'N') {
-                return false;
-            }
-
-            if ($this->apvefabbin !== '') {
-                return false;
-            }
-
-            if ($this->apvelmprntbulk !== 'N') {
-                return false;
-            }
-
-            if ($this->apveallowdropship !== 'Y') {
-                return false;
-            }
-
-            if ($this->aptbtypecode !== '') {
-                return false;
-            }
-
-            if ($this->aptmtermcode !== '') {
-                return false;
-            }
-
-            if ($this->apvesviacode !== '') {
-                return false;
-            }
-
-            if ($this->apveoldfob !== '') {
-                return false;
-            }
-
-            if ($this->apveleaddays !== 0) {
-                return false;
-            }
-
-            if ($this->apveglacct !== '') {
-                return false;
-            }
-
-            if ($this->apve1099ssnbr !== '') {
-                return false;
-            }
-
-            if ($this->apveminordrcode !== '$') {
-                return false;
-            }
-
-            if ($this->apveminordrvalue !== 0) {
-                return false;
-            }
-
-            if ($this->apvepurmtd !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepomtd !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvcmtd !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicntmtd !== 0) {
-                return false;
-            }
-
-            if ($this->apvedateopen !== '') {
-                return false;
-            }
-
-            if ($this->apvelastpurdate !== '') {
-                return false;
-            }
-
-            if ($this->apvepur24mo01 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo01 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo01 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo01 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo02 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo02 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo02 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo02 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo03 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo03 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo03 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo03 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo04 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo04 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo04 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo04 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo05 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo05 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo05 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo05 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo06 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo06 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo06 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo06 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo07 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo07 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo07 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo07 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo08 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo08 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo08 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo08 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo09 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo09 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo09 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo09 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo10 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo10 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo10 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo10 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo11 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo11 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo11 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo11 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo12 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo12 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo12 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo12 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo13 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo13 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo13 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo13 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo14 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo14 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo14 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo14 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo15 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo15 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo15 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo15 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo16 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo16 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo16 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo16 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo17 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo17 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo17 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo17 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo18 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo18 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo18 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo18 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo19 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo19 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo19 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo19 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo20 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo20 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo20 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo20 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo21 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo21 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo21 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo21 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo22 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo22 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo22 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo22 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo23 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo23 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo23 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo23 !== 0) {
-                return false;
-            }
-
-            if ($this->apvepur24mo24 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepo24mo24 !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvc24mo24 !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicnt24mo24 !== 0) {
-                return false;
-            }
-
-            if ($this->apvecrncy !== '') {
-                return false;
-            }
-
-            if ($this->apvefrtinamt !== '0.0000') {
-                return false;
-            }
-
-            if ($this->apveouracctnbr !== '') {
-                return false;
-            }
-
-            if ($this->apvevenddisc !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvefob !== 'ORIGIN') {
-                return false;
-            }
-
-            if ($this->apveroylpct !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveprtpoeoru !== '') {
-                return false;
-            }
-
-            if ($this->apvecomrate !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveuselandonrcpt !== 'N') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse1 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode1 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse2 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode2 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse3 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode3 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse4 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode4 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse5 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode5 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse6 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode6 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse7 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode7 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse8 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode8 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse9 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode9 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrwhse10 !== '') {
-                return false;
-            }
-
-            if ($this->apvebuyrcode10 !== '') {
-                return false;
-            }
-
-            if ($this->apvelandcost !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvereleasenbr !== 0) {
-                return false;
-            }
-
-            if ($this->apvescanstartpos !== 0) {
-                return false;
-            }
-
-            if ($this->apvescanlength !== 0) {
-                return false;
-            }
-
-            if ($this->apvepurytd !== '0.00') {
-                return false;
-            }
-
-            if ($this->apvepoytd !== 0) {
-                return false;
-            }
-
-            if ($this->apveinvcytd !== '0.00') {
-                return false;
-            }
-
-            if ($this->apveicntytd !== 0) {
-                return false;
-            }
-
-            if ($this->apveuseach !== 'N') {
-                return false;
-            }
-
-            if ($this->dateupdtd !== '') {
-                return false;
-            }
-
-            if ($this->timeupdtd !== '') {
-                return false;
-            }
-
-            if ($this->dummy !== 'P') {
-                return false;
-            }
-
         // otherwise, everything was equal, so return TRUE
         return true;
     } // hasOnlyDefaultValues()
@@ -8083,532 +6950,526 @@ abstract class Vendor implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VendorTableMap::translateFieldName('Rid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->vendrecnbr = (null !== $col) ? (int) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : VendorTableMap::translateFieldName('Apvevendid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevendid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VendorTableMap::translateFieldName('Apvename', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : VendorTableMap::translateFieldName('Apvename', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvename = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VendorTableMap::translateFieldName('Apveadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : VendorTableMap::translateFieldName('Apveadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VendorTableMap::translateFieldName('Apveadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : VendorTableMap::translateFieldName('Apveadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VendorTableMap::translateFieldName('Apveadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : VendorTableMap::translateFieldName('Apveadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VendorTableMap::translateFieldName('Apvectry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : VendorTableMap::translateFieldName('Apvectry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvectry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VendorTableMap::translateFieldName('Apvecity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : VendorTableMap::translateFieldName('Apvecity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VendorTableMap::translateFieldName('Apvestat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : VendorTableMap::translateFieldName('Apvestat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvestat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VendorTableMap::translateFieldName('Apvezipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : VendorTableMap::translateFieldName('Apvezipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvezipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VendorTableMap::translateFieldName('Apvepayname', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : VendorTableMap::translateFieldName('Apvepayname', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayname = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VendorTableMap::translateFieldName('Apvepayadr1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : VendorTableMap::translateFieldName('Apvepayadr1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VendorTableMap::translateFieldName('Apvepayadr2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : VendorTableMap::translateFieldName('Apvepayadr2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : VendorTableMap::translateFieldName('Apvepayadr3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : VendorTableMap::translateFieldName('Apvepayadr3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayadr3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : VendorTableMap::translateFieldName('Apvepayctry', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : VendorTableMap::translateFieldName('Apvepayctry', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayctry = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : VendorTableMap::translateFieldName('Apvepaycity', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : VendorTableMap::translateFieldName('Apvepaycity', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepaycity = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : VendorTableMap::translateFieldName('Apvepaystat', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : VendorTableMap::translateFieldName('Apvepaystat', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepaystat = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : VendorTableMap::translateFieldName('Apvepayzipcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : VendorTableMap::translateFieldName('Apvepayzipcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepayzipcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : VendorTableMap::translateFieldName('Apvestatus', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : VendorTableMap::translateFieldName('Apvestatus', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvestatus = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : VendorTableMap::translateFieldName('Apvetakeexpireddisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : VendorTableMap::translateFieldName('Apvetakeexpireddisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvetakeexpireddisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : VendorTableMap::translateFieldName('Apveprinthts', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : VendorTableMap::translateFieldName('Apveprinthts', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveprinthts = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : VendorTableMap::translateFieldName('Apvefabbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : VendorTableMap::translateFieldName('Apvefabbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefabbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : VendorTableMap::translateFieldName('Apvelmprntbulk', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : VendorTableMap::translateFieldName('Apvelmprntbulk', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelmprntbulk = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : VendorTableMap::translateFieldName('Apveallowdropship', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : VendorTableMap::translateFieldName('Apveallowdropship', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveallowdropship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : VendorTableMap::translateFieldName('Aptbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : VendorTableMap::translateFieldName('Aptbtypecode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptbtypecode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : VendorTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : VendorTableMap::translateFieldName('Aptmtermcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->aptmtermcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : VendorTableMap::translateFieldName('Apvesviacode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : VendorTableMap::translateFieldName('Apvesviacode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvesviacode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : VendorTableMap::translateFieldName('Apveoldfob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 26 + $startcol : VendorTableMap::translateFieldName('Apveoldfob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveoldfob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : VendorTableMap::translateFieldName('Apveleaddays', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 27 + $startcol : VendorTableMap::translateFieldName('Apveleaddays', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveleaddays = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : VendorTableMap::translateFieldName('Apveglacct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 28 + $startcol : VendorTableMap::translateFieldName('Apveglacct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveglacct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : VendorTableMap::translateFieldName('Apve1099ssnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : VendorTableMap::translateFieldName('Apve1099ssnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apve1099ssnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : VendorTableMap::translateFieldName('Apveminordrcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : VendorTableMap::translateFieldName('Apveminordrcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveminordrcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : VendorTableMap::translateFieldName('Apveminordrvalue', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : VendorTableMap::translateFieldName('Apveminordrvalue', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveminordrvalue = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : VendorTableMap::translateFieldName('Apvepurmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : VendorTableMap::translateFieldName('Apvepurmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepurmtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : VendorTableMap::translateFieldName('Apvepomtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : VendorTableMap::translateFieldName('Apvepomtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepomtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : VendorTableMap::translateFieldName('Apveinvcmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : VendorTableMap::translateFieldName('Apveinvcmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvcmtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : VendorTableMap::translateFieldName('Apveicntmtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : VendorTableMap::translateFieldName('Apveicntmtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicntmtd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : VendorTableMap::translateFieldName('Apvedateopen', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : VendorTableMap::translateFieldName('Apvedateopen', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvedateopen = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : VendorTableMap::translateFieldName('Apvelastpurdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : VendorTableMap::translateFieldName('Apvelastpurdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelastpurdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 38 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 39 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo01 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 40 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo01 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo01', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 41 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo01', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo01 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 42 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 43 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo02 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 44 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo02 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo02', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 45 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo02', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo02 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 46 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 47 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo03 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 48 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo03 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo03', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 49 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo03', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo03 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 50 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 51 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo04 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 52 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo04 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo04', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 53 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo04', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo04 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 54 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 55 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo05 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 56 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo05 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo05', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 57 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo05', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo05 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 58 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 59 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo06 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 60 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo06 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo06', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 61 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo06', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo06 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 62 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 63 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo07 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 64 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo07 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo07', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 65 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo07', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo07 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 66 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 67 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo08 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 68 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo08 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo08', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 69 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo08', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo08 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 70 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 71 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo09 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 72 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo09 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo09', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 73 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo09', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo09 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 74 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 75 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 76 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 77 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo10 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 78 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 79 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 80 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo11 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo11', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 81 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo11', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo11 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 82 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 83 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 84 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo12 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo12', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 85 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo12', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo12 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 86 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 87 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 88 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo13 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo13', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo13', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo13 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 92 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo14 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo14', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 93 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo14', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo14 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 94 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 95 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo15 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo15', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo15', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo15 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo16 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo16', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 101 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo16', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo16 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 102 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 103 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 104 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo17 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo17', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 105 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo17', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo17 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 106 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 107 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 108 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo18 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo18', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 109 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo18', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo18 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 110 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 111 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 112 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo19 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo19', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 113 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo19', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo19 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 114 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 115 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 116 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo20 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo20', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 117 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo20', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo20 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 118 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 119 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 120 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo21 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo21', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 121 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo21', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo21 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 122 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 123 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 124 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo22 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo22', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 125 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo22', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo22 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 126 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 127 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 128 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo23 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo23', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 129 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo23', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo23 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 130 + $startcol : VendorTableMap::translateFieldName('Apvepur24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepur24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 131 + $startcol : VendorTableMap::translateFieldName('Apvepo24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepo24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 132 + $startcol : VendorTableMap::translateFieldName('Apveinvc24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvc24mo24 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo24', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 133 + $startcol : VendorTableMap::translateFieldName('Apveicnt24mo24', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicnt24mo24 = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : VendorTableMap::translateFieldName('Apvecrncy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 134 + $startcol : VendorTableMap::translateFieldName('Apvecrncy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecrncy = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : VendorTableMap::translateFieldName('Apvefrtinamt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 135 + $startcol : VendorTableMap::translateFieldName('Apvefrtinamt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefrtinamt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : VendorTableMap::translateFieldName('Apveouracctnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 136 + $startcol : VendorTableMap::translateFieldName('Apveouracctnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveouracctnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : VendorTableMap::translateFieldName('Apvevenddisc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 137 + $startcol : VendorTableMap::translateFieldName('Apvevenddisc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvevenddisc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : VendorTableMap::translateFieldName('Apvefob', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 138 + $startcol : VendorTableMap::translateFieldName('Apvefob', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvefob = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : VendorTableMap::translateFieldName('Apveroylpct', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 139 + $startcol : VendorTableMap::translateFieldName('Apveroylpct', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveroylpct = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : VendorTableMap::translateFieldName('Apveprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 140 + $startcol : VendorTableMap::translateFieldName('Apveprtpoeoru', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveprtpoeoru = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : VendorTableMap::translateFieldName('Apvecomrate', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 141 + $startcol : VendorTableMap::translateFieldName('Apvecomrate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvecomrate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : VendorTableMap::translateFieldName('Apveuselandonrcpt', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 142 + $startcol : VendorTableMap::translateFieldName('Apveuselandonrcpt', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveuselandonrcpt = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 143 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode1', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 144 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode1', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode1 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 145 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 146 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 147 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode3', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 148 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 149 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode4', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 150 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode4', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode4 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 151 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode5', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 152 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode5', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode5 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 153 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode6', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 154 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode6', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode6 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 155 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode7', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 156 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode7', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode7 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 157 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode8', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 158 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode8', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode8 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 159 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode9', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 160 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 161 + $startcol : VendorTableMap::translateFieldName('Apvebuyrwhse10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrwhse10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode10', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 162 + $startcol : VendorTableMap::translateFieldName('Apvebuyrcode10', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvebuyrcode10 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : VendorTableMap::translateFieldName('Apvelandcost', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 163 + $startcol : VendorTableMap::translateFieldName('Apvelandcost', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvelandcost = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : VendorTableMap::translateFieldName('Apvereleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 164 + $startcol : VendorTableMap::translateFieldName('Apvereleasenbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvereleasenbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : VendorTableMap::translateFieldName('Apvescanstartpos', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 165 + $startcol : VendorTableMap::translateFieldName('Apvescanstartpos', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvescanstartpos = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('Apvescanlength', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 166 + $startcol : VendorTableMap::translateFieldName('Apvescanlength', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvescanlength = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('Apvepurytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 167 + $startcol : VendorTableMap::translateFieldName('ApvePurYtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepurytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('Apvepoytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 168 + $startcol : VendorTableMap::translateFieldName('ApvePoYtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apvepoytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : VendorTableMap::translateFieldName('Apveinvcytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 169 + $startcol : VendorTableMap::translateFieldName('ApveInvcYtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveinvcytd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : VendorTableMap::translateFieldName('Apveicntytd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 170 + $startcol : VendorTableMap::translateFieldName('ApveIcntYtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->apveicntytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : VendorTableMap::translateFieldName('Apveuseach', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->apveuseach = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 171 + $startcol : VendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 174 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 172 + $startcol : VendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 175 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 173 + $startcol : VendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -8618,7 +7479,7 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 176; // 176 = VendorTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 174; // 174 = VendorTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\Vendor'), 0, $e);
@@ -8695,8 +7556,6 @@ abstract class Vendor implements ActiveRecordInterface
             $this->aApTermsCode = null;
             $this->aShipvia = null;
             $this->aApBuyer = null;
-            $this->collApContacts = null;
-
             $this->collApInvoiceDetails = null;
 
             $this->collApInvoices = null;
@@ -8860,23 +7719,6 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->resetModified();
             }
 
-            if ($this->apContactsScheduledForDeletion !== null) {
-                if (!$this->apContactsScheduledForDeletion->isEmpty()) {
-                    \ApContactQuery::create()
-                        ->filterByPrimaryKeys($this->apContactsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->apContactsScheduledForDeletion = null;
-                }
-            }
-
-            if ($this->collApContacts !== null) {
-                foreach ($this->collApContacts as $referrerFK) {
-                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
-                        $affectedRows += $referrerFK->save($con);
-                    }
-                }
-            }
-
             if ($this->apInvoiceDetailsScheduledForDeletion !== null) {
                 if (!$this->apInvoiceDetailsScheduledForDeletion->isEmpty()) {
                     \ApInvoiceDetailQuery::create()
@@ -9036,15 +7878,8 @@ abstract class Vendor implements ActiveRecordInterface
         $modifiedColumns = array();
         $index = 0;
 
-        $this->modifiedColumns[VendorTableMap::COL_VENDRECNBR] = true;
-        if (null !== $this->vendrecnbr) {
-            throw new PropelException('Cannot insert a value for auto-increment primary key (' . VendorTableMap::COL_VENDRECNBR . ')');
-        }
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(VendorTableMap::COL_VENDRECNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'VendRecNbr';
-        }
         if ($this->isColumnModified(VendorTableMap::COL_APVEVENDID)) {
             $modifiedColumns[':p' . $index++]  = 'ApveVendId';
         }
@@ -9558,9 +8393,6 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->isColumnModified(VendorTableMap::COL_APVEICNTYTD)) {
             $modifiedColumns[':p' . $index++]  = 'ApveIcntYtd';
         }
-        if ($this->isColumnModified(VendorTableMap::COL_APVEUSEACH)) {
-            $modifiedColumns[':p' . $index++]  = 'ApveUseAch';
-        }
         if ($this->isColumnModified(VendorTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -9581,9 +8413,6 @@ abstract class Vendor implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'VendRecNbr':
-                        $stmt->bindValue($identifier, $this->vendrecnbr, PDO::PARAM_INT);
-                        break;
                     case 'ApveVendId':
                         $stmt->bindValue($identifier, $this->apvevendid, PDO::PARAM_STR);
                         break;
@@ -10097,9 +8926,6 @@ abstract class Vendor implements ActiveRecordInterface
                     case 'ApveIcntYtd':
                         $stmt->bindValue($identifier, $this->apveicntytd, PDO::PARAM_INT);
                         break;
-                    case 'ApveUseAch':
-                        $stmt->bindValue($identifier, $this->apveuseach, PDO::PARAM_STR);
-                        break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
                         break;
@@ -10116,13 +8942,6 @@ abstract class Vendor implements ActiveRecordInterface
             Propel::log($e->getMessage(), Propel::LOG_ERR);
             throw new PropelException(sprintf('Unable to execute INSERT statement [%s]', $sql), 0, $e);
         }
-
-        try {
-            $pk = $con->lastInsertId();
-        } catch (Exception $e) {
-            throw new PropelException('Unable to get autoincrement id.', 0, $e);
-        }
-        $this->setRid($pk);
 
         $this->setNew(false);
     }
@@ -10172,531 +8991,525 @@ abstract class Vendor implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getRid();
-                break;
-            case 1:
                 return $this->getApvevendid();
                 break;
-            case 2:
+            case 1:
                 return $this->getApvename();
                 break;
-            case 3:
+            case 2:
                 return $this->getApveadr1();
                 break;
-            case 4:
+            case 3:
                 return $this->getApveadr2();
                 break;
-            case 5:
+            case 4:
                 return $this->getApveadr3();
                 break;
-            case 6:
+            case 5:
                 return $this->getApvectry();
                 break;
-            case 7:
+            case 6:
                 return $this->getApvecity();
                 break;
-            case 8:
+            case 7:
                 return $this->getApvestat();
                 break;
-            case 9:
+            case 8:
                 return $this->getApvezipcode();
                 break;
-            case 10:
+            case 9:
                 return $this->getApvepayname();
                 break;
-            case 11:
+            case 10:
                 return $this->getApvepayadr1();
                 break;
-            case 12:
+            case 11:
                 return $this->getApvepayadr2();
                 break;
-            case 13:
+            case 12:
                 return $this->getApvepayadr3();
                 break;
-            case 14:
+            case 13:
                 return $this->getApvepayctry();
                 break;
-            case 15:
+            case 14:
                 return $this->getApvepaycity();
                 break;
-            case 16:
+            case 15:
                 return $this->getApvepaystat();
                 break;
-            case 17:
+            case 16:
                 return $this->getApvepayzipcode();
                 break;
-            case 18:
+            case 17:
                 return $this->getApvestatus();
                 break;
-            case 19:
+            case 18:
                 return $this->getApvetakeexpireddisc();
                 break;
-            case 20:
+            case 19:
                 return $this->getApveprinthts();
                 break;
-            case 21:
+            case 20:
                 return $this->getApvefabbin();
                 break;
-            case 22:
+            case 21:
                 return $this->getApvelmprntbulk();
                 break;
-            case 23:
+            case 22:
                 return $this->getApveallowdropship();
                 break;
-            case 24:
+            case 23:
                 return $this->getAptbtypecode();
                 break;
-            case 25:
+            case 24:
                 return $this->getAptmtermcode();
                 break;
-            case 26:
+            case 25:
                 return $this->getApvesviacode();
                 break;
-            case 27:
+            case 26:
                 return $this->getApveoldfob();
                 break;
-            case 28:
+            case 27:
                 return $this->getApveleaddays();
                 break;
-            case 29:
+            case 28:
                 return $this->getApveglacct();
                 break;
-            case 30:
+            case 29:
                 return $this->getApve1099ssnbr();
                 break;
-            case 31:
+            case 30:
                 return $this->getApveminordrcode();
                 break;
-            case 32:
+            case 31:
                 return $this->getApveminordrvalue();
                 break;
-            case 33:
+            case 32:
                 return $this->getApvepurmtd();
                 break;
-            case 34:
+            case 33:
                 return $this->getApvepomtd();
                 break;
-            case 35:
+            case 34:
                 return $this->getApveinvcmtd();
                 break;
-            case 36:
+            case 35:
                 return $this->getApveicntmtd();
                 break;
-            case 37:
+            case 36:
                 return $this->getApvedateopen();
                 break;
-            case 38:
+            case 37:
                 return $this->getApvelastpurdate();
                 break;
-            case 39:
+            case 38:
                 return $this->getApvepur24mo01();
                 break;
-            case 40:
+            case 39:
                 return $this->getApvepo24mo01();
                 break;
-            case 41:
+            case 40:
                 return $this->getApveinvc24mo01();
                 break;
-            case 42:
+            case 41:
                 return $this->getApveicnt24mo01();
                 break;
-            case 43:
+            case 42:
                 return $this->getApvepur24mo02();
                 break;
-            case 44:
+            case 43:
                 return $this->getApvepo24mo02();
                 break;
-            case 45:
+            case 44:
                 return $this->getApveinvc24mo02();
                 break;
-            case 46:
+            case 45:
                 return $this->getApveicnt24mo02();
                 break;
-            case 47:
+            case 46:
                 return $this->getApvepur24mo03();
                 break;
-            case 48:
+            case 47:
                 return $this->getApvepo24mo03();
                 break;
-            case 49:
+            case 48:
                 return $this->getApveinvc24mo03();
                 break;
-            case 50:
+            case 49:
                 return $this->getApveicnt24mo03();
                 break;
-            case 51:
+            case 50:
                 return $this->getApvepur24mo04();
                 break;
-            case 52:
+            case 51:
                 return $this->getApvepo24mo04();
                 break;
-            case 53:
+            case 52:
                 return $this->getApveinvc24mo04();
                 break;
-            case 54:
+            case 53:
                 return $this->getApveicnt24mo04();
                 break;
-            case 55:
+            case 54:
                 return $this->getApvepur24mo05();
                 break;
-            case 56:
+            case 55:
                 return $this->getApvepo24mo05();
                 break;
-            case 57:
+            case 56:
                 return $this->getApveinvc24mo05();
                 break;
-            case 58:
+            case 57:
                 return $this->getApveicnt24mo05();
                 break;
-            case 59:
+            case 58:
                 return $this->getApvepur24mo06();
                 break;
-            case 60:
+            case 59:
                 return $this->getApvepo24mo06();
                 break;
-            case 61:
+            case 60:
                 return $this->getApveinvc24mo06();
                 break;
-            case 62:
+            case 61:
                 return $this->getApveicnt24mo06();
                 break;
-            case 63:
+            case 62:
                 return $this->getApvepur24mo07();
                 break;
-            case 64:
+            case 63:
                 return $this->getApvepo24mo07();
                 break;
-            case 65:
+            case 64:
                 return $this->getApveinvc24mo07();
                 break;
-            case 66:
+            case 65:
                 return $this->getApveicnt24mo07();
                 break;
-            case 67:
+            case 66:
                 return $this->getApvepur24mo08();
                 break;
-            case 68:
+            case 67:
                 return $this->getApvepo24mo08();
                 break;
-            case 69:
+            case 68:
                 return $this->getApveinvc24mo08();
                 break;
-            case 70:
+            case 69:
                 return $this->getApveicnt24mo08();
                 break;
-            case 71:
+            case 70:
                 return $this->getApvepur24mo09();
                 break;
-            case 72:
+            case 71:
                 return $this->getApvepo24mo09();
                 break;
-            case 73:
+            case 72:
                 return $this->getApveinvc24mo09();
                 break;
-            case 74:
+            case 73:
                 return $this->getApveicnt24mo09();
                 break;
-            case 75:
+            case 74:
                 return $this->getApvepur24mo10();
                 break;
-            case 76:
+            case 75:
                 return $this->getApvepo24mo10();
                 break;
-            case 77:
+            case 76:
                 return $this->getApveinvc24mo10();
                 break;
-            case 78:
+            case 77:
                 return $this->getApveicnt24mo10();
                 break;
-            case 79:
+            case 78:
                 return $this->getApvepur24mo11();
                 break;
-            case 80:
+            case 79:
                 return $this->getApvepo24mo11();
                 break;
-            case 81:
+            case 80:
                 return $this->getApveinvc24mo11();
                 break;
-            case 82:
+            case 81:
                 return $this->getApveicnt24mo11();
                 break;
-            case 83:
+            case 82:
                 return $this->getApvepur24mo12();
                 break;
-            case 84:
+            case 83:
                 return $this->getApvepo24mo12();
                 break;
-            case 85:
+            case 84:
                 return $this->getApveinvc24mo12();
                 break;
-            case 86:
+            case 85:
                 return $this->getApveicnt24mo12();
                 break;
-            case 87:
+            case 86:
                 return $this->getApvepur24mo13();
                 break;
-            case 88:
+            case 87:
                 return $this->getApvepo24mo13();
                 break;
-            case 89:
+            case 88:
                 return $this->getApveinvc24mo13();
                 break;
-            case 90:
+            case 89:
                 return $this->getApveicnt24mo13();
                 break;
-            case 91:
+            case 90:
                 return $this->getApvepur24mo14();
                 break;
-            case 92:
+            case 91:
                 return $this->getApvepo24mo14();
                 break;
-            case 93:
+            case 92:
                 return $this->getApveinvc24mo14();
                 break;
-            case 94:
+            case 93:
                 return $this->getApveicnt24mo14();
                 break;
-            case 95:
+            case 94:
                 return $this->getApvepur24mo15();
                 break;
-            case 96:
+            case 95:
                 return $this->getApvepo24mo15();
                 break;
-            case 97:
+            case 96:
                 return $this->getApveinvc24mo15();
                 break;
-            case 98:
+            case 97:
                 return $this->getApveicnt24mo15();
                 break;
-            case 99:
+            case 98:
                 return $this->getApvepur24mo16();
                 break;
-            case 100:
+            case 99:
                 return $this->getApvepo24mo16();
                 break;
-            case 101:
+            case 100:
                 return $this->getApveinvc24mo16();
                 break;
-            case 102:
+            case 101:
                 return $this->getApveicnt24mo16();
                 break;
-            case 103:
+            case 102:
                 return $this->getApvepur24mo17();
                 break;
-            case 104:
+            case 103:
                 return $this->getApvepo24mo17();
                 break;
-            case 105:
+            case 104:
                 return $this->getApveinvc24mo17();
                 break;
-            case 106:
+            case 105:
                 return $this->getApveicnt24mo17();
                 break;
-            case 107:
+            case 106:
                 return $this->getApvepur24mo18();
                 break;
-            case 108:
+            case 107:
                 return $this->getApvepo24mo18();
                 break;
-            case 109:
+            case 108:
                 return $this->getApveinvc24mo18();
                 break;
-            case 110:
+            case 109:
                 return $this->getApveicnt24mo18();
                 break;
-            case 111:
+            case 110:
                 return $this->getApvepur24mo19();
                 break;
-            case 112:
+            case 111:
                 return $this->getApvepo24mo19();
                 break;
-            case 113:
+            case 112:
                 return $this->getApveinvc24mo19();
                 break;
-            case 114:
+            case 113:
                 return $this->getApveicnt24mo19();
                 break;
-            case 115:
+            case 114:
                 return $this->getApvepur24mo20();
                 break;
-            case 116:
+            case 115:
                 return $this->getApvepo24mo20();
                 break;
-            case 117:
+            case 116:
                 return $this->getApveinvc24mo20();
                 break;
-            case 118:
+            case 117:
                 return $this->getApveicnt24mo20();
                 break;
-            case 119:
+            case 118:
                 return $this->getApvepur24mo21();
                 break;
-            case 120:
+            case 119:
                 return $this->getApvepo24mo21();
                 break;
-            case 121:
+            case 120:
                 return $this->getApveinvc24mo21();
                 break;
-            case 122:
+            case 121:
                 return $this->getApveicnt24mo21();
                 break;
-            case 123:
+            case 122:
                 return $this->getApvepur24mo22();
                 break;
-            case 124:
+            case 123:
                 return $this->getApvepo24mo22();
                 break;
-            case 125:
+            case 124:
                 return $this->getApveinvc24mo22();
                 break;
-            case 126:
+            case 125:
                 return $this->getApveicnt24mo22();
                 break;
-            case 127:
+            case 126:
                 return $this->getApvepur24mo23();
                 break;
-            case 128:
+            case 127:
                 return $this->getApvepo24mo23();
                 break;
-            case 129:
+            case 128:
                 return $this->getApveinvc24mo23();
                 break;
-            case 130:
+            case 129:
                 return $this->getApveicnt24mo23();
                 break;
-            case 131:
+            case 130:
                 return $this->getApvepur24mo24();
                 break;
-            case 132:
+            case 131:
                 return $this->getApvepo24mo24();
                 break;
-            case 133:
+            case 132:
                 return $this->getApveinvc24mo24();
                 break;
-            case 134:
+            case 133:
                 return $this->getApveicnt24mo24();
                 break;
-            case 135:
+            case 134:
                 return $this->getApvecrncy();
                 break;
-            case 136:
+            case 135:
                 return $this->getApvefrtinamt();
                 break;
-            case 137:
+            case 136:
                 return $this->getApveouracctnbr();
                 break;
-            case 138:
+            case 137:
                 return $this->getApvevenddisc();
                 break;
-            case 139:
+            case 138:
                 return $this->getApvefob();
                 break;
-            case 140:
+            case 139:
                 return $this->getApveroylpct();
                 break;
-            case 141:
+            case 140:
                 return $this->getApveprtpoeoru();
                 break;
-            case 142:
+            case 141:
                 return $this->getApvecomrate();
                 break;
-            case 143:
+            case 142:
                 return $this->getApveuselandonrcpt();
                 break;
-            case 144:
+            case 143:
                 return $this->getApvebuyrwhse1();
                 break;
-            case 145:
+            case 144:
                 return $this->getApvebuyrcode1();
                 break;
-            case 146:
+            case 145:
                 return $this->getApvebuyrwhse2();
                 break;
-            case 147:
+            case 146:
                 return $this->getApvebuyrcode2();
                 break;
-            case 148:
+            case 147:
                 return $this->getApvebuyrwhse3();
                 break;
-            case 149:
+            case 148:
                 return $this->getApvebuyrcode3();
                 break;
-            case 150:
+            case 149:
                 return $this->getApvebuyrwhse4();
                 break;
-            case 151:
+            case 150:
                 return $this->getApvebuyrcode4();
                 break;
-            case 152:
+            case 151:
                 return $this->getApvebuyrwhse5();
                 break;
-            case 153:
+            case 152:
                 return $this->getApvebuyrcode5();
                 break;
-            case 154:
+            case 153:
                 return $this->getApvebuyrwhse6();
                 break;
-            case 155:
+            case 154:
                 return $this->getApvebuyrcode6();
                 break;
-            case 156:
+            case 155:
                 return $this->getApvebuyrwhse7();
                 break;
-            case 157:
+            case 156:
                 return $this->getApvebuyrcode7();
                 break;
-            case 158:
+            case 157:
                 return $this->getApvebuyrwhse8();
                 break;
-            case 159:
+            case 158:
                 return $this->getApvebuyrcode8();
                 break;
-            case 160:
+            case 159:
                 return $this->getApvebuyrwhse9();
                 break;
-            case 161:
+            case 160:
                 return $this->getApvebuyrcode9();
                 break;
-            case 162:
+            case 161:
                 return $this->getApvebuyrwhse10();
                 break;
-            case 163:
+            case 162:
                 return $this->getApvebuyrcode10();
                 break;
-            case 164:
+            case 163:
                 return $this->getApvelandcost();
                 break;
-            case 165:
+            case 164:
                 return $this->getApvereleasenbr();
                 break;
-            case 166:
+            case 165:
                 return $this->getApvescanstartpos();
                 break;
-            case 167:
+            case 166:
                 return $this->getApvescanlength();
                 break;
+            case 167:
+                return $this->getApvePurYtd();
+                break;
             case 168:
-                return $this->getApvepurytd();
+                return $this->getApvePoYtd();
                 break;
             case 169:
-                return $this->getApvepoytd();
+                return $this->getApveInvcYtd();
                 break;
             case 170:
-                return $this->getApveinvcytd();
+                return $this->getApveIcntYtd();
                 break;
             case 171:
-                return $this->getApveicntytd();
-                break;
-            case 172:
-                return $this->getApveuseach();
-                break;
-            case 173:
                 return $this->getDateupdtd();
                 break;
-            case 174:
+            case 172:
                 return $this->getTimeupdtd();
                 break;
-            case 175:
+            case 173:
                 return $this->getDummy();
                 break;
             default:
@@ -10729,182 +9542,180 @@ abstract class Vendor implements ActiveRecordInterface
         $alreadyDumpedObjects['Vendor'][$this->hashCode()] = true;
         $keys = VendorTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getRid(),
-            $keys[1] => $this->getApvevendid(),
-            $keys[2] => $this->getApvename(),
-            $keys[3] => $this->getApveadr1(),
-            $keys[4] => $this->getApveadr2(),
-            $keys[5] => $this->getApveadr3(),
-            $keys[6] => $this->getApvectry(),
-            $keys[7] => $this->getApvecity(),
-            $keys[8] => $this->getApvestat(),
-            $keys[9] => $this->getApvezipcode(),
-            $keys[10] => $this->getApvepayname(),
-            $keys[11] => $this->getApvepayadr1(),
-            $keys[12] => $this->getApvepayadr2(),
-            $keys[13] => $this->getApvepayadr3(),
-            $keys[14] => $this->getApvepayctry(),
-            $keys[15] => $this->getApvepaycity(),
-            $keys[16] => $this->getApvepaystat(),
-            $keys[17] => $this->getApvepayzipcode(),
-            $keys[18] => $this->getApvestatus(),
-            $keys[19] => $this->getApvetakeexpireddisc(),
-            $keys[20] => $this->getApveprinthts(),
-            $keys[21] => $this->getApvefabbin(),
-            $keys[22] => $this->getApvelmprntbulk(),
-            $keys[23] => $this->getApveallowdropship(),
-            $keys[24] => $this->getAptbtypecode(),
-            $keys[25] => $this->getAptmtermcode(),
-            $keys[26] => $this->getApvesviacode(),
-            $keys[27] => $this->getApveoldfob(),
-            $keys[28] => $this->getApveleaddays(),
-            $keys[29] => $this->getApveglacct(),
-            $keys[30] => $this->getApve1099ssnbr(),
-            $keys[31] => $this->getApveminordrcode(),
-            $keys[32] => $this->getApveminordrvalue(),
-            $keys[33] => $this->getApvepurmtd(),
-            $keys[34] => $this->getApvepomtd(),
-            $keys[35] => $this->getApveinvcmtd(),
-            $keys[36] => $this->getApveicntmtd(),
-            $keys[37] => $this->getApvedateopen(),
-            $keys[38] => $this->getApvelastpurdate(),
-            $keys[39] => $this->getApvepur24mo01(),
-            $keys[40] => $this->getApvepo24mo01(),
-            $keys[41] => $this->getApveinvc24mo01(),
-            $keys[42] => $this->getApveicnt24mo01(),
-            $keys[43] => $this->getApvepur24mo02(),
-            $keys[44] => $this->getApvepo24mo02(),
-            $keys[45] => $this->getApveinvc24mo02(),
-            $keys[46] => $this->getApveicnt24mo02(),
-            $keys[47] => $this->getApvepur24mo03(),
-            $keys[48] => $this->getApvepo24mo03(),
-            $keys[49] => $this->getApveinvc24mo03(),
-            $keys[50] => $this->getApveicnt24mo03(),
-            $keys[51] => $this->getApvepur24mo04(),
-            $keys[52] => $this->getApvepo24mo04(),
-            $keys[53] => $this->getApveinvc24mo04(),
-            $keys[54] => $this->getApveicnt24mo04(),
-            $keys[55] => $this->getApvepur24mo05(),
-            $keys[56] => $this->getApvepo24mo05(),
-            $keys[57] => $this->getApveinvc24mo05(),
-            $keys[58] => $this->getApveicnt24mo05(),
-            $keys[59] => $this->getApvepur24mo06(),
-            $keys[60] => $this->getApvepo24mo06(),
-            $keys[61] => $this->getApveinvc24mo06(),
-            $keys[62] => $this->getApveicnt24mo06(),
-            $keys[63] => $this->getApvepur24mo07(),
-            $keys[64] => $this->getApvepo24mo07(),
-            $keys[65] => $this->getApveinvc24mo07(),
-            $keys[66] => $this->getApveicnt24mo07(),
-            $keys[67] => $this->getApvepur24mo08(),
-            $keys[68] => $this->getApvepo24mo08(),
-            $keys[69] => $this->getApveinvc24mo08(),
-            $keys[70] => $this->getApveicnt24mo08(),
-            $keys[71] => $this->getApvepur24mo09(),
-            $keys[72] => $this->getApvepo24mo09(),
-            $keys[73] => $this->getApveinvc24mo09(),
-            $keys[74] => $this->getApveicnt24mo09(),
-            $keys[75] => $this->getApvepur24mo10(),
-            $keys[76] => $this->getApvepo24mo10(),
-            $keys[77] => $this->getApveinvc24mo10(),
-            $keys[78] => $this->getApveicnt24mo10(),
-            $keys[79] => $this->getApvepur24mo11(),
-            $keys[80] => $this->getApvepo24mo11(),
-            $keys[81] => $this->getApveinvc24mo11(),
-            $keys[82] => $this->getApveicnt24mo11(),
-            $keys[83] => $this->getApvepur24mo12(),
-            $keys[84] => $this->getApvepo24mo12(),
-            $keys[85] => $this->getApveinvc24mo12(),
-            $keys[86] => $this->getApveicnt24mo12(),
-            $keys[87] => $this->getApvepur24mo13(),
-            $keys[88] => $this->getApvepo24mo13(),
-            $keys[89] => $this->getApveinvc24mo13(),
-            $keys[90] => $this->getApveicnt24mo13(),
-            $keys[91] => $this->getApvepur24mo14(),
-            $keys[92] => $this->getApvepo24mo14(),
-            $keys[93] => $this->getApveinvc24mo14(),
-            $keys[94] => $this->getApveicnt24mo14(),
-            $keys[95] => $this->getApvepur24mo15(),
-            $keys[96] => $this->getApvepo24mo15(),
-            $keys[97] => $this->getApveinvc24mo15(),
-            $keys[98] => $this->getApveicnt24mo15(),
-            $keys[99] => $this->getApvepur24mo16(),
-            $keys[100] => $this->getApvepo24mo16(),
-            $keys[101] => $this->getApveinvc24mo16(),
-            $keys[102] => $this->getApveicnt24mo16(),
-            $keys[103] => $this->getApvepur24mo17(),
-            $keys[104] => $this->getApvepo24mo17(),
-            $keys[105] => $this->getApveinvc24mo17(),
-            $keys[106] => $this->getApveicnt24mo17(),
-            $keys[107] => $this->getApvepur24mo18(),
-            $keys[108] => $this->getApvepo24mo18(),
-            $keys[109] => $this->getApveinvc24mo18(),
-            $keys[110] => $this->getApveicnt24mo18(),
-            $keys[111] => $this->getApvepur24mo19(),
-            $keys[112] => $this->getApvepo24mo19(),
-            $keys[113] => $this->getApveinvc24mo19(),
-            $keys[114] => $this->getApveicnt24mo19(),
-            $keys[115] => $this->getApvepur24mo20(),
-            $keys[116] => $this->getApvepo24mo20(),
-            $keys[117] => $this->getApveinvc24mo20(),
-            $keys[118] => $this->getApveicnt24mo20(),
-            $keys[119] => $this->getApvepur24mo21(),
-            $keys[120] => $this->getApvepo24mo21(),
-            $keys[121] => $this->getApveinvc24mo21(),
-            $keys[122] => $this->getApveicnt24mo21(),
-            $keys[123] => $this->getApvepur24mo22(),
-            $keys[124] => $this->getApvepo24mo22(),
-            $keys[125] => $this->getApveinvc24mo22(),
-            $keys[126] => $this->getApveicnt24mo22(),
-            $keys[127] => $this->getApvepur24mo23(),
-            $keys[128] => $this->getApvepo24mo23(),
-            $keys[129] => $this->getApveinvc24mo23(),
-            $keys[130] => $this->getApveicnt24mo23(),
-            $keys[131] => $this->getApvepur24mo24(),
-            $keys[132] => $this->getApvepo24mo24(),
-            $keys[133] => $this->getApveinvc24mo24(),
-            $keys[134] => $this->getApveicnt24mo24(),
-            $keys[135] => $this->getApvecrncy(),
-            $keys[136] => $this->getApvefrtinamt(),
-            $keys[137] => $this->getApveouracctnbr(),
-            $keys[138] => $this->getApvevenddisc(),
-            $keys[139] => $this->getApvefob(),
-            $keys[140] => $this->getApveroylpct(),
-            $keys[141] => $this->getApveprtpoeoru(),
-            $keys[142] => $this->getApvecomrate(),
-            $keys[143] => $this->getApveuselandonrcpt(),
-            $keys[144] => $this->getApvebuyrwhse1(),
-            $keys[145] => $this->getApvebuyrcode1(),
-            $keys[146] => $this->getApvebuyrwhse2(),
-            $keys[147] => $this->getApvebuyrcode2(),
-            $keys[148] => $this->getApvebuyrwhse3(),
-            $keys[149] => $this->getApvebuyrcode3(),
-            $keys[150] => $this->getApvebuyrwhse4(),
-            $keys[151] => $this->getApvebuyrcode4(),
-            $keys[152] => $this->getApvebuyrwhse5(),
-            $keys[153] => $this->getApvebuyrcode5(),
-            $keys[154] => $this->getApvebuyrwhse6(),
-            $keys[155] => $this->getApvebuyrcode6(),
-            $keys[156] => $this->getApvebuyrwhse7(),
-            $keys[157] => $this->getApvebuyrcode7(),
-            $keys[158] => $this->getApvebuyrwhse8(),
-            $keys[159] => $this->getApvebuyrcode8(),
-            $keys[160] => $this->getApvebuyrwhse9(),
-            $keys[161] => $this->getApvebuyrcode9(),
-            $keys[162] => $this->getApvebuyrwhse10(),
-            $keys[163] => $this->getApvebuyrcode10(),
-            $keys[164] => $this->getApvelandcost(),
-            $keys[165] => $this->getApvereleasenbr(),
-            $keys[166] => $this->getApvescanstartpos(),
-            $keys[167] => $this->getApvescanlength(),
-            $keys[168] => $this->getApvepurytd(),
-            $keys[169] => $this->getApvepoytd(),
-            $keys[170] => $this->getApveinvcytd(),
-            $keys[171] => $this->getApveicntytd(),
-            $keys[172] => $this->getApveuseach(),
-            $keys[173] => $this->getDateupdtd(),
-            $keys[174] => $this->getTimeupdtd(),
-            $keys[175] => $this->getDummy(),
+            $keys[0] => $this->getApvevendid(),
+            $keys[1] => $this->getApvename(),
+            $keys[2] => $this->getApveadr1(),
+            $keys[3] => $this->getApveadr2(),
+            $keys[4] => $this->getApveadr3(),
+            $keys[5] => $this->getApvectry(),
+            $keys[6] => $this->getApvecity(),
+            $keys[7] => $this->getApvestat(),
+            $keys[8] => $this->getApvezipcode(),
+            $keys[9] => $this->getApvepayname(),
+            $keys[10] => $this->getApvepayadr1(),
+            $keys[11] => $this->getApvepayadr2(),
+            $keys[12] => $this->getApvepayadr3(),
+            $keys[13] => $this->getApvepayctry(),
+            $keys[14] => $this->getApvepaycity(),
+            $keys[15] => $this->getApvepaystat(),
+            $keys[16] => $this->getApvepayzipcode(),
+            $keys[17] => $this->getApvestatus(),
+            $keys[18] => $this->getApvetakeexpireddisc(),
+            $keys[19] => $this->getApveprinthts(),
+            $keys[20] => $this->getApvefabbin(),
+            $keys[21] => $this->getApvelmprntbulk(),
+            $keys[22] => $this->getApveallowdropship(),
+            $keys[23] => $this->getAptbtypecode(),
+            $keys[24] => $this->getAptmtermcode(),
+            $keys[25] => $this->getApvesviacode(),
+            $keys[26] => $this->getApveoldfob(),
+            $keys[27] => $this->getApveleaddays(),
+            $keys[28] => $this->getApveglacct(),
+            $keys[29] => $this->getApve1099ssnbr(),
+            $keys[30] => $this->getApveminordrcode(),
+            $keys[31] => $this->getApveminordrvalue(),
+            $keys[32] => $this->getApvepurmtd(),
+            $keys[33] => $this->getApvepomtd(),
+            $keys[34] => $this->getApveinvcmtd(),
+            $keys[35] => $this->getApveicntmtd(),
+            $keys[36] => $this->getApvedateopen(),
+            $keys[37] => $this->getApvelastpurdate(),
+            $keys[38] => $this->getApvepur24mo01(),
+            $keys[39] => $this->getApvepo24mo01(),
+            $keys[40] => $this->getApveinvc24mo01(),
+            $keys[41] => $this->getApveicnt24mo01(),
+            $keys[42] => $this->getApvepur24mo02(),
+            $keys[43] => $this->getApvepo24mo02(),
+            $keys[44] => $this->getApveinvc24mo02(),
+            $keys[45] => $this->getApveicnt24mo02(),
+            $keys[46] => $this->getApvepur24mo03(),
+            $keys[47] => $this->getApvepo24mo03(),
+            $keys[48] => $this->getApveinvc24mo03(),
+            $keys[49] => $this->getApveicnt24mo03(),
+            $keys[50] => $this->getApvepur24mo04(),
+            $keys[51] => $this->getApvepo24mo04(),
+            $keys[52] => $this->getApveinvc24mo04(),
+            $keys[53] => $this->getApveicnt24mo04(),
+            $keys[54] => $this->getApvepur24mo05(),
+            $keys[55] => $this->getApvepo24mo05(),
+            $keys[56] => $this->getApveinvc24mo05(),
+            $keys[57] => $this->getApveicnt24mo05(),
+            $keys[58] => $this->getApvepur24mo06(),
+            $keys[59] => $this->getApvepo24mo06(),
+            $keys[60] => $this->getApveinvc24mo06(),
+            $keys[61] => $this->getApveicnt24mo06(),
+            $keys[62] => $this->getApvepur24mo07(),
+            $keys[63] => $this->getApvepo24mo07(),
+            $keys[64] => $this->getApveinvc24mo07(),
+            $keys[65] => $this->getApveicnt24mo07(),
+            $keys[66] => $this->getApvepur24mo08(),
+            $keys[67] => $this->getApvepo24mo08(),
+            $keys[68] => $this->getApveinvc24mo08(),
+            $keys[69] => $this->getApveicnt24mo08(),
+            $keys[70] => $this->getApvepur24mo09(),
+            $keys[71] => $this->getApvepo24mo09(),
+            $keys[72] => $this->getApveinvc24mo09(),
+            $keys[73] => $this->getApveicnt24mo09(),
+            $keys[74] => $this->getApvepur24mo10(),
+            $keys[75] => $this->getApvepo24mo10(),
+            $keys[76] => $this->getApveinvc24mo10(),
+            $keys[77] => $this->getApveicnt24mo10(),
+            $keys[78] => $this->getApvepur24mo11(),
+            $keys[79] => $this->getApvepo24mo11(),
+            $keys[80] => $this->getApveinvc24mo11(),
+            $keys[81] => $this->getApveicnt24mo11(),
+            $keys[82] => $this->getApvepur24mo12(),
+            $keys[83] => $this->getApvepo24mo12(),
+            $keys[84] => $this->getApveinvc24mo12(),
+            $keys[85] => $this->getApveicnt24mo12(),
+            $keys[86] => $this->getApvepur24mo13(),
+            $keys[87] => $this->getApvepo24mo13(),
+            $keys[88] => $this->getApveinvc24mo13(),
+            $keys[89] => $this->getApveicnt24mo13(),
+            $keys[90] => $this->getApvepur24mo14(),
+            $keys[91] => $this->getApvepo24mo14(),
+            $keys[92] => $this->getApveinvc24mo14(),
+            $keys[93] => $this->getApveicnt24mo14(),
+            $keys[94] => $this->getApvepur24mo15(),
+            $keys[95] => $this->getApvepo24mo15(),
+            $keys[96] => $this->getApveinvc24mo15(),
+            $keys[97] => $this->getApveicnt24mo15(),
+            $keys[98] => $this->getApvepur24mo16(),
+            $keys[99] => $this->getApvepo24mo16(),
+            $keys[100] => $this->getApveinvc24mo16(),
+            $keys[101] => $this->getApveicnt24mo16(),
+            $keys[102] => $this->getApvepur24mo17(),
+            $keys[103] => $this->getApvepo24mo17(),
+            $keys[104] => $this->getApveinvc24mo17(),
+            $keys[105] => $this->getApveicnt24mo17(),
+            $keys[106] => $this->getApvepur24mo18(),
+            $keys[107] => $this->getApvepo24mo18(),
+            $keys[108] => $this->getApveinvc24mo18(),
+            $keys[109] => $this->getApveicnt24mo18(),
+            $keys[110] => $this->getApvepur24mo19(),
+            $keys[111] => $this->getApvepo24mo19(),
+            $keys[112] => $this->getApveinvc24mo19(),
+            $keys[113] => $this->getApveicnt24mo19(),
+            $keys[114] => $this->getApvepur24mo20(),
+            $keys[115] => $this->getApvepo24mo20(),
+            $keys[116] => $this->getApveinvc24mo20(),
+            $keys[117] => $this->getApveicnt24mo20(),
+            $keys[118] => $this->getApvepur24mo21(),
+            $keys[119] => $this->getApvepo24mo21(),
+            $keys[120] => $this->getApveinvc24mo21(),
+            $keys[121] => $this->getApveicnt24mo21(),
+            $keys[122] => $this->getApvepur24mo22(),
+            $keys[123] => $this->getApvepo24mo22(),
+            $keys[124] => $this->getApveinvc24mo22(),
+            $keys[125] => $this->getApveicnt24mo22(),
+            $keys[126] => $this->getApvepur24mo23(),
+            $keys[127] => $this->getApvepo24mo23(),
+            $keys[128] => $this->getApveinvc24mo23(),
+            $keys[129] => $this->getApveicnt24mo23(),
+            $keys[130] => $this->getApvepur24mo24(),
+            $keys[131] => $this->getApvepo24mo24(),
+            $keys[132] => $this->getApveinvc24mo24(),
+            $keys[133] => $this->getApveicnt24mo24(),
+            $keys[134] => $this->getApvecrncy(),
+            $keys[135] => $this->getApvefrtinamt(),
+            $keys[136] => $this->getApveouracctnbr(),
+            $keys[137] => $this->getApvevenddisc(),
+            $keys[138] => $this->getApvefob(),
+            $keys[139] => $this->getApveroylpct(),
+            $keys[140] => $this->getApveprtpoeoru(),
+            $keys[141] => $this->getApvecomrate(),
+            $keys[142] => $this->getApveuselandonrcpt(),
+            $keys[143] => $this->getApvebuyrwhse1(),
+            $keys[144] => $this->getApvebuyrcode1(),
+            $keys[145] => $this->getApvebuyrwhse2(),
+            $keys[146] => $this->getApvebuyrcode2(),
+            $keys[147] => $this->getApvebuyrwhse3(),
+            $keys[148] => $this->getApvebuyrcode3(),
+            $keys[149] => $this->getApvebuyrwhse4(),
+            $keys[150] => $this->getApvebuyrcode4(),
+            $keys[151] => $this->getApvebuyrwhse5(),
+            $keys[152] => $this->getApvebuyrcode5(),
+            $keys[153] => $this->getApvebuyrwhse6(),
+            $keys[154] => $this->getApvebuyrcode6(),
+            $keys[155] => $this->getApvebuyrwhse7(),
+            $keys[156] => $this->getApvebuyrcode7(),
+            $keys[157] => $this->getApvebuyrwhse8(),
+            $keys[158] => $this->getApvebuyrcode8(),
+            $keys[159] => $this->getApvebuyrwhse9(),
+            $keys[160] => $this->getApvebuyrcode9(),
+            $keys[161] => $this->getApvebuyrwhse10(),
+            $keys[162] => $this->getApvebuyrcode10(),
+            $keys[163] => $this->getApvelandcost(),
+            $keys[164] => $this->getApvereleasenbr(),
+            $keys[165] => $this->getApvescanstartpos(),
+            $keys[166] => $this->getApvescanlength(),
+            $keys[167] => $this->getApvePurYtd(),
+            $keys[168] => $this->getApvePoYtd(),
+            $keys[169] => $this->getApveInvcYtd(),
+            $keys[170] => $this->getApveIcntYtd(),
+            $keys[171] => $this->getDateupdtd(),
+            $keys[172] => $this->getTimeupdtd(),
+            $keys[173] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -10971,21 +9782,6 @@ abstract class Vendor implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aApBuyer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
-            }
-            if (null !== $this->collApContacts) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'apContacts';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'ap_contacts';
-                        break;
-                    default:
-                        $key = 'ApContacts';
-                }
-
-                $result[$key] = $this->collApContacts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collApInvoiceDetails) {
 
@@ -11142,531 +9938,525 @@ abstract class Vendor implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                $this->setRid($value);
-                break;
-            case 1:
                 $this->setApvevendid($value);
                 break;
-            case 2:
+            case 1:
                 $this->setApvename($value);
                 break;
-            case 3:
+            case 2:
                 $this->setApveadr1($value);
                 break;
-            case 4:
+            case 3:
                 $this->setApveadr2($value);
                 break;
-            case 5:
+            case 4:
                 $this->setApveadr3($value);
                 break;
-            case 6:
+            case 5:
                 $this->setApvectry($value);
                 break;
-            case 7:
+            case 6:
                 $this->setApvecity($value);
                 break;
-            case 8:
+            case 7:
                 $this->setApvestat($value);
                 break;
-            case 9:
+            case 8:
                 $this->setApvezipcode($value);
                 break;
-            case 10:
+            case 9:
                 $this->setApvepayname($value);
                 break;
-            case 11:
+            case 10:
                 $this->setApvepayadr1($value);
                 break;
-            case 12:
+            case 11:
                 $this->setApvepayadr2($value);
                 break;
-            case 13:
+            case 12:
                 $this->setApvepayadr3($value);
                 break;
-            case 14:
+            case 13:
                 $this->setApvepayctry($value);
                 break;
-            case 15:
+            case 14:
                 $this->setApvepaycity($value);
                 break;
-            case 16:
+            case 15:
                 $this->setApvepaystat($value);
                 break;
-            case 17:
+            case 16:
                 $this->setApvepayzipcode($value);
                 break;
-            case 18:
+            case 17:
                 $this->setApvestatus($value);
                 break;
-            case 19:
+            case 18:
                 $this->setApvetakeexpireddisc($value);
                 break;
-            case 20:
+            case 19:
                 $this->setApveprinthts($value);
                 break;
-            case 21:
+            case 20:
                 $this->setApvefabbin($value);
                 break;
-            case 22:
+            case 21:
                 $this->setApvelmprntbulk($value);
                 break;
-            case 23:
+            case 22:
                 $this->setApveallowdropship($value);
                 break;
-            case 24:
+            case 23:
                 $this->setAptbtypecode($value);
                 break;
-            case 25:
+            case 24:
                 $this->setAptmtermcode($value);
                 break;
-            case 26:
+            case 25:
                 $this->setApvesviacode($value);
                 break;
-            case 27:
+            case 26:
                 $this->setApveoldfob($value);
                 break;
-            case 28:
+            case 27:
                 $this->setApveleaddays($value);
                 break;
-            case 29:
+            case 28:
                 $this->setApveglacct($value);
                 break;
-            case 30:
+            case 29:
                 $this->setApve1099ssnbr($value);
                 break;
-            case 31:
+            case 30:
                 $this->setApveminordrcode($value);
                 break;
-            case 32:
+            case 31:
                 $this->setApveminordrvalue($value);
                 break;
-            case 33:
+            case 32:
                 $this->setApvepurmtd($value);
                 break;
-            case 34:
+            case 33:
                 $this->setApvepomtd($value);
                 break;
-            case 35:
+            case 34:
                 $this->setApveinvcmtd($value);
                 break;
-            case 36:
+            case 35:
                 $this->setApveicntmtd($value);
                 break;
-            case 37:
+            case 36:
                 $this->setApvedateopen($value);
                 break;
-            case 38:
+            case 37:
                 $this->setApvelastpurdate($value);
                 break;
-            case 39:
+            case 38:
                 $this->setApvepur24mo01($value);
                 break;
-            case 40:
+            case 39:
                 $this->setApvepo24mo01($value);
                 break;
-            case 41:
+            case 40:
                 $this->setApveinvc24mo01($value);
                 break;
-            case 42:
+            case 41:
                 $this->setApveicnt24mo01($value);
                 break;
-            case 43:
+            case 42:
                 $this->setApvepur24mo02($value);
                 break;
-            case 44:
+            case 43:
                 $this->setApvepo24mo02($value);
                 break;
-            case 45:
+            case 44:
                 $this->setApveinvc24mo02($value);
                 break;
-            case 46:
+            case 45:
                 $this->setApveicnt24mo02($value);
                 break;
-            case 47:
+            case 46:
                 $this->setApvepur24mo03($value);
                 break;
-            case 48:
+            case 47:
                 $this->setApvepo24mo03($value);
                 break;
-            case 49:
+            case 48:
                 $this->setApveinvc24mo03($value);
                 break;
-            case 50:
+            case 49:
                 $this->setApveicnt24mo03($value);
                 break;
-            case 51:
+            case 50:
                 $this->setApvepur24mo04($value);
                 break;
-            case 52:
+            case 51:
                 $this->setApvepo24mo04($value);
                 break;
-            case 53:
+            case 52:
                 $this->setApveinvc24mo04($value);
                 break;
-            case 54:
+            case 53:
                 $this->setApveicnt24mo04($value);
                 break;
-            case 55:
+            case 54:
                 $this->setApvepur24mo05($value);
                 break;
-            case 56:
+            case 55:
                 $this->setApvepo24mo05($value);
                 break;
-            case 57:
+            case 56:
                 $this->setApveinvc24mo05($value);
                 break;
-            case 58:
+            case 57:
                 $this->setApveicnt24mo05($value);
                 break;
-            case 59:
+            case 58:
                 $this->setApvepur24mo06($value);
                 break;
-            case 60:
+            case 59:
                 $this->setApvepo24mo06($value);
                 break;
-            case 61:
+            case 60:
                 $this->setApveinvc24mo06($value);
                 break;
-            case 62:
+            case 61:
                 $this->setApveicnt24mo06($value);
                 break;
-            case 63:
+            case 62:
                 $this->setApvepur24mo07($value);
                 break;
-            case 64:
+            case 63:
                 $this->setApvepo24mo07($value);
                 break;
-            case 65:
+            case 64:
                 $this->setApveinvc24mo07($value);
                 break;
-            case 66:
+            case 65:
                 $this->setApveicnt24mo07($value);
                 break;
-            case 67:
+            case 66:
                 $this->setApvepur24mo08($value);
                 break;
-            case 68:
+            case 67:
                 $this->setApvepo24mo08($value);
                 break;
-            case 69:
+            case 68:
                 $this->setApveinvc24mo08($value);
                 break;
-            case 70:
+            case 69:
                 $this->setApveicnt24mo08($value);
                 break;
-            case 71:
+            case 70:
                 $this->setApvepur24mo09($value);
                 break;
-            case 72:
+            case 71:
                 $this->setApvepo24mo09($value);
                 break;
-            case 73:
+            case 72:
                 $this->setApveinvc24mo09($value);
                 break;
-            case 74:
+            case 73:
                 $this->setApveicnt24mo09($value);
                 break;
-            case 75:
+            case 74:
                 $this->setApvepur24mo10($value);
                 break;
-            case 76:
+            case 75:
                 $this->setApvepo24mo10($value);
                 break;
-            case 77:
+            case 76:
                 $this->setApveinvc24mo10($value);
                 break;
-            case 78:
+            case 77:
                 $this->setApveicnt24mo10($value);
                 break;
-            case 79:
+            case 78:
                 $this->setApvepur24mo11($value);
                 break;
-            case 80:
+            case 79:
                 $this->setApvepo24mo11($value);
                 break;
-            case 81:
+            case 80:
                 $this->setApveinvc24mo11($value);
                 break;
-            case 82:
+            case 81:
                 $this->setApveicnt24mo11($value);
                 break;
-            case 83:
+            case 82:
                 $this->setApvepur24mo12($value);
                 break;
-            case 84:
+            case 83:
                 $this->setApvepo24mo12($value);
                 break;
-            case 85:
+            case 84:
                 $this->setApveinvc24mo12($value);
                 break;
-            case 86:
+            case 85:
                 $this->setApveicnt24mo12($value);
                 break;
-            case 87:
+            case 86:
                 $this->setApvepur24mo13($value);
                 break;
-            case 88:
+            case 87:
                 $this->setApvepo24mo13($value);
                 break;
-            case 89:
+            case 88:
                 $this->setApveinvc24mo13($value);
                 break;
-            case 90:
+            case 89:
                 $this->setApveicnt24mo13($value);
                 break;
-            case 91:
+            case 90:
                 $this->setApvepur24mo14($value);
                 break;
-            case 92:
+            case 91:
                 $this->setApvepo24mo14($value);
                 break;
-            case 93:
+            case 92:
                 $this->setApveinvc24mo14($value);
                 break;
-            case 94:
+            case 93:
                 $this->setApveicnt24mo14($value);
                 break;
-            case 95:
+            case 94:
                 $this->setApvepur24mo15($value);
                 break;
-            case 96:
+            case 95:
                 $this->setApvepo24mo15($value);
                 break;
-            case 97:
+            case 96:
                 $this->setApveinvc24mo15($value);
                 break;
-            case 98:
+            case 97:
                 $this->setApveicnt24mo15($value);
                 break;
-            case 99:
+            case 98:
                 $this->setApvepur24mo16($value);
                 break;
-            case 100:
+            case 99:
                 $this->setApvepo24mo16($value);
                 break;
-            case 101:
+            case 100:
                 $this->setApveinvc24mo16($value);
                 break;
-            case 102:
+            case 101:
                 $this->setApveicnt24mo16($value);
                 break;
-            case 103:
+            case 102:
                 $this->setApvepur24mo17($value);
                 break;
-            case 104:
+            case 103:
                 $this->setApvepo24mo17($value);
                 break;
-            case 105:
+            case 104:
                 $this->setApveinvc24mo17($value);
                 break;
-            case 106:
+            case 105:
                 $this->setApveicnt24mo17($value);
                 break;
-            case 107:
+            case 106:
                 $this->setApvepur24mo18($value);
                 break;
-            case 108:
+            case 107:
                 $this->setApvepo24mo18($value);
                 break;
-            case 109:
+            case 108:
                 $this->setApveinvc24mo18($value);
                 break;
-            case 110:
+            case 109:
                 $this->setApveicnt24mo18($value);
                 break;
-            case 111:
+            case 110:
                 $this->setApvepur24mo19($value);
                 break;
-            case 112:
+            case 111:
                 $this->setApvepo24mo19($value);
                 break;
-            case 113:
+            case 112:
                 $this->setApveinvc24mo19($value);
                 break;
-            case 114:
+            case 113:
                 $this->setApveicnt24mo19($value);
                 break;
-            case 115:
+            case 114:
                 $this->setApvepur24mo20($value);
                 break;
-            case 116:
+            case 115:
                 $this->setApvepo24mo20($value);
                 break;
-            case 117:
+            case 116:
                 $this->setApveinvc24mo20($value);
                 break;
-            case 118:
+            case 117:
                 $this->setApveicnt24mo20($value);
                 break;
-            case 119:
+            case 118:
                 $this->setApvepur24mo21($value);
                 break;
-            case 120:
+            case 119:
                 $this->setApvepo24mo21($value);
                 break;
-            case 121:
+            case 120:
                 $this->setApveinvc24mo21($value);
                 break;
-            case 122:
+            case 121:
                 $this->setApveicnt24mo21($value);
                 break;
-            case 123:
+            case 122:
                 $this->setApvepur24mo22($value);
                 break;
-            case 124:
+            case 123:
                 $this->setApvepo24mo22($value);
                 break;
-            case 125:
+            case 124:
                 $this->setApveinvc24mo22($value);
                 break;
-            case 126:
+            case 125:
                 $this->setApveicnt24mo22($value);
                 break;
-            case 127:
+            case 126:
                 $this->setApvepur24mo23($value);
                 break;
-            case 128:
+            case 127:
                 $this->setApvepo24mo23($value);
                 break;
-            case 129:
+            case 128:
                 $this->setApveinvc24mo23($value);
                 break;
-            case 130:
+            case 129:
                 $this->setApveicnt24mo23($value);
                 break;
-            case 131:
+            case 130:
                 $this->setApvepur24mo24($value);
                 break;
-            case 132:
+            case 131:
                 $this->setApvepo24mo24($value);
                 break;
-            case 133:
+            case 132:
                 $this->setApveinvc24mo24($value);
                 break;
-            case 134:
+            case 133:
                 $this->setApveicnt24mo24($value);
                 break;
-            case 135:
+            case 134:
                 $this->setApvecrncy($value);
                 break;
-            case 136:
+            case 135:
                 $this->setApvefrtinamt($value);
                 break;
-            case 137:
+            case 136:
                 $this->setApveouracctnbr($value);
                 break;
-            case 138:
+            case 137:
                 $this->setApvevenddisc($value);
                 break;
-            case 139:
+            case 138:
                 $this->setApvefob($value);
                 break;
-            case 140:
+            case 139:
                 $this->setApveroylpct($value);
                 break;
-            case 141:
+            case 140:
                 $this->setApveprtpoeoru($value);
                 break;
-            case 142:
+            case 141:
                 $this->setApvecomrate($value);
                 break;
-            case 143:
+            case 142:
                 $this->setApveuselandonrcpt($value);
                 break;
-            case 144:
+            case 143:
                 $this->setApvebuyrwhse1($value);
                 break;
-            case 145:
+            case 144:
                 $this->setApvebuyrcode1($value);
                 break;
-            case 146:
+            case 145:
                 $this->setApvebuyrwhse2($value);
                 break;
-            case 147:
+            case 146:
                 $this->setApvebuyrcode2($value);
                 break;
-            case 148:
+            case 147:
                 $this->setApvebuyrwhse3($value);
                 break;
-            case 149:
+            case 148:
                 $this->setApvebuyrcode3($value);
                 break;
-            case 150:
+            case 149:
                 $this->setApvebuyrwhse4($value);
                 break;
-            case 151:
+            case 150:
                 $this->setApvebuyrcode4($value);
                 break;
-            case 152:
+            case 151:
                 $this->setApvebuyrwhse5($value);
                 break;
-            case 153:
+            case 152:
                 $this->setApvebuyrcode5($value);
                 break;
-            case 154:
+            case 153:
                 $this->setApvebuyrwhse6($value);
                 break;
-            case 155:
+            case 154:
                 $this->setApvebuyrcode6($value);
                 break;
-            case 156:
+            case 155:
                 $this->setApvebuyrwhse7($value);
                 break;
-            case 157:
+            case 156:
                 $this->setApvebuyrcode7($value);
                 break;
-            case 158:
+            case 157:
                 $this->setApvebuyrwhse8($value);
                 break;
-            case 159:
+            case 158:
                 $this->setApvebuyrcode8($value);
                 break;
-            case 160:
+            case 159:
                 $this->setApvebuyrwhse9($value);
                 break;
-            case 161:
+            case 160:
                 $this->setApvebuyrcode9($value);
                 break;
-            case 162:
+            case 161:
                 $this->setApvebuyrwhse10($value);
                 break;
-            case 163:
+            case 162:
                 $this->setApvebuyrcode10($value);
                 break;
-            case 164:
+            case 163:
                 $this->setApvelandcost($value);
                 break;
-            case 165:
+            case 164:
                 $this->setApvereleasenbr($value);
                 break;
-            case 166:
+            case 165:
                 $this->setApvescanstartpos($value);
                 break;
-            case 167:
+            case 166:
                 $this->setApvescanlength($value);
                 break;
+            case 167:
+                $this->setApvePurYtd($value);
+                break;
             case 168:
-                $this->setApvepurytd($value);
+                $this->setApvePoYtd($value);
                 break;
             case 169:
-                $this->setApvepoytd($value);
+                $this->setApveInvcYtd($value);
                 break;
             case 170:
-                $this->setApveinvcytd($value);
+                $this->setApveIcntYtd($value);
                 break;
             case 171:
-                $this->setApveicntytd($value);
-                break;
-            case 172:
-                $this->setApveuseach($value);
-                break;
-            case 173:
                 $this->setDateupdtd($value);
                 break;
-            case 174:
+            case 172:
                 $this->setTimeupdtd($value);
                 break;
-            case 175:
+            case 173:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -11696,532 +10486,526 @@ abstract class Vendor implements ActiveRecordInterface
         $keys = VendorTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setRid($arr[$keys[0]]);
+            $this->setApvevendid($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setApvevendid($arr[$keys[1]]);
+            $this->setApvename($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setApvename($arr[$keys[2]]);
+            $this->setApveadr1($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setApveadr1($arr[$keys[3]]);
+            $this->setApveadr2($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setApveadr2($arr[$keys[4]]);
+            $this->setApveadr3($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setApveadr3($arr[$keys[5]]);
+            $this->setApvectry($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setApvectry($arr[$keys[6]]);
+            $this->setApvecity($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setApvecity($arr[$keys[7]]);
+            $this->setApvestat($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setApvestat($arr[$keys[8]]);
+            $this->setApvezipcode($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setApvezipcode($arr[$keys[9]]);
+            $this->setApvepayname($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setApvepayname($arr[$keys[10]]);
+            $this->setApvepayadr1($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setApvepayadr1($arr[$keys[11]]);
+            $this->setApvepayadr2($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setApvepayadr2($arr[$keys[12]]);
+            $this->setApvepayadr3($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setApvepayadr3($arr[$keys[13]]);
+            $this->setApvepayctry($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setApvepayctry($arr[$keys[14]]);
+            $this->setApvepaycity($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setApvepaycity($arr[$keys[15]]);
+            $this->setApvepaystat($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setApvepaystat($arr[$keys[16]]);
+            $this->setApvepayzipcode($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setApvepayzipcode($arr[$keys[17]]);
+            $this->setApvestatus($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setApvestatus($arr[$keys[18]]);
+            $this->setApvetakeexpireddisc($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setApvetakeexpireddisc($arr[$keys[19]]);
+            $this->setApveprinthts($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
-            $this->setApveprinthts($arr[$keys[20]]);
+            $this->setApvefabbin($arr[$keys[20]]);
         }
         if (array_key_exists($keys[21], $arr)) {
-            $this->setApvefabbin($arr[$keys[21]]);
+            $this->setApvelmprntbulk($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setApvelmprntbulk($arr[$keys[22]]);
+            $this->setApveallowdropship($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setApveallowdropship($arr[$keys[23]]);
+            $this->setAptbtypecode($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setAptbtypecode($arr[$keys[24]]);
+            $this->setAptmtermcode($arr[$keys[24]]);
         }
         if (array_key_exists($keys[25], $arr)) {
-            $this->setAptmtermcode($arr[$keys[25]]);
+            $this->setApvesviacode($arr[$keys[25]]);
         }
         if (array_key_exists($keys[26], $arr)) {
-            $this->setApvesviacode($arr[$keys[26]]);
+            $this->setApveoldfob($arr[$keys[26]]);
         }
         if (array_key_exists($keys[27], $arr)) {
-            $this->setApveoldfob($arr[$keys[27]]);
+            $this->setApveleaddays($arr[$keys[27]]);
         }
         if (array_key_exists($keys[28], $arr)) {
-            $this->setApveleaddays($arr[$keys[28]]);
+            $this->setApveglacct($arr[$keys[28]]);
         }
         if (array_key_exists($keys[29], $arr)) {
-            $this->setApveglacct($arr[$keys[29]]);
+            $this->setApve1099ssnbr($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setApve1099ssnbr($arr[$keys[30]]);
+            $this->setApveminordrcode($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
-            $this->setApveminordrcode($arr[$keys[31]]);
+            $this->setApveminordrvalue($arr[$keys[31]]);
         }
         if (array_key_exists($keys[32], $arr)) {
-            $this->setApveminordrvalue($arr[$keys[32]]);
+            $this->setApvepurmtd($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setApvepurmtd($arr[$keys[33]]);
+            $this->setApvepomtd($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setApvepomtd($arr[$keys[34]]);
+            $this->setApveinvcmtd($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setApveinvcmtd($arr[$keys[35]]);
+            $this->setApveicntmtd($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setApveicntmtd($arr[$keys[36]]);
+            $this->setApvedateopen($arr[$keys[36]]);
         }
         if (array_key_exists($keys[37], $arr)) {
-            $this->setApvedateopen($arr[$keys[37]]);
+            $this->setApvelastpurdate($arr[$keys[37]]);
         }
         if (array_key_exists($keys[38], $arr)) {
-            $this->setApvelastpurdate($arr[$keys[38]]);
+            $this->setApvepur24mo01($arr[$keys[38]]);
         }
         if (array_key_exists($keys[39], $arr)) {
-            $this->setApvepur24mo01($arr[$keys[39]]);
+            $this->setApvepo24mo01($arr[$keys[39]]);
         }
         if (array_key_exists($keys[40], $arr)) {
-            $this->setApvepo24mo01($arr[$keys[40]]);
+            $this->setApveinvc24mo01($arr[$keys[40]]);
         }
         if (array_key_exists($keys[41], $arr)) {
-            $this->setApveinvc24mo01($arr[$keys[41]]);
+            $this->setApveicnt24mo01($arr[$keys[41]]);
         }
         if (array_key_exists($keys[42], $arr)) {
-            $this->setApveicnt24mo01($arr[$keys[42]]);
+            $this->setApvepur24mo02($arr[$keys[42]]);
         }
         if (array_key_exists($keys[43], $arr)) {
-            $this->setApvepur24mo02($arr[$keys[43]]);
+            $this->setApvepo24mo02($arr[$keys[43]]);
         }
         if (array_key_exists($keys[44], $arr)) {
-            $this->setApvepo24mo02($arr[$keys[44]]);
+            $this->setApveinvc24mo02($arr[$keys[44]]);
         }
         if (array_key_exists($keys[45], $arr)) {
-            $this->setApveinvc24mo02($arr[$keys[45]]);
+            $this->setApveicnt24mo02($arr[$keys[45]]);
         }
         if (array_key_exists($keys[46], $arr)) {
-            $this->setApveicnt24mo02($arr[$keys[46]]);
+            $this->setApvepur24mo03($arr[$keys[46]]);
         }
         if (array_key_exists($keys[47], $arr)) {
-            $this->setApvepur24mo03($arr[$keys[47]]);
+            $this->setApvepo24mo03($arr[$keys[47]]);
         }
         if (array_key_exists($keys[48], $arr)) {
-            $this->setApvepo24mo03($arr[$keys[48]]);
+            $this->setApveinvc24mo03($arr[$keys[48]]);
         }
         if (array_key_exists($keys[49], $arr)) {
-            $this->setApveinvc24mo03($arr[$keys[49]]);
+            $this->setApveicnt24mo03($arr[$keys[49]]);
         }
         if (array_key_exists($keys[50], $arr)) {
-            $this->setApveicnt24mo03($arr[$keys[50]]);
+            $this->setApvepur24mo04($arr[$keys[50]]);
         }
         if (array_key_exists($keys[51], $arr)) {
-            $this->setApvepur24mo04($arr[$keys[51]]);
+            $this->setApvepo24mo04($arr[$keys[51]]);
         }
         if (array_key_exists($keys[52], $arr)) {
-            $this->setApvepo24mo04($arr[$keys[52]]);
+            $this->setApveinvc24mo04($arr[$keys[52]]);
         }
         if (array_key_exists($keys[53], $arr)) {
-            $this->setApveinvc24mo04($arr[$keys[53]]);
+            $this->setApveicnt24mo04($arr[$keys[53]]);
         }
         if (array_key_exists($keys[54], $arr)) {
-            $this->setApveicnt24mo04($arr[$keys[54]]);
+            $this->setApvepur24mo05($arr[$keys[54]]);
         }
         if (array_key_exists($keys[55], $arr)) {
-            $this->setApvepur24mo05($arr[$keys[55]]);
+            $this->setApvepo24mo05($arr[$keys[55]]);
         }
         if (array_key_exists($keys[56], $arr)) {
-            $this->setApvepo24mo05($arr[$keys[56]]);
+            $this->setApveinvc24mo05($arr[$keys[56]]);
         }
         if (array_key_exists($keys[57], $arr)) {
-            $this->setApveinvc24mo05($arr[$keys[57]]);
+            $this->setApveicnt24mo05($arr[$keys[57]]);
         }
         if (array_key_exists($keys[58], $arr)) {
-            $this->setApveicnt24mo05($arr[$keys[58]]);
+            $this->setApvepur24mo06($arr[$keys[58]]);
         }
         if (array_key_exists($keys[59], $arr)) {
-            $this->setApvepur24mo06($arr[$keys[59]]);
+            $this->setApvepo24mo06($arr[$keys[59]]);
         }
         if (array_key_exists($keys[60], $arr)) {
-            $this->setApvepo24mo06($arr[$keys[60]]);
+            $this->setApveinvc24mo06($arr[$keys[60]]);
         }
         if (array_key_exists($keys[61], $arr)) {
-            $this->setApveinvc24mo06($arr[$keys[61]]);
+            $this->setApveicnt24mo06($arr[$keys[61]]);
         }
         if (array_key_exists($keys[62], $arr)) {
-            $this->setApveicnt24mo06($arr[$keys[62]]);
+            $this->setApvepur24mo07($arr[$keys[62]]);
         }
         if (array_key_exists($keys[63], $arr)) {
-            $this->setApvepur24mo07($arr[$keys[63]]);
+            $this->setApvepo24mo07($arr[$keys[63]]);
         }
         if (array_key_exists($keys[64], $arr)) {
-            $this->setApvepo24mo07($arr[$keys[64]]);
+            $this->setApveinvc24mo07($arr[$keys[64]]);
         }
         if (array_key_exists($keys[65], $arr)) {
-            $this->setApveinvc24mo07($arr[$keys[65]]);
+            $this->setApveicnt24mo07($arr[$keys[65]]);
         }
         if (array_key_exists($keys[66], $arr)) {
-            $this->setApveicnt24mo07($arr[$keys[66]]);
+            $this->setApvepur24mo08($arr[$keys[66]]);
         }
         if (array_key_exists($keys[67], $arr)) {
-            $this->setApvepur24mo08($arr[$keys[67]]);
+            $this->setApvepo24mo08($arr[$keys[67]]);
         }
         if (array_key_exists($keys[68], $arr)) {
-            $this->setApvepo24mo08($arr[$keys[68]]);
+            $this->setApveinvc24mo08($arr[$keys[68]]);
         }
         if (array_key_exists($keys[69], $arr)) {
-            $this->setApveinvc24mo08($arr[$keys[69]]);
+            $this->setApveicnt24mo08($arr[$keys[69]]);
         }
         if (array_key_exists($keys[70], $arr)) {
-            $this->setApveicnt24mo08($arr[$keys[70]]);
+            $this->setApvepur24mo09($arr[$keys[70]]);
         }
         if (array_key_exists($keys[71], $arr)) {
-            $this->setApvepur24mo09($arr[$keys[71]]);
+            $this->setApvepo24mo09($arr[$keys[71]]);
         }
         if (array_key_exists($keys[72], $arr)) {
-            $this->setApvepo24mo09($arr[$keys[72]]);
+            $this->setApveinvc24mo09($arr[$keys[72]]);
         }
         if (array_key_exists($keys[73], $arr)) {
-            $this->setApveinvc24mo09($arr[$keys[73]]);
+            $this->setApveicnt24mo09($arr[$keys[73]]);
         }
         if (array_key_exists($keys[74], $arr)) {
-            $this->setApveicnt24mo09($arr[$keys[74]]);
+            $this->setApvepur24mo10($arr[$keys[74]]);
         }
         if (array_key_exists($keys[75], $arr)) {
-            $this->setApvepur24mo10($arr[$keys[75]]);
+            $this->setApvepo24mo10($arr[$keys[75]]);
         }
         if (array_key_exists($keys[76], $arr)) {
-            $this->setApvepo24mo10($arr[$keys[76]]);
+            $this->setApveinvc24mo10($arr[$keys[76]]);
         }
         if (array_key_exists($keys[77], $arr)) {
-            $this->setApveinvc24mo10($arr[$keys[77]]);
+            $this->setApveicnt24mo10($arr[$keys[77]]);
         }
         if (array_key_exists($keys[78], $arr)) {
-            $this->setApveicnt24mo10($arr[$keys[78]]);
+            $this->setApvepur24mo11($arr[$keys[78]]);
         }
         if (array_key_exists($keys[79], $arr)) {
-            $this->setApvepur24mo11($arr[$keys[79]]);
+            $this->setApvepo24mo11($arr[$keys[79]]);
         }
         if (array_key_exists($keys[80], $arr)) {
-            $this->setApvepo24mo11($arr[$keys[80]]);
+            $this->setApveinvc24mo11($arr[$keys[80]]);
         }
         if (array_key_exists($keys[81], $arr)) {
-            $this->setApveinvc24mo11($arr[$keys[81]]);
+            $this->setApveicnt24mo11($arr[$keys[81]]);
         }
         if (array_key_exists($keys[82], $arr)) {
-            $this->setApveicnt24mo11($arr[$keys[82]]);
+            $this->setApvepur24mo12($arr[$keys[82]]);
         }
         if (array_key_exists($keys[83], $arr)) {
-            $this->setApvepur24mo12($arr[$keys[83]]);
+            $this->setApvepo24mo12($arr[$keys[83]]);
         }
         if (array_key_exists($keys[84], $arr)) {
-            $this->setApvepo24mo12($arr[$keys[84]]);
+            $this->setApveinvc24mo12($arr[$keys[84]]);
         }
         if (array_key_exists($keys[85], $arr)) {
-            $this->setApveinvc24mo12($arr[$keys[85]]);
+            $this->setApveicnt24mo12($arr[$keys[85]]);
         }
         if (array_key_exists($keys[86], $arr)) {
-            $this->setApveicnt24mo12($arr[$keys[86]]);
+            $this->setApvepur24mo13($arr[$keys[86]]);
         }
         if (array_key_exists($keys[87], $arr)) {
-            $this->setApvepur24mo13($arr[$keys[87]]);
+            $this->setApvepo24mo13($arr[$keys[87]]);
         }
         if (array_key_exists($keys[88], $arr)) {
-            $this->setApvepo24mo13($arr[$keys[88]]);
+            $this->setApveinvc24mo13($arr[$keys[88]]);
         }
         if (array_key_exists($keys[89], $arr)) {
-            $this->setApveinvc24mo13($arr[$keys[89]]);
+            $this->setApveicnt24mo13($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setApveicnt24mo13($arr[$keys[90]]);
+            $this->setApvepur24mo14($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
-            $this->setApvepur24mo14($arr[$keys[91]]);
+            $this->setApvepo24mo14($arr[$keys[91]]);
         }
         if (array_key_exists($keys[92], $arr)) {
-            $this->setApvepo24mo14($arr[$keys[92]]);
+            $this->setApveinvc24mo14($arr[$keys[92]]);
         }
         if (array_key_exists($keys[93], $arr)) {
-            $this->setApveinvc24mo14($arr[$keys[93]]);
+            $this->setApveicnt24mo14($arr[$keys[93]]);
         }
         if (array_key_exists($keys[94], $arr)) {
-            $this->setApveicnt24mo14($arr[$keys[94]]);
+            $this->setApvepur24mo15($arr[$keys[94]]);
         }
         if (array_key_exists($keys[95], $arr)) {
-            $this->setApvepur24mo15($arr[$keys[95]]);
+            $this->setApvepo24mo15($arr[$keys[95]]);
         }
         if (array_key_exists($keys[96], $arr)) {
-            $this->setApvepo24mo15($arr[$keys[96]]);
+            $this->setApveinvc24mo15($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setApveinvc24mo15($arr[$keys[97]]);
+            $this->setApveicnt24mo15($arr[$keys[97]]);
         }
         if (array_key_exists($keys[98], $arr)) {
-            $this->setApveicnt24mo15($arr[$keys[98]]);
+            $this->setApvepur24mo16($arr[$keys[98]]);
         }
         if (array_key_exists($keys[99], $arr)) {
-            $this->setApvepur24mo16($arr[$keys[99]]);
+            $this->setApvepo24mo16($arr[$keys[99]]);
         }
         if (array_key_exists($keys[100], $arr)) {
-            $this->setApvepo24mo16($arr[$keys[100]]);
+            $this->setApveinvc24mo16($arr[$keys[100]]);
         }
         if (array_key_exists($keys[101], $arr)) {
-            $this->setApveinvc24mo16($arr[$keys[101]]);
+            $this->setApveicnt24mo16($arr[$keys[101]]);
         }
         if (array_key_exists($keys[102], $arr)) {
-            $this->setApveicnt24mo16($arr[$keys[102]]);
+            $this->setApvepur24mo17($arr[$keys[102]]);
         }
         if (array_key_exists($keys[103], $arr)) {
-            $this->setApvepur24mo17($arr[$keys[103]]);
+            $this->setApvepo24mo17($arr[$keys[103]]);
         }
         if (array_key_exists($keys[104], $arr)) {
-            $this->setApvepo24mo17($arr[$keys[104]]);
+            $this->setApveinvc24mo17($arr[$keys[104]]);
         }
         if (array_key_exists($keys[105], $arr)) {
-            $this->setApveinvc24mo17($arr[$keys[105]]);
+            $this->setApveicnt24mo17($arr[$keys[105]]);
         }
         if (array_key_exists($keys[106], $arr)) {
-            $this->setApveicnt24mo17($arr[$keys[106]]);
+            $this->setApvepur24mo18($arr[$keys[106]]);
         }
         if (array_key_exists($keys[107], $arr)) {
-            $this->setApvepur24mo18($arr[$keys[107]]);
+            $this->setApvepo24mo18($arr[$keys[107]]);
         }
         if (array_key_exists($keys[108], $arr)) {
-            $this->setApvepo24mo18($arr[$keys[108]]);
+            $this->setApveinvc24mo18($arr[$keys[108]]);
         }
         if (array_key_exists($keys[109], $arr)) {
-            $this->setApveinvc24mo18($arr[$keys[109]]);
+            $this->setApveicnt24mo18($arr[$keys[109]]);
         }
         if (array_key_exists($keys[110], $arr)) {
-            $this->setApveicnt24mo18($arr[$keys[110]]);
+            $this->setApvepur24mo19($arr[$keys[110]]);
         }
         if (array_key_exists($keys[111], $arr)) {
-            $this->setApvepur24mo19($arr[$keys[111]]);
+            $this->setApvepo24mo19($arr[$keys[111]]);
         }
         if (array_key_exists($keys[112], $arr)) {
-            $this->setApvepo24mo19($arr[$keys[112]]);
+            $this->setApveinvc24mo19($arr[$keys[112]]);
         }
         if (array_key_exists($keys[113], $arr)) {
-            $this->setApveinvc24mo19($arr[$keys[113]]);
+            $this->setApveicnt24mo19($arr[$keys[113]]);
         }
         if (array_key_exists($keys[114], $arr)) {
-            $this->setApveicnt24mo19($arr[$keys[114]]);
+            $this->setApvepur24mo20($arr[$keys[114]]);
         }
         if (array_key_exists($keys[115], $arr)) {
-            $this->setApvepur24mo20($arr[$keys[115]]);
+            $this->setApvepo24mo20($arr[$keys[115]]);
         }
         if (array_key_exists($keys[116], $arr)) {
-            $this->setApvepo24mo20($arr[$keys[116]]);
+            $this->setApveinvc24mo20($arr[$keys[116]]);
         }
         if (array_key_exists($keys[117], $arr)) {
-            $this->setApveinvc24mo20($arr[$keys[117]]);
+            $this->setApveicnt24mo20($arr[$keys[117]]);
         }
         if (array_key_exists($keys[118], $arr)) {
-            $this->setApveicnt24mo20($arr[$keys[118]]);
+            $this->setApvepur24mo21($arr[$keys[118]]);
         }
         if (array_key_exists($keys[119], $arr)) {
-            $this->setApvepur24mo21($arr[$keys[119]]);
+            $this->setApvepo24mo21($arr[$keys[119]]);
         }
         if (array_key_exists($keys[120], $arr)) {
-            $this->setApvepo24mo21($arr[$keys[120]]);
+            $this->setApveinvc24mo21($arr[$keys[120]]);
         }
         if (array_key_exists($keys[121], $arr)) {
-            $this->setApveinvc24mo21($arr[$keys[121]]);
+            $this->setApveicnt24mo21($arr[$keys[121]]);
         }
         if (array_key_exists($keys[122], $arr)) {
-            $this->setApveicnt24mo21($arr[$keys[122]]);
+            $this->setApvepur24mo22($arr[$keys[122]]);
         }
         if (array_key_exists($keys[123], $arr)) {
-            $this->setApvepur24mo22($arr[$keys[123]]);
+            $this->setApvepo24mo22($arr[$keys[123]]);
         }
         if (array_key_exists($keys[124], $arr)) {
-            $this->setApvepo24mo22($arr[$keys[124]]);
+            $this->setApveinvc24mo22($arr[$keys[124]]);
         }
         if (array_key_exists($keys[125], $arr)) {
-            $this->setApveinvc24mo22($arr[$keys[125]]);
+            $this->setApveicnt24mo22($arr[$keys[125]]);
         }
         if (array_key_exists($keys[126], $arr)) {
-            $this->setApveicnt24mo22($arr[$keys[126]]);
+            $this->setApvepur24mo23($arr[$keys[126]]);
         }
         if (array_key_exists($keys[127], $arr)) {
-            $this->setApvepur24mo23($arr[$keys[127]]);
+            $this->setApvepo24mo23($arr[$keys[127]]);
         }
         if (array_key_exists($keys[128], $arr)) {
-            $this->setApvepo24mo23($arr[$keys[128]]);
+            $this->setApveinvc24mo23($arr[$keys[128]]);
         }
         if (array_key_exists($keys[129], $arr)) {
-            $this->setApveinvc24mo23($arr[$keys[129]]);
+            $this->setApveicnt24mo23($arr[$keys[129]]);
         }
         if (array_key_exists($keys[130], $arr)) {
-            $this->setApveicnt24mo23($arr[$keys[130]]);
+            $this->setApvepur24mo24($arr[$keys[130]]);
         }
         if (array_key_exists($keys[131], $arr)) {
-            $this->setApvepur24mo24($arr[$keys[131]]);
+            $this->setApvepo24mo24($arr[$keys[131]]);
         }
         if (array_key_exists($keys[132], $arr)) {
-            $this->setApvepo24mo24($arr[$keys[132]]);
+            $this->setApveinvc24mo24($arr[$keys[132]]);
         }
         if (array_key_exists($keys[133], $arr)) {
-            $this->setApveinvc24mo24($arr[$keys[133]]);
+            $this->setApveicnt24mo24($arr[$keys[133]]);
         }
         if (array_key_exists($keys[134], $arr)) {
-            $this->setApveicnt24mo24($arr[$keys[134]]);
+            $this->setApvecrncy($arr[$keys[134]]);
         }
         if (array_key_exists($keys[135], $arr)) {
-            $this->setApvecrncy($arr[$keys[135]]);
+            $this->setApvefrtinamt($arr[$keys[135]]);
         }
         if (array_key_exists($keys[136], $arr)) {
-            $this->setApvefrtinamt($arr[$keys[136]]);
+            $this->setApveouracctnbr($arr[$keys[136]]);
         }
         if (array_key_exists($keys[137], $arr)) {
-            $this->setApveouracctnbr($arr[$keys[137]]);
+            $this->setApvevenddisc($arr[$keys[137]]);
         }
         if (array_key_exists($keys[138], $arr)) {
-            $this->setApvevenddisc($arr[$keys[138]]);
+            $this->setApvefob($arr[$keys[138]]);
         }
         if (array_key_exists($keys[139], $arr)) {
-            $this->setApvefob($arr[$keys[139]]);
+            $this->setApveroylpct($arr[$keys[139]]);
         }
         if (array_key_exists($keys[140], $arr)) {
-            $this->setApveroylpct($arr[$keys[140]]);
+            $this->setApveprtpoeoru($arr[$keys[140]]);
         }
         if (array_key_exists($keys[141], $arr)) {
-            $this->setApveprtpoeoru($arr[$keys[141]]);
+            $this->setApvecomrate($arr[$keys[141]]);
         }
         if (array_key_exists($keys[142], $arr)) {
-            $this->setApvecomrate($arr[$keys[142]]);
+            $this->setApveuselandonrcpt($arr[$keys[142]]);
         }
         if (array_key_exists($keys[143], $arr)) {
-            $this->setApveuselandonrcpt($arr[$keys[143]]);
+            $this->setApvebuyrwhse1($arr[$keys[143]]);
         }
         if (array_key_exists($keys[144], $arr)) {
-            $this->setApvebuyrwhse1($arr[$keys[144]]);
+            $this->setApvebuyrcode1($arr[$keys[144]]);
         }
         if (array_key_exists($keys[145], $arr)) {
-            $this->setApvebuyrcode1($arr[$keys[145]]);
+            $this->setApvebuyrwhse2($arr[$keys[145]]);
         }
         if (array_key_exists($keys[146], $arr)) {
-            $this->setApvebuyrwhse2($arr[$keys[146]]);
+            $this->setApvebuyrcode2($arr[$keys[146]]);
         }
         if (array_key_exists($keys[147], $arr)) {
-            $this->setApvebuyrcode2($arr[$keys[147]]);
+            $this->setApvebuyrwhse3($arr[$keys[147]]);
         }
         if (array_key_exists($keys[148], $arr)) {
-            $this->setApvebuyrwhse3($arr[$keys[148]]);
+            $this->setApvebuyrcode3($arr[$keys[148]]);
         }
         if (array_key_exists($keys[149], $arr)) {
-            $this->setApvebuyrcode3($arr[$keys[149]]);
+            $this->setApvebuyrwhse4($arr[$keys[149]]);
         }
         if (array_key_exists($keys[150], $arr)) {
-            $this->setApvebuyrwhse4($arr[$keys[150]]);
+            $this->setApvebuyrcode4($arr[$keys[150]]);
         }
         if (array_key_exists($keys[151], $arr)) {
-            $this->setApvebuyrcode4($arr[$keys[151]]);
+            $this->setApvebuyrwhse5($arr[$keys[151]]);
         }
         if (array_key_exists($keys[152], $arr)) {
-            $this->setApvebuyrwhse5($arr[$keys[152]]);
+            $this->setApvebuyrcode5($arr[$keys[152]]);
         }
         if (array_key_exists($keys[153], $arr)) {
-            $this->setApvebuyrcode5($arr[$keys[153]]);
+            $this->setApvebuyrwhse6($arr[$keys[153]]);
         }
         if (array_key_exists($keys[154], $arr)) {
-            $this->setApvebuyrwhse6($arr[$keys[154]]);
+            $this->setApvebuyrcode6($arr[$keys[154]]);
         }
         if (array_key_exists($keys[155], $arr)) {
-            $this->setApvebuyrcode6($arr[$keys[155]]);
+            $this->setApvebuyrwhse7($arr[$keys[155]]);
         }
         if (array_key_exists($keys[156], $arr)) {
-            $this->setApvebuyrwhse7($arr[$keys[156]]);
+            $this->setApvebuyrcode7($arr[$keys[156]]);
         }
         if (array_key_exists($keys[157], $arr)) {
-            $this->setApvebuyrcode7($arr[$keys[157]]);
+            $this->setApvebuyrwhse8($arr[$keys[157]]);
         }
         if (array_key_exists($keys[158], $arr)) {
-            $this->setApvebuyrwhse8($arr[$keys[158]]);
+            $this->setApvebuyrcode8($arr[$keys[158]]);
         }
         if (array_key_exists($keys[159], $arr)) {
-            $this->setApvebuyrcode8($arr[$keys[159]]);
+            $this->setApvebuyrwhse9($arr[$keys[159]]);
         }
         if (array_key_exists($keys[160], $arr)) {
-            $this->setApvebuyrwhse9($arr[$keys[160]]);
+            $this->setApvebuyrcode9($arr[$keys[160]]);
         }
         if (array_key_exists($keys[161], $arr)) {
-            $this->setApvebuyrcode9($arr[$keys[161]]);
+            $this->setApvebuyrwhse10($arr[$keys[161]]);
         }
         if (array_key_exists($keys[162], $arr)) {
-            $this->setApvebuyrwhse10($arr[$keys[162]]);
+            $this->setApvebuyrcode10($arr[$keys[162]]);
         }
         if (array_key_exists($keys[163], $arr)) {
-            $this->setApvebuyrcode10($arr[$keys[163]]);
+            $this->setApvelandcost($arr[$keys[163]]);
         }
         if (array_key_exists($keys[164], $arr)) {
-            $this->setApvelandcost($arr[$keys[164]]);
+            $this->setApvereleasenbr($arr[$keys[164]]);
         }
         if (array_key_exists($keys[165], $arr)) {
-            $this->setApvereleasenbr($arr[$keys[165]]);
+            $this->setApvescanstartpos($arr[$keys[165]]);
         }
         if (array_key_exists($keys[166], $arr)) {
-            $this->setApvescanstartpos($arr[$keys[166]]);
+            $this->setApvescanlength($arr[$keys[166]]);
         }
         if (array_key_exists($keys[167], $arr)) {
-            $this->setApvescanlength($arr[$keys[167]]);
+            $this->setApvePurYtd($arr[$keys[167]]);
         }
         if (array_key_exists($keys[168], $arr)) {
-            $this->setApvepurytd($arr[$keys[168]]);
+            $this->setApvePoYtd($arr[$keys[168]]);
         }
         if (array_key_exists($keys[169], $arr)) {
-            $this->setApvepoytd($arr[$keys[169]]);
+            $this->setApveInvcYtd($arr[$keys[169]]);
         }
         if (array_key_exists($keys[170], $arr)) {
-            $this->setApveinvcytd($arr[$keys[170]]);
+            $this->setApveIcntYtd($arr[$keys[170]]);
         }
         if (array_key_exists($keys[171], $arr)) {
-            $this->setApveicntytd($arr[$keys[171]]);
+            $this->setDateupdtd($arr[$keys[171]]);
         }
         if (array_key_exists($keys[172], $arr)) {
-            $this->setApveuseach($arr[$keys[172]]);
+            $this->setTimeupdtd($arr[$keys[172]]);
         }
         if (array_key_exists($keys[173], $arr)) {
-            $this->setDateupdtd($arr[$keys[173]]);
-        }
-        if (array_key_exists($keys[174], $arr)) {
-            $this->setTimeupdtd($arr[$keys[174]]);
-        }
-        if (array_key_exists($keys[175], $arr)) {
-            $this->setDummy($arr[$keys[175]]);
+            $this->setDummy($arr[$keys[173]]);
         }
     }
 
@@ -12264,9 +11048,6 @@ abstract class Vendor implements ActiveRecordInterface
     {
         $criteria = new Criteria(VendorTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(VendorTableMap::COL_VENDRECNBR)) {
-            $criteria->add(VendorTableMap::COL_VENDRECNBR, $this->vendrecnbr);
-        }
         if ($this->isColumnModified(VendorTableMap::COL_APVEVENDID)) {
             $criteria->add(VendorTableMap::COL_APVEVENDID, $this->apvevendid);
         }
@@ -12780,9 +11561,6 @@ abstract class Vendor implements ActiveRecordInterface
         if ($this->isColumnModified(VendorTableMap::COL_APVEICNTYTD)) {
             $criteria->add(VendorTableMap::COL_APVEICNTYTD, $this->apveicntytd);
         }
-        if ($this->isColumnModified(VendorTableMap::COL_APVEUSEACH)) {
-            $criteria->add(VendorTableMap::COL_APVEUSEACH, $this->apveuseach);
-        }
         if ($this->isColumnModified(VendorTableMap::COL_DATEUPDTD)) {
             $criteria->add(VendorTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -12809,7 +11587,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function buildPkeyCriteria()
     {
         $criteria = ChildVendorQuery::create();
-        $criteria->add(VendorTableMap::COL_VENDRECNBR, $this->vendrecnbr);
+        $criteria->add(VendorTableMap::COL_APVEVENDID, $this->apvevendid);
 
         return $criteria;
     }
@@ -12822,7 +11600,7 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getRid();
+        $validPk = null !== $this->getApvevendid();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -12838,22 +11616,22 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * Returns the primary key for this object (row).
-     * @return int
+     * @return string
      */
     public function getPrimaryKey()
     {
-        return $this->getRid();
+        return $this->getApvevendid();
     }
 
     /**
-     * Generic method to set the primary key (vendrecnbr column).
+     * Generic method to set the primary key (apvevendid column).
      *
-     * @param       int $key Primary key.
+     * @param       string $key Primary key.
      * @return void
      */
     public function setPrimaryKey($key)
     {
-        $this->setRid($key);
+        $this->setApvevendid($key);
     }
 
     /**
@@ -12862,7 +11640,7 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return null === $this->getRid();
+        return null === $this->getApvevendid();
     }
 
     /**
@@ -13045,11 +11823,10 @@ abstract class Vendor implements ActiveRecordInterface
         $copyObj->setApvereleasenbr($this->getApvereleasenbr());
         $copyObj->setApvescanstartpos($this->getApvescanstartpos());
         $copyObj->setApvescanlength($this->getApvescanlength());
-        $copyObj->setApvepurytd($this->getApvepurytd());
-        $copyObj->setApvepoytd($this->getApvepoytd());
-        $copyObj->setApveinvcytd($this->getApveinvcytd());
-        $copyObj->setApveicntytd($this->getApveicntytd());
-        $copyObj->setApveuseach($this->getApveuseach());
+        $copyObj->setApvePurYtd($this->getApvePurYtd());
+        $copyObj->setApvePoYtd($this->getApvePoYtd());
+        $copyObj->setApveInvcYtd($this->getApveInvcYtd());
+        $copyObj->setApveIcntYtd($this->getApveIcntYtd());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -13058,12 +11835,6 @@ abstract class Vendor implements ActiveRecordInterface
             // important: temporarily setNew(false) because this affects the behavior of
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
-
-            foreach ($this->getApContacts() as $relObj) {
-                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addApContact($relObj->copy($deepCopy));
-                }
-            }
 
             foreach ($this->getApInvoiceDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
@@ -13117,7 +11888,6 @@ abstract class Vendor implements ActiveRecordInterface
 
         if ($makeNew) {
             $copyObj->setNew(true);
-            $copyObj->setRid(NULL); // this is a auto-increment column, so set to default value
         }
     }
 
@@ -13153,7 +11923,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function setApTypeCode(ChildApTypeCode $v = null)
     {
         if ($v === null) {
-            $this->setAptbtypecode('');
+            $this->setAptbtypecode(NULL);
         } else {
             $this->setAptbtypecode($v->getAptbtypecode());
         }
@@ -13204,7 +11974,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function setApTermsCode(ChildApTermsCode $v = null)
     {
         if ($v === null) {
-            $this->setAptmtermcode('');
+            $this->setAptmtermcode(NULL);
         } else {
             $this->setAptmtermcode($v->getAptmtermcode());
         }
@@ -13255,7 +12025,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function setShipvia(ChildShipvia $v = null)
     {
         if ($v === null) {
-            $this->setApvesviacode('');
+            $this->setApvesviacode(NULL);
         } else {
             $this->setApvesviacode($v->getArtbshipvia());
         }
@@ -13306,7 +12076,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function setApBuyer(ChildApBuyer $v = null)
     {
         if ($v === null) {
-            $this->setApvebuyrcode1('');
+            $this->setApvebuyrcode1(NULL);
         } else {
             $this->setApvebuyrcode1($v->getAptbbuyrcode());
         }
@@ -13358,10 +12128,6 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
-        if ('ApContact' == $relationName) {
-            $this->initApContacts();
-            return;
-        }
         if ('ApInvoiceDetail' == $relationName) {
             $this->initApInvoiceDetails();
             return;
@@ -13394,234 +12160,6 @@ abstract class Vendor implements ActiveRecordInterface
             $this->initItemXrefVendors();
             return;
         }
-    }
-
-    /**
-     * Clears out the collApContacts collection
-     *
-     * This does not modify the database; however, it will remove any associated objects, causing
-     * them to be refetched by subsequent calls to accessor method.
-     *
-     * @return void
-     * @see        addApContacts()
-     */
-    public function clearApContacts()
-    {
-        $this->collApContacts = null; // important to set this to NULL since that means it is uninitialized
-    }
-
-    /**
-     * Reset is the collApContacts collection loaded partially.
-     */
-    public function resetPartialApContacts($v = true)
-    {
-        $this->collApContactsPartial = $v;
-    }
-
-    /**
-     * Initializes the collApContacts collection.
-     *
-     * By default this just sets the collApContacts collection to an empty array (like clearcollApContacts());
-     * however, you may wish to override this method in your stub class to provide setting appropriate
-     * to your application -- for example, setting the initial array to the values stored in database.
-     *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
-     *                                        the collection even if it is not empty
-     *
-     * @return void
-     */
-    public function initApContacts($overrideExisting = true)
-    {
-        if (null !== $this->collApContacts && !$overrideExisting) {
-            return;
-        }
-
-        $collectionClassName = ApContactTableMap::getTableMap()->getCollectionClassName();
-
-        $this->collApContacts = new $collectionClassName;
-        $this->collApContacts->setModel('\ApContact');
-    }
-
-    /**
-     * Gets an array of ChildApContact objects which contain a foreign key that references this object.
-     *
-     * If the $criteria is not null, it is used to always fetch the results from the database.
-     * Otherwise the results are fetched from the database the first time, then cached.
-     * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildVendor is new, it will return
-     * an empty collection or the current collection; the criteria is ignored on a new object.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildApContact[] List of ChildApContact objects
-     * @throws PropelException
-     */
-    public function getApContacts(Criteria $criteria = null, ConnectionInterface $con = null)
-    {
-        $partial = $this->collApContactsPartial && !$this->isNew();
-        if (null === $this->collApContacts || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collApContacts) {
-                // return empty collection
-                $this->initApContacts();
-            } else {
-                $collApContacts = ChildApContactQuery::create(null, $criteria)
-                    ->filterByVendor($this)
-                    ->find($con);
-
-                if (null !== $criteria) {
-                    if (false !== $this->collApContactsPartial && count($collApContacts)) {
-                        $this->initApContacts(false);
-
-                        foreach ($collApContacts as $obj) {
-                            if (false == $this->collApContacts->contains($obj)) {
-                                $this->collApContacts->append($obj);
-                            }
-                        }
-
-                        $this->collApContactsPartial = true;
-                    }
-
-                    return $collApContacts;
-                }
-
-                if ($partial && $this->collApContacts) {
-                    foreach ($this->collApContacts as $obj) {
-                        if ($obj->isNew()) {
-                            $collApContacts[] = $obj;
-                        }
-                    }
-                }
-
-                $this->collApContacts = $collApContacts;
-                $this->collApContactsPartial = false;
-            }
-        }
-
-        return $this->collApContacts;
-    }
-
-    /**
-     * Sets a collection of ChildApContact objects related by a one-to-many relationship
-     * to the current object.
-     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
-     * and new objects from the given Propel collection.
-     *
-     * @param      Collection $apContacts A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildVendor The current object (for fluent API support)
-     */
-    public function setApContacts(Collection $apContacts, ConnectionInterface $con = null)
-    {
-        /** @var ChildApContact[] $apContactsToDelete */
-        $apContactsToDelete = $this->getApContacts(new Criteria(), $con)->diff($apContacts);
-
-
-        //since at least one column in the foreign key is at the same time a PK
-        //we can not just set a PK to NULL in the lines below. We have to store
-        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->apContactsScheduledForDeletion = clone $apContactsToDelete;
-
-        foreach ($apContactsToDelete as $apContactRemoved) {
-            $apContactRemoved->setVendor(null);
-        }
-
-        $this->collApContacts = null;
-        foreach ($apContacts as $apContact) {
-            $this->addApContact($apContact);
-        }
-
-        $this->collApContacts = $apContacts;
-        $this->collApContactsPartial = false;
-
-        return $this;
-    }
-
-    /**
-     * Returns the number of related ApContact objects.
-     *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related ApContact objects.
-     * @throws PropelException
-     */
-    public function countApContacts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
-    {
-        $partial = $this->collApContactsPartial && !$this->isNew();
-        if (null === $this->collApContacts || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collApContacts) {
-                return 0;
-            }
-
-            if ($partial && !$criteria) {
-                return count($this->getApContacts());
-            }
-
-            $query = ChildApContactQuery::create(null, $criteria);
-            if ($distinct) {
-                $query->distinct();
-            }
-
-            return $query
-                ->filterByVendor($this)
-                ->count($con);
-        }
-
-        return count($this->collApContacts);
-    }
-
-    /**
-     * Method called to associate a ChildApContact object to this object
-     * through the ChildApContact foreign key attribute.
-     *
-     * @param  ChildApContact $l ChildApContact
-     * @return $this|\Vendor The current object (for fluent API support)
-     */
-    public function addApContact(ChildApContact $l)
-    {
-        if ($this->collApContacts === null) {
-            $this->initApContacts();
-            $this->collApContactsPartial = true;
-        }
-
-        if (!$this->collApContacts->contains($l)) {
-            $this->doAddApContact($l);
-
-            if ($this->apContactsScheduledForDeletion and $this->apContactsScheduledForDeletion->contains($l)) {
-                $this->apContactsScheduledForDeletion->remove($this->apContactsScheduledForDeletion->search($l));
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param ChildApContact $apContact The ChildApContact object to add.
-     */
-    protected function doAddApContact(ChildApContact $apContact)
-    {
-        $this->collApContacts[]= $apContact;
-        $apContact->setVendor($this);
-    }
-
-    /**
-     * @param  ChildApContact $apContact The ChildApContact object to remove.
-     * @return $this|ChildVendor The current object (for fluent API support)
-     */
-    public function removeApContact(ChildApContact $apContact)
-    {
-        if ($this->getApContacts()->contains($apContact)) {
-            $pos = $this->collApContacts->search($apContact);
-            $this->collApContacts->remove($pos);
-            if (null === $this->apContactsScheduledForDeletion) {
-                $this->apContactsScheduledForDeletion = clone $this->collApContacts;
-                $this->apContactsScheduledForDeletion->clear();
-            }
-            $this->apContactsScheduledForDeletion[]= clone $apContact;
-            $apContact->setVendor(null);
-        }
-
-        return $this;
     }
 
     /**
@@ -15708,7 +14246,6 @@ abstract class Vendor implements ActiveRecordInterface
         if (null !== $this->aApBuyer) {
             $this->aApBuyer->removeVendor($this);
         }
-        $this->vendrecnbr = null;
         $this->apvevendid = null;
         $this->apvename = null;
         $this->apveadr1 = null;
@@ -15880,7 +14417,6 @@ abstract class Vendor implements ActiveRecordInterface
         $this->apvepoytd = null;
         $this->apveinvcytd = null;
         $this->apveicntytd = null;
-        $this->apveuseach = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -15903,11 +14439,6 @@ abstract class Vendor implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
-            if ($this->collApContacts) {
-                foreach ($this->collApContacts as $o) {
-                    $o->clearAllReferences($deep);
-                }
-            }
             if ($this->collApInvoiceDetails) {
                 foreach ($this->collApInvoiceDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -15950,7 +14481,6 @@ abstract class Vendor implements ActiveRecordInterface
             }
         } // if ($deep)
 
-        $this->collApContacts = null;
         $this->collApInvoiceDetails = null;
         $this->collApInvoices = null;
         $this->collVendorShipfroms = null;

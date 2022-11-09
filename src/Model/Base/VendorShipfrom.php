@@ -5391,9 +5391,7 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     public function getVendor(ConnectionInterface $con = null)
     {
         if ($this->aVendor === null && (($this->apvevendid !== "" && $this->apvevendid !== null))) {
-            $this->aVendor = ChildVendorQuery::create()
-                ->filterByVendorShipfrom($this) // here
-                ->findOne($con);
+            $this->aVendor = ChildVendorQuery::create()->findPk($this->apvevendid, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
                 to this object.  This level of coupling may, however, be
@@ -5720,31 +5718,6 @@ abstract class VendorShipfrom implements ActiveRecordInterface
     {
         $query = ChildPurchaseOrderQuery::create(null, $criteria);
         $query->joinWith('Vendor', $joinBehavior);
-
-        return $this->getPurchaseOrders($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this VendorShipfrom is new, it will return
-     * an empty collection; or if this VendorShipfrom has previously
-     * been saved, it will retrieve related PurchaseOrders from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in VendorShipfrom.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildPurchaseOrder[] List of ChildPurchaseOrder objects
-     */
-    public function getPurchaseOrdersJoinShipvia(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildPurchaseOrderQuery::create(null, $criteria);
-        $query->joinWith('Shipvia', $joinBehavior);
 
         return $this->getPurchaseOrders($query, $con);
     }
