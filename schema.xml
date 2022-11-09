@@ -878,146 +878,139 @@
     </vendor>
   </table>
   <table name="ar_cust_mast" idMethod="native" phpName="Customer">
-    <column name="CustRecNbr" phpName="Rid" type="INTEGER" size="10" sqlType="int(10) unsigned" primaryKey="true" autoIncrement="true" required="true"/>
-    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuName" phpName="Arcuname" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ArcuAdr1" phpName="Arcuadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ArcuAdr2" phpName="Arcuadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ArcuAdr3" phpName="Arcuadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
-    <column name="ArcuCtry" phpName="Arcuctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuCity" phpName="Arcucity" type="VARCHAR" size="16" required="true" defaultValue=""/>
-    <column name="ArcuStat" phpName="Arcustat" type="CHAR" size="2" required="true" defaultValue=""/>
-    <column name="ArcuZipCode" phpName="Arcuzipcode" type="VARCHAR" size="10" required="true" defaultValue=""/>
-    <column name="ArcuDeliveryDays" phpName="Arcudeliverydays" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuRemitWhse" phpName="Arcuremitwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ArcuShipBin" phpName="Arcushipbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuAllowAddOns" phpName="Arcuallowaddons" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuLmEcommCustId" phpName="Arculmecommcustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuGsUse2ndBin" phpName="Arcugsuse2ndbin" type="CHAR" required="true" defaultValue=""/>
-    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuTaxExemNbr" phpName="Arcutaxexemnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
-    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
-    <column name="ArcuPricLvl" phpName="Arcupriclvl" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuShipComp" phpName="Arcushipcomp" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuTxbl" phpName="Arcutxbl" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuPostal" phpName="Arcupostal" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuBord" phpName="Arcubord" type="CHAR" required="true" defaultValue="I"/>
-    <column name="ArtbTypeCode" phpName="Artbtypecode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArtbPricCode" phpName="Artbpriccode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArtbCommCode" phpName="Artbcommcode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuCredLmt" phpName="Arcucredlmt" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
-    <column name="ArcuStmtCode" phpName="Arcustmtcode" type="CHAR" required="true" defaultValue="B"/>
-    <column name="ArcuCredHold" phpName="Arcucredhold" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuFinChrg" phpName="Arcufinchrg" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="ArcuUserCode" phpName="Arcuusercode" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuNewFc" phpName="Arcunewfc" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuUnpdFc" phpName="Arcuunpdfc" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuCurBal" phpName="Arcucurbal" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuBalOdue1" phpName="Arcubalodue1" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuBalOdue2" phpName="Arcubalodue2" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuBalOdue3" phpName="Arcubalodue3" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuSaleMtd" phpName="Arcusalemtd" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInvMtd" phpName="Arcuinvmtd" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSaleYtd" phpName="Arcusaleytd" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInvYtd" phpName="Arcuinvytd" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuDateOpen" phpName="Arcudateopen" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuLastSaleDate" phpName="Arculastsaledate" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuHighBal" phpName="Arcuhighbal" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuBigSaleMo" phpName="Arcubigsalemo" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuLastPayDate" phpName="Arculastpaydate" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuAvgPayDays" phpName="Arcuavgpaydays" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuUpsZone" phpName="Arcuupszone" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuHighBalDate" phpName="Arcuhighbaldate" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuSale24mo1" phpName="Arcusale24mo1" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo1" phpName="Arcuinv24mo1" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo2" phpName="Arcusale24mo2" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo2" phpName="Arcuinv24mo2" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo3" phpName="Arcusale24mo3" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo3" phpName="Arcuinv24mo3" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo4" phpName="Arcusale24mo4" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo4" phpName="Arcuinv24mo4" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo5" phpName="Arcusale24mo5" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo5" phpName="Arcuinv24mo5" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo6" phpName="Arcusale24mo6" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo6" phpName="Arcuinv24mo6" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo7" phpName="Arcusale24mo7" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo7" phpName="Arcuinv24mo7" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo8" phpName="Arcusale24mo8" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo8" phpName="Arcuinv24mo8" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo9" phpName="Arcusale24mo9" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo9" phpName="Arcuinv24mo9" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo10" phpName="Arcusale24mo10" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo10" phpName="Arcuinv24mo10" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo11" phpName="Arcusale24mo11" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo11" phpName="Arcuinv24mo11" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo12" phpName="Arcusale24mo12" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo12" phpName="Arcuinv24mo12" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo13" phpName="Arcusale24mo13" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo13" phpName="Arcuinv24mo13" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo14" phpName="Arcusale24mo14" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo14" phpName="Arcuinv24mo14" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo15" phpName="Arcusale24mo15" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo15" phpName="Arcuinv24mo15" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo16" phpName="Arcusale24mo16" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo16" phpName="Arcuinv24mo16" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo17" phpName="Arcusale24mo17" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo17" phpName="Arcuinv24mo17" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo18" phpName="Arcusale24mo18" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo18" phpName="Arcuinv24mo18" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo19" phpName="Arcusale24mo19" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo19" phpName="Arcuinv24mo19" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo20" phpName="Arcusale24mo20" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo20" phpName="Arcuinv24mo20" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo21" phpName="Arcusale24mo21" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo21" phpName="Arcuinv24mo21" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo22" phpName="Arcusale24mo22" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo22" phpName="Arcuinv24mo22" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo23" phpName="Arcusale24mo23" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo23" phpName="Arcuinv24mo23" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuSale24mo24" phpName="Arcusale24mo24" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
-    <column name="ArcuInv24mo24" phpName="Arcuinv24mo24" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuLastPayAmt" phpName="Arculastpayamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ArcuOrdrTot" phpName="Arcuordrtot" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ArcuUseFrtIn" phpName="Arcuusefrtin" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuMyVendId" phpName="Arcumyvendid" type="VARCHAR" size="12" required="true" defaultValue=""/>
-    <column name="ArcuAddlPricDisc" phpName="Arcuaddlpricdisc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ArcuActiveInactive" phpName="Arcuactiveinactive" type="CHAR" required="true" defaultValue="A"/>
-    <column name="ArcuInactiveDate" phpName="Arcuinactivedate" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="ArcuChrgFrt" phpName="Arcuchrgfrt" type="CHAR" required="true" defaultValue="A"/>
-    <column name="ArcuCoreXDays" phpName="Arcucorexdays" type="INTEGER" size="6" sqlType="int(6) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuContractNbr" phpName="Arcucontractnbr" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuCoreLF" phpName="Arcucorelf" type="CHAR" required="true" defaultValue=""/>
-    <column name="ArcuCoreBankId" phpName="Arcucorebankid" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuDunsNbr" phpName="Arcudunsnbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
-    <column name="ArcuRfmlValu" phpName="Arcurfmlvalu" type="INTEGER" size="3" sqlType="int(3) unsigned" required="true" defaultValue="0"/>
-    <column name="ArcuCustPoParam" phpName="Arcucustpoparam" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArcuAgeLevel" phpName="Arcuagelevel" type="INTEGER" size="1" sqlType="int(1) unsigned" required="true" defaultValue="0"/>
-    <column name="ArtbRoute" phpName="Artbroute" type="VARCHAR" size="4" required="true" defaultValue=""/>
-    <column name="ArcuWgTaxCode" phpName="Arcuwgtaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuAcptSupercede" phpName="Arcuacptsupercede" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="ArcuMstrCustId" phpName="Arcumstrcustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
-    <column name="ArcuSurchgPct" phpName="Arcusurchgpct" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
-    <column name="ArcuAllowSplit" phpName="Arcuallowsplit" type="CHAR" required="true" defaultValue="Y"/>
-    <column name="ArcuLineMin" phpName="Arculinemin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ArcuOrdrMin" phpName="Arcuordrmin" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
-    <column name="ArcuUpsAcctNbr" phpName="Arcuupsacctnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
-    <column name="ArcuPrtMatCert" phpName="Arcuprtmatcert" type="CHAR" required="true" defaultValue=""/>
-    <column name="ArcuFobInputYn" phpName="Arcufobinputyn" type="CHAR" required="true" defaultValue=""/>
-    <column name="ArcuFobPerLb" phpName="Arcufobperlb" type="DECIMAL" size="20" scale="3" required="true" defaultValue="0.000"/>
-    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
-    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
-    <index name="ArcuName">
-      <index-column name="ArcuName"/>
-    </index>
-    <unique name="ArcuCustId">
-      <unique-column name="ArcuCustId"/>
-    </unique>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArcuName" phpName="Arcuname" type="VARCHAR" size="30"/>
+    <column name="ArcuAdr1" phpName="Arcuadr1" type="VARCHAR" size="30"/>
+    <column name="ArcuAdr2" phpName="Arcuadr2" type="VARCHAR" size="30"/>
+    <column name="ArcuAdr3" phpName="Arcuadr3" type="VARCHAR" size="30"/>
+    <column name="ArcuCtry" phpName="Arcuctry" type="VARCHAR" size="4"/>
+    <column name="ArcuCity" phpName="Arcucity" type="VARCHAR" size="16"/>
+    <column name="ArcuStat" phpName="Arcustat" type="VARCHAR" size="2"/>
+    <column name="ArcuZipCode" phpName="Arcuzipcode" type="VARCHAR" size="10"/>
+    <column name="ArcuDeliveryDays" phpName="Arcudeliverydays" type="INTEGER" size="4"/>
+    <column name="ArcuRemitWhse" phpName="Arcuremitwhse" type="VARCHAR" size="2"/>
+    <column name="ArcuShipBin" phpName="Arcushipbin" type="VARCHAR" size="8"/>
+    <column name="ArcuAllowAddOns" phpName="Arcuallowaddons" type="VARCHAR" size="1"/>
+    <column name="ArcuLmEcommCustId" phpName="Arculmecommcustid" type="VARCHAR" size="6"/>
+    <column name="ArcuGsUse2ndBin" phpName="Arcugsuse2ndbin" type="VARCHAR" size="1"/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
+    <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
+    <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
+    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArcuTaxExemNbr" phpName="Arcutaxexemnbr" type="VARCHAR" size="20"/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
+    <column name="ArcuPricLvl" phpName="Arcupriclvl" type="VARCHAR" size="1"/>
+    <column name="ArcuShipComp" phpName="Arcushipcomp" type="VARCHAR" size="1"/>
+    <column name="ArcuTxbl" phpName="Arcutxbl" type="VARCHAR" size="1"/>
+    <column name="ArcuPostal" phpName="Arcupostal" type="VARCHAR" size="1"/>
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
+    <column name="ArcuBord" phpName="Arcubord" type="VARCHAR" size="1"/>
+    <column name="ArtbTypeCode" phpName="Artbtypecode" type="VARCHAR" size="4"/>
+    <column name="ArtbPricCode" phpName="Artbpriccode" type="VARCHAR" size="4"/>
+    <column name="ArtbCommCode" phpName="Artbcommcode" type="VARCHAR" size="4"/>
+    <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
+    <column name="ArcuCredLmt" phpName="Arcucredlmt" type="DECIMAL" size="20" scale="3"/>
+    <column name="ArcuStmtCode" phpName="Arcustmtcode" type="VARCHAR" size="1"/>
+    <column name="ArcuCredHold" phpName="Arcucredhold" type="VARCHAR" size="1"/>
+    <column name="ArcuFinChrg" phpName="Arcufinchrg" type="VARCHAR" size="1"/>
+    <column name="ArcuUserCode" phpName="Arcuusercode" type="VARCHAR" size="4"/>
+    <column name="ArcuNewFc" phpName="Arcunewfc" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuUnpdFc" phpName="Arcuunpdfc" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuCurBal" phpName="Arcucurbal" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuBalOdue1" phpName="Arcubalodue1" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuBalOdue2" phpName="Arcubalodue2" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuBalOdue3" phpName="Arcubalodue3" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuSaleMtd" phpName="Arcusalemtd" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInvMtd" phpName="Arcuinvmtd" type="INTEGER" size="4"/>
+    <column name="ArcuSaleYtd" phpName="Arcusaleytd" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInvYtd" phpName="Arcuinvytd" type="INTEGER" size="4"/>
+    <column name="ArcuDateOpen" phpName="Arcudateopen" type="VARCHAR" size="8"/>
+    <column name="ArcuLastSaleDate" phpName="Arculastsaledate" type="VARCHAR" size="8"/>
+    <column name="ArcuHighBal" phpName="Arcuhighbal" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuBigSaleMo" phpName="Arcubigsalemo" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuLastPayDate" phpName="Arculastpaydate" type="VARCHAR" size="8"/>
+    <column name="ArcuAvgPayDays" phpName="Arcuavgpaydays" type="INTEGER" size="4"/>
+    <column name="ArcuUpsZone" phpName="Arcuupszone" type="VARCHAR" size="4"/>
+    <column name="ArcuHighBalDate" phpName="Arcuhighbaldate" type="VARCHAR" size="8"/>
+    <column name="ArcuSale24mo1" phpName="Arcusale24mo1" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo1" phpName="Arcuinv24mo1" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo2" phpName="Arcusale24mo2" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo2" phpName="Arcuinv24mo2" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo3" phpName="Arcusale24mo3" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo3" phpName="Arcuinv24mo3" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo4" phpName="Arcusale24mo4" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo4" phpName="Arcuinv24mo4" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo5" phpName="Arcusale24mo5" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo5" phpName="Arcuinv24mo5" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo6" phpName="Arcusale24mo6" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo6" phpName="Arcuinv24mo6" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo7" phpName="Arcusale24mo7" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo7" phpName="Arcuinv24mo7" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo8" phpName="Arcusale24mo8" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo8" phpName="Arcuinv24mo8" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo9" phpName="Arcusale24mo9" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo9" phpName="Arcuinv24mo9" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo10" phpName="Arcusale24mo10" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo10" phpName="Arcuinv24mo10" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo11" phpName="Arcusale24mo11" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo11" phpName="Arcuinv24mo11" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo12" phpName="Arcusale24mo12" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo12" phpName="Arcuinv24mo12" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo13" phpName="Arcusale24mo13" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo13" phpName="Arcuinv24mo13" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo14" phpName="Arcusale24mo14" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo14" phpName="Arcuinv24mo14" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo15" phpName="Arcusale24mo15" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo15" phpName="Arcuinv24mo15" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo16" phpName="Arcusale24mo16" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo16" phpName="Arcuinv24mo16" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo17" phpName="Arcusale24mo17" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo17" phpName="Arcuinv24mo17" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo18" phpName="Arcusale24mo18" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo18" phpName="Arcuinv24mo18" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo19" phpName="Arcusale24mo19" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo19" phpName="Arcuinv24mo19" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo20" phpName="Arcusale24mo20" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo20" phpName="Arcuinv24mo20" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo21" phpName="Arcusale24mo21" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo21" phpName="Arcuinv24mo21" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo22" phpName="Arcusale24mo22" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo22" phpName="Arcuinv24mo22" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo23" phpName="Arcusale24mo23" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo23" phpName="Arcuinv24mo23" type="INTEGER" size="4"/>
+    <column name="ArcuSale24mo24" phpName="Arcusale24mo24" type="DECIMAL" size="20" scale="5"/>
+    <column name="ArcuInv24mo24" phpName="Arcuinv24mo24" type="INTEGER" size="4"/>
+    <column name="ArcuLastPayAmt" phpName="Arculastpayamt" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcuOrdrTot" phpName="Arcuordrtot" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcuUseFrtIn" phpName="Arcuusefrtin" type="VARCHAR" size="1"/>
+    <column name="ArcuMyVendId" phpName="Arcumyvendid" type="VARCHAR" size="12"/>
+    <column name="ArcuAddlPricDisc" phpName="Arcuaddlpricdisc" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcuActiveInactive" phpName="Arcuactiveinactive" type="VARCHAR" size="1"/>
+    <column name="ArcuInactiveDate" phpName="Arcuinactivedate" type="VARCHAR" size="8"/>
+    <column name="ArcuChrgFrt" phpName="Arcuchrgfrt" type="VARCHAR" size="1"/>
+    <column name="ArcuCoreXDays" phpName="Arcucorexdays" type="INTEGER" size="6"/>
+    <column name="ArcuContractNbr" phpName="Arcucontractnbr" type="VARCHAR" size="6"/>
+    <column name="ArcuCoreLF" phpName="Arcucorelf" type="VARCHAR" size="1"/>
+    <column name="ArcuCoreBankId" phpName="Arcucorebankid" type="VARCHAR" size="6"/>
+    <column name="ArcuDunsNbr" phpName="Arcudunsnbr" type="VARCHAR" size="20"/>
+    <column name="ArcuRfmlValu" phpName="Arcurfmlvalu" type="INTEGER" size="3"/>
+    <column name="ArcuCustPoParam" phpName="Arcucustpoparam" type="VARCHAR" size="1"/>
+    <column name="ArcuAgeLevel" phpName="Arcuagelevel" type="INTEGER" size="1"/>
+    <column name="ArtbRoute" phpName="Artbroute" type="VARCHAR" size="4"/>
+    <column name="ArcuWgTaxCode" phpName="Arcuwgtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArcuAcptSupercede" phpName="Arcuacptsupercede" type="VARCHAR" size="1"/>
+    <column name="ArcuMstrCustId" phpName="Arcumstrcustid" type="VARCHAR" size="6"/>
+    <column name="ArcuSurchgPct" phpName="Arcusurchgpct" type="DECIMAL" size="20" scale="3"/>
+    <column name="ArcuAllowSplit" phpName="Arcuallowsplit" type="VARCHAR" size="1"/>
+    <column name="ArcuLineMin" phpName="Arculinemin" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcuOrdrMin" phpName="Arcuordrmin" type="DECIMAL" size="20" scale="2"/>
+    <column name="ArcuUpsAcctNbr" phpName="Arcuupsacctnbr" type="VARCHAR" size="10"/>
+    <column name="ArcuPrtMatCert" phpName="Arcuprtmatcert" type="VARCHAR" size="1"/>
+    <column name="ArcuFobInputYn" phpName="Arcufobinputyn" type="VARCHAR" size="1"/>
+    <column name="ArcuFobPerLb" phpName="Arcufobperlb" type="DECIMAL" size="20" scale="3"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <foreign-key foreignTable="ar_cust_comm" name="commission" skipSql="true">
       <reference local="ArtbCommCode" foreign="ArtbCommCode"/>
     </foreign-key>
