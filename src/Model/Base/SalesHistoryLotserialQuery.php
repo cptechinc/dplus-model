@@ -43,6 +43,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryLotserialQuery orderByOeshlblprtd($order = Criteria::ASC) Order by the OeshLblPrtd column
  * @method     ChildSalesHistoryLotserialQuery orderByOeshorigbin($order = Criteria::ASC) Order by the OeshOrigBin column
  * @method     ChildSalesHistoryLotserialQuery orderByOeshactvdate($order = Criteria::ASC) Order by the OeshActvDate column
+ * @method     ChildSalesHistoryLotserialQuery orderByOeshplltid($order = Criteria::ASC) Order by the OeshPlltID column
  * @method     ChildSalesHistoryLotserialQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildSalesHistoryLotserialQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildSalesHistoryLotserialQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -70,6 +71,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryLotserialQuery groupByOeshlblprtd() Group by the OeshLblPrtd column
  * @method     ChildSalesHistoryLotserialQuery groupByOeshorigbin() Group by the OeshOrigBin column
  * @method     ChildSalesHistoryLotserialQuery groupByOeshactvdate() Group by the OeshActvDate column
+ * @method     ChildSalesHistoryLotserialQuery groupByOeshplltid() Group by the OeshPlltID column
  * @method     ChildSalesHistoryLotserialQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildSalesHistoryLotserialQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildSalesHistoryLotserialQuery groupByDummy() Group by the dummy column
@@ -140,6 +142,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryLotserial findOneByOeshlblprtd(string $OeshLblPrtd) Return the first ChildSalesHistoryLotserial filtered by the OeshLblPrtd column
  * @method     ChildSalesHistoryLotserial findOneByOeshorigbin(string $OeshOrigBin) Return the first ChildSalesHistoryLotserial filtered by the OeshOrigBin column
  * @method     ChildSalesHistoryLotserial findOneByOeshactvdate(string $OeshActvDate) Return the first ChildSalesHistoryLotserial filtered by the OeshActvDate column
+ * @method     ChildSalesHistoryLotserial findOneByOeshplltid(string $OeshPlltID) Return the first ChildSalesHistoryLotserial filtered by the OeshPlltID column
  * @method     ChildSalesHistoryLotserial findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryLotserial filtered by the DateUpdtd column
  * @method     ChildSalesHistoryLotserial findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryLotserial filtered by the TimeUpdtd column
  * @method     ChildSalesHistoryLotserial findOneByDummy(string $dummy) Return the first ChildSalesHistoryLotserial filtered by the dummy column *
@@ -170,6 +173,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryLotserial requireOneByOeshlblprtd(string $OeshLblPrtd) Return the first ChildSalesHistoryLotserial filtered by the OeshLblPrtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryLotserial requireOneByOeshorigbin(string $OeshOrigBin) Return the first ChildSalesHistoryLotserial filtered by the OeshOrigBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryLotserial requireOneByOeshactvdate(string $OeshActvDate) Return the first ChildSalesHistoryLotserial filtered by the OeshActvDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryLotserial requireOneByOeshplltid(string $OeshPlltID) Return the first ChildSalesHistoryLotserial filtered by the OeshPlltID column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryLotserial requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryLotserial filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryLotserial requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryLotserial filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryLotserial requireOneByDummy(string $dummy) Return the first ChildSalesHistoryLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -198,6 +202,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByOeshlblprtd(string $OeshLblPrtd) Return ChildSalesHistoryLotserial objects filtered by the OeshLblPrtd column
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByOeshorigbin(string $OeshOrigBin) Return ChildSalesHistoryLotserial objects filtered by the OeshOrigBin column
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByOeshactvdate(string $OeshActvDate) Return ChildSalesHistoryLotserial objects filtered by the OeshActvDate column
+ * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByOeshplltid(string $OeshPlltID) Return ChildSalesHistoryLotserial objects filtered by the OeshPlltID column
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesHistoryLotserial objects filtered by the DateUpdtd column
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesHistoryLotserial objects filtered by the TimeUpdtd column
  * @method     ChildSalesHistoryLotserial[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesHistoryLotserial objects filtered by the dummy column
@@ -299,7 +304,7 @@ abstract class SalesHistoryLotserialQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehhNbr, OedhLine, InitItemNbr, OeshTag, OeshLotSer, OeshBin, OeshPlltNbr, OeshCrtnNbr, OeshYear, OeshQtyShip, OeshCntrQty, OeshSpecOrdr, OeshLotRef, OeshBatch, OeshCureDate, OeshAcStatus, OeshTestLot, OeshPlltType, OeshTareWght, OeshUseUp, OeshLblPrtd, OeshOrigBin, OeshActvDate, DateUpdtd, TimeUpdtd, dummy FROM so_lot_ser_hist WHERE OehhNbr = :p0 AND OedhLine = :p1 AND InitItemNbr = :p2 AND OeshTag = :p3 AND OeshLotSer = :p4 AND OeshBin = :p5 AND OeshPlltNbr = :p6 AND OeshCrtnNbr = :p7';
+        $sql = 'SELECT OehhNbr, OedhLine, InitItemNbr, OeshTag, OeshLotSer, OeshBin, OeshPlltNbr, OeshCrtnNbr, OeshYear, OeshQtyShip, OeshCntrQty, OeshSpecOrdr, OeshLotRef, OeshBatch, OeshCureDate, OeshAcStatus, OeshTestLot, OeshPlltType, OeshTareWght, OeshUseUp, OeshLblPrtd, OeshOrigBin, OeshActvDate, OeshPlltID, DateUpdtd, TimeUpdtd, dummy FROM so_lot_ser_hist WHERE OehhNbr = :p0 AND OedhLine = :p1 AND InitItemNbr = :p2 AND OeshTag = :p3 AND OeshLotSer = :p4 AND OeshBin = :p5 AND OeshPlltNbr = :p6 AND OeshCrtnNbr = :p7';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
@@ -1116,6 +1121,31 @@ abstract class SalesHistoryLotserialQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SalesHistoryLotserialTableMap::COL_OESHACTVDATE, $oeshactvdate, $comparison);
+    }
+
+    /**
+     * Filter the query on the OeshPlltID column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOeshplltid('fooValue');   // WHERE OeshPlltID = 'fooValue'
+     * $query->filterByOeshplltid('%fooValue%', Criteria::LIKE); // WHERE OeshPlltID LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oeshplltid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSalesHistoryLotserialQuery The current query, for fluid interface
+     */
+    public function filterByOeshplltid($oeshplltid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oeshplltid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SalesHistoryLotserialTableMap::COL_OESHPLLTID, $oeshplltid, $comparison);
     }
 
     /**

@@ -26,6 +26,7 @@ class SalesOrderLotserial extends BaseSalesOrderLotserial {
 		'lotserial'    => 'oesdlotser',
 		'lotreference' => 'oesdlotref',
 		'qty'          => 'oesdqtyship',
+		'palletid'     => 'oesdplltid',
 		// ALIASES for Foreign Keys
 		'item'         => 'itemMasterItem',
 		'order'        => 'salesOrder',

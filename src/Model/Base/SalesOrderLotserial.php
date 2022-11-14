@@ -242,6 +242,14 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     protected $oesdactvdate;
 
     /**
+     * The value for the oesdplltid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oesdplltid;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -318,6 +326,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $this->oesdlblprtd = '';
         $this->oesdorigbin = '';
         $this->oesdactvdate = '';
+        $this->oesdplltid = '';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -768,6 +777,16 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     public function getOesdactvdate()
     {
         return $this->oesdactvdate;
+    }
+
+    /**
+     * Get the [oesdplltid] column value.
+     *
+     * @return string
+     */
+    public function getOesdplltid()
+    {
+        return $this->oesdplltid;
     }
 
     /**
@@ -1257,6 +1276,26 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     } // setOesdactvdate()
 
     /**
+     * Set the value of [oesdplltid] column.
+     *
+     * @param string $v new value
+     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     */
+    public function setOesdplltid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oesdplltid !== $v) {
+            $this->oesdplltid = $v;
+            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDPLLTID] = true;
+        }
+
+        return $this;
+    } // setOesdplltid()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1414,6 +1453,10 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->oesdplltid !== '') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -1518,13 +1561,16 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdactvdate', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oesdactvdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdplltid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oesdplltid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1534,7 +1580,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 25; // 25 = SalesOrderLotserialTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 26; // 26 = SalesOrderLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SalesOrderLotserial'), 0, $e);
@@ -1838,6 +1884,9 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACTVDATE)) {
             $modifiedColumns[':p' . $index++]  = 'OesdActvDate';
         }
+        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTID)) {
+            $modifiedColumns[':p' . $index++]  = 'OesdPlltID';
+        }
         if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1923,6 +1972,9 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                         break;
                     case 'OesdActvDate':
                         $stmt->bindValue($identifier, $this->oesdactvdate, PDO::PARAM_STR);
+                        break;
+                    case 'OesdPlltID':
+                        $stmt->bindValue($identifier, $this->oesdplltid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2055,12 +2107,15 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 return $this->getOesdactvdate();
                 break;
             case 22:
-                return $this->getDateupdtd();
+                return $this->getOesdplltid();
                 break;
             case 23:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 24:
+                return $this->getTimeupdtd();
+                break;
+            case 25:
                 return $this->getDummy();
                 break;
             default:
@@ -2115,9 +2170,10 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
             $keys[19] => $this->getOesdlblprtd(),
             $keys[20] => $this->getOesdorigbin(),
             $keys[21] => $this->getOesdactvdate(),
-            $keys[22] => $this->getDateupdtd(),
-            $keys[23] => $this->getTimeupdtd(),
-            $keys[24] => $this->getDummy(),
+            $keys[22] => $this->getOesdplltid(),
+            $keys[23] => $this->getDateupdtd(),
+            $keys[24] => $this->getTimeupdtd(),
+            $keys[25] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2271,12 +2327,15 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 $this->setOesdactvdate($value);
                 break;
             case 22:
-                $this->setDateupdtd($value);
+                $this->setOesdplltid($value);
                 break;
             case 23:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 24:
+                $this->setTimeupdtd($value);
+                break;
+            case 25:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2372,13 +2431,16 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
             $this->setOesdactvdate($arr[$keys[21]]);
         }
         if (array_key_exists($keys[22], $arr)) {
-            $this->setDateupdtd($arr[$keys[22]]);
+            $this->setOesdplltid($arr[$keys[22]]);
         }
         if (array_key_exists($keys[23], $arr)) {
-            $this->setTimeupdtd($arr[$keys[23]]);
+            $this->setDateupdtd($arr[$keys[23]]);
         }
         if (array_key_exists($keys[24], $arr)) {
-            $this->setDummy($arr[$keys[24]]);
+            $this->setTimeupdtd($arr[$keys[24]]);
+        }
+        if (array_key_exists($keys[25], $arr)) {
+            $this->setDummy($arr[$keys[25]]);
         }
     }
 
@@ -2486,6 +2548,9 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACTVDATE)) {
             $criteria->add(SalesOrderLotserialTableMap::COL_OESDACTVDATE, $this->oesdactvdate);
+        }
+        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTID)) {
+            $criteria->add(SalesOrderLotserialTableMap::COL_OESDPLLTID, $this->oesdplltid);
         }
         if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DATEUPDTD)) {
             $criteria->add(SalesOrderLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2657,6 +2722,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $copyObj->setOesdlblprtd($this->getOesdlblprtd());
         $copyObj->setOesdorigbin($this->getOesdorigbin());
         $copyObj->setOesdactvdate($this->getOesdactvdate());
+        $copyObj->setOesdplltid($this->getOesdplltid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2884,6 +2950,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $this->oesdlblprtd = null;
         $this->oesdorigbin = null;
         $this->oesdactvdate = null;
+        $this->oesdplltid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

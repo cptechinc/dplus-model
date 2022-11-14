@@ -5044,6 +5044,7 @@
     <column name="OesdLblPrtd" phpName="Oesdlblprtd" type="CHAR" required="true" defaultValue=""/>
     <column name="OesdOrigBin" phpName="Oesdorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="OesdActvDate" phpName="Oesdactvdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="OesdPlltID" phpName="Oesdplltid" type="VARCHAR" size="15" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
@@ -5085,6 +5086,7 @@
     <column name="OeshLblPrtd" phpName="Oeshlblprtd" type="CHAR" required="true" defaultValue=""/>
     <column name="OeshOrigBin" phpName="Oeshorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
     <column name="OeshActvDate" phpName="Oeshactvdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="OeshPlltID" phpName="Oeshplltid" type="VARCHAR" size="15" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
@@ -5142,6 +5144,8 @@
     <column name="OeidCureDate" phpName="Oeidcuredate" type="VARCHAR" size="10" required="true" defaultValue=""/>
     <column name="OeidPlltType" phpName="Oeidpllttype" type="CHAR" required="true" defaultValue=""/>
     <column name="OeidLblPrtd" phpName="Oeidlblprtd" type="CHAR" required="true" defaultValue=""/>
+    <column name="OeidOrigBin" phpName="Oeidorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OeidPlltID" phpName="Oeidplltid" type="VARCHAR" size="15" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
@@ -5225,6 +5229,7 @@
     <column name="OepdPlltType" phpName="Oepdpllttype" type="CHAR" required="true" defaultValue=""/>
     <column name="OepdLblPrtd" phpName="Oepdlblprtd" type="CHAR" required="true" defaultValue=""/>
     <column name="OepdOrigBin" phpName="Oepdorigbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OepdPlltID" phpName="Oepdplltid" type="VARCHAR" size="15" required="true" defaultValue=""/>
     <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>

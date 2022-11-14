@@ -180,6 +180,22 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     protected $oeidlblprtd;
 
     /**
+     * The value for the oeidorigbin field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oeidorigbin;
+
+    /**
+     * The value for the oeidplltid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oeidplltid;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -253,6 +269,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         $this->oeidcuredate = '';
         $this->oeidpllttype = '';
         $this->oeidlblprtd = '';
+        $this->oeidorigbin = '';
+        $this->oeidplltid = '';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -626,6 +644,26 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oeidorigbin] column value.
+     *
+     * @return string
+     */
+    public function getOeidorigbin()
+    {
+        return $this->oeidorigbin;
+    }
+
+    /**
+     * Get the [oeidplltid] column value.
+     *
+     * @return string
+     */
+    public function getOeidplltid()
+    {
+        return $this->oeidplltid;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -960,6 +998,46 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
     } // setOeidlblprtd()
 
     /**
+     * Set the value of [oeidorigbin] column.
+     *
+     * @param string $v new value
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     */
+    public function setOeidorigbin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oeidorigbin !== $v) {
+            $this->oeidorigbin = $v;
+            $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEIDORIGBIN] = true;
+        }
+
+        return $this;
+    } // setOeidorigbin()
+
+    /**
+     * Set the value of [oeidplltid] column.
+     *
+     * @param string $v new value
+     * @return $this|\SoAllocatedLotserial The current object (for fluent API support)
+     */
+    public function setOeidplltid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oeidplltid !== $v) {
+            $this->oeidplltid = $v;
+            $this->modifiedColumns[SoAllocatedLotserialTableMap::COL_OEIDPLLTID] = true;
+        }
+
+        return $this;
+    } // setOeidplltid()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1085,6 +1163,14 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->oeidorigbin !== '') {
+                return false;
+            }
+
+            if ($this->oeidplltid !== '') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -1165,13 +1251,19 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Oeidlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oeidlblprtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Oeidorigbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oeidorigbin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Oeidplltid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oeidplltid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SoAllocatedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1181,7 +1273,7 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 17; // 17 = SoAllocatedLotserialTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = SoAllocatedLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SoAllocatedLotserial'), 0, $e);
@@ -1475,6 +1567,12 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD)) {
             $modifiedColumns[':p' . $index++]  = 'OeidLblPrtd';
         }
+        if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'OeidOrigBin';
+        }
+        if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDPLLTID)) {
+            $modifiedColumns[':p' . $index++]  = 'OeidPlltID';
+        }
         if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1536,6 +1634,12 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                         break;
                     case 'OeidLblPrtd':
                         $stmt->bindValue($identifier, $this->oeidlblprtd, PDO::PARAM_STR);
+                        break;
+                    case 'OeidOrigBin':
+                        $stmt->bindValue($identifier, $this->oeidorigbin, PDO::PARAM_STR);
+                        break;
+                    case 'OeidPlltID':
+                        $stmt->bindValue($identifier, $this->oeidplltid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1644,12 +1748,18 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                 return $this->getOeidlblprtd();
                 break;
             case 14:
-                return $this->getDateupdtd();
+                return $this->getOeidorigbin();
                 break;
             case 15:
-                return $this->getTimeupdtd();
+                return $this->getOeidplltid();
                 break;
             case 16:
+                return $this->getDateupdtd();
+                break;
+            case 17:
+                return $this->getTimeupdtd();
+                break;
+            case 18:
                 return $this->getDummy();
                 break;
             default:
@@ -1696,9 +1806,11 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $keys[11] => $this->getOeidcuredate(),
             $keys[12] => $this->getOeidpllttype(),
             $keys[13] => $this->getOeidlblprtd(),
-            $keys[14] => $this->getDateupdtd(),
-            $keys[15] => $this->getTimeupdtd(),
-            $keys[16] => $this->getDummy(),
+            $keys[14] => $this->getOeidorigbin(),
+            $keys[15] => $this->getOeidplltid(),
+            $keys[16] => $this->getDateupdtd(),
+            $keys[17] => $this->getTimeupdtd(),
+            $keys[18] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1843,12 +1955,18 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
                 $this->setOeidlblprtd($value);
                 break;
             case 14:
-                $this->setDateupdtd($value);
+                $this->setOeidorigbin($value);
                 break;
             case 15:
-                $this->setTimeupdtd($value);
+                $this->setOeidplltid($value);
                 break;
             case 16:
+                $this->setDateupdtd($value);
+                break;
+            case 17:
+                $this->setTimeupdtd($value);
+                break;
+            case 18:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1920,13 +2038,19 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
             $this->setOeidlblprtd($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setDateupdtd($arr[$keys[14]]);
+            $this->setOeidorigbin($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setTimeupdtd($arr[$keys[15]]);
+            $this->setOeidplltid($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setDummy($arr[$keys[16]]);
+            $this->setDateupdtd($arr[$keys[16]]);
+        }
+        if (array_key_exists($keys[17], $arr)) {
+            $this->setTimeupdtd($arr[$keys[17]]);
+        }
+        if (array_key_exists($keys[18], $arr)) {
+            $this->setDummy($arr[$keys[18]]);
         }
     }
 
@@ -2010,6 +2134,12 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD)) {
             $criteria->add(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, $this->oeidlblprtd);
+        }
+        if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN)) {
+            $criteria->add(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, $this->oeidorigbin);
+        }
+        if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_OEIDPLLTID)) {
+            $criteria->add(SoAllocatedLotserialTableMap::COL_OEIDPLLTID, $this->oeidplltid);
         }
         if ($this->isColumnModified(SoAllocatedLotserialTableMap::COL_DATEUPDTD)) {
             $criteria->add(SoAllocatedLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2176,6 +2306,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         $copyObj->setOeidcuredate($this->getOeidcuredate());
         $copyObj->setOeidpllttype($this->getOeidpllttype());
         $copyObj->setOeidlblprtd($this->getOeidlblprtd());
+        $copyObj->setOeidorigbin($this->getOeidorigbin());
+        $copyObj->setOeidplltid($this->getOeidplltid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2455,6 +2587,8 @@ abstract class SoAllocatedLotserial implements ActiveRecordInterface
         $this->oeidcuredate = null;
         $this->oeidpllttype = null;
         $this->oeidlblprtd = null;
+        $this->oeidorigbin = null;
+        $this->oeidplltid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

@@ -59,7 +59,7 @@ class SoPickedLotserialTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 18;
+    const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class SoPickedLotserialTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 18;
+    const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the OehdNbr field
@@ -147,6 +147,11 @@ class SoPickedLotserialTableMap extends TableMap
     const COL_OEPDORIGBIN = 'so_pulled.OepdOrigBin';
 
     /**
+     * the column name for the OepdPlltID field
+     */
+    const COL_OEPDPLLTID = 'so_pulled.OepdPlltID';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'so_pulled.DateUpdtd';
@@ -173,11 +178,11 @@ class SoPickedLotserialTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oepdlotser', 'Oepdbin', 'Oepdplltnbr', 'Oepdcrtnnbr', 'Oepdqtyship', 'Oepdlotref', 'Oepdcntrqty', 'Oepdbatch', 'Oepdcuredate', 'Oepdpllttype', 'Oepdlblprtd', 'Oepdorigbin', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oepdlotser', 'oepdbin', 'oepdplltnbr', 'oepdcrtnnbr', 'oepdqtyship', 'oepdlotref', 'oepdcntrqty', 'oepdbatch', 'oepdcuredate', 'oepdpllttype', 'oepdlblprtd', 'oepdorigbin', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoPickedLotserialTableMap::COL_OEHDNBR, SoPickedLotserialTableMap::COL_OEDTLINE, SoPickedLotserialTableMap::COL_INITITEMNBR, SoPickedLotserialTableMap::COL_OEPDLOTSER, SoPickedLotserialTableMap::COL_OEPDBIN, SoPickedLotserialTableMap::COL_OEPDPLLTNBR, SoPickedLotserialTableMap::COL_OEPDCRTNNBR, SoPickedLotserialTableMap::COL_OEPDQTYSHIP, SoPickedLotserialTableMap::COL_OEPDLOTREF, SoPickedLotserialTableMap::COL_OEPDCNTRQTY, SoPickedLotserialTableMap::COL_OEPDBATCH, SoPickedLotserialTableMap::COL_OEPDCUREDATE, SoPickedLotserialTableMap::COL_OEPDPLLTTYPE, SoPickedLotserialTableMap::COL_OEPDLBLPRTD, SoPickedLotserialTableMap::COL_OEPDORIGBIN, SoPickedLotserialTableMap::COL_DATEUPDTD, SoPickedLotserialTableMap::COL_TIMEUPDTD, SoPickedLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OepdLotSer', 'OepdBin', 'OepdPlltNbr', 'OepdCrtnNbr', 'OepdQtyShip', 'OepdLotRef', 'OepdCntrQty', 'OepdBatch', 'OepdCureDate', 'OepdPlltType', 'OepdLblPrtd', 'OepdOrigBin', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
+        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oepdlotser', 'Oepdbin', 'Oepdplltnbr', 'Oepdcrtnnbr', 'Oepdqtyship', 'Oepdlotref', 'Oepdcntrqty', 'Oepdbatch', 'Oepdcuredate', 'Oepdpllttype', 'Oepdlblprtd', 'Oepdorigbin', 'Oepdplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oepdlotser', 'oepdbin', 'oepdplltnbr', 'oepdcrtnnbr', 'oepdqtyship', 'oepdlotref', 'oepdcntrqty', 'oepdbatch', 'oepdcuredate', 'oepdpllttype', 'oepdlblprtd', 'oepdorigbin', 'oepdplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(SoPickedLotserialTableMap::COL_OEHDNBR, SoPickedLotserialTableMap::COL_OEDTLINE, SoPickedLotserialTableMap::COL_INITITEMNBR, SoPickedLotserialTableMap::COL_OEPDLOTSER, SoPickedLotserialTableMap::COL_OEPDBIN, SoPickedLotserialTableMap::COL_OEPDPLLTNBR, SoPickedLotserialTableMap::COL_OEPDCRTNNBR, SoPickedLotserialTableMap::COL_OEPDQTYSHIP, SoPickedLotserialTableMap::COL_OEPDLOTREF, SoPickedLotserialTableMap::COL_OEPDCNTRQTY, SoPickedLotserialTableMap::COL_OEPDBATCH, SoPickedLotserialTableMap::COL_OEPDCUREDATE, SoPickedLotserialTableMap::COL_OEPDPLLTTYPE, SoPickedLotserialTableMap::COL_OEPDLBLPRTD, SoPickedLotserialTableMap::COL_OEPDORIGBIN, SoPickedLotserialTableMap::COL_OEPDPLLTID, SoPickedLotserialTableMap::COL_DATEUPDTD, SoPickedLotserialTableMap::COL_TIMEUPDTD, SoPickedLotserialTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OepdLotSer', 'OepdBin', 'OepdPlltNbr', 'OepdCrtnNbr', 'OepdQtyShip', 'OepdLotRef', 'OepdCntrQty', 'OepdBatch', 'OepdCureDate', 'OepdPlltType', 'OepdLblPrtd', 'OepdOrigBin', 'OepdPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -187,11 +192,11 @@ class SoPickedLotserialTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oepdlotser' => 3, 'Oepdbin' => 4, 'Oepdplltnbr' => 5, 'Oepdcrtnnbr' => 6, 'Oepdqtyship' => 7, 'Oepdlotref' => 8, 'Oepdcntrqty' => 9, 'Oepdbatch' => 10, 'Oepdcuredate' => 11, 'Oepdpllttype' => 12, 'Oepdlblprtd' => 13, 'Oepdorigbin' => 14, 'Dateupdtd' => 15, 'Timeupdtd' => 16, 'Dummy' => 17, ),
-        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oepdlotser' => 3, 'oepdbin' => 4, 'oepdplltnbr' => 5, 'oepdcrtnnbr' => 6, 'oepdqtyship' => 7, 'oepdlotref' => 8, 'oepdcntrqty' => 9, 'oepdbatch' => 10, 'oepdcuredate' => 11, 'oepdpllttype' => 12, 'oepdlblprtd' => 13, 'oepdorigbin' => 14, 'dateupdtd' => 15, 'timeupdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_COLNAME       => array(SoPickedLotserialTableMap::COL_OEHDNBR => 0, SoPickedLotserialTableMap::COL_OEDTLINE => 1, SoPickedLotserialTableMap::COL_INITITEMNBR => 2, SoPickedLotserialTableMap::COL_OEPDLOTSER => 3, SoPickedLotserialTableMap::COL_OEPDBIN => 4, SoPickedLotserialTableMap::COL_OEPDPLLTNBR => 5, SoPickedLotserialTableMap::COL_OEPDCRTNNBR => 6, SoPickedLotserialTableMap::COL_OEPDQTYSHIP => 7, SoPickedLotserialTableMap::COL_OEPDLOTREF => 8, SoPickedLotserialTableMap::COL_OEPDCNTRQTY => 9, SoPickedLotserialTableMap::COL_OEPDBATCH => 10, SoPickedLotserialTableMap::COL_OEPDCUREDATE => 11, SoPickedLotserialTableMap::COL_OEPDPLLTTYPE => 12, SoPickedLotserialTableMap::COL_OEPDLBLPRTD => 13, SoPickedLotserialTableMap::COL_OEPDORIGBIN => 14, SoPickedLotserialTableMap::COL_DATEUPDTD => 15, SoPickedLotserialTableMap::COL_TIMEUPDTD => 16, SoPickedLotserialTableMap::COL_DUMMY => 17, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OepdLotSer' => 3, 'OepdBin' => 4, 'OepdPlltNbr' => 5, 'OepdCrtnNbr' => 6, 'OepdQtyShip' => 7, 'OepdLotRef' => 8, 'OepdCntrQty' => 9, 'OepdBatch' => 10, 'OepdCureDate' => 11, 'OepdPlltType' => 12, 'OepdLblPrtd' => 13, 'OepdOrigBin' => 14, 'DateUpdtd' => 15, 'TimeUpdtd' => 16, 'dummy' => 17, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, )
+        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oepdlotser' => 3, 'Oepdbin' => 4, 'Oepdplltnbr' => 5, 'Oepdcrtnnbr' => 6, 'Oepdqtyship' => 7, 'Oepdlotref' => 8, 'Oepdcntrqty' => 9, 'Oepdbatch' => 10, 'Oepdcuredate' => 11, 'Oepdpllttype' => 12, 'Oepdlblprtd' => 13, 'Oepdorigbin' => 14, 'Oepdplltid' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
+        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oepdlotser' => 3, 'oepdbin' => 4, 'oepdplltnbr' => 5, 'oepdcrtnnbr' => 6, 'oepdqtyship' => 7, 'oepdlotref' => 8, 'oepdcntrqty' => 9, 'oepdbatch' => 10, 'oepdcuredate' => 11, 'oepdpllttype' => 12, 'oepdlblprtd' => 13, 'oepdorigbin' => 14, 'oepdplltid' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_COLNAME       => array(SoPickedLotserialTableMap::COL_OEHDNBR => 0, SoPickedLotserialTableMap::COL_OEDTLINE => 1, SoPickedLotserialTableMap::COL_INITITEMNBR => 2, SoPickedLotserialTableMap::COL_OEPDLOTSER => 3, SoPickedLotserialTableMap::COL_OEPDBIN => 4, SoPickedLotserialTableMap::COL_OEPDPLLTNBR => 5, SoPickedLotserialTableMap::COL_OEPDCRTNNBR => 6, SoPickedLotserialTableMap::COL_OEPDQTYSHIP => 7, SoPickedLotserialTableMap::COL_OEPDLOTREF => 8, SoPickedLotserialTableMap::COL_OEPDCNTRQTY => 9, SoPickedLotserialTableMap::COL_OEPDBATCH => 10, SoPickedLotserialTableMap::COL_OEPDCUREDATE => 11, SoPickedLotserialTableMap::COL_OEPDPLLTTYPE => 12, SoPickedLotserialTableMap::COL_OEPDLBLPRTD => 13, SoPickedLotserialTableMap::COL_OEPDORIGBIN => 14, SoPickedLotserialTableMap::COL_OEPDPLLTID => 15, SoPickedLotserialTableMap::COL_DATEUPDTD => 16, SoPickedLotserialTableMap::COL_TIMEUPDTD => 17, SoPickedLotserialTableMap::COL_DUMMY => 18, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OepdLotSer' => 3, 'OepdBin' => 4, 'OepdPlltNbr' => 5, 'OepdCrtnNbr' => 6, 'OepdQtyShip' => 7, 'OepdLotRef' => 8, 'OepdCntrQty' => 9, 'OepdBatch' => 10, 'OepdCureDate' => 11, 'OepdPlltType' => 12, 'OepdLblPrtd' => 13, 'OepdOrigBin' => 14, 'OepdPlltID' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -228,6 +233,7 @@ class SoPickedLotserialTableMap extends TableMap
         $this->addColumn('OepdPlltType', 'Oepdpllttype', 'CHAR', true, null, '');
         $this->addColumn('OepdLblPrtd', 'Oepdlblprtd', 'CHAR', true, null, '');
         $this->addColumn('OepdOrigBin', 'Oepdorigbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('OepdPlltID', 'Oepdplltid', 'VARCHAR', true, 15, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
@@ -521,6 +527,7 @@ class SoPickedLotserialTableMap extends TableMap
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_OEPDPLLTTYPE);
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_OEPDLBLPRTD);
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_OEPDORIGBIN);
+            $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_OEPDPLLTID);
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(SoPickedLotserialTableMap::COL_DUMMY);
@@ -540,6 +547,7 @@ class SoPickedLotserialTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.OepdPlltType');
             $criteria->addSelectColumn($alias . '.OepdLblPrtd');
             $criteria->addSelectColumn($alias . '.OepdOrigBin');
+            $criteria->addSelectColumn($alias . '.OepdPlltID');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

@@ -26,7 +26,7 @@ class SoPickedLotserial extends BaseSoPickedLotserial {
 		'lotreference' => 'oepdlotref',
 		'binid'        => 'oepdbin',
 		'qty'          => 'oepdqtyship',
-		'palletid'     => 'oepdplltnbr', 
+		'palletid'     => 'oepdplltid', 
 		'date'		   => 'dateupdtd',
 		'time'		   => 'timeupdtd',
 		// ALIASES for Foreign Keys

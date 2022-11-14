@@ -35,6 +35,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoPickedLotserialQuery orderByOepdpllttype($order = Criteria::ASC) Order by the OepdPlltType column
  * @method     ChildSoPickedLotserialQuery orderByOepdlblprtd($order = Criteria::ASC) Order by the OepdLblPrtd column
  * @method     ChildSoPickedLotserialQuery orderByOepdorigbin($order = Criteria::ASC) Order by the OepdOrigBin column
+ * @method     ChildSoPickedLotserialQuery orderByOepdplltid($order = Criteria::ASC) Order by the OepdPlltID column
  * @method     ChildSoPickedLotserialQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildSoPickedLotserialQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildSoPickedLotserialQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -54,6 +55,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoPickedLotserialQuery groupByOepdpllttype() Group by the OepdPlltType column
  * @method     ChildSoPickedLotserialQuery groupByOepdlblprtd() Group by the OepdLblPrtd column
  * @method     ChildSoPickedLotserialQuery groupByOepdorigbin() Group by the OepdOrigBin column
+ * @method     ChildSoPickedLotserialQuery groupByOepdplltid() Group by the OepdPlltID column
  * @method     ChildSoPickedLotserialQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildSoPickedLotserialQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildSoPickedLotserialQuery groupByDummy() Group by the dummy column
@@ -126,6 +128,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoPickedLotserial findOneByOepdpllttype(string $OepdPlltType) Return the first ChildSoPickedLotserial filtered by the OepdPlltType column
  * @method     ChildSoPickedLotserial findOneByOepdlblprtd(string $OepdLblPrtd) Return the first ChildSoPickedLotserial filtered by the OepdLblPrtd column
  * @method     ChildSoPickedLotserial findOneByOepdorigbin(string $OepdOrigBin) Return the first ChildSoPickedLotserial filtered by the OepdOrigBin column
+ * @method     ChildSoPickedLotserial findOneByOepdplltid(string $OepdPlltID) Return the first ChildSoPickedLotserial filtered by the OepdPlltID column
  * @method     ChildSoPickedLotserial findOneByDateupdtd(string $DateUpdtd) Return the first ChildSoPickedLotserial filtered by the DateUpdtd column
  * @method     ChildSoPickedLotserial findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoPickedLotserial filtered by the TimeUpdtd column
  * @method     ChildSoPickedLotserial findOneByDummy(string $dummy) Return the first ChildSoPickedLotserial filtered by the dummy column *
@@ -148,6 +151,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoPickedLotserial requireOneByOepdpllttype(string $OepdPlltType) Return the first ChildSoPickedLotserial filtered by the OepdPlltType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoPickedLotserial requireOneByOepdlblprtd(string $OepdLblPrtd) Return the first ChildSoPickedLotserial filtered by the OepdLblPrtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoPickedLotserial requireOneByOepdorigbin(string $OepdOrigBin) Return the first ChildSoPickedLotserial filtered by the OepdOrigBin column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSoPickedLotserial requireOneByOepdplltid(string $OepdPlltID) Return the first ChildSoPickedLotserial filtered by the OepdPlltID column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoPickedLotserial requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSoPickedLotserial filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoPickedLotserial requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSoPickedLotserial filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSoPickedLotserial requireOneByDummy(string $dummy) Return the first ChildSoPickedLotserial filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -168,6 +172,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByOepdpllttype(string $OepdPlltType) Return ChildSoPickedLotserial objects filtered by the OepdPlltType column
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByOepdlblprtd(string $OepdLblPrtd) Return ChildSoPickedLotserial objects filtered by the OepdLblPrtd column
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByOepdorigbin(string $OepdOrigBin) Return ChildSoPickedLotserial objects filtered by the OepdOrigBin column
+ * @method     ChildSoPickedLotserial[]|ObjectCollection findByOepdplltid(string $OepdPlltID) Return ChildSoPickedLotserial objects filtered by the OepdPlltID column
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSoPickedLotserial objects filtered by the DateUpdtd column
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSoPickedLotserial objects filtered by the TimeUpdtd column
  * @method     ChildSoPickedLotserial[]|ObjectCollection findByDummy(string $dummy) Return ChildSoPickedLotserial objects filtered by the dummy column
@@ -269,7 +274,7 @@ abstract class SoPickedLotserialQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehdNbr, OedtLine, InitItemNbr, OepdLotSer, OepdBin, OepdPlltNbr, OepdCrtnNbr, OepdQtyShip, OepdLotRef, OepdCntrQty, OepdBatch, OepdCureDate, OepdPlltType, OepdLblPrtd, OepdOrigBin, DateUpdtd, TimeUpdtd, dummy FROM so_pulled WHERE OehdNbr = :p0 AND OedtLine = :p1 AND InitItemNbr = :p2 AND OepdLotSer = :p3 AND OepdBin = :p4 AND OepdPlltNbr = :p5 AND OepdCrtnNbr = :p6';
+        $sql = 'SELECT OehdNbr, OedtLine, InitItemNbr, OepdLotSer, OepdBin, OepdPlltNbr, OepdCrtnNbr, OepdQtyShip, OepdLotRef, OepdCntrQty, OepdBatch, OepdCureDate, OepdPlltType, OepdLblPrtd, OepdOrigBin, OepdPlltID, DateUpdtd, TimeUpdtd, dummy FROM so_pulled WHERE OehdNbr = :p0 AND OedtLine = :p1 AND InitItemNbr = :p2 AND OepdLotSer = :p3 AND OepdBin = :p4 AND OepdPlltNbr = :p5 AND OepdCrtnNbr = :p6';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
@@ -866,6 +871,31 @@ abstract class SoPickedLotserialQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(SoPickedLotserialTableMap::COL_OEPDORIGBIN, $oepdorigbin, $comparison);
+    }
+
+    /**
+     * Filter the query on the OepdPlltID column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByOepdplltid('fooValue');   // WHERE OepdPlltID = 'fooValue'
+     * $query->filterByOepdplltid('%fooValue%', Criteria::LIKE); // WHERE OepdPlltID LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $oepdplltid The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildSoPickedLotserialQuery The current query, for fluid interface
+     */
+    public function filterByOepdplltid($oepdplltid = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($oepdplltid)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(SoPickedLotserialTableMap::COL_OEPDPLLTID, $oepdplltid, $comparison);
     }
 
     /**

@@ -188,6 +188,14 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
     protected $oepdorigbin;
 
     /**
+     * The value for the oepdplltid field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oepdplltid;
+
+    /**
      * The value for the dateupdtd field.
      *
      * Note: this column has a database default value of: ''
@@ -262,6 +270,7 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
         $this->oepdpllttype = '';
         $this->oepdlblprtd = '';
         $this->oepdorigbin = '';
+        $this->oepdplltid = '';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
@@ -645,6 +654,16 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
     }
 
     /**
+     * Get the [oepdplltid] column value.
+     *
+     * @return string
+     */
+    public function getOepdplltid()
+    {
+        return $this->oepdplltid;
+    }
+
+    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -999,6 +1018,26 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
     } // setOepdorigbin()
 
     /**
+     * Set the value of [oepdplltid] column.
+     *
+     * @param string $v new value
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
+     */
+    public function setOepdplltid($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->oepdplltid !== $v) {
+            $this->oepdplltid = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDPLLTID] = true;
+        }
+
+        return $this;
+    } // setOepdplltid()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -1128,6 +1167,10 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
                 return false;
             }
 
+            if ($this->oepdplltid !== '') {
+                return false;
+            }
+
             if ($this->dateupdtd !== '') {
                 return false;
             }
@@ -1211,13 +1254,16 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdorigbin', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oepdorigbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdplltid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdplltid = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoPickedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoPickedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1227,7 +1273,7 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 18; // 18 = SoPickedLotserialTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = SoPickedLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\SoPickedLotserial'), 0, $e);
@@ -1524,6 +1570,9 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
         if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDORIGBIN)) {
             $modifiedColumns[':p' . $index++]  = 'OepdOrigBin';
         }
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTID)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdPlltID';
+        }
         if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1588,6 +1637,9 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
                         break;
                     case 'OepdOrigBin':
                         $stmt->bindValue($identifier, $this->oepdorigbin, PDO::PARAM_STR);
+                        break;
+                    case 'OepdPlltID':
+                        $stmt->bindValue($identifier, $this->oepdplltid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1699,12 +1751,15 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
                 return $this->getOepdorigbin();
                 break;
             case 15:
-                return $this->getDateupdtd();
+                return $this->getOepdplltid();
                 break;
             case 16:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 17:
+                return $this->getTimeupdtd();
+                break;
+            case 18:
                 return $this->getDummy();
                 break;
             default:
@@ -1752,9 +1807,10 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
             $keys[12] => $this->getOepdpllttype(),
             $keys[13] => $this->getOepdlblprtd(),
             $keys[14] => $this->getOepdorigbin(),
-            $keys[15] => $this->getDateupdtd(),
-            $keys[16] => $this->getTimeupdtd(),
-            $keys[17] => $this->getDummy(),
+            $keys[15] => $this->getOepdplltid(),
+            $keys[16] => $this->getDateupdtd(),
+            $keys[17] => $this->getTimeupdtd(),
+            $keys[18] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1902,12 +1958,15 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
                 $this->setOepdorigbin($value);
                 break;
             case 15:
-                $this->setDateupdtd($value);
+                $this->setOepdplltid($value);
                 break;
             case 16:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 17:
+                $this->setTimeupdtd($value);
+                break;
+            case 18:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1982,13 +2041,16 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
             $this->setOepdorigbin($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setDateupdtd($arr[$keys[15]]);
+            $this->setOepdplltid($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setTimeupdtd($arr[$keys[16]]);
+            $this->setDateupdtd($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setDummy($arr[$keys[17]]);
+            $this->setTimeupdtd($arr[$keys[17]]);
+        }
+        if (array_key_exists($keys[18], $arr)) {
+            $this->setDummy($arr[$keys[18]]);
         }
     }
 
@@ -2075,6 +2137,9 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
         }
         if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDORIGBIN)) {
             $criteria->add(SoPickedLotserialTableMap::COL_OEPDORIGBIN, $this->oepdorigbin);
+        }
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTID)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDPLLTID, $this->oepdplltid);
         }
         if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DATEUPDTD)) {
             $criteria->add(SoPickedLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -2242,6 +2307,7 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
         $copyObj->setOepdpllttype($this->getOepdpllttype());
         $copyObj->setOepdlblprtd($this->getOepdlblprtd());
         $copyObj->setOepdorigbin($this->getOepdorigbin());
+        $copyObj->setOepdplltid($this->getOepdplltid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2522,6 +2588,7 @@ abstract class SoPickedLotserial implements ActiveRecordInterface
         $this->oepdpllttype = null;
         $this->oepdlblprtd = null;
         $this->oepdorigbin = null;
+        $this->oepdplltid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

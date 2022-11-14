@@ -59,7 +59,7 @@ class SalesOrderLotserialTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 25;
+    const NUM_COLUMNS = 26;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class SalesOrderLotserialTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 25;
+    const NUM_HYDRATE_COLUMNS = 26;
 
     /**
      * the column name for the OehdNbr field
@@ -182,6 +182,11 @@ class SalesOrderLotserialTableMap extends TableMap
     const COL_OESDACTVDATE = 'so_lot_ser.OesdActvDate';
 
     /**
+     * the column name for the OesdPlltID field
+     */
+    const COL_OESDPLLTID = 'so_lot_ser.OesdPlltID';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'so_lot_ser.DateUpdtd';
@@ -208,11 +213,11 @@ class SalesOrderLotserialTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oesdtag', 'Oesdlotser', 'Oesdbin', 'Oesdplltnbr', 'Oesdcrtnnbr', 'Oesdqtyship', 'Oesdcntrqty', 'Oesdspecordr', 'Oesdlotref', 'Oesdbatch', 'Oesdcuredate', 'Oesdacstatus', 'Oesdtestlot', 'Oesdpllttype', 'Oesdtarewght', 'Oesduseup', 'Oesdlblprtd', 'Oesdorigbin', 'Oesdactvdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oesdtag', 'oesdlotser', 'oesdbin', 'oesdplltnbr', 'oesdcrtnnbr', 'oesdqtyship', 'oesdcntrqty', 'oesdspecordr', 'oesdlotref', 'oesdbatch', 'oesdcuredate', 'oesdacstatus', 'oesdtestlot', 'oesdpllttype', 'oesdtarewght', 'oesduseup', 'oesdlblprtd', 'oesdorigbin', 'oesdactvdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesOrderLotserialTableMap::COL_OEHDNBR, SalesOrderLotserialTableMap::COL_OEDTLINE, SalesOrderLotserialTableMap::COL_INITITEMNBR, SalesOrderLotserialTableMap::COL_OESDTAG, SalesOrderLotserialTableMap::COL_OESDLOTSER, SalesOrderLotserialTableMap::COL_OESDBIN, SalesOrderLotserialTableMap::COL_OESDPLLTNBR, SalesOrderLotserialTableMap::COL_OESDCRTNNBR, SalesOrderLotserialTableMap::COL_OESDQTYSHIP, SalesOrderLotserialTableMap::COL_OESDCNTRQTY, SalesOrderLotserialTableMap::COL_OESDSPECORDR, SalesOrderLotserialTableMap::COL_OESDLOTREF, SalesOrderLotserialTableMap::COL_OESDBATCH, SalesOrderLotserialTableMap::COL_OESDCUREDATE, SalesOrderLotserialTableMap::COL_OESDACSTATUS, SalesOrderLotserialTableMap::COL_OESDTESTLOT, SalesOrderLotserialTableMap::COL_OESDPLLTTYPE, SalesOrderLotserialTableMap::COL_OESDTAREWGHT, SalesOrderLotserialTableMap::COL_OESDUSEUP, SalesOrderLotserialTableMap::COL_OESDLBLPRTD, SalesOrderLotserialTableMap::COL_OESDORIGBIN, SalesOrderLotserialTableMap::COL_OESDACTVDATE, SalesOrderLotserialTableMap::COL_DATEUPDTD, SalesOrderLotserialTableMap::COL_TIMEUPDTD, SalesOrderLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OesdTag', 'OesdLotSer', 'OesdBin', 'OesdPlltNbr', 'OesdCrtnNbr', 'OesdQtyShip', 'OesdCntrQty', 'OesdSpecOrdr', 'OesdLotRef', 'OesdBatch', 'OesdCureDate', 'OesdAcStatus', 'OesdTestLot', 'OesdPlltType', 'OesdTareWght', 'OesdUseUp', 'OesdLblPrtd', 'OesdOrigBin', 'OesdActvDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
+        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oesdtag', 'Oesdlotser', 'Oesdbin', 'Oesdplltnbr', 'Oesdcrtnnbr', 'Oesdqtyship', 'Oesdcntrqty', 'Oesdspecordr', 'Oesdlotref', 'Oesdbatch', 'Oesdcuredate', 'Oesdacstatus', 'Oesdtestlot', 'Oesdpllttype', 'Oesdtarewght', 'Oesduseup', 'Oesdlblprtd', 'Oesdorigbin', 'Oesdactvdate', 'Oesdplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oesdtag', 'oesdlotser', 'oesdbin', 'oesdplltnbr', 'oesdcrtnnbr', 'oesdqtyship', 'oesdcntrqty', 'oesdspecordr', 'oesdlotref', 'oesdbatch', 'oesdcuredate', 'oesdacstatus', 'oesdtestlot', 'oesdpllttype', 'oesdtarewght', 'oesduseup', 'oesdlblprtd', 'oesdorigbin', 'oesdactvdate', 'oesdplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(SalesOrderLotserialTableMap::COL_OEHDNBR, SalesOrderLotserialTableMap::COL_OEDTLINE, SalesOrderLotserialTableMap::COL_INITITEMNBR, SalesOrderLotserialTableMap::COL_OESDTAG, SalesOrderLotserialTableMap::COL_OESDLOTSER, SalesOrderLotserialTableMap::COL_OESDBIN, SalesOrderLotserialTableMap::COL_OESDPLLTNBR, SalesOrderLotserialTableMap::COL_OESDCRTNNBR, SalesOrderLotserialTableMap::COL_OESDQTYSHIP, SalesOrderLotserialTableMap::COL_OESDCNTRQTY, SalesOrderLotserialTableMap::COL_OESDSPECORDR, SalesOrderLotserialTableMap::COL_OESDLOTREF, SalesOrderLotserialTableMap::COL_OESDBATCH, SalesOrderLotserialTableMap::COL_OESDCUREDATE, SalesOrderLotserialTableMap::COL_OESDACSTATUS, SalesOrderLotserialTableMap::COL_OESDTESTLOT, SalesOrderLotserialTableMap::COL_OESDPLLTTYPE, SalesOrderLotserialTableMap::COL_OESDTAREWGHT, SalesOrderLotserialTableMap::COL_OESDUSEUP, SalesOrderLotserialTableMap::COL_OESDLBLPRTD, SalesOrderLotserialTableMap::COL_OESDORIGBIN, SalesOrderLotserialTableMap::COL_OESDACTVDATE, SalesOrderLotserialTableMap::COL_OESDPLLTID, SalesOrderLotserialTableMap::COL_DATEUPDTD, SalesOrderLotserialTableMap::COL_TIMEUPDTD, SalesOrderLotserialTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OesdTag', 'OesdLotSer', 'OesdBin', 'OesdPlltNbr', 'OesdCrtnNbr', 'OesdQtyShip', 'OesdCntrQty', 'OesdSpecOrdr', 'OesdLotRef', 'OesdBatch', 'OesdCureDate', 'OesdAcStatus', 'OesdTestLot', 'OesdPlltType', 'OesdTareWght', 'OesdUseUp', 'OesdLblPrtd', 'OesdOrigBin', 'OesdActvDate', 'OesdPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
     );
 
     /**
@@ -222,11 +227,11 @@ class SalesOrderLotserialTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oesdtag' => 3, 'Oesdlotser' => 4, 'Oesdbin' => 5, 'Oesdplltnbr' => 6, 'Oesdcrtnnbr' => 7, 'Oesdqtyship' => 8, 'Oesdcntrqty' => 9, 'Oesdspecordr' => 10, 'Oesdlotref' => 11, 'Oesdbatch' => 12, 'Oesdcuredate' => 13, 'Oesdacstatus' => 14, 'Oesdtestlot' => 15, 'Oesdpllttype' => 16, 'Oesdtarewght' => 17, 'Oesduseup' => 18, 'Oesdlblprtd' => 19, 'Oesdorigbin' => 20, 'Oesdactvdate' => 21, 'Dateupdtd' => 22, 'Timeupdtd' => 23, 'Dummy' => 24, ),
-        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oesdtag' => 3, 'oesdlotser' => 4, 'oesdbin' => 5, 'oesdplltnbr' => 6, 'oesdcrtnnbr' => 7, 'oesdqtyship' => 8, 'oesdcntrqty' => 9, 'oesdspecordr' => 10, 'oesdlotref' => 11, 'oesdbatch' => 12, 'oesdcuredate' => 13, 'oesdacstatus' => 14, 'oesdtestlot' => 15, 'oesdpllttype' => 16, 'oesdtarewght' => 17, 'oesduseup' => 18, 'oesdlblprtd' => 19, 'oesdorigbin' => 20, 'oesdactvdate' => 21, 'dateupdtd' => 22, 'timeupdtd' => 23, 'dummy' => 24, ),
-        self::TYPE_COLNAME       => array(SalesOrderLotserialTableMap::COL_OEHDNBR => 0, SalesOrderLotserialTableMap::COL_OEDTLINE => 1, SalesOrderLotserialTableMap::COL_INITITEMNBR => 2, SalesOrderLotserialTableMap::COL_OESDTAG => 3, SalesOrderLotserialTableMap::COL_OESDLOTSER => 4, SalesOrderLotserialTableMap::COL_OESDBIN => 5, SalesOrderLotserialTableMap::COL_OESDPLLTNBR => 6, SalesOrderLotserialTableMap::COL_OESDCRTNNBR => 7, SalesOrderLotserialTableMap::COL_OESDQTYSHIP => 8, SalesOrderLotserialTableMap::COL_OESDCNTRQTY => 9, SalesOrderLotserialTableMap::COL_OESDSPECORDR => 10, SalesOrderLotserialTableMap::COL_OESDLOTREF => 11, SalesOrderLotserialTableMap::COL_OESDBATCH => 12, SalesOrderLotserialTableMap::COL_OESDCUREDATE => 13, SalesOrderLotserialTableMap::COL_OESDACSTATUS => 14, SalesOrderLotserialTableMap::COL_OESDTESTLOT => 15, SalesOrderLotserialTableMap::COL_OESDPLLTTYPE => 16, SalesOrderLotserialTableMap::COL_OESDTAREWGHT => 17, SalesOrderLotserialTableMap::COL_OESDUSEUP => 18, SalesOrderLotserialTableMap::COL_OESDLBLPRTD => 19, SalesOrderLotserialTableMap::COL_OESDORIGBIN => 20, SalesOrderLotserialTableMap::COL_OESDACTVDATE => 21, SalesOrderLotserialTableMap::COL_DATEUPDTD => 22, SalesOrderLotserialTableMap::COL_TIMEUPDTD => 23, SalesOrderLotserialTableMap::COL_DUMMY => 24, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OesdTag' => 3, 'OesdLotSer' => 4, 'OesdBin' => 5, 'OesdPlltNbr' => 6, 'OesdCrtnNbr' => 7, 'OesdQtyShip' => 8, 'OesdCntrQty' => 9, 'OesdSpecOrdr' => 10, 'OesdLotRef' => 11, 'OesdBatch' => 12, 'OesdCureDate' => 13, 'OesdAcStatus' => 14, 'OesdTestLot' => 15, 'OesdPlltType' => 16, 'OesdTareWght' => 17, 'OesdUseUp' => 18, 'OesdLblPrtd' => 19, 'OesdOrigBin' => 20, 'OesdActvDate' => 21, 'DateUpdtd' => 22, 'TimeUpdtd' => 23, 'dummy' => 24, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, )
+        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oesdtag' => 3, 'Oesdlotser' => 4, 'Oesdbin' => 5, 'Oesdplltnbr' => 6, 'Oesdcrtnnbr' => 7, 'Oesdqtyship' => 8, 'Oesdcntrqty' => 9, 'Oesdspecordr' => 10, 'Oesdlotref' => 11, 'Oesdbatch' => 12, 'Oesdcuredate' => 13, 'Oesdacstatus' => 14, 'Oesdtestlot' => 15, 'Oesdpllttype' => 16, 'Oesdtarewght' => 17, 'Oesduseup' => 18, 'Oesdlblprtd' => 19, 'Oesdorigbin' => 20, 'Oesdactvdate' => 21, 'Oesdplltid' => 22, 'Dateupdtd' => 23, 'Timeupdtd' => 24, 'Dummy' => 25, ),
+        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oesdtag' => 3, 'oesdlotser' => 4, 'oesdbin' => 5, 'oesdplltnbr' => 6, 'oesdcrtnnbr' => 7, 'oesdqtyship' => 8, 'oesdcntrqty' => 9, 'oesdspecordr' => 10, 'oesdlotref' => 11, 'oesdbatch' => 12, 'oesdcuredate' => 13, 'oesdacstatus' => 14, 'oesdtestlot' => 15, 'oesdpllttype' => 16, 'oesdtarewght' => 17, 'oesduseup' => 18, 'oesdlblprtd' => 19, 'oesdorigbin' => 20, 'oesdactvdate' => 21, 'oesdplltid' => 22, 'dateupdtd' => 23, 'timeupdtd' => 24, 'dummy' => 25, ),
+        self::TYPE_COLNAME       => array(SalesOrderLotserialTableMap::COL_OEHDNBR => 0, SalesOrderLotserialTableMap::COL_OEDTLINE => 1, SalesOrderLotserialTableMap::COL_INITITEMNBR => 2, SalesOrderLotserialTableMap::COL_OESDTAG => 3, SalesOrderLotserialTableMap::COL_OESDLOTSER => 4, SalesOrderLotserialTableMap::COL_OESDBIN => 5, SalesOrderLotserialTableMap::COL_OESDPLLTNBR => 6, SalesOrderLotserialTableMap::COL_OESDCRTNNBR => 7, SalesOrderLotserialTableMap::COL_OESDQTYSHIP => 8, SalesOrderLotserialTableMap::COL_OESDCNTRQTY => 9, SalesOrderLotserialTableMap::COL_OESDSPECORDR => 10, SalesOrderLotserialTableMap::COL_OESDLOTREF => 11, SalesOrderLotserialTableMap::COL_OESDBATCH => 12, SalesOrderLotserialTableMap::COL_OESDCUREDATE => 13, SalesOrderLotserialTableMap::COL_OESDACSTATUS => 14, SalesOrderLotserialTableMap::COL_OESDTESTLOT => 15, SalesOrderLotserialTableMap::COL_OESDPLLTTYPE => 16, SalesOrderLotserialTableMap::COL_OESDTAREWGHT => 17, SalesOrderLotserialTableMap::COL_OESDUSEUP => 18, SalesOrderLotserialTableMap::COL_OESDLBLPRTD => 19, SalesOrderLotserialTableMap::COL_OESDORIGBIN => 20, SalesOrderLotserialTableMap::COL_OESDACTVDATE => 21, SalesOrderLotserialTableMap::COL_OESDPLLTID => 22, SalesOrderLotserialTableMap::COL_DATEUPDTD => 23, SalesOrderLotserialTableMap::COL_TIMEUPDTD => 24, SalesOrderLotserialTableMap::COL_DUMMY => 25, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OesdTag' => 3, 'OesdLotSer' => 4, 'OesdBin' => 5, 'OesdPlltNbr' => 6, 'OesdCrtnNbr' => 7, 'OesdQtyShip' => 8, 'OesdCntrQty' => 9, 'OesdSpecOrdr' => 10, 'OesdLotRef' => 11, 'OesdBatch' => 12, 'OesdCureDate' => 13, 'OesdAcStatus' => 14, 'OesdTestLot' => 15, 'OesdPlltType' => 16, 'OesdTareWght' => 17, 'OesdUseUp' => 18, 'OesdLblPrtd' => 19, 'OesdOrigBin' => 20, 'OesdActvDate' => 21, 'OesdPlltID' => 22, 'DateUpdtd' => 23, 'TimeUpdtd' => 24, 'dummy' => 25, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
     );
 
     /**
@@ -269,6 +274,7 @@ class SalesOrderLotserialTableMap extends TableMap
         $this->addColumn('OesdLblPrtd', 'Oesdlblprtd', 'CHAR', true, null, '');
         $this->addColumn('OesdOrigBin', 'Oesdorigbin', 'VARCHAR', true, 8, '');
         $this->addColumn('OesdActvDate', 'Oesdactvdate', 'CHAR', true, 8, '');
+        $this->addColumn('OesdPlltID', 'Oesdplltid', 'VARCHAR', true, 15, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
@@ -562,6 +568,7 @@ class SalesOrderLotserialTableMap extends TableMap
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_OESDLBLPRTD);
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_OESDORIGBIN);
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_OESDACTVDATE);
+            $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_OESDPLLTID);
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(SalesOrderLotserialTableMap::COL_DUMMY);
@@ -588,6 +595,7 @@ class SalesOrderLotserialTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.OesdLblPrtd');
             $criteria->addSelectColumn($alias . '.OesdOrigBin');
             $criteria->addSelectColumn($alias . '.OesdActvDate');
+            $criteria->addSelectColumn($alias . '.OesdPlltID');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

@@ -59,7 +59,7 @@ class SalesHistoryLotserialTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 26;
+    const NUM_COLUMNS = 27;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class SalesHistoryLotserialTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 26;
+    const NUM_HYDRATE_COLUMNS = 27;
 
     /**
      * the column name for the OehhNbr field
@@ -187,6 +187,11 @@ class SalesHistoryLotserialTableMap extends TableMap
     const COL_OESHACTVDATE = 'so_lot_ser_hist.OeshActvDate';
 
     /**
+     * the column name for the OeshPlltID field
+     */
+    const COL_OESHPLLTID = 'so_lot_ser_hist.OeshPlltID';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'so_lot_ser_hist.DateUpdtd';
@@ -213,11 +218,11 @@ class SalesHistoryLotserialTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehhnbr', 'Oedhline', 'Inititemnbr', 'Oeshtag', 'Oeshlotser', 'Oeshbin', 'Oeshplltnbr', 'Oeshcrtnnbr', 'Oeshyear', 'Oeshqtyship', 'Oeshcntrqty', 'Oeshspecordr', 'Oeshlotref', 'Oeshbatch', 'Oeshcuredate', 'Oeshacstatus', 'Oeshtestlot', 'Oeshpllttype', 'Oeshtarewght', 'Oeshuseup', 'Oeshlblprtd', 'Oeshorigbin', 'Oeshactvdate', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehhnbr', 'oedhline', 'inititemnbr', 'oeshtag', 'oeshlotser', 'oeshbin', 'oeshplltnbr', 'oeshcrtnnbr', 'oeshyear', 'oeshqtyship', 'oeshcntrqty', 'oeshspecordr', 'oeshlotref', 'oeshbatch', 'oeshcuredate', 'oeshacstatus', 'oeshtestlot', 'oeshpllttype', 'oeshtarewght', 'oeshuseup', 'oeshlblprtd', 'oeshorigbin', 'oeshactvdate', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR, SalesHistoryLotserialTableMap::COL_OEDHLINE, SalesHistoryLotserialTableMap::COL_INITITEMNBR, SalesHistoryLotserialTableMap::COL_OESHTAG, SalesHistoryLotserialTableMap::COL_OESHLOTSER, SalesHistoryLotserialTableMap::COL_OESHBIN, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR, SalesHistoryLotserialTableMap::COL_OESHYEAR, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY, SalesHistoryLotserialTableMap::COL_OESHSPECORDR, SalesHistoryLotserialTableMap::COL_OESHLOTREF, SalesHistoryLotserialTableMap::COL_OESHBATCH, SalesHistoryLotserialTableMap::COL_OESHCUREDATE, SalesHistoryLotserialTableMap::COL_OESHACSTATUS, SalesHistoryLotserialTableMap::COL_OESHTESTLOT, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT, SalesHistoryLotserialTableMap::COL_OESHUSEUP, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD, SalesHistoryLotserialTableMap::COL_OESHORIGBIN, SalesHistoryLotserialTableMap::COL_OESHACTVDATE, SalesHistoryLotserialTableMap::COL_DATEUPDTD, SalesHistoryLotserialTableMap::COL_TIMEUPDTD, SalesHistoryLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehhNbr', 'OedhLine', 'InitItemNbr', 'OeshTag', 'OeshLotSer', 'OeshBin', 'OeshPlltNbr', 'OeshCrtnNbr', 'OeshYear', 'OeshQtyShip', 'OeshCntrQty', 'OeshSpecOrdr', 'OeshLotRef', 'OeshBatch', 'OeshCureDate', 'OeshAcStatus', 'OeshTestLot', 'OeshPlltType', 'OeshTareWght', 'OeshUseUp', 'OeshLblPrtd', 'OeshOrigBin', 'OeshActvDate', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
+        self::TYPE_PHPNAME       => array('Oehhnbr', 'Oedhline', 'Inititemnbr', 'Oeshtag', 'Oeshlotser', 'Oeshbin', 'Oeshplltnbr', 'Oeshcrtnnbr', 'Oeshyear', 'Oeshqtyship', 'Oeshcntrqty', 'Oeshspecordr', 'Oeshlotref', 'Oeshbatch', 'Oeshcuredate', 'Oeshacstatus', 'Oeshtestlot', 'Oeshpllttype', 'Oeshtarewght', 'Oeshuseup', 'Oeshlblprtd', 'Oeshorigbin', 'Oeshactvdate', 'Oeshplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('oehhnbr', 'oedhline', 'inititemnbr', 'oeshtag', 'oeshlotser', 'oeshbin', 'oeshplltnbr', 'oeshcrtnnbr', 'oeshyear', 'oeshqtyship', 'oeshcntrqty', 'oeshspecordr', 'oeshlotref', 'oeshbatch', 'oeshcuredate', 'oeshacstatus', 'oeshtestlot', 'oeshpllttype', 'oeshtarewght', 'oeshuseup', 'oeshlblprtd', 'oeshorigbin', 'oeshactvdate', 'oeshplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR, SalesHistoryLotserialTableMap::COL_OEDHLINE, SalesHistoryLotserialTableMap::COL_INITITEMNBR, SalesHistoryLotserialTableMap::COL_OESHTAG, SalesHistoryLotserialTableMap::COL_OESHLOTSER, SalesHistoryLotserialTableMap::COL_OESHBIN, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR, SalesHistoryLotserialTableMap::COL_OESHYEAR, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY, SalesHistoryLotserialTableMap::COL_OESHSPECORDR, SalesHistoryLotserialTableMap::COL_OESHLOTREF, SalesHistoryLotserialTableMap::COL_OESHBATCH, SalesHistoryLotserialTableMap::COL_OESHCUREDATE, SalesHistoryLotserialTableMap::COL_OESHACSTATUS, SalesHistoryLotserialTableMap::COL_OESHTESTLOT, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT, SalesHistoryLotserialTableMap::COL_OESHUSEUP, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD, SalesHistoryLotserialTableMap::COL_OESHORIGBIN, SalesHistoryLotserialTableMap::COL_OESHACTVDATE, SalesHistoryLotserialTableMap::COL_OESHPLLTID, SalesHistoryLotserialTableMap::COL_DATEUPDTD, SalesHistoryLotserialTableMap::COL_TIMEUPDTD, SalesHistoryLotserialTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('OehhNbr', 'OedhLine', 'InitItemNbr', 'OeshTag', 'OeshLotSer', 'OeshBin', 'OeshPlltNbr', 'OeshCrtnNbr', 'OeshYear', 'OeshQtyShip', 'OeshCntrQty', 'OeshSpecOrdr', 'OeshLotRef', 'OeshBatch', 'OeshCureDate', 'OeshAcStatus', 'OeshTestLot', 'OeshPlltType', 'OeshTareWght', 'OeshUseUp', 'OeshLblPrtd', 'OeshOrigBin', 'OeshActvDate', 'OeshPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
     );
 
     /**
@@ -227,11 +232,11 @@ class SalesHistoryLotserialTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehhnbr' => 0, 'Oedhline' => 1, 'Inititemnbr' => 2, 'Oeshtag' => 3, 'Oeshlotser' => 4, 'Oeshbin' => 5, 'Oeshplltnbr' => 6, 'Oeshcrtnnbr' => 7, 'Oeshyear' => 8, 'Oeshqtyship' => 9, 'Oeshcntrqty' => 10, 'Oeshspecordr' => 11, 'Oeshlotref' => 12, 'Oeshbatch' => 13, 'Oeshcuredate' => 14, 'Oeshacstatus' => 15, 'Oeshtestlot' => 16, 'Oeshpllttype' => 17, 'Oeshtarewght' => 18, 'Oeshuseup' => 19, 'Oeshlblprtd' => 20, 'Oeshorigbin' => 21, 'Oeshactvdate' => 22, 'Dateupdtd' => 23, 'Timeupdtd' => 24, 'Dummy' => 25, ),
-        self::TYPE_CAMELNAME     => array('oehhnbr' => 0, 'oedhline' => 1, 'inititemnbr' => 2, 'oeshtag' => 3, 'oeshlotser' => 4, 'oeshbin' => 5, 'oeshplltnbr' => 6, 'oeshcrtnnbr' => 7, 'oeshyear' => 8, 'oeshqtyship' => 9, 'oeshcntrqty' => 10, 'oeshspecordr' => 11, 'oeshlotref' => 12, 'oeshbatch' => 13, 'oeshcuredate' => 14, 'oeshacstatus' => 15, 'oeshtestlot' => 16, 'oeshpllttype' => 17, 'oeshtarewght' => 18, 'oeshuseup' => 19, 'oeshlblprtd' => 20, 'oeshorigbin' => 21, 'oeshactvdate' => 22, 'dateupdtd' => 23, 'timeupdtd' => 24, 'dummy' => 25, ),
-        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR => 0, SalesHistoryLotserialTableMap::COL_OEDHLINE => 1, SalesHistoryLotserialTableMap::COL_INITITEMNBR => 2, SalesHistoryLotserialTableMap::COL_OESHTAG => 3, SalesHistoryLotserialTableMap::COL_OESHLOTSER => 4, SalesHistoryLotserialTableMap::COL_OESHBIN => 5, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR => 6, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR => 7, SalesHistoryLotserialTableMap::COL_OESHYEAR => 8, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP => 9, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY => 10, SalesHistoryLotserialTableMap::COL_OESHSPECORDR => 11, SalesHistoryLotserialTableMap::COL_OESHLOTREF => 12, SalesHistoryLotserialTableMap::COL_OESHBATCH => 13, SalesHistoryLotserialTableMap::COL_OESHCUREDATE => 14, SalesHistoryLotserialTableMap::COL_OESHACSTATUS => 15, SalesHistoryLotserialTableMap::COL_OESHTESTLOT => 16, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE => 17, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT => 18, SalesHistoryLotserialTableMap::COL_OESHUSEUP => 19, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD => 20, SalesHistoryLotserialTableMap::COL_OESHORIGBIN => 21, SalesHistoryLotserialTableMap::COL_OESHACTVDATE => 22, SalesHistoryLotserialTableMap::COL_DATEUPDTD => 23, SalesHistoryLotserialTableMap::COL_TIMEUPDTD => 24, SalesHistoryLotserialTableMap::COL_DUMMY => 25, ),
-        self::TYPE_FIELDNAME     => array('OehhNbr' => 0, 'OedhLine' => 1, 'InitItemNbr' => 2, 'OeshTag' => 3, 'OeshLotSer' => 4, 'OeshBin' => 5, 'OeshPlltNbr' => 6, 'OeshCrtnNbr' => 7, 'OeshYear' => 8, 'OeshQtyShip' => 9, 'OeshCntrQty' => 10, 'OeshSpecOrdr' => 11, 'OeshLotRef' => 12, 'OeshBatch' => 13, 'OeshCureDate' => 14, 'OeshAcStatus' => 15, 'OeshTestLot' => 16, 'OeshPlltType' => 17, 'OeshTareWght' => 18, 'OeshUseUp' => 19, 'OeshLblPrtd' => 20, 'OeshOrigBin' => 21, 'OeshActvDate' => 22, 'DateUpdtd' => 23, 'TimeUpdtd' => 24, 'dummy' => 25, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, )
+        self::TYPE_PHPNAME       => array('Oehhnbr' => 0, 'Oedhline' => 1, 'Inititemnbr' => 2, 'Oeshtag' => 3, 'Oeshlotser' => 4, 'Oeshbin' => 5, 'Oeshplltnbr' => 6, 'Oeshcrtnnbr' => 7, 'Oeshyear' => 8, 'Oeshqtyship' => 9, 'Oeshcntrqty' => 10, 'Oeshspecordr' => 11, 'Oeshlotref' => 12, 'Oeshbatch' => 13, 'Oeshcuredate' => 14, 'Oeshacstatus' => 15, 'Oeshtestlot' => 16, 'Oeshpllttype' => 17, 'Oeshtarewght' => 18, 'Oeshuseup' => 19, 'Oeshlblprtd' => 20, 'Oeshorigbin' => 21, 'Oeshactvdate' => 22, 'Oeshplltid' => 23, 'Dateupdtd' => 24, 'Timeupdtd' => 25, 'Dummy' => 26, ),
+        self::TYPE_CAMELNAME     => array('oehhnbr' => 0, 'oedhline' => 1, 'inititemnbr' => 2, 'oeshtag' => 3, 'oeshlotser' => 4, 'oeshbin' => 5, 'oeshplltnbr' => 6, 'oeshcrtnnbr' => 7, 'oeshyear' => 8, 'oeshqtyship' => 9, 'oeshcntrqty' => 10, 'oeshspecordr' => 11, 'oeshlotref' => 12, 'oeshbatch' => 13, 'oeshcuredate' => 14, 'oeshacstatus' => 15, 'oeshtestlot' => 16, 'oeshpllttype' => 17, 'oeshtarewght' => 18, 'oeshuseup' => 19, 'oeshlblprtd' => 20, 'oeshorigbin' => 21, 'oeshactvdate' => 22, 'oeshplltid' => 23, 'dateupdtd' => 24, 'timeupdtd' => 25, 'dummy' => 26, ),
+        self::TYPE_COLNAME       => array(SalesHistoryLotserialTableMap::COL_OEHHNBR => 0, SalesHistoryLotserialTableMap::COL_OEDHLINE => 1, SalesHistoryLotserialTableMap::COL_INITITEMNBR => 2, SalesHistoryLotserialTableMap::COL_OESHTAG => 3, SalesHistoryLotserialTableMap::COL_OESHLOTSER => 4, SalesHistoryLotserialTableMap::COL_OESHBIN => 5, SalesHistoryLotserialTableMap::COL_OESHPLLTNBR => 6, SalesHistoryLotserialTableMap::COL_OESHCRTNNBR => 7, SalesHistoryLotserialTableMap::COL_OESHYEAR => 8, SalesHistoryLotserialTableMap::COL_OESHQTYSHIP => 9, SalesHistoryLotserialTableMap::COL_OESHCNTRQTY => 10, SalesHistoryLotserialTableMap::COL_OESHSPECORDR => 11, SalesHistoryLotserialTableMap::COL_OESHLOTREF => 12, SalesHistoryLotserialTableMap::COL_OESHBATCH => 13, SalesHistoryLotserialTableMap::COL_OESHCUREDATE => 14, SalesHistoryLotserialTableMap::COL_OESHACSTATUS => 15, SalesHistoryLotserialTableMap::COL_OESHTESTLOT => 16, SalesHistoryLotserialTableMap::COL_OESHPLLTTYPE => 17, SalesHistoryLotserialTableMap::COL_OESHTAREWGHT => 18, SalesHistoryLotserialTableMap::COL_OESHUSEUP => 19, SalesHistoryLotserialTableMap::COL_OESHLBLPRTD => 20, SalesHistoryLotserialTableMap::COL_OESHORIGBIN => 21, SalesHistoryLotserialTableMap::COL_OESHACTVDATE => 22, SalesHistoryLotserialTableMap::COL_OESHPLLTID => 23, SalesHistoryLotserialTableMap::COL_DATEUPDTD => 24, SalesHistoryLotserialTableMap::COL_TIMEUPDTD => 25, SalesHistoryLotserialTableMap::COL_DUMMY => 26, ),
+        self::TYPE_FIELDNAME     => array('OehhNbr' => 0, 'OedhLine' => 1, 'InitItemNbr' => 2, 'OeshTag' => 3, 'OeshLotSer' => 4, 'OeshBin' => 5, 'OeshPlltNbr' => 6, 'OeshCrtnNbr' => 7, 'OeshYear' => 8, 'OeshQtyShip' => 9, 'OeshCntrQty' => 10, 'OeshSpecOrdr' => 11, 'OeshLotRef' => 12, 'OeshBatch' => 13, 'OeshCureDate' => 14, 'OeshAcStatus' => 15, 'OeshTestLot' => 16, 'OeshPlltType' => 17, 'OeshTareWght' => 18, 'OeshUseUp' => 19, 'OeshLblPrtd' => 20, 'OeshOrigBin' => 21, 'OeshActvDate' => 22, 'OeshPlltID' => 23, 'DateUpdtd' => 24, 'TimeUpdtd' => 25, 'dummy' => 26, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, )
     );
 
     /**
@@ -275,6 +280,7 @@ class SalesHistoryLotserialTableMap extends TableMap
         $this->addColumn('OeshLblPrtd', 'Oeshlblprtd', 'CHAR', true, null, '');
         $this->addColumn('OeshOrigBin', 'Oeshorigbin', 'VARCHAR', true, 8, '');
         $this->addColumn('OeshActvDate', 'Oeshactvdate', 'CHAR', true, 8, '');
+        $this->addColumn('OeshPlltID', 'Oeshplltid', 'VARCHAR', true, 15, '');
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
         $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
@@ -569,6 +575,7 @@ class SalesHistoryLotserialTableMap extends TableMap
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_OESHLBLPRTD);
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_OESHORIGBIN);
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_OESHACTVDATE);
+            $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_OESHPLLTID);
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(SalesHistoryLotserialTableMap::COL_DUMMY);
@@ -596,6 +603,7 @@ class SalesHistoryLotserialTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.OeshLblPrtd');
             $criteria->addSelectColumn($alias . '.OeshOrigBin');
             $criteria->addSelectColumn($alias . '.OeshActvDate');
+            $criteria->addSelectColumn($alias . '.OeshPlltID');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

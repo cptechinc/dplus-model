@@ -98,7 +98,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvLotMasterQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
  * @method     ChildInvLotMasterQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildInvLotMasterQuery leftJoinSoPickedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinSoPickedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinSoPickedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildInvLotMasterQuery joinWithSoPickedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildInvLotMasterQuery leftJoinWithSoPickedLotserial() Adds a LEFT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildInvLotMasterQuery rightJoinWithSoPickedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildInvLotMasterQuery innerJoinWithSoPickedLotserial() Adds a INNER JOIN clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     \ItemMasterItemQuery|\InvWhseLotQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildInvLotMaster findOne(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query
  * @method     ChildInvLotMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvLotMaster matching the query, or a new ChildInvLotMaster object populated from the query conditions when no match is found
@@ -1105,17 +1115,86 @@ abstract class InvLotMasterQuery extends ModelCriteria
     }
 
     /**
-     * Exclude object from result
+     * Filter the query by a related \SoPickedLotserial object
      *
-     * @param   ChildInvLotMaster $InvLotMaster Object to remove from the list of results
+     * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    {
+        if ($soPickedLotserial instanceof \SoPickedLotserial) {
+            return $this
+                ->addUsingAlias(InvLotMasterTableMap::COL_INITITEMNBR, $soPickedLotserial->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvLotMasterTableMap::COL_LOTMLOTNBR, $soPickedLotserial->getOepdlotser(), $comparison);
+        } else {
+            throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoPickedLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
      */
-    public function prune($InvLotMaster = null)
+    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
-        if ($InvLotMaster) {
-            $this->addCond('pruneCond0', $this->getAliasedColName(InvLotMasterTableMap::COL_INITITEMNBR), $InvLotMaster->getInititemnbr(), Criteria::NOT_EQUAL);
-            $this->addCond('pruneCond1', $this->getAliasedColName(InvLotMasterTableMap::COL_LOTMLOTNBR), $InvLotMaster->getLotmlotnbr(), Criteria::NOT_EQUAL);
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoPickedLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoPickedLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSoPickedLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSoPickedLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoPickedLotserial', '\SoPickedLotserialQuery');
+    }
+
+    /**
+     * Exclude object from result
+     *
+     * @param   ChildInvLotMaster $invLotMaster Object to remove from the list of results
+     *
+     * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+     */
+    public function prune($invLotMaster = null)
+    {
+        if ($invLotMaster) {
+            $this->addCond('pruneCond0', $this->getAliasedColName(InvLotMasterTableMap::COL_INITITEMNBR), $invLotMaster->getInititemnbr(), Criteria::NOT_EQUAL);
+            $this->addCond('pruneCond1', $this->getAliasedColName(InvLotMasterTableMap::COL_LOTMLOTNBR), $invLotMaster->getLotmlotnbr(), Criteria::NOT_EQUAL);
             $this->combine(array('pruneCond0', 'pruneCond1'), Criteria::LOGICAL_OR);
         }
 
