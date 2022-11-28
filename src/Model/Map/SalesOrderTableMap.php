@@ -1066,9 +1066,9 @@ class SalesOrderTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR', true, 10, '');
-        $this->addColumn('OehdStat', 'Oehdstat', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdHold', 'Oehdhold', 'VARCHAR', true, 1, 'N');
+        $this->addPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER', true, 10, 0);
+        $this->addColumn('OehdStat', 'Oehdstat', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdHold', 'Oehdhold', 'CHAR', true, null, 'N');
         $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_cust_mast', 'ArcuCustId', true, 6, '');
         $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_ship_to', 'ArcuCustId', true, 6, '');
         $this->addForeignKey('ArstShipId', 'Arstshipid', 'VARCHAR', 'ar_ship_to', 'ArstShipId', true, 6, '');
@@ -1080,14 +1080,14 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdStAdr3', 'Oehdstadr3', 'VARCHAR', true, 30, '');
         $this->addColumn('OehdStCtry', 'Oehdstctry', 'VARCHAR', true, 4, '');
         $this->addColumn('OehdStCity', 'Oehdstcity', 'VARCHAR', true, 16, '');
-        $this->addColumn('OehdStStat', 'Oehdststat', 'VARCHAR', true, 2, '');
+        $this->addColumn('OehdStStat', 'Oehdststat', 'CHAR', true, 2, '');
         $this->addColumn('OehdStZipCode', 'Oehdstzipcode', 'VARCHAR', true, 10, '');
         $this->addColumn('OehdCustPo', 'Oehdcustpo', 'VARCHAR', true, 20, '');
-        $this->addColumn('OehdOrdrDate', 'Oehdordrdate', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdOrdrDate', 'Oehdordrdate', 'CHAR', true, 8, '');
         $this->addColumn('ArtmTermCd', 'Artmtermcd', 'VARCHAR', true, 4, '');
         $this->addColumn('ArtbShipVia', 'Artbshipvia', 'VARCHAR', true, 4, '');
-        $this->addColumn('ArinInvNbr', 'Arininvnbr', 'VARCHAR', true, 10, '');
-        $this->addColumn('OehdInvDate', 'Oehdinvdate', 'VARCHAR', true, 8, '');
+        $this->addColumn('ArinInvNbr', 'Arininvnbr', 'CHAR', true, 10, '');
+        $this->addColumn('OehdInvDate', 'Oehdinvdate', 'CHAR', true, 8, '');
         $this->addColumn('OehdGLPd', 'Oehdglpd', 'INTEGER', true, 2, 0);
         $this->addColumn('ArspSalePer1', 'Arspsaleper1', 'VARCHAR', true, 6, '');
         $this->addColumn('OehdSp1Pct', 'Oehdsp1pct', 'DECIMAL', true, 20, 0);
@@ -1097,7 +1097,7 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdSp3Pct', 'Oehdsp3pct', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdCntrNbr', 'Oehdcntrnbr', 'INTEGER', true, 8, 0);
         $this->addColumn('OehdWiBatch', 'Oehdwibatch', 'INTEGER', true, 8, 0);
-        $this->addColumn('OehdDropRelHold', 'Oehddroprelhold', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdDropRelHold', 'Oehddroprelhold', 'CHAR', true, null, '');
         $this->addColumn('OehdTaxSub', 'Oehdtaxsub', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdNonTaxSub', 'Oehdnontaxsub', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdTaxTot', 'Oehdtaxtot', 'DECIMAL', true, 20, 0);
@@ -1105,21 +1105,21 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdMiscTot', 'Oehdmisctot', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdOrdrTot', 'Oehdordrtot', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdCostTot', 'Oehdcosttot', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdSpCommLock', 'Oehdspcommlock', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdTakenDate', 'Oehdtakendate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdTakenTime', 'Oehdtakentime', 'VARCHAR', true, 4, '');
-        $this->addColumn('OehdPickDate', 'Oehdpickdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdPickTime', 'Oehdpicktime', 'VARCHAR', true, 4, '');
-        $this->addColumn('OehdPackDate', 'Oehdpackdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdPackTime', 'Oehdpacktime', 'VARCHAR', true, 4, '');
-        $this->addColumn('OehdVerifyDate', 'Oehdverifydate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdVerifyTime', 'Oehdverifytime', 'VARCHAR', true, 4, '');
-        $this->addColumn('OehdCreditMemo', 'Oehdcreditmemo', 'VARCHAR', true, 1, '');
-        $this->addColumn('OehdBookedYn', 'Oehdbookedyn', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdSpCommLock', 'Oehdspcommlock', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdTakenDate', 'Oehdtakendate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdTakenTime', 'Oehdtakentime', 'CHAR', true, 4, '');
+        $this->addColumn('OehdPickDate', 'Oehdpickdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdPickTime', 'Oehdpicktime', 'CHAR', true, 4, '');
+        $this->addColumn('OehdPackDate', 'Oehdpackdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdPackTime', 'Oehdpacktime', 'CHAR', true, 4, '');
+        $this->addColumn('OehdVerifyDate', 'Oehdverifydate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdVerifyTime', 'Oehdverifytime', 'CHAR', true, 4, '');
+        $this->addColumn('OehdCreditMemo', 'Oehdcreditmemo', 'CHAR', true, null, '');
+        $this->addColumn('OehdBookedYn', 'Oehdbookedyn', 'CHAR', true, null, '');
         $this->addColumn('IntbWhseOrig', 'Intbwhseorig', 'VARCHAR', true, 2, '');
-        $this->addColumn('OehdBtStat', 'Oehdbtstat', 'VARCHAR', true, 2, '');
-        $this->addColumn('OehdShipComp', 'Oehdshipcomp', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdCwoFlag', 'Oehdcwoflag', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdBtStat', 'Oehdbtstat', 'CHAR', true, 2, '');
+        $this->addColumn('OehdShipComp', 'Oehdshipcomp', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdCwoFlag', 'Oehdcwoflag', 'CHAR', true, null, '');
         $this->addColumn('OehdDivision', 'Oehddivision', 'VARCHAR', true, 8, '');
         $this->addColumn('OehdTakenCode', 'Oehdtakencode', 'VARCHAR', true, 8, '');
         $this->addColumn('OehdPickCode', 'Oehdpickcode', 'VARCHAR', true, 8, '');
@@ -1134,30 +1134,30 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdExchCtry', 'Oehdexchctry', 'VARCHAR', true, 4, '');
         $this->addColumn('OehdExchRate', 'Oehdexchrate', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdWghtTot', 'Oehdwghttot', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdWghtOride', 'Oehdwghtoride', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdCcInfo', 'Oehdccinfo', 'VARCHAR', true, 1, 'B');
+        $this->addColumn('OehdWghtOride', 'Oehdwghtoride', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdCcInfo', 'Oehdccinfo', 'CHAR', true, null, 'B');
         $this->addColumn('OehdBoxCount', 'Oehdboxcount', 'INTEGER', true, 5, 0);
-        $this->addColumn('OehdRqstDate', 'Oehdrqstdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdCancDate', 'Oehdcancdate', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdRqstDate', 'Oehdrqstdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdCancDate', 'Oehdcancdate', 'CHAR', true, 8, '');
         $this->addColumn('OehdCrntUser', 'Oehdcrntuser', 'VARCHAR', true, 12, '');
         $this->addColumn('OehdReleaseNbr', 'Oehdreleasenbr', 'VARCHAR', true, 20, '');
         $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
-        $this->addColumn('OehdBordBuildDate', 'Oehdbordbuilddate', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdBordBuildDate', 'Oehdbordbuilddate', 'CHAR', true, 8, '');
         $this->addColumn('OehdDeptCode', 'Oehddeptcode', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdFrtInEntered', 'Oehdfrtinentered', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdDropShipEntered', 'Oehddropshipentered', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdErFlag', 'Oehderflag', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdFrtInEntered', 'Oehdfrtinentered', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdDropShipEntered', 'Oehddropshipentered', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdErFlag', 'Oehderflag', 'CHAR', true, null, 'N');
         $this->addColumn('OehdFrtIn', 'Oehdfrtin', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDropShip', 'Oehddropship', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdMinOrder', 'Oehdminorder', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdContractTerms', 'Oehdcontractterms', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdDropShipBilled', 'Oehddropshipbilled', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdOrdTyp', 'Oehdordtyp', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdContractTerms', 'Oehdcontractterms', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdDropShipBilled', 'Oehddropshipbilled', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdOrdTyp', 'Oehdordtyp', 'CHAR', true, null, 'N');
         $this->addColumn('OehdTrackNbr', 'Oehdtracknbr', 'VARCHAR', true, 15, '');
-        $this->addColumn('OehdSource', 'Oehdsource', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdSource', 'Oehdsource', 'CHAR', true, null, '');
         $this->addColumn('OehdCcAprv', 'Oehdccaprv', 'VARCHAR', true, 6, '');
-        $this->addColumn('OehdPickFmatType', 'Oehdpickfmattype', 'VARCHAR', true, 1, '');
-        $this->addColumn('OehdInvcFmatType', 'Oehdinvcfmattype', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdPickFmatType', 'Oehdpickfmattype', 'CHAR', true, null, '');
+        $this->addColumn('OehdInvcFmatType', 'Oehdinvcfmattype', 'CHAR', true, null, '');
         $this->addColumn('OehdCashAmt', 'Oehdcashamt', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdCheckAmt', 'Oehdcheckamt', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdCheckNbr', 'Oehdchecknbr', 'VARCHAR', true, 8, '');
@@ -1168,13 +1168,13 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdONonTaxSub', 'Oehdonontaxsub', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdOTaxTot', 'Oehdotaxtot', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdOOrdrTot', 'Oehdoordrtot', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdPickPrintDate', 'Oehdpickprintdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdPickPrintTime', 'Oehdpickprinttime', 'VARCHAR', true, 4, '');
+        $this->addColumn('OehdPickPrintDate', 'Oehdpickprintdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdPickPrintTime', 'Oehdpickprinttime', 'CHAR', true, 4, '');
         $this->addColumn('OehdCont', 'Oehdcont', 'VARCHAR', true, 20, '');
-        $this->addColumn('OehdContTeleIntl', 'Oehdcontteleintl', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdContTeleIntl', 'Oehdcontteleintl', 'CHAR', true, null, 'N');
         $this->addColumn('OehdContTeleNbr', 'Oehdconttelenbr', 'VARCHAR', true, 22, '');
         $this->addColumn('OehdContTeleExt', 'Oehdcontteleext', 'VARCHAR', true, 7, '');
-        $this->addColumn('OehdContFaxIntl', 'Oehdcontfaxintl', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdContFaxIntl', 'Oehdcontfaxintl', 'CHAR', true, null, 'N');
         $this->addColumn('OehdContFaxNbr', 'Oehdcontfaxnbr', 'VARCHAR', true, 22, '');
         $this->addColumn('OehdShipAcct', 'Oehdshipacct', 'VARCHAR', true, 10, '');
         $this->addColumn('OehdChgDue', 'Oehdchgdue', 'DECIMAL', true, 20, 0);
@@ -1182,13 +1182,13 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdAllShip', 'Oehdallship', 'VARCHAR', true, 2, '');
         $this->addColumn('OehdQtyOrderAmt', 'Oehdqtyorderamt', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdCreditApplied', 'Oehdcreditapplied', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdInvcPrintDate', 'Oehdinvcprintdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdInvcPrintTime', 'Oehdinvcprinttime', 'VARCHAR', true, 4, '');
+        $this->addColumn('OehdInvcPrintDate', 'Oehdinvcprintdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdInvcPrintTime', 'Oehdinvcprinttime', 'CHAR', true, 4, '');
         $this->addColumn('OehdDiscFrt', 'Oehddiscfrt', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdOrideShipComp', 'Oehdorideshipcomp', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdOrideShipComp', 'Oehdorideshipcomp', 'CHAR', true, null, 'N');
         $this->addColumn('OehdContEmail', 'Oehdcontemail', 'VARCHAR', true, 50, '');
-        $this->addColumn('OehdManualFrt', 'Oehdmanualfrt', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdInternalFrt', 'Oehdinternalfrt', 'VARCHAR', true, 1, 'N');
+        $this->addColumn('OehdManualFrt', 'Oehdmanualfrt', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdInternalFrt', 'Oehdinternalfrt', 'CHAR', true, null, 'N');
         $this->addColumn('OehdFrtCost', 'Oehdfrtcost', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdRoute', 'Oehdroute', 'VARCHAR', true, 4, '');
         $this->addColumn('OehdRouteSeq', 'Oehdrouteseq', 'INTEGER', true, 4, 0);
@@ -1202,60 +1202,60 @@ class SalesOrderTableMap extends TableMap
         $this->addColumn('OehdFrtTaxAmt4', 'Oehdfrttaxamt4', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdFrtTaxCode5', 'Oehdfrttaxcode5', 'VARCHAR', true, 6, '');
         $this->addColumn('OehdFrtTaxAmt5', 'Oehdfrttaxamt5', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdEdi855Sent', 'Oehdedi855sent', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdEdi855Sent', 'Oehdedi855sent', 'CHAR', true, null, '');
         $this->addColumn('OehdFrt3rdParty', 'Oehdfrt3rdparty', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdFob', 'Oehdfob', 'VARCHAR', true, 15, '');
-        $this->addColumn('OehdConfirmImagYn', 'Oehdconfirmimagyn', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdIndustConform', 'Oehdindustconform', 'VARCHAR', true, 1, '');
-        $this->addColumn('OehdCstkConsign', 'Oehdcstkconsign', 'VARCHAR', true, 1, '');
-        $this->addColumn('OehdLmDelayCapSent', 'Oehdlmdelaycapsent', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdConfirmImagYn', 'Oehdconfirmimagyn', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdIndustConform', 'Oehdindustconform', 'CHAR', true, null, '');
+        $this->addColumn('OehdCstkConsign', 'Oehdcstkconsign', 'CHAR', true, null, '');
+        $this->addColumn('OehdLmDelayCapSent', 'Oehdlmdelaycapsent', 'CHAR', true, null, '');
         $this->addColumn('OehdMfgId', 'Oehdmfgid', 'VARCHAR', true, 6, '');
         $this->addColumn('OehdStoreId', 'Oehdstoreid', 'VARCHAR', true, 6, '');
-        $this->addColumn('OehdPickQueue', 'Oehdpickqueue', 'VARCHAR', true, 1, 'N');
-        $this->addColumn('OehdArrvDate', 'Oehdarrvdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdSurchgStat', 'Oehdsurchgstat', 'VARCHAR', true, 1, 'C');
+        $this->addColumn('OehdPickQueue', 'Oehdpickqueue', 'CHAR', true, null, 'N');
+        $this->addColumn('OehdArrvDate', 'Oehdarrvdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdSurchgStat', 'Oehdsurchgstat', 'CHAR', true, null, 'C');
         $this->addColumn('OehdFrtGrup', 'Oehdfrtgrup', 'VARCHAR', true, 2, '');
-        $this->addColumn('OehdCommOride', 'Oehdcommoride', 'VARCHAR', true, 1, '');
-        $this->addColumn('OehdChrgSplt', 'Oehdchrgsplt', 'VARCHAR', true, 1, '');
+        $this->addColumn('OehdCommOride', 'Oehdcommoride', 'CHAR', true, null, '');
+        $this->addColumn('OehdChrgSplt', 'Oehdchrgsplt', 'CHAR', true, null, '');
         $this->addColumn('OehdAcCcAprv', 'Oehdacccaprv', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdOrigOrdrNbr', 'Oehdorigordrnbr', 'VARCHAR', true, 10, '');
-        $this->addColumn('OehdPostDate', 'Oehdpostdate', 'VARCHAR', true, 8, '');
-        $this->addColumn('OehdDiscDate1', 'Oehddiscdate1', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdOrigOrdrNbr', 'Oehdorigordrnbr', 'CHAR', true, 10, '');
+        $this->addColumn('OehdPostDate', 'Oehdpostdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate1', 'Oehddiscdate1', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct1', 'Oehddiscpct1', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate1', 'Oehdduedate1', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate1', 'Oehdduedate1', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt1', 'Oehddueamt1', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct1', 'Oehdduepct1', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDiscDate2', 'Oehddiscdate2', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate2', 'Oehddiscdate2', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct2', 'Oehddiscpct2', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate2', 'Oehdduedate2', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate2', 'Oehdduedate2', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt2', 'Oehddueamt2', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct2', 'Oehdduepct2', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDiscDate3', 'Oehddiscdate3', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate3', 'Oehddiscdate3', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct3', 'Oehddiscpct3', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate3', 'Oehdduedate3', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate3', 'Oehdduedate3', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt3', 'Oehddueamt3', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct3', 'Oehdduepct3', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDiscDate4', 'Oehddiscdate4', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate4', 'Oehddiscdate4', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct4', 'Oehddiscpct4', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate4', 'Oehdduedate4', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate4', 'Oehdduedate4', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt4', 'Oehddueamt4', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct4', 'Oehdduepct4', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDiscDate5', 'Oehddiscdate5', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate5', 'Oehddiscdate5', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct5', 'Oehddiscpct5', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate5', 'Oehdduedate5', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate5', 'Oehdduedate5', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt5', 'Oehddueamt5', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct5', 'Oehdduepct5', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDiscDate6', 'Oehddiscdate6', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDiscDate6', 'Oehddiscdate6', 'CHAR', true, 8, '');
         $this->addColumn('OehdDiscPct6', 'Oehddiscpct6', 'DECIMAL', true, 20, 0);
-        $this->addColumn('OehdDueDate6', 'Oehdduedate6', 'VARCHAR', true, 8, '');
+        $this->addColumn('OehdDueDate6', 'Oehdduedate6', 'CHAR', true, 8, '');
         $this->addColumn('OehdDueAmt6', 'Oehddueamt6', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdDuePct6', 'Oehdduepct6', 'DECIMAL', true, 20, 0);
         $this->addColumn('OehdRefNbr', 'Oehdrefnbr', 'VARCHAR', true, 20, '');
         $this->addColumn('OehdAcProgNbr', 'Oehdacprognbr', 'VARCHAR', true, 16, '');
         $this->addColumn('OehdAcProgExpDate', 'Oehdacprogexpdate', 'VARCHAR', true, 6, '');
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', true, 8, '');
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', true, 8, '');
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', true, 1, 'P');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -1310,6 +1310,13 @@ class SalesOrderTableMap extends TableMap
     1 => ':OehdNbr',
   ),
 ), null, null, 'SoAllocatedLotserials', false);
+        $this->addRelation('SoPickedLotserial', '\\SoPickedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':OehdNbr',
+    1 => ':OehdNbr',
+  ),
+), null, null, 'SoPickedLotserials', false);
     } // buildRelations()
 
     /**
@@ -1349,7 +1356,7 @@ class SalesOrderTableMap extends TableMap
      */
     public static function getPrimaryKeyFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        return (string) $row[
+        return (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)

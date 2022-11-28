@@ -27,6 +27,7 @@ class SalesHistoryLotserial extends BaseSalesHistoryLotserial {
 		'lotreference' => 'oeshlotref',
 		'year'         => 'oeshyear',
 		'qty'          => 'oeshqtyship',
+		'palletid'     => 'oeshplltid',
 		// ALIASES for Foreign Keys
 		'item'         => 'itemMasterItem',
 		'order'        => 'salesHistory',

@@ -28,6 +28,8 @@ use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \InvSerialMaster as ChildInvSerialMaster;
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
+use \InvWhseLot as ChildInvWhseLot;
+use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemAddonItem as ChildItemAddonItem;
 use \ItemAddonItemQuery as ChildItemAddonItemQuery;
 use \ItemMasterItem as ChildItemMasterItem;
@@ -60,14 +62,14 @@ use \SalesOrderLotserial as ChildSalesOrderLotserial;
 use \SalesOrderLotserialQuery as ChildSalesOrderLotserialQuery;
 use \SoAllocatedLotserial as ChildSoAllocatedLotserial;
 use \SoAllocatedLotserialQuery as ChildSoAllocatedLotserialQuery;
+use \SoPickedLotserial as ChildSoPickedLotserial;
+use \SoPickedLotserialQuery as ChildSoPickedLotserialQuery;
 use \UnitofMeasurePurchase as ChildUnitofMeasurePurchase;
 use \UnitofMeasurePurchaseQuery as ChildUnitofMeasurePurchaseQuery;
 use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \WarehouseInventory as ChildWarehouseInventory;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
-use \InvWhseLot as ChildInvWhseLot;
-use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \Exception;
 use \PDO;
 use Map\BomComponentTableMap;
@@ -77,6 +79,7 @@ use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
+use Map\InvWhseLotTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
 use Map\ItemPricingDiscountTableMap;
@@ -91,8 +94,8 @@ use Map\ItemXrefVendorTableMap;
 use Map\SalesHistoryLotserialTableMap;
 use Map\SalesOrderLotserialTableMap;
 use Map\SoAllocatedLotserialTableMap;
+use Map\SoPickedLotserialTableMap;
 use Map\WarehouseInventoryTableMap;
-use Map\InvWhseLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -792,6 +795,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemPricingDiscountsPartial;
 
     /**
+     * @var        ObjectCollection|ChildSoPickedLotserial[] Collection to store aggregation of ChildSoPickedLotserial objects.
+     */
+    protected $collSoPickedLotserials;
+    protected $collSoPickedLotserialsPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemXrefUpc[] Collection to store aggregation of ChildItemXrefUpc objects.
      */
     protected $collItemXrefUpcs;
@@ -869,7 +878,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvLotMaster[]
      */
-    protected $InvLotMastersScheduledForDeletion = null;
+    protected $invLotMastersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -948,6 +957,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemPricingDiscount[]
      */
     protected $itemPricingDiscountsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSoPickedLotserial[]
+     */
+    protected $soPickedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3554,6 +3569,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemPricingDiscounts = null;
 
+            $this->collSoPickedLotserials = null;
+
             $this->collItemXrefUpcs = null;
 
             $this->collItemXrefVendors = null;
@@ -4134,6 +4151,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemPricingDiscounts !== null) {
                 foreach ($this->collItemPricingDiscounts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->soPickedLotserialsScheduledForDeletion !== null) {
+                if (!$this->soPickedLotserialsScheduledForDeletion->isEmpty()) {
+                    \SoPickedLotserialQuery::create()
+                        ->filterByPrimaryKeys($this->soPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->soPickedLotserialsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSoPickedLotserials !== null) {
+                foreach ($this->collSoPickedLotserials as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5223,7 +5257,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'InvLotMasters';
+                        $key = 'invLotMasters';
                         break;
                     case TableMap::TYPE_FIELDNAME:
                         $key = 'inv_lot_masts';
@@ -5443,6 +5477,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collItemPricingDiscounts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collSoPickedLotserials) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'soPickedLotserials';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_pulleds';
+                        break;
+                    default:
+                        $key = 'SoPickedLotserials';
+                }
+
+                $result[$key] = $this->collSoPickedLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemXrefUpcs) {
 
@@ -6482,6 +6531,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getSoPickedLotserials() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSoPickedLotserial($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemXrefUpcs() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemXrefUpc($relObj->copy($deepCopy));
@@ -6816,9 +6871,6 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     {
         if ($this->aItemPricing === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
             $this->aItemPricing = ChildItemPricingQuery::create()->findPk($this->inititemnbr, $con);
-            if ($this->aItemPricing === null) {
-				$this->aItemPricing = new ChildItemPricing();
-			}
             // Because this foreign key represents a one-to-one relationship, we will create a bi-directional association.
             $this->aItemPricing->setItemMasterItem($this);
         }
@@ -6927,6 +6979,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemPricingDiscount' == $relationName) {
             $this->initItemPricingDiscounts();
+            return;
+        }
+        if ('SoPickedLotserial' == $relationName) {
+            $this->initSoPickedLotserials();
             return;
         }
         if ('ItemXrefUpc' == $relationName) {
@@ -9281,31 +9337,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
      * and new objects from the given Propel collection.
      *
-     * @param      Collection $InvLotMasters A Propel collection.
+     * @param      Collection $invLotMasters A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function setInvLotMasters(Collection $InvLotMasters, ConnectionInterface $con = null)
+    public function setInvLotMasters(Collection $invLotMasters, ConnectionInterface $con = null)
     {
-        /** @var ChildInvLotMaster[] $InvLotMastersToDelete */
-        $InvLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($InvLotMasters);
+        /** @var ChildInvLotMaster[] $invLotMastersToDelete */
+        $invLotMastersToDelete = $this->getInvLotMasters(new Criteria(), $con)->diff($invLotMasters);
 
 
         //since at least one column in the foreign key is at the same time a PK
         //we can not just set a PK to NULL in the lines below. We have to store
         //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
-        $this->invLotMastersScheduledForDeletion = clone $InvLotMastersToDelete;
+        $this->invLotMastersScheduledForDeletion = clone $invLotMastersToDelete;
 
-        foreach ($InvLotMastersToDelete as $InvLotMasterRemoved) {
-            $InvLotMasterRemoved->setItemMasterItem(null);
+        foreach ($invLotMastersToDelete as $invLotMasterRemoved) {
+            $invLotMasterRemoved->setItemMasterItem(null);
         }
 
         $this->collInvLotMasters = null;
-        foreach ($InvLotMasters as $InvLotMaster) {
-            $this->addInvLotMaster($InvLotMaster);
+        foreach ($invLotMasters as $invLotMaster) {
+            $this->addInvLotMaster($invLotMaster);
         }
 
-        $this->collInvLotMasters = $InvLotMasters;
+        $this->collInvLotMasters = $invLotMasters;
         $this->collInvLotMastersPartial = false;
 
         return $this;
@@ -9371,29 +9427,29 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
-     * @param ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to add.
+     * @param ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to add.
      */
-    protected function doAddInvLotMaster(ChildInvLotMaster $InvLotMaster)
+    protected function doAddInvLotMaster(ChildInvLotMaster $invLotMaster)
     {
-        $this->collInvLotMasters[]= $InvLotMaster;
-        $InvLotMaster->setItemMasterItem($this);
+        $this->collInvLotMasters[]= $invLotMaster;
+        $invLotMaster->setItemMasterItem($this);
     }
 
     /**
-     * @param  ChildInvLotMaster $InvLotMaster The ChildInvLotMaster object to remove.
+     * @param  ChildInvLotMaster $invLotMaster The ChildInvLotMaster object to remove.
      * @return $this|ChildItemMasterItem The current object (for fluent API support)
      */
-    public function removeInvLotMaster(ChildInvLotMaster $InvLotMaster)
+    public function removeInvLotMaster(ChildInvLotMaster $invLotMaster)
     {
-        if ($this->getInvLotMasters()->contains($InvLotMaster)) {
-            $pos = $this->collInvLotMasters->search($InvLotMaster);
+        if ($this->getInvLotMasters()->contains($invLotMaster)) {
+            $pos = $this->collInvLotMasters->search($invLotMaster);
             $this->collInvLotMasters->remove($pos);
             if (null === $this->invLotMastersScheduledForDeletion) {
                 $this->invLotMastersScheduledForDeletion = clone $this->collInvLotMasters;
                 $this->invLotMastersScheduledForDeletion->clear();
             }
-            $this->invLotMastersScheduledForDeletion[]= clone $InvLotMaster;
-            $InvLotMaster->setItemMasterItem(null);
+            $this->invLotMastersScheduledForDeletion[]= clone $invLotMaster;
+            $invLotMaster->setItemMasterItem(null);
         }
 
         return $this;
@@ -12710,6 +12766,309 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collSoPickedLotserials collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSoPickedLotserials()
+     */
+    public function clearSoPickedLotserials()
+    {
+        $this->collSoPickedLotserials = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSoPickedLotserials collection loaded partially.
+     */
+    public function resetPartialSoPickedLotserials($v = true)
+    {
+        $this->collSoPickedLotserialsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSoPickedLotserials collection.
+     *
+     * By default this just sets the collSoPickedLotserials collection to an empty array (like clearcollSoPickedLotserials());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSoPickedLotserials($overrideExisting = true)
+    {
+        if (null !== $this->collSoPickedLotserials && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SoPickedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSoPickedLotserials = new $collectionClassName;
+        $this->collSoPickedLotserials->setModel('\SoPickedLotserial');
+    }
+
+    /**
+     * Gets an array of ChildSoPickedLotserial objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     * @throws PropelException
+     */
+    public function getSoPickedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
+        if (null === $this->collSoPickedLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSoPickedLotserials) {
+                // return empty collection
+                $this->initSoPickedLotserials();
+            } else {
+                $collSoPickedLotserials = ChildSoPickedLotserialQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSoPickedLotserialsPartial && count($collSoPickedLotserials)) {
+                        $this->initSoPickedLotserials(false);
+
+                        foreach ($collSoPickedLotserials as $obj) {
+                            if (false == $this->collSoPickedLotserials->contains($obj)) {
+                                $this->collSoPickedLotserials->append($obj);
+                            }
+                        }
+
+                        $this->collSoPickedLotserialsPartial = true;
+                    }
+
+                    return $collSoPickedLotserials;
+                }
+
+                if ($partial && $this->collSoPickedLotserials) {
+                    foreach ($this->collSoPickedLotserials as $obj) {
+                        if ($obj->isNew()) {
+                            $collSoPickedLotserials[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSoPickedLotserials = $collSoPickedLotserials;
+                $this->collSoPickedLotserialsPartial = false;
+            }
+        }
+
+        return $this->collSoPickedLotserials;
+    }
+
+    /**
+     * Sets a collection of ChildSoPickedLotserial objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $soPickedLotserials A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setSoPickedLotserials(Collection $soPickedLotserials, ConnectionInterface $con = null)
+    {
+        /** @var ChildSoPickedLotserial[] $soPickedLotserialsToDelete */
+        $soPickedLotserialsToDelete = $this->getSoPickedLotserials(new Criteria(), $con)->diff($soPickedLotserials);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->soPickedLotserialsScheduledForDeletion = clone $soPickedLotserialsToDelete;
+
+        foreach ($soPickedLotserialsToDelete as $soPickedLotserialRemoved) {
+            $soPickedLotserialRemoved->setItemMasterItem(null);
+        }
+
+        $this->collSoPickedLotserials = null;
+        foreach ($soPickedLotserials as $soPickedLotserial) {
+            $this->addSoPickedLotserial($soPickedLotserial);
+        }
+
+        $this->collSoPickedLotserials = $soPickedLotserials;
+        $this->collSoPickedLotserialsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SoPickedLotserial objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SoPickedLotserial objects.
+     * @throws PropelException
+     */
+    public function countSoPickedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoPickedLotserialsPartial && !$this->isNew();
+        if (null === $this->collSoPickedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSoPickedLotserials) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSoPickedLotserials());
+            }
+
+            $query = ChildSoPickedLotserialQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collSoPickedLotserials);
+    }
+
+    /**
+     * Method called to associate a ChildSoPickedLotserial object to this object
+     * through the ChildSoPickedLotserial foreign key attribute.
+     *
+     * @param  ChildSoPickedLotserial $l ChildSoPickedLotserial
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addSoPickedLotserial(ChildSoPickedLotserial $l)
+    {
+        if ($this->collSoPickedLotserials === null) {
+            $this->initSoPickedLotserials();
+            $this->collSoPickedLotserialsPartial = true;
+        }
+
+        if (!$this->collSoPickedLotserials->contains($l)) {
+            $this->doAddSoPickedLotserial($l);
+
+            if ($this->soPickedLotserialsScheduledForDeletion and $this->soPickedLotserialsScheduledForDeletion->contains($l)) {
+                $this->soPickedLotserialsScheduledForDeletion->remove($this->soPickedLotserialsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to add.
+     */
+    protected function doAddSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
+    {
+        $this->collSoPickedLotserials[]= $soPickedLotserial;
+        $soPickedLotserial->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildSoPickedLotserial $soPickedLotserial The ChildSoPickedLotserial object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeSoPickedLotserial(ChildSoPickedLotserial $soPickedLotserial)
+    {
+        if ($this->getSoPickedLotserials()->contains($soPickedLotserial)) {
+            $pos = $this->collSoPickedLotserials->search($soPickedLotserial);
+            $this->collSoPickedLotserials->remove($pos);
+            if (null === $this->soPickedLotserialsScheduledForDeletion) {
+                $this->soPickedLotserialsScheduledForDeletion = clone $this->collSoPickedLotserials;
+                $this->soPickedLotserialsScheduledForDeletion->clear();
+            }
+            $this->soPickedLotserialsScheduledForDeletion[]= clone $soPickedLotserial;
+            $soPickedLotserial->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related SoPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     */
+    public function getSoPickedLotserialsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('SalesOrder', $joinBehavior);
+
+        return $this->getSoPickedLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related SoPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     */
+    public function getSoPickedLotserialsJoinSalesOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('SalesOrderDetail', $joinBehavior);
+
+        return $this->getSoPickedLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related SoPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoPickedLotserial[] List of ChildSoPickedLotserial objects
+     */
+    public function getSoPickedLotserialsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvLotMaster', $joinBehavior);
+
+        return $this->getSoPickedLotserials($query, $con);
+    }
+
+    /**
      * Clears out the collItemXrefUpcs collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -13451,6 +13810,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collSoPickedLotserials) {
+                foreach ($this->collSoPickedLotserials as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemXrefUpcs) {
                 foreach ($this->collItemXrefUpcs as $o) {
                     $o->clearAllReferences($deep);
@@ -13490,6 +13854,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collSalesHistoryLotserials = null;
         $this->collSoAllocatedLotserials = null;
         $this->collItemPricingDiscounts = null;
+        $this->collSoPickedLotserials = null;
         $this->collItemXrefUpcs = null;
         $this->collItemXrefVendors = null;
         $this->aUnitofMeasureSale = null;

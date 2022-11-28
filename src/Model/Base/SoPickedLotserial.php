@@ -2,16 +2,18 @@
 
 namespace Base;
 
+use \InvLotMaster as ChildInvLotMaster;
+use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \SalesOrder as ChildSalesOrder;
 use \SalesOrderDetail as ChildSalesOrderDetail;
 use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
-use \SalesOrderLotserialQuery as ChildSalesOrderLotserialQuery;
 use \SalesOrderQuery as ChildSalesOrderQuery;
+use \SoPickedLotserialQuery as ChildSoPickedLotserialQuery;
 use \Exception;
 use \PDO;
-use Map\SalesOrderLotserialTableMap;
+use Map\SoPickedLotserialTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -25,18 +27,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'so_lot_ser' table.
+ * Base class that represents a row from the 'so_pulled' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class SalesOrderLotserial implements ActiveRecordInterface
+abstract class SoPickedLotserial implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\SalesOrderLotserialTableMap';
+    const TABLE_MAP = '\\Map\\SoPickedLotserialTableMap';
 
 
     /**
@@ -90,164 +92,108 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     protected $inititemnbr;
 
     /**
-     * The value for the oesdtag field.
+     * The value for the oepdlotser field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdtag;
+    protected $oepdlotser;
 
     /**
-     * The value for the oesdlotser field.
+     * The value for the oepdbin field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdlotser;
+    protected $oepdbin;
 
     /**
-     * The value for the oesdbin field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesdbin;
-
-    /**
-     * The value for the oesdplltnbr field.
+     * The value for the oepdplltnbr field.
      *
      * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $oesdplltnbr;
+    protected $oepdplltnbr;
 
     /**
-     * The value for the oesdcrtnnbr field.
+     * The value for the oepdcrtnnbr field.
      *
      * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $oesdcrtnnbr;
+    protected $oepdcrtnnbr;
 
     /**
-     * The value for the oesdqtyship field.
+     * The value for the oepdqtyship field.
      *
      * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
-    protected $oesdqtyship;
+    protected $oepdqtyship;
 
     /**
-     * The value for the oesdcntrqty field.
+     * The value for the oepdlotref field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $oepdlotref;
+
+    /**
+     * The value for the oepdcntrqty field.
      *
      * Note: this column has a database default value of: '0'
      * @var        string
      */
-    protected $oesdcntrqty;
+    protected $oepdcntrqty;
 
     /**
-     * The value for the oesdspecordr field.
-     *
-     * Note: this column has a database default value of: 'N'
-     * @var        string
-     */
-    protected $oesdspecordr;
-
-    /**
-     * The value for the oesdlotref field.
+     * The value for the oepdbatch field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdlotref;
+    protected $oepdbatch;
 
     /**
-     * The value for the oesdbatch field.
+     * The value for the oepdcuredate field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdbatch;
+    protected $oepdcuredate;
 
     /**
-     * The value for the oesdcuredate field.
+     * The value for the oepdpllttype field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdcuredate;
+    protected $oepdpllttype;
 
     /**
-     * The value for the oesdacstatus field.
+     * The value for the oepdlblprtd field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdacstatus;
+    protected $oepdlblprtd;
 
     /**
-     * The value for the oesdtestlot field.
+     * The value for the oepdorigbin field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdtestlot;
+    protected $oepdorigbin;
 
     /**
-     * The value for the oesdpllttype field.
+     * The value for the oepdplltid field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $oesdpllttype;
-
-    /**
-     * The value for the oesdtarewght field.
-     *
-     * Note: this column has a database default value of: '0.000'
-     * @var        string
-     */
-    protected $oesdtarewght;
-
-    /**
-     * The value for the oesduseup field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesduseup;
-
-    /**
-     * The value for the oesdlblprtd field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesdlblprtd;
-
-    /**
-     * The value for the oesdorigbin field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesdorigbin;
-
-    /**
-     * The value for the oesdactvdate field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesdactvdate;
-
-    /**
-     * The value for the oesdplltid field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $oesdplltid;
+    protected $oepdplltid;
 
     /**
      * The value for the dateupdtd field.
@@ -289,6 +235,11 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     protected $aItemMasterItem;
 
     /**
+     * @var        ChildInvLotMaster
+     */
+    protected $aInvLotMaster;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -307,33 +258,26 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $this->oehdnbr = 0;
         $this->oedtline = 0;
         $this->inititemnbr = '';
-        $this->oesdtag = '';
-        $this->oesdlotser = '';
-        $this->oesdbin = '';
-        $this->oesdplltnbr = 0;
-        $this->oesdcrtnnbr = 0;
-        $this->oesdqtyship = '0.0000000';
-        $this->oesdcntrqty = '0';
-        $this->oesdspecordr = 'N';
-        $this->oesdlotref = '';
-        $this->oesdbatch = '';
-        $this->oesdcuredate = '';
-        $this->oesdacstatus = '';
-        $this->oesdtestlot = '';
-        $this->oesdpllttype = '';
-        $this->oesdtarewght = '0.000';
-        $this->oesduseup = '';
-        $this->oesdlblprtd = '';
-        $this->oesdorigbin = '';
-        $this->oesdactvdate = '';
-        $this->oesdplltid = '';
+        $this->oepdlotser = '';
+        $this->oepdbin = '';
+        $this->oepdplltnbr = 0;
+        $this->oepdcrtnnbr = 0;
+        $this->oepdqtyship = '0.0000000';
+        $this->oepdlotref = '';
+        $this->oepdcntrqty = '0';
+        $this->oepdbatch = '';
+        $this->oepdcuredate = '';
+        $this->oepdpllttype = '';
+        $this->oepdlblprtd = '';
+        $this->oepdorigbin = '';
+        $this->oepdplltid = '';
         $this->dateupdtd = '';
         $this->timeupdtd = '';
         $this->dummy = 'P';
     }
 
     /**
-     * Initializes internal state of Base\SalesOrderLotserial object.
+     * Initializes internal state of Base\SoPickedLotserial object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -430,9 +374,9 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>SalesOrderLotserial</code> instance.  If
-     * <code>obj</code> is an instance of <code>SalesOrderLotserial</code>, delegates to
-     * <code>equals(SalesOrderLotserial)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>SoPickedLotserial</code> instance.  If
+     * <code>obj</code> is an instance of <code>SoPickedLotserial</code>, delegates to
+     * <code>equals(SoPickedLotserial)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -498,7 +442,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|SalesOrderLotserial The current object, for fluid interface
+     * @return $this|SoPickedLotserial The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -590,203 +534,133 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     }
 
     /**
-     * Get the [oesdtag] column value.
+     * Get the [oepdlotser] column value.
      *
      * @return string
      */
-    public function getOesdtag()
+    public function getOepdlotser()
     {
-        return $this->oesdtag;
+        return $this->oepdlotser;
     }
 
     /**
-     * Get the [oesdlotser] column value.
+     * Get the [oepdbin] column value.
      *
      * @return string
      */
-    public function getOesdlotser()
+    public function getOepdbin()
     {
-        return $this->oesdlotser;
+        return $this->oepdbin;
     }
 
     /**
-     * Get the [oesdbin] column value.
-     *
-     * @return string
-     */
-    public function getOesdbin()
-    {
-        return $this->oesdbin;
-    }
-
-    /**
-     * Get the [oesdplltnbr] column value.
+     * Get the [oepdplltnbr] column value.
      *
      * @return int
      */
-    public function getOesdplltnbr()
+    public function getOepdplltnbr()
     {
-        return $this->oesdplltnbr;
+        return $this->oepdplltnbr;
     }
 
     /**
-     * Get the [oesdcrtnnbr] column value.
+     * Get the [oepdcrtnnbr] column value.
      *
      * @return int
      */
-    public function getOesdcrtnnbr()
+    public function getOepdcrtnnbr()
     {
-        return $this->oesdcrtnnbr;
+        return $this->oepdcrtnnbr;
     }
 
     /**
-     * Get the [oesdqtyship] column value.
+     * Get the [oepdqtyship] column value.
      *
      * @return string
      */
-    public function getOesdqtyship()
+    public function getOepdqtyship()
     {
-        return $this->oesdqtyship;
+        return $this->oepdqtyship;
     }
 
     /**
-     * Get the [oesdcntrqty] column value.
+     * Get the [oepdlotref] column value.
      *
      * @return string
      */
-    public function getOesdcntrqty()
+    public function getOepdlotref()
     {
-        return $this->oesdcntrqty;
+        return $this->oepdlotref;
     }
 
     /**
-     * Get the [oesdspecordr] column value.
+     * Get the [oepdcntrqty] column value.
      *
      * @return string
      */
-    public function getOesdspecordr()
+    public function getOepdcntrqty()
     {
-        return $this->oesdspecordr;
+        return $this->oepdcntrqty;
     }
 
     /**
-     * Get the [oesdlotref] column value.
+     * Get the [oepdbatch] column value.
      *
      * @return string
      */
-    public function getOesdlotref()
+    public function getOepdbatch()
     {
-        return $this->oesdlotref;
+        return $this->oepdbatch;
     }
 
     /**
-     * Get the [oesdbatch] column value.
+     * Get the [oepdcuredate] column value.
      *
      * @return string
      */
-    public function getOesdbatch()
+    public function getOepdcuredate()
     {
-        return $this->oesdbatch;
+        return $this->oepdcuredate;
     }
 
     /**
-     * Get the [oesdcuredate] column value.
+     * Get the [oepdpllttype] column value.
      *
      * @return string
      */
-    public function getOesdcuredate()
+    public function getOepdpllttype()
     {
-        return $this->oesdcuredate;
+        return $this->oepdpllttype;
     }
 
     /**
-     * Get the [oesdacstatus] column value.
+     * Get the [oepdlblprtd] column value.
      *
      * @return string
      */
-    public function getOesdacstatus()
+    public function getOepdlblprtd()
     {
-        return $this->oesdacstatus;
+        return $this->oepdlblprtd;
     }
 
     /**
-     * Get the [oesdtestlot] column value.
+     * Get the [oepdorigbin] column value.
      *
      * @return string
      */
-    public function getOesdtestlot()
+    public function getOepdorigbin()
     {
-        return $this->oesdtestlot;
+        return $this->oepdorigbin;
     }
 
     /**
-     * Get the [oesdpllttype] column value.
+     * Get the [oepdplltid] column value.
      *
      * @return string
      */
-    public function getOesdpllttype()
+    public function getOepdplltid()
     {
-        return $this->oesdpllttype;
-    }
-
-    /**
-     * Get the [oesdtarewght] column value.
-     *
-     * @return string
-     */
-    public function getOesdtarewght()
-    {
-        return $this->oesdtarewght;
-    }
-
-    /**
-     * Get the [oesduseup] column value.
-     *
-     * @return string
-     */
-    public function getOesduseup()
-    {
-        return $this->oesduseup;
-    }
-
-    /**
-     * Get the [oesdlblprtd] column value.
-     *
-     * @return string
-     */
-    public function getOesdlblprtd()
-    {
-        return $this->oesdlblprtd;
-    }
-
-    /**
-     * Get the [oesdorigbin] column value.
-     *
-     * @return string
-     */
-    public function getOesdorigbin()
-    {
-        return $this->oesdorigbin;
-    }
-
-    /**
-     * Get the [oesdactvdate] column value.
-     *
-     * @return string
-     */
-    public function getOesdactvdate()
-    {
-        return $this->oesdactvdate;
-    }
-
-    /**
-     * Get the [oesdplltid] column value.
-     *
-     * @return string
-     */
-    public function getOesdplltid()
-    {
-        return $this->oesdplltid;
+        return $this->oepdplltid;
     }
 
     /**
@@ -823,7 +697,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Set the value of [oehdnbr] column.
      *
      * @param int $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setOehdnbr($v)
     {
@@ -833,7 +707,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->oehdnbr !== $v) {
             $this->oehdnbr = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OEHDNBR] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEHDNBR] = true;
         }
 
         if ($this->aSalesOrder !== null && $this->aSalesOrder->getOehdnbr() !== $v) {
@@ -851,7 +725,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Set the value of [oedtline] column.
      *
      * @param int $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setOedtline($v)
     {
@@ -861,7 +735,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->oedtline !== $v) {
             $this->oedtline = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OEDTLINE] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEDTLINE] = true;
         }
 
         if ($this->aSalesOrderDetail !== null && $this->aSalesOrderDetail->getOedtline() !== $v) {
@@ -875,7 +749,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -885,421 +759,289 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
             $this->aItemMasterItem = null;
         }
 
+        if ($this->aInvLotMaster !== null && $this->aInvLotMaster->getInititemnbr() !== $v) {
+            $this->aInvLotMaster = null;
+        }
+
         return $this;
     } // setInititemnbr()
 
     /**
-     * Set the value of [oesdtag] column.
+     * Set the value of [oepdlotser] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdtag($v)
+    public function setOepdlotser($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdtag !== $v) {
-            $this->oesdtag = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDTAG] = true;
+        if ($this->oepdlotser !== $v) {
+            $this->oepdlotser = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDLOTSER] = true;
+        }
+
+        if ($this->aInvLotMaster !== null && $this->aInvLotMaster->getLotmlotnbr() !== $v) {
+            $this->aInvLotMaster = null;
         }
 
         return $this;
-    } // setOesdtag()
+    } // setOepdlotser()
 
     /**
-     * Set the value of [oesdlotser] column.
+     * Set the value of [oepdbin] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdlotser($v)
+    public function setOepdbin($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdlotser !== $v) {
-            $this->oesdlotser = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDLOTSER] = true;
+        if ($this->oepdbin !== $v) {
+            $this->oepdbin = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDBIN] = true;
         }
 
         return $this;
-    } // setOesdlotser()
+    } // setOepdbin()
 
     /**
-     * Set the value of [oesdbin] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdbin($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdbin !== $v) {
-            $this->oesdbin = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDBIN] = true;
-        }
-
-        return $this;
-    } // setOesdbin()
-
-    /**
-     * Set the value of [oesdplltnbr] column.
+     * Set the value of [oepdplltnbr] column.
      *
      * @param int $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdplltnbr($v)
+    public function setOepdplltnbr($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->oesdplltnbr !== $v) {
-            $this->oesdplltnbr = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDPLLTNBR] = true;
+        if ($this->oepdplltnbr !== $v) {
+            $this->oepdplltnbr = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDPLLTNBR] = true;
         }
 
         return $this;
-    } // setOesdplltnbr()
+    } // setOepdplltnbr()
 
     /**
-     * Set the value of [oesdcrtnnbr] column.
+     * Set the value of [oepdcrtnnbr] column.
      *
      * @param int $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdcrtnnbr($v)
+    public function setOepdcrtnnbr($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->oesdcrtnnbr !== $v) {
-            $this->oesdcrtnnbr = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDCRTNNBR] = true;
+        if ($this->oepdcrtnnbr !== $v) {
+            $this->oepdcrtnnbr = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDCRTNNBR] = true;
         }
 
         return $this;
-    } // setOesdcrtnnbr()
+    } // setOepdcrtnnbr()
 
     /**
-     * Set the value of [oesdqtyship] column.
+     * Set the value of [oepdqtyship] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdqtyship($v)
+    public function setOepdqtyship($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdqtyship !== $v) {
-            $this->oesdqtyship = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDQTYSHIP] = true;
+        if ($this->oepdqtyship !== $v) {
+            $this->oepdqtyship = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDQTYSHIP] = true;
         }
 
         return $this;
-    } // setOesdqtyship()
+    } // setOepdqtyship()
 
     /**
-     * Set the value of [oesdcntrqty] column.
+     * Set the value of [oepdlotref] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdcntrqty($v)
+    public function setOepdlotref($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdcntrqty !== $v) {
-            $this->oesdcntrqty = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDCNTRQTY] = true;
+        if ($this->oepdlotref !== $v) {
+            $this->oepdlotref = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDLOTREF] = true;
         }
 
         return $this;
-    } // setOesdcntrqty()
+    } // setOepdlotref()
 
     /**
-     * Set the value of [oesdspecordr] column.
+     * Set the value of [oepdcntrqty] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdspecordr($v)
+    public function setOepdcntrqty($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdspecordr !== $v) {
-            $this->oesdspecordr = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDSPECORDR] = true;
+        if ($this->oepdcntrqty !== $v) {
+            $this->oepdcntrqty = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDCNTRQTY] = true;
         }
 
         return $this;
-    } // setOesdspecordr()
+    } // setOepdcntrqty()
 
     /**
-     * Set the value of [oesdlotref] column.
+     * Set the value of [oepdbatch] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdlotref($v)
+    public function setOepdbatch($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdlotref !== $v) {
-            $this->oesdlotref = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDLOTREF] = true;
+        if ($this->oepdbatch !== $v) {
+            $this->oepdbatch = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDBATCH] = true;
         }
 
         return $this;
-    } // setOesdlotref()
+    } // setOepdbatch()
 
     /**
-     * Set the value of [oesdbatch] column.
+     * Set the value of [oepdcuredate] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdbatch($v)
+    public function setOepdcuredate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdbatch !== $v) {
-            $this->oesdbatch = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDBATCH] = true;
+        if ($this->oepdcuredate !== $v) {
+            $this->oepdcuredate = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDCUREDATE] = true;
         }
 
         return $this;
-    } // setOesdbatch()
+    } // setOepdcuredate()
 
     /**
-     * Set the value of [oesdcuredate] column.
+     * Set the value of [oepdpllttype] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdcuredate($v)
+    public function setOepdpllttype($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdcuredate !== $v) {
-            $this->oesdcuredate = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDCUREDATE] = true;
+        if ($this->oepdpllttype !== $v) {
+            $this->oepdpllttype = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDPLLTTYPE] = true;
         }
 
         return $this;
-    } // setOesdcuredate()
+    } // setOepdpllttype()
 
     /**
-     * Set the value of [oesdacstatus] column.
+     * Set the value of [oepdlblprtd] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdacstatus($v)
+    public function setOepdlblprtd($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdacstatus !== $v) {
-            $this->oesdacstatus = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDACSTATUS] = true;
+        if ($this->oepdlblprtd !== $v) {
+            $this->oepdlblprtd = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDLBLPRTD] = true;
         }
 
         return $this;
-    } // setOesdacstatus()
+    } // setOepdlblprtd()
 
     /**
-     * Set the value of [oesdtestlot] column.
+     * Set the value of [oepdorigbin] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdtestlot($v)
+    public function setOepdorigbin($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdtestlot !== $v) {
-            $this->oesdtestlot = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDTESTLOT] = true;
+        if ($this->oepdorigbin !== $v) {
+            $this->oepdorigbin = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDORIGBIN] = true;
         }
 
         return $this;
-    } // setOesdtestlot()
+    } // setOepdorigbin()
 
     /**
-     * Set the value of [oesdpllttype] column.
+     * Set the value of [oepdplltid] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
-    public function setOesdpllttype($v)
+    public function setOepdplltid($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->oesdpllttype !== $v) {
-            $this->oesdpllttype = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDPLLTTYPE] = true;
+        if ($this->oepdplltid !== $v) {
+            $this->oepdplltid = $v;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_OEPDPLLTID] = true;
         }
 
         return $this;
-    } // setOesdpllttype()
-
-    /**
-     * Set the value of [oesdtarewght] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdtarewght($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdtarewght !== $v) {
-            $this->oesdtarewght = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDTAREWGHT] = true;
-        }
-
-        return $this;
-    } // setOesdtarewght()
-
-    /**
-     * Set the value of [oesduseup] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesduseup($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesduseup !== $v) {
-            $this->oesduseup = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDUSEUP] = true;
-        }
-
-        return $this;
-    } // setOesduseup()
-
-    /**
-     * Set the value of [oesdlblprtd] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdlblprtd($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdlblprtd !== $v) {
-            $this->oesdlblprtd = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDLBLPRTD] = true;
-        }
-
-        return $this;
-    } // setOesdlblprtd()
-
-    /**
-     * Set the value of [oesdorigbin] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdorigbin($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdorigbin !== $v) {
-            $this->oesdorigbin = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDORIGBIN] = true;
-        }
-
-        return $this;
-    } // setOesdorigbin()
-
-    /**
-     * Set the value of [oesdactvdate] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdactvdate($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdactvdate !== $v) {
-            $this->oesdactvdate = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDACTVDATE] = true;
-        }
-
-        return $this;
-    } // setOesdactvdate()
-
-    /**
-     * Set the value of [oesdplltid] column.
-     *
-     * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
-     */
-    public function setOesdplltid($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->oesdplltid !== $v) {
-            $this->oesdplltid = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_OESDPLLTID] = true;
-        }
-
-        return $this;
-    } // setOesdplltid()
+    } // setOepdplltid()
 
     /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -1309,7 +1051,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -1319,7 +1061,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -1329,7 +1071,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -1339,7 +1081,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -1349,7 +1091,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[SalesOrderLotserialTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[SoPickedLotserialTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -1377,83 +1119,55 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->oesdtag !== '') {
+            if ($this->oepdlotser !== '') {
                 return false;
             }
 
-            if ($this->oesdlotser !== '') {
+            if ($this->oepdbin !== '') {
                 return false;
             }
 
-            if ($this->oesdbin !== '') {
+            if ($this->oepdplltnbr !== 0) {
                 return false;
             }
 
-            if ($this->oesdplltnbr !== 0) {
+            if ($this->oepdcrtnnbr !== 0) {
                 return false;
             }
 
-            if ($this->oesdcrtnnbr !== 0) {
+            if ($this->oepdqtyship !== '0.0000000') {
                 return false;
             }
 
-            if ($this->oesdqtyship !== '0.0000000') {
+            if ($this->oepdlotref !== '') {
                 return false;
             }
 
-            if ($this->oesdcntrqty !== '0') {
+            if ($this->oepdcntrqty !== '0') {
                 return false;
             }
 
-            if ($this->oesdspecordr !== 'N') {
+            if ($this->oepdbatch !== '') {
                 return false;
             }
 
-            if ($this->oesdlotref !== '') {
+            if ($this->oepdcuredate !== '') {
                 return false;
             }
 
-            if ($this->oesdbatch !== '') {
+            if ($this->oepdpllttype !== '') {
                 return false;
             }
 
-            if ($this->oesdcuredate !== '') {
+            if ($this->oepdlblprtd !== '') {
                 return false;
             }
 
-            if ($this->oesdacstatus !== '') {
+            if ($this->oepdorigbin !== '') {
                 return false;
             }
 
-            if ($this->oesdtestlot !== '') {
-                return false;
-            }
-
-            if ($this->oesdpllttype !== '') {
-                return false;
-            }
-
-            if ($this->oesdtarewght !== '0.000') {
-                return false;
-            }
-
-            if ($this->oesduseup !== '') {
-                return false;
-            }
-
-            if ($this->oesdlblprtd !== '') {
-                return false;
-            }
-
-            if ($this->oesdorigbin !== '') {
-                return false;
-            }
-
-            if ($this->oesdactvdate !== '') {
-                return false;
-            }
-
-            if ($this->oesdplltid !== '') {
+            if ($this->oepdplltid !== '') {
                 return false;
             }
 
@@ -1495,82 +1209,61 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehdnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oedtline', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtline = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : SoPickedLotserialTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdtag', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdtag = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdlotser', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdlotser = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdlotser', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdlotser = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdbin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdbin = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdplltnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdplltnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdplltnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdplltnbr = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdcrtnnbr = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdcrtnnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdcrtnnbr = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdqtyship', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdqtyship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdqtyship', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdqtyship = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdlotref', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdlotref = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdcntrqty = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdcntrqty = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdspecordr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdspecordr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdbatch', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdbatch = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdlotref', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdlotref = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdcuredate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdcuredate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdbatch', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdbatch = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdpllttype', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdpllttype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdcuredate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdcuredate = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdlblprtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdacstatus', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdacstatus = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdorigbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdorigbin = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdtestlot', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdtestlot = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : SoPickedLotserialTableMap::translateFieldName('Oepdplltid', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->oepdplltid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdpllttype', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdpllttype = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdtarewght', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdtarewght = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesduseup', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesduseup = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdlblprtd', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdlblprtd = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdorigbin', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdorigbin = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdactvdate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdactvdate = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Oesdplltid', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oesdplltid = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : SoPickedLotserialTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : SalesOrderLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : SoPickedLotserialTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1580,10 +1273,10 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 26; // 26 = SalesOrderLotserialTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 19; // 19 = SoPickedLotserialTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\SalesOrderLotserial'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\SoPickedLotserial'), 0, $e);
         }
     }
 
@@ -1614,6 +1307,12 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
+        if ($this->aInvLotMaster !== null && $this->inititemnbr !== $this->aInvLotMaster->getInititemnbr()) {
+            $this->aInvLotMaster = null;
+        }
+        if ($this->aInvLotMaster !== null && $this->oepdlotser !== $this->aInvLotMaster->getLotmlotnbr()) {
+            $this->aInvLotMaster = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1637,13 +1336,13 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(SoPickedLotserialTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildSalesOrderLotserialQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildSoPickedLotserialQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1656,6 +1355,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
             $this->aSalesOrder = null;
             $this->aSalesOrderDetail = null;
             $this->aItemMasterItem = null;
+            $this->aInvLotMaster = null;
         } // if (deep)
     }
 
@@ -1665,8 +1365,8 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see SalesOrderLotserial::setDeleted()
-     * @see SalesOrderLotserial::isDeleted()
+     * @see SoPickedLotserial::setDeleted()
+     * @see SoPickedLotserial::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1675,11 +1375,11 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SoPickedLotserialTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildSalesOrderLotserialQuery::create()
+            $deleteQuery = ChildSoPickedLotserialQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1714,7 +1414,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(SalesOrderLotserialTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(SoPickedLotserialTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1733,7 +1433,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                SalesOrderLotserialTableMap::addInstanceToPool($this);
+                SoPickedLotserialTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1785,6 +1485,13 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 $this->setItemMasterItem($this->aItemMasterItem);
             }
 
+            if ($this->aInvLotMaster !== null) {
+                if ($this->aInvLotMaster->isModified() || $this->aInvLotMaster->isNew()) {
+                    $affectedRows += $this->aInvLotMaster->save($con);
+                }
+                $this->setInvLotMaster($this->aInvLotMaster);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -1818,87 +1525,66 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OEHDNBR)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEHDNBR)) {
             $modifiedColumns[':p' . $index++]  = 'OehdNbr';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OEDTLINE)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEDTLINE)) {
             $modifiedColumns[':p' . $index++]  = 'OedtLine';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTAG)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdTag';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLOTSER)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdLotSer';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLOTSER)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdLotSer';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdBin';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdBin';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdPlltNbr';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdPlltNbr';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCRTNNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdCrtnNbr';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCRTNNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdCrtnNbr';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDQTYSHIP)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdQtyShip';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDQTYSHIP)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdQtyShip';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLOTREF)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdLotRef';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCNTRQTY)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdCntrQty';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCNTRQTY)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdCntrQty';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDSPECORDR)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdSpecOrdr';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDBATCH)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdBatch';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLOTREF)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdLotRef';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCUREDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdCureDate';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDBATCH)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdBatch';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTTYPE)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdPlltType';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCUREDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdCureDate';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLBLPRTD)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdLblPrtd';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACSTATUS)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdAcStatus';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDORIGBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdOrigBin';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTESTLOT)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdTestLot';
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTID)) {
+            $modifiedColumns[':p' . $index++]  = 'OepdPlltID';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTTYPE)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdPlltType';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTAREWGHT)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdTareWght';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDUSEUP)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdUseUp';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLBLPRTD)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdLblPrtd';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDORIGBIN)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdOrigBin';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACTVDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdActvDate';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTID)) {
-            $modifiedColumns[':p' . $index++]  = 'OesdPlltID';
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO so_lot_ser (%s) VALUES (%s)',
+            'INSERT INTO so_pulled (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1916,65 +1602,44 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
-                    case 'OesdTag':
-                        $stmt->bindValue($identifier, $this->oesdtag, PDO::PARAM_STR);
+                    case 'OepdLotSer':
+                        $stmt->bindValue($identifier, $this->oepdlotser, PDO::PARAM_STR);
                         break;
-                    case 'OesdLotSer':
-                        $stmt->bindValue($identifier, $this->oesdlotser, PDO::PARAM_STR);
+                    case 'OepdBin':
+                        $stmt->bindValue($identifier, $this->oepdbin, PDO::PARAM_STR);
                         break;
-                    case 'OesdBin':
-                        $stmt->bindValue($identifier, $this->oesdbin, PDO::PARAM_STR);
+                    case 'OepdPlltNbr':
+                        $stmt->bindValue($identifier, $this->oepdplltnbr, PDO::PARAM_INT);
                         break;
-                    case 'OesdPlltNbr':
-                        $stmt->bindValue($identifier, $this->oesdplltnbr, PDO::PARAM_INT);
+                    case 'OepdCrtnNbr':
+                        $stmt->bindValue($identifier, $this->oepdcrtnnbr, PDO::PARAM_INT);
                         break;
-                    case 'OesdCrtnNbr':
-                        $stmt->bindValue($identifier, $this->oesdcrtnnbr, PDO::PARAM_INT);
+                    case 'OepdQtyShip':
+                        $stmt->bindValue($identifier, $this->oepdqtyship, PDO::PARAM_STR);
                         break;
-                    case 'OesdQtyShip':
-                        $stmt->bindValue($identifier, $this->oesdqtyship, PDO::PARAM_STR);
+                    case 'OepdLotRef':
+                        $stmt->bindValue($identifier, $this->oepdlotref, PDO::PARAM_STR);
                         break;
-                    case 'OesdCntrQty':
-                        $stmt->bindValue($identifier, $this->oesdcntrqty, PDO::PARAM_STR);
+                    case 'OepdCntrQty':
+                        $stmt->bindValue($identifier, $this->oepdcntrqty, PDO::PARAM_STR);
                         break;
-                    case 'OesdSpecOrdr':
-                        $stmt->bindValue($identifier, $this->oesdspecordr, PDO::PARAM_STR);
+                    case 'OepdBatch':
+                        $stmt->bindValue($identifier, $this->oepdbatch, PDO::PARAM_STR);
                         break;
-                    case 'OesdLotRef':
-                        $stmt->bindValue($identifier, $this->oesdlotref, PDO::PARAM_STR);
+                    case 'OepdCureDate':
+                        $stmt->bindValue($identifier, $this->oepdcuredate, PDO::PARAM_STR);
                         break;
-                    case 'OesdBatch':
-                        $stmt->bindValue($identifier, $this->oesdbatch, PDO::PARAM_STR);
+                    case 'OepdPlltType':
+                        $stmt->bindValue($identifier, $this->oepdpllttype, PDO::PARAM_STR);
                         break;
-                    case 'OesdCureDate':
-                        $stmt->bindValue($identifier, $this->oesdcuredate, PDO::PARAM_STR);
+                    case 'OepdLblPrtd':
+                        $stmt->bindValue($identifier, $this->oepdlblprtd, PDO::PARAM_STR);
                         break;
-                    case 'OesdAcStatus':
-                        $stmt->bindValue($identifier, $this->oesdacstatus, PDO::PARAM_STR);
+                    case 'OepdOrigBin':
+                        $stmt->bindValue($identifier, $this->oepdorigbin, PDO::PARAM_STR);
                         break;
-                    case 'OesdTestLot':
-                        $stmt->bindValue($identifier, $this->oesdtestlot, PDO::PARAM_STR);
-                        break;
-                    case 'OesdPlltType':
-                        $stmt->bindValue($identifier, $this->oesdpllttype, PDO::PARAM_STR);
-                        break;
-                    case 'OesdTareWght':
-                        $stmt->bindValue($identifier, $this->oesdtarewght, PDO::PARAM_STR);
-                        break;
-                    case 'OesdUseUp':
-                        $stmt->bindValue($identifier, $this->oesduseup, PDO::PARAM_STR);
-                        break;
-                    case 'OesdLblPrtd':
-                        $stmt->bindValue($identifier, $this->oesdlblprtd, PDO::PARAM_STR);
-                        break;
-                    case 'OesdOrigBin':
-                        $stmt->bindValue($identifier, $this->oesdorigbin, PDO::PARAM_STR);
-                        break;
-                    case 'OesdActvDate':
-                        $stmt->bindValue($identifier, $this->oesdactvdate, PDO::PARAM_STR);
-                        break;
-                    case 'OesdPlltID':
-                        $stmt->bindValue($identifier, $this->oesdplltid, PDO::PARAM_STR);
+                    case 'OepdPlltID':
+                        $stmt->bindValue($identifier, $this->oepdplltid, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -2024,7 +1689,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SalesOrderLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SoPickedLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -2050,72 +1715,51 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 return $this->getInititemnbr();
                 break;
             case 3:
-                return $this->getOesdtag();
+                return $this->getOepdlotser();
                 break;
             case 4:
-                return $this->getOesdlotser();
+                return $this->getOepdbin();
                 break;
             case 5:
-                return $this->getOesdbin();
+                return $this->getOepdplltnbr();
                 break;
             case 6:
-                return $this->getOesdplltnbr();
+                return $this->getOepdcrtnnbr();
                 break;
             case 7:
-                return $this->getOesdcrtnnbr();
+                return $this->getOepdqtyship();
                 break;
             case 8:
-                return $this->getOesdqtyship();
+                return $this->getOepdlotref();
                 break;
             case 9:
-                return $this->getOesdcntrqty();
+                return $this->getOepdcntrqty();
                 break;
             case 10:
-                return $this->getOesdspecordr();
+                return $this->getOepdbatch();
                 break;
             case 11:
-                return $this->getOesdlotref();
+                return $this->getOepdcuredate();
                 break;
             case 12:
-                return $this->getOesdbatch();
+                return $this->getOepdpllttype();
                 break;
             case 13:
-                return $this->getOesdcuredate();
+                return $this->getOepdlblprtd();
                 break;
             case 14:
-                return $this->getOesdacstatus();
+                return $this->getOepdorigbin();
                 break;
             case 15:
-                return $this->getOesdtestlot();
+                return $this->getOepdplltid();
                 break;
             case 16:
-                return $this->getOesdpllttype();
-                break;
-            case 17:
-                return $this->getOesdtarewght();
-                break;
-            case 18:
-                return $this->getOesduseup();
-                break;
-            case 19:
-                return $this->getOesdlblprtd();
-                break;
-            case 20:
-                return $this->getOesdorigbin();
-                break;
-            case 21:
-                return $this->getOesdactvdate();
-                break;
-            case 22:
-                return $this->getOesdplltid();
-                break;
-            case 23:
                 return $this->getDateupdtd();
                 break;
-            case 24:
+            case 17:
                 return $this->getTimeupdtd();
                 break;
-            case 25:
+            case 18:
                 return $this->getDummy();
                 break;
             default:
@@ -2142,38 +1786,31 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['SalesOrderLotserial'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['SoPickedLotserial'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['SalesOrderLotserial'][$this->hashCode()] = true;
-        $keys = SalesOrderLotserialTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['SoPickedLotserial'][$this->hashCode()] = true;
+        $keys = SoPickedLotserialTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getOehdnbr(),
             $keys[1] => $this->getOedtline(),
             $keys[2] => $this->getInititemnbr(),
-            $keys[3] => $this->getOesdtag(),
-            $keys[4] => $this->getOesdlotser(),
-            $keys[5] => $this->getOesdbin(),
-            $keys[6] => $this->getOesdplltnbr(),
-            $keys[7] => $this->getOesdcrtnnbr(),
-            $keys[8] => $this->getOesdqtyship(),
-            $keys[9] => $this->getOesdcntrqty(),
-            $keys[10] => $this->getOesdspecordr(),
-            $keys[11] => $this->getOesdlotref(),
-            $keys[12] => $this->getOesdbatch(),
-            $keys[13] => $this->getOesdcuredate(),
-            $keys[14] => $this->getOesdacstatus(),
-            $keys[15] => $this->getOesdtestlot(),
-            $keys[16] => $this->getOesdpllttype(),
-            $keys[17] => $this->getOesdtarewght(),
-            $keys[18] => $this->getOesduseup(),
-            $keys[19] => $this->getOesdlblprtd(),
-            $keys[20] => $this->getOesdorigbin(),
-            $keys[21] => $this->getOesdactvdate(),
-            $keys[22] => $this->getOesdplltid(),
-            $keys[23] => $this->getDateupdtd(),
-            $keys[24] => $this->getTimeupdtd(),
-            $keys[25] => $this->getDummy(),
+            $keys[3] => $this->getOepdlotser(),
+            $keys[4] => $this->getOepdbin(),
+            $keys[5] => $this->getOepdplltnbr(),
+            $keys[6] => $this->getOepdcrtnnbr(),
+            $keys[7] => $this->getOepdqtyship(),
+            $keys[8] => $this->getOepdlotref(),
+            $keys[9] => $this->getOepdcntrqty(),
+            $keys[10] => $this->getOepdbatch(),
+            $keys[11] => $this->getOepdcuredate(),
+            $keys[12] => $this->getOepdpllttype(),
+            $keys[13] => $this->getOepdlblprtd(),
+            $keys[14] => $this->getOepdorigbin(),
+            $keys[15] => $this->getOepdplltid(),
+            $keys[16] => $this->getDateupdtd(),
+            $keys[17] => $this->getTimeupdtd(),
+            $keys[18] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2226,6 +1863,21 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aInvLotMaster) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLotMaster';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_lot_mast';
+                        break;
+                    default:
+                        $key = 'InvLotMaster';
+                }
+
+                $result[$key] = $this->aInvLotMaster->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -2240,11 +1892,11 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\SalesOrderLotserial
+     * @return $this|\SoPickedLotserial
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = SalesOrderLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = SoPickedLotserialTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -2255,7 +1907,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\SalesOrderLotserial
+     * @return $this|\SoPickedLotserial
      */
     public function setByPosition($pos, $value)
     {
@@ -2270,72 +1922,51 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 $this->setInititemnbr($value);
                 break;
             case 3:
-                $this->setOesdtag($value);
+                $this->setOepdlotser($value);
                 break;
             case 4:
-                $this->setOesdlotser($value);
+                $this->setOepdbin($value);
                 break;
             case 5:
-                $this->setOesdbin($value);
+                $this->setOepdplltnbr($value);
                 break;
             case 6:
-                $this->setOesdplltnbr($value);
+                $this->setOepdcrtnnbr($value);
                 break;
             case 7:
-                $this->setOesdcrtnnbr($value);
+                $this->setOepdqtyship($value);
                 break;
             case 8:
-                $this->setOesdqtyship($value);
+                $this->setOepdlotref($value);
                 break;
             case 9:
-                $this->setOesdcntrqty($value);
+                $this->setOepdcntrqty($value);
                 break;
             case 10:
-                $this->setOesdspecordr($value);
+                $this->setOepdbatch($value);
                 break;
             case 11:
-                $this->setOesdlotref($value);
+                $this->setOepdcuredate($value);
                 break;
             case 12:
-                $this->setOesdbatch($value);
+                $this->setOepdpllttype($value);
                 break;
             case 13:
-                $this->setOesdcuredate($value);
+                $this->setOepdlblprtd($value);
                 break;
             case 14:
-                $this->setOesdacstatus($value);
+                $this->setOepdorigbin($value);
                 break;
             case 15:
-                $this->setOesdtestlot($value);
+                $this->setOepdplltid($value);
                 break;
             case 16:
-                $this->setOesdpllttype($value);
-                break;
-            case 17:
-                $this->setOesdtarewght($value);
-                break;
-            case 18:
-                $this->setOesduseup($value);
-                break;
-            case 19:
-                $this->setOesdlblprtd($value);
-                break;
-            case 20:
-                $this->setOesdorigbin($value);
-                break;
-            case 21:
-                $this->setOesdactvdate($value);
-                break;
-            case 22:
-                $this->setOesdplltid($value);
-                break;
-            case 23:
                 $this->setDateupdtd($value);
                 break;
-            case 24:
+            case 17:
                 $this->setTimeupdtd($value);
                 break;
-            case 25:
+            case 18:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2362,7 +1993,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = SalesOrderLotserialTableMap::getFieldNames($keyType);
+        $keys = SoPickedLotserialTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setOehdnbr($arr[$keys[0]]);
@@ -2374,73 +2005,52 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
             $this->setInititemnbr($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setOesdtag($arr[$keys[3]]);
+            $this->setOepdlotser($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setOesdlotser($arr[$keys[4]]);
+            $this->setOepdbin($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setOesdbin($arr[$keys[5]]);
+            $this->setOepdplltnbr($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setOesdplltnbr($arr[$keys[6]]);
+            $this->setOepdcrtnnbr($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setOesdcrtnnbr($arr[$keys[7]]);
+            $this->setOepdqtyship($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setOesdqtyship($arr[$keys[8]]);
+            $this->setOepdlotref($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setOesdcntrqty($arr[$keys[9]]);
+            $this->setOepdcntrqty($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setOesdspecordr($arr[$keys[10]]);
+            $this->setOepdbatch($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setOesdlotref($arr[$keys[11]]);
+            $this->setOepdcuredate($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setOesdbatch($arr[$keys[12]]);
+            $this->setOepdpllttype($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setOesdcuredate($arr[$keys[13]]);
+            $this->setOepdlblprtd($arr[$keys[13]]);
         }
         if (array_key_exists($keys[14], $arr)) {
-            $this->setOesdacstatus($arr[$keys[14]]);
+            $this->setOepdorigbin($arr[$keys[14]]);
         }
         if (array_key_exists($keys[15], $arr)) {
-            $this->setOesdtestlot($arr[$keys[15]]);
+            $this->setOepdplltid($arr[$keys[15]]);
         }
         if (array_key_exists($keys[16], $arr)) {
-            $this->setOesdpllttype($arr[$keys[16]]);
+            $this->setDateupdtd($arr[$keys[16]]);
         }
         if (array_key_exists($keys[17], $arr)) {
-            $this->setOesdtarewght($arr[$keys[17]]);
+            $this->setTimeupdtd($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setOesduseup($arr[$keys[18]]);
-        }
-        if (array_key_exists($keys[19], $arr)) {
-            $this->setOesdlblprtd($arr[$keys[19]]);
-        }
-        if (array_key_exists($keys[20], $arr)) {
-            $this->setOesdorigbin($arr[$keys[20]]);
-        }
-        if (array_key_exists($keys[21], $arr)) {
-            $this->setOesdactvdate($arr[$keys[21]]);
-        }
-        if (array_key_exists($keys[22], $arr)) {
-            $this->setOesdplltid($arr[$keys[22]]);
-        }
-        if (array_key_exists($keys[23], $arr)) {
-            $this->setDateupdtd($arr[$keys[23]]);
-        }
-        if (array_key_exists($keys[24], $arr)) {
-            $this->setTimeupdtd($arr[$keys[24]]);
-        }
-        if (array_key_exists($keys[25], $arr)) {
-            $this->setDummy($arr[$keys[25]]);
+            $this->setDummy($arr[$keys[18]]);
         }
     }
 
@@ -2461,7 +2071,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\SalesOrderLotserial The current object, for fluid interface
+     * @return $this|\SoPickedLotserial The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -2481,85 +2091,64 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(SalesOrderLotserialTableMap::DATABASE_NAME);
+        $criteria = new Criteria(SoPickedLotserialTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OEHDNBR)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OEHDNBR, $this->oehdnbr);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEHDNBR)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEHDNBR, $this->oehdnbr);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OEDTLINE)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OEDTLINE, $this->oedtline);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEDTLINE)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEDTLINE, $this->oedtline);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_INITITEMNBR)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_INITITEMNBR)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTAG)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDTAG, $this->oesdtag);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLOTSER)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDLOTSER, $this->oepdlotser);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLOTSER)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDLOTSER, $this->oesdlotser);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDBIN)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDBIN, $this->oepdbin);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDBIN)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDBIN, $this->oesdbin);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTNBR)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDPLLTNBR, $this->oepdplltnbr);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTNBR)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDPLLTNBR, $this->oesdplltnbr);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCRTNNBR)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDCRTNNBR, $this->oepdcrtnnbr);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCRTNNBR)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDCRTNNBR, $this->oesdcrtnnbr);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDQTYSHIP)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDQTYSHIP, $this->oepdqtyship);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDQTYSHIP)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDQTYSHIP, $this->oesdqtyship);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLOTREF)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDLOTREF, $this->oepdlotref);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCNTRQTY)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDCNTRQTY, $this->oesdcntrqty);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCNTRQTY)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDCNTRQTY, $this->oepdcntrqty);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDSPECORDR)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDSPECORDR, $this->oesdspecordr);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDBATCH)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDBATCH, $this->oepdbatch);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLOTREF)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDLOTREF, $this->oesdlotref);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDCUREDATE)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDCUREDATE, $this->oepdcuredate);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDBATCH)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDBATCH, $this->oesdbatch);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTTYPE)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDPLLTTYPE, $this->oepdpllttype);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDCUREDATE)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDCUREDATE, $this->oesdcuredate);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDLBLPRTD)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDLBLPRTD, $this->oepdlblprtd);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACSTATUS)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDACSTATUS, $this->oesdacstatus);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDORIGBIN)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDORIGBIN, $this->oepdorigbin);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTESTLOT)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDTESTLOT, $this->oesdtestlot);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_OEPDPLLTID)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_OEPDPLLTID, $this->oepdplltid);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTTYPE)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDPLLTTYPE, $this->oesdpllttype);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DATEUPDTD)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDTAREWGHT)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDTAREWGHT, $this->oesdtarewght);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDUSEUP)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDUSEUP, $this->oesduseup);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDLBLPRTD)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDLBLPRTD, $this->oesdlblprtd);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDORIGBIN)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDORIGBIN, $this->oesdorigbin);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDACTVDATE)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDACTVDATE, $this->oesdactvdate);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_OESDPLLTID)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_OESDPLLTID, $this->oesdplltid);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DATEUPDTD)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_DATEUPDTD, $this->dateupdtd);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_TIMEUPDTD, $this->timeupdtd);
-        }
-        if ($this->isColumnModified(SalesOrderLotserialTableMap::COL_DUMMY)) {
-            $criteria->add(SalesOrderLotserialTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(SoPickedLotserialTableMap::COL_DUMMY)) {
+            $criteria->add(SoPickedLotserialTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -2577,15 +2166,14 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildSalesOrderLotserialQuery::create();
-        $criteria->add(SalesOrderLotserialTableMap::COL_OEHDNBR, $this->oehdnbr);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OEDTLINE, $this->oedtline);
-        $criteria->add(SalesOrderLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OESDTAG, $this->oesdtag);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OESDLOTSER, $this->oesdlotser);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OESDBIN, $this->oesdbin);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OESDPLLTNBR, $this->oesdplltnbr);
-        $criteria->add(SalesOrderLotserialTableMap::COL_OESDCRTNNBR, $this->oesdcrtnnbr);
+        $criteria = ChildSoPickedLotserialQuery::create();
+        $criteria->add(SoPickedLotserialTableMap::COL_OEHDNBR, $this->oehdnbr);
+        $criteria->add(SoPickedLotserialTableMap::COL_OEDTLINE, $this->oedtline);
+        $criteria->add(SoPickedLotserialTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        $criteria->add(SoPickedLotserialTableMap::COL_OEPDLOTSER, $this->oepdlotser);
+        $criteria->add(SoPickedLotserialTableMap::COL_OEPDBIN, $this->oepdbin);
+        $criteria->add(SoPickedLotserialTableMap::COL_OEPDPLLTNBR, $this->oepdplltnbr);
+        $criteria->add(SoPickedLotserialTableMap::COL_OEPDCRTNNBR, $this->oepdcrtnnbr);
 
         return $criteria;
     }
@@ -2601,13 +2189,12 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $validPk = null !== $this->getOehdnbr() &&
             null !== $this->getOedtline() &&
             null !== $this->getInititemnbr() &&
-            null !== $this->getOesdtag() &&
-            null !== $this->getOesdlotser() &&
-            null !== $this->getOesdbin() &&
-            null !== $this->getOesdplltnbr() &&
-            null !== $this->getOesdcrtnnbr();
+            null !== $this->getOepdlotser() &&
+            null !== $this->getOepdbin() &&
+            null !== $this->getOepdplltnbr() &&
+            null !== $this->getOepdcrtnnbr();
 
-        $validPrimaryKeyFKs = 4;
+        $validPrimaryKeyFKs = 6;
         $primaryKeyFKs = [];
 
         //relation salesorder to table so_header
@@ -2626,6 +2213,13 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
 
         //relation item to table inv_item_mast
         if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation lotserial to table inv_lot_mast
+        if ($this->aInvLotMaster && $hash = spl_object_hash($this->aInvLotMaster)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -2651,11 +2245,10 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $pks[0] = $this->getOehdnbr();
         $pks[1] = $this->getOedtline();
         $pks[2] = $this->getInititemnbr();
-        $pks[3] = $this->getOesdtag();
-        $pks[4] = $this->getOesdlotser();
-        $pks[5] = $this->getOesdbin();
-        $pks[6] = $this->getOesdplltnbr();
-        $pks[7] = $this->getOesdcrtnnbr();
+        $pks[3] = $this->getOepdlotser();
+        $pks[4] = $this->getOepdbin();
+        $pks[5] = $this->getOepdplltnbr();
+        $pks[6] = $this->getOepdcrtnnbr();
 
         return $pks;
     }
@@ -2671,11 +2264,10 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $this->setOehdnbr($keys[0]);
         $this->setOedtline($keys[1]);
         $this->setInititemnbr($keys[2]);
-        $this->setOesdtag($keys[3]);
-        $this->setOesdlotser($keys[4]);
-        $this->setOesdbin($keys[5]);
-        $this->setOesdplltnbr($keys[6]);
-        $this->setOesdcrtnnbr($keys[7]);
+        $this->setOepdlotser($keys[3]);
+        $this->setOepdbin($keys[4]);
+        $this->setOepdplltnbr($keys[5]);
+        $this->setOepdcrtnnbr($keys[6]);
     }
 
     /**
@@ -2684,7 +2276,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getOehdnbr()) && (null === $this->getOedtline()) && (null === $this->getInititemnbr()) && (null === $this->getOesdtag()) && (null === $this->getOesdlotser()) && (null === $this->getOesdbin()) && (null === $this->getOesdplltnbr()) && (null === $this->getOesdcrtnnbr());
+        return (null === $this->getOehdnbr()) && (null === $this->getOedtline()) && (null === $this->getInititemnbr()) && (null === $this->getOepdlotser()) && (null === $this->getOepdbin()) && (null === $this->getOepdplltnbr()) && (null === $this->getOepdcrtnnbr());
     }
 
     /**
@@ -2693,7 +2285,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \SalesOrderLotserial (or compatible) type.
+     * @param      object $copyObj An object of \SoPickedLotserial (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -2703,26 +2295,19 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $copyObj->setOehdnbr($this->getOehdnbr());
         $copyObj->setOedtline($this->getOedtline());
         $copyObj->setInititemnbr($this->getInititemnbr());
-        $copyObj->setOesdtag($this->getOesdtag());
-        $copyObj->setOesdlotser($this->getOesdlotser());
-        $copyObj->setOesdbin($this->getOesdbin());
-        $copyObj->setOesdplltnbr($this->getOesdplltnbr());
-        $copyObj->setOesdcrtnnbr($this->getOesdcrtnnbr());
-        $copyObj->setOesdqtyship($this->getOesdqtyship());
-        $copyObj->setOesdcntrqty($this->getOesdcntrqty());
-        $copyObj->setOesdspecordr($this->getOesdspecordr());
-        $copyObj->setOesdlotref($this->getOesdlotref());
-        $copyObj->setOesdbatch($this->getOesdbatch());
-        $copyObj->setOesdcuredate($this->getOesdcuredate());
-        $copyObj->setOesdacstatus($this->getOesdacstatus());
-        $copyObj->setOesdtestlot($this->getOesdtestlot());
-        $copyObj->setOesdpllttype($this->getOesdpllttype());
-        $copyObj->setOesdtarewght($this->getOesdtarewght());
-        $copyObj->setOesduseup($this->getOesduseup());
-        $copyObj->setOesdlblprtd($this->getOesdlblprtd());
-        $copyObj->setOesdorigbin($this->getOesdorigbin());
-        $copyObj->setOesdactvdate($this->getOesdactvdate());
-        $copyObj->setOesdplltid($this->getOesdplltid());
+        $copyObj->setOepdlotser($this->getOepdlotser());
+        $copyObj->setOepdbin($this->getOepdbin());
+        $copyObj->setOepdplltnbr($this->getOepdplltnbr());
+        $copyObj->setOepdcrtnnbr($this->getOepdcrtnnbr());
+        $copyObj->setOepdqtyship($this->getOepdqtyship());
+        $copyObj->setOepdlotref($this->getOepdlotref());
+        $copyObj->setOepdcntrqty($this->getOepdcntrqty());
+        $copyObj->setOepdbatch($this->getOepdbatch());
+        $copyObj->setOepdcuredate($this->getOepdcuredate());
+        $copyObj->setOepdpllttype($this->getOepdpllttype());
+        $copyObj->setOepdlblprtd($this->getOepdlblprtd());
+        $copyObj->setOepdorigbin($this->getOepdorigbin());
+        $copyObj->setOepdplltid($this->getOepdplltid());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -2740,7 +2325,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \SalesOrderLotserial Clone of current object.
+     * @return \SoPickedLotserial Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -2757,7 +2342,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Declares an association between this object and a ChildSalesOrder object.
      *
      * @param  ChildSalesOrder $v
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      * @throws PropelException
      */
     public function setSalesOrder(ChildSalesOrder $v = null)
@@ -2773,7 +2358,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSalesOrder object, it will not be re-added.
         if ($v !== null) {
-            $v->addSalesOrderLotserial($this);
+            $v->addSoPickedLotserial($this);
         }
 
 
@@ -2797,7 +2382,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aSalesOrder->addSalesOrderLotserials($this);
+                $this->aSalesOrder->addSoPickedLotserials($this);
              */
         }
 
@@ -2808,7 +2393,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Declares an association between this object and a ChildSalesOrderDetail object.
      *
      * @param  ChildSalesOrderDetail $v
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      * @throws PropelException
      */
     public function setSalesOrderDetail(ChildSalesOrderDetail $v = null)
@@ -2830,7 +2415,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildSalesOrderDetail object, it will not be re-added.
         if ($v !== null) {
-            $v->addSalesOrderLotserial($this);
+            $v->addSoPickedLotserial($this);
         }
 
 
@@ -2854,7 +2439,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aSalesOrderDetail->addSalesOrderLotserials($this);
+                $this->aSalesOrderDetail->addSoPickedLotserials($this);
              */
         }
 
@@ -2865,7 +2450,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      * Declares an association between this object and a ChildItemMasterItem object.
      *
      * @param  ChildItemMasterItem $v
-     * @return $this|\SalesOrderLotserial The current object (for fluent API support)
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
      * @throws PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
@@ -2881,7 +2466,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
         if ($v !== null) {
-            $v->addSalesOrderLotserial($this);
+            $v->addSoPickedLotserial($this);
         }
 
 
@@ -2905,11 +2490,68 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aItemMasterItem->addSalesOrderLotserials($this);
+                $this->aItemMasterItem->addSoPickedLotserials($this);
              */
         }
 
         return $this->aItemMasterItem;
+    }
+
+    /**
+     * Declares an association between this object and a ChildInvLotMaster object.
+     *
+     * @param  ChildInvLotMaster $v
+     * @return $this|\SoPickedLotserial The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvLotMaster(ChildInvLotMaster $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        if ($v === null) {
+            $this->setOepdlotser('');
+        } else {
+            $this->setOepdlotser($v->getLotmlotnbr());
+        }
+
+        $this->aInvLotMaster = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvLotMaster object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSoPickedLotserial($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvLotMaster object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvLotMaster The associated ChildInvLotMaster object.
+     * @throws PropelException
+     */
+    public function getInvLotMaster(ConnectionInterface $con = null)
+    {
+        if ($this->aInvLotMaster === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null) && ($this->oepdlotser !== "" && $this->oepdlotser !== null))) {
+            $this->aInvLotMaster = ChildInvLotMasterQuery::create()->findPk(array($this->inititemnbr, $this->oepdlotser), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvLotMaster->addSoPickedLotserials($this);
+             */
+        }
+
+        return $this->aInvLotMaster;
     }
 
     /**
@@ -2920,37 +2562,33 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
     public function clear()
     {
         if (null !== $this->aSalesOrder) {
-            $this->aSalesOrder->removeSalesOrderLotserial($this);
+            $this->aSalesOrder->removeSoPickedLotserial($this);
         }
         if (null !== $this->aSalesOrderDetail) {
-            $this->aSalesOrderDetail->removeSalesOrderLotserial($this);
+            $this->aSalesOrderDetail->removeSoPickedLotserial($this);
         }
         if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeSalesOrderLotserial($this);
+            $this->aItemMasterItem->removeSoPickedLotserial($this);
+        }
+        if (null !== $this->aInvLotMaster) {
+            $this->aInvLotMaster->removeSoPickedLotserial($this);
         }
         $this->oehdnbr = null;
         $this->oedtline = null;
         $this->inititemnbr = null;
-        $this->oesdtag = null;
-        $this->oesdlotser = null;
-        $this->oesdbin = null;
-        $this->oesdplltnbr = null;
-        $this->oesdcrtnnbr = null;
-        $this->oesdqtyship = null;
-        $this->oesdcntrqty = null;
-        $this->oesdspecordr = null;
-        $this->oesdlotref = null;
-        $this->oesdbatch = null;
-        $this->oesdcuredate = null;
-        $this->oesdacstatus = null;
-        $this->oesdtestlot = null;
-        $this->oesdpllttype = null;
-        $this->oesdtarewght = null;
-        $this->oesduseup = null;
-        $this->oesdlblprtd = null;
-        $this->oesdorigbin = null;
-        $this->oesdactvdate = null;
-        $this->oesdplltid = null;
+        $this->oepdlotser = null;
+        $this->oepdbin = null;
+        $this->oepdplltnbr = null;
+        $this->oepdcrtnnbr = null;
+        $this->oepdqtyship = null;
+        $this->oepdlotref = null;
+        $this->oepdcntrqty = null;
+        $this->oepdbatch = null;
+        $this->oepdcuredate = null;
+        $this->oepdpllttype = null;
+        $this->oepdlblprtd = null;
+        $this->oepdorigbin = null;
+        $this->oepdplltid = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -2978,6 +2616,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
         $this->aSalesOrder = null;
         $this->aSalesOrderDetail = null;
         $this->aItemMasterItem = null;
+        $this->aInvLotMaster = null;
     }
 
     /**
@@ -2987,7 +2626,7 @@ abstract class SalesOrderLotserial implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(SalesOrderLotserialTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(SoPickedLotserialTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

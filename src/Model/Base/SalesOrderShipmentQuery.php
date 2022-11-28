@@ -99,7 +99,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderShipment findOne(ConnectionInterface $con = null) Return the first ChildSalesOrderShipment matching the query
  * @method     ChildSalesOrderShipment findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrderShipment matching the query, or a new ChildSalesOrderShipment object populated from the query conditions when no match is found
  *
- * @method     ChildSalesOrderShipment findOneByOehshnbr(string $OehshNbr) Return the first ChildSalesOrderShipment filtered by the OehshNbr column
+ * @method     ChildSalesOrderShipment findOneByOehshnbr(int $OehshNbr) Return the first ChildSalesOrderShipment filtered by the OehshNbr column
  * @method     ChildSalesOrderShipment findOneByOehshseq(int $OehshSeq) Return the first ChildSalesOrderShipment filtered by the OehshSeq column
  * @method     ChildSalesOrderShipment findOneByOehshshiprefnbr(int $OehshShipRefNbr) Return the first ChildSalesOrderShipment filtered by the OehshShipRefNbr column
  * @method     ChildSalesOrderShipment findOneByOehshwght(string $OehshWght) Return the first ChildSalesOrderShipment filtered by the OehshWght column
@@ -125,7 +125,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderShipment requirePk($key, ConnectionInterface $con = null) Return the ChildSalesOrderShipment by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderShipment requireOne(ConnectionInterface $con = null) Return the first ChildSalesOrderShipment matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesOrderShipment requireOneByOehshnbr(string $OehshNbr) Return the first ChildSalesOrderShipment filtered by the OehshNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderShipment requireOneByOehshnbr(int $OehshNbr) Return the first ChildSalesOrderShipment filtered by the OehshNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderShipment requireOneByOehshseq(int $OehshSeq) Return the first ChildSalesOrderShipment filtered by the OehshSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderShipment requireOneByOehshshiprefnbr(int $OehshShipRefNbr) Return the first ChildSalesOrderShipment filtered by the OehshShipRefNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderShipment requireOneByOehshwght(string $OehshWght) Return the first ChildSalesOrderShipment filtered by the OehshWght column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -149,7 +149,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderShipment requireOneByDummy(string $dummy) Return the first ChildSalesOrderShipment filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesOrderShipment[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesOrderShipment objects based on current ModelCriteria
- * @method     ChildSalesOrderShipment[]|ObjectCollection findByOehshnbr(string $OehshNbr) Return ChildSalesOrderShipment objects filtered by the OehshNbr column
+ * @method     ChildSalesOrderShipment[]|ObjectCollection findByOehshnbr(int $OehshNbr) Return ChildSalesOrderShipment objects filtered by the OehshNbr column
  * @method     ChildSalesOrderShipment[]|ObjectCollection findByOehshseq(int $OehshSeq) Return ChildSalesOrderShipment objects filtered by the OehshSeq column
  * @method     ChildSalesOrderShipment[]|ObjectCollection findByOehshshiprefnbr(int $OehshShipRefNbr) Return ChildSalesOrderShipment objects filtered by the OehshShipRefNbr column
  * @method     ChildSalesOrderShipment[]|ObjectCollection findByOehshwght(string $OehshWght) Return ChildSalesOrderShipment objects filtered by the OehshWght column
@@ -272,7 +272,7 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
         $sql = 'SELECT OehshNbr, OehshSeq, OehshShipRefNbr, OehshWght, OehshServType, OehshShipDate, OehshTrackNbr, OehshBillOfLading, OehshVesselName, OehshAsgdCntrNbr, OehshOceanContainer, OehshAmazonRef, OehshSealNumber, OehshNbrCntrs, OehshReported, OehshCrtnNbr, OehshFrtCost, OehshDiscFrtCost, OehshFrtChrged, DateUpdtd, TimeUpdtd, dummy FROM so_hist_ship WHERE OehshNbr = :p0 AND OehshSeq = :p1';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
@@ -376,19 +376,39 @@ abstract class SalesOrderShipmentQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehshnbr('fooValue');   // WHERE OehshNbr = 'fooValue'
-     * $query->filterByOehshnbr('%fooValue%', Criteria::LIKE); // WHERE OehshNbr LIKE '%fooValue%'
+     * $query->filterByOehshnbr(1234); // WHERE OehshNbr = 1234
+     * $query->filterByOehshnbr(array(12, 34)); // WHERE OehshNbr IN (12, 34)
+     * $query->filterByOehshnbr(array('min' => 12)); // WHERE OehshNbr > 12
      * </code>
      *
-     * @param     string $oehshnbr The value to use as filter.
+     * @see       filterBySalesOrder()
+     *
+     * @see       filterBySalesHistory()
+     *
+     * @param     mixed $oehshnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderShipmentQuery The current query, for fluid interface
      */
     public function filterByOehshnbr($oehshnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehshnbr)) {
+        if (is_array($oehshnbr)) {
+            $useMinMax = false;
+            if (isset($oehshnbr['min'])) {
+                $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHNBR, $oehshnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehshnbr['max'])) {
+                $this->addUsingAlias(SalesOrderShipmentTableMap::COL_OEHSHNBR, $oehshnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }

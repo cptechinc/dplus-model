@@ -231,29 +231,29 @@ class SalesOrderShipmentTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, null);
-        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'VARCHAR' , 'so_head_hist', 'OehhNbr', true, 10, null);
-        $this->addPrimaryKey('OehshSeq', 'Oehshseq', 'INTEGER', true, 4, 0);
-        $this->addColumn('OehshShipRefNbr', 'Oehshshiprefnbr', 'INTEGER', false, 8, null);
-        $this->addColumn('OehshWght', 'Oehshwght', 'DECIMAL', false, 20, null);
-        $this->addColumn('OehshServType', 'Oehshservtype', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshShipDate', 'Oehshshipdate', 'VARCHAR', false, 8, null);
-        $this->addColumn('OehshTrackNbr', 'Oehshtracknbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshBillOfLading', 'Oehshbilloflading', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshVesselName', 'Oehshvesselname', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshAsgdCntrNbr', 'Oehshasgdcntrnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshOceanContainer', 'Oehshoceancontainer', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshAmazonRef', 'Oehshamazonref', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshSealNumber', 'Oehshsealnumber', 'VARCHAR', false, 30, null);
-        $this->addColumn('OehshNbrCntrs', 'Oehshnbrcntrs', 'INTEGER', false, 6, null);
-        $this->addColumn('OehshReported', 'Oehshreported', 'VARCHAR', false, 1, null);
-        $this->addColumn('OehshCrtnNbr', 'Oehshcrtnnbr', 'INTEGER', false, 4, null);
-        $this->addColumn('OehshFrtCost', 'Oehshfrtcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('OehshDiscFrtCost', 'Oehshdiscfrtcost', 'DECIMAL', false, 20, null);
-        $this->addColumn('OehshFrtChrged', 'Oehshfrtchrged', 'DECIMAL', false, 20, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'INTEGER' , 'so_header', 'OehdNbr', true, 10, 0);
+        $this->addForeignPrimaryKey('OehshNbr', 'Oehshnbr', 'INTEGER' , 'so_head_hist', 'OehhNbr', true, 10, 0);
+        $this->addPrimaryKey('OehshSeq', 'Oehshseq', 'INTEGER', true, 4, 1);
+        $this->addColumn('OehshShipRefNbr', 'Oehshshiprefnbr', 'INTEGER', true, 8, 1);
+        $this->addColumn('OehshWght', 'Oehshwght', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OehshServType', 'Oehshservtype', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshShipDate', 'Oehshshipdate', 'CHAR', true, 8, '');
+        $this->addColumn('OehshTrackNbr', 'Oehshtracknbr', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshBillOfLading', 'Oehshbilloflading', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshVesselName', 'Oehshvesselname', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshAsgdCntrNbr', 'Oehshasgdcntrnbr', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshOceanContainer', 'Oehshoceancontainer', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshAmazonRef', 'Oehshamazonref', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshSealNumber', 'Oehshsealnumber', 'VARCHAR', true, 30, '');
+        $this->addColumn('OehshNbrCntrs', 'Oehshnbrcntrs', 'INTEGER', true, 6, 1);
+        $this->addColumn('OehshReported', 'Oehshreported', 'CHAR', true, null, '');
+        $this->addColumn('OehshCrtnNbr', 'Oehshcrtnnbr', 'INTEGER', true, 4, 0);
+        $this->addColumn('OehshFrtCost', 'Oehshfrtcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OehshDiscFrtCost', 'Oehshdiscfrtcost', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OehshFrtChrged', 'Oehshfrtchrged', 'DECIMAL', true, 20, 0);
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -369,7 +369,7 @@ class SalesOrderShipmentTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Oehshnbr', TableMap::TYPE_PHPNAME, $indexType)

@@ -66,14 +66,15 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshnbr field.
      *
-     * @var        string
+     * Note: this column has a database default value of: 0
+     * @var        int
      */
     protected $oehshnbr;
 
     /**
      * The value for the oehshseq field.
      *
-     * Note: this column has a database default value of: 0
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $oehshseq;
@@ -81,6 +82,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshshiprefnbr field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $oehshshiprefnbr;
@@ -88,6 +90,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshwght field.
      *
+     * Note: this column has a database default value of: '0.0'
      * @var        string
      */
     protected $oehshwght;
@@ -95,6 +98,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshservtype field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshservtype;
@@ -102,6 +106,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshshipdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshshipdate;
@@ -109,6 +114,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshtracknbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshtracknbr;
@@ -116,6 +122,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshbilloflading field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshbilloflading;
@@ -123,6 +130,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshvesselname field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshvesselname;
@@ -130,6 +138,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshasgdcntrnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshasgdcntrnbr;
@@ -137,6 +146,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshoceancontainer field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshoceancontainer;
@@ -144,6 +154,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshamazonref field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshamazonref;
@@ -151,6 +162,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshsealnumber field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshsealnumber;
@@ -158,6 +170,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshnbrcntrs field.
      *
+     * Note: this column has a database default value of: 1
      * @var        int
      */
     protected $oehshnbrcntrs;
@@ -165,6 +178,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshreported field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $oehshreported;
@@ -172,6 +186,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshcrtnnbr field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $oehshcrtnnbr;
@@ -179,6 +194,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshfrtcost field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehshfrtcost;
@@ -186,6 +202,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshdiscfrtcost field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehshdiscfrtcost;
@@ -193,6 +210,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the oehshfrtchrged field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
     protected $oehshfrtchrged;
@@ -200,6 +218,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -207,6 +226,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -214,6 +234,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -244,7 +265,28 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->oehshseq = 0;
+        $this->oehshnbr = 0;
+        $this->oehshseq = 1;
+        $this->oehshshiprefnbr = 1;
+        $this->oehshwght = '0.0';
+        $this->oehshservtype = '';
+        $this->oehshshipdate = '';
+        $this->oehshtracknbr = '';
+        $this->oehshbilloflading = '';
+        $this->oehshvesselname = '';
+        $this->oehshasgdcntrnbr = '';
+        $this->oehshoceancontainer = '';
+        $this->oehshamazonref = '';
+        $this->oehshsealnumber = '';
+        $this->oehshnbrcntrs = 1;
+        $this->oehshreported = '';
+        $this->oehshcrtnnbr = 0;
+        $this->oehshfrtcost = '0.00';
+        $this->oehshdiscfrtcost = '0.00';
+        $this->oehshfrtchrged = '0.00';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -477,7 +519,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Get the [oehshnbr] column value.
      *
-     * @return string
+     * @return int
      */
     public function getOehshnbr()
     {
@@ -697,13 +739,13 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     /**
      * Set the value of [oehshnbr] column.
      *
-     * @param string $v new value
+     * @param int $v new value
      * @return $this|\SalesOrderShipment The current object (for fluent API support)
      */
     public function setOehshnbr($v)
     {
         if ($v !== null) {
-            $v = (string) $v;
+            $v = (int) $v;
         }
 
         if ($this->oehshnbr !== $v) {
@@ -1152,7 +1194,91 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->oehshseq !== 0) {
+            if ($this->oehshnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oehshseq !== 1) {
+                return false;
+            }
+
+            if ($this->oehshshiprefnbr !== 1) {
+                return false;
+            }
+
+            if ($this->oehshwght !== '0.0') {
+                return false;
+            }
+
+            if ($this->oehshservtype !== '') {
+                return false;
+            }
+
+            if ($this->oehshshipdate !== '') {
+                return false;
+            }
+
+            if ($this->oehshtracknbr !== '') {
+                return false;
+            }
+
+            if ($this->oehshbilloflading !== '') {
+                return false;
+            }
+
+            if ($this->oehshvesselname !== '') {
+                return false;
+            }
+
+            if ($this->oehshasgdcntrnbr !== '') {
+                return false;
+            }
+
+            if ($this->oehshoceancontainer !== '') {
+                return false;
+            }
+
+            if ($this->oehshamazonref !== '') {
+                return false;
+            }
+
+            if ($this->oehshsealnumber !== '') {
+                return false;
+            }
+
+            if ($this->oehshnbrcntrs !== 1) {
+                return false;
+            }
+
+            if ($this->oehshreported !== '') {
+                return false;
+            }
+
+            if ($this->oehshcrtnnbr !== 0) {
+                return false;
+            }
+
+            if ($this->oehshfrtcost !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehshdiscfrtcost !== '0.00') {
+                return false;
+            }
+
+            if ($this->oehshfrtchrged !== '0.00') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1183,7 +1309,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
         try {
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->oehshnbr = (null !== $col) ? (string) $col : null;
+            $this->oehshnbr = (null !== $col) ? (int) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : SalesOrderShipmentTableMap::translateFieldName('Oehshseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oehshseq = (null !== $col) ? (int) $col : null;
@@ -1557,7 +1683,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
                     case 'OehshNbr':
-                        $stmt->bindValue($identifier, $this->oehshnbr, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->oehshnbr, PDO::PARAM_INT);
                         break;
                     case 'OehshSeq':
                         $stmt->bindValue($identifier, $this->oehshseq, PDO::PARAM_INT);
@@ -2298,7 +2424,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     public function setSalesOrder(ChildSalesOrder $v = null)
     {
         if ($v === null) {
-            $this->setOehshnbr(NULL);
+            $this->setOehshnbr(0);
         } else {
             $this->setOehshnbr($v->getOehdnbr());
         }
@@ -2325,7 +2451,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function getSalesOrder(ConnectionInterface $con = null)
     {
-        if ($this->aSalesOrder === null && (($this->oehshnbr !== "" && $this->oehshnbr !== null))) {
+        if ($this->aSalesOrder === null && ($this->oehshnbr != 0)) {
             $this->aSalesOrder = ChildSalesOrderQuery::create()->findPk($this->oehshnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference
@@ -2349,7 +2475,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
     public function setSalesHistory(ChildSalesHistory $v = null)
     {
         if ($v === null) {
-            $this->setOehshnbr(NULL);
+            $this->setOehshnbr(0);
         } else {
             $this->setOehshnbr($v->getOehhnbr());
         }
@@ -2376,7 +2502,7 @@ abstract class SalesOrderShipment implements ActiveRecordInterface
      */
     public function getSalesHistory(ConnectionInterface $con = null)
     {
-        if ($this->aSalesHistory === null && (($this->oehshnbr !== "" && $this->oehshnbr !== null))) {
+        if ($this->aSalesHistory === null && ($this->oehshnbr != 0)) {
             $this->aSalesHistory = ChildSalesHistoryQuery::create()->findPk($this->oehshnbr, $con);
             /* The following can be used additionally to
                 guarantee the related object contains a reference

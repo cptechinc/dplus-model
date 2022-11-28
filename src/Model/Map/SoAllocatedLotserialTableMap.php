@@ -59,7 +59,7 @@ class SoAllocatedLotserialTableMap extends TableMap
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 17;
+    const NUM_COLUMNS = 19;
 
     /**
      * The number of lazy-loaded columns
@@ -69,7 +69,7 @@ class SoAllocatedLotserialTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 17;
+    const NUM_HYDRATE_COLUMNS = 19;
 
     /**
      * the column name for the OehdNbr field
@@ -142,6 +142,16 @@ class SoAllocatedLotserialTableMap extends TableMap
     const COL_OEIDLBLPRTD = 'so_pre_allo.OeidLblPrtd';
 
     /**
+     * the column name for the OeidOrigBin field
+     */
+    const COL_OEIDORIGBIN = 'so_pre_allo.OeidOrigBin';
+
+    /**
+     * the column name for the OeidPlltID field
+     */
+    const COL_OEIDPLLTID = 'so_pre_allo.OeidPlltID';
+
+    /**
      * the column name for the DateUpdtd field
      */
     const COL_DATEUPDTD = 'so_pre_allo.DateUpdtd';
@@ -168,11 +178,11 @@ class SoAllocatedLotserialTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oeidlotser', 'Oeidbin', 'Oeidplltnbr', 'Oeidcrtnnbr', 'Oeidqtyship', 'Oeidlotref', 'Oeidcntrqty', 'Oeidbatch', 'Oeidcuredate', 'Oeidpllttype', 'Oeidlblprtd', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oeidlotser', 'oeidbin', 'oeidplltnbr', 'oeidcrtnnbr', 'oeidqtyship', 'oeidlotref', 'oeidcntrqty', 'oeidbatch', 'oeidcuredate', 'oeidpllttype', 'oeidlblprtd', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR, SoAllocatedLotserialTableMap::COL_OEDTLINE, SoAllocatedLotserialTableMap::COL_INITITEMNBR, SoAllocatedLotserialTableMap::COL_OEIDLOTSER, SoAllocatedLotserialTableMap::COL_OEIDBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, SoAllocatedLotserialTableMap::COL_OEIDLOTREF, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, SoAllocatedLotserialTableMap::COL_OEIDBATCH, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, SoAllocatedLotserialTableMap::COL_DATEUPDTD, SoAllocatedLotserialTableMap::COL_TIMEUPDTD, SoAllocatedLotserialTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OeidLotSer', 'OeidBin', 'OeidPlltNbr', 'OeidCrtnNbr', 'OeidQtyShip', 'OeidLotRef', 'OeidCntrQty', 'OeidBatch', 'OeidCureDate', 'OeidPlltType', 'OeidLblPrtd', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Oehdnbr', 'Oedtline', 'Inititemnbr', 'Oeidlotser', 'Oeidbin', 'Oeidplltnbr', 'Oeidcrtnnbr', 'Oeidqtyship', 'Oeidlotref', 'Oeidcntrqty', 'Oeidbatch', 'Oeidcuredate', 'Oeidpllttype', 'Oeidlblprtd', 'Oeidorigbin', 'Oeidplltid', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('oehdnbr', 'oedtline', 'inititemnbr', 'oeidlotser', 'oeidbin', 'oeidplltnbr', 'oeidcrtnnbr', 'oeidqtyship', 'oeidlotref', 'oeidcntrqty', 'oeidbatch', 'oeidcuredate', 'oeidpllttype', 'oeidlblprtd', 'oeidorigbin', 'oeidplltid', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR, SoAllocatedLotserialTableMap::COL_OEDTLINE, SoAllocatedLotserialTableMap::COL_INITITEMNBR, SoAllocatedLotserialTableMap::COL_OEIDLOTSER, SoAllocatedLotserialTableMap::COL_OEIDBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP, SoAllocatedLotserialTableMap::COL_OEIDLOTREF, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY, SoAllocatedLotserialTableMap::COL_OEIDBATCH, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN, SoAllocatedLotserialTableMap::COL_OEIDPLLTID, SoAllocatedLotserialTableMap::COL_DATEUPDTD, SoAllocatedLotserialTableMap::COL_TIMEUPDTD, SoAllocatedLotserialTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr', 'OedtLine', 'InitItemNbr', 'OeidLotSer', 'OeidBin', 'OeidPlltNbr', 'OeidCrtnNbr', 'OeidQtyShip', 'OeidLotRef', 'OeidCntrQty', 'OeidBatch', 'OeidCureDate', 'OeidPlltType', 'OeidLblPrtd', 'OeidOrigBin', 'OeidPlltID', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -182,11 +192,11 @@ class SoAllocatedLotserialTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oeidlotser' => 3, 'Oeidbin' => 4, 'Oeidplltnbr' => 5, 'Oeidcrtnnbr' => 6, 'Oeidqtyship' => 7, 'Oeidlotref' => 8, 'Oeidcntrqty' => 9, 'Oeidbatch' => 10, 'Oeidcuredate' => 11, 'Oeidpllttype' => 12, 'Oeidlblprtd' => 13, 'Dateupdtd' => 14, 'Timeupdtd' => 15, 'Dummy' => 16, ),
-        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oeidlotser' => 3, 'oeidbin' => 4, 'oeidplltnbr' => 5, 'oeidcrtnnbr' => 6, 'oeidqtyship' => 7, 'oeidlotref' => 8, 'oeidcntrqty' => 9, 'oeidbatch' => 10, 'oeidcuredate' => 11, 'oeidpllttype' => 12, 'oeidlblprtd' => 13, 'dateupdtd' => 14, 'timeupdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR => 0, SoAllocatedLotserialTableMap::COL_OEDTLINE => 1, SoAllocatedLotserialTableMap::COL_INITITEMNBR => 2, SoAllocatedLotserialTableMap::COL_OEIDLOTSER => 3, SoAllocatedLotserialTableMap::COL_OEIDBIN => 4, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR => 5, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR => 6, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP => 7, SoAllocatedLotserialTableMap::COL_OEIDLOTREF => 8, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY => 9, SoAllocatedLotserialTableMap::COL_OEIDBATCH => 10, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE => 11, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE => 12, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD => 13, SoAllocatedLotserialTableMap::COL_DATEUPDTD => 14, SoAllocatedLotserialTableMap::COL_TIMEUPDTD => 15, SoAllocatedLotserialTableMap::COL_DUMMY => 16, ),
-        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OeidLotSer' => 3, 'OeidBin' => 4, 'OeidPlltNbr' => 5, 'OeidCrtnNbr' => 6, 'OeidQtyShip' => 7, 'OeidLotRef' => 8, 'OeidCntrQty' => 9, 'OeidBatch' => 10, 'OeidCureDate' => 11, 'OeidPlltType' => 12, 'OeidLblPrtd' => 13, 'DateUpdtd' => 14, 'TimeUpdtd' => 15, 'dummy' => 16, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, )
+        self::TYPE_PHPNAME       => array('Oehdnbr' => 0, 'Oedtline' => 1, 'Inititemnbr' => 2, 'Oeidlotser' => 3, 'Oeidbin' => 4, 'Oeidplltnbr' => 5, 'Oeidcrtnnbr' => 6, 'Oeidqtyship' => 7, 'Oeidlotref' => 8, 'Oeidcntrqty' => 9, 'Oeidbatch' => 10, 'Oeidcuredate' => 11, 'Oeidpllttype' => 12, 'Oeidlblprtd' => 13, 'Oeidorigbin' => 14, 'Oeidplltid' => 15, 'Dateupdtd' => 16, 'Timeupdtd' => 17, 'Dummy' => 18, ),
+        self::TYPE_CAMELNAME     => array('oehdnbr' => 0, 'oedtline' => 1, 'inititemnbr' => 2, 'oeidlotser' => 3, 'oeidbin' => 4, 'oeidplltnbr' => 5, 'oeidcrtnnbr' => 6, 'oeidqtyship' => 7, 'oeidlotref' => 8, 'oeidcntrqty' => 9, 'oeidbatch' => 10, 'oeidcuredate' => 11, 'oeidpllttype' => 12, 'oeidlblprtd' => 13, 'oeidorigbin' => 14, 'oeidplltid' => 15, 'dateupdtd' => 16, 'timeupdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_COLNAME       => array(SoAllocatedLotserialTableMap::COL_OEHDNBR => 0, SoAllocatedLotserialTableMap::COL_OEDTLINE => 1, SoAllocatedLotserialTableMap::COL_INITITEMNBR => 2, SoAllocatedLotserialTableMap::COL_OEIDLOTSER => 3, SoAllocatedLotserialTableMap::COL_OEIDBIN => 4, SoAllocatedLotserialTableMap::COL_OEIDPLLTNBR => 5, SoAllocatedLotserialTableMap::COL_OEIDCRTNNBR => 6, SoAllocatedLotserialTableMap::COL_OEIDQTYSHIP => 7, SoAllocatedLotserialTableMap::COL_OEIDLOTREF => 8, SoAllocatedLotserialTableMap::COL_OEIDCNTRQTY => 9, SoAllocatedLotserialTableMap::COL_OEIDBATCH => 10, SoAllocatedLotserialTableMap::COL_OEIDCUREDATE => 11, SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE => 12, SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD => 13, SoAllocatedLotserialTableMap::COL_OEIDORIGBIN => 14, SoAllocatedLotserialTableMap::COL_OEIDPLLTID => 15, SoAllocatedLotserialTableMap::COL_DATEUPDTD => 16, SoAllocatedLotserialTableMap::COL_TIMEUPDTD => 17, SoAllocatedLotserialTableMap::COL_DUMMY => 18, ),
+        self::TYPE_FIELDNAME     => array('OehdNbr' => 0, 'OedtLine' => 1, 'InitItemNbr' => 2, 'OeidLotSer' => 3, 'OeidBin' => 4, 'OeidPlltNbr' => 5, 'OeidCrtnNbr' => 6, 'OeidQtyShip' => 7, 'OeidLotRef' => 8, 'OeidCntrQty' => 9, 'OeidBatch' => 10, 'OeidCureDate' => 11, 'OeidPlltType' => 12, 'OeidLblPrtd' => 13, 'OeidOrigBin' => 14, 'OeidPlltID' => 15, 'DateUpdtd' => 16, 'TimeUpdtd' => 17, 'dummy' => 18, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, )
     );
 
     /**
@@ -206,8 +216,8 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_header', 'OehdNbr', true, 10, null);
-        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'VARCHAR' , 'so_detail', 'OehdNbr', true, 10, null);
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER' , 'so_header', 'OehdNbr', true, 10, 0);
+        $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER' , 'so_detail', 'OehdNbr', true, 10, 0);
         $this->addForeignPrimaryKey('OedtLine', 'Oedtline', 'INTEGER' , 'so_detail', 'OedtLine', true, 4, 0);
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_lot_mast', 'InitItemNbr', true, 30, '');
@@ -215,16 +225,18 @@ class SoAllocatedLotserialTableMap extends TableMap
         $this->addPrimaryKey('OeidBin', 'Oeidbin', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('OeidPlltNbr', 'Oeidplltnbr', 'INTEGER', true, 4, 0);
         $this->addPrimaryKey('OeidCrtnNbr', 'Oeidcrtnnbr', 'INTEGER', true, 4, 0);
-        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', false, 20, null);
-        $this->addColumn('OeidLotRef', 'Oeidlotref', 'VARCHAR', false, 20, null);
-        $this->addColumn('OeidCntrQty', 'Oeidcntrqty', 'DECIMAL', false, 20, null);
-        $this->addColumn('OeidBatch', 'Oeidbatch', 'VARCHAR', false, 15, null);
-        $this->addColumn('OeidCureDate', 'Oeidcuredate', 'VARCHAR', false, 10, null);
-        $this->addColumn('OeidPlltType', 'Oeidpllttype', 'VARCHAR', false, 1, null);
-        $this->addColumn('OeidLblPrtd', 'Oeidlblprtd', 'VARCHAR', false, 1, null);
-        $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
-        $this->addColumn('dummy', 'Dummy', 'VARCHAR', false, 1, null);
+        $this->addColumn('OeidQtyShip', 'Oeidqtyship', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeidLotRef', 'Oeidlotref', 'VARCHAR', true, 20, '');
+        $this->addColumn('OeidCntrQty', 'Oeidcntrqty', 'DECIMAL', true, 20, 0);
+        $this->addColumn('OeidBatch', 'Oeidbatch', 'VARCHAR', true, 15, '');
+        $this->addColumn('OeidCureDate', 'Oeidcuredate', 'VARCHAR', true, 10, '');
+        $this->addColumn('OeidPlltType', 'Oeidpllttype', 'CHAR', true, null, '');
+        $this->addColumn('OeidLblPrtd', 'Oeidlblprtd', 'CHAR', true, null, '');
+        $this->addColumn('OeidOrigBin', 'Oeidorigbin', 'VARCHAR', true, 8, '');
+        $this->addColumn('OeidPlltID', 'Oeidplltid', 'VARCHAR', true, 15, '');
+        $this->addColumn('DateUpdtd', 'Dateupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('TimeUpdtd', 'Timeupdtd', 'CHAR', true, 8, '');
+        $this->addColumn('dummy', 'Dummy', 'CHAR', true, null, 'P');
     } // initialize()
 
     /**
@@ -364,7 +376,7 @@ class SoAllocatedLotserialTableMap extends TableMap
     {
             $pks = [];
 
-        $pks[] = (string) $row[
+        $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
                 ? 0 + $offset
                 : self::translateFieldName('Oehdnbr', TableMap::TYPE_PHPNAME, $indexType)
@@ -514,6 +526,8 @@ class SoAllocatedLotserialTableMap extends TableMap
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDCUREDATE);
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDPLLTTYPE);
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDLBLPRTD);
+            $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDORIGBIN);
+            $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_OEIDPLLTID);
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_DATEUPDTD);
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_TIMEUPDTD);
             $criteria->addSelectColumn(SoAllocatedLotserialTableMap::COL_DUMMY);
@@ -532,6 +546,8 @@ class SoAllocatedLotserialTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.OeidCureDate');
             $criteria->addSelectColumn($alias . '.OeidPlltType');
             $criteria->addSelectColumn($alias . '.OeidLblPrtd');
+            $criteria->addSelectColumn($alias . '.OeidOrigBin');
+            $criteria->addSelectColumn($alias . '.OeidPlltID');
             $criteria->addSelectColumn($alias . '.DateUpdtd');
             $criteria->addSelectColumn($alias . '.TimeUpdtd');
             $criteria->addSelectColumn($alias . '.dummy');

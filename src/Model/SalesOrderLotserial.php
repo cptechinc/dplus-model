@@ -7,6 +7,7 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'so_lot_ser' table.
+ * PURPOSE: Lotserials have been verified for a Sales Order
  */
 class SalesOrderLotserial extends BaseSalesOrderLotserial {
 	use ThrowErrorTrait;
@@ -25,6 +26,7 @@ class SalesOrderLotserial extends BaseSalesOrderLotserial {
 		'lotserial'    => 'oesdlotser',
 		'lotreference' => 'oesdlotref',
 		'qty'          => 'oesdqtyship',
+		'palletid'     => 'oesdplltid',
 		// ALIASES for Foreign Keys
 		'item'         => 'itemMasterItem',
 		'order'        => 'salesOrder',

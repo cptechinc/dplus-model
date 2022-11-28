@@ -31,6 +31,7 @@ class SoAllocatedLotserial extends BaseSoAllocatedLotserial {
 		'qtyship'       => 'oeidqtyship',
 		'lotref'        => 'oeidlotref',
 		'lotreference'  => 'oeidlotref',
+		'palletid'      => 'oeidplltid',
 		// FK Relatitonships
 		'order'         => 'salesOrder',
 		'orderline'     => 'salesOrderDetail',

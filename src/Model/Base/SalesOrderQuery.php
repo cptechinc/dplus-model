@@ -468,12 +468,22 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderQuery rightJoinWithSoAllocatedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoAllocatedLotserial relation
  * @method     ChildSalesOrderQuery innerJoinWithSoAllocatedLotserial() Adds a INNER JOIN clause and with to the query using the SoAllocatedLotserial relation
  *
- * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery|\SalesOrderLotserialQuery|\SoAllocatedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildSalesOrderQuery leftJoinSoPickedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderQuery rightJoinSoPickedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderQuery innerJoinSoPickedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildSalesOrderQuery joinWithSoPickedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     ChildSalesOrderQuery leftJoinWithSoPickedLotserial() Adds a LEFT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderQuery rightJoinWithSoPickedLotserial() Adds a RIGHT JOIN clause and with to the query using the SoPickedLotserial relation
+ * @method     ChildSalesOrderQuery innerJoinWithSoPickedLotserial() Adds a INNER JOIN clause and with to the query using the SoPickedLotserial relation
+ *
+ * @method     \CustomerQuery|\CustomerShiptoQuery|\SalesOrderDetailQuery|\SalesOrderShipmentQuery|\SalesOrderLotserialQuery|\SoAllocatedLotserialQuery|\SoPickedLotserialQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildSalesOrder findOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query
  * @method     ChildSalesOrder findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query, or a new ChildSalesOrder object populated from the query conditions when no match is found
  *
- * @method     ChildSalesOrder findOneByOehdnbr(string $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column
+ * @method     ChildSalesOrder findOneByOehdnbr(int $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column
  * @method     ChildSalesOrder findOneByOehdstat(string $OehdStat) Return the first ChildSalesOrder filtered by the OehdStat column
  * @method     ChildSalesOrder findOneByOehdhold(string $OehdHold) Return the first ChildSalesOrder filtered by the OehdHold column
  * @method     ChildSalesOrder findOneByArcucustid(string $ArcuCustId) Return the first ChildSalesOrder filtered by the ArcuCustId column
@@ -666,7 +676,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requirePk($key, ConnectionInterface $con = null) Return the ChildSalesOrder by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOne(ConnectionInterface $con = null) Return the first ChildSalesOrder matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesOrder requireOneByOehdnbr(string $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrder requireOneByOehdnbr(int $OehdNbr) Return the first ChildSalesOrder filtered by the OehdNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdstat(string $OehdStat) Return the first ChildSalesOrder filtered by the OehdStat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByOehdhold(string $OehdHold) Return the first ChildSalesOrder filtered by the OehdHold column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrder requireOneByArcucustid(string $ArcuCustId) Return the first ChildSalesOrder filtered by the ArcuCustId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -857,7 +867,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrder requireOneByDummy(string $dummy) Return the first ChildSalesOrder filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesOrder[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesOrder objects based on current ModelCriteria
- * @method     ChildSalesOrder[]|ObjectCollection findByOehdnbr(string $OehdNbr) Return ChildSalesOrder objects filtered by the OehdNbr column
+ * @method     ChildSalesOrder[]|ObjectCollection findByOehdnbr(int $OehdNbr) Return ChildSalesOrder objects filtered by the OehdNbr column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdstat(string $OehdStat) Return ChildSalesOrder objects filtered by the OehdStat column
  * @method     ChildSalesOrder[]|ObjectCollection findByOehdhold(string $OehdHold) Return ChildSalesOrder objects filtered by the OehdHold column
  * @method     ChildSalesOrder[]|ObjectCollection findByArcucustid(string $ArcuCustId) Return ChildSalesOrder objects filtered by the ArcuCustId column
@@ -1147,7 +1157,7 @@ abstract class SalesOrderQuery extends ModelCriteria
         $sql = 'SELECT OehdNbr, OehdStat, OehdHold, ArcuCustId, ArstShipId, OehdStName, OehdStLastName, OehdStFirstName, OehdStAdr1, OehdStAdr2, OehdStAdr3, OehdStCtry, OehdStCity, OehdStStat, OehdStZipCode, OehdCustPo, OehdOrdrDate, ArtmTermCd, ArtbShipVia, ArinInvNbr, OehdInvDate, OehdGLPd, ArspSalePer1, OehdSp1Pct, ArspSalePer2, OehdSp2Pct, ArspSalePer3, OehdSp3Pct, OehdCntrNbr, OehdWiBatch, OehdDropRelHold, OehdTaxSub, OehdNonTaxSub, OehdTaxTot, OehdFrtTot, OehdMiscTot, OehdOrdrTot, OehdCostTot, OehdSpCommLock, OehdTakenDate, OehdTakenTime, OehdPickDate, OehdPickTime, OehdPackDate, OehdPackTime, OehdVerifyDate, OehdVerifyTime, OehdCreditMemo, OehdBookedYn, IntbWhseOrig, OehdBtStat, OehdShipComp, OehdCwoFlag, OehdDivision, OehdTakenCode, OehdPickCode, OehdPackCode, OehdVerifyCode, OehdTotDisc, OehdEdiRefNbrQual, OehdUserCode1, OehdUserCode2, OehdUserCode3, OehdUserCode4, OehdExchCtry, OehdExchRate, OehdWghtTot, OehdWghtOride, OehdCcInfo, OehdBoxCount, OehdRqstDate, OehdCancDate, OehdCrntUser, OehdReleaseNbr, IntbWhse, OehdBordBuildDate, OehdDeptCode, OehdFrtInEntered, OehdDropShipEntered, OehdErFlag, OehdFrtIn, OehdDropShip, OehdMinOrder, OehdContractTerms, OehdDropShipBilled, OehdOrdTyp, OehdTrackNbr, OehdSource, OehdCcAprv, OehdPickFmatType, OehdInvcFmatType, OehdCashAmt, OehdCheckAmt, OehdCheckNbr, OehdDepositAmt, OehdDepositNbr, OehdCcAmt, OehdOTaxSub, OehdONonTaxSub, OehdOTaxTot, OehdOOrdrTot, OehdPickPrintDate, OehdPickPrintTime, OehdCont, OehdContTeleIntl, OehdContTeleNbr, OehdContTeleExt, OehdContFaxIntl, OehdContFaxNbr, OehdShipAcct, OehdChgDue, OehdAddlPricDisc, OehdAllShip, OehdQtyOrderAmt, OehdCreditApplied, OehdInvcPrintDate, OehdInvcPrintTime, OehdDiscFrt, OehdOrideShipComp, OehdContEmail, OehdManualFrt, OehdInternalFrt, OehdFrtCost, OehdRoute, OehdRouteSeq, OehdFrtTaxCode1, OehdFrtTaxAmt1, OehdFrtTaxCode2, OehdFrtTaxAmt2, OehdFrtTaxCode3, OehdFrtTaxAmt3, OehdFrtTaxCode4, OehdFrtTaxAmt4, OehdFrtTaxCode5, OehdFrtTaxAmt5, OehdEdi855Sent, OehdFrt3rdParty, OehdFob, OehdConfirmImagYn, OehdIndustConform, OehdCstkConsign, OehdLmDelayCapSent, OehdMfgId, OehdStoreId, OehdPickQueue, OehdArrvDate, OehdSurchgStat, OehdFrtGrup, OehdCommOride, OehdChrgSplt, OehdAcCcAprv, OehdOrigOrdrNbr, OehdPostDate, OehdDiscDate1, OehdDiscPct1, OehdDueDate1, OehdDueAmt1, OehdDuePct1, OehdDiscDate2, OehdDiscPct2, OehdDueDate2, OehdDueAmt2, OehdDuePct2, OehdDiscDate3, OehdDiscPct3, OehdDueDate3, OehdDueAmt3, OehdDuePct3, OehdDiscDate4, OehdDiscPct4, OehdDueDate4, OehdDueAmt4, OehdDuePct4, OehdDiscDate5, OehdDiscPct5, OehdDueDate5, OehdDueAmt5, OehdDuePct5, OehdDiscDate6, OehdDiscPct6, OehdDueDate6, OehdDueAmt6, OehdDuePct6, OehdRefNbr, OehdAcProgNbr, OehdAcProgExpDate, DateUpdtd, TimeUpdtd, dummy FROM so_header WHERE OehdNbr = :p0';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
             Propel::log($e->getMessage(), Propel::LOG_ERR);
@@ -1239,19 +1249,35 @@ abstract class SalesOrderQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehdnbr('fooValue');   // WHERE OehdNbr = 'fooValue'
-     * $query->filterByOehdnbr('%fooValue%', Criteria::LIKE); // WHERE OehdNbr LIKE '%fooValue%'
+     * $query->filterByOehdnbr(1234); // WHERE OehdNbr = 1234
+     * $query->filterByOehdnbr(array(12, 34)); // WHERE OehdNbr IN (12, 34)
+     * $query->filterByOehdnbr(array('min' => 12)); // WHERE OehdNbr > 12
      * </code>
      *
-     * @param     string $oehdnbr The value to use as filter.
+     * @param     mixed $oehdnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderQuery The current query, for fluid interface
      */
     public function filterByOehdnbr($oehdnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehdnbr)) {
+        if (is_array($oehdnbr)) {
+            $useMinMax = false;
+            if (isset($oehdnbr['min'])) {
+                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $oehdnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehdnbr['max'])) {
+                $this->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $oehdnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -7341,6 +7367,79 @@ abstract class SalesOrderQuery extends ModelCriteria
         return $this
             ->joinSoAllocatedLotserial($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SoAllocatedLotserial', '\SoAllocatedLotserialQuery');
+    }
+
+    /**
+     * Filter the query by a related \SoPickedLotserial object
+     *
+     * @param \SoPickedLotserial|ObjectCollection $soPickedLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function filterBySoPickedLotserial($soPickedLotserial, $comparison = null)
+    {
+        if ($soPickedLotserial instanceof \SoPickedLotserial) {
+            return $this
+                ->addUsingAlias(SalesOrderTableMap::COL_OEHDNBR, $soPickedLotserial->getOehdnbr(), $comparison);
+        } elseif ($soPickedLotserial instanceof ObjectCollection) {
+            return $this
+                ->useSoPickedLotserialQuery()
+                ->filterByPrimaryKeys($soPickedLotserial->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterBySoPickedLotserial() only accepts arguments of type \SoPickedLotserial or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoPickedLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildSalesOrderQuery The current query, for fluid interface
+     */
+    public function joinSoPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoPickedLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoPickedLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoPickedLotserial relation SoPickedLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoPickedLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useSoPickedLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSoPickedLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoPickedLotserial', '\SoPickedLotserialQuery');
     }
 
     /**

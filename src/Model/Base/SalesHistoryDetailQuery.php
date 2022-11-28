@@ -97,7 +97,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery orderByOedhlmmtrxpkgpric($order = Criteria::ASC) Order by the OedhLmMtrxPkgPric column
  * @method     ChildSalesHistoryDetailQuery orderByOedhlmmtrxbulkpric($order = Criteria::ASC) Order by the OedhLmMtrxBulkPric column
  * @method     ChildSalesHistoryDetailQuery orderByOedhlmcontractpric($order = Criteria::ASC) Order by the OedhLmContractPric column
- * @method     ChildSalesHistoryDetailQuery orderByOedhwghtTot($order = Criteria::ASC) Order by the OedhWghtTot column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhwghttot($order = Criteria::ASC) Order by the OedhWghtTot column
  * @method     ChildSalesHistoryDetailQuery orderByOedhordras($order = Criteria::ASC) Order by the OedhOrdrAs column
  * @method     ChildSalesHistoryDetailQuery orderByOedhpodetlinenbr($order = Criteria::ASC) Order by the OedhPoDetLineNbr column
  * @method     ChildSalesHistoryDetailQuery orderByOedhqtytoship($order = Criteria::ASC) Order by the OedhQtyToShip column
@@ -159,11 +159,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery orderByOedhwibatch1qty($order = Criteria::ASC) Order by the OedhWiBatch1Qty column
  * @method     ChildSalesHistoryDetailQuery orderByOedhwibatch1stat($order = Criteria::ASC) Order by the OedhWiBatch1Stat column
  * @method     ChildSalesHistoryDetailQuery orderByOedhrganbr($order = Criteria::ASC) Order by the OedhRgaNbr column
- * @method     ChildSalesHistoryDetailQuery orderByOedhOrigPric($order = Criteria::ASC) Order by the OedhOrigPric column
- * @method     ChildSalesHistoryDetailQuery orderByOedhRefLineNbr($order = Criteria::ASC) Order by the OedhRefLineNbr column
- * @method     ChildSalesHistoryDetailQuery orderByOedhBinLocn($order = Criteria::ASC) Order by the OedhBinLocn column
- * @method     ChildSalesHistoryDetailQuery orderByOedhAcSuplyWhse($order = Criteria::ASC) Order by the OedhAcSuplyWhse column
- * @method     ChildSalesHistoryDetailQuery orderByOedhAcPricDate($order = Criteria::ASC) Order by the OedhAcPricDate column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhorigpric($order = Criteria::ASC) Order by the OedhOrigPric column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhreflinenbr($order = Criteria::ASC) Order by the OedhRefLineNbr column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhbinlocn($order = Criteria::ASC) Order by the OedhBinLocn column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhacsuplywhse($order = Criteria::ASC) Order by the OedhAcSuplyWhse column
+ * @method     ChildSalesHistoryDetailQuery orderByOedhacpricdate($order = Criteria::ASC) Order by the OedhAcPricDate column
  * @method     ChildSalesHistoryDetailQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildSalesHistoryDetailQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildSalesHistoryDetailQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -245,7 +245,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery groupByOedhlmmtrxpkgpric() Group by the OedhLmMtrxPkgPric column
  * @method     ChildSalesHistoryDetailQuery groupByOedhlmmtrxbulkpric() Group by the OedhLmMtrxBulkPric column
  * @method     ChildSalesHistoryDetailQuery groupByOedhlmcontractpric() Group by the OedhLmContractPric column
- * @method     ChildSalesHistoryDetailQuery groupByOedhwghtTot() Group by the OedhWghtTot column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhwghttot() Group by the OedhWghtTot column
  * @method     ChildSalesHistoryDetailQuery groupByOedhordras() Group by the OedhOrdrAs column
  * @method     ChildSalesHistoryDetailQuery groupByOedhpodetlinenbr() Group by the OedhPoDetLineNbr column
  * @method     ChildSalesHistoryDetailQuery groupByOedhqtytoship() Group by the OedhQtyToShip column
@@ -307,11 +307,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery groupByOedhwibatch1qty() Group by the OedhWiBatch1Qty column
  * @method     ChildSalesHistoryDetailQuery groupByOedhwibatch1stat() Group by the OedhWiBatch1Stat column
  * @method     ChildSalesHistoryDetailQuery groupByOedhrganbr() Group by the OedhRgaNbr column
- * @method     ChildSalesHistoryDetailQuery groupByOedhOrigPric() Group by the OedhOrigPric column
- * @method     ChildSalesHistoryDetailQuery groupByOedhRefLineNbr() Group by the OedhRefLineNbr column
- * @method     ChildSalesHistoryDetailQuery groupByOedhBinLocn() Group by the OedhBinLocn column
- * @method     ChildSalesHistoryDetailQuery groupByOedhAcSuplyWhse() Group by the OedhAcSuplyWhse column
- * @method     ChildSalesHistoryDetailQuery groupByOedhAcPricDate() Group by the OedhAcPricDate column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhorigpric() Group by the OedhOrigPric column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhreflinenbr() Group by the OedhRefLineNbr column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhbinlocn() Group by the OedhBinLocn column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhacsuplywhse() Group by the OedhAcSuplyWhse column
+ * @method     ChildSalesHistoryDetailQuery groupByOedhacpricdate() Group by the OedhAcPricDate column
  * @method     ChildSalesHistoryDetailQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildSalesHistoryDetailQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildSalesHistoryDetailQuery groupByDummy() Group by the dummy column
@@ -349,7 +349,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail findOne(ConnectionInterface $con = null) Return the first ChildSalesHistoryDetail matching the query
  * @method     ChildSalesHistoryDetail findOneOrCreate(ConnectionInterface $con = null) Return the first ChildSalesHistoryDetail matching the query, or a new ChildSalesHistoryDetail object populated from the query conditions when no match is found
  *
- * @method     ChildSalesHistoryDetail findOneByOehhnbr(string $OehhNbr) Return the first ChildSalesHistoryDetail filtered by the OehhNbr column
+ * @method     ChildSalesHistoryDetail findOneByOehhnbr(int $OehhNbr) Return the first ChildSalesHistoryDetail filtered by the OehhNbr column
  * @method     ChildSalesHistoryDetail findOneByOedhline(int $OedhLine) Return the first ChildSalesHistoryDetail filtered by the OedhLine column
  * @method     ChildSalesHistoryDetail findOneByOedhyear(string $OedhYear) Return the first ChildSalesHistoryDetail filtered by the OedhYear column
  * @method     ChildSalesHistoryDetail findOneByInititemnbr(string $InitItemNbr) Return the first ChildSalesHistoryDetail filtered by the InitItemNbr column
@@ -426,7 +426,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail findOneByOedhlmmtrxpkgpric(string $OedhLmMtrxPkgPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmMtrxPkgPric column
  * @method     ChildSalesHistoryDetail findOneByOedhlmmtrxbulkpric(string $OedhLmMtrxBulkPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmMtrxBulkPric column
  * @method     ChildSalesHistoryDetail findOneByOedhlmcontractpric(string $OedhLmContractPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmContractPric column
- * @method     ChildSalesHistoryDetail findOneByOedhwghtTot(string $OedhWghtTot) Return the first ChildSalesHistoryDetail filtered by the OedhWghtTot column
+ * @method     ChildSalesHistoryDetail findOneByOedhwghttot(string $OedhWghtTot) Return the first ChildSalesHistoryDetail filtered by the OedhWghtTot column
  * @method     ChildSalesHistoryDetail findOneByOedhordras(string $OedhOrdrAs) Return the first ChildSalesHistoryDetail filtered by the OedhOrdrAs column
  * @method     ChildSalesHistoryDetail findOneByOedhpodetlinenbr(int $OedhPoDetLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhPoDetLineNbr column
  * @method     ChildSalesHistoryDetail findOneByOedhqtytoship(string $OedhQtyToShip) Return the first ChildSalesHistoryDetail filtered by the OedhQtyToShip column
@@ -488,11 +488,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail findOneByOedhwibatch1qty(string $OedhWiBatch1Qty) Return the first ChildSalesHistoryDetail filtered by the OedhWiBatch1Qty column
  * @method     ChildSalesHistoryDetail findOneByOedhwibatch1stat(string $OedhWiBatch1Stat) Return the first ChildSalesHistoryDetail filtered by the OedhWiBatch1Stat column
  * @method     ChildSalesHistoryDetail findOneByOedhrganbr(int $OedhRgaNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRgaNbr column
- * @method     ChildSalesHistoryDetail findOneByOedhOrigPric(string $OedhOrigPric) Return the first ChildSalesHistoryDetail filtered by the OedhOrigPric column
- * @method     ChildSalesHistoryDetail findOneByOedhRefLineNbr(string $OedhRefLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRefLineNbr column
- * @method     ChildSalesHistoryDetail findOneByOedhBinLocn(string $OedhBinLocn) Return the first ChildSalesHistoryDetail filtered by the OedhBinLocn column
- * @method     ChildSalesHistoryDetail findOneByOedhAcSuplyWhse(string $OedhAcSuplyWhse) Return the first ChildSalesHistoryDetail filtered by the OedhAcSuplyWhse column
- * @method     ChildSalesHistoryDetail findOneByOedhAcPricDate(string $OedhAcPricDate) Return the first ChildSalesHistoryDetail filtered by the OedhAcPricDate column
+ * @method     ChildSalesHistoryDetail findOneByOedhorigpric(string $OedhOrigPric) Return the first ChildSalesHistoryDetail filtered by the OedhOrigPric column
+ * @method     ChildSalesHistoryDetail findOneByOedhreflinenbr(int $OedhRefLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRefLineNbr column
+ * @method     ChildSalesHistoryDetail findOneByOedhbinlocn(string $OedhBinLocn) Return the first ChildSalesHistoryDetail filtered by the OedhBinLocn column
+ * @method     ChildSalesHistoryDetail findOneByOedhacsuplywhse(string $OedhAcSuplyWhse) Return the first ChildSalesHistoryDetail filtered by the OedhAcSuplyWhse column
+ * @method     ChildSalesHistoryDetail findOneByOedhacpricdate(string $OedhAcPricDate) Return the first ChildSalesHistoryDetail filtered by the OedhAcPricDate column
  * @method     ChildSalesHistoryDetail findOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryDetail filtered by the DateUpdtd column
  * @method     ChildSalesHistoryDetail findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryDetail filtered by the TimeUpdtd column
  * @method     ChildSalesHistoryDetail findOneByDummy(string $dummy) Return the first ChildSalesHistoryDetail filtered by the dummy column *
@@ -500,7 +500,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail requirePk($key, ConnectionInterface $con = null) Return the ChildSalesHistoryDetail by primary key and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOne(ConnectionInterface $con = null) Return the first ChildSalesHistoryDetail matching the query and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
- * @method     ChildSalesHistoryDetail requireOneByOehhnbr(string $OehhNbr) Return the first ChildSalesHistoryDetail filtered by the OehhNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOehhnbr(int $OehhNbr) Return the first ChildSalesHistoryDetail filtered by the OehhNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhline(int $OedhLine) Return the first ChildSalesHistoryDetail filtered by the OedhLine column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhyear(string $OedhYear) Return the first ChildSalesHistoryDetail filtered by the OedhYear column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByInititemnbr(string $InitItemNbr) Return the first ChildSalesHistoryDetail filtered by the InitItemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -577,7 +577,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail requireOneByOedhlmmtrxpkgpric(string $OedhLmMtrxPkgPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmMtrxPkgPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhlmmtrxbulkpric(string $OedhLmMtrxBulkPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmMtrxBulkPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhlmcontractpric(string $OedhLmContractPric) Return the first ChildSalesHistoryDetail filtered by the OedhLmContractPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhwghtTot(string $OedhWghtTot) Return the first ChildSalesHistoryDetail filtered by the OedhWghtTot column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhwghttot(string $OedhWghtTot) Return the first ChildSalesHistoryDetail filtered by the OedhWghtTot column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhordras(string $OedhOrdrAs) Return the first ChildSalesHistoryDetail filtered by the OedhOrdrAs column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhpodetlinenbr(int $OedhPoDetLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhPoDetLineNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhqtytoship(string $OedhQtyToShip) Return the first ChildSalesHistoryDetail filtered by the OedhQtyToShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -639,17 +639,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail requireOneByOedhwibatch1qty(string $OedhWiBatch1Qty) Return the first ChildSalesHistoryDetail filtered by the OedhWiBatch1Qty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhwibatch1stat(string $OedhWiBatch1Stat) Return the first ChildSalesHistoryDetail filtered by the OedhWiBatch1Stat column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhrganbr(int $OedhRgaNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRgaNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhOrigPric(string $OedhOrigPric) Return the first ChildSalesHistoryDetail filtered by the OedhOrigPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhRefLineNbr(string $OedhRefLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRefLineNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhBinLocn(string $OedhBinLocn) Return the first ChildSalesHistoryDetail filtered by the OedhBinLocn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhAcSuplyWhse(string $OedhAcSuplyWhse) Return the first ChildSalesHistoryDetail filtered by the OedhAcSuplyWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByOedhAcPricDate(string $OedhAcPricDate) Return the first ChildSalesHistoryDetail filtered by the OedhAcPricDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhorigpric(string $OedhOrigPric) Return the first ChildSalesHistoryDetail filtered by the OedhOrigPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhreflinenbr(int $OedhRefLineNbr) Return the first ChildSalesHistoryDetail filtered by the OedhRefLineNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhbinlocn(string $OedhBinLocn) Return the first ChildSalesHistoryDetail filtered by the OedhBinLocn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhacsuplywhse(string $OedhAcSuplyWhse) Return the first ChildSalesHistoryDetail filtered by the OedhAcSuplyWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByOedhacpricdate(string $OedhAcPricDate) Return the first ChildSalesHistoryDetail filtered by the OedhAcPricDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByDateupdtd(string $DateUpdtd) Return the first ChildSalesHistoryDetail filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildSalesHistoryDetail filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByDummy(string $dummy) Return the first ChildSalesHistoryDetail filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  *
  * @method     ChildSalesHistoryDetail[]|ObjectCollection find(ConnectionInterface $con = null) Return ChildSalesHistoryDetail objects based on current ModelCriteria
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOehhnbr(string $OehhNbr) Return ChildSalesHistoryDetail objects filtered by the OehhNbr column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOehhnbr(int $OehhNbr) Return ChildSalesHistoryDetail objects filtered by the OehhNbr column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhline(int $OedhLine) Return ChildSalesHistoryDetail objects filtered by the OedhLine column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhyear(string $OedhYear) Return ChildSalesHistoryDetail objects filtered by the OedhYear column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByInititemnbr(string $InitItemNbr) Return ChildSalesHistoryDetail objects filtered by the InitItemNbr column
@@ -726,7 +726,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhlmmtrxpkgpric(string $OedhLmMtrxPkgPric) Return ChildSalesHistoryDetail objects filtered by the OedhLmMtrxPkgPric column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhlmmtrxbulkpric(string $OedhLmMtrxBulkPric) Return ChildSalesHistoryDetail objects filtered by the OedhLmMtrxBulkPric column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhlmcontractpric(string $OedhLmContractPric) Return ChildSalesHistoryDetail objects filtered by the OedhLmContractPric column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhwghtTot(string $OedhWghtTot) Return ChildSalesHistoryDetail objects filtered by the OedhWghtTot column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhwghttot(string $OedhWghtTot) Return ChildSalesHistoryDetail objects filtered by the OedhWghtTot column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhordras(string $OedhOrdrAs) Return ChildSalesHistoryDetail objects filtered by the OedhOrdrAs column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhpodetlinenbr(int $OedhPoDetLineNbr) Return ChildSalesHistoryDetail objects filtered by the OedhPoDetLineNbr column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhqtytoship(string $OedhQtyToShip) Return ChildSalesHistoryDetail objects filtered by the OedhQtyToShip column
@@ -788,11 +788,11 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhwibatch1qty(string $OedhWiBatch1Qty) Return ChildSalesHistoryDetail objects filtered by the OedhWiBatch1Qty column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhwibatch1stat(string $OedhWiBatch1Stat) Return ChildSalesHistoryDetail objects filtered by the OedhWiBatch1Stat column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhrganbr(int $OedhRgaNbr) Return ChildSalesHistoryDetail objects filtered by the OedhRgaNbr column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhOrigPric(string $OedhOrigPric) Return ChildSalesHistoryDetail objects filtered by the OedhOrigPric column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhRefLineNbr(string $OedhRefLineNbr) Return ChildSalesHistoryDetail objects filtered by the OedhRefLineNbr column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhBinLocn(string $OedhBinLocn) Return ChildSalesHistoryDetail objects filtered by the OedhBinLocn column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhAcSuplyWhse(string $OedhAcSuplyWhse) Return ChildSalesHistoryDetail objects filtered by the OedhAcSuplyWhse column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhAcPricDate(string $OedhAcPricDate) Return ChildSalesHistoryDetail objects filtered by the OedhAcPricDate column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhorigpric(string $OedhOrigPric) Return ChildSalesHistoryDetail objects filtered by the OedhOrigPric column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhreflinenbr(int $OedhRefLineNbr) Return ChildSalesHistoryDetail objects filtered by the OedhRefLineNbr column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhbinlocn(string $OedhBinLocn) Return ChildSalesHistoryDetail objects filtered by the OedhBinLocn column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhacsuplywhse(string $OedhAcSuplyWhse) Return ChildSalesHistoryDetail objects filtered by the OedhAcSuplyWhse column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhacpricdate(string $OedhAcPricDate) Return ChildSalesHistoryDetail objects filtered by the OedhAcPricDate column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildSalesHistoryDetail objects filtered by the DateUpdtd column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildSalesHistoryDetail objects filtered by the TimeUpdtd column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByDummy(string $dummy) Return ChildSalesHistoryDetail objects filtered by the dummy column
@@ -897,7 +897,7 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
         $sql = 'SELECT OehhNbr, OedhLine, OedhYear, InitItemNbr, OedhDesc, OedhDesc2, IntbWhse, OedhRqstDate, OedhCancDate, OedhShipDate, OedhSpecOrdr, ArtbMtaxCode, OedhQtyOrd, OedhQtyShip, OedhQtyShipTot, OedhQtyBord, OedhPric, OedhCost, OedhTaxPctTot, OedhPricTot, OedhCostTot, OedhSpCommPct, OedhBrknCaseQty, OedhBin, OedhPersonalCd, OedhAcDisc1, OedhAcDisc2, OedhAcDisc3, OedhAcDisc4, OedhLmWipNbr, OedhCorePric, OedhAsstCode, OedhAsstQty, OedhListPric, OedhStanCost, OedhVendItemJob, OedhNsVendId, OedhNsItemGrup, OedhUseCode, OedhNsShipFromId, OedhAsstOvrd, OedhPricOvrd, OedhPickFlag, OedhMstrTaxCode1, OedhMstrTaxPct1, OedhMstrTaxCode2, OedhMstrTaxPct2, OedhMstrTaxCode3, OedhMstrTaxPct3, OedhMstrTaxCode4, OedhMstrTaxPct4, OedhMstrTaxCode5, OedhMstrTaxPct5, OedhMstrTaxCode6, OedhMstrTaxPct6, OedhMstrTaxCode7, OedhMstrTaxPct7, OedhMstrTaxCode8, OedhMstrTaxPct8, OedhMstrTaxCode9, OedhMstrTaxPct9, OedhBinArea, OedhSplitLine, OedhLostReas, OedhOrigLine, OedhCustCrssRef, OedhUom, OedhShipFlag, OedhKitFlag, OedhKitItemNbr, OedhBfCost, OedhBfMsgCode, OedhBfCostTot, OedhLmBulkPric, OedhLmMtrxPkgPric, OedhLmMtrxBulkPric, OedhLmContractPric, OedhWghtTot, OedhOrdrAs, OedhPoDetLineNbr, OedhQtyToShip, OedhPoNbr, OedhPoRef, OedhFrtIn, OedhFrtInEntered, OedhProdCmplt, OedhErFlag, OedhOrigItem, OedhSubFlag, OedhEdiIncomingSeq, OedhSpordPoLine, OedhCatlgId, OedhDesignCd, OedhDiscPct, OedhTaxAmt, OedhXUsage, OedhRqtsLock, OedhFreshFrozen, OedhCoreFlag, OedhNsSalesAcct, OedhCertReqd, OedhAddOnSales, OedhBordFlag, OedhTempGrove, OedhGroveDisc, OedhOffInvc, InitItemGrup, ApveVendId, OedhAcct, OedhLoadTot, OedhPickedQty, OedhWiOrigQty, OedhMarginTot, OedhCoreCost, OedhItemRef, OedhSac02ReturnCode, OedhWgTaxCode, OedhWgPrice, OedhWgTot, OedhCntrQty, OedhConfirmCode, OedhPicked, OedhOrigRqstDate, OedhFabLock, OedhLabelPrinted, OedhQuoteId, OedhInvPrinted, OedhStockCheck, OedhShouldWeSplit, OedhCofcReqd, OedhAckCode, OedhWiBordNbr, OedhCertHistOrdr, OedhCertHistLine, OedhOrdrdAsItemId, OedhWiBatch1Nbr, OedhWiBatch1Qty, OedhWiBatch1Stat, OedhRgaNbr, OedhOrigPric, OedhRefLineNbr, OedhBinLocn, OedhAcSuplyWhse, OedhAcPricDate, DateUpdtd, TimeUpdtd, dummy FROM so_det_hist WHERE OehhNbr = :p0 AND OedhLine = :p1';
         try {
             $stmt = $con->prepare($sql);
-            $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
+            $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
             $stmt->bindValue(':p1', $key[1], PDO::PARAM_INT);
             $stmt->execute();
         } catch (Exception $e) {
@@ -1001,19 +1001,37 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOehhnbr('fooValue');   // WHERE OehhNbr = 'fooValue'
-     * $query->filterByOehhnbr('%fooValue%', Criteria::LIKE); // WHERE OehhNbr LIKE '%fooValue%'
+     * $query->filterByOehhnbr(1234); // WHERE OehhNbr = 1234
+     * $query->filterByOehhnbr(array(12, 34)); // WHERE OehhNbr IN (12, 34)
+     * $query->filterByOehhnbr(array('min' => 12)); // WHERE OehhNbr > 12
      * </code>
      *
-     * @param     string $oehhnbr The value to use as filter.
+     * @see       filterBySalesHistory()
+     *
+     * @param     mixed $oehhnbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
     public function filterByOehhnbr($oehhnbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oehhnbr)) {
+        if (is_array($oehhnbr)) {
+            $useMinMax = false;
+            if (isset($oehhnbr['min'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEHHNBR, $oehhnbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oehhnbr['max'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEHHNBR, $oehhnbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
@@ -3438,12 +3456,12 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhwghtTot(1234); // WHERE OedhWghtTot = 1234
-     * $query->filterByOedhwghtTot(array(12, 34)); // WHERE OedhWghtTot IN (12, 34)
-     * $query->filterByOedhwghtTot(array('min' => 12)); // WHERE OedhWghtTot > 12
+     * $query->filterByOedhwghttot(1234); // WHERE OedhWghtTot = 1234
+     * $query->filterByOedhwghttot(array(12, 34)); // WHERE OedhWghtTot IN (12, 34)
+     * $query->filterByOedhwghttot(array('min' => 12)); // WHERE OedhWghtTot > 12
      * </code>
      *
-     * @param     mixed $oedhwghtTot The value to use as filter.
+     * @param     mixed $oedhwghttot The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -3451,16 +3469,16 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhwghtTot($oedhwghtTot = null, $comparison = null)
+    public function filterByOedhwghttot($oedhwghttot = null, $comparison = null)
     {
-        if (is_array($oedhwghtTot)) {
+        if (is_array($oedhwghttot)) {
             $useMinMax = false;
-            if (isset($oedhwghtTot['min'])) {
-                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghtTot['min'], Criteria::GREATER_EQUAL);
+            if (isset($oedhwghttot['min'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghttot['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($oedhwghtTot['max'])) {
-                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghtTot['max'], Criteria::LESS_EQUAL);
+            if (isset($oedhwghttot['max'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghttot['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -3471,7 +3489,7 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghtTot, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHWGHTTOT, $oedhwghttot, $comparison);
     }
 
     /**
@@ -5292,12 +5310,12 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhOrigPric(1234); // WHERE OedhOrigPric = 1234
-     * $query->filterByOedhOrigPric(array(12, 34)); // WHERE OedhOrigPric IN (12, 34)
-     * $query->filterByOedhOrigPric(array('min' => 12)); // WHERE OedhOrigPric > 12
+     * $query->filterByOedhorigpric(1234); // WHERE OedhOrigPric = 1234
+     * $query->filterByOedhorigpric(array(12, 34)); // WHERE OedhOrigPric IN (12, 34)
+     * $query->filterByOedhorigpric(array('min' => 12)); // WHERE OedhOrigPric > 12
      * </code>
      *
-     * @param     mixed $oedhOrigPric The value to use as filter.
+     * @param     mixed $oedhorigpric The value to use as filter.
      *              Use scalar values for equality.
      *              Use array values for in_array() equivalent.
      *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
@@ -5305,16 +5323,16 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhOrigPric($oedhOrigPric = null, $comparison = null)
+    public function filterByOedhorigpric($oedhorigpric = null, $comparison = null)
     {
-        if (is_array($oedhOrigPric)) {
+        if (is_array($oedhorigpric)) {
             $useMinMax = false;
-            if (isset($oedhOrigPric['min'])) {
-                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhOrigPric['min'], Criteria::GREATER_EQUAL);
+            if (isset($oedhorigpric['min'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhorigpric['min'], Criteria::GREATER_EQUAL);
                 $useMinMax = true;
             }
-            if (isset($oedhOrigPric['max'])) {
-                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhOrigPric['max'], Criteria::LESS_EQUAL);
+            if (isset($oedhorigpric['max'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhorigpric['max'], Criteria::LESS_EQUAL);
                 $useMinMax = true;
             }
             if ($useMinMax) {
@@ -5325,7 +5343,7 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhOrigPric, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHORIGPRIC, $oedhorigpric, $comparison);
     }
 
     /**
@@ -5333,24 +5351,40 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhRefLineNbr('fooValue');   // WHERE OedhRefLineNbr = 'fooValue'
-     * $query->filterByOedhRefLineNbr('%fooValue%', Criteria::LIKE); // WHERE OedhRefLineNbr LIKE '%fooValue%'
+     * $query->filterByOedhreflinenbr(1234); // WHERE OedhRefLineNbr = 1234
+     * $query->filterByOedhreflinenbr(array(12, 34)); // WHERE OedhRefLineNbr IN (12, 34)
+     * $query->filterByOedhreflinenbr(array('min' => 12)); // WHERE OedhRefLineNbr > 12
      * </code>
      *
-     * @param     string $oedhRefLineNbr The value to use as filter.
+     * @param     mixed $oedhreflinenbr The value to use as filter.
+     *              Use scalar values for equality.
+     *              Use array values for in_array() equivalent.
+     *              Use associative array('min' => $minValue, 'max' => $maxValue) for intervals.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhRefLineNbr($oedhRefLineNbr = null, $comparison = null)
+    public function filterByOedhreflinenbr($oedhreflinenbr = null, $comparison = null)
     {
-        if (null === $comparison) {
-            if (is_array($oedhRefLineNbr)) {
+        if (is_array($oedhreflinenbr)) {
+            $useMinMax = false;
+            if (isset($oedhreflinenbr['min'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHREFLINENBR, $oedhreflinenbr['min'], Criteria::GREATER_EQUAL);
+                $useMinMax = true;
+            }
+            if (isset($oedhreflinenbr['max'])) {
+                $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHREFLINENBR, $oedhreflinenbr['max'], Criteria::LESS_EQUAL);
+                $useMinMax = true;
+            }
+            if ($useMinMax) {
+                return $this;
+            }
+            if (null === $comparison) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHREFLINENBR, $oedhRefLineNbr, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHREFLINENBR, $oedhreflinenbr, $comparison);
     }
 
     /**
@@ -5358,24 +5392,24 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhBinLocn('fooValue');   // WHERE OedhBinLocn = 'fooValue'
-     * $query->filterByOedhBinLocn('%fooValue%', Criteria::LIKE); // WHERE OedhBinLocn LIKE '%fooValue%'
+     * $query->filterByOedhbinlocn('fooValue');   // WHERE OedhBinLocn = 'fooValue'
+     * $query->filterByOedhbinlocn('%fooValue%', Criteria::LIKE); // WHERE OedhBinLocn LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $oedhBinLocn The value to use as filter.
+     * @param     string $oedhbinlocn The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhBinLocn($oedhBinLocn = null, $comparison = null)
+    public function filterByOedhbinlocn($oedhbinlocn = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($oedhBinLocn)) {
+            if (is_array($oedhbinlocn)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHBINLOCN, $oedhBinLocn, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHBINLOCN, $oedhbinlocn, $comparison);
     }
 
     /**
@@ -5383,24 +5417,24 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhAcSuplyWhse('fooValue');   // WHERE OedhAcSuplyWhse = 'fooValue'
-     * $query->filterByOedhAcSuplyWhse('%fooValue%', Criteria::LIKE); // WHERE OedhAcSuplyWhse LIKE '%fooValue%'
+     * $query->filterByOedhacsuplywhse('fooValue');   // WHERE OedhAcSuplyWhse = 'fooValue'
+     * $query->filterByOedhacsuplywhse('%fooValue%', Criteria::LIKE); // WHERE OedhAcSuplyWhse LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $oedhAcSuplyWhse The value to use as filter.
+     * @param     string $oedhacsuplywhse The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhAcSuplyWhse($oedhAcSuplyWhse = null, $comparison = null)
+    public function filterByOedhacsuplywhse($oedhacsuplywhse = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($oedhAcSuplyWhse)) {
+            if (is_array($oedhacsuplywhse)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE, $oedhAcSuplyWhse, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHACSUPLYWHSE, $oedhacsuplywhse, $comparison);
     }
 
     /**
@@ -5408,24 +5442,24 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      *
      * Example usage:
      * <code>
-     * $query->filterByOedhAcPricDate('fooValue');   // WHERE OedhAcPricDate = 'fooValue'
-     * $query->filterByOedhAcPricDate('%fooValue%', Criteria::LIKE); // WHERE OedhAcPricDate LIKE '%fooValue%'
+     * $query->filterByOedhacpricdate('fooValue');   // WHERE OedhAcPricDate = 'fooValue'
+     * $query->filterByOedhacpricdate('%fooValue%', Criteria::LIKE); // WHERE OedhAcPricDate LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $oedhAcPricDate The value to use as filter.
+     * @param     string $oedhacpricdate The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByOedhAcPricDate($oedhAcPricDate = null, $comparison = null)
+    public function filterByOedhacpricdate($oedhacpricdate = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($oedhAcPricDate)) {
+            if (is_array($oedhacpricdate)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHACPRICDATE, $oedhAcPricDate, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_OEDHACPRICDATE, $oedhacpricdate, $comparison);
     }
 
     /**
