@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit36fe0cf9701df79ce97440792f583469
+class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
 {
     public static $classMap = array (
         'ApBuyer' => __DIR__ . '/../..' . '/src/Model/ApBuyer.php',
@@ -331,6 +331,8 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Base\\SoEditPermissionsQuery' => __DIR__ . '/../..' . '/src/Model/Base/SoEditPermissionsQuery.php',
         'Base\\SoFreightRate' => __DIR__ . '/../..' . '/src/Model/Base/SoFreightRate.php',
         'Base\\SoFreightRateQuery' => __DIR__ . '/../..' . '/src/Model/Base/SoFreightRateQuery.php',
+        'Base\\SoPickedLotserial' => __DIR__ . '/../..' . '/src/Model/Base/SoPickedLotserial.php',
+        'Base\\SoPickedLotserialQuery' => __DIR__ . '/../..' . '/src/Model/Base/SoPickedLotserialQuery.php',
         'Base\\SoReasonCode' => __DIR__ . '/../..' . '/src/Model/Base/SoReasonCode.php',
         'Base\\SoReasonCodeQuery' => __DIR__ . '/../..' . '/src/Model/Base/SoReasonCodeQuery.php',
         'Base\\SoRgaCode' => __DIR__ . '/../..' . '/src/Model/Base/SoRgaCode.php',
@@ -545,7 +547,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Map\\ArCommissionCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCommissionCodeTableMap.php',
         'Map\\ArCreditCardCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCreditCardCodeTableMap.php',
         'Map\\ArCust3partyFreightTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCust3partyFreightTableMap.php',
-        'Map\\ArCustTaxCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCustTaxCode.php',
+        'Map\\ArCustTaxCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCustTaxCodeTableMap.php',
         'Map\\ArCustTypeCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCustTypeCodeTableMap.php',
         'Map\\ArCustUserCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArCustUserCodeTableMap.php',
         'Map\\ArInvoiceTableMap' => __DIR__ . '/../..' . '/src/Model/Map/ArInvoiceTableMap.php',
@@ -674,6 +676,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'Map\\SoAllocatedLotserialTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoAllocatedLotserialTableMap.php',
         'Map\\SoEditPermissionsTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoEditPermissionsTableMap.php',
         'Map\\SoFreightRateTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoFreightRateTableMap.php',
+        'Map\\SoPickedLotserialTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoPickedLotserialTableMap.php',
         'Map\\SoReasonCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoReasonCodeTableMap.php',
         'Map\\SoRgaCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/SoRgaCodeTableMap.php',
         'Map\\StateCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/StateCodeTableMap.php',
@@ -780,6 +783,8 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
         'SoEditPermissionsQuery' => __DIR__ . '/../..' . '/src/Model/SoEditPermissionsQuery.php',
         'SoFreightRate' => __DIR__ . '/../..' . '/src/Model/SoFreightRate.php',
         'SoFreightRateQuery' => __DIR__ . '/../..' . '/src/Model/SoFreightRateQuery.php',
+        'SoPickedLotserial' => __DIR__ . '/../..' . '/src/Model/SoPickedLotserial.php',
+        'SoPickedLotserialQuery' => __DIR__ . '/../..' . '/src/Model/SoPickedLotserialQuery.php',
         'SoReasonCode' => __DIR__ . '/../..' . '/src/Model/SoReasonCode.php',
         'SoReasonCodeQuery' => __DIR__ . '/../..' . '/src/Model/SoReasonCodeQuery.php',
         'SoRgaCode' => __DIR__ . '/../..' . '/src/Model/SoRgaCode.php',
@@ -831,7 +836,7 @@ class ComposerStaticInit36fe0cf9701df79ce97440792f583469
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit36fe0cf9701df79ce97440792f583469::$classMap;
+            $loader->classMap = ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5::$classMap;
 
         }, null, ClassLoader::class);
     }
