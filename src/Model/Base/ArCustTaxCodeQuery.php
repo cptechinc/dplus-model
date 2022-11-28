@@ -30,7 +30,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode7($order = Criteria::ASC) Order by the ArtbCtaxCode7 column
  * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode8($order = Criteria::ASC) Order by the ArtbCtaxCode8 column
  * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode9($order = Criteria::ASC) Order by the ArtbCtaxCode9 column
- * @method     ChildArCustTaxCodeQuery orderByArtbctaxcode10($order = Criteria::ASC) Order by the ArtbCtaxCode10 column
  * @method     ChildArCustTaxCodeQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildArCustTaxCodeQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildArCustTaxCodeQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -46,7 +45,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode7() Group by the ArtbCtaxCode7 column
  * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode8() Group by the ArtbCtaxCode8 column
  * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode9() Group by the ArtbCtaxCode9 column
- * @method     ChildArCustTaxCodeQuery groupByArtbctaxcode10() Group by the ArtbCtaxCode10 column
  * @method     ChildArCustTaxCodeQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildArCustTaxCodeQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildArCustTaxCodeQuery groupByDummy() Group by the dummy column
@@ -73,7 +71,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTaxCode findOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode7 column
  * @method     ChildArCustTaxCode findOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode8 column
  * @method     ChildArCustTaxCode findOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode9 column
- * @method     ChildArCustTaxCode findOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode10 column
  * @method     ChildArCustTaxCode findOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTaxCode filtered by the DateUpdtd column
  * @method     ChildArCustTaxCode findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTaxCode filtered by the TimeUpdtd column
  * @method     ChildArCustTaxCode findOneByDummy(string $dummy) Return the first ChildArCustTaxCode filtered by the dummy column *
@@ -92,7 +89,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTaxCode requireOneByArtbctaxcode7(string $ArtbCtaxCode7) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode7 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTaxCode requireOneByArtbctaxcode8(string $ArtbCtaxCode8) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode8 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTaxCode requireOneByArtbctaxcode9(string $ArtbCtaxCode9) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode9 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildArCustTaxCode requireOneByArtbctaxcode10(string $ArtbCtaxCode10) Return the first ChildArCustTaxCode filtered by the ArtbCtaxCode10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTaxCode requireOneByDateupdtd(string $DateUpdtd) Return the first ChildArCustTaxCode filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTaxCode requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildArCustTaxCode filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildArCustTaxCode requireOneByDummy(string $dummy) Return the first ChildArCustTaxCode filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -109,7 +105,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode7(string $ArtbCtaxCode7) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode7 column
  * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode8(string $ArtbCtaxCode8) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode8 column
  * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode9(string $ArtbCtaxCode9) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode9 column
- * @method     ChildArCustTaxCode[]|ObjectCollection findByArtbctaxcode10(string $ArtbCtaxCode10) Return ChildArCustTaxCode objects filtered by the ArtbCtaxCode10 column
  * @method     ChildArCustTaxCode[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildArCustTaxCode objects filtered by the DateUpdtd column
  * @method     ChildArCustTaxCode[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildArCustTaxCode objects filtered by the TimeUpdtd column
  * @method     ChildArCustTaxCode[]|ObjectCollection findByDummy(string $dummy) Return ChildArCustTaxCode objects filtered by the dummy column
@@ -211,7 +206,7 @@ abstract class ArCustTaxCodeQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArtbCtaxCode, ArtbCtaxDesc, ArtbCtaxCode1, ArtbCtaxCode2, ArtbCtaxCode3, ArtbCtaxCode4, ArtbCtaxCode5, ArtbCtaxCode6, ArtbCtaxCode7, ArtbCtaxCode8, ArtbCtaxCode9, ArtbCtaxCode10, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_ctax WHERE ArtbCtaxCode = :p0';
+        $sql = 'SELECT ArtbCtaxCode, ArtbCtaxDesc, ArtbCtaxCode1, ArtbCtaxCode2, ArtbCtaxCode3, ArtbCtaxCode4, ArtbCtaxCode5, ArtbCtaxCode6, ArtbCtaxCode7, ArtbCtaxCode8, ArtbCtaxCode9, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_ctax WHERE ArtbCtaxCode = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -577,31 +572,6 @@ abstract class ArCustTaxCodeQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbCtaxCode10 column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByArtbctaxcode10('fooValue');   // WHERE ArtbCtaxCode10 = 'fooValue'
-     * $query->filterByArtbctaxcode10('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode10 LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $artbctaxcode10 The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
-     */
-    public function filterByArtbctaxcode10($artbctaxcode10 = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($artbctaxcode10)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10, $artbctaxcode10, $comparison);
-    }
-
-    /**
      * Filter the query on the DateUpdtd column
      *
      * Example usage:
@@ -679,14 +649,14 @@ abstract class ArCustTaxCodeQuery extends ModelCriteria
     /**
      * Exclude object from result
      *
-     * @param   ChildArCustTaxCode $taxCodeCustomer Object to remove from the list of results
+     * @param   ChildArCustTaxCode $arCustTaxCode Object to remove from the list of results
      *
      * @return $this|ChildArCustTaxCodeQuery The current query, for fluid interface
      */
-    public function prune($taxCodeCustomer = null)
+    public function prune($arCustTaxCode = null)
     {
-        if ($taxCodeCustomer) {
-            $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $taxCodeCustomer->getArtbctaxcode(), Criteria::NOT_EQUAL);
+        if ($arCustTaxCode) {
+            $this->addUsingAlias(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE, $arCustTaxCode->getArtbctaxcode(), Criteria::NOT_EQUAL);
         }
 
         return $this;

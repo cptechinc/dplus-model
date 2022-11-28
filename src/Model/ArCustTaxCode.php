@@ -15,7 +15,7 @@ class ArCustTaxCode extends BaseArCustTaxCode {
 	const MAX_LENGTH_CODE = 6;
 
 	const FIELD_TAXCODE_BASE = 'code';
-	const NUMBER_TAXCODES = 10;
+	const NUMBER_TAXCODES = 9;
 
 	/**
 	 * Column Aliases to lookup / get properties

@@ -138,13 +138,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
     protected $artbctaxcode9;
 
     /**
-     * The value for the artbctaxcode10 field.
-     *
-     * @var        string
-     */
-    protected $artbctaxcode10;
-
-    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -522,16 +515,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbctaxcode10] column value.
-     *
-     * @return string
-     */
-    public function getArtbctaxcode10()
-    {
-        return $this->artbctaxcode10;
-    }
-
-    /**
      * Get the [dateupdtd] column value.
      *
      * @return string
@@ -782,26 +765,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
     } // setArtbctaxcode9()
 
     /**
-     * Set the value of [artbctaxcode10] column.
-     *
-     * @param string $v new value
-     * @return $this|\ArCustTaxCode The current object (for fluent API support)
-     */
-    public function setArtbctaxcode10($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->artbctaxcode10 !== $v) {
-            $this->artbctaxcode10 = $v;
-            $this->modifiedColumns[ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10] = true;
-        }
-
-        return $this;
-    } // setArtbctaxcode10()
-
-    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -934,16 +897,13 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode9', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbctaxcode9 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Artbctaxcode10', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbctaxcode10 = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : ArCustTaxCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -953,7 +913,7 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = ArCustTaxCodeTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 14; // 14 = ArCustTaxCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ArCustTaxCode'), 0, $e);
@@ -1183,9 +1143,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
         if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode9';
         }
-        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode10';
-        }
         if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -1238,9 +1195,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
                         break;
                     case 'ArtbCtaxCode9':
                         $stmt->bindValue($identifier, $this->artbctaxcode9, PDO::PARAM_STR);
-                        break;
-                    case 'ArtbCtaxCode10':
-                        $stmt->bindValue($identifier, $this->artbctaxcode10, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1340,15 +1294,12 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
                 return $this->getArtbctaxcode9();
                 break;
             case 11:
-                return $this->getArtbctaxcode10();
-                break;
-            case 12:
                 return $this->getDateupdtd();
                 break;
-            case 13:
+            case 12:
                 return $this->getTimeupdtd();
                 break;
-            case 14:
+            case 13:
                 return $this->getDummy();
                 break;
             default:
@@ -1391,10 +1342,9 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
             $keys[8] => $this->getArtbctaxcode7(),
             $keys[9] => $this->getArtbctaxcode8(),
             $keys[10] => $this->getArtbctaxcode9(),
-            $keys[11] => $this->getArtbctaxcode10(),
-            $keys[12] => $this->getDateupdtd(),
-            $keys[13] => $this->getTimeupdtd(),
-            $keys[14] => $this->getDummy(),
+            $keys[11] => $this->getDateupdtd(),
+            $keys[12] => $this->getTimeupdtd(),
+            $keys[13] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1468,15 +1418,12 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
                 $this->setArtbctaxcode9($value);
                 break;
             case 11:
-                $this->setArtbctaxcode10($value);
-                break;
-            case 12:
                 $this->setDateupdtd($value);
                 break;
-            case 13:
+            case 12:
                 $this->setTimeupdtd($value);
                 break;
-            case 14:
+            case 13:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1539,16 +1486,13 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
             $this->setArtbctaxcode9($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setArtbctaxcode10($arr[$keys[11]]);
+            $this->setDateupdtd($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDateupdtd($arr[$keys[12]]);
+            $this->setTimeupdtd($arr[$keys[12]]);
         }
         if (array_key_exists($keys[13], $arr)) {
-            $this->setTimeupdtd($arr[$keys[13]]);
-        }
-        if (array_key_exists($keys[14], $arr)) {
-            $this->setDummy($arr[$keys[14]]);
+            $this->setDummy($arr[$keys[13]]);
         }
     }
 
@@ -1623,9 +1567,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9)) {
             $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE9, $this->artbctaxcode9);
-        }
-        if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10)) {
-            $criteria->add(ArCustTaxCodeTableMap::COL_ARTBCTAXCODE10, $this->artbctaxcode10);
         }
         if ($this->isColumnModified(ArCustTaxCodeTableMap::COL_DATEUPDTD)) {
             $criteria->add(ArCustTaxCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
@@ -1733,7 +1674,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
         $copyObj->setArtbctaxcode7($this->getArtbctaxcode7());
         $copyObj->setArtbctaxcode8($this->getArtbctaxcode8());
         $copyObj->setArtbctaxcode9($this->getArtbctaxcode9());
-        $copyObj->setArtbctaxcode10($this->getArtbctaxcode10());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1782,7 +1722,6 @@ abstract class ArCustTaxCode implements ActiveRecordInterface
         $this->artbctaxcode7 = null;
         $this->artbctaxcode8 = null;
         $this->artbctaxcode9 = null;
-        $this->artbctaxcode10 = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
