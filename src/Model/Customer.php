@@ -258,8 +258,8 @@ class Customer extends BaseCustomer {
 	 * @return string
 	 */
 	public function termscode() {
-		$q = CustomerTermsCodeQuery::create();
-		$q->select(CustomerTermsCode::aliasproperty('description'));
+		$q = ArTermsCodeQuery::create();
+		$q->select(ArTermsCode::aliasproperty('description'));
 		$q->filterByCode($this->termscode);
 
 		if ($q->count() === 0) {

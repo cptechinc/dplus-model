@@ -181,7 +181,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 * @return PurchaseOrderDetailReceiving[]|ObjectCollection
 	 */
 	public function get_receivingitems() {
-		return PurchaseOrderDetailReceivingQuery::create()->findByPonbr($this->pohdnbr);
+		return PurchaseOrderDetailReceivingQuery::create()->filterByPonbr("%$this->pohdnbr", ' LIKE ')->find();
 	}
 
 	/**
@@ -190,7 +190,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 * @return int
 	 */
 	public function count_receivingitems() {
-		return PurchaseOrderDetailReceivingQuery::create()->filterByPonbr($this->pohdnbr)->count();
+		return PurchaseOrderDetailReceivingQuery::create()->filterByPonbr("%$this->pohdnbr", ' LIKE ')->count();
 	}
 
 	/**
