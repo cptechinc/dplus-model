@@ -1445,6 +1445,16 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="ar_terms_grp" idMethod="native" phpName="ArTermsGroup">
+    <column name="ArtgGrup" phpName="Artggrup" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArtgDesc" phpName="Artgdesc" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="cc_config" idMethod="native" phpName="ConfigCc">
     <column name="CctbConfKey" phpName="Cctbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="CctbConfCredLine" phpName="Cctbconfcredline" type="INTEGER" size="2"/>
