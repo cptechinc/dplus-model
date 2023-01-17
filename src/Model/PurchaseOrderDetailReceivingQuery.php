@@ -21,4 +21,3 @@ class PurchaseOrderDetailReceivingQuery extends BasePurchaseOrderDetailReceiving
 		return $this->filterByPothnbr($ponbr, $comparison);
 	}
 }
-}
