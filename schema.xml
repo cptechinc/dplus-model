@@ -1340,7 +1340,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_term_code" idMethod="native" phpName="CustomerTermsCode">
+  <table name="ar_term_code" idMethod="native" phpName="ArTermsCode">
     <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArtmTermDesc" phpName="Artmtermdesc" type="VARCHAR" size="20"/>
     <column name="ArtmMethod" phpName="Artmmethod" type="VARCHAR" size="1"/>
