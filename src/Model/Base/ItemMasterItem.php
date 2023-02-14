@@ -14513,7 +14513,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            return parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -14525,7 +14525,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            parent::postSave($con);
+            // parent::postSave($con);
         }
     }
 
