@@ -4420,9 +4420,6 @@
     <foreign-key foreignTable="so_head_hist" name="saleshistory" skipSql="true">
       <reference local="OehhNbr" foreign="OehhNbr"/>
     </foreign-key>
-    <foreign-key foreignTable="inv_item_mast" name="item">
-      <reference local="InitItemNbr" foreign="InitItemNbr"/>
-    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -4576,9 +4573,6 @@
     <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <foreign-key foreignTable="so_header" name="salesorder" skipSql="true">
       <reference local="OehdNbr" foreign="OehdNbr"/>
-    </foreign-key>
-    <foreign-key foreignTable="inv_item_mast" name="item">
-      <reference local="InitItemNbr" foreign="InitItemNbr"/>
     </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
