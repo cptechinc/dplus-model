@@ -56,8 +56,12 @@ use \ItemXrefVendorNoteInternalQuery as ChildItemXrefVendorNoteInternalQuery;
 use \ItemXrefVendorQuery as ChildItemXrefVendorQuery;
 use \ItmDimension as ChildItmDimension;
 use \ItmDimensionQuery as ChildItmDimensionQuery;
+use \SalesHistoryDetail as ChildSalesHistoryDetail;
+use \SalesHistoryDetailQuery as ChildSalesHistoryDetailQuery;
 use \SalesHistoryLotserial as ChildSalesHistoryLotserial;
 use \SalesHistoryLotserialQuery as ChildSalesHistoryLotserialQuery;
+use \SalesOrderDetail as ChildSalesOrderDetail;
+use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
 use \SalesOrderLotserial as ChildSalesOrderLotserial;
 use \SalesOrderLotserialQuery as ChildSalesOrderLotserialQuery;
 use \SoAllocatedLotserial as ChildSoAllocatedLotserial;
@@ -91,7 +95,9 @@ use Map\ItemXrefUpcTableMap;
 use Map\ItemXrefVendorNoteDetailTableMap;
 use Map\ItemXrefVendorNoteInternalTableMap;
 use Map\ItemXrefVendorTableMap;
+use Map\SalesHistoryDetailTableMap;
 use Map\SalesHistoryLotserialTableMap;
+use Map\SalesOrderDetailTableMap;
 use Map\SalesOrderLotserialTableMap;
 use Map\SoAllocatedLotserialTableMap;
 use Map\SoPickedLotserialTableMap;
@@ -771,6 +777,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collBookingDetailsPartial;
 
     /**
+     * @var        ObjectCollection|ChildSalesHistoryDetail[] Collection to store aggregation of ChildSalesHistoryDetail objects.
+     */
+    protected $collSalesHistoryDetails;
+    protected $collSalesHistoryDetailsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildSalesOrderDetail[] Collection to store aggregation of ChildSalesOrderDetail objects.
+     */
+    protected $collSalesOrderDetails;
+    protected $collSalesOrderDetailsPartial;
+
+    /**
      * @var        ObjectCollection|ChildSalesOrderLotserial[] Collection to store aggregation of ChildSalesOrderLotserial objects.
      */
     protected $collSalesOrderLotserials;
@@ -933,6 +951,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildBookingDetail[]
      */
     protected $bookingDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesHistoryDetail[]
+     */
+    protected $salesHistoryDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSalesOrderDetail[]
+     */
+    protected $salesOrderDetailsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3561,6 +3591,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collBookingDetails = null;
 
+            $this->collSalesHistoryDetails = null;
+
+            $this->collSalesOrderDetails = null;
+
             $this->collSalesOrderLotserials = null;
 
             $this->collSalesHistoryLotserials = null;
@@ -4083,6 +4117,40 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collBookingDetails !== null) {
                 foreach ($this->collBookingDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->salesHistoryDetailsScheduledForDeletion !== null) {
+                if (!$this->salesHistoryDetailsScheduledForDeletion->isEmpty()) {
+                    \SalesHistoryDetailQuery::create()
+                        ->filterByPrimaryKeys($this->salesHistoryDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->salesHistoryDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesHistoryDetails !== null) {
+                foreach ($this->collSalesHistoryDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->salesOrderDetailsScheduledForDeletion !== null) {
+                if (!$this->salesOrderDetailsScheduledForDeletion->isEmpty()) {
+                    \SalesOrderDetailQuery::create()
+                        ->filterByPrimaryKeys($this->salesOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->salesOrderDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSalesOrderDetails !== null) {
+                foreach ($this->collSalesOrderDetails as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5418,6 +5486,36 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collBookingDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collSalesHistoryDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesHistoryDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_det_hists';
+                        break;
+                    default:
+                        $key = 'SalesHistoryDetails';
+                }
+
+                $result[$key] = $this->collSalesHistoryDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collSalesOrderDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'salesOrderDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_details';
+                        break;
+                    default:
+                        $key = 'SalesOrderDetails';
+                }
+
+                $result[$key] = $this->collSalesOrderDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collSalesOrderLotserials) {
 
                 switch ($keyType) {
@@ -6507,6 +6605,18 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getSalesHistoryDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesHistoryDetail($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getSalesOrderDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSalesOrderDetail($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getSalesOrderLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addSalesOrderLotserial($relObj->copy($deepCopy));
@@ -6963,6 +7073,14 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('BookingDetail' == $relationName) {
             $this->initBookingDetails();
+            return;
+        }
+        if ('SalesHistoryDetail' == $relationName) {
+            $this->initSalesHistoryDetails();
+            return;
+        }
+        if ('SalesOrderDetail' == $relationName) {
+            $this->initSalesOrderDetails();
             return;
         }
         if ('SalesOrderLotserial' == $relationName) {
@@ -11654,6 +11772,506 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collSalesHistoryDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesHistoryDetails()
+     */
+    public function clearSalesHistoryDetails()
+    {
+        $this->collSalesHistoryDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesHistoryDetails collection loaded partially.
+     */
+    public function resetPartialSalesHistoryDetails($v = true)
+    {
+        $this->collSalesHistoryDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesHistoryDetails collection.
+     *
+     * By default this just sets the collSalesHistoryDetails collection to an empty array (like clearcollSalesHistoryDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesHistoryDetails($overrideExisting = true)
+    {
+        if (null !== $this->collSalesHistoryDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesHistoryDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesHistoryDetails = new $collectionClassName;
+        $this->collSalesHistoryDetails->setModel('\SalesHistoryDetail');
+    }
+
+    /**
+     * Gets an array of ChildSalesHistoryDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
+     * @throws PropelException
+     */
+    public function getSalesHistoryDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesHistoryDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistoryDetails) {
+                // return empty collection
+                $this->initSalesHistoryDetails();
+            } else {
+                $collSalesHistoryDetails = ChildSalesHistoryDetailQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesHistoryDetailsPartial && count($collSalesHistoryDetails)) {
+                        $this->initSalesHistoryDetails(false);
+
+                        foreach ($collSalesHistoryDetails as $obj) {
+                            if (false == $this->collSalesHistoryDetails->contains($obj)) {
+                                $this->collSalesHistoryDetails->append($obj);
+                            }
+                        }
+
+                        $this->collSalesHistoryDetailsPartial = true;
+                    }
+
+                    return $collSalesHistoryDetails;
+                }
+
+                if ($partial && $this->collSalesHistoryDetails) {
+                    foreach ($this->collSalesHistoryDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesHistoryDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesHistoryDetails = $collSalesHistoryDetails;
+                $this->collSalesHistoryDetailsPartial = false;
+            }
+        }
+
+        return $this->collSalesHistoryDetails;
+    }
+
+    /**
+     * Sets a collection of ChildSalesHistoryDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesHistoryDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setSalesHistoryDetails(Collection $salesHistoryDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesHistoryDetail[] $salesHistoryDetailsToDelete */
+        $salesHistoryDetailsToDelete = $this->getSalesHistoryDetails(new Criteria(), $con)->diff($salesHistoryDetails);
+
+
+        $this->salesHistoryDetailsScheduledForDeletion = $salesHistoryDetailsToDelete;
+
+        foreach ($salesHistoryDetailsToDelete as $salesHistoryDetailRemoved) {
+            $salesHistoryDetailRemoved->setItemMasterItem(null);
+        }
+
+        $this->collSalesHistoryDetails = null;
+        foreach ($salesHistoryDetails as $salesHistoryDetail) {
+            $this->addSalesHistoryDetail($salesHistoryDetail);
+        }
+
+        $this->collSalesHistoryDetails = $salesHistoryDetails;
+        $this->collSalesHistoryDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesHistoryDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesHistoryDetail objects.
+     * @throws PropelException
+     */
+    public function countSalesHistoryDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesHistoryDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesHistoryDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesHistoryDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesHistoryDetails());
+            }
+
+            $query = ChildSalesHistoryDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesHistoryDetails);
+    }
+
+    /**
+     * Method called to associate a ChildSalesHistoryDetail object to this object
+     * through the ChildSalesHistoryDetail foreign key attribute.
+     *
+     * @param  ChildSalesHistoryDetail $l ChildSalesHistoryDetail
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addSalesHistoryDetail(ChildSalesHistoryDetail $l)
+    {
+        if ($this->collSalesHistoryDetails === null) {
+            $this->initSalesHistoryDetails();
+            $this->collSalesHistoryDetailsPartial = true;
+        }
+
+        if (!$this->collSalesHistoryDetails->contains($l)) {
+            $this->doAddSalesHistoryDetail($l);
+
+            if ($this->salesHistoryDetailsScheduledForDeletion and $this->salesHistoryDetailsScheduledForDeletion->contains($l)) {
+                $this->salesHistoryDetailsScheduledForDeletion->remove($this->salesHistoryDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to add.
+     */
+    protected function doAddSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
+    {
+        $this->collSalesHistoryDetails[]= $salesHistoryDetail;
+        $salesHistoryDetail->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildSalesHistoryDetail $salesHistoryDetail The ChildSalesHistoryDetail object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeSalesHistoryDetail(ChildSalesHistoryDetail $salesHistoryDetail)
+    {
+        if ($this->getSalesHistoryDetails()->contains($salesHistoryDetail)) {
+            $pos = $this->collSalesHistoryDetails->search($salesHistoryDetail);
+            $this->collSalesHistoryDetails->remove($pos);
+            if (null === $this->salesHistoryDetailsScheduledForDeletion) {
+                $this->salesHistoryDetailsScheduledForDeletion = clone $this->collSalesHistoryDetails;
+                $this->salesHistoryDetailsScheduledForDeletion->clear();
+            }
+            $this->salesHistoryDetailsScheduledForDeletion[]= clone $salesHistoryDetail;
+            $salesHistoryDetail->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related SalesHistoryDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesHistoryDetail[] List of ChildSalesHistoryDetail objects
+     */
+    public function getSalesHistoryDetailsJoinSalesHistory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesHistoryDetailQuery::create(null, $criteria);
+        $query->joinWith('SalesHistory', $joinBehavior);
+
+        return $this->getSalesHistoryDetails($query, $con);
+    }
+
+    /**
+     * Clears out the collSalesOrderDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSalesOrderDetails()
+     */
+    public function clearSalesOrderDetails()
+    {
+        $this->collSalesOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSalesOrderDetails collection loaded partially.
+     */
+    public function resetPartialSalesOrderDetails($v = true)
+    {
+        $this->collSalesOrderDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSalesOrderDetails collection.
+     *
+     * By default this just sets the collSalesOrderDetails collection to an empty array (like clearcollSalesOrderDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSalesOrderDetails($overrideExisting = true)
+    {
+        if (null !== $this->collSalesOrderDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SalesOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSalesOrderDetails = new $collectionClassName;
+        $this->collSalesOrderDetails->setModel('\SalesOrderDetail');
+    }
+
+    /**
+     * Gets an array of ChildSalesOrderDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
+     * @throws PropelException
+     */
+    public function getSalesOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+                // return empty collection
+                $this->initSalesOrderDetails();
+            } else {
+                $collSalesOrderDetails = ChildSalesOrderDetailQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSalesOrderDetailsPartial && count($collSalesOrderDetails)) {
+                        $this->initSalesOrderDetails(false);
+
+                        foreach ($collSalesOrderDetails as $obj) {
+                            if (false == $this->collSalesOrderDetails->contains($obj)) {
+                                $this->collSalesOrderDetails->append($obj);
+                            }
+                        }
+
+                        $this->collSalesOrderDetailsPartial = true;
+                    }
+
+                    return $collSalesOrderDetails;
+                }
+
+                if ($partial && $this->collSalesOrderDetails) {
+                    foreach ($this->collSalesOrderDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collSalesOrderDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSalesOrderDetails = $collSalesOrderDetails;
+                $this->collSalesOrderDetailsPartial = false;
+            }
+        }
+
+        return $this->collSalesOrderDetails;
+    }
+
+    /**
+     * Sets a collection of ChildSalesOrderDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $salesOrderDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setSalesOrderDetails(Collection $salesOrderDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildSalesOrderDetail[] $salesOrderDetailsToDelete */
+        $salesOrderDetailsToDelete = $this->getSalesOrderDetails(new Criteria(), $con)->diff($salesOrderDetails);
+
+
+        $this->salesOrderDetailsScheduledForDeletion = $salesOrderDetailsToDelete;
+
+        foreach ($salesOrderDetailsToDelete as $salesOrderDetailRemoved) {
+            $salesOrderDetailRemoved->setItemMasterItem(null);
+        }
+
+        $this->collSalesOrderDetails = null;
+        foreach ($salesOrderDetails as $salesOrderDetail) {
+            $this->addSalesOrderDetail($salesOrderDetail);
+        }
+
+        $this->collSalesOrderDetails = $salesOrderDetails;
+        $this->collSalesOrderDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SalesOrderDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SalesOrderDetail objects.
+     * @throws PropelException
+     */
+    public function countSalesOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSalesOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSalesOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSalesOrderDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSalesOrderDetails());
+            }
+
+            $query = ChildSalesOrderDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collSalesOrderDetails);
+    }
+
+    /**
+     * Method called to associate a ChildSalesOrderDetail object to this object
+     * through the ChildSalesOrderDetail foreign key attribute.
+     *
+     * @param  ChildSalesOrderDetail $l ChildSalesOrderDetail
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addSalesOrderDetail(ChildSalesOrderDetail $l)
+    {
+        if ($this->collSalesOrderDetails === null) {
+            $this->initSalesOrderDetails();
+            $this->collSalesOrderDetailsPartial = true;
+        }
+
+        if (!$this->collSalesOrderDetails->contains($l)) {
+            $this->doAddSalesOrderDetail($l);
+
+            if ($this->salesOrderDetailsScheduledForDeletion and $this->salesOrderDetailsScheduledForDeletion->contains($l)) {
+                $this->salesOrderDetailsScheduledForDeletion->remove($this->salesOrderDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to add.
+     */
+    protected function doAddSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    {
+        $this->collSalesOrderDetails[]= $salesOrderDetail;
+        $salesOrderDetail->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildSalesOrderDetail $salesOrderDetail The ChildSalesOrderDetail object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeSalesOrderDetail(ChildSalesOrderDetail $salesOrderDetail)
+    {
+        if ($this->getSalesOrderDetails()->contains($salesOrderDetail)) {
+            $pos = $this->collSalesOrderDetails->search($salesOrderDetail);
+            $this->collSalesOrderDetails->remove($pos);
+            if (null === $this->salesOrderDetailsScheduledForDeletion) {
+                $this->salesOrderDetailsScheduledForDeletion = clone $this->collSalesOrderDetails;
+                $this->salesOrderDetailsScheduledForDeletion->clear();
+            }
+            $this->salesOrderDetailsScheduledForDeletion[]= clone $salesOrderDetail;
+            $salesOrderDetail->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related SalesOrderDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSalesOrderDetail[] List of ChildSalesOrderDetail objects
+     */
+    public function getSalesOrderDetailsJoinSalesOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSalesOrderDetailQuery::create(null, $criteria);
+        $query->joinWith('SalesOrder', $joinBehavior);
+
+        return $this->getSalesOrderDetails($query, $con);
+    }
+
+    /**
      * Clears out the collSalesOrderLotserials collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -13790,6 +14408,16 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collSalesHistoryDetails) {
+                foreach ($this->collSalesHistoryDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collSalesOrderDetails) {
+                foreach ($this->collSalesOrderDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collSalesOrderLotserials) {
                 foreach ($this->collSalesOrderLotserials as $o) {
                     $o->clearAllReferences($deep);
@@ -13850,6 +14478,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collBomComponents = null;
         $this->singleBomItem = null;
         $this->collBookingDetails = null;
+        $this->collSalesHistoryDetails = null;
+        $this->collSalesOrderDetails = null;
         $this->collSalesOrderLotserials = null;
         $this->collSalesHistoryLotserials = null;
         $this->collSoAllocatedLotserials = null;
@@ -13883,7 +14513,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -13895,7 +14525,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 

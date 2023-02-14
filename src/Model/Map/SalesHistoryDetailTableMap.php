@@ -859,7 +859,7 @@ class SalesHistoryDetailTableMap extends TableMap
         $this->addForeignPrimaryKey('OehhNbr', 'Oehhnbr', 'INTEGER' , 'so_head_hist', 'OehhNbr', true, 10, 0);
         $this->addPrimaryKey('OedhLine', 'Oedhline', 'INTEGER', true, 4, 0);
         $this->addColumn('OedhYear', 'Oedhyear', 'CHAR', true, 4, '');
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('OedhDesc', 'Oedhdesc', 'VARCHAR', true, 35, '');
         $this->addColumn('OedhDesc2', 'Oedhdesc2', 'VARCHAR', true, 35, '');
         $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
@@ -1015,6 +1015,13 @@ class SalesHistoryDetailTableMap extends TableMap
   array (
     0 => ':OehhNbr',
     1 => ':OehhNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
         $this->addRelation('SalesHistoryLotserial', '\\SalesHistoryLotserial', RelationMap::ONE_TO_MANY, array (

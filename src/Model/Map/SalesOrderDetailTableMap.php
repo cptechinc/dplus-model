@@ -853,7 +853,7 @@ class SalesOrderDetailTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('OehdNbr', 'Oehdnbr', 'INTEGER' , 'so_header', 'OehdNbr', true, 10, 0);
         $this->addPrimaryKey('OedtLine', 'Oedtline', 'INTEGER', true, 4, 0);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addColumn('OedtDesc', 'Oedtdesc', 'VARCHAR', true, 35, '');
         $this->addColumn('OedtDesc2', 'Oedtdesc2', 'VARCHAR', true, 35, '');
         $this->addColumn('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
@@ -1009,6 +1009,13 @@ class SalesOrderDetailTableMap extends TableMap
   array (
     0 => ':OehdNbr',
     1 => ':OehdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
         $this->addRelation('SalesOrderLotserial', '\\SalesOrderLotserial', RelationMap::ONE_TO_MANY, array (

@@ -2,6 +2,8 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \SalesOrder as ChildSalesOrder;
 use \SalesOrderDetail as ChildSalesOrderDetail;
 use \SalesOrderDetailQuery as ChildSalesOrderDetailQuery;
@@ -1244,6 +1246,11 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
      * @var        ChildSalesOrder
      */
     protected $aSalesOrder;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
 
     /**
      * @var        ObjectCollection|ChildSalesOrderLotserial[] Collection to store aggregation of ChildSalesOrderLotserial objects.
@@ -3191,6 +3198,10 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[SalesOrderDetailTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -7146,6 +7157,9 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->aSalesOrder !== null && $this->oehdnbr !== $this->aSalesOrder->getOehdnbr()) {
             $this->aSalesOrder = null;
         }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -7186,6 +7200,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aSalesOrder = null;
+            $this->aItemMasterItem = null;
             $this->collSalesOrderLotserials = null;
 
             $this->collSoAllocatedLotserials = null;
@@ -7305,6 +7320,13 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                     $affectedRows += $this->aSalesOrder->save($con);
                 }
                 $this->setSalesOrder($this->aSalesOrder);
+            }
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
             }
 
             if ($this->isNew() || $this->isModified()) {
@@ -8968,6 +8990,21 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aSalesOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
             if (null !== $this->collSalesOrderLotserials) {
 
@@ -10780,6 +10817,57 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         return $this->aSalesOrder;
     }
 
+    /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\SalesOrderDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addSalesOrderDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addSalesOrderDetails($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
 
     /**
      * Initializes a collection based on the name of a relation.
@@ -11699,6 +11787,9 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if (null !== $this->aSalesOrder) {
             $this->aSalesOrder->removeSalesOrderDetail($this);
         }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeSalesOrderDetail($this);
+        }
         $this->oehdnbr = null;
         $this->oedtline = null;
         $this->inititemnbr = null;
@@ -11885,6 +11976,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $this->collSoAllocatedLotserials = null;
         $this->collSoPickedLotserials = null;
         $this->aSalesOrder = null;
+        $this->aItemMasterItem = null;
     }
 
     /**
@@ -11905,7 +11997,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
