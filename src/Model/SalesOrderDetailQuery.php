@@ -31,6 +31,6 @@ class SalesOrderDetailQuery extends BaseSalesOrderDetailQuery {
 	 * @return bool
 	 */
 	public function hasDetails($ordn) {
-		return bool($this->filterByOehdnbr($ordn)->count());
+		return boolval($this->filterByOehdnbr($ordn)->count());
 	}
 }
