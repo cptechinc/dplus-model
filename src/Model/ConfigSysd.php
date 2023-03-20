@@ -21,7 +21,7 @@ class ConfigSysd extends BaseConfigSysd {
 		'companynbr'  => 'cscpcompnbr',
 		'companyid'   => 'cscpcompid',
 		'companyname' => 'cscpcompname',
-		'dirautofile' => 'cscpdocautodir',
+		'dirautofile'  =>  'cscpdocautodir',
 		'dircerts'     => 'cscpcertsdir',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
