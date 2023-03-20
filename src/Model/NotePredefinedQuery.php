@@ -23,4 +23,24 @@ use Dplus\Model\QueryTraits;
  */
 class NotePredefinedQuery extends BaseNotePredefinedQuery {
 	use QueryTraits;
+
+	/**
+	 * Return the Query filtered by the Optncode
+	 * @param  string $id          Sysop Code ID
+	 * @param string  $comparison
+	 * @return void
+	 */
+	public function filterByCode($id = null, $comparison = null) {
+		return $this->filterByQnpdntcode($id, $comparison);
+	}
+
+	/**
+	 * Return the Query filtered by the Optncode
+	 * @param  string $id          Sysop Code ID
+	 * @param string  $comparison
+	 * @return void
+	 */
+	public function filterById($id = null, $comparison = null) {
+		return $this->filterByQnpdntcode($id, $comparison);
+	}
 }
