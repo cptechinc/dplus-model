@@ -39,6 +39,7 @@ class OptionsIi extends BaseOptionsIi {
 		'userid'            => 'iitboptncode',
 		'view_requirements' => 'iitboptnreqrview',
 		'whichdesc'         => 'IitbOptnDesc1Or2',
+		'itemdescription'   => 'IitbOptnDesc1Or2',
 		'deleteloticerts'   => 'IitbOptnDelCerts',
 
 		// II Screen Permissions
