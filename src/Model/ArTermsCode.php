@@ -42,6 +42,7 @@ class ArTermsCode extends BaseArTermsCode {
 		'ccprefix'		   => 'artmccprefix',
 		'country'		   => 'artmctry',
 		'term_group'	   => 'artmtermgrup',
+		'termsgroup'	   => 'artmtermgrup',
 		'date'			   => 'dateupdtd',
 		'time'			   => 'timeupdtd'
 	);
@@ -297,6 +298,44 @@ class ArTermsCode extends BaseArTermsCode {
 		$this->set_eom_disc_months($index, '');
 		$this->set_eom_due_day($index, '');
 		$this->set_eom_plus_months($index, '');
+	}
+
+	public function empty_std_split($index) {
+		if ($this->isValidStdSplit($index) === false) {
+			return false;
+		}
+		$this->set_order_percent($index, '');
+		$this->set_std_disc_percent($index, '');
+		$this->set_std_disc_days($index, '');
+		$this->set_std_disc_day($index, '');
+		$this->set_std_disc_date($index, '');
+		$this->set_std_due_days($index, '');
+		$this->set_std_due_day($index, '');
+		$this->set_std_plus_months($index, '');
+		$this->set_std_due_date($index, '');
+		$this->set_std_plus_years($index, '');
+	}
+
+	public function empty_std_discount_fields($index) {
+		if ($this->isValidStdSplit($index) === false) {
+			return false;
+		}
+		$this->set_std_disc_percent($index, '');
+		$this->set_std_disc_days($index, '');
+		$this->set_std_disc_day($index, '');
+		return true;
+	}
+
+	public function empty_std_due_fields($index) {
+		if ($this->isValidStdSplit($index) === false) {
+			return false;
+		}
+		$this->set_std_due_days($index, '');
+		$this->set_std_due_day($index, '');
+		$this->set_std_plus_months($index, '');
+		$this->set_std_due_date($index, '');
+		$this->set_std_plus_years($index, '');
+		return true;
 	}
 
 	/**
