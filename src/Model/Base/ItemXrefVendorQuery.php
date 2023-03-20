@@ -53,7 +53,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorQuery orderByVexrunitunit10($order = Criteria::ASC) Order by the VexrUnitUnit10 column
  * @method     ChildItemXrefVendorQuery orderByVexrunitcost10($order = Criteria::ASC) Order by the VexrUnitCost10 column
  * @method     ChildItemXrefVendorQuery orderByVexraprvcode($order = Criteria::ASC) Order by the VexrAprvCode column
- * @method     ChildItemXrefVendorQuery orderByVexrvenditemdesc($order = Criteria::ASC) Order by the VexrVendItemDesc column
  * @method     ChildItemXrefVendorQuery orderByVexrminbuyqty($order = Criteria::ASC) Order by the VexrMinBuyQty column
  * @method     ChildItemXrefVendorQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildItemXrefVendorQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
@@ -92,7 +91,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendorQuery groupByVexrunitunit10() Group by the VexrUnitUnit10 column
  * @method     ChildItemXrefVendorQuery groupByVexrunitcost10() Group by the VexrUnitCost10 column
  * @method     ChildItemXrefVendorQuery groupByVexraprvcode() Group by the VexrAprvCode column
- * @method     ChildItemXrefVendorQuery groupByVexrvenditemdesc() Group by the VexrVendItemDesc column
  * @method     ChildItemXrefVendorQuery groupByVexrminbuyqty() Group by the VexrMinBuyQty column
  * @method     ChildItemXrefVendorQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildItemXrefVendorQuery groupByTimeupdtd() Group by the TimeUpdtd column
@@ -174,7 +172,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendor findOneByVexrunitunit10(int $VexrUnitUnit10) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit10 column
  * @method     ChildItemXrefVendor findOneByVexrunitcost10(string $VexrUnitCost10) Return the first ChildItemXrefVendor filtered by the VexrUnitCost10 column
  * @method     ChildItemXrefVendor findOneByVexraprvcode(string $VexrAprvCode) Return the first ChildItemXrefVendor filtered by the VexrAprvCode column
- * @method     ChildItemXrefVendor findOneByVexrvenditemdesc(string $VexrVendItemDesc) Return the first ChildItemXrefVendor filtered by the VexrVendItemDesc column
  * @method     ChildItemXrefVendor findOneByVexrminbuyqty(int $VexrMinBuyQty) Return the first ChildItemXrefVendor filtered by the VexrMinBuyQty column
  * @method     ChildItemXrefVendor findOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefVendor filtered by the DateUpdtd column
  * @method     ChildItemXrefVendor findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefVendor filtered by the TimeUpdtd column
@@ -216,7 +213,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendor requireOneByVexrunitunit10(int $VexrUnitUnit10) Return the first ChildItemXrefVendor filtered by the VexrUnitUnit10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByVexrunitcost10(string $VexrUnitCost10) Return the first ChildItemXrefVendor filtered by the VexrUnitCost10 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByVexraprvcode(string $VexrAprvCode) Return the first ChildItemXrefVendor filtered by the VexrAprvCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildItemXrefVendor requireOneByVexrvenditemdesc(string $VexrVendItemDesc) Return the first ChildItemXrefVendor filtered by the VexrVendItemDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByVexrminbuyqty(int $VexrMinBuyQty) Return the first ChildItemXrefVendor filtered by the VexrMinBuyQty column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByDateupdtd(string $DateUpdtd) Return the first ChildItemXrefVendor filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildItemXrefVendor requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildItemXrefVendor filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -256,7 +252,6 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitunit10(int $VexrUnitUnit10) Return ChildItemXrefVendor objects filtered by the VexrUnitUnit10 column
  * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrunitcost10(string $VexrUnitCost10) Return ChildItemXrefVendor objects filtered by the VexrUnitCost10 column
  * @method     ChildItemXrefVendor[]|ObjectCollection findByVexraprvcode(string $VexrAprvCode) Return ChildItemXrefVendor objects filtered by the VexrAprvCode column
- * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrvenditemdesc(string $VexrVendItemDesc) Return ChildItemXrefVendor objects filtered by the VexrVendItemDesc column
  * @method     ChildItemXrefVendor[]|ObjectCollection findByVexrminbuyqty(int $VexrMinBuyQty) Return ChildItemXrefVendor objects filtered by the VexrMinBuyQty column
  * @method     ChildItemXrefVendor[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildItemXrefVendor objects filtered by the DateUpdtd column
  * @method     ChildItemXrefVendor[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildItemXrefVendor objects filtered by the TimeUpdtd column
@@ -359,7 +354,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ApveVendId, VexrVendItemNbr, InitItemNbr, VexrPoOrderCode, VexrOption1, IntbUomPur, VexrCaseQty, VexrPrtKitDet, VexrListPrice, VexrUnitCost, VexrForeignCost, VexrCostLastDate, VexrUnitUnit1, VexrUnitCost1, VexrUnitUnit2, VexrUnitCost2, VexrUnitUnit3, VexrUnitCost3, VexrUnitUnit4, VexrUnitCost4, VexrUnitUnit5, VexrUnitCost5, VexrUnitUnit6, VexrUnitCost6, VexrUnitUnit7, VexrUnitCost7, VexrUnitUnit8, VexrUnitCost8, VexrUnitUnit9, VexrUnitCost9, VexrUnitUnit10, VexrUnitCost10, VexrAprvCode, VexrVendItemDesc, VexrMinBuyQty, DateUpdtd, TimeUpdtd, dummy FROM vend_item_xref WHERE ApveVendId = :p0 AND VexrVendItemNbr = :p1 AND InitItemNbr = :p2';
+        $sql = 'SELECT ApveVendId, VexrVendItemNbr, InitItemNbr, VexrPoOrderCode, VexrOption1, IntbUomPur, VexrCaseQty, VexrPrtKitDet, VexrListPrice, VexrUnitCost, VexrForeignCost, VexrCostLastDate, VexrUnitUnit1, VexrUnitCost1, VexrUnitUnit2, VexrUnitCost2, VexrUnitUnit3, VexrUnitCost3, VexrUnitUnit4, VexrUnitCost4, VexrUnitUnit5, VexrUnitCost5, VexrUnitUnit6, VexrUnitCost6, VexrUnitUnit7, VexrUnitCost7, VexrUnitUnit8, VexrUnitCost8, VexrUnitUnit9, VexrUnitCost9, VexrUnitUnit10, VexrUnitCost10, VexrAprvCode, VexrMinBuyQty, DateUpdtd, TimeUpdtd, dummy FROM vend_item_xref WHERE ApveVendId = :p0 AND VexrVendItemNbr = :p1 AND InitItemNbr = :p2';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -1675,31 +1670,6 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the VexrVendItemDesc column
-     *
-     * Example usage:
-     * <code>
-     * $query->filterByVexrvenditemdesc('fooValue');   // WHERE VexrVendItemDesc = 'fooValue'
-     * $query->filterByVexrvenditemdesc('%fooValue%', Criteria::LIKE); // WHERE VexrVendItemDesc LIKE '%fooValue%'
-     * </code>
-     *
-     * @param     string $vexrvenditemdesc The value to use as filter.
-     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
-     *
-     * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
-     */
-    public function filterByVexrvenditemdesc($vexrvenditemdesc = null, $comparison = null)
-    {
-        if (null === $comparison) {
-            if (is_array($vexrvenditemdesc)) {
-                $comparison = Criteria::IN;
-            }
-        }
-
-        return $this->addUsingAlias(ItemXrefVendorTableMap::COL_VEXRVENDITEMDESC, $vexrvenditemdesc, $comparison);
-    }
-
-    /**
      * Filter the query on the VexrMinBuyQty column
      *
      * Example usage:
@@ -2004,7 +1974,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @return $this|ChildItemXrefVendorQuery The current query, for fluid interface
      */
-    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinUnitofMeasurePurchase($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('UnitofMeasurePurchase');
@@ -2039,7 +2009,7 @@ abstract class ItemXrefVendorQuery extends ModelCriteria
      *
      * @return \UnitofMeasurePurchaseQuery A secondary query class using the current class as primary query
      */
-    public function useUnitofMeasurePurchaseQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useUnitofMeasurePurchaseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinUnitofMeasurePurchase($relationAlias, $joinType)

@@ -92,6 +92,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrpoordercode field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $vexrpoordercode;
@@ -99,6 +100,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexroption1 field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $vexroption1;
@@ -106,6 +108,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the intbuompur field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $intbuompur;
@@ -113,6 +116,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrcaseqty field.
      *
+     * Note: this column has a database default value of: '1.00'
      * @var        string
      */
     protected $vexrcaseqty;
@@ -120,6 +124,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrprtkitdet field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
     protected $vexrprtkitdet;
@@ -127,6 +132,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrlistprice field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrlistprice;
@@ -134,6 +140,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost;
@@ -141,6 +148,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrforeigncost field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrforeigncost;
@@ -148,6 +156,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrcostlastdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $vexrcostlastdate;
@@ -155,6 +164,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit1 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit1;
@@ -162,6 +172,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost1 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost1;
@@ -169,6 +180,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit2 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit2;
@@ -176,6 +188,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost2 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost2;
@@ -183,6 +196,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit3 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit3;
@@ -190,6 +204,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost3 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost3;
@@ -197,6 +212,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit4 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit4;
@@ -204,6 +220,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost4 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost4;
@@ -211,6 +228,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit5 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit5;
@@ -218,6 +236,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost5 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost5;
@@ -225,6 +244,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit6 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit6;
@@ -232,6 +252,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost6 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost6;
@@ -239,6 +260,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit7 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit7;
@@ -246,6 +268,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost7 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost7;
@@ -253,6 +276,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit8 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit8;
@@ -260,6 +284,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost8 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost8;
@@ -267,6 +292,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit9 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit9;
@@ -274,6 +300,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost9 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost9;
@@ -281,6 +308,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitunit10 field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrunitunit10;
@@ -288,6 +316,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexrunitcost10 field.
      *
+     * Note: this column has a database default value of: '0.0000000'
      * @var        string
      */
     protected $vexrunitcost10;
@@ -295,20 +324,15 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the vexraprvcode field.
      *
+     * Note: this column has a database default value of: 'A'
      * @var        string
      */
     protected $vexraprvcode;
 
     /**
-     * The value for the vexrvenditemdesc field.
-     *
-     * @var        string
-     */
-    protected $vexrvenditemdesc;
-
-    /**
      * The value for the vexrminbuyqty field.
      *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
     protected $vexrminbuyqty;
@@ -316,6 +340,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -323,6 +348,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -330,6 +356,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
@@ -368,6 +395,40 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         $this->apvevendid = '';
         $this->vexrvenditemnbr = '';
         $this->inititemnbr = '';
+        $this->vexrpoordercode = '';
+        $this->vexroption1 = '';
+        $this->intbuompur = '';
+        $this->vexrcaseqty = '1.00';
+        $this->vexrprtkitdet = 'N';
+        $this->vexrlistprice = '0.0000000';
+        $this->vexrunitcost = '0.0000000';
+        $this->vexrforeigncost = '0.0000000';
+        $this->vexrcostlastdate = '';
+        $this->vexrunitunit1 = 0;
+        $this->vexrunitcost1 = '0.0000000';
+        $this->vexrunitunit2 = 0;
+        $this->vexrunitcost2 = '0.0000000';
+        $this->vexrunitunit3 = 0;
+        $this->vexrunitcost3 = '0.0000000';
+        $this->vexrunitunit4 = 0;
+        $this->vexrunitcost4 = '0.0000000';
+        $this->vexrunitunit5 = 0;
+        $this->vexrunitcost5 = '0.0000000';
+        $this->vexrunitunit6 = 0;
+        $this->vexrunitcost6 = '0.0000000';
+        $this->vexrunitunit7 = 0;
+        $this->vexrunitcost7 = '0.0000000';
+        $this->vexrunitunit8 = 0;
+        $this->vexrunitcost8 = '0.0000000';
+        $this->vexrunitunit9 = 0;
+        $this->vexrunitcost9 = '0.0000000';
+        $this->vexrunitunit10 = 0;
+        $this->vexrunitcost10 = '0.0000000';
+        $this->vexraprvcode = 'A';
+        $this->vexrminbuyqty = 0;
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
@@ -925,16 +986,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     public function getVexraprvcode()
     {
         return $this->vexraprvcode;
-    }
-
-    /**
-     * Get the [vexrvenditemdesc] column value.
-     *
-     * @return string
-     */
-    public function getVexrvenditemdesc()
-    {
-        return $this->vexrvenditemdesc;
     }
 
     /**
@@ -1650,26 +1701,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     } // setVexraprvcode()
 
     /**
-     * Set the value of [vexrvenditemdesc] column.
-     *
-     * @param string $v new value
-     * @return $this|\ItemXrefVendor The current object (for fluent API support)
-     */
-    public function setVexrvenditemdesc($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->vexrvenditemdesc !== $v) {
-            $this->vexrvenditemdesc = $v;
-            $this->modifiedColumns[ItemXrefVendorTableMap::COL_VEXRVENDITEMDESC] = true;
-        }
-
-        return $this;
-    } // setVexrvenditemdesc()
-
-    /**
      * Set the value of [vexrminbuyqty] column.
      *
      * @param int $v new value
@@ -1768,6 +1799,142 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             }
 
             if ($this->inititemnbr !== '') {
+                return false;
+            }
+
+            if ($this->vexrpoordercode !== '') {
+                return false;
+            }
+
+            if ($this->vexroption1 !== '') {
+                return false;
+            }
+
+            if ($this->intbuompur !== '') {
+                return false;
+            }
+
+            if ($this->vexrcaseqty !== '1.00') {
+                return false;
+            }
+
+            if ($this->vexrprtkitdet !== 'N') {
+                return false;
+            }
+
+            if ($this->vexrlistprice !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitcost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrforeigncost !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrcostlastdate !== '') {
+                return false;
+            }
+
+            if ($this->vexrunitunit1 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost1 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit2 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost2 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit3 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost3 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit4 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost4 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit5 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost5 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit6 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost6 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit7 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost7 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit8 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost8 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit9 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost9 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexrunitunit10 !== 0) {
+                return false;
+            }
+
+            if ($this->vexrunitcost10 !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->vexraprvcode !== 'A') {
+                return false;
+            }
+
+            if ($this->vexrminbuyqty !== 0) {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -1896,19 +2063,16 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 32 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexraprvcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexraprvcode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrvenditemdesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->vexrvenditemdesc = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrminbuyqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 33 + $startcol : ItemXrefVendorTableMap::translateFieldName('Vexrminbuyqty', TableMap::TYPE_PHPNAME, $indexType)];
             $this->vexrminbuyqty = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 34 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ItemXrefVendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 35 + $startcol : ItemXrefVendorTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 37 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 36 + $startcol : ItemXrefVendorTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -1918,7 +2082,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 38; // 38 = ItemXrefVendorTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 37; // 37 = ItemXrefVendorTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\ItemXrefVendor'), 0, $e);
@@ -2252,9 +2416,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRAPRVCODE)) {
             $modifiedColumns[':p' . $index++]  = 'VexrAprvCode';
         }
-        if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRVENDITEMDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'VexrVendItemDesc';
-        }
         if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY)) {
             $modifiedColumns[':p' . $index++]  = 'VexrMinBuyQty';
         }
@@ -2376,9 +2537,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
                         break;
                     case 'VexrAprvCode':
                         $stmt->bindValue($identifier, $this->vexraprvcode, PDO::PARAM_STR);
-                        break;
-                    case 'VexrVendItemDesc':
-                        $stmt->bindValue($identifier, $this->vexrvenditemdesc, PDO::PARAM_STR);
                         break;
                     case 'VexrMinBuyQty':
                         $stmt->bindValue($identifier, $this->vexrminbuyqty, PDO::PARAM_INT);
@@ -2547,18 +2705,15 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
                 return $this->getVexraprvcode();
                 break;
             case 33:
-                return $this->getVexrvenditemdesc();
-                break;
-            case 34:
                 return $this->getVexrminbuyqty();
                 break;
-            case 35:
+            case 34:
                 return $this->getDateupdtd();
                 break;
-            case 36:
+            case 35:
                 return $this->getTimeupdtd();
                 break;
-            case 37:
+            case 36:
                 return $this->getDummy();
                 break;
             default:
@@ -2624,11 +2779,10 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             $keys[30] => $this->getVexrunitunit10(),
             $keys[31] => $this->getVexrunitcost10(),
             $keys[32] => $this->getVexraprvcode(),
-            $keys[33] => $this->getVexrvenditemdesc(),
-            $keys[34] => $this->getVexrminbuyqty(),
-            $keys[35] => $this->getDateupdtd(),
-            $keys[36] => $this->getTimeupdtd(),
-            $keys[37] => $this->getDummy(),
+            $keys[33] => $this->getVexrminbuyqty(),
+            $keys[34] => $this->getDateupdtd(),
+            $keys[35] => $this->getTimeupdtd(),
+            $keys[36] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -2815,18 +2969,15 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
                 $this->setVexraprvcode($value);
                 break;
             case 33:
-                $this->setVexrvenditemdesc($value);
-                break;
-            case 34:
                 $this->setVexrminbuyqty($value);
                 break;
-            case 35:
+            case 34:
                 $this->setDateupdtd($value);
                 break;
-            case 36:
+            case 35:
                 $this->setTimeupdtd($value);
                 break;
-            case 37:
+            case 36:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -2955,19 +3106,16 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
             $this->setVexraprvcode($arr[$keys[32]]);
         }
         if (array_key_exists($keys[33], $arr)) {
-            $this->setVexrvenditemdesc($arr[$keys[33]]);
+            $this->setVexrminbuyqty($arr[$keys[33]]);
         }
         if (array_key_exists($keys[34], $arr)) {
-            $this->setVexrminbuyqty($arr[$keys[34]]);
+            $this->setDateupdtd($arr[$keys[34]]);
         }
         if (array_key_exists($keys[35], $arr)) {
-            $this->setDateupdtd($arr[$keys[35]]);
+            $this->setTimeupdtd($arr[$keys[35]]);
         }
         if (array_key_exists($keys[36], $arr)) {
-            $this->setTimeupdtd($arr[$keys[36]]);
-        }
-        if (array_key_exists($keys[37], $arr)) {
-            $this->setDummy($arr[$keys[37]]);
+            $this->setDummy($arr[$keys[36]]);
         }
     }
 
@@ -3108,9 +3256,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         }
         if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRAPRVCODE)) {
             $criteria->add(ItemXrefVendorTableMap::COL_VEXRAPRVCODE, $this->vexraprvcode);
-        }
-        if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRVENDITEMDESC)) {
-            $criteria->add(ItemXrefVendorTableMap::COL_VEXRVENDITEMDESC, $this->vexrvenditemdesc);
         }
         if ($this->isColumnModified(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY)) {
             $criteria->add(ItemXrefVendorTableMap::COL_VEXRMINBUYQTY, $this->vexrminbuyqty);
@@ -3269,7 +3414,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         $copyObj->setVexrunitunit10($this->getVexrunitunit10());
         $copyObj->setVexrunitcost10($this->getVexrunitcost10());
         $copyObj->setVexraprvcode($this->getVexraprvcode());
-        $copyObj->setVexrvenditemdesc($this->getVexrvenditemdesc());
         $copyObj->setVexrminbuyqty($this->getVexrminbuyqty());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
@@ -3413,7 +3557,7 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
     public function setUnitofMeasurePurchase(ChildUnitofMeasurePurchase $v = null)
     {
         if ($v === null) {
-            $this->setIntbuompur(NULL);
+            $this->setIntbuompur('');
         } else {
             $this->setIntbuompur($v->getIntbuompur());
         }
@@ -3503,7 +3647,6 @@ abstract class ItemXrefVendor implements ActiveRecordInterface
         $this->vexrunitunit10 = null;
         $this->vexrunitcost10 = null;
         $this->vexraprvcode = null;
-        $this->vexrvenditemdesc = null;
         $this->vexrminbuyqty = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
