@@ -68,8 +68,11 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'allow_overpick'           => 'OetbCon3ShipMoreOrdered',
 		'overpick'                 => 'OetbCon3ShipMoreOrdered',
 		'default_ship_whse'        => 'oetbconfdfltshipwhse',
-		'pickingtype'              => 'oetbCon3pickpackcode'
+		'pickingtype'              => 'oetbCon3pickpackcode',
+		'freightAllowAmt'          => 'oetbcon2frtallowamt'
 	);
+
+
 
 	/**
 	 * Return If Overpicking is allowed
