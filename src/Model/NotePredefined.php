@@ -28,6 +28,7 @@ class NotePredefined extends BaseNotePredefined {
 		'type'         => 'qntype',
 		'description'  => 'qntypedesc',
 		'id'           => 'qnpdntcode',
+		'code'         => 'qnpdntcode',
 		'sequence'     => 'qnseq',
 		'itemid'       => 'pontintvitem',
 		'note'         => 'qnnote',
