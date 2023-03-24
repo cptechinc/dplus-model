@@ -58,6 +58,7 @@ class SalesHistory extends BaseSalesHistory {
 		'salesperson_3'   => 'arspsaleper3',
 		'shipcomplete'    => 'oehhshipcomp',
 		'releasenumber'   => 'oehhreleasenbr',
+		'exchangerate'    => 'oehhexchrate',
 		'year'            => 'oehhyear',
 		'items'           => 'SalesHistoryDetails', // NOTE: Used for getting Detaisl via __call()
 	);

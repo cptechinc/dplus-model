@@ -93,6 +93,7 @@ class SalesOrder extends BaseSalesOrder {
 		'salesperson_3'   => 'arspsaleper3',
 		'shipcomplete'    => 'oehdshipcomp',
 		'original_total_total'  => 'oehdoordrtot',
+		'exchangerate'    => 'oehdexchrate',
 		'items'           => 'SalesOrderDetails', // NOTE: Used for getting Detaisl via __call()
 		'pickqueue'       => 'oehdpickqueue',
 	);
