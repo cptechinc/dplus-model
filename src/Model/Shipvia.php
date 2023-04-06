@@ -32,6 +32,7 @@ class Shipvia extends BaseShipvia {
 		'shippingarea'   => 'artbsviashiparea',
 		'airshipment'    => 'artbsviaair',
 		'commercialflight'  => 'artbsviacommfrght',
+		'commercialfreight' => 'artbsviacommfrght',
 		'scac'              => 'artbsviascacCd',
 		'edimethod'         => 'artbsviaedimethCd',
 		'useroute'          => 'artbsviauseroute',
