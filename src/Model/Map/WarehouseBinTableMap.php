@@ -170,7 +170,7 @@ class WarehouseBinTableMap extends TableMap
         $this->addPrimaryKey('BnctBinFrom', 'Bnctbinfrom', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('BnctBinThru', 'Bnctbinthru', 'VARCHAR', true, 8, '');
         $this->addColumn('BnctTypeDesc', 'Bncttypedesc', 'VARCHAR', false, 1, null);
-        $this->addColumn('BnctBinArea', 'Bnctbinarea', 'VARCHAR', false, 2, null);
+        $this->addForeignKey('BnctBinArea', 'Bnctbinarea', 'VARCHAR', 'inv_bina_code', 'IntbBinaCode', false, 2, null);
         $this->addColumn('BnctBinDesc', 'Bnctbindesc', 'VARCHAR', false, 20, null);
         $this->addColumn('DateUpdtd', 'Dateupdtd', 'VARCHAR', false, 8, null);
         $this->addColumn('TimeUpdtd', 'Timeupdtd', 'VARCHAR', false, 8, null);
@@ -182,6 +182,13 @@ class WarehouseBinTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('InvBinAreaCode', '\\InvBinAreaCode', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':BnctBinArea',
+    1 => ':IntbBinaCode',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

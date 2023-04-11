@@ -2050,6 +2050,19 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_bina_code" name="binarea">
+      <reference local="BnctBinArea" foreign="IntbBinaCode"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_bina_code" idMethod="native" phpName="InvBinAreaCode">
+    <column name="IntbBinaCode" phpName="Intbbinacode" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbBinaDesc" phpName="Intbbinadesc" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

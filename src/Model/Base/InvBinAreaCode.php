@@ -4,15 +4,18 @@ namespace Base;
 
 use \InvBinAreaCode as ChildInvBinAreaCode;
 use \InvBinAreaCodeQuery as ChildInvBinAreaCodeQuery;
+use \WarehouseBin as ChildWarehouseBin;
 use \WarehouseBinQuery as ChildWarehouseBinQuery;
 use \Exception;
 use \PDO;
+use Map\InvBinAreaCodeTableMap;
 use Map\WarehouseBinTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -21,18 +24,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'inv_bin_cntrl' table.
+ * Base class that represents a row from the 'inv_bina_code' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class WarehouseBin implements ActiveRecordInterface
+abstract class InvBinAreaCode implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\WarehouseBinTableMap';
+    const TABLE_MAP = '\\Map\\InvBinAreaCodeTableMap';
 
 
     /**
@@ -62,53 +65,25 @@ abstract class WarehouseBin implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
-     * The value for the intbwhse field.
+     * The value for the intbbinacode field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $intbwhse;
+    protected $intbbinacode;
 
     /**
-     * The value for the bnctbinfrom field.
+     * The value for the intbbinadesc field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $bnctbinfrom;
-
-    /**
-     * The value for the bnctbinthru field.
-     *
-     * Note: this column has a database default value of: ''
-     * @var        string
-     */
-    protected $bnctbinthru;
-
-    /**
-     * The value for the bncttypedesc field.
-     *
-     * @var        string
-     */
-    protected $bncttypedesc;
-
-    /**
-     * The value for the bnctbinarea field.
-     *
-     * @var        string
-     */
-    protected $bnctbinarea;
-
-    /**
-     * The value for the bnctbindesc field.
-     *
-     * @var        string
-     */
-    protected $bnctbindesc;
+    protected $intbbinadesc;
 
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -116,6 +91,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -123,14 +99,16 @@ abstract class WarehouseBin implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
 
     /**
-     * @var        ChildInvBinAreaCode
+     * @var        ObjectCollection|ChildWarehouseBin[] Collection to store aggregation of ChildWarehouseBin objects.
      */
-    protected $aInvBinAreaCode;
+    protected $collWarehouseBins;
+    protected $collWarehouseBinsPartial;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -141,6 +119,12 @@ abstract class WarehouseBin implements ActiveRecordInterface
     protected $alreadyInSave = false;
 
     /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWarehouseBin[]
+     */
+    protected $warehouseBinsScheduledForDeletion = null;
+
+    /**
      * Applies default values to this object.
      * This method should be called from the object's constructor (or
      * equivalent initialization method).
@@ -148,13 +132,15 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
-        $this->intbwhse = '';
-        $this->bnctbinfrom = '';
-        $this->bnctbinthru = '';
+        $this->intbbinacode = '';
+        $this->intbbinadesc = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
-     * Initializes internal state of Base\WarehouseBin object.
+     * Initializes internal state of Base\InvBinAreaCode object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -251,9 +237,9 @@ abstract class WarehouseBin implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>WarehouseBin</code> instance.  If
-     * <code>obj</code> is an instance of <code>WarehouseBin</code>, delegates to
-     * <code>equals(WarehouseBin)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>InvBinAreaCode</code> instance.  If
+     * <code>obj</code> is an instance of <code>InvBinAreaCode</code>, delegates to
+     * <code>equals(InvBinAreaCode)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -319,7 +305,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|WarehouseBin The current object, for fluid interface
+     * @return $this|InvBinAreaCode The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -381,63 +367,23 @@ abstract class WarehouseBin implements ActiveRecordInterface
     }
 
     /**
-     * Get the [intbwhse] column value.
+     * Get the [intbbinacode] column value.
      *
      * @return string
      */
-    public function getIntbwhse()
+    public function getIntbbinacode()
     {
-        return $this->intbwhse;
+        return $this->intbbinacode;
     }
 
     /**
-     * Get the [bnctbinfrom] column value.
+     * Get the [intbbinadesc] column value.
      *
      * @return string
      */
-    public function getBnctbinfrom()
+    public function getIntbbinadesc()
     {
-        return $this->bnctbinfrom;
-    }
-
-    /**
-     * Get the [bnctbinthru] column value.
-     *
-     * @return string
-     */
-    public function getBnctbinthru()
-    {
-        return $this->bnctbinthru;
-    }
-
-    /**
-     * Get the [bncttypedesc] column value.
-     *
-     * @return string
-     */
-    public function getBncttypedesc()
-    {
-        return $this->bncttypedesc;
-    }
-
-    /**
-     * Get the [bnctbinarea] column value.
-     *
-     * @return string
-     */
-    public function getBnctbinarea()
-    {
-        return $this->bnctbinarea;
-    }
-
-    /**
-     * Get the [bnctbindesc] column value.
-     *
-     * @return string
-     */
-    public function getBnctbindesc()
-    {
-        return $this->bnctbindesc;
+        return $this->intbbinadesc;
     }
 
     /**
@@ -471,134 +417,50 @@ abstract class WarehouseBin implements ActiveRecordInterface
     }
 
     /**
-     * Set the value of [intbwhse] column.
+     * Set the value of [intbbinacode] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
      */
-    public function setIntbwhse($v)
+    public function setIntbbinacode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->intbwhse !== $v) {
-            $this->intbwhse = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_INTBWHSE] = true;
+        if ($this->intbbinacode !== $v) {
+            $this->intbbinacode = $v;
+            $this->modifiedColumns[InvBinAreaCodeTableMap::COL_INTBBINACODE] = true;
         }
 
         return $this;
-    } // setIntbwhse()
+    } // setIntbbinacode()
 
     /**
-     * Set the value of [bnctbinfrom] column.
+     * Set the value of [intbbinadesc] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
      */
-    public function setBnctbinfrom($v)
+    public function setIntbbinadesc($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->bnctbinfrom !== $v) {
-            $this->bnctbinfrom = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_BNCTBINFROM] = true;
+        if ($this->intbbinadesc !== $v) {
+            $this->intbbinadesc = $v;
+            $this->modifiedColumns[InvBinAreaCodeTableMap::COL_INTBBINADESC] = true;
         }
 
         return $this;
-    } // setBnctbinfrom()
-
-    /**
-     * Set the value of [bnctbinthru] column.
-     *
-     * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
-     */
-    public function setBnctbinthru($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->bnctbinthru !== $v) {
-            $this->bnctbinthru = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_BNCTBINTHRU] = true;
-        }
-
-        return $this;
-    } // setBnctbinthru()
-
-    /**
-     * Set the value of [bncttypedesc] column.
-     *
-     * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
-     */
-    public function setBncttypedesc($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->bncttypedesc !== $v) {
-            $this->bncttypedesc = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_BNCTTYPEDESC] = true;
-        }
-
-        return $this;
-    } // setBncttypedesc()
-
-    /**
-     * Set the value of [bnctbinarea] column.
-     *
-     * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
-     */
-    public function setBnctbinarea($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->bnctbinarea !== $v) {
-            $this->bnctbinarea = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_BNCTBINAREA] = true;
-        }
-
-        if ($this->aInvBinAreaCode !== null && $this->aInvBinAreaCode->getIntbbinacode() !== $v) {
-            $this->aInvBinAreaCode = null;
-        }
-
-        return $this;
-    } // setBnctbinarea()
-
-    /**
-     * Set the value of [bnctbindesc] column.
-     *
-     * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
-     */
-    public function setBnctbindesc($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->bnctbindesc !== $v) {
-            $this->bnctbindesc = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_BNCTBINDESC] = true;
-        }
-
-        return $this;
-    } // setBnctbindesc()
+    } // setIntbbinadesc()
 
     /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -608,7 +470,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[InvBinAreaCodeTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -618,7 +480,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -628,7 +490,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[InvBinAreaCodeTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -638,7 +500,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -648,7 +510,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[WarehouseBinTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[InvBinAreaCodeTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -664,15 +526,23 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
-            if ($this->intbwhse !== '') {
+            if ($this->intbbinacode !== '') {
                 return false;
             }
 
-            if ($this->bnctbinfrom !== '') {
+            if ($this->intbbinadesc !== '') {
                 return false;
             }
 
-            if ($this->bnctbinthru !== '') {
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -702,31 +572,19 @@ abstract class WarehouseBin implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : WarehouseBinTableMap::translateFieldName('Intbwhse', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->intbwhse = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvBinAreaCodeTableMap::translateFieldName('Intbbinacode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbbinacode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : WarehouseBinTableMap::translateFieldName('Bnctbinfrom', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->bnctbinfrom = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvBinAreaCodeTableMap::translateFieldName('Intbbinadesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->intbbinadesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : WarehouseBinTableMap::translateFieldName('Bnctbinthru', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->bnctbinthru = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : WarehouseBinTableMap::translateFieldName('Bncttypedesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->bncttypedesc = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : WarehouseBinTableMap::translateFieldName('Bnctbinarea', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->bnctbinarea = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : WarehouseBinTableMap::translateFieldName('Bnctbindesc', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->bnctbindesc = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : WarehouseBinTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvBinAreaCodeTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : WarehouseBinTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvBinAreaCodeTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : WarehouseBinTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvBinAreaCodeTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -736,10 +594,10 @@ abstract class WarehouseBin implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 9; // 9 = WarehouseBinTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 5; // 5 = InvBinAreaCodeTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\WarehouseBin'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\InvBinAreaCode'), 0, $e);
         }
     }
 
@@ -758,9 +616,6 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
-        if ($this->aInvBinAreaCode !== null && $this->bnctbinarea !== $this->aInvBinAreaCode->getIntbbinacode()) {
-            $this->aInvBinAreaCode = null;
-        }
     } // ensureConsistency
 
     /**
@@ -784,13 +639,13 @@ abstract class WarehouseBin implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(WarehouseBinTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildWarehouseBinQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildInvBinAreaCodeQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -800,7 +655,8 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
-            $this->aInvBinAreaCode = null;
+            $this->collWarehouseBins = null;
+
         } // if (deep)
     }
 
@@ -810,8 +666,8 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see WarehouseBin::setDeleted()
-     * @see WarehouseBin::isDeleted()
+     * @see InvBinAreaCode::setDeleted()
+     * @see InvBinAreaCode::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -820,11 +676,11 @@ abstract class WarehouseBin implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildWarehouseBinQuery::create()
+            $deleteQuery = ChildInvBinAreaCodeQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -859,7 +715,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(WarehouseBinTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvBinAreaCodeTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -878,7 +734,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                WarehouseBinTableMap::addInstanceToPool($this);
+                InvBinAreaCodeTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -904,18 +760,6 @@ abstract class WarehouseBin implements ActiveRecordInterface
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
 
-            // We call the save method on the following object(s) if they
-            // were passed to this object by their corresponding set
-            // method.  This object relates to these object(s) by a
-            // foreign key reference.
-
-            if ($this->aInvBinAreaCode !== null) {
-                if ($this->aInvBinAreaCode->isModified() || $this->aInvBinAreaCode->isNew()) {
-                    $affectedRows += $this->aInvBinAreaCode->save($con);
-                }
-                $this->setInvBinAreaCode($this->aInvBinAreaCode);
-            }
-
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -925,6 +769,24 @@ abstract class WarehouseBin implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->warehouseBinsScheduledForDeletion !== null) {
+                if (!$this->warehouseBinsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->warehouseBinsScheduledForDeletion as $warehouseBin) {
+                        // need to save related object because we set the relation to null
+                        $warehouseBin->save($con);
+                    }
+                    $this->warehouseBinsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWarehouseBins !== null) {
+                foreach ($this->collWarehouseBins as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -949,36 +811,24 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_INTBWHSE)) {
-            $modifiedColumns[':p' . $index++]  = 'IntbWhse';
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_INTBBINACODE)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbBinaCode';
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINFROM)) {
-            $modifiedColumns[':p' . $index++]  = 'BnctBinFrom';
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_INTBBINADESC)) {
+            $modifiedColumns[':p' . $index++]  = 'IntbBinaDesc';
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINTHRU)) {
-            $modifiedColumns[':p' . $index++]  = 'BnctBinThru';
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTTYPEDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'BnctTypeDesc';
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINAREA)) {
-            $modifiedColumns[':p' . $index++]  = 'BnctBinArea';
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINDESC)) {
-            $modifiedColumns[':p' . $index++]  = 'BnctBinDesc';
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO inv_bin_cntrl (%s) VALUES (%s)',
+            'INSERT INTO inv_bina_code (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -987,23 +837,11 @@ abstract class WarehouseBin implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
-                    case 'IntbWhse':
-                        $stmt->bindValue($identifier, $this->intbwhse, PDO::PARAM_STR);
+                    case 'IntbBinaCode':
+                        $stmt->bindValue($identifier, $this->intbbinacode, PDO::PARAM_STR);
                         break;
-                    case 'BnctBinFrom':
-                        $stmt->bindValue($identifier, $this->bnctbinfrom, PDO::PARAM_STR);
-                        break;
-                    case 'BnctBinThru':
-                        $stmt->bindValue($identifier, $this->bnctbinthru, PDO::PARAM_STR);
-                        break;
-                    case 'BnctTypeDesc':
-                        $stmt->bindValue($identifier, $this->bncttypedesc, PDO::PARAM_STR);
-                        break;
-                    case 'BnctBinArea':
-                        $stmt->bindValue($identifier, $this->bnctbinarea, PDO::PARAM_STR);
-                        break;
-                    case 'BnctBinDesc':
-                        $stmt->bindValue($identifier, $this->bnctbindesc, PDO::PARAM_STR);
+                    case 'IntbBinaDesc':
+                        $stmt->bindValue($identifier, $this->intbbinadesc, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1053,7 +891,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WarehouseBinTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvBinAreaCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1070,30 +908,18 @@ abstract class WarehouseBin implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getIntbwhse();
+                return $this->getIntbbinacode();
                 break;
             case 1:
-                return $this->getBnctbinfrom();
+                return $this->getIntbbinadesc();
                 break;
             case 2:
-                return $this->getBnctbinthru();
-                break;
-            case 3:
-                return $this->getBncttypedesc();
-                break;
-            case 4:
-                return $this->getBnctbinarea();
-                break;
-            case 5:
-                return $this->getBnctbindesc();
-                break;
-            case 6:
                 return $this->getDateupdtd();
                 break;
-            case 7:
+            case 3:
                 return $this->getTimeupdtd();
                 break;
-            case 8:
+            case 4:
                 return $this->getDummy();
                 break;
             default:
@@ -1120,21 +946,17 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['WarehouseBin'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['InvBinAreaCode'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['WarehouseBin'][$this->hashCode()] = true;
-        $keys = WarehouseBinTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['InvBinAreaCode'][$this->hashCode()] = true;
+        $keys = InvBinAreaCodeTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getIntbwhse(),
-            $keys[1] => $this->getBnctbinfrom(),
-            $keys[2] => $this->getBnctbinthru(),
-            $keys[3] => $this->getBncttypedesc(),
-            $keys[4] => $this->getBnctbinarea(),
-            $keys[5] => $this->getBnctbindesc(),
-            $keys[6] => $this->getDateupdtd(),
-            $keys[7] => $this->getTimeupdtd(),
-            $keys[8] => $this->getDummy(),
+            $keys[0] => $this->getIntbbinacode(),
+            $keys[1] => $this->getIntbbinadesc(),
+            $keys[2] => $this->getDateupdtd(),
+            $keys[3] => $this->getTimeupdtd(),
+            $keys[4] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1142,20 +964,20 @@ abstract class WarehouseBin implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
-            if (null !== $this->aInvBinAreaCode) {
+            if (null !== $this->collWarehouseBins) {
 
                 switch ($keyType) {
                     case TableMap::TYPE_CAMELNAME:
-                        $key = 'invBinAreaCode';
+                        $key = 'warehouseBins';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'inv_bina_code';
+                        $key = 'inv_bin_cntrls';
                         break;
                     default:
-                        $key = 'InvBinAreaCode';
+                        $key = 'WarehouseBins';
                 }
 
-                $result[$key] = $this->aInvBinAreaCode->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+                $result[$key] = $this->collWarehouseBins->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -1171,11 +993,11 @@ abstract class WarehouseBin implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\WarehouseBin
+     * @return $this|\InvBinAreaCode
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = WarehouseBinTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvBinAreaCodeTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1186,36 +1008,24 @@ abstract class WarehouseBin implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\WarehouseBin
+     * @return $this|\InvBinAreaCode
      */
     public function setByPosition($pos, $value)
     {
         switch ($pos) {
             case 0:
-                $this->setIntbwhse($value);
+                $this->setIntbbinacode($value);
                 break;
             case 1:
-                $this->setBnctbinfrom($value);
+                $this->setIntbbinadesc($value);
                 break;
             case 2:
-                $this->setBnctbinthru($value);
-                break;
-            case 3:
-                $this->setBncttypedesc($value);
-                break;
-            case 4:
-                $this->setBnctbinarea($value);
-                break;
-            case 5:
-                $this->setBnctbindesc($value);
-                break;
-            case 6:
                 $this->setDateupdtd($value);
                 break;
-            case 7:
+            case 3:
                 $this->setTimeupdtd($value);
                 break;
-            case 8:
+            case 4:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1242,34 +1052,22 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = WarehouseBinTableMap::getFieldNames($keyType);
+        $keys = InvBinAreaCodeTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setIntbwhse($arr[$keys[0]]);
+            $this->setIntbbinacode($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setBnctbinfrom($arr[$keys[1]]);
+            $this->setIntbbinadesc($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setBnctbinthru($arr[$keys[2]]);
+            $this->setDateupdtd($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setBncttypedesc($arr[$keys[3]]);
+            $this->setTimeupdtd($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setBnctbinarea($arr[$keys[4]]);
-        }
-        if (array_key_exists($keys[5], $arr)) {
-            $this->setBnctbindesc($arr[$keys[5]]);
-        }
-        if (array_key_exists($keys[6], $arr)) {
-            $this->setDateupdtd($arr[$keys[6]]);
-        }
-        if (array_key_exists($keys[7], $arr)) {
-            $this->setTimeupdtd($arr[$keys[7]]);
-        }
-        if (array_key_exists($keys[8], $arr)) {
-            $this->setDummy($arr[$keys[8]]);
+            $this->setDummy($arr[$keys[4]]);
         }
     }
 
@@ -1290,7 +1088,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\WarehouseBin The current object, for fluid interface
+     * @return $this|\InvBinAreaCode The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1310,34 +1108,22 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(WarehouseBinTableMap::DATABASE_NAME);
+        $criteria = new Criteria(InvBinAreaCodeTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_INTBWHSE)) {
-            $criteria->add(WarehouseBinTableMap::COL_INTBWHSE, $this->intbwhse);
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_INTBBINACODE)) {
+            $criteria->add(InvBinAreaCodeTableMap::COL_INTBBINACODE, $this->intbbinacode);
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINFROM)) {
-            $criteria->add(WarehouseBinTableMap::COL_BNCTBINFROM, $this->bnctbinfrom);
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_INTBBINADESC)) {
+            $criteria->add(InvBinAreaCodeTableMap::COL_INTBBINADESC, $this->intbbinadesc);
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINTHRU)) {
-            $criteria->add(WarehouseBinTableMap::COL_BNCTBINTHRU, $this->bnctbinthru);
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_DATEUPDTD)) {
+            $criteria->add(InvBinAreaCodeTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTTYPEDESC)) {
-            $criteria->add(WarehouseBinTableMap::COL_BNCTTYPEDESC, $this->bncttypedesc);
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(InvBinAreaCodeTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINAREA)) {
-            $criteria->add(WarehouseBinTableMap::COL_BNCTBINAREA, $this->bnctbinarea);
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_BNCTBINDESC)) {
-            $criteria->add(WarehouseBinTableMap::COL_BNCTBINDESC, $this->bnctbindesc);
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_DATEUPDTD)) {
-            $criteria->add(WarehouseBinTableMap::COL_DATEUPDTD, $this->dateupdtd);
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(WarehouseBinTableMap::COL_TIMEUPDTD, $this->timeupdtd);
-        }
-        if ($this->isColumnModified(WarehouseBinTableMap::COL_DUMMY)) {
-            $criteria->add(WarehouseBinTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(InvBinAreaCodeTableMap::COL_DUMMY)) {
+            $criteria->add(InvBinAreaCodeTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1355,10 +1141,8 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildWarehouseBinQuery::create();
-        $criteria->add(WarehouseBinTableMap::COL_INTBWHSE, $this->intbwhse);
-        $criteria->add(WarehouseBinTableMap::COL_BNCTBINFROM, $this->bnctbinfrom);
-        $criteria->add(WarehouseBinTableMap::COL_BNCTBINTHRU, $this->bnctbinthru);
+        $criteria = ChildInvBinAreaCodeQuery::create();
+        $criteria->add(InvBinAreaCodeTableMap::COL_INTBBINACODE, $this->intbbinacode);
 
         return $criteria;
     }
@@ -1371,9 +1155,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getIntbwhse() &&
-            null !== $this->getBnctbinfrom() &&
-            null !== $this->getBnctbinthru();
+        $validPk = null !== $this->getIntbbinacode();
 
         $validPrimaryKeyFKs = 0;
         $primaryKeyFKs = [];
@@ -1388,31 +1170,23 @@ abstract class WarehouseBin implements ActiveRecordInterface
     }
 
     /**
-     * Returns the composite primary key for this object.
-     * The array elements will be in same order as specified in XML.
-     * @return array
+     * Returns the primary key for this object (row).
+     * @return string
      */
     public function getPrimaryKey()
     {
-        $pks = array();
-        $pks[0] = $this->getIntbwhse();
-        $pks[1] = $this->getBnctbinfrom();
-        $pks[2] = $this->getBnctbinthru();
-
-        return $pks;
+        return $this->getIntbbinacode();
     }
 
     /**
-     * Set the [composite] primary key.
+     * Generic method to set the primary key (intbbinacode column).
      *
-     * @param      array $keys The elements of the composite key (order must match the order in XML file).
+     * @param       string $key Primary key.
      * @return void
      */
-    public function setPrimaryKey($keys)
+    public function setPrimaryKey($key)
     {
-        $this->setIntbwhse($keys[0]);
-        $this->setBnctbinfrom($keys[1]);
-        $this->setBnctbinthru($keys[2]);
+        $this->setIntbbinacode($key);
     }
 
     /**
@@ -1421,7 +1195,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getIntbwhse()) && (null === $this->getBnctbinfrom()) && (null === $this->getBnctbinthru());
+        return null === $this->getIntbbinacode();
     }
 
     /**
@@ -1430,22 +1204,32 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \WarehouseBin (or compatible) type.
+     * @param      object $copyObj An object of \InvBinAreaCode (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
-        $copyObj->setIntbwhse($this->getIntbwhse());
-        $copyObj->setBnctbinfrom($this->getBnctbinfrom());
-        $copyObj->setBnctbinthru($this->getBnctbinthru());
-        $copyObj->setBncttypedesc($this->getBncttypedesc());
-        $copyObj->setBnctbinarea($this->getBnctbinarea());
-        $copyObj->setBnctbindesc($this->getBnctbindesc());
+        $copyObj->setIntbbinacode($this->getIntbbinacode());
+        $copyObj->setIntbbinadesc($this->getIntbbinadesc());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getWarehouseBins() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWarehouseBin($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1460,7 +1244,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \WarehouseBin Clone of current object.
+     * @return \InvBinAreaCode Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1473,55 +1257,246 @@ abstract class WarehouseBin implements ActiveRecordInterface
         return $copyObj;
     }
 
+
     /**
-     * Declares an association between this object and a ChildInvBinAreaCode object.
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
      *
-     * @param  ChildInvBinAreaCode $v
-     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('WarehouseBin' == $relationName) {
+            $this->initWarehouseBins();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collWarehouseBins collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWarehouseBins()
+     */
+    public function clearWarehouseBins()
+    {
+        $this->collWarehouseBins = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWarehouseBins collection loaded partially.
+     */
+    public function resetPartialWarehouseBins($v = true)
+    {
+        $this->collWarehouseBinsPartial = $v;
+    }
+
+    /**
+     * Initializes the collWarehouseBins collection.
+     *
+     * By default this just sets the collWarehouseBins collection to an empty array (like clearcollWarehouseBins());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWarehouseBins($overrideExisting = true)
+    {
+        if (null !== $this->collWarehouseBins && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WarehouseBinTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWarehouseBins = new $collectionClassName;
+        $this->collWarehouseBins->setModel('\WarehouseBin');
+    }
+
+    /**
+     * Gets an array of ChildWarehouseBin objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvBinAreaCode is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWarehouseBin[] List of ChildWarehouseBin objects
      * @throws PropelException
      */
-    public function setInvBinAreaCode(ChildInvBinAreaCode $v = null)
+    public function getWarehouseBins(Criteria $criteria = null, ConnectionInterface $con = null)
     {
-        if ($v === null) {
-            $this->setBnctbinarea(NULL);
-        } else {
-            $this->setBnctbinarea($v->getIntbbinacode());
+        $partial = $this->collWarehouseBinsPartial && !$this->isNew();
+        if (null === $this->collWarehouseBins || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseBins) {
+                // return empty collection
+                $this->initWarehouseBins();
+            } else {
+                $collWarehouseBins = ChildWarehouseBinQuery::create(null, $criteria)
+                    ->filterByInvBinAreaCode($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWarehouseBinsPartial && count($collWarehouseBins)) {
+                        $this->initWarehouseBins(false);
+
+                        foreach ($collWarehouseBins as $obj) {
+                            if (false == $this->collWarehouseBins->contains($obj)) {
+                                $this->collWarehouseBins->append($obj);
+                            }
+                        }
+
+                        $this->collWarehouseBinsPartial = true;
+                    }
+
+                    return $collWarehouseBins;
+                }
+
+                if ($partial && $this->collWarehouseBins) {
+                    foreach ($this->collWarehouseBins as $obj) {
+                        if ($obj->isNew()) {
+                            $collWarehouseBins[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWarehouseBins = $collWarehouseBins;
+                $this->collWarehouseBinsPartial = false;
+            }
         }
 
-        $this->aInvBinAreaCode = $v;
+        return $this->collWarehouseBins;
+    }
 
-        // Add binding for other direction of this n:n relationship.
-        // If this object has already been added to the ChildInvBinAreaCode object, it will not be re-added.
-        if ($v !== null) {
-            $v->addWarehouseBin($this);
+    /**
+     * Sets a collection of ChildWarehouseBin objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $warehouseBins A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvBinAreaCode The current object (for fluent API support)
+     */
+    public function setWarehouseBins(Collection $warehouseBins, ConnectionInterface $con = null)
+    {
+        /** @var ChildWarehouseBin[] $warehouseBinsToDelete */
+        $warehouseBinsToDelete = $this->getWarehouseBins(new Criteria(), $con)->diff($warehouseBins);
+
+
+        $this->warehouseBinsScheduledForDeletion = $warehouseBinsToDelete;
+
+        foreach ($warehouseBinsToDelete as $warehouseBinRemoved) {
+            $warehouseBinRemoved->setInvBinAreaCode(null);
         }
 
+        $this->collWarehouseBins = null;
+        foreach ($warehouseBins as $warehouseBin) {
+            $this->addWarehouseBin($warehouseBin);
+        }
+
+        $this->collWarehouseBins = $warehouseBins;
+        $this->collWarehouseBinsPartial = false;
 
         return $this;
     }
 
-
     /**
-     * Get the associated ChildInvBinAreaCode object
+     * Returns the number of related WarehouseBin objects.
      *
-     * @param  ConnectionInterface $con Optional Connection object.
-     * @return ChildInvBinAreaCode The associated ChildInvBinAreaCode object.
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WarehouseBin objects.
      * @throws PropelException
      */
-    public function getInvBinAreaCode(ConnectionInterface $con = null)
+    public function countWarehouseBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
     {
-        if ($this->aInvBinAreaCode === null && (($this->bnctbinarea !== "" && $this->bnctbinarea !== null))) {
-            $this->aInvBinAreaCode = ChildInvBinAreaCodeQuery::create()->findPk($this->bnctbinarea, $con);
-            /* The following can be used additionally to
-                guarantee the related object contains a reference
-                to this object.  This level of coupling may, however, be
-                undesirable since it could result in an only partially populated collection
-                in the referenced object.
-                $this->aInvBinAreaCode->addWarehouseBins($this);
-             */
+        $partial = $this->collWarehouseBinsPartial && !$this->isNew();
+        if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseBins) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWarehouseBins());
+            }
+
+            $query = ChildWarehouseBinQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvBinAreaCode($this)
+                ->count($con);
         }
 
-        return $this->aInvBinAreaCode;
+        return count($this->collWarehouseBins);
+    }
+
+    /**
+     * Method called to associate a ChildWarehouseBin object to this object
+     * through the ChildWarehouseBin foreign key attribute.
+     *
+     * @param  ChildWarehouseBin $l ChildWarehouseBin
+     * @return $this|\InvBinAreaCode The current object (for fluent API support)
+     */
+    public function addWarehouseBin(ChildWarehouseBin $l)
+    {
+        if ($this->collWarehouseBins === null) {
+            $this->initWarehouseBins();
+            $this->collWarehouseBinsPartial = true;
+        }
+
+        if (!$this->collWarehouseBins->contains($l)) {
+            $this->doAddWarehouseBin($l);
+
+            if ($this->warehouseBinsScheduledForDeletion and $this->warehouseBinsScheduledForDeletion->contains($l)) {
+                $this->warehouseBinsScheduledForDeletion->remove($this->warehouseBinsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to add.
+     */
+    protected function doAddWarehouseBin(ChildWarehouseBin $warehouseBin)
+    {
+        $this->collWarehouseBins[]= $warehouseBin;
+        $warehouseBin->setInvBinAreaCode($this);
+    }
+
+    /**
+     * @param  ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to remove.
+     * @return $this|ChildInvBinAreaCode The current object (for fluent API support)
+     */
+    public function removeWarehouseBin(ChildWarehouseBin $warehouseBin)
+    {
+        if ($this->getWarehouseBins()->contains($warehouseBin)) {
+            $pos = $this->collWarehouseBins->search($warehouseBin);
+            $this->collWarehouseBins->remove($pos);
+            if (null === $this->warehouseBinsScheduledForDeletion) {
+                $this->warehouseBinsScheduledForDeletion = clone $this->collWarehouseBins;
+                $this->warehouseBinsScheduledForDeletion->clear();
+            }
+            $this->warehouseBinsScheduledForDeletion[]= $warehouseBin;
+            $warehouseBin->setInvBinAreaCode(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -1531,15 +1506,8 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function clear()
     {
-        if (null !== $this->aInvBinAreaCode) {
-            $this->aInvBinAreaCode->removeWarehouseBin($this);
-        }
-        $this->intbwhse = null;
-        $this->bnctbinfrom = null;
-        $this->bnctbinthru = null;
-        $this->bncttypedesc = null;
-        $this->bnctbinarea = null;
-        $this->bnctbindesc = null;
+        $this->intbbinacode = null;
+        $this->intbbinadesc = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -1562,9 +1530,14 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collWarehouseBins) {
+                foreach ($this->collWarehouseBins as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
-        $this->aInvBinAreaCode = null;
+        $this->collWarehouseBins = null;
     }
 
     /**
@@ -1574,7 +1547,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(WarehouseBinTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(InvBinAreaCodeTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**

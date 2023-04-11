@@ -10,6 +10,7 @@ use Map\WarehouseBinTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -46,6 +47,18 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseBinQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildWarehouseBinQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWarehouseBinQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildWarehouseBinQuery leftJoinInvBinAreaCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvBinAreaCode relation
+ * @method     ChildWarehouseBinQuery rightJoinInvBinAreaCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvBinAreaCode relation
+ * @method     ChildWarehouseBinQuery innerJoinInvBinAreaCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvBinAreaCode relation
+ *
+ * @method     ChildWarehouseBinQuery joinWithInvBinAreaCode($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvBinAreaCode relation
+ *
+ * @method     ChildWarehouseBinQuery leftJoinWithInvBinAreaCode() Adds a LEFT JOIN clause and with to the query using the InvBinAreaCode relation
+ * @method     ChildWarehouseBinQuery rightJoinWithInvBinAreaCode() Adds a RIGHT JOIN clause and with to the query using the InvBinAreaCode relation
+ * @method     ChildWarehouseBinQuery innerJoinWithInvBinAreaCode() Adds a INNER JOIN clause and with to the query using the InvBinAreaCode relation
+ *
+ * @method     \InvBinAreaCodeQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouseBin findOne(ConnectionInterface $con = null) Return the first ChildWarehouseBin matching the query
  * @method     ChildWarehouseBin findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouseBin matching the query, or a new ChildWarehouseBin object populated from the query conditions when no match is found
@@ -510,6 +523,83 @@ abstract class WarehouseBinQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WarehouseBinTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \InvBinAreaCode object
+     *
+     * @param \InvBinAreaCode|ObjectCollection $invBinAreaCode The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildWarehouseBinQuery The current query, for fluid interface
+     */
+    public function filterByInvBinAreaCode($invBinAreaCode, $comparison = null)
+    {
+        if ($invBinAreaCode instanceof \InvBinAreaCode) {
+            return $this
+                ->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINAREA, $invBinAreaCode->getIntbbinacode(), $comparison);
+        } elseif ($invBinAreaCode instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(WarehouseBinTableMap::COL_BNCTBINAREA, $invBinAreaCode->toKeyValue('PrimaryKey', 'Intbbinacode'), $comparison);
+        } else {
+            throw new PropelException('filterByInvBinAreaCode() only accepts arguments of type \InvBinAreaCode or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvBinAreaCode relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseBinQuery The current query, for fluid interface
+     */
+    public function joinInvBinAreaCode($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvBinAreaCode');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvBinAreaCode');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvBinAreaCode relation InvBinAreaCode object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvBinAreaCodeQuery A secondary query class using the current class as primary query
+     */
+    public function useInvBinAreaCodeQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinInvBinAreaCode($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvBinAreaCode', '\InvBinAreaCodeQuery');
     }
 
     /**

@@ -9,6 +9,7 @@ use Base\WarehouseBin as BaseWarehouseBin;
  * Class for representing a row from the 'inv_bin_cntrl' table.
  * 
  * REPRESENTS: Bin List
+ * FKRELATIONSHIPS: InvBinAreaCode
  */
 class WarehouseBin extends BaseWarehouseBin {
 	use ThrowErrorTrait;
@@ -44,6 +45,7 @@ class WarehouseBin extends BaseWarehouseBin {
 		'type'         => 'bncttypedesc',
 		'area'         => 'bnctbinarea',
 		'description'  => 'bnctbindesc',
+		'binarea'      => 'invBinAreaCode'
 	);
 
 	/**
