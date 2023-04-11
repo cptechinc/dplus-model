@@ -34,4 +34,15 @@ class DplusUserQuery extends BaseDplusUserQuery {
 	public function filterByUserid($usrcid = null, $comparison = null) {
 		return $this->filterByUsrcid($usrcid, $comparison);
 	}
+
+	/**
+	 * Filter the query on the Role ID column
+	 * @param     string $usrcid The value to use as filter.
+	 * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 *
+	 * @return $this|DplusUserQuery The current query, for fluid interface
+	 */
+	public function filterByRoleid($usrcid = null, $comparison = null) {
+		return $this->filterByUsrcloginrole($usrcid, $comparison);
+	}
 }
