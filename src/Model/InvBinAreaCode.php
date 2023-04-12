@@ -18,12 +18,12 @@ class InvBinAreaCode extends BaseInvBinAreaCode {
 	 * Column Aliases to lookup / get properties
 	 * @var array
 	 */
-	const COLUMN_ALIASES = array(
-		'id'           => 'intbinacode',
-		'code'         => 'intbinacode',
-		'description'  => 'intbinadesc',
-		'name'         => 'intbinadesc',
+	const COLUMN_ALIASES = [
+		'id'           => 'intbbinacode',
+		'code'         => 'intbbinacode',
+		'description'  => 'intbbinadesc',
+		'name'         => 'intbbinadesc',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
-	);
+	];
 }
