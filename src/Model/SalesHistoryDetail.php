@@ -43,7 +43,7 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'order'         => 'salesHistory',
 		'specialorder'  => 'oedhspecordr',
 		'whseid'        => 'intbwhse',
-		'binid'         => 'oedtbin',
+		'binid'         => 'oedhbin',
 		'nsvendorid'    => 'oedhnsvendid',
 		'nsvendoritemid' => 'oedhvenditemjob',
 		'nsitemgroupid'  => 'oedhnsitemgrup',
