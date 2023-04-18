@@ -65,6 +65,9 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	*/
 	protected $aPurchaseOrderDetail;
 
+	/** @var ItemmasterItem */
+	protected $aItem;
+
 	/**
 	 * Return Special Order Description
 	 * @return string
@@ -96,7 +99,15 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 	 * @return ItemMasterItem
 	 */
 	public function getItem() {
-		return ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+		if ($this->aItem instanceof ItemMasterItem) {
+			return $this->aItem;
+		}
+		if ($this->itemid == '') {
+			$this->aItem = new ItemMasterItem();
+			return $this->aItem;
+		}
+		$this->aItem = ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+		return $this->aItem;
 	}
 
 	/**

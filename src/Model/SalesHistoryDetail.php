@@ -50,6 +50,9 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'poref'          => 'oedhporef',
 	);
 
+	/** @var ItemmasterItem */
+	protected $aItem;
+
 	public function specialorder() {
 		return self::OPTIONS_SPECIALORDER[$this->specialorder];
 	}
@@ -69,6 +72,14 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 	 * @return ItemMasterItem
 	 */
 	public function getItem() {
-		return ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+		if ($this->aItem instanceof ItemMasterItem) {
+			return $this->aItem;
+		}
+		if ($this->itemid == '') {
+			$this->aItem = new ItemMasterItem();
+			return $this->aItem;
+		}
+		$this->aItem = ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+		return $this->aItem;
 	}
 }
