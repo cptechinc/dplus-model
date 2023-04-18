@@ -62,6 +62,7 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'decimal_places_price'     => 'oetbconfdecordrpric',
 		'allow_change_price'       => 'oetbconfchgpric',
+		'allowpricechange'         => 'oetbconfchgpric',
 		'use_core_items'           => 'oetbcon2usecore',
 		'update_pdm_from_cxm'      => 'oetbcon2updtprcdisc',
 		'requestdate'              => 'OetbConfRqstHeadDtl',
