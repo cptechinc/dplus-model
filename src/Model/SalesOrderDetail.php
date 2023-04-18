@@ -49,6 +49,7 @@ class SalesOrderDetail extends BaseSalesOrderDetail {
 		'specialorder'  => 'oedtspecordr',
 		'rqstdate'      => 'oedtrqstdate',
 		'whseid'        => 'intbwhse',
+		'binid'         => 'oedtbin',
 		'nsvendorid'    => 'oedtnsvendId',
 		'nsvendoritemid' => 'oedtvenditemjob',
 		'nsitemgroupid'  => 'oedtnsitemgrup',

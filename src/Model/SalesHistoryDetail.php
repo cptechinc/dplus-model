@@ -42,6 +42,8 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 		'weight_total'  => 'oedhwghttot',
 		'order'         => 'salesHistory',
 		'specialorder'  => 'oedhspecordr',
+		'whseid'        => 'intbwhse',
+		'binid'         => 'oedtbin',
 		'nsvendorid'    => 'oedhnsvendid',
 		'nsvendoritemid' => 'oedhvenditemjob',
 		'nsitemgroupid'  => 'oedhnsitemgrup',
