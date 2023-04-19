@@ -22,4 +22,12 @@ class InvKitQuery extends BaseInvKitQuery {
 	public function is_kit($itemID) {
 		return boolval($this->filterByItemid($itemID)->count());
 	}
+
+	public function filterByKitid($itemID, $comparison = null) {
+		return $this->filterByInititemnbr($itemID, $comparison);
+	}
+
+	public function filterByItemid($itemID, $comparison = null) {
+		return $this->filterByInititemnbr($itemID, $comparison);
+	}
 }

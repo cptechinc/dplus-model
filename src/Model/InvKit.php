@@ -22,6 +22,7 @@ class InvKit extends BaseInvKit {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = array(
+		'kitid'   => 'inititemnbr',
 		'itemid'  => 'inititemnbr',
 		'date'    => 'dateupdtd',
 		'time'    => 'timeupdtd',
