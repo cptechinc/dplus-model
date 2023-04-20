@@ -64,6 +64,15 @@ class OptionsVi extends BaseOptionsVi {
 	}
 
 	/**
+	 * Return if Column Value equals the True value
+	 * @param  string $col  Column or Alias
+	 * @return bool
+	 */
+	public function is_true($col) {
+		return $this->isTrue($col);
+	}
+
+	/**
 	 * Return Array of Permitted Functions
 	 * @return array
 	 */

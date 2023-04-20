@@ -69,11 +69,20 @@ class OptionsCi extends BaseOptionsCi {
 	 * @param  string $col  Column or Alias
 	 * @return bool
 	 */
-	public function is_true($col) {
+	public function isTrue($col) {
 		if (isset($this->$col)) {
 			return $this->$col == self::YN_TRUE;
 		}
 		return false;
+	}
+
+	/**
+	 * Return if Column Value equals the True value
+	 * @param  string $col  Column or Alias
+	 * @return bool
+	 */
+	public function is_true($col) {
+		return $this->isTrue($col);
 	}
 
 	/**
