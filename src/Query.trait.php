@@ -37,7 +37,7 @@ trait QueryTraits {
 	 *
 	 * @param  string      $sql    SQL to Execute, parameterized if need be
 	 * @param  array       $params Parameters and their values
-	 * @return PDOStatement        PDO Statement to get results
+	 * @return \PDOStatement        PDO Statement to get results
 	 */
 	public function executeQuery($sql, $params = []) {
 		$con = Propel::getWriteConnection($this->dbName);
