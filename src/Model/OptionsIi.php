@@ -85,6 +85,7 @@ class OptionsIi extends BaseOptionsIi {
 		'detailsaleshistory'    => 'IitbOptnShDet',
 		'detailstock'           => 'IitbOptnStckdet',
 		'detailrequirements'    => 'IitbOptnReqrView',
+		'requirementsview'      => 'IitbOptnReqrView',
 
 		'date'            => 'dateupdtd',
 		'time'            => 'timeupdtd'
