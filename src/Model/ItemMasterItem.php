@@ -435,6 +435,17 @@ class ItemMasterItem extends BaseItemMasterItem {
 	}
 
 	/**
+	 * Return Item IDs that are substitutes for this Item
+	 * @return array
+	 */
+	public function getSubstitutesItemids() {
+		$q = ItemSubstituteQuery::create();
+		$q->filterByItemid($this->itemid);
+		$q->select(ItemSubstitute::aliasproperty('subitemid'));
+		return $q->find()->toArray();
+	}
+
+	/**
 	 * Returns if this Item has Addon Items
 	 * @return bool
 	 */
