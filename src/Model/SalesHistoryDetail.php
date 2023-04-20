@@ -61,7 +61,6 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 
 	/**
 	 * Returns the number of Notes for the SalesHistoryDetail
-	 *
 	 * @return bool
 	 */
 	public function has_notes() {
@@ -70,7 +69,6 @@ class SalesHistoryDetail extends BaseSalesHistoryDetail {
 
 	/**
 	 * Return ItemMasterItem associated with Order Item
-	 *
 	 * @return ItemMasterItem
 	 */
 	public function getItem() {
