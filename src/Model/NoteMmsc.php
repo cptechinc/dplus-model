@@ -25,7 +25,7 @@ class NoteMmsc extends BaseNoteMmsc {
 		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
-		'mnfritemid'  => 'pontmmscitem',
+		'mnfritemid'  => 'pontmmsctheiritem',
 		'sequence'    => 'pontseq',
 		'note'        => 'pontnote',
 		'key2'        => 'pontkey2',

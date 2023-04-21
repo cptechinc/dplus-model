@@ -22,7 +22,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMmscQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
  * @method     ChildNoteMmscQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
  * @method     ChildNoteMmscQuery orderByMnfrid($order = Criteria::ASC) Order by the MnfrId column
- * @method     ChildNoteMmscQuery orderByPontmmscitem($order = Criteria::ASC) Order by the PontMmscItem column
+ * @method     ChildNoteMmscQuery orderByPontmmsctheiritem($order = Criteria::ASC) Order by the PontMmscTheirItem column
  * @method     ChildNoteMmscQuery orderByPontseq($order = Criteria::ASC) Order by the PontSeq column
  * @method     ChildNoteMmscQuery orderByPontnote($order = Criteria::ASC) Order by the PontNote column
  * @method     ChildNoteMmscQuery orderByPontkey2($order = Criteria::ASC) Order by the PontKey2 column
@@ -34,7 +34,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMmscQuery groupByPonttype() Group by the PontType column
  * @method     ChildNoteMmscQuery groupByPonttypedesc() Group by the PontTypeDesc column
  * @method     ChildNoteMmscQuery groupByMnfrid() Group by the MnfrId column
- * @method     ChildNoteMmscQuery groupByPontmmscitem() Group by the PontMmscItem column
+ * @method     ChildNoteMmscQuery groupByPontmmsctheiritem() Group by the PontMmscTheirItem column
  * @method     ChildNoteMmscQuery groupByPontseq() Group by the PontSeq column
  * @method     ChildNoteMmscQuery groupByPontnote() Group by the PontNote column
  * @method     ChildNoteMmscQuery groupByPontkey2() Group by the PontKey2 column
@@ -57,7 +57,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMmsc findOneByPonttype(string $PontType) Return the first ChildNoteMmsc filtered by the PontType column
  * @method     ChildNoteMmsc findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMmsc filtered by the PontTypeDesc column
  * @method     ChildNoteMmsc findOneByMnfrid(string $MnfrId) Return the first ChildNoteMmsc filtered by the MnfrId column
- * @method     ChildNoteMmsc findOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMmsc filtered by the PontMmscItem column
+ * @method     ChildNoteMmsc findOneByPontmmsctheiritem(string $PontMmscTheirItem) Return the first ChildNoteMmsc filtered by the PontMmscTheirItem column
  * @method     ChildNoteMmsc findOneByPontseq(int $PontSeq) Return the first ChildNoteMmsc filtered by the PontSeq column
  * @method     ChildNoteMmsc findOneByPontnote(string $PontNote) Return the first ChildNoteMmsc filtered by the PontNote column
  * @method     ChildNoteMmsc findOneByPontkey2(string $PontKey2) Return the first ChildNoteMmsc filtered by the PontKey2 column
@@ -72,7 +72,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMmsc requireOneByPonttype(string $PontType) Return the first ChildNoteMmsc filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMmsc requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMmsc filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMmsc requireOneByMnfrid(string $MnfrId) Return the first ChildNoteMmsc filtered by the MnfrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMmsc requireOneByPontmmscitem(string $PontMmscItem) Return the first ChildNoteMmsc filtered by the PontMmscItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMmsc requireOneByPontmmsctheiritem(string $PontMmscTheirItem) Return the first ChildNoteMmsc filtered by the PontMmscTheirItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMmsc requireOneByPontseq(int $PontSeq) Return the first ChildNoteMmsc filtered by the PontSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMmsc requireOneByPontnote(string $PontNote) Return the first ChildNoteMmsc filtered by the PontNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMmsc requireOneByPontkey2(string $PontKey2) Return the first ChildNoteMmsc filtered by the PontKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,7 +85,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMmsc[]|ObjectCollection findByPonttype(string $PontType) Return ChildNoteMmsc objects filtered by the PontType column
  * @method     ChildNoteMmsc[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildNoteMmsc objects filtered by the PontTypeDesc column
  * @method     ChildNoteMmsc[]|ObjectCollection findByMnfrid(string $MnfrId) Return ChildNoteMmsc objects filtered by the MnfrId column
- * @method     ChildNoteMmsc[]|ObjectCollection findByPontmmscitem(string $PontMmscItem) Return ChildNoteMmsc objects filtered by the PontMmscItem column
+ * @method     ChildNoteMmsc[]|ObjectCollection findByPontmmsctheiritem(string $PontMmscTheirItem) Return ChildNoteMmsc objects filtered by the PontMmscTheirItem column
  * @method     ChildNoteMmsc[]|ObjectCollection findByPontseq(int $PontSeq) Return ChildNoteMmsc objects filtered by the PontSeq column
  * @method     ChildNoteMmsc[]|ObjectCollection findByPontnote(string $PontNote) Return ChildNoteMmsc objects filtered by the PontNote column
  * @method     ChildNoteMmsc[]|ObjectCollection findByPontkey2(string $PontKey2) Return ChildNoteMmsc objects filtered by the PontKey2 column
@@ -191,7 +191,7 @@ abstract class NoteMmscQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PontType, PontTypeDesc, MnfrId, PontMmscItem, PontSeq, PontNote, PontKey2, PontForm, DateUpdtd, TimeUpdtd, dummy FROM notes_mnfr_misc_det WHERE PontType = :p0 AND PontSeq = :p1 AND PontKey2 = :p2 AND PontForm = :p3';
+        $sql = 'SELECT PontType, PontTypeDesc, MnfrId, PontMmscTheirItem, PontSeq, PontNote, PontKey2, PontForm, DateUpdtd, TimeUpdtd, dummy FROM notes_mnfr_misc_det WHERE PontType = :p0 AND PontSeq = :p1 AND PontKey2 = :p2 AND PontForm = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -377,28 +377,28 @@ abstract class NoteMmscQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the PontMmscItem column
+     * Filter the query on the PontMmscTheirItem column
      *
      * Example usage:
      * <code>
-     * $query->filterByPontmmscitem('fooValue');   // WHERE PontMmscItem = 'fooValue'
-     * $query->filterByPontmmscitem('%fooValue%', Criteria::LIKE); // WHERE PontMmscItem LIKE '%fooValue%'
+     * $query->filterByPontmmsctheiritem('fooValue');   // WHERE PontMmscTheirItem = 'fooValue'
+     * $query->filterByPontmmsctheiritem('%fooValue%', Criteria::LIKE); // WHERE PontMmscTheirItem LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $pontmmscitem The value to use as filter.
+     * @param     string $pontmmsctheiritem The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildNoteMmscQuery The current query, for fluid interface
      */
-    public function filterByPontmmscitem($pontmmscitem = null, $comparison = null)
+    public function filterByPontmmsctheiritem($pontmmsctheiritem = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($pontmmscitem)) {
+            if (is_array($pontmmsctheiritem)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTMMSCITEM, $pontmmscitem, $comparison);
+        return $this->addUsingAlias(NoteMmscTableMap::COL_PONTMMSCTHEIRITEM, $pontmmsctheiritem, $comparison);
     }
 
     /**

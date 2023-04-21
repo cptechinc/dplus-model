@@ -87,9 +87,9 @@ class NoteMnfrTableMap extends TableMap
     const COL_MNFRID = 'notes_mnfr_det.MnfrId';
 
     /**
-     * the column name for the PontMnfrItem field
+     * the column name for the PontMnfrTheirItem field
      */
-    const COL_PONTMNFRITEM = 'notes_mnfr_det.PontMnfrItem';
+    const COL_PONTMNFRTHEIRITEM = 'notes_mnfr_det.PontMnfrTheirItem';
 
     /**
      * the column name for the PontSeq field
@@ -138,10 +138,10 @@ class NoteMnfrTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Mnfrid', 'Pontmnfritem', 'Pontseq', 'Pontnote', 'Pontkey2', 'Pontform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'mnfrid', 'pontmnfritem', 'pontseq', 'pontnote', 'pontkey2', 'pontform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE, NoteMnfrTableMap::COL_PONTTYPEDESC, NoteMnfrTableMap::COL_MNFRID, NoteMnfrTableMap::COL_PONTMNFRITEM, NoteMnfrTableMap::COL_PONTSEQ, NoteMnfrTableMap::COL_PONTNOTE, NoteMnfrTableMap::COL_PONTKEY2, NoteMnfrTableMap::COL_PONTFORM, NoteMnfrTableMap::COL_DATEUPDTD, NoteMnfrTableMap::COL_TIMEUPDTD, NoteMnfrTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'MnfrId', 'PontMnfrItem', 'PontSeq', 'PontNote', 'PontKey2', 'PontForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_PHPNAME       => array('Ponttype', 'Ponttypedesc', 'Mnfrid', 'Pontmnfrtheiritem', 'Pontseq', 'Pontnote', 'Pontkey2', 'Pontform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('ponttype', 'ponttypedesc', 'mnfrid', 'pontmnfrtheiritem', 'pontseq', 'pontnote', 'pontkey2', 'pontform', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE, NoteMnfrTableMap::COL_PONTTYPEDESC, NoteMnfrTableMap::COL_MNFRID, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM, NoteMnfrTableMap::COL_PONTSEQ, NoteMnfrTableMap::COL_PONTNOTE, NoteMnfrTableMap::COL_PONTKEY2, NoteMnfrTableMap::COL_PONTFORM, NoteMnfrTableMap::COL_DATEUPDTD, NoteMnfrTableMap::COL_TIMEUPDTD, NoteMnfrTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('PontType', 'PontTypeDesc', 'MnfrId', 'PontMnfrTheirItem', 'PontSeq', 'PontNote', 'PontKey2', 'PontForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
@@ -152,10 +152,10 @@ class NoteMnfrTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Mnfrid' => 2, 'Pontmnfritem' => 3, 'Pontseq' => 4, 'Pontnote' => 5, 'Pontkey2' => 6, 'Pontform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
-        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'mnfrid' => 2, 'pontmnfritem' => 3, 'pontseq' => 4, 'pontnote' => 5, 'pontkey2' => 6, 'pontform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE => 0, NoteMnfrTableMap::COL_PONTTYPEDESC => 1, NoteMnfrTableMap::COL_MNFRID => 2, NoteMnfrTableMap::COL_PONTMNFRITEM => 3, NoteMnfrTableMap::COL_PONTSEQ => 4, NoteMnfrTableMap::COL_PONTNOTE => 5, NoteMnfrTableMap::COL_PONTKEY2 => 6, NoteMnfrTableMap::COL_PONTFORM => 7, NoteMnfrTableMap::COL_DATEUPDTD => 8, NoteMnfrTableMap::COL_TIMEUPDTD => 9, NoteMnfrTableMap::COL_DUMMY => 10, ),
-        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'MnfrId' => 2, 'PontMnfrItem' => 3, 'PontSeq' => 4, 'PontNote' => 5, 'PontKey2' => 6, 'PontForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_PHPNAME       => array('Ponttype' => 0, 'Ponttypedesc' => 1, 'Mnfrid' => 2, 'Pontmnfrtheiritem' => 3, 'Pontseq' => 4, 'Pontnote' => 5, 'Pontkey2' => 6, 'Pontform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
+        self::TYPE_CAMELNAME     => array('ponttype' => 0, 'ponttypedesc' => 1, 'mnfrid' => 2, 'pontmnfrtheiritem' => 3, 'pontseq' => 4, 'pontnote' => 5, 'pontkey2' => 6, 'pontform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_COLNAME       => array(NoteMnfrTableMap::COL_PONTTYPE => 0, NoteMnfrTableMap::COL_PONTTYPEDESC => 1, NoteMnfrTableMap::COL_MNFRID => 2, NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM => 3, NoteMnfrTableMap::COL_PONTSEQ => 4, NoteMnfrTableMap::COL_PONTNOTE => 5, NoteMnfrTableMap::COL_PONTKEY2 => 6, NoteMnfrTableMap::COL_PONTFORM => 7, NoteMnfrTableMap::COL_DATEUPDTD => 8, NoteMnfrTableMap::COL_TIMEUPDTD => 9, NoteMnfrTableMap::COL_DUMMY => 10, ),
+        self::TYPE_FIELDNAME     => array('PontType' => 0, 'PontTypeDesc' => 1, 'MnfrId' => 2, 'PontMnfrTheirItem' => 3, 'PontSeq' => 4, 'PontNote' => 5, 'PontKey2' => 6, 'PontForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
@@ -179,7 +179,7 @@ class NoteMnfrTableMap extends TableMap
         $this->addPrimaryKey('PontType', 'Ponttype', 'VARCHAR', true, 4, '');
         $this->addColumn('PontTypeDesc', 'Ponttypedesc', 'VARCHAR', false, 40, null);
         $this->addColumn('MnfrId', 'Mnfrid', 'VARCHAR', false, 6, null);
-        $this->addColumn('PontMnfrItem', 'Pontmnfritem', 'VARCHAR', false, 30, null);
+        $this->addColumn('PontMnfrTheirItem', 'Pontmnfrtheiritem', 'VARCHAR', false, 30, null);
         $this->addPrimaryKey('PontSeq', 'Pontseq', 'INTEGER', true, 8, 0);
         $this->addColumn('PontNote', 'Pontnote', 'VARCHAR', false, 150, null);
         $this->addPrimaryKey('PontKey2', 'Pontkey2', 'VARCHAR', true, 75, '');
@@ -412,7 +412,7 @@ class NoteMnfrTableMap extends TableMap
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTTYPE);
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTTYPEDESC);
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_MNFRID);
-            $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTMNFRITEM);
+            $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM);
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTSEQ);
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTNOTE);
             $criteria->addSelectColumn(NoteMnfrTableMap::COL_PONTKEY2);
@@ -424,7 +424,7 @@ class NoteMnfrTableMap extends TableMap
             $criteria->addSelectColumn($alias . '.PontType');
             $criteria->addSelectColumn($alias . '.PontTypeDesc');
             $criteria->addSelectColumn($alias . '.MnfrId');
-            $criteria->addSelectColumn($alias . '.PontMnfrItem');
+            $criteria->addSelectColumn($alias . '.PontMnfrTheirItem');
             $criteria->addSelectColumn($alias . '.PontSeq');
             $criteria->addSelectColumn($alias . '.PontNote');
             $criteria->addSelectColumn($alias . '.PontKey2');

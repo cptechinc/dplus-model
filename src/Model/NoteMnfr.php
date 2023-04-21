@@ -27,7 +27,7 @@ class NoteMnfr extends BaseNoteMnfr {
 		'notetype'    => 'ponttype',
 		'description' => 'ponttypedesc',
 		'mnfrid'      => 'mnfrid',
-		'mnfritemid'  => 'pontmnfritem',
+		'mnfritemid'  => 'pontmnfrtheiritem',
 		'sequence'    => 'pontseq',
 		'note'        => 'pontnote',
 		'key2'        => 'pontkey2',

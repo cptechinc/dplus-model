@@ -82,11 +82,11 @@ abstract class NoteMmsc implements ActiveRecordInterface
     protected $mnfrid;
 
     /**
-     * The value for the pontmmscitem field.
+     * The value for the pontmmsctheiritem field.
      *
      * @var        string
      */
-    protected $pontmmscitem;
+    protected $pontmmsctheiritem;
 
     /**
      * The value for the pontseq field.
@@ -420,13 +420,13 @@ abstract class NoteMmsc implements ActiveRecordInterface
     }
 
     /**
-     * Get the [pontmmscitem] column value.
+     * Get the [pontmmsctheiritem] column value.
      *
      * @return string
      */
-    public function getPontmmscitem()
+    public function getPontmmsctheiritem()
     {
-        return $this->pontmmscitem;
+        return $this->pontmmsctheiritem;
     }
 
     /**
@@ -560,24 +560,24 @@ abstract class NoteMmsc implements ActiveRecordInterface
     } // setMnfrid()
 
     /**
-     * Set the value of [pontmmscitem] column.
+     * Set the value of [pontmmsctheiritem] column.
      *
      * @param string $v new value
      * @return $this|\NoteMmsc The current object (for fluent API support)
      */
-    public function setPontmmscitem($v)
+    public function setPontmmsctheiritem($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->pontmmscitem !== $v) {
-            $this->pontmmscitem = $v;
-            $this->modifiedColumns[NoteMmscTableMap::COL_PONTMMSCITEM] = true;
+        if ($this->pontmmsctheiritem !== $v) {
+            $this->pontmmsctheiritem = $v;
+            $this->modifiedColumns[NoteMmscTableMap::COL_PONTMMSCTHEIRITEM] = true;
         }
 
         return $this;
-    } // setPontmmscitem()
+    } // setPontmmsctheiritem()
 
     /**
      * Set the value of [pontseq] column.
@@ -780,8 +780,8 @@ abstract class NoteMmsc implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : NoteMmscTableMap::translateFieldName('Mnfrid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->mnfrid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : NoteMmscTableMap::translateFieldName('Pontmmscitem', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->pontmmscitem = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : NoteMmscTableMap::translateFieldName('Pontmmsctheiritem', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->pontmmsctheiritem = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : NoteMmscTableMap::translateFieldName('Pontseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->pontseq = (null !== $col) ? (int) $col : null;
@@ -1017,8 +1017,8 @@ abstract class NoteMmsc implements ActiveRecordInterface
         if ($this->isColumnModified(NoteMmscTableMap::COL_MNFRID)) {
             $modifiedColumns[':p' . $index++]  = 'MnfrId';
         }
-        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCITEM)) {
-            $modifiedColumns[':p' . $index++]  = 'PontMmscItem';
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCTHEIRITEM)) {
+            $modifiedColumns[':p' . $index++]  = 'PontMmscTheirItem';
         }
         if ($this->isColumnModified(NoteMmscTableMap::COL_PONTSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'PontSeq';
@@ -1061,8 +1061,8 @@ abstract class NoteMmsc implements ActiveRecordInterface
                     case 'MnfrId':
                         $stmt->bindValue($identifier, $this->mnfrid, PDO::PARAM_STR);
                         break;
-                    case 'PontMmscItem':
-                        $stmt->bindValue($identifier, $this->pontmmscitem, PDO::PARAM_STR);
+                    case 'PontMmscTheirItem':
+                        $stmt->bindValue($identifier, $this->pontmmsctheiritem, PDO::PARAM_STR);
                         break;
                     case 'PontSeq':
                         $stmt->bindValue($identifier, $this->pontseq, PDO::PARAM_INT);
@@ -1150,7 +1150,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
                 return $this->getMnfrid();
                 break;
             case 3:
-                return $this->getPontmmscitem();
+                return $this->getPontmmsctheiritem();
                 break;
             case 4:
                 return $this->getPontseq();
@@ -1205,7 +1205,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
             $keys[0] => $this->getPonttype(),
             $keys[1] => $this->getPonttypedesc(),
             $keys[2] => $this->getMnfrid(),
-            $keys[3] => $this->getPontmmscitem(),
+            $keys[3] => $this->getPontmmsctheiritem(),
             $keys[4] => $this->getPontseq(),
             $keys[5] => $this->getPontnote(),
             $keys[6] => $this->getPontkey2(),
@@ -1262,7 +1262,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
                 $this->setMnfrid($value);
                 break;
             case 3:
-                $this->setPontmmscitem($value);
+                $this->setPontmmsctheiritem($value);
                 break;
             case 4:
                 $this->setPontseq($value);
@@ -1321,7 +1321,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
             $this->setMnfrid($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setPontmmscitem($arr[$keys[3]]);
+            $this->setPontmmsctheiritem($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
             $this->setPontseq($arr[$keys[4]]);
@@ -1394,8 +1394,8 @@ abstract class NoteMmsc implements ActiveRecordInterface
         if ($this->isColumnModified(NoteMmscTableMap::COL_MNFRID)) {
             $criteria->add(NoteMmscTableMap::COL_MNFRID, $this->mnfrid);
         }
-        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCITEM)) {
-            $criteria->add(NoteMmscTableMap::COL_PONTMMSCITEM, $this->pontmmscitem);
+        if ($this->isColumnModified(NoteMmscTableMap::COL_PONTMMSCTHEIRITEM)) {
+            $criteria->add(NoteMmscTableMap::COL_PONTMMSCTHEIRITEM, $this->pontmmsctheiritem);
         }
         if ($this->isColumnModified(NoteMmscTableMap::COL_PONTSEQ)) {
             $criteria->add(NoteMmscTableMap::COL_PONTSEQ, $this->pontseq);
@@ -1523,7 +1523,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
         $copyObj->setPonttype($this->getPonttype());
         $copyObj->setPonttypedesc($this->getPonttypedesc());
         $copyObj->setMnfrid($this->getMnfrid());
-        $copyObj->setPontmmscitem($this->getPontmmscitem());
+        $copyObj->setPontmmsctheiritem($this->getPontmmsctheiritem());
         $copyObj->setPontseq($this->getPontseq());
         $copyObj->setPontnote($this->getPontnote());
         $copyObj->setPontkey2($this->getPontkey2());
@@ -1568,7 +1568,7 @@ abstract class NoteMmsc implements ActiveRecordInterface
         $this->ponttype = null;
         $this->ponttypedesc = null;
         $this->mnfrid = null;
-        $this->pontmmscitem = null;
+        $this->pontmmsctheiritem = null;
         $this->pontseq = null;
         $this->pontnote = null;
         $this->pontkey2 = null;

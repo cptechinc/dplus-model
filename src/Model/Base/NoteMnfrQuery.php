@@ -22,7 +22,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMnfrQuery orderByPonttype($order = Criteria::ASC) Order by the PontType column
  * @method     ChildNoteMnfrQuery orderByPonttypedesc($order = Criteria::ASC) Order by the PontTypeDesc column
  * @method     ChildNoteMnfrQuery orderByMnfrid($order = Criteria::ASC) Order by the MnfrId column
- * @method     ChildNoteMnfrQuery orderByPontmnfritem($order = Criteria::ASC) Order by the PontMnfrItem column
+ * @method     ChildNoteMnfrQuery orderByPontmnfrtheiritem($order = Criteria::ASC) Order by the PontMnfrTheirItem column
  * @method     ChildNoteMnfrQuery orderByPontseq($order = Criteria::ASC) Order by the PontSeq column
  * @method     ChildNoteMnfrQuery orderByPontnote($order = Criteria::ASC) Order by the PontNote column
  * @method     ChildNoteMnfrQuery orderByPontkey2($order = Criteria::ASC) Order by the PontKey2 column
@@ -34,7 +34,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMnfrQuery groupByPonttype() Group by the PontType column
  * @method     ChildNoteMnfrQuery groupByPonttypedesc() Group by the PontTypeDesc column
  * @method     ChildNoteMnfrQuery groupByMnfrid() Group by the MnfrId column
- * @method     ChildNoteMnfrQuery groupByPontmnfritem() Group by the PontMnfrItem column
+ * @method     ChildNoteMnfrQuery groupByPontmnfrtheiritem() Group by the PontMnfrTheirItem column
  * @method     ChildNoteMnfrQuery groupByPontseq() Group by the PontSeq column
  * @method     ChildNoteMnfrQuery groupByPontnote() Group by the PontNote column
  * @method     ChildNoteMnfrQuery groupByPontkey2() Group by the PontKey2 column
@@ -57,7 +57,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMnfr findOneByPonttype(string $PontType) Return the first ChildNoteMnfr filtered by the PontType column
  * @method     ChildNoteMnfr findOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMnfr filtered by the PontTypeDesc column
  * @method     ChildNoteMnfr findOneByMnfrid(string $MnfrId) Return the first ChildNoteMnfr filtered by the MnfrId column
- * @method     ChildNoteMnfr findOneByPontmnfritem(string $PontMnfrItem) Return the first ChildNoteMnfr filtered by the PontMnfrItem column
+ * @method     ChildNoteMnfr findOneByPontmnfrtheiritem(string $PontMnfrTheirItem) Return the first ChildNoteMnfr filtered by the PontMnfrTheirItem column
  * @method     ChildNoteMnfr findOneByPontseq(int $PontSeq) Return the first ChildNoteMnfr filtered by the PontSeq column
  * @method     ChildNoteMnfr findOneByPontnote(string $PontNote) Return the first ChildNoteMnfr filtered by the PontNote column
  * @method     ChildNoteMnfr findOneByPontkey2(string $PontKey2) Return the first ChildNoteMnfr filtered by the PontKey2 column
@@ -72,7 +72,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMnfr requireOneByPonttype(string $PontType) Return the first ChildNoteMnfr filtered by the PontType column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMnfr requireOneByPonttypedesc(string $PontTypeDesc) Return the first ChildNoteMnfr filtered by the PontTypeDesc column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMnfr requireOneByMnfrid(string $MnfrId) Return the first ChildNoteMnfr filtered by the MnfrId column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildNoteMnfr requireOneByPontmnfritem(string $PontMnfrItem) Return the first ChildNoteMnfr filtered by the PontMnfrItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildNoteMnfr requireOneByPontmnfrtheiritem(string $PontMnfrTheirItem) Return the first ChildNoteMnfr filtered by the PontMnfrTheirItem column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMnfr requireOneByPontseq(int $PontSeq) Return the first ChildNoteMnfr filtered by the PontSeq column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMnfr requireOneByPontnote(string $PontNote) Return the first ChildNoteMnfr filtered by the PontNote column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildNoteMnfr requireOneByPontkey2(string $PontKey2) Return the first ChildNoteMnfr filtered by the PontKey2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -85,7 +85,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildNoteMnfr[]|ObjectCollection findByPonttype(string $PontType) Return ChildNoteMnfr objects filtered by the PontType column
  * @method     ChildNoteMnfr[]|ObjectCollection findByPonttypedesc(string $PontTypeDesc) Return ChildNoteMnfr objects filtered by the PontTypeDesc column
  * @method     ChildNoteMnfr[]|ObjectCollection findByMnfrid(string $MnfrId) Return ChildNoteMnfr objects filtered by the MnfrId column
- * @method     ChildNoteMnfr[]|ObjectCollection findByPontmnfritem(string $PontMnfrItem) Return ChildNoteMnfr objects filtered by the PontMnfrItem column
+ * @method     ChildNoteMnfr[]|ObjectCollection findByPontmnfrtheiritem(string $PontMnfrTheirItem) Return ChildNoteMnfr objects filtered by the PontMnfrTheirItem column
  * @method     ChildNoteMnfr[]|ObjectCollection findByPontseq(int $PontSeq) Return ChildNoteMnfr objects filtered by the PontSeq column
  * @method     ChildNoteMnfr[]|ObjectCollection findByPontnote(string $PontNote) Return ChildNoteMnfr objects filtered by the PontNote column
  * @method     ChildNoteMnfr[]|ObjectCollection findByPontkey2(string $PontKey2) Return ChildNoteMnfr objects filtered by the PontKey2 column
@@ -191,7 +191,7 @@ abstract class NoteMnfrQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT PontType, PontTypeDesc, MnfrId, PontMnfrItem, PontSeq, PontNote, PontKey2, PontForm, DateUpdtd, TimeUpdtd, dummy FROM notes_mnfr_det WHERE PontType = :p0 AND PontSeq = :p1 AND PontKey2 = :p2 AND PontForm = :p3';
+        $sql = 'SELECT PontType, PontTypeDesc, MnfrId, PontMnfrTheirItem, PontSeq, PontNote, PontKey2, PontForm, DateUpdtd, TimeUpdtd, dummy FROM notes_mnfr_det WHERE PontType = :p0 AND PontSeq = :p1 AND PontKey2 = :p2 AND PontForm = :p3';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -377,28 +377,28 @@ abstract class NoteMnfrQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the PontMnfrItem column
+     * Filter the query on the PontMnfrTheirItem column
      *
      * Example usage:
      * <code>
-     * $query->filterByPontmnfritem('fooValue');   // WHERE PontMnfrItem = 'fooValue'
-     * $query->filterByPontmnfritem('%fooValue%', Criteria::LIKE); // WHERE PontMnfrItem LIKE '%fooValue%'
+     * $query->filterByPontmnfrtheiritem('fooValue');   // WHERE PontMnfrTheirItem = 'fooValue'
+     * $query->filterByPontmnfrtheiritem('%fooValue%', Criteria::LIKE); // WHERE PontMnfrTheirItem LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $pontmnfritem The value to use as filter.
+     * @param     string $pontmnfrtheiritem The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildNoteMnfrQuery The current query, for fluid interface
      */
-    public function filterByPontmnfritem($pontmnfritem = null, $comparison = null)
+    public function filterByPontmnfrtheiritem($pontmnfrtheiritem = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($pontmnfritem)) {
+            if (is_array($pontmnfrtheiritem)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(NoteMnfrTableMap::COL_PONTMNFRITEM, $pontmnfritem, $comparison);
+        return $this->addUsingAlias(NoteMnfrTableMap::COL_PONTMNFRTHEIRITEM, $pontmnfrtheiritem, $comparison);
     }
 
     /**

@@ -2917,7 +2917,7 @@
     <column name="PontType" phpName="Ponttype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="PontTypeDesc" phpName="Ponttypedesc" type="VARCHAR" size="40"/>
     <column name="MnfrId" phpName="Mnfrid" type="VARCHAR" size="6"/>
-    <column name="PontMnfrItem" phpName="Pontmnfritem" type="VARCHAR" size="30"/>
+    <column name="PontMnfrTheirItem" phpName="Pontmnfrtheiritem" type="VARCHAR" size="30"/>
     <column name="PontSeq" phpName="Pontseq" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
     <column name="PontNote" phpName="Pontnote" type="VARCHAR" size="150"/>
     <column name="PontKey2" phpName="Pontkey2" type="VARCHAR" size="75" primaryKey="true" required="true" defaultValue=""/>
@@ -2933,7 +2933,7 @@
     <column name="PontType" phpName="Ponttype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="PontTypeDesc" phpName="Ponttypedesc" type="VARCHAR" size="40"/>
     <column name="MnfrId" phpName="Mnfrid" type="VARCHAR" size="6"/>
-    <column name="PontMmscItem" phpName="Pontmmscitem" type="VARCHAR" size="30"/>
+    <column name="PontMmscTheirItem" phpName="Pontmmsctheiritem" type="VARCHAR" size="30"/>
     <column name="PontSeq" phpName="Pontseq" type="INTEGER" size="8" primaryKey="true" required="true" defaultValue="0"/>
     <column name="PontNote" phpName="Pontnote" type="VARCHAR" size="150"/>
     <column name="PontKey2" phpName="Pontkey2" type="VARCHAR" size="75" primaryKey="true" required="true" defaultValue=""/>
