@@ -29,12 +29,22 @@ class DocumentQuery extends BaseDocumentQuery {
 	use QueryTraits;
 
 	/**
-	 * Filter the query on the DociFld1Cd column
+	 * Filter the query on the DociFld1 column
 	 * @param string $value      The value to use as filter.
 	 * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 * @return $this The current query, for fluid interface
 	 */
 	public function filterByReference1($value = null, $comparison = null) {
 		return $this->filterByDocifld1($value, $comparison);
+	}
+
+	/**
+	 * Filter the Query on the Docitag column
+	 * @param  string|array  $value
+	 * @param  string        $comparison
+	 * @return self          The current query, for fluid interface
+	 */
+	public function filterByTag($value = null, $comparison = null) {
+		return $this->filterByDocitag($value, $comparison);
 	}
 }
