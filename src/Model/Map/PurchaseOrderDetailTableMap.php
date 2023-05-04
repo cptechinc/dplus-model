@@ -338,7 +338,7 @@ class PurchaseOrderDetailTableMap extends TableMap
         // columns
         $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
         $this->addPrimaryKey('PodtLine', 'Podtline', 'INTEGER', true, 4, 0);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
         $this->addColumn('PodtDesc1', 'Podtdesc1', 'VARCHAR', false, 35, null);
         $this->addColumn('PodtDesc2', 'Podtdesc2', 'VARCHAR', false, 35, null);
         $this->addColumn('PodtVendItemNbr', 'Podtvenditemnbr', 'VARCHAR', false, 30, null);
@@ -393,6 +393,49 @@ class PurchaseOrderDetailTableMap extends TableMap
     1 => ':PohdNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PodtLine',
+    1 => ':PodtLine',
+  ),
+), null, null, 'PurchaseOrderDetailReceipts', false);
+        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PotdLine',
+    1 => ':PodtLine',
+  ),
+), null, null, 'PurchaseOrderDetailReceivings', false);
+        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PotdLine',
+    1 => ':PodtLine',
+  ),
+), null, null, 'PurchaseOrderDetailLotReceivings', false);
     } // buildRelations()
 
     /**

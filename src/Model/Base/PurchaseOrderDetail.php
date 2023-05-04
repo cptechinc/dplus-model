@@ -2,17 +2,30 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \PurchaseOrder as ChildPurchaseOrder;
+use \PurchaseOrderDetail as ChildPurchaseOrderDetail;
+use \PurchaseOrderDetailLotReceiving as ChildPurchaseOrderDetailLotReceiving;
+use \PurchaseOrderDetailLotReceivingQuery as ChildPurchaseOrderDetailLotReceivingQuery;
 use \PurchaseOrderDetailQuery as ChildPurchaseOrderDetailQuery;
+use \PurchaseOrderDetailReceipt as ChildPurchaseOrderDetailReceipt;
+use \PurchaseOrderDetailReceiptQuery as ChildPurchaseOrderDetailReceiptQuery;
+use \PurchaseOrderDetailReceiving as ChildPurchaseOrderDetailReceiving;
+use \PurchaseOrderDetailReceivingQuery as ChildPurchaseOrderDetailReceivingQuery;
 use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Exception;
 use \PDO;
+use Map\PurchaseOrderDetailLotReceivingTableMap;
+use Map\PurchaseOrderDetailReceiptTableMap;
+use Map\PurchaseOrderDetailReceivingTableMap;
 use Map\PurchaseOrderDetailTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
 use Propel\Runtime\ActiveRecord\ActiveRecordInterface;
 use Propel\Runtime\Collection\Collection;
+use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\BadMethodCallException;
 use Propel\Runtime\Exception\LogicException;
@@ -370,12 +383,53 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     protected $aPurchaseOrder;
 
     /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
+
+    /**
+     * @var        ObjectCollection|ChildPurchaseOrderDetailReceipt[] Collection to store aggregation of ChildPurchaseOrderDetailReceipt objects.
+     */
+    protected $collPurchaseOrderDetailReceipts;
+    protected $collPurchaseOrderDetailReceiptsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildPurchaseOrderDetailReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
+     */
+    protected $collPurchaseOrderDetailReceivings;
+    protected $collPurchaseOrderDetailReceivingsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailLotReceiving objects.
+     */
+    protected $collPurchaseOrderDetailLotReceivings;
+    protected $collPurchaseOrderDetailLotReceivingsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPurchaseOrderDetailReceipt[]
+     */
+    protected $purchaseOrderDetailReceiptsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
+     */
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPurchaseOrderDetailLotReceiving[]
+     */
+    protected $purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -1105,6 +1159,10 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[PurchaseOrderDetailTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -2115,6 +2173,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($this->aPurchaseOrder !== null && $this->pohdnbr !== $this->aPurchaseOrder->getPohdnbr()) {
             $this->aPurchaseOrder = null;
         }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -2155,6 +2216,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aPurchaseOrder = null;
+            $this->aItemMasterItem = null;
+            $this->collPurchaseOrderDetailReceipts = null;
+
+            $this->collPurchaseOrderDetailReceivings = null;
+
+            $this->collPurchaseOrderDetailLotReceivings = null;
+
         } // if (deep)
     }
 
@@ -2270,6 +2338,13 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 $this->setPurchaseOrder($this->aPurchaseOrder);
             }
 
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -2279,6 +2354,57 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion !== null) {
+                if (!$this->purchaseOrderDetailReceiptsScheduledForDeletion->isEmpty()) {
+                    \PurchaseOrderDetailReceiptQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceiptsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->purchaseOrderDetailReceiptsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPurchaseOrderDetailReceipts !== null) {
+                foreach ($this->collPurchaseOrderDetailReceipts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
+                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                    \PurchaseOrderDetailReceivingQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPurchaseOrderDetailReceivings !== null) {
+                foreach ($this->collPurchaseOrderDetailReceivings as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion !== null) {
+                if (!$this->purchaseOrderDetailLotReceivingsScheduledForDeletion->isEmpty()) {
+                    \PurchaseOrderDetailLotReceivingQuery::create()
+                        ->filterByPrimaryKeys($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPurchaseOrderDetailLotReceivings !== null) {
+                foreach ($this->collPurchaseOrderDetailLotReceivings as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             $this->alreadyInSave = false;
@@ -2850,6 +2976,66 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aPurchaseOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collPurchaseOrderDetailReceipts) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetailReceipts';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_receipt_dets';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetailReceipts';
+                }
+
+                $result[$key] = $this->collPurchaseOrderDetailReceipts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collPurchaseOrderDetailReceivings) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetailReceivings';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_tran_dets';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetailReceivings';
+                }
+
+                $result[$key] = $this->collPurchaseOrderDetailReceivings->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collPurchaseOrderDetailLotReceivings) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetailLotReceivings';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_tran_lot_dets';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetailLotReceivings';
+                }
+
+                $result[$key] = $this->collPurchaseOrderDetailLotReceivings->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -3483,6 +3669,32 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            foreach ($this->getPurchaseOrderDetailReceipts() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPurchaseOrderDetailReceipt($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getPurchaseOrderDetailReceivings() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPurchaseOrderDetailReceiving($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getPurchaseOrderDetailLotReceivings() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPurchaseOrderDetailLotReceiving($relObj->copy($deepCopy));
+                }
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -3562,6 +3774,991 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr(NULL);
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrderDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addPurchaseOrderDetails($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+        if ('PurchaseOrderDetailReceipt' == $relationName) {
+            $this->initPurchaseOrderDetailReceipts();
+            return;
+        }
+        if ('PurchaseOrderDetailReceiving' == $relationName) {
+            $this->initPurchaseOrderDetailReceivings();
+            return;
+        }
+        if ('PurchaseOrderDetailLotReceiving' == $relationName) {
+            $this->initPurchaseOrderDetailLotReceivings();
+            return;
+        }
+    }
+
+    /**
+     * Clears out the collPurchaseOrderDetailReceipts collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPurchaseOrderDetailReceipts()
+     */
+    public function clearPurchaseOrderDetailReceipts()
+    {
+        $this->collPurchaseOrderDetailReceipts = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPurchaseOrderDetailReceipts collection loaded partially.
+     */
+    public function resetPartialPurchaseOrderDetailReceipts($v = true)
+    {
+        $this->collPurchaseOrderDetailReceiptsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPurchaseOrderDetailReceipts collection.
+     *
+     * By default this just sets the collPurchaseOrderDetailReceipts collection to an empty array (like clearcollPurchaseOrderDetailReceipts());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPurchaseOrderDetailReceipts($overrideExisting = true)
+    {
+        if (null !== $this->collPurchaseOrderDetailReceipts && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PurchaseOrderDetailReceiptTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPurchaseOrderDetailReceipts = new $collectionClassName;
+        $this->collPurchaseOrderDetailReceipts->setModel('\PurchaseOrderDetailReceipt');
+    }
+
+    /**
+     * Gets an array of ChildPurchaseOrderDetailReceipt objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildPurchaseOrderDetail is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetailReceipts(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
+                // return empty collection
+                $this->initPurchaseOrderDetailReceipts();
+            } else {
+                $collPurchaseOrderDetailReceipts = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria)
+                    ->filterByPurchaseOrderDetail($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPurchaseOrderDetailReceiptsPartial && count($collPurchaseOrderDetailReceipts)) {
+                        $this->initPurchaseOrderDetailReceipts(false);
+
+                        foreach ($collPurchaseOrderDetailReceipts as $obj) {
+                            if (false == $this->collPurchaseOrderDetailReceipts->contains($obj)) {
+                                $this->collPurchaseOrderDetailReceipts->append($obj);
+                            }
+                        }
+
+                        $this->collPurchaseOrderDetailReceiptsPartial = true;
+                    }
+
+                    return $collPurchaseOrderDetailReceipts;
+                }
+
+                if ($partial && $this->collPurchaseOrderDetailReceipts) {
+                    foreach ($this->collPurchaseOrderDetailReceipts as $obj) {
+                        if ($obj->isNew()) {
+                            $collPurchaseOrderDetailReceipts[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPurchaseOrderDetailReceipts = $collPurchaseOrderDetailReceipts;
+                $this->collPurchaseOrderDetailReceiptsPartial = false;
+            }
+        }
+
+        return $this->collPurchaseOrderDetailReceipts;
+    }
+
+    /**
+     * Sets a collection of ChildPurchaseOrderDetailReceipt objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $purchaseOrderDetailReceipts A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPurchaseOrderDetailReceipts(Collection $purchaseOrderDetailReceipts, ConnectionInterface $con = null)
+    {
+        /** @var ChildPurchaseOrderDetailReceipt[] $purchaseOrderDetailReceiptsToDelete */
+        $purchaseOrderDetailReceiptsToDelete = $this->getPurchaseOrderDetailReceipts(new Criteria(), $con)->diff($purchaseOrderDetailReceipts);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->purchaseOrderDetailReceiptsScheduledForDeletion = clone $purchaseOrderDetailReceiptsToDelete;
+
+        foreach ($purchaseOrderDetailReceiptsToDelete as $purchaseOrderDetailReceiptRemoved) {
+            $purchaseOrderDetailReceiptRemoved->setPurchaseOrderDetail(null);
+        }
+
+        $this->collPurchaseOrderDetailReceipts = null;
+        foreach ($purchaseOrderDetailReceipts as $purchaseOrderDetailReceipt) {
+            $this->addPurchaseOrderDetailReceipt($purchaseOrderDetailReceipt);
+        }
+
+        $this->collPurchaseOrderDetailReceipts = $purchaseOrderDetailReceipts;
+        $this->collPurchaseOrderDetailReceiptsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PurchaseOrderDetailReceipt objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PurchaseOrderDetailReceipt objects.
+     * @throws PropelException
+     */
+    public function countPurchaseOrderDetailReceipts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceiptsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceipts || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceipts) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPurchaseOrderDetailReceipts());
+            }
+
+            $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByPurchaseOrderDetail($this)
+                ->count($con);
+        }
+
+        return count($this->collPurchaseOrderDetailReceipts);
+    }
+
+    /**
+     * Method called to associate a ChildPurchaseOrderDetailReceipt object to this object
+     * through the ChildPurchaseOrderDetailReceipt foreign key attribute.
+     *
+     * @param  ChildPurchaseOrderDetailReceipt $l ChildPurchaseOrderDetailReceipt
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function addPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $l)
+    {
+        if ($this->collPurchaseOrderDetailReceipts === null) {
+            $this->initPurchaseOrderDetailReceipts();
+            $this->collPurchaseOrderDetailReceiptsPartial = true;
+        }
+
+        if (!$this->collPurchaseOrderDetailReceipts->contains($l)) {
+            $this->doAddPurchaseOrderDetailReceipt($l);
+
+            if ($this->purchaseOrderDetailReceiptsScheduledForDeletion and $this->purchaseOrderDetailReceiptsScheduledForDeletion->contains($l)) {
+                $this->purchaseOrderDetailReceiptsScheduledForDeletion->remove($this->purchaseOrderDetailReceiptsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to add.
+     */
+    protected function doAddPurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
+    {
+        $this->collPurchaseOrderDetailReceipts[]= $purchaseOrderDetailReceipt;
+        $purchaseOrderDetailReceipt->setPurchaseOrderDetail($this);
+    }
+
+    /**
+     * @param  ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt The ChildPurchaseOrderDetailReceipt object to remove.
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function removePurchaseOrderDetailReceipt(ChildPurchaseOrderDetailReceipt $purchaseOrderDetailReceipt)
+    {
+        if ($this->getPurchaseOrderDetailReceipts()->contains($purchaseOrderDetailReceipt)) {
+            $pos = $this->collPurchaseOrderDetailReceipts->search($purchaseOrderDetailReceipt);
+            $this->collPurchaseOrderDetailReceipts->remove($pos);
+            if (null === $this->purchaseOrderDetailReceiptsScheduledForDeletion) {
+                $this->purchaseOrderDetailReceiptsScheduledForDeletion = clone $this->collPurchaseOrderDetailReceipts;
+                $this->purchaseOrderDetailReceiptsScheduledForDeletion->clear();
+            }
+            $this->purchaseOrderDetailReceiptsScheduledForDeletion[]= clone $purchaseOrderDetailReceipt;
+            $purchaseOrderDetailReceipt->setPurchaseOrderDetail(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceipts from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     */
+    public function getPurchaseOrderDetailReceiptsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceipts($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceipts from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceipt[] List of ChildPurchaseOrderDetailReceipt objects
+     */
+    public function getPurchaseOrderDetailReceiptsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceiptQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceipts($query, $con);
+    }
+
+    /**
+     * Clears out the collPurchaseOrderDetailReceivings collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPurchaseOrderDetailReceivings()
+     */
+    public function clearPurchaseOrderDetailReceivings()
+    {
+        $this->collPurchaseOrderDetailReceivings = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
+     */
+    public function resetPartialPurchaseOrderDetailReceivings($v = true)
+    {
+        $this->collPurchaseOrderDetailReceivingsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPurchaseOrderDetailReceivings collection.
+     *
+     * By default this just sets the collPurchaseOrderDetailReceivings collection to an empty array (like clearcollPurchaseOrderDetailReceivings());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPurchaseOrderDetailReceivings($overrideExisting = true)
+    {
+        if (null !== $this->collPurchaseOrderDetailReceivings && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PurchaseOrderDetailReceivingTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPurchaseOrderDetailReceivings = new $collectionClassName;
+        $this->collPurchaseOrderDetailReceivings->setModel('\PurchaseOrderDetailReceiving');
+    }
+
+    /**
+     * Gets an array of ChildPurchaseOrderDetailReceiving objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildPurchaseOrderDetail is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetailReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+                // return empty collection
+                $this->initPurchaseOrderDetailReceivings();
+            } else {
+                $collPurchaseOrderDetailReceivings = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria)
+                    ->filterByPurchaseOrderDetail($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
+                        $this->initPurchaseOrderDetailReceivings(false);
+
+                        foreach ($collPurchaseOrderDetailReceivings as $obj) {
+                            if (false == $this->collPurchaseOrderDetailReceivings->contains($obj)) {
+                                $this->collPurchaseOrderDetailReceivings->append($obj);
+                            }
+                        }
+
+                        $this->collPurchaseOrderDetailReceivingsPartial = true;
+                    }
+
+                    return $collPurchaseOrderDetailReceivings;
+                }
+
+                if ($partial && $this->collPurchaseOrderDetailReceivings) {
+                    foreach ($this->collPurchaseOrderDetailReceivings as $obj) {
+                        if ($obj->isNew()) {
+                            $collPurchaseOrderDetailReceivings[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPurchaseOrderDetailReceivings = $collPurchaseOrderDetailReceivings;
+                $this->collPurchaseOrderDetailReceivingsPartial = false;
+            }
+        }
+
+        return $this->collPurchaseOrderDetailReceivings;
+    }
+
+    /**
+     * Sets a collection of ChildPurchaseOrderDetailReceiving objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $purchaseOrderDetailReceivings A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ConnectionInterface $con = null)
+    {
+        /** @var ChildPurchaseOrderDetailReceiving[] $purchaseOrderDetailReceivingsToDelete */
+        $purchaseOrderDetailReceivingsToDelete = $this->getPurchaseOrderDetailReceivings(new Criteria(), $con)->diff($purchaseOrderDetailReceivings);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $purchaseOrderDetailReceivingsToDelete;
+
+        foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
+            $purchaseOrderDetailReceivingRemoved->setPurchaseOrderDetail(null);
+        }
+
+        $this->collPurchaseOrderDetailReceivings = null;
+        foreach ($purchaseOrderDetailReceivings as $purchaseOrderDetailReceiving) {
+            $this->addPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving);
+        }
+
+        $this->collPurchaseOrderDetailReceivings = $purchaseOrderDetailReceivings;
+        $this->collPurchaseOrderDetailReceivingsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PurchaseOrderDetailReceiving objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PurchaseOrderDetailReceiving objects.
+     * @throws PropelException
+     */
+    public function countPurchaseOrderDetailReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPurchaseOrderDetailReceivings());
+            }
+
+            $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByPurchaseOrderDetail($this)
+                ->count($con);
+        }
+
+        return count($this->collPurchaseOrderDetailReceivings);
+    }
+
+    /**
+     * Method called to associate a ChildPurchaseOrderDetailReceiving object to this object
+     * through the ChildPurchaseOrderDetailReceiving foreign key attribute.
+     *
+     * @param  ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function addPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $l)
+    {
+        if ($this->collPurchaseOrderDetailReceivings === null) {
+            $this->initPurchaseOrderDetailReceivings();
+            $this->collPurchaseOrderDetailReceivingsPartial = true;
+        }
+
+        if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
+            $this->doAddPurchaseOrderDetailReceiving($l);
+
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to add.
+     */
+    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    {
+        $this->collPurchaseOrderDetailReceivings[]= $purchaseOrderDetailReceiving;
+        $purchaseOrderDetailReceiving->setPurchaseOrderDetail($this);
+    }
+
+    /**
+     * @param  ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function removePurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    {
+        if ($this->getPurchaseOrderDetailReceivings()->contains($purchaseOrderDetailReceiving)) {
+            $pos = $this->collPurchaseOrderDetailReceivings->search($purchaseOrderDetailReceiving);
+            $this->collPurchaseOrderDetailReceivings->remove($pos);
+            if (null === $this->purchaseOrderDetailReceivingsScheduledForDeletion) {
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $this->collPurchaseOrderDetailReceivings;
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
+            }
+            $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailReceiving;
+            $purchaseOrderDetailReceiving->setPurchaseOrderDetail(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('PoReceivingHead', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinUnitofMeasureSale(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('UnitofMeasureSale', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+    /**
+     * Clears out the collPurchaseOrderDetailLotReceivings collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPurchaseOrderDetailLotReceivings()
+     */
+    public function clearPurchaseOrderDetailLotReceivings()
+    {
+        $this->collPurchaseOrderDetailLotReceivings = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPurchaseOrderDetailLotReceivings collection loaded partially.
+     */
+    public function resetPartialPurchaseOrderDetailLotReceivings($v = true)
+    {
+        $this->collPurchaseOrderDetailLotReceivingsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPurchaseOrderDetailLotReceivings collection.
+     *
+     * By default this just sets the collPurchaseOrderDetailLotReceivings collection to an empty array (like clearcollPurchaseOrderDetailLotReceivings());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPurchaseOrderDetailLotReceivings($overrideExisting = true)
+    {
+        if (null !== $this->collPurchaseOrderDetailLotReceivings && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PurchaseOrderDetailLotReceivingTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPurchaseOrderDetailLotReceivings = new $collectionClassName;
+        $this->collPurchaseOrderDetailLotReceivings->setModel('\PurchaseOrderDetailLotReceiving');
+    }
+
+    /**
+     * Gets an array of ChildPurchaseOrderDetailLotReceiving objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildPurchaseOrderDetail is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetailLotReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
+                // return empty collection
+                $this->initPurchaseOrderDetailLotReceivings();
+            } else {
+                $collPurchaseOrderDetailLotReceivings = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria)
+                    ->filterByPurchaseOrderDetail($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPurchaseOrderDetailLotReceivingsPartial && count($collPurchaseOrderDetailLotReceivings)) {
+                        $this->initPurchaseOrderDetailLotReceivings(false);
+
+                        foreach ($collPurchaseOrderDetailLotReceivings as $obj) {
+                            if (false == $this->collPurchaseOrderDetailLotReceivings->contains($obj)) {
+                                $this->collPurchaseOrderDetailLotReceivings->append($obj);
+                            }
+                        }
+
+                        $this->collPurchaseOrderDetailLotReceivingsPartial = true;
+                    }
+
+                    return $collPurchaseOrderDetailLotReceivings;
+                }
+
+                if ($partial && $this->collPurchaseOrderDetailLotReceivings) {
+                    foreach ($this->collPurchaseOrderDetailLotReceivings as $obj) {
+                        if ($obj->isNew()) {
+                            $collPurchaseOrderDetailLotReceivings[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPurchaseOrderDetailLotReceivings = $collPurchaseOrderDetailLotReceivings;
+                $this->collPurchaseOrderDetailLotReceivingsPartial = false;
+            }
+        }
+
+        return $this->collPurchaseOrderDetailLotReceivings;
+    }
+
+    /**
+     * Sets a collection of ChildPurchaseOrderDetailLotReceiving objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $purchaseOrderDetailLotReceivings A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function setPurchaseOrderDetailLotReceivings(Collection $purchaseOrderDetailLotReceivings, ConnectionInterface $con = null)
+    {
+        /** @var ChildPurchaseOrderDetailLotReceiving[] $purchaseOrderDetailLotReceivingsToDelete */
+        $purchaseOrderDetailLotReceivingsToDelete = $this->getPurchaseOrderDetailLotReceivings(new Criteria(), $con)->diff($purchaseOrderDetailLotReceivings);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = clone $purchaseOrderDetailLotReceivingsToDelete;
+
+        foreach ($purchaseOrderDetailLotReceivingsToDelete as $purchaseOrderDetailLotReceivingRemoved) {
+            $purchaseOrderDetailLotReceivingRemoved->setPurchaseOrderDetail(null);
+        }
+
+        $this->collPurchaseOrderDetailLotReceivings = null;
+        foreach ($purchaseOrderDetailLotReceivings as $purchaseOrderDetailLotReceiving) {
+            $this->addPurchaseOrderDetailLotReceiving($purchaseOrderDetailLotReceiving);
+        }
+
+        $this->collPurchaseOrderDetailLotReceivings = $purchaseOrderDetailLotReceivings;
+        $this->collPurchaseOrderDetailLotReceivingsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PurchaseOrderDetailLotReceiving objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PurchaseOrderDetailLotReceiving objects.
+     * @throws PropelException
+     */
+    public function countPurchaseOrderDetailLotReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailLotReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailLotReceivings || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailLotReceivings) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPurchaseOrderDetailLotReceivings());
+            }
+
+            $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByPurchaseOrderDetail($this)
+                ->count($con);
+        }
+
+        return count($this->collPurchaseOrderDetailLotReceivings);
+    }
+
+    /**
+     * Method called to associate a ChildPurchaseOrderDetailLotReceiving object to this object
+     * through the ChildPurchaseOrderDetailLotReceiving foreign key attribute.
+     *
+     * @param  ChildPurchaseOrderDetailLotReceiving $l ChildPurchaseOrderDetailLotReceiving
+     * @return $this|\PurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function addPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $l)
+    {
+        if ($this->collPurchaseOrderDetailLotReceivings === null) {
+            $this->initPurchaseOrderDetailLotReceivings();
+            $this->collPurchaseOrderDetailLotReceivingsPartial = true;
+        }
+
+        if (!$this->collPurchaseOrderDetailLotReceivings->contains($l)) {
+            $this->doAddPurchaseOrderDetailLotReceiving($l);
+
+            if ($this->purchaseOrderDetailLotReceivingsScheduledForDeletion and $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->contains($l)) {
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailLotReceivingsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to add.
+     */
+    protected function doAddPurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
+    {
+        $this->collPurchaseOrderDetailLotReceivings[]= $purchaseOrderDetailLotReceiving;
+        $purchaseOrderDetailLotReceiving->setPurchaseOrderDetail($this);
+    }
+
+    /**
+     * @param  ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving The ChildPurchaseOrderDetailLotReceiving object to remove.
+     * @return $this|ChildPurchaseOrderDetail The current object (for fluent API support)
+     */
+    public function removePurchaseOrderDetailLotReceiving(ChildPurchaseOrderDetailLotReceiving $purchaseOrderDetailLotReceiving)
+    {
+        if ($this->getPurchaseOrderDetailLotReceivings()->contains($purchaseOrderDetailLotReceiving)) {
+            $pos = $this->collPurchaseOrderDetailLotReceivings->search($purchaseOrderDetailLotReceiving);
+            $this->collPurchaseOrderDetailLotReceivings->remove($pos);
+            if (null === $this->purchaseOrderDetailLotReceivingsScheduledForDeletion) {
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion = clone $this->collPurchaseOrderDetailLotReceivings;
+                $this->purchaseOrderDetailLotReceivingsScheduledForDeletion->clear();
+            }
+            $this->purchaseOrderDetailLotReceivingsScheduledForDeletion[]= clone $purchaseOrderDetailLotReceiving;
+            $purchaseOrderDetailLotReceiving->setPurchaseOrderDetail(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailLotReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     */
+    public function getPurchaseOrderDetailLotReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailLotReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailLotReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     */
+    public function getPurchaseOrderDetailLotReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
+        $query->joinWith('PoReceivingHead', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailLotReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this PurchaseOrderDetail is new, it will return
+     * an empty collection; or if this PurchaseOrderDetail has previously
+     * been saved, it will retrieve related PurchaseOrderDetailLotReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in PurchaseOrderDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailLotReceiving[] List of ChildPurchaseOrderDetailLotReceiving objects
+     */
+    public function getPurchaseOrderDetailLotReceivingsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailLotReceivingQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailLotReceivings($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3570,6 +4767,9 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     {
         if (null !== $this->aPurchaseOrder) {
             $this->aPurchaseOrder->removePurchaseOrderDetail($this);
+        }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removePurchaseOrderDetail($this);
         }
         $this->pohdnbr = null;
         $this->podtline = null;
@@ -3633,9 +4833,28 @@ abstract class PurchaseOrderDetail implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collPurchaseOrderDetailReceipts) {
+                foreach ($this->collPurchaseOrderDetailReceipts as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collPurchaseOrderDetailReceivings) {
+                foreach ($this->collPurchaseOrderDetailReceivings as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collPurchaseOrderDetailLotReceivings) {
+                foreach ($this->collPurchaseOrderDetailLotReceivings as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
+        $this->collPurchaseOrderDetailReceipts = null;
+        $this->collPurchaseOrderDetailReceivings = null;
+        $this->collPurchaseOrderDetailLotReceivings = null;
         $this->aPurchaseOrder = null;
+        $this->aItemMasterItem = null;
     }
 
     /**

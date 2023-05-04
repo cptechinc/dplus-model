@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'po_detail' table.
  *
- * NOTE: Foreign Key Relationship to PurchaseOrder
+ * FKRELATIONSHIPS: PurchaseOrder, ItemMasterItem
  */
 class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 	use ThrowErrorTrait;

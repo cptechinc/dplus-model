@@ -3398,6 +3398,9 @@
     <foreign-key foreignTable="po_head" name="purchaseorder" skipSql="true">
       <reference local="PohdNbr" foreign="PohdNbr"/>
     </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -3488,6 +3491,16 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="po_head" name="purchaseorder">
+      <reference local="PohdNbr" foreign="PohdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="po_detail" name="podetail" skipSql="true">
+      <reference local="PohdNbr" foreign="PohdNbr"/>
+      <reference local="PodtLine" foreign="PodtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -3526,6 +3539,53 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="po_head" name="purchaseorder">
+      <reference local="PothNbr" foreign="PohdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="po_tran_head" name="poreceiving">
+      <reference local="PothNbr" foreign="PothNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="po_detail" name="podetail" skipSql="true">
+      <reference local="PothNbr" foreign="PohdNbr"/>
+      <reference local="PotdLine" foreign="PodtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_uom_sale" name="uompurchase">
+      <reference local="IntbUomPur" foreign="IntbUomSale"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="po_tran_head" idMethod="native" phpName="PoReceivingHead">
+    <column name="PothNbr" phpName="Pothnbr" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="PothStat" phpName="Pothstat" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="PothRcptDate" phpName="Pothrcptdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="PothGlPd" phpName="Pothglpd" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="PothAirShip" phpName="Pothairship" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="PothErInReview" phpName="Potherinreview" type="VARCHAR" size="1" required="true" defaultValue="N"/>
+    <column name="PothExchCtry" phpName="Pothexchctry" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="PothExchRate" phpName="Pothexchrate" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IntbWhseOrig" phpName="Intbwhseorig" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="PothLandCost" phpName="Pothlandcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="PothRcptNbr" phpName="Pothrcptnbr" type="INTEGER" size="8" required="true" defaultValue="0"/>
+    <column name="PothLandBasedOn" phpName="Pothlandbasedon" type="VARCHAR" size="1" required="true" defaultValue=""/>
+    <column name="PothInvcNbr" phpName="Pothinvcnbr" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="PothInvcDate" phpName="Pothinvcdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="PothFrtAmt" phpName="Pothfrtamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="PothMiscAmt" phpName="Pothmiscamt" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="po_head" name="purchaseorder">
+      <reference local="PothNbr" foreign="PohdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -3554,6 +3614,19 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="po_head" name="purchaseorder">
+      <reference local="PothNbr" foreign="PohdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="po_tran_head" name="poreceiving">
+      <reference local="PothNbr" foreign="PothNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="po_detail" name="podetail" skipSql="true">
+      <reference local="PothNbr" foreign="PohdNbr"/>
+      <reference local="PotdLine" foreign="PodtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

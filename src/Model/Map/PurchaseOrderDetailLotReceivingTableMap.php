@@ -236,10 +236,12 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR', true, 8, '');
-        $this->addPrimaryKey('PotdLine', 'Potdline', 'INTEGER', true, 4, 0);
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_tran_head', 'PothNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_detail', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PotdLine', 'Potdline', 'INTEGER' , 'po_detail', 'PodtLine', true, 4, 0);
         $this->addPrimaryKey('PotdSeq', 'Potdseq', 'INTEGER', true, 4, 0);
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addPrimaryKey('PotsLotSer', 'Potslotser', 'VARCHAR', true, 20, '');
         $this->addPrimaryKey('PotsBin', 'Potsbin', 'VARCHAR', true, 8, '');
         $this->addColumn('PotsQtyRec', 'Potsqtyrec', 'DECIMAL', false, 20, null);
@@ -266,6 +268,39 @@ class PurchaseOrderDetailLotReceivingTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PothNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PotdLine',
+    1 => ':PodtLine',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

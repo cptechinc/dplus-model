@@ -8,6 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'po_tran_lot_det' table.
  *
+ * FKRELATIONSHIPS: PurchaseOrder, PurhaseOrderDetail, PoRecevingHead, ItemMasterItem, 
  */
 class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceiving {
 	use ThrowErrorTrait;

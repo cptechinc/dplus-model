@@ -8,7 +8,8 @@ use Dplus\Model\ItemMasterTraits;
 
 /**
  * Class for representing a row from the 'po_tran_det' table.
- *
+ * 
+ * FKRELATIONSHIPS: PurchaseOrder, PurhaseOrderDetail, PoRecevingHead, ItemMasterItem
  */
 class PurchaseOrderDetailReceiving extends BasePurchaseOrderDetailReceiving {
 	use ThrowErrorTrait;

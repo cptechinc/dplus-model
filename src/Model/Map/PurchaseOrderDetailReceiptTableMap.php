@@ -191,9 +191,10 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR', true, 8, '');
-        $this->addPrimaryKey('PodtLine', 'Podtline', 'INTEGER', true, 4, 0);
-        $this->addPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', true, 30, '');
+        $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PohdNbr', 'Pohdnbr', 'VARCHAR' , 'po_detail', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PodtLine', 'Podtline', 'INTEGER' , 'po_detail', 'PodtLine', true, 4, 0);
+        $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
         $this->addPrimaryKey('PordSeq', 'Pordseq', 'INTEGER', true, 4, 0);
         $this->addColumn('PordRef', 'Pordref', 'VARCHAR', false, 15, null);
         $this->addColumn('PordTranDate', 'Pordtrandate', 'VARCHAR', false, 8, null);
@@ -212,6 +213,32 @@ class PurchaseOrderDetailReceiptTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PodtLine',
+    1 => ':PodtLine',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

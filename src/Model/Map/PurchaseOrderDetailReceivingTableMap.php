@@ -286,14 +286,16 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR', true, 8, '');
-        $this->addPrimaryKey('PotdLine', 'Potdline', 'INTEGER', true, 4, 0);
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_head', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_tran_head', 'PothNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PothNbr', 'Pothnbr', 'VARCHAR' , 'po_detail', 'PohdNbr', true, 8, '');
+        $this->addForeignPrimaryKey('PotdLine', 'Potdline', 'INTEGER' , 'po_detail', 'PodtLine', true, 4, 0);
         $this->addPrimaryKey('PotdSeq', 'Potdseq', 'INTEGER', true, 4, 0);
-        $this->addColumn('InitItemNbr', 'Inititemnbr', 'VARCHAR', false, 30, null);
+        $this->addForeignKey('InitItemNbr', 'Inititemnbr', 'VARCHAR', 'inv_item_mast', 'InitItemNbr', false, 30, null);
         $this->addColumn('PotdDesc1', 'Potddesc1', 'VARCHAR', false, 35, null);
         $this->addColumn('PotdDesc2', 'Potddesc2', 'VARCHAR', false, 35, null);
         $this->addColumn('PotdVendItemNbr', 'Potdvenditemnbr', 'VARCHAR', false, 30, null);
-        $this->addColumn('IntbUomPur', 'Intbuompur', 'VARCHAR', false, 4, null);
+        $this->addForeignKey('IntbUomPur', 'Intbuompur', 'VARCHAR', 'inv_uom_sale', 'IntbUomSale', false, 4, null);
         $this->addColumn('PotdRef', 'Potdref', 'VARCHAR', false, 15, null);
         $this->addColumn('PotdQtyOrd', 'Potdqtyord', 'DECIMAL', false, 20, null);
         $this->addColumn('PotdQtyRec', 'Potdqtyrec', 'DECIMAL', false, 20, null);
@@ -326,6 +328,46 @@ class PurchaseOrderDetailReceivingTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('PurchaseOrder', '\\PurchaseOrder', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PothNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrderDetail', '\\PurchaseOrderDetail', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+  1 =>
+  array (
+    0 => ':PotdLine',
+    1 => ':PodtLine',
+  ),
+), null, null, null, false);
+        $this->addRelation('ItemMasterItem', '\\ItemMasterItem', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('UnitofMeasureSale', '\\UnitofMeasureSale', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbUomPur',
+    1 => ':IntbUomSale',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

@@ -10,6 +10,7 @@ use Map\PurchaseOrderDetailReceiptTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
+use Propel\Runtime\ActiveQuery\ModelJoin;
 use Propel\Runtime\Collection\ObjectCollection;
 use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
@@ -56,6 +57,38 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinWith($relation) Adds a LEFT JOIN clause and with to the query
  * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinPurchaseOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the PurchaseOrder relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinPurchaseOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the PurchaseOrder relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinPurchaseOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the PurchaseOrder relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery joinWithPurchaseOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the PurchaseOrder relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinWithPurchaseOrder() Adds a LEFT JOIN clause and with to the query using the PurchaseOrder relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinWithPurchaseOrder() Adds a RIGHT JOIN clause and with to the query using the PurchaseOrder relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinWithPurchaseOrder() Adds a INNER JOIN clause and with to the query using the PurchaseOrder relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinPurchaseOrderDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the PurchaseOrderDetail relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinPurchaseOrderDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the PurchaseOrderDetail relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinPurchaseOrderDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the PurchaseOrderDetail relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery joinWithPurchaseOrderDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the PurchaseOrderDetail relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinWithPurchaseOrderDetail() Adds a LEFT JOIN clause and with to the query using the PurchaseOrderDetail relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinWithPurchaseOrderDetail() Adds a RIGHT JOIN clause and with to the query using the PurchaseOrderDetail relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinWithPurchaseOrderDetail() Adds a INNER JOIN clause and with to the query using the PurchaseOrderDetail relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinItemMasterItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinItemMasterItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemMasterItem relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinItemMasterItem($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemMasterItem relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery joinWithItemMasterItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     ChildPurchaseOrderDetailReceiptQuery leftJoinWithItemMasterItem() Adds a LEFT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
+ * @method     ChildPurchaseOrderDetailReceiptQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
+ *
+ * @method     \PurchaseOrderQuery|\PurchaseOrderDetailQuery|\ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildPurchaseOrderDetailReceipt findOne(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailReceipt matching the query
  * @method     ChildPurchaseOrderDetailReceipt findOneOrCreate(ConnectionInterface $con = null) Return the first ChildPurchaseOrderDetailReceipt matching the query, or a new ChildPurchaseOrderDetailReceipt object populated from the query conditions when no match is found
@@ -350,6 +383,8 @@ abstract class PurchaseOrderDetailReceiptQuery extends ModelCriteria
      * $query->filterByPodtline(array(12, 34)); // WHERE PodtLine IN (12, 34)
      * $query->filterByPodtline(array('min' => 12)); // WHERE PodtLine > 12
      * </code>
+     *
+     * @see       filterByPurchaseOrderDetail()
      *
      * @param     mixed $podtline The value to use as filter.
      *              Use scalar values for equality.
@@ -776,6 +811,231 @@ abstract class PurchaseOrderDetailReceiptQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \PurchaseOrder object
+     *
+     * @param \PurchaseOrder|ObjectCollection $purchaseOrder The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByPurchaseOrder($purchaseOrder, $comparison = null)
+    {
+        if ($purchaseOrder instanceof \PurchaseOrder) {
+            return $this
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $purchaseOrder->getPohdnbr(), $comparison);
+        } elseif ($purchaseOrder instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $purchaseOrder->toKeyValue('PrimaryKey', 'Pohdnbr'), $comparison);
+        } else {
+            throw new PropelException('filterByPurchaseOrder() only accepts arguments of type \PurchaseOrder or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the PurchaseOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function joinPurchaseOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('PurchaseOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'PurchaseOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the PurchaseOrder relation PurchaseOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \PurchaseOrderQuery A secondary query class using the current class as primary query
+     */
+    public function usePurchaseOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinPurchaseOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrder', '\PurchaseOrderQuery');
+    }
+
+    /**
+     * Filter the query by a related \PurchaseOrderDetail object
+     *
+     * @param \PurchaseOrderDetail $purchaseOrderDetail The related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByPurchaseOrderDetail($purchaseOrderDetail, $comparison = null)
+    {
+        if ($purchaseOrderDetail instanceof \PurchaseOrderDetail) {
+            return $this
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_POHDNBR, $purchaseOrderDetail->getPohdnbr(), $comparison)
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_PODTLINE, $purchaseOrderDetail->getPodtline(), $comparison);
+        } else {
+            throw new PropelException('filterByPurchaseOrderDetail() only accepts arguments of type \PurchaseOrderDetail');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the PurchaseOrderDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function joinPurchaseOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('PurchaseOrderDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'PurchaseOrderDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the PurchaseOrderDetail relation PurchaseOrderDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \PurchaseOrderDetailQuery A secondary query class using the current class as primary query
+     */
+    public function usePurchaseOrderDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinPurchaseOrderDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetail', '\PurchaseOrderDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemMasterItem object
+     *
+     * @param \ItemMasterItem|ObjectCollection $itemMasterItem The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function filterByItemMasterItem($itemMasterItem, $comparison = null)
+    {
+        if ($itemMasterItem instanceof \ItemMasterItem) {
+            return $this
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR, $itemMasterItem->getInititemnbr(), $comparison);
+        } elseif ($itemMasterItem instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR, $itemMasterItem->toKeyValue('PrimaryKey', 'Inititemnbr'), $comparison);
+        } else {
+            throw new PropelException('filterByItemMasterItem() only accepts arguments of type \ItemMasterItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemMasterItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildPurchaseOrderDetailReceiptQuery The current query, for fluid interface
+     */
+    public function joinItemMasterItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemMasterItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemMasterItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemMasterItem relation ItemMasterItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemMasterItemQuery A secondary query class using the current class as primary query
+     */
+    public function useItemMasterItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemMasterItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
     }
 
     /**

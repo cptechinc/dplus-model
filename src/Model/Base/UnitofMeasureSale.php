@@ -4,11 +4,14 @@ namespace Base;
 
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \PurchaseOrderDetailReceiving as ChildPurchaseOrderDetailReceiving;
+use \PurchaseOrderDetailReceivingQuery as ChildPurchaseOrderDetailReceivingQuery;
 use \UnitofMeasureSale as ChildUnitofMeasureSale;
 use \UnitofMeasureSaleQuery as ChildUnitofMeasureSaleQuery;
 use \Exception;
 use \PDO;
 use Map\ItemMasterItemTableMap;
+use Map\PurchaseOrderDetailReceivingTableMap;
 use Map\UnitofMeasureSaleTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -127,6 +130,12 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     protected $collItemMasterItemsPartial;
 
     /**
+     * @var        ObjectCollection|ChildPurchaseOrderDetailReceiving[] Collection to store aggregation of ChildPurchaseOrderDetailReceiving objects.
+     */
+    protected $collPurchaseOrderDetailReceivings;
+    protected $collPurchaseOrderDetailReceivingsPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -139,6 +148,12 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemMasterItem[]
      */
     protected $itemMasterItemsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPurchaseOrderDetailReceiving[]
+     */
+    protected $purchaseOrderDetailReceivingsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\UnitofMeasureSale object.
@@ -735,6 +750,8 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
             $this->collItemMasterItems = null;
 
+            $this->collPurchaseOrderDetailReceivings = null;
+
         } // if (deep)
     }
 
@@ -861,6 +878,24 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
 
             if ($this->collItemMasterItems !== null) {
                 foreach ($this->collItemMasterItems as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion !== null) {
+                if (!$this->purchaseOrderDetailReceivingsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->purchaseOrderDetailReceivingsScheduledForDeletion as $purchaseOrderDetailReceiving) {
+                        // need to save related object because we set the relation to null
+                        $purchaseOrderDetailReceiving->save($con);
+                    }
+                    $this->purchaseOrderDetailReceivingsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPurchaseOrderDetailReceivings !== null) {
+                foreach ($this->collPurchaseOrderDetailReceivings as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -1086,6 +1121,21 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collItemMasterItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collPurchaseOrderDetailReceivings) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetailReceivings';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_tran_dets';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetailReceivings';
+                }
+
+                $result[$key] = $this->collPurchaseOrderDetailReceivings->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -1366,6 +1416,12 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getPurchaseOrderDetailReceivings() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPurchaseOrderDetailReceiving($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -1408,6 +1464,10 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     {
         if ('ItemMasterItem' == $relationName) {
             $this->initItemMasterItems();
+            return;
+        }
+        if ('PurchaseOrderDetailReceiving' == $relationName) {
+            $this->initPurchaseOrderDetailReceivings();
             return;
         }
     }
@@ -1763,6 +1823,331 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collPurchaseOrderDetailReceivings collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPurchaseOrderDetailReceivings()
+     */
+    public function clearPurchaseOrderDetailReceivings()
+    {
+        $this->collPurchaseOrderDetailReceivings = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPurchaseOrderDetailReceivings collection loaded partially.
+     */
+    public function resetPartialPurchaseOrderDetailReceivings($v = true)
+    {
+        $this->collPurchaseOrderDetailReceivingsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPurchaseOrderDetailReceivings collection.
+     *
+     * By default this just sets the collPurchaseOrderDetailReceivings collection to an empty array (like clearcollPurchaseOrderDetailReceivings());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPurchaseOrderDetailReceivings($overrideExisting = true)
+    {
+        if (null !== $this->collPurchaseOrderDetailReceivings && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PurchaseOrderDetailReceivingTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPurchaseOrderDetailReceivings = new $collectionClassName;
+        $this->collPurchaseOrderDetailReceivings->setModel('\PurchaseOrderDetailReceiving');
+    }
+
+    /**
+     * Gets an array of ChildPurchaseOrderDetailReceiving objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildUnitofMeasureSale is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetailReceivings(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+                // return empty collection
+                $this->initPurchaseOrderDetailReceivings();
+            } else {
+                $collPurchaseOrderDetailReceivings = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria)
+                    ->filterByUnitofMeasureSale($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPurchaseOrderDetailReceivingsPartial && count($collPurchaseOrderDetailReceivings)) {
+                        $this->initPurchaseOrderDetailReceivings(false);
+
+                        foreach ($collPurchaseOrderDetailReceivings as $obj) {
+                            if (false == $this->collPurchaseOrderDetailReceivings->contains($obj)) {
+                                $this->collPurchaseOrderDetailReceivings->append($obj);
+                            }
+                        }
+
+                        $this->collPurchaseOrderDetailReceivingsPartial = true;
+                    }
+
+                    return $collPurchaseOrderDetailReceivings;
+                }
+
+                if ($partial && $this->collPurchaseOrderDetailReceivings) {
+                    foreach ($this->collPurchaseOrderDetailReceivings as $obj) {
+                        if ($obj->isNew()) {
+                            $collPurchaseOrderDetailReceivings[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPurchaseOrderDetailReceivings = $collPurchaseOrderDetailReceivings;
+                $this->collPurchaseOrderDetailReceivingsPartial = false;
+            }
+        }
+
+        return $this->collPurchaseOrderDetailReceivings;
+    }
+
+    /**
+     * Sets a collection of ChildPurchaseOrderDetailReceiving objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $purchaseOrderDetailReceivings A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildUnitofMeasureSale The current object (for fluent API support)
+     */
+    public function setPurchaseOrderDetailReceivings(Collection $purchaseOrderDetailReceivings, ConnectionInterface $con = null)
+    {
+        /** @var ChildPurchaseOrderDetailReceiving[] $purchaseOrderDetailReceivingsToDelete */
+        $purchaseOrderDetailReceivingsToDelete = $this->getPurchaseOrderDetailReceivings(new Criteria(), $con)->diff($purchaseOrderDetailReceivings);
+
+
+        $this->purchaseOrderDetailReceivingsScheduledForDeletion = $purchaseOrderDetailReceivingsToDelete;
+
+        foreach ($purchaseOrderDetailReceivingsToDelete as $purchaseOrderDetailReceivingRemoved) {
+            $purchaseOrderDetailReceivingRemoved->setUnitofMeasureSale(null);
+        }
+
+        $this->collPurchaseOrderDetailReceivings = null;
+        foreach ($purchaseOrderDetailReceivings as $purchaseOrderDetailReceiving) {
+            $this->addPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving);
+        }
+
+        $this->collPurchaseOrderDetailReceivings = $purchaseOrderDetailReceivings;
+        $this->collPurchaseOrderDetailReceivingsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PurchaseOrderDetailReceiving objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PurchaseOrderDetailReceiving objects.
+     * @throws PropelException
+     */
+    public function countPurchaseOrderDetailReceivings(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPurchaseOrderDetailReceivingsPartial && !$this->isNew();
+        if (null === $this->collPurchaseOrderDetailReceivings || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPurchaseOrderDetailReceivings) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPurchaseOrderDetailReceivings());
+            }
+
+            $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByUnitofMeasureSale($this)
+                ->count($con);
+        }
+
+        return count($this->collPurchaseOrderDetailReceivings);
+    }
+
+    /**
+     * Method called to associate a ChildPurchaseOrderDetailReceiving object to this object
+     * through the ChildPurchaseOrderDetailReceiving foreign key attribute.
+     *
+     * @param  ChildPurchaseOrderDetailReceiving $l ChildPurchaseOrderDetailReceiving
+     * @return $this|\UnitofMeasureSale The current object (for fluent API support)
+     */
+    public function addPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $l)
+    {
+        if ($this->collPurchaseOrderDetailReceivings === null) {
+            $this->initPurchaseOrderDetailReceivings();
+            $this->collPurchaseOrderDetailReceivingsPartial = true;
+        }
+
+        if (!$this->collPurchaseOrderDetailReceivings->contains($l)) {
+            $this->doAddPurchaseOrderDetailReceiving($l);
+
+            if ($this->purchaseOrderDetailReceivingsScheduledForDeletion and $this->purchaseOrderDetailReceivingsScheduledForDeletion->contains($l)) {
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion->remove($this->purchaseOrderDetailReceivingsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to add.
+     */
+    protected function doAddPurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    {
+        $this->collPurchaseOrderDetailReceivings[]= $purchaseOrderDetailReceiving;
+        $purchaseOrderDetailReceiving->setUnitofMeasureSale($this);
+    }
+
+    /**
+     * @param  ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving The ChildPurchaseOrderDetailReceiving object to remove.
+     * @return $this|ChildUnitofMeasureSale The current object (for fluent API support)
+     */
+    public function removePurchaseOrderDetailReceiving(ChildPurchaseOrderDetailReceiving $purchaseOrderDetailReceiving)
+    {
+        if ($this->getPurchaseOrderDetailReceivings()->contains($purchaseOrderDetailReceiving)) {
+            $pos = $this->collPurchaseOrderDetailReceivings->search($purchaseOrderDetailReceiving);
+            $this->collPurchaseOrderDetailReceivings->remove($pos);
+            if (null === $this->purchaseOrderDetailReceivingsScheduledForDeletion) {
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion = clone $this->collPurchaseOrderDetailReceivings;
+                $this->purchaseOrderDetailReceivingsScheduledForDeletion->clear();
+            }
+            $this->purchaseOrderDetailReceivingsScheduledForDeletion[]= $purchaseOrderDetailReceiving;
+            $purchaseOrderDetailReceiving->setUnitofMeasureSale(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinPoReceivingHead(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('PoReceivingHead', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinPurchaseOrderDetail(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrderDetail', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this UnitofMeasureSale is new, it will return
+     * an empty collection; or if this UnitofMeasureSale has previously
+     * been saved, it will retrieve related PurchaseOrderDetailReceivings from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in UnitofMeasureSale.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPurchaseOrderDetailReceiving[] List of ChildPurchaseOrderDetailReceiving objects
+     */
+    public function getPurchaseOrderDetailReceivingsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPurchaseOrderDetailReceivingQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getPurchaseOrderDetailReceivings($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -1800,9 +2185,15 @@ abstract class UnitofMeasureSale implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collPurchaseOrderDetailReceivings) {
+                foreach ($this->collPurchaseOrderDetailReceivings as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collItemMasterItems = null;
+        $this->collPurchaseOrderDetailReceivings = null;
     }
 
     /**

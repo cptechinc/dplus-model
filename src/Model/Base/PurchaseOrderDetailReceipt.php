@@ -2,7 +2,13 @@
 
 namespace Base;
 
+use \ItemMasterItem as ChildItemMasterItem;
+use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \PurchaseOrder as ChildPurchaseOrder;
+use \PurchaseOrderDetail as ChildPurchaseOrderDetail;
+use \PurchaseOrderDetailQuery as ChildPurchaseOrderDetailQuery;
 use \PurchaseOrderDetailReceiptQuery as ChildPurchaseOrderDetailReceiptQuery;
+use \PurchaseOrderQuery as ChildPurchaseOrderQuery;
 use \Exception;
 use \PDO;
 use Map\PurchaseOrderDetailReceiptTableMap;
@@ -160,6 +166,21 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildPurchaseOrder
+     */
+    protected $aPurchaseOrder;
+
+    /**
+     * @var        ChildPurchaseOrderDetail
+     */
+    protected $aPurchaseOrderDetail;
+
+    /**
+     * @var        ChildItemMasterItem
+     */
+    protected $aItemMasterItem;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -567,6 +588,14 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
             $this->modifiedColumns[PurchaseOrderDetailReceiptTableMap::COL_POHDNBR] = true;
         }
 
+        if ($this->aPurchaseOrder !== null && $this->aPurchaseOrder->getPohdnbr() !== $v) {
+            $this->aPurchaseOrder = null;
+        }
+
+        if ($this->aPurchaseOrderDetail !== null && $this->aPurchaseOrderDetail->getPohdnbr() !== $v) {
+            $this->aPurchaseOrderDetail = null;
+        }
+
         return $this;
     } // setPohdnbr()
 
@@ -587,6 +616,10 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
             $this->modifiedColumns[PurchaseOrderDetailReceiptTableMap::COL_PODTLINE] = true;
         }
 
+        if ($this->aPurchaseOrderDetail !== null && $this->aPurchaseOrderDetail->getPodtline() !== $v) {
+            $this->aPurchaseOrderDetail = null;
+        }
+
         return $this;
     } // setPodtline()
 
@@ -605,6 +638,10 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
             $this->modifiedColumns[PurchaseOrderDetailReceiptTableMap::COL_INITITEMNBR] = true;
+        }
+
+        if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
+            $this->aItemMasterItem = null;
         }
 
         return $this;
@@ -953,6 +990,18 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aPurchaseOrder !== null && $this->pohdnbr !== $this->aPurchaseOrder->getPohdnbr()) {
+            $this->aPurchaseOrder = null;
+        }
+        if ($this->aPurchaseOrderDetail !== null && $this->pohdnbr !== $this->aPurchaseOrderDetail->getPohdnbr()) {
+            $this->aPurchaseOrderDetail = null;
+        }
+        if ($this->aPurchaseOrderDetail !== null && $this->podtline !== $this->aPurchaseOrderDetail->getPodtline()) {
+            $this->aPurchaseOrderDetail = null;
+        }
+        if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
+            $this->aItemMasterItem = null;
+        }
     } // ensureConsistency
 
     /**
@@ -992,6 +1041,9 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aPurchaseOrder = null;
+            $this->aPurchaseOrderDetail = null;
+            $this->aItemMasterItem = null;
         } // if (deep)
     }
 
@@ -1094,6 +1146,32 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aPurchaseOrder !== null) {
+                if ($this->aPurchaseOrder->isModified() || $this->aPurchaseOrder->isNew()) {
+                    $affectedRows += $this->aPurchaseOrder->save($con);
+                }
+                $this->setPurchaseOrder($this->aPurchaseOrder);
+            }
+
+            if ($this->aPurchaseOrderDetail !== null) {
+                if ($this->aPurchaseOrderDetail->isModified() || $this->aPurchaseOrderDetail->isNew()) {
+                    $affectedRows += $this->aPurchaseOrderDetail->save($con);
+                }
+                $this->setPurchaseOrderDetail($this->aPurchaseOrderDetail);
+            }
+
+            if ($this->aItemMasterItem !== null) {
+                if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
+                    $affectedRows += $this->aItemMasterItem->save($con);
+                }
+                $this->setItemMasterItem($this->aItemMasterItem);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1337,10 +1415,11 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
         if (isset($alreadyDumpedObjects['PurchaseOrderDetailReceipt'][$this->hashCode()])) {
@@ -1369,6 +1448,53 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aPurchaseOrder) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrder';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_head';
+                        break;
+                    default:
+                        $key = 'PurchaseOrder';
+                }
+
+                $result[$key] = $this->aPurchaseOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aPurchaseOrderDetail) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'purchaseOrderDetail';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_detail';
+                        break;
+                    default:
+                        $key = 'PurchaseOrderDetail';
+                }
+
+                $result[$key] = $this->aPurchaseOrderDetail->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aItemMasterItem) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemMasterItem';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_item_mast';
+                        break;
+                    default:
+                        $key = 'ItemMasterItem';
+                }
+
+                $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1633,8 +1759,29 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
             null !== $this->getInititemnbr() &&
             null !== $this->getPordseq();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 4;
         $primaryKeyFKs = [];
+
+        //relation purchaseorder to table po_head
+        if ($this->aPurchaseOrder && $hash = spl_object_hash($this->aPurchaseOrder)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation podetail to table po_detail
+        if ($this->aPurchaseOrderDetail && $hash = spl_object_hash($this->aPurchaseOrderDetail)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation item to table inv_item_mast
+        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1739,12 +1886,180 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildPurchaseOrder object.
+     *
+     * @param  ChildPurchaseOrder $v
+     * @return $this|\PurchaseOrderDetailReceipt The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setPurchaseOrder(ChildPurchaseOrder $v = null)
+    {
+        if ($v === null) {
+            $this->setPohdnbr('');
+        } else {
+            $this->setPohdnbr($v->getPohdnbr());
+        }
+
+        $this->aPurchaseOrder = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildPurchaseOrder object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrderDetailReceipt($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildPurchaseOrder object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildPurchaseOrder The associated ChildPurchaseOrder object.
+     * @throws PropelException
+     */
+    public function getPurchaseOrder(ConnectionInterface $con = null)
+    {
+        if ($this->aPurchaseOrder === null && (($this->pohdnbr !== "" && $this->pohdnbr !== null))) {
+            $this->aPurchaseOrder = ChildPurchaseOrderQuery::create()->findPk($this->pohdnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aPurchaseOrder->addPurchaseOrderDetailReceipts($this);
+             */
+        }
+
+        return $this->aPurchaseOrder;
+    }
+
+    /**
+     * Declares an association between this object and a ChildPurchaseOrderDetail object.
+     *
+     * @param  ChildPurchaseOrderDetail $v
+     * @return $this|\PurchaseOrderDetailReceipt The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setPurchaseOrderDetail(ChildPurchaseOrderDetail $v = null)
+    {
+        if ($v === null) {
+            $this->setPohdnbr('');
+        } else {
+            $this->setPohdnbr($v->getPohdnbr());
+        }
+
+        if ($v === null) {
+            $this->setPodtline(0);
+        } else {
+            $this->setPodtline($v->getPodtline());
+        }
+
+        $this->aPurchaseOrderDetail = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildPurchaseOrderDetail object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrderDetailReceipt($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildPurchaseOrderDetail object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildPurchaseOrderDetail The associated ChildPurchaseOrderDetail object.
+     * @throws PropelException
+     */
+    public function getPurchaseOrderDetail(ConnectionInterface $con = null)
+    {
+        if ($this->aPurchaseOrderDetail === null && (($this->pohdnbr !== "" && $this->pohdnbr !== null) && $this->podtline != 0)) {
+            $this->aPurchaseOrderDetail = ChildPurchaseOrderDetailQuery::create()->findPk(array($this->pohdnbr, $this->podtline), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aPurchaseOrderDetail->addPurchaseOrderDetailReceipts($this);
+             */
+        }
+
+        return $this->aPurchaseOrderDetail;
+    }
+
+    /**
+     * Declares an association between this object and a ChildItemMasterItem object.
+     *
+     * @param  ChildItemMasterItem $v
+     * @return $this|\PurchaseOrderDetailReceipt The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setItemMasterItem(ChildItemMasterItem $v = null)
+    {
+        if ($v === null) {
+            $this->setInititemnbr('');
+        } else {
+            $this->setInititemnbr($v->getInititemnbr());
+        }
+
+        $this->aItemMasterItem = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
+        if ($v !== null) {
+            $v->addPurchaseOrderDetailReceipt($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildItemMasterItem object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildItemMasterItem The associated ChildItemMasterItem object.
+     * @throws PropelException
+     */
+    public function getItemMasterItem(ConnectionInterface $con = null)
+    {
+        if ($this->aItemMasterItem === null && (($this->inititemnbr !== "" && $this->inititemnbr !== null))) {
+            $this->aItemMasterItem = ChildItemMasterItemQuery::create()->findPk($this->inititemnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aItemMasterItem->addPurchaseOrderDetailReceipts($this);
+             */
+        }
+
+        return $this->aItemMasterItem;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aPurchaseOrder) {
+            $this->aPurchaseOrder->removePurchaseOrderDetailReceipt($this);
+        }
+        if (null !== $this->aPurchaseOrderDetail) {
+            $this->aPurchaseOrderDetail->removePurchaseOrderDetailReceipt($this);
+        }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removePurchaseOrderDetailReceipt($this);
+        }
         $this->pohdnbr = null;
         $this->podtline = null;
         $this->inititemnbr = null;
@@ -1780,6 +2095,9 @@ abstract class PurchaseOrderDetailReceipt implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aPurchaseOrder = null;
+        $this->aPurchaseOrderDetail = null;
+        $this->aItemMasterItem = null;
     }
 
     /**

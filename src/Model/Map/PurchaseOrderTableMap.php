@@ -505,6 +505,34 @@ class PurchaseOrderTableMap extends TableMap
     1 => ':PohdNbr',
   ),
 ), null, null, 'PurchaseOrderDetails', false);
+        $this->addRelation('PurchaseOrderDetailReceipt', '\\PurchaseOrderDetailReceipt', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PohdNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, 'PurchaseOrderDetailReceipts', false);
+        $this->addRelation('PurchaseOrderDetailReceiving', '\\PurchaseOrderDetailReceiving', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, 'PurchaseOrderDetailReceivings', false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('PurchaseOrderDetailLotReceiving', '\\PurchaseOrderDetailLotReceiving', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':PothNbr',
+    1 => ':PohdNbr',
+  ),
+), null, null, 'PurchaseOrderDetailLotReceivings', false);
     } // buildRelations()
 
     /**

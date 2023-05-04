@@ -7,7 +7,8 @@ use Dplus\Model\MagicMethodTraits;
 
 /**
  * Class for representing a row from the 'po_receipt_det' table.
- *
+ * 
+ * FKRELATIONSHIPS: PurchaseOrder, PurhaseOrderDetail, PoRecevingHead, ItemMasterItem, 
  */
 class PurchaseOrderDetailReceipt extends BasePurchaseOrderDetailReceipt {
 	use ThrowErrorTrait;

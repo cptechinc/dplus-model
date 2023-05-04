@@ -56,7 +56,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildUnitofMeasureSaleQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildUnitofMeasureSaleQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildUnitofMeasureSaleQuery leftJoinPurchaseOrderDetailReceiving($relationAlias = null) Adds a LEFT JOIN clause to the query using the PurchaseOrderDetailReceiving relation
+ * @method     ChildUnitofMeasureSaleQuery rightJoinPurchaseOrderDetailReceiving($relationAlias = null) Adds a RIGHT JOIN clause to the query using the PurchaseOrderDetailReceiving relation
+ * @method     ChildUnitofMeasureSaleQuery innerJoinPurchaseOrderDetailReceiving($relationAlias = null) Adds a INNER JOIN clause to the query using the PurchaseOrderDetailReceiving relation
+ *
+ * @method     ChildUnitofMeasureSaleQuery joinWithPurchaseOrderDetailReceiving($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the PurchaseOrderDetailReceiving relation
+ *
+ * @method     ChildUnitofMeasureSaleQuery leftJoinWithPurchaseOrderDetailReceiving() Adds a LEFT JOIN clause and with to the query using the PurchaseOrderDetailReceiving relation
+ * @method     ChildUnitofMeasureSaleQuery rightJoinWithPurchaseOrderDetailReceiving() Adds a RIGHT JOIN clause and with to the query using the PurchaseOrderDetailReceiving relation
+ * @method     ChildUnitofMeasureSaleQuery innerJoinWithPurchaseOrderDetailReceiving() Adds a INNER JOIN clause and with to the query using the PurchaseOrderDetailReceiving relation
+ *
+ * @method     \ItemMasterItemQuery|\PurchaseOrderDetailReceivingQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildUnitofMeasureSale findOne(ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query
  * @method     ChildUnitofMeasureSale findOneOrCreate(ConnectionInterface $con = null) Return the first ChildUnitofMeasureSale matching the query, or a new ChildUnitofMeasureSale object populated from the query conditions when no match is found
@@ -566,6 +576,79 @@ abstract class UnitofMeasureSaleQuery extends ModelCriteria
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \PurchaseOrderDetailReceiving object
+     *
+     * @param \PurchaseOrderDetailReceiving|ObjectCollection $purchaseOrderDetailReceiving the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     */
+    public function filterByPurchaseOrderDetailReceiving($purchaseOrderDetailReceiving, $comparison = null)
+    {
+        if ($purchaseOrderDetailReceiving instanceof \PurchaseOrderDetailReceiving) {
+            return $this
+                ->addUsingAlias(UnitofMeasureSaleTableMap::COL_INTBUOMSALE, $purchaseOrderDetailReceiving->getIntbuompur(), $comparison);
+        } elseif ($purchaseOrderDetailReceiving instanceof ObjectCollection) {
+            return $this
+                ->usePurchaseOrderDetailReceivingQuery()
+                ->filterByPrimaryKeys($purchaseOrderDetailReceiving->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByPurchaseOrderDetailReceiving() only accepts arguments of type \PurchaseOrderDetailReceiving or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the PurchaseOrderDetailReceiving relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildUnitofMeasureSaleQuery The current query, for fluid interface
+     */
+    public function joinPurchaseOrderDetailReceiving($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('PurchaseOrderDetailReceiving');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'PurchaseOrderDetailReceiving');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the PurchaseOrderDetailReceiving relation PurchaseOrderDetailReceiving object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \PurchaseOrderDetailReceivingQuery A secondary query class using the current class as primary query
+     */
+    public function usePurchaseOrderDetailReceivingQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinPurchaseOrderDetailReceiving($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'PurchaseOrderDetailReceiving', '\PurchaseOrderDetailReceivingQuery');
     }
 
     /**
