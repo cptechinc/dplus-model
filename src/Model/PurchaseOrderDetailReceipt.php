@@ -23,6 +23,7 @@ class PurchaseOrderDetailReceipt extends BasePurchaseOrderDetailReceipt {
 		'itemid'          => 'inititemnbr',
 		'poref'           => 'pordref',
 		'qty_received'    => 'pordqtyrec',
+		'qtyReceived'     => 'pordqtyrec',
 		'date_transfered' => 'pordtrandate'
 	);
 }

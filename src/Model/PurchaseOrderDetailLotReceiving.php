@@ -25,6 +25,7 @@ class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceivin
 		'bin'          => 'potsbin',
 		'binid'        => 'potsbin',
 		'qty_received' => 'potsqtyrec',
+		'qtyReceived'  => 'potsqtyrec',
 		'lotreference' => 'potslotref',
 		'lotref'       => 'potslotref',
 		'date_production' => 'potsexpiredate',

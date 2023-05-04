@@ -54,7 +54,8 @@ class ConfigPo extends BaseConfigPo {
 		'edit_date_ack_head_det'    => 'potbconfeditackdate',
 		'force_po_reference'        => 'potbconfforceporef',
 		'controlbuyer'              => 'potbconfbuyercontrol',
-		'usefabrication'            => 'potbconfusefab'
+		'usefabrication'            => 'potbconfusefab',
+		'warnReceivedMoreThanOrdered' => 'potbconfwarnrcptqty',
 	);
 
 	/**
