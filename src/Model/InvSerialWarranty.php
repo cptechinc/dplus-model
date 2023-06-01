@@ -21,7 +21,7 @@ class InvSerialWarranty extends BaseInvSerialWarranty {
 	 */
 	const COLUMN_ALIASES = array(
 		'itemid'       => 'inititemnbr',
-		'serialnbr'    => 'warmsernbr',
+		'serialnbr'    => 'sermsernbr',
 		'ordn'         => 'warmsordnbr',
 		'ordernumber'  => 'warmsordnbr',
 		'custid'       => 'arcucustid',

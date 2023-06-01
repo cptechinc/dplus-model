@@ -34,13 +34,13 @@ class InvSerialWarrantyQuery extends BaseInvSerialWarrantyQuery {
 	}
 
 	/**
-	 * Filter the query on the WarmSerNbr column
+	 * Filter the query on the SermSerNbr column
 	 * @param     string $lotserial   The value to use as filter.
 	 * @param     string $comparison  Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
 	 */
 	public function filterBySerialnbr($lotserial, $comparison = null) {
-		return $this->filterByWarmsernbr($lotserial, $comparison);
+		return $this->filterBySermsernbr($lotserial, $comparison);
 	}
 
 	/**
