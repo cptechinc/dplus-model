@@ -49,6 +49,15 @@ class ItemMasterItemQuery extends BaseItemMasterItemQuery {
 	}
 
 	/**
+	 * Filter the query on the Intbgrup column
+	 * @param  string                    $type The value to use as filter.
+	 * @return $this|ItemMasterItemQuery The current query, for fluid interface
+	 */
+	public function filterByItemgroup($type, $comparision = null) {
+		return $this->filterByIntbgrup($type, $comparision);
+	}
+
+	/**
 	 * Returns Item Type for Item Id
 	 *
 	 * @param  string $itemID
