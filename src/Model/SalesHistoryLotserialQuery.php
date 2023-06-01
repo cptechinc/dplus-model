@@ -23,4 +23,14 @@ use Dplus\Model\QueryTraits;
  */
 class SalesHistoryLotserialQuery extends BaseSalesHistoryLotserialQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the query by the Oeshlotser column
+	 * @param  string $oeshlotser
+	 * @param  string $comparison
+	 * @return $this
+	 */
+	public function filterByLotserial($oeshlotser = null, $comparison = null) {
+		return $this->filterByOeshlotser($oeshlotser, $comparison);
+	}
 }
