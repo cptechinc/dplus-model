@@ -2024,7 +2024,7 @@ abstract class MsaSysopCode implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            return // parent::preSave($con);
+            // parent::preSave($con);
         }
         return true;
     }
@@ -2048,7 +2048,7 @@ abstract class MsaSysopCode implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            return // parent::preInsert($con);
+            // parent::preInsert($con);
         }
         return true;
     }
@@ -2072,7 +2072,7 @@ abstract class MsaSysopCode implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            return // parent::preUpdate($con);
+            // parent::preUpdate($con);
         }
         return true;
     }
@@ -2096,7 +2096,7 @@ abstract class MsaSysopCode implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            return // parent::preDelete($con);
+            // parent::preDelete($con);
         }
         return true;
     }
