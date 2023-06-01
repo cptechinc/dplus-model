@@ -2614,6 +2614,49 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_war_mast" idMethod="native" phpName="InvSerialWarranty">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="SermSerNbr" phpName="Sermsernbr" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="WarmSaleDate" phpName="Warmsaledate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="WarmOwnFName" phpName="Warmownfname" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="WarmOwnMName" phpName="Warmownmname" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="WarmOwnLName" phpName="Warmownlname" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="WarmOwnAdr1" phpName="Warmownadr1" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="WarmOwnAdr2" phpName="Warmownadr2" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="WarmOwnAdr3" phpName="Warmownadr3" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="WarmOwnCity" phpName="Warmowncity" type="VARCHAR" size="16" required="true" defaultValue=""/>
+    <column name="WarmOwnStat" phpName="Warmownstat" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="WarmOwnZip" phpName="Warmownzip" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="WarmSordNbr" phpName="Warmsordnbr" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="WarmInvcDate" phpName="Warminvcdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="WarmEntryDate" phpName="Warmentrydate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="WarmEngSerNbr" phpName="Warmengsernbr" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="WarmEngHorse" phpName="Warmenghorse" type="DECIMAL" size="4" scale="1" required="true" defaultValue="0.0"/>
+    <column name="WarmEngModelYear" phpName="Warmengmodelyear" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="WarmEngDesc" phpName="Warmengdesc" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="WarmPhone1" phpName="Warmphone1" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="WarmPhone2" phpName="Warmphone2" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="WarmEmail" phpName="Warmemail" type="VARCHAR" size="50" required="true" defaultValue=""/>
+    <column name="WarmAcOrigWarrDate" phpName="Warmacorigwarrdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_ser_mast" name="serial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="SermSerNbr" foreign="SermSerNbr"/>
+    </foreign-key>
+     <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_whse_code" idMethod="native" phpName="Warehouse">
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbWhseName" phpName="Intbwhsename" type="VARCHAR" size="30"/>

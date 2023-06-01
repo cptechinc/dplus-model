@@ -3,6 +3,8 @@
 namespace Base;
 
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
+use \InvSerialWarranty as ChildInvSerialWarranty;
+use \InvSerialWarrantyQuery as ChildInvSerialWarrantyQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Exception;
@@ -158,6 +160,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
+
+    /**
+     * @var        ChildInvSerialWarranty one-to-one related ChildInvSerialWarranty object
+     */
+    protected $singleInvSerialWarranty;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -955,6 +962,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
+            $this->singleInvSerialWarranty = null;
+
         } // if (deep)
     }
 
@@ -1079,6 +1088,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->singleInvSerialWarranty !== null) {
+                if (!$this->singleInvSerialWarranty->isDeleted() && ($this->singleInvSerialWarranty->isNew() || $this->singleInvSerialWarranty->isModified())) {
+                    $affectedRows += $this->singleInvSerialWarranty->save($con);
+                }
             }
 
             $this->alreadyInSave = false;
@@ -1350,6 +1365,21 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->singleInvSerialWarranty) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invSerialWarranty';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_war_mast';
+                        break;
+                    default:
+                        $key = 'InvSerialWarranty';
+                }
+
+                $result[$key] = $this->singleInvSerialWarranty->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
         }
 
@@ -1683,6 +1713,19 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            $relObj = $this->getInvSerialWarranty();
+            if ($relObj) {
+                $copyObj->setInvSerialWarranty($relObj->copy($deepCopy));
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -1761,6 +1804,55 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         return $this->aItemMasterItem;
     }
 
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+    }
+
+    /**
+     * Gets a single ChildInvSerialWarranty object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildInvSerialWarranty
+     * @throws PropelException
+     */
+    public function getInvSerialWarranty(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleInvSerialWarranty === null && !$this->isNew()) {
+            $this->singleInvSerialWarranty = ChildInvSerialWarrantyQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleInvSerialWarranty;
+    }
+
+    /**
+     * Sets a single ChildInvSerialWarranty object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildInvSerialWarranty $v ChildInvSerialWarranty
+     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvSerialWarranty(ChildInvSerialWarranty $v = null)
+    {
+        $this->singleInvSerialWarranty = $v;
+
+        // Make sure that that the passed-in ChildInvSerialWarranty isn't already associated with this object
+        if ($v !== null && $v->getInvSerialMaster(null, false) === null) {
+            $v->setInvSerialMaster($this);
+        }
+
+        return $this;
+    }
+
     /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
@@ -1803,8 +1895,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->singleInvSerialWarranty) {
+                $this->singleInvSerialWarranty->clearAllReferences($deep);
+            }
         } // if ($deep)
 
+        $this->singleInvSerialWarranty = null;
         $this->aItemMasterItem = null;
     }
 
@@ -1826,7 +1922,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return // parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -1838,7 +1934,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -1850,7 +1946,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            return // parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -1862,7 +1958,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -1874,7 +1970,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            return // parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -1886,7 +1982,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -1898,7 +1994,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            return // parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -1910,7 +2006,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 

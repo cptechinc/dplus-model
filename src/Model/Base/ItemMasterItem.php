@@ -28,6 +28,8 @@ use \InvPriceCode as ChildInvPriceCode;
 use \InvPriceCodeQuery as ChildInvPriceCodeQuery;
 use \InvSerialMaster as ChildInvSerialMaster;
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
+use \InvSerialWarranty as ChildInvSerialWarranty;
+use \InvSerialWarrantyQuery as ChildInvSerialWarrantyQuery;
 use \InvWhseLot as ChildInvWhseLot;
 use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemAddonItem as ChildItemAddonItem;
@@ -91,6 +93,7 @@ use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
+use Map\InvSerialWarrantyTableMap;
 use Map\InvWhseLotTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
@@ -736,6 +739,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collInvSerialMastersPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvSerialWarranty[] Collection to store aggregation of ChildInvSerialWarranty objects.
+     */
+    protected $collInvSerialWarranties;
+    protected $collInvSerialWarrantiesPartial;
+
+    /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
      */
     protected $collWarehouseInventories;
@@ -939,6 +948,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvSerialMaster[]
      */
     protected $invSerialMastersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvSerialWarranty[]
+     */
+    protected $invSerialWarrantiesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3633,6 +3648,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collInvSerialMasters = null;
 
+            $this->collInvSerialWarranties = null;
+
             $this->collWarehouseInventories = null;
 
             $this->collItemXrefManufacturers = null;
@@ -4038,6 +4055,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collInvSerialMasters !== null) {
                 foreach ($this->collInvSerialMasters as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invSerialWarrantiesScheduledForDeletion !== null) {
+                if (!$this->invSerialWarrantiesScheduledForDeletion->isEmpty()) {
+                    \InvSerialWarrantyQuery::create()
+                        ->filterByPrimaryKeys($this->invSerialWarrantiesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invSerialWarrantiesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvSerialWarranties !== null) {
+                foreach ($this->collInvSerialWarranties as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5489,6 +5523,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collInvSerialMasters->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvSerialWarranties) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invSerialWarranties';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_war_masts';
+                        break;
+                    default:
+                        $key = 'InvSerialWarranties';
+                }
+
+                $result[$key] = $this->collInvSerialWarranties->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collWarehouseInventories) {
 
                 switch ($keyType) {
@@ -6750,6 +6799,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvSerialWarranties() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvSerialWarranty($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getWarehouseInventories() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addWarehouseInventory($relObj->copy($deepCopy));
@@ -7263,6 +7318,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('InvSerialMaster' == $relationName) {
             $this->initInvSerialMasters();
+            return;
+        }
+        if ('InvSerialWarranty' == $relationName) {
+            $this->initInvSerialWarranties();
             return;
         }
         if ('WarehouseInventory' == $relationName) {
@@ -10037,6 +10096,284 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+    /**
+     * Clears out the collInvSerialWarranties collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvSerialWarranties()
+     */
+    public function clearInvSerialWarranties()
+    {
+        $this->collInvSerialWarranties = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvSerialWarranties collection loaded partially.
+     */
+    public function resetPartialInvSerialWarranties($v = true)
+    {
+        $this->collInvSerialWarrantiesPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvSerialWarranties collection.
+     *
+     * By default this just sets the collInvSerialWarranties collection to an empty array (like clearcollInvSerialWarranties());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvSerialWarranties($overrideExisting = true)
+    {
+        if (null !== $this->collInvSerialWarranties && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvSerialWarrantyTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvSerialWarranties = new $collectionClassName;
+        $this->collInvSerialWarranties->setModel('\InvSerialWarranty');
+    }
+
+    /**
+     * Gets an array of ChildInvSerialWarranty objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
+     * @throws PropelException
+     */
+    public function getInvSerialWarranties(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
+        if (null === $this->collInvSerialWarranties || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvSerialWarranties) {
+                // return empty collection
+                $this->initInvSerialWarranties();
+            } else {
+                $collInvSerialWarranties = ChildInvSerialWarrantyQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvSerialWarrantiesPartial && count($collInvSerialWarranties)) {
+                        $this->initInvSerialWarranties(false);
+
+                        foreach ($collInvSerialWarranties as $obj) {
+                            if (false == $this->collInvSerialWarranties->contains($obj)) {
+                                $this->collInvSerialWarranties->append($obj);
+                            }
+                        }
+
+                        $this->collInvSerialWarrantiesPartial = true;
+                    }
+
+                    return $collInvSerialWarranties;
+                }
+
+                if ($partial && $this->collInvSerialWarranties) {
+                    foreach ($this->collInvSerialWarranties as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvSerialWarranties[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvSerialWarranties = $collInvSerialWarranties;
+                $this->collInvSerialWarrantiesPartial = false;
+            }
+        }
+
+        return $this->collInvSerialWarranties;
+    }
+
+    /**
+     * Sets a collection of ChildInvSerialWarranty objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invSerialWarranties A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvSerialWarranties(Collection $invSerialWarranties, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvSerialWarranty[] $invSerialWarrantiesToDelete */
+        $invSerialWarrantiesToDelete = $this->getInvSerialWarranties(new Criteria(), $con)->diff($invSerialWarranties);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invSerialWarrantiesScheduledForDeletion = clone $invSerialWarrantiesToDelete;
+
+        foreach ($invSerialWarrantiesToDelete as $invSerialWarrantyRemoved) {
+            $invSerialWarrantyRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvSerialWarranties = null;
+        foreach ($invSerialWarranties as $invSerialWarranty) {
+            $this->addInvSerialWarranty($invSerialWarranty);
+        }
+
+        $this->collInvSerialWarranties = $invSerialWarranties;
+        $this->collInvSerialWarrantiesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvSerialWarranty objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvSerialWarranty objects.
+     * @throws PropelException
+     */
+    public function countInvSerialWarranties(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvSerialWarrantiesPartial && !$this->isNew();
+        if (null === $this->collInvSerialWarranties || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvSerialWarranties) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvSerialWarranties());
+            }
+
+            $query = ChildInvSerialWarrantyQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvSerialWarranties);
+    }
+
+    /**
+     * Method called to associate a ChildInvSerialWarranty object to this object
+     * through the ChildInvSerialWarranty foreign key attribute.
+     *
+     * @param  ChildInvSerialWarranty $l ChildInvSerialWarranty
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvSerialWarranty(ChildInvSerialWarranty $l)
+    {
+        if ($this->collInvSerialWarranties === null) {
+            $this->initInvSerialWarranties();
+            $this->collInvSerialWarrantiesPartial = true;
+        }
+
+        if (!$this->collInvSerialWarranties->contains($l)) {
+            $this->doAddInvSerialWarranty($l);
+
+            if ($this->invSerialWarrantiesScheduledForDeletion and $this->invSerialWarrantiesScheduledForDeletion->contains($l)) {
+                $this->invSerialWarrantiesScheduledForDeletion->remove($this->invSerialWarrantiesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvSerialWarranty $invSerialWarranty The ChildInvSerialWarranty object to add.
+     */
+    protected function doAddInvSerialWarranty(ChildInvSerialWarranty $invSerialWarranty)
+    {
+        $this->collInvSerialWarranties[]= $invSerialWarranty;
+        $invSerialWarranty->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvSerialWarranty $invSerialWarranty The ChildInvSerialWarranty object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvSerialWarranty(ChildInvSerialWarranty $invSerialWarranty)
+    {
+        if ($this->getInvSerialWarranties()->contains($invSerialWarranty)) {
+            $pos = $this->collInvSerialWarranties->search($invSerialWarranty);
+            $this->collInvSerialWarranties->remove($pos);
+            if (null === $this->invSerialWarrantiesScheduledForDeletion) {
+                $this->invSerialWarrantiesScheduledForDeletion = clone $this->collInvSerialWarranties;
+                $this->invSerialWarrantiesScheduledForDeletion->clear();
+            }
+            $this->invSerialWarrantiesScheduledForDeletion[]= clone $invSerialWarranty;
+            $invSerialWarranty->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvSerialWarranties from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
+     */
+    public function getInvSerialWarrantiesJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvSerialWarrantyQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvSerialWarranties($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvSerialWarranties from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvSerialWarranty[] List of ChildInvSerialWarranty objects
+     */
+    public function getInvSerialWarrantiesJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvSerialWarrantyQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getInvSerialWarranties($query, $con);
     }
 
     /**
@@ -15759,6 +16096,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvSerialWarranties) {
+                foreach ($this->collInvSerialWarranties as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collWarehouseInventories) {
                 foreach ($this->collWarehouseInventories as $o) {
                     $o->clearAllReferences($deep);
@@ -15883,6 +16225,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->singleInvKit = null;
         $this->collInvLotMasters = null;
         $this->collInvSerialMasters = null;
+        $this->collInvSerialWarranties = null;
         $this->collWarehouseInventories = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefCustomerNotes = null;
@@ -15931,7 +16274,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            return // parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -15943,7 +16286,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -15955,7 +16298,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            return // parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -15967,7 +16310,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -15979,7 +16322,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            return // parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -15991,7 +16334,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -16003,7 +16346,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            return // parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -16015,7 +16358,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 

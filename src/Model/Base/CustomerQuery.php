@@ -376,6 +376,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithCustomerShipto() Adds a RIGHT JOIN clause and with to the query using the CustomerShipto relation
  * @method     ChildCustomerQuery innerJoinWithCustomerShipto() Adds a INNER JOIN clause and with to the query using the CustomerShipto relation
  *
+ * @method     ChildCustomerQuery leftJoinInvSerialWarranty($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvSerialWarranty relation
+ * @method     ChildCustomerQuery rightJoinInvSerialWarranty($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvSerialWarranty relation
+ * @method     ChildCustomerQuery innerJoinInvSerialWarranty($relationAlias = null) Adds a INNER JOIN clause to the query using the InvSerialWarranty relation
+ *
+ * @method     ChildCustomerQuery joinWithInvSerialWarranty($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvSerialWarranty relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithInvSerialWarranty() Adds a LEFT JOIN clause and with to the query using the InvSerialWarranty relation
+ * @method     ChildCustomerQuery rightJoinWithInvSerialWarranty() Adds a RIGHT JOIN clause and with to the query using the InvSerialWarranty relation
+ * @method     ChildCustomerQuery innerJoinWithInvSerialWarranty() Adds a INNER JOIN clause and with to the query using the InvSerialWarranty relation
+ *
  * @method     ChildCustomerQuery leftJoinItemXrefCustomerNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefCustomerNote relation
  * @method     ChildCustomerQuery rightJoinItemXrefCustomerNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefCustomerNote relation
  * @method     ChildCustomerQuery innerJoinItemXrefCustomerNote($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefCustomerNote relation
@@ -446,7 +456,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\InvSerialWarrantyQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -6131,6 +6141,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinCustomerShipto($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'CustomerShipto', '\CustomerShiptoQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvSerialWarranty object
+     *
+     * @param \InvSerialWarranty|ObjectCollection $invSerialWarranty the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByInvSerialWarranty($invSerialWarranty, $comparison = null)
+    {
+        if ($invSerialWarranty instanceof \InvSerialWarranty) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $invSerialWarranty->getArcucustid(), $comparison);
+        } elseif ($invSerialWarranty instanceof ObjectCollection) {
+            return $this
+                ->useInvSerialWarrantyQuery()
+                ->filterByPrimaryKeys($invSerialWarranty->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvSerialWarranty() only accepts arguments of type \InvSerialWarranty or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvSerialWarranty relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinInvSerialWarranty($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvSerialWarranty');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvSerialWarranty');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvSerialWarranty relation InvSerialWarranty object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvSerialWarrantyQuery A secondary query class using the current class as primary query
+     */
+    public function useInvSerialWarrantyQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvSerialWarranty($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvSerialWarranty', '\InvSerialWarrantyQuery');
     }
 
     /**
