@@ -233,11 +233,11 @@ abstract class Customer implements ActiveRecordInterface
     protected $arspsaleper3;
 
     /**
-     * The value for the artbmtaxcode field.
+     * The value for the artbctaxcode field.
      *
      * @var        string
      */
-    protected $artbmtaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the arcutaxexemnbr field.
@@ -1628,13 +1628,13 @@ abstract class Customer implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbmtaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getArtbmtaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->artbmtaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -3138,24 +3138,24 @@ abstract class Customer implements ActiveRecordInterface
     } // setArspsaleper3()
 
     /**
-     * Set the value of [artbmtaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\Customer The current object (for fluent API support)
      */
-    public function setArtbmtaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->artbmtaxcode !== $v) {
-            $this->artbmtaxcode = $v;
-            $this->modifiedColumns[CustomerTableMap::COL_ARTBMTAXCODE] = true;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
+            $this->modifiedColumns[CustomerTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setArtbmtaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [arcutaxexemnbr] column.
@@ -5543,8 +5543,8 @@ abstract class Customer implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : CustomerTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerTableMap::translateFieldName('Arcutaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcutaxexemnbr = (null !== $col) ? (string) $col : null;
@@ -6422,8 +6422,8 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerTableMap::COL_ARSPSALEPER3)) {
             $modifiedColumns[':p' . $index++]  = 'ArspSalePer3';
         }
-        if ($this->isColumnModified(CustomerTableMap::COL_ARTBMTAXCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
+        if ($this->isColumnModified(CustomerTableMap::COL_ARTBCTAXCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
         if ($this->isColumnModified(CustomerTableMap::COL_ARCUTAXEXEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'ArcuTaxExemNbr';
@@ -6832,8 +6832,8 @@ abstract class Customer implements ActiveRecordInterface
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
                         break;
-                    case 'ArtbMtaxCode':
-                        $stmt->bindValue($identifier, $this->artbmtaxcode, PDO::PARAM_STR);
+                    case 'ArtbCtaxCode':
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'ArcuTaxExemNbr':
                         $stmt->bindValue($identifier, $this->arcutaxexemnbr, PDO::PARAM_STR);
@@ -7287,7 +7287,7 @@ abstract class Customer implements ActiveRecordInterface
                 return $this->getArspsaleper3();
                 break;
             case 18:
-                return $this->getArtbmtaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 19:
                 return $this->getArcutaxexemnbr();
@@ -7679,7 +7679,7 @@ abstract class Customer implements ActiveRecordInterface
             $keys[15] => $this->getArspsaleper1(),
             $keys[16] => $this->getArspsaleper2(),
             $keys[17] => $this->getArspsaleper3(),
-            $keys[18] => $this->getArtbmtaxcode(),
+            $keys[18] => $this->getArtbctaxcode(),
             $keys[19] => $this->getArcutaxexemnbr(),
             $keys[20] => $this->getIntbwhse(),
             $keys[21] => $this->getArcupriclvl(),
@@ -8130,7 +8130,7 @@ abstract class Customer implements ActiveRecordInterface
                 $this->setArspsaleper3($value);
                 break;
             case 18:
-                $this->setArtbmtaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 19:
                 $this->setArcutaxexemnbr($value);
@@ -8555,7 +8555,7 @@ abstract class Customer implements ActiveRecordInterface
             $this->setArspsaleper3($arr[$keys[17]]);
         }
         if (array_key_exists($keys[18], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[18]]);
+            $this->setArtbctaxcode($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
             $this->setArcutaxexemnbr($arr[$keys[19]]);
@@ -8994,8 +8994,8 @@ abstract class Customer implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerTableMap::COL_ARSPSALEPER3)) {
             $criteria->add(CustomerTableMap::COL_ARSPSALEPER3, $this->arspsaleper3);
         }
-        if ($this->isColumnModified(CustomerTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(CustomerTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(CustomerTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(CustomerTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(CustomerTableMap::COL_ARCUTAXEXEMNBR)) {
             $criteria->add(CustomerTableMap::COL_ARCUTAXEXEMNBR, $this->arcutaxexemnbr);
@@ -9443,7 +9443,7 @@ abstract class Customer implements ActiveRecordInterface
         $copyObj->setArspsaleper1($this->getArspsaleper1());
         $copyObj->setArspsaleper2($this->getArspsaleper2());
         $copyObj->setArspsaleper3($this->getArspsaleper3());
-        $copyObj->setArtbmtaxcode($this->getArtbmtaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setArcutaxexemnbr($this->getArcutaxexemnbr());
         $copyObj->setIntbwhse($this->getIntbwhse());
         $copyObj->setArcupriclvl($this->getArcupriclvl());
@@ -13000,7 +13000,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->arspsaleper1 = null;
         $this->arspsaleper2 = null;
         $this->arspsaleper3 = null;
-        $this->artbmtaxcode = null;
+        $this->artbctaxcode = null;
         $this->arcutaxexemnbr = null;
         $this->intbwhse = null;
         $this->arcupriclvl = null;

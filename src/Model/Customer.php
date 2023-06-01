@@ -69,7 +69,7 @@ class Customer extends BaseCustomer {
 		'allowFinancecharge' => 'arcufinchrg',
 		'additionaldiscount' => 'arcuaddlpricdisc',
 		// AR Codes
-		'taxcode'        => 'artbmtaxcode',
+		'taxcode'        => 'artbctaxcode',
 		'type'           => 'artbtypecode',
 		'typecode'       => 'artbtypecode',
 		'pricecode'      => 'artbpriccode',

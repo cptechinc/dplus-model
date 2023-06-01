@@ -895,7 +895,7 @@
     <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
     <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
     <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6"/>
     <column name="ArcuTaxExemNbr" phpName="Arcutaxexemnbr" type="VARCHAR" size="20"/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
     <column name="ArcuPricLvl" phpName="Arcupriclvl" type="VARCHAR" size="1"/>
