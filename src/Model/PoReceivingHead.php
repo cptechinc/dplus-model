@@ -19,12 +19,14 @@ class PoReceivingHead extends BasePoReceivingHead {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = [
-		'ponbr'              => 'pothnbr',
-		'status'             => 'pothstat',
-		'whseid'             => 'intbwhse',
-		'origwhseid'         => 'intbwhseorig',
-		'glperiod'           => 'pothglpd',
-		'countrycd'          => 'pothexctry',
-		'receiptnbr'         => 'pothRcptNbr'
+		'ponbr' 			 => 'pothnbr',
+		'status'			 => 'pothstat',
+		'whseid'			 => 'intbwhse',
+		'origwhseid'		 => 'intbwhseorig',
+		'glperiod'			 => 'pothglpd',
+		'countrycd' 		 => 'pothexctry',
+		'receiptnbr'		 => 'pothRcptNbr',
+		'receiptdate'        => 'pothrcptdate',
+		'receivedate'        => 'pothrcptdate',
 	];
 }
