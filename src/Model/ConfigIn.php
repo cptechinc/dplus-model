@@ -59,7 +59,7 @@ class ConfigIn extends BaseConfigIn {
 		'default_notes_quote'           => 'intbconfdefquot',
 		'default_notes_po'              => 'intbconfdefpo',
 		'default_notes_transfer'        => 'intbconfdeftrans',
-		'allowduplicateupc'               => 'intbcon2allowdupupc',
+		'allowduplicateupc'             => 'intbcon2allowdupupc',
 		'useUppercaseItemid'            => 'intbconfnbruppr',
 		'useUppercaseItemDesc'          => 'intbconfdescuppr',
 		'default_cycle'                 => 'intbConfCyclDef',

@@ -19,6 +19,7 @@ class QuoteNotes extends BaseQuoteNotes {
 	const KEY2_LINENBR_SIZE = 4;
 
 	const COLUMN_ALIASES = array(
+		'qnbr'            => 'qthdid',
 		'quotenbr'        => 'qthdid',
 		'quoteid'         => 'qthdid',
 		'quoteID'         => 'qthdid',

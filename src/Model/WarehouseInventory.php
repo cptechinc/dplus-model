@@ -49,6 +49,8 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'warehouseID'  => 'intbwhse',
 		'warehouseid'  => 'intbwhse',
 		'bin_default'  => 'inwhbin',
+		'defaultbinid' => 'inwhbin',
+		'shipbinid'    => 'inwhshipbin',
 		'status'       => 'inwhstat',
 		'orderpoint'   => 'inwhordrpnt',
 		'orderqty'     => 'inwhordrqty',
@@ -60,7 +62,9 @@ class WarehouseInventory extends BaseWarehouseInventory {
 		'codeabc'      => 'inwhabc',
 		'maxorderqty'  => 'inwhmaxordrqty',
 		'freightin'    => 'inwhfrtin',
-		'displayiilist' => 'inwhiisrchslct'
+		'displayiilist' => 'inwhiisrchslct',
+		'date'      => 'dateupdtd',
+		'time'      => 'timeupdtd',
 
 		// NOTE: Used for getting  via __call()
 	);

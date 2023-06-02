@@ -38,6 +38,25 @@ class ItemXrefUpc extends BaseItemXrefUpc {
 		'time'        => 'timeupdtd',
 	);
 
+	/** @var ItemMasterItem */
+	protected $aItem;
+
+	/**
+	 * Return ItemMasterItem associated with Order Item
+	 * @return ItemMasterItem
+	 */
+	public function getItem() {
+		if ($this->aItem instanceof ItemMasterItem) {
+			return $this->aItem;
+		}
+		if ($this->itemid == '') {
+			$this->aItem = new ItemMasterItem();
+			return $this->aItem;
+		}
+		$this->aItem = ItemMasterItemQuery::create()->findOneByitemid($this->itemid);
+		return $this->aItem;
+	}
+
 	/**
 	 * Returns if UPC is the primary UPC
 	 *

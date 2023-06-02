@@ -22,6 +22,7 @@ class UserLastPrintJob extends BaseUserLastPrintJob {
 		'printerid'    => 'usprprinter',
 		'labelid'      => 'usprlabel',
 		'label2id'     => 'usprlabel2',
+		'formatid'     => 'usprlabel',
 		'qty'          => 'usprlabelqty',
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd',

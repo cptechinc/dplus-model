@@ -36,6 +36,7 @@ class SalesHistory extends BaseSalesHistory {
 		'shipto_state'    => 'oehhststat',
 		'shipto_zip'      => 'oehhstzipcode',
 		'date_invoiced'   => 'oehhinvdate',
+		'invoicedate'     => 'oehhinvdate',
 		'contact'         => 'oehhcont',
 		'phone_intl'      => 'oehhcontteleintl',
 		'phone'           => 'oehhconttelenbr',

@@ -28,11 +28,13 @@ class PurchaseOrderDetailLotReceiving extends BasePurchaseOrderDetailLotReceivin
 		'qty_received' => 'potsqtyrec',
 		'qtyReceived'  => 'potsqtyrec',
 		'lotreference' => 'potslotref',
+		'lotserialref' => 'potslotref',
 		'lotref'       => 'potslotref',
 		'date_production' => 'potsexpiredate',
 		'productiondate'  => 'potsexpiredate',
 		'sequence'        => 'potdseq',
 		'lotdate'         => 'potsexpiredate',
+		'datecode'        => 'potsexpiredatecd',
 
 		// FK
 		'item'            => 'itmItem',
