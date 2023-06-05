@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \Contact;
-use \ContactQuery;
+use \ArContact;
+use \ArContactQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class ContactTableMap extends TableMap
+class ArContactTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class ContactTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.ContactTableMap';
+    const CLASS_NAME = '.Map.ArContactTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class ContactTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\Contact';
+    const OM_CLASS = '\\ArContact';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'Contact';
+    const CLASS_DEFAULT = 'ArContact';
 
     /**
      * The total number of columns
@@ -145,7 +145,7 @@ class ContactTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Arcucustid', 'Arstshipid', 'Arcpcontid', 'Arcptitl', 'Arcparcont', 'Arcpduncont', 'Arcpbuycont', 'Arcpacknow', 'Arcpcertcont', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('arcucustid', 'arstshipid', 'arcpcontid', 'arcptitl', 'arcparcont', 'arcpduncont', 'arcpbuycont', 'arcpacknow', 'arcpcertcont', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(ContactTableMap::COL_ARCUCUSTID, ContactTableMap::COL_ARSTSHIPID, ContactTableMap::COL_ARCPCONTID, ContactTableMap::COL_ARCPTITL, ContactTableMap::COL_ARCPARCONT, ContactTableMap::COL_ARCPDUNCONT, ContactTableMap::COL_ARCPBUYCONT, ContactTableMap::COL_ARCPACKNOW, ContactTableMap::COL_ARCPCERTCONT, ContactTableMap::COL_DATEUPDTD, ContactTableMap::COL_TIMEUPDTD, ContactTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(ArContactTableMap::COL_ARCUCUSTID, ArContactTableMap::COL_ARSTSHIPID, ArContactTableMap::COL_ARCPCONTID, ArContactTableMap::COL_ARCPTITL, ArContactTableMap::COL_ARCPARCONT, ArContactTableMap::COL_ARCPDUNCONT, ArContactTableMap::COL_ARCPBUYCONT, ArContactTableMap::COL_ARCPACKNOW, ArContactTableMap::COL_ARCPCERTCONT, ArContactTableMap::COL_DATEUPDTD, ArContactTableMap::COL_TIMEUPDTD, ArContactTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId', 'ArstShipId', 'ArcpContId', 'ArcpTitl', 'ArcpArCont', 'ArcpDunCont', 'ArcpBuyCont', 'ArcpAcknow', 'ArcpCertCont', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -159,7 +159,7 @@ class ContactTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Arcucustid' => 0, 'Arstshipid' => 1, 'Arcpcontid' => 2, 'Arcptitl' => 3, 'Arcparcont' => 4, 'Arcpduncont' => 5, 'Arcpbuycont' => 6, 'Arcpacknow' => 7, 'Arcpcertcont' => 8, 'Dateupdtd' => 9, 'Timeupdtd' => 10, 'Dummy' => 11, ),
         self::TYPE_CAMELNAME     => array('arcucustid' => 0, 'arstshipid' => 1, 'arcpcontid' => 2, 'arcptitl' => 3, 'arcparcont' => 4, 'arcpduncont' => 5, 'arcpbuycont' => 6, 'arcpacknow' => 7, 'arcpcertcont' => 8, 'dateupdtd' => 9, 'timeupdtd' => 10, 'dummy' => 11, ),
-        self::TYPE_COLNAME       => array(ContactTableMap::COL_ARCUCUSTID => 0, ContactTableMap::COL_ARSTSHIPID => 1, ContactTableMap::COL_ARCPCONTID => 2, ContactTableMap::COL_ARCPTITL => 3, ContactTableMap::COL_ARCPARCONT => 4, ContactTableMap::COL_ARCPDUNCONT => 5, ContactTableMap::COL_ARCPBUYCONT => 6, ContactTableMap::COL_ARCPACKNOW => 7, ContactTableMap::COL_ARCPCERTCONT => 8, ContactTableMap::COL_DATEUPDTD => 9, ContactTableMap::COL_TIMEUPDTD => 10, ContactTableMap::COL_DUMMY => 11, ),
+        self::TYPE_COLNAME       => array(ArContactTableMap::COL_ARCUCUSTID => 0, ArContactTableMap::COL_ARSTSHIPID => 1, ArContactTableMap::COL_ARCPCONTID => 2, ArContactTableMap::COL_ARCPTITL => 3, ArContactTableMap::COL_ARCPARCONT => 4, ArContactTableMap::COL_ARCPDUNCONT => 5, ArContactTableMap::COL_ARCPBUYCONT => 6, ArContactTableMap::COL_ARCPACKNOW => 7, ArContactTableMap::COL_ARCPCERTCONT => 8, ArContactTableMap::COL_DATEUPDTD => 9, ArContactTableMap::COL_TIMEUPDTD => 10, ArContactTableMap::COL_DUMMY => 11, ),
         self::TYPE_FIELDNAME     => array('ArcuCustId' => 0, 'ArstShipId' => 1, 'ArcpContId' => 2, 'ArcpTitl' => 3, 'ArcpArCont' => 4, 'ArcpDunCont' => 5, 'ArcpBuyCont' => 6, 'ArcpAcknow' => 7, 'ArcpCertCont' => 8, 'DateUpdtd' => 9, 'TimeUpdtd' => 10, 'dummy' => 11, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, )
     );
@@ -175,14 +175,15 @@ class ContactTableMap extends TableMap
     {
         // attributes
         $this->setName('ar_cont_mast');
-        $this->setPhpName('Contact');
+        $this->setPhpName('ArContact');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\Contact');
+        $this->setClassName('\\ArContact');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR', true, 6, null);
-        $this->addPrimaryKey('ArstShipId', 'Arstshipid', 'VARCHAR', true, 6, '');
+        $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_cust_mast', 'ArcuCustId', true, 6, null);
+        $this->addForeignPrimaryKey('ArcuCustId', 'Arcucustid', 'VARCHAR' , 'ar_ship_to', 'ArcuCustId', true, 6, null);
+        $this->addForeignPrimaryKey('ArstShipId', 'Arstshipid', 'VARCHAR' , 'ar_ship_to', 'ArstShipId', true, 6, '');
         $this->addPrimaryKey('ArcpContId', 'Arcpcontid', 'VARCHAR', true, 20, '');
         $this->addColumn('ArcpTitl', 'Arcptitl', 'VARCHAR', false, 20, null);
         $this->addColumn('ArcpArCont', 'Arcparcont', 'VARCHAR', false, 1, null);
@@ -200,6 +201,25 @@ class ContactTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, null, false);
+        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
@@ -210,7 +230,7 @@ class ContactTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \Contact $obj A \Contact object.
+     * @param \ArContact $obj A \ArContact object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -231,12 +251,12 @@ class ContactTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \Contact object or a primary key value.
+     * @param mixed $value A \ArContact object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \Contact) {
+            if (is_object($value) && $value instanceof \ArContact) {
                 $key = serialize([(null === $value->getArcucustid() || is_scalar($value->getArcucustid()) || is_callable([$value->getArcucustid(), '__toString']) ? (string) $value->getArcucustid() : $value->getArcucustid()), (null === $value->getArstshipid() || is_scalar($value->getArstshipid()) || is_callable([$value->getArstshipid(), '__toString']) ? (string) $value->getArstshipid() : $value->getArstshipid()), (null === $value->getArcpcontid() || is_scalar($value->getArcpcontid()) || is_callable([$value->getArcpcontid(), '__toString']) ? (string) $value->getArcpcontid() : $value->getArcpcontid())]);
 
             } elseif (is_array($value) && count($value) === 3) {
@@ -247,7 +267,7 @@ class ContactTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \Contact object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \ArContact object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -326,7 +346,7 @@ class ContactTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? ContactTableMap::CLASS_DEFAULT : ContactTableMap::OM_CLASS;
+        return $withPrefix ? ArContactTableMap::CLASS_DEFAULT : ArContactTableMap::OM_CLASS;
     }
 
     /**
@@ -340,22 +360,22 @@ class ContactTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (Contact object, last column rank)
+     * @return array           (ArContact object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = ContactTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = ContactTableMap::getInstanceFromPool($key))) {
+        $key = ArContactTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = ArContactTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + ContactTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + ArContactTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = ContactTableMap::OM_CLASS;
-            /** @var Contact $obj */
+            $cls = ArContactTableMap::OM_CLASS;
+            /** @var ArContact $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            ContactTableMap::addInstanceToPool($obj, $key);
+            ArContactTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -378,18 +398,18 @@ class ContactTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = ContactTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = ContactTableMap::getInstanceFromPool($key))) {
+            $key = ArContactTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = ArContactTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var Contact $obj */
+                /** @var ArContact $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                ContactTableMap::addInstanceToPool($obj, $key);
+                ArContactTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -410,18 +430,18 @@ class ContactTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCUCUSTID);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARSTSHIPID);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPCONTID);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPTITL);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPARCONT);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPDUNCONT);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPBUYCONT);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPACKNOW);
-            $criteria->addSelectColumn(ContactTableMap::COL_ARCPCERTCONT);
-            $criteria->addSelectColumn(ContactTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(ContactTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(ContactTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCUCUSTID);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARSTSHIPID);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPCONTID);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPTITL);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPARCONT);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPDUNCONT);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPBUYCONT);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPACKNOW);
+            $criteria->addSelectColumn(ArContactTableMap::COL_ARCPCERTCONT);
+            $criteria->addSelectColumn(ArContactTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(ArContactTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(ArContactTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.ArcuCustId');
             $criteria->addSelectColumn($alias . '.ArstShipId');
@@ -447,7 +467,7 @@ class ContactTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(ContactTableMap::DATABASE_NAME)->getTable(ContactTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(ArContactTableMap::DATABASE_NAME)->getTable(ArContactTableMap::TABLE_NAME);
     }
 
     /**
@@ -455,16 +475,16 @@ class ContactTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ContactTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(ContactTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new ContactTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(ArContactTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(ArContactTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new ArContactTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a Contact or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a ArContact or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or Contact object or primary key or array of primary keys
+     * @param mixed               $values Criteria or ArContact object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -475,17 +495,17 @@ class ContactTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ContactTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArContactTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \Contact) { // it's a model object
+        } elseif ($values instanceof \ArContact) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(ContactTableMap::DATABASE_NAME);
+            $criteria = new Criteria(ArContactTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -493,20 +513,20 @@ class ContactTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(ContactTableMap::COL_ARCUCUSTID, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(ContactTableMap::COL_ARSTSHIPID, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(ContactTableMap::COL_ARCPCONTID, $value[2]));
+                $criterion = $criteria->getNewCriterion(ArContactTableMap::COL_ARCUCUSTID, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(ArContactTableMap::COL_ARSTSHIPID, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(ArContactTableMap::COL_ARCPCONTID, $value[2]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = ContactQuery::create()->mergeWith($criteria);
+        $query = ArContactQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            ContactTableMap::clearInstancePool();
+            ArContactTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                ContactTableMap::removeInstanceFromPool($singleval);
+                ArContactTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -521,13 +541,13 @@ class ContactTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return ContactQuery::create()->doDeleteAll($con);
+        return ArContactQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a Contact or Criteria object.
+     * Performs an INSERT on the database, given a ArContact or Criteria object.
      *
-     * @param mixed               $criteria Criteria or Contact object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or ArContact object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -536,18 +556,18 @@ class ContactTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(ContactTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(ArContactTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from Contact object
+            $criteria = $criteria->buildCriteria(); // build Criteria from ArContact object
         }
 
 
         // Set the correct dbName
-        $query = ContactQuery::create()->mergeWith($criteria);
+        $query = ArContactQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -556,7 +576,7 @@ class ContactTableMap extends TableMap
         });
     }
 
-} // ContactTableMap
+} // ArContactTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-ContactTableMap::buildTableMap();
+ArContactTableMap::buildTableMap();

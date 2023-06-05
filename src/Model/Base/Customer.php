@@ -6,6 +6,8 @@ use \ArCashHead as ChildArCashHead;
 use \ArCashHeadQuery as ChildArCashHeadQuery;
 use \ArCommissionCode as ChildArCommissionCode;
 use \ArCommissionCodeQuery as ChildArCommissionCodeQuery;
+use \ArContact as ChildArContact;
+use \ArContactQuery as ChildArContactQuery;
 use \ArCust3partyFreight as ChildArCust3partyFreight;
 use \ArCust3partyFreightQuery as ChildArCust3partyFreightQuery;
 use \ArInvoice as ChildArInvoice;
@@ -38,6 +40,7 @@ use \SoFreightRate as ChildSoFreightRate;
 use \SoFreightRateQuery as ChildSoFreightRateQuery;
 use \Exception;
 use \PDO;
+use Map\ArContactTableMap;
 use Map\ArCust3partyFreightTableMap;
 use Map\ArInvoiceTableMap;
 use Map\ArPaymentPendingTableMap;
@@ -1070,6 +1073,12 @@ abstract class Customer implements ActiveRecordInterface
     protected $singleArCashHead;
 
     /**
+     * @var        ObjectCollection|ChildArContact[] Collection to store aggregation of ChildArContact objects.
+     */
+    protected $collArContacts;
+    protected $collArContactsPartial;
+
+    /**
      * @var        ObjectCollection|ChildArInvoice[] Collection to store aggregation of ChildArInvoice objects.
      */
     protected $collArInvoices;
@@ -1148,6 +1157,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var ObjectCollection|ChildArPaymentPending[]
      */
     protected $arPaymentPendingsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildArContact[]
+     */
+    protected $arContactsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -5974,6 +5989,8 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->singleArCashHead = null;
 
+            $this->collArContacts = null;
+
             $this->collArInvoices = null;
 
             $this->collCustomerShiptos = null;
@@ -6171,6 +6188,23 @@ abstract class Customer implements ActiveRecordInterface
             if ($this->singleArCashHead !== null) {
                 if (!$this->singleArCashHead->isDeleted() && ($this->singleArCashHead->isNew() || $this->singleArCashHead->isModified())) {
                     $affectedRows += $this->singleArCashHead->save($con);
+                }
+            }
+
+            if ($this->arContactsScheduledForDeletion !== null) {
+                if (!$this->arContactsScheduledForDeletion->isEmpty()) {
+                    \ArContactQuery::create()
+                        ->filterByPrimaryKeys($this->arContactsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->arContactsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collArContacts !== null) {
+                foreach ($this->collArContacts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
                 }
             }
 
@@ -7891,6 +7925,21 @@ abstract class Customer implements ActiveRecordInterface
 
                 $result[$key] = $this->singleArCashHead->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
             }
+            if (null !== $this->collArContacts) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'arContacts';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cont_masts';
+                        break;
+                    default:
+                        $key = 'ArContacts';
+                }
+
+                $result[$key] = $this->collArContacts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collArInvoices) {
 
                 switch ($keyType) {
@@ -9581,6 +9630,12 @@ abstract class Customer implements ActiveRecordInterface
                 $copyObj->setArCashHead($relObj->copy($deepCopy));
             }
 
+            foreach ($this->getArContacts() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addArContact($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getArInvoices() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addArInvoice($relObj->copy($deepCopy));
@@ -9840,6 +9895,10 @@ abstract class Customer implements ActiveRecordInterface
         }
         if ('ArPaymentPending' == $relationName) {
             $this->initArPaymentPendings();
+            return;
+        }
+        if ('ArContact' == $relationName) {
+            $this->initArContacts();
             return;
         }
         if ('ArInvoice' == $relationName) {
@@ -10399,6 +10458,259 @@ abstract class Customer implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+    /**
+     * Clears out the collArContacts collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addArContacts()
+     */
+    public function clearArContacts()
+    {
+        $this->collArContacts = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collArContacts collection loaded partially.
+     */
+    public function resetPartialArContacts($v = true)
+    {
+        $this->collArContactsPartial = $v;
+    }
+
+    /**
+     * Initializes the collArContacts collection.
+     *
+     * By default this just sets the collArContacts collection to an empty array (like clearcollArContacts());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initArContacts($overrideExisting = true)
+    {
+        if (null !== $this->collArContacts && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ArContactTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collArContacts = new $collectionClassName;
+        $this->collArContacts->setModel('\ArContact');
+    }
+
+    /**
+     * Gets an array of ChildArContact objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildArContact[] List of ChildArContact objects
+     * @throws PropelException
+     */
+    public function getArContacts(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArContactsPartial && !$this->isNew();
+        if (null === $this->collArContacts || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collArContacts) {
+                // return empty collection
+                $this->initArContacts();
+            } else {
+                $collArContacts = ChildArContactQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collArContactsPartial && count($collArContacts)) {
+                        $this->initArContacts(false);
+
+                        foreach ($collArContacts as $obj) {
+                            if (false == $this->collArContacts->contains($obj)) {
+                                $this->collArContacts->append($obj);
+                            }
+                        }
+
+                        $this->collArContactsPartial = true;
+                    }
+
+                    return $collArContacts;
+                }
+
+                if ($partial && $this->collArContacts) {
+                    foreach ($this->collArContacts as $obj) {
+                        if ($obj->isNew()) {
+                            $collArContacts[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collArContacts = $collArContacts;
+                $this->collArContactsPartial = false;
+            }
+        }
+
+        return $this->collArContacts;
+    }
+
+    /**
+     * Sets a collection of ChildArContact objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $arContacts A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setArContacts(Collection $arContacts, ConnectionInterface $con = null)
+    {
+        /** @var ChildArContact[] $arContactsToDelete */
+        $arContactsToDelete = $this->getArContacts(new Criteria(), $con)->diff($arContacts);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->arContactsScheduledForDeletion = clone $arContactsToDelete;
+
+        foreach ($arContactsToDelete as $arContactRemoved) {
+            $arContactRemoved->setCustomer(null);
+        }
+
+        $this->collArContacts = null;
+        foreach ($arContacts as $arContact) {
+            $this->addArContact($arContact);
+        }
+
+        $this->collArContacts = $arContacts;
+        $this->collArContactsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ArContact objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ArContact objects.
+     * @throws PropelException
+     */
+    public function countArContacts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collArContactsPartial && !$this->isNew();
+        if (null === $this->collArContacts || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collArContacts) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getArContacts());
+            }
+
+            $query = ChildArContactQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collArContacts);
+    }
+
+    /**
+     * Method called to associate a ChildArContact object to this object
+     * through the ChildArContact foreign key attribute.
+     *
+     * @param  ChildArContact $l ChildArContact
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addArContact(ChildArContact $l)
+    {
+        if ($this->collArContacts === null) {
+            $this->initArContacts();
+            $this->collArContactsPartial = true;
+        }
+
+        if (!$this->collArContacts->contains($l)) {
+            $this->doAddArContact($l);
+
+            if ($this->arContactsScheduledForDeletion and $this->arContactsScheduledForDeletion->contains($l)) {
+                $this->arContactsScheduledForDeletion->remove($this->arContactsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildArContact $arContact The ChildArContact object to add.
+     */
+    protected function doAddArContact(ChildArContact $arContact)
+    {
+        $this->collArContacts[]= $arContact;
+        $arContact->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildArContact $arContact The ChildArContact object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeArContact(ChildArContact $arContact)
+    {
+        if ($this->getArContacts()->contains($arContact)) {
+            $pos = $this->collArContacts->search($arContact);
+            $this->collArContacts->remove($pos);
+            if (null === $this->arContactsScheduledForDeletion) {
+                $this->arContactsScheduledForDeletion = clone $this->collArContacts;
+                $this->arContactsScheduledForDeletion->clear();
+            }
+            $this->arContactsScheduledForDeletion[]= clone $arContact;
+            $arContact->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related ArContacts from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildArContact[] List of ChildArContact objects
+     */
+    public function getArContactsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildArContactQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getArContacts($query, $con);
     }
 
     /**
@@ -13147,6 +13459,11 @@ abstract class Customer implements ActiveRecordInterface
             if ($this->singleArCashHead) {
                 $this->singleArCashHead->clearAllReferences($deep);
             }
+            if ($this->collArContacts) {
+                foreach ($this->collArContacts as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collArInvoices) {
                 foreach ($this->collArInvoices as $o) {
                     $o->clearAllReferences($deep);
@@ -13202,6 +13519,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collArCust3partyFreights = null;
         $this->collArPaymentPendings = null;
         $this->singleArCashHead = null;
+        $this->collArContacts = null;
         $this->collArInvoices = null;
         $this->collCustomerShiptos = null;
         $this->collInvSerialWarranties = null;

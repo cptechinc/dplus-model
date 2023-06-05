@@ -968,6 +968,13 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, null, false);
+        $this->addRelation('ArContact', '\\ArContact', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ArContacts', false);
         $this->addRelation('ArInvoice', '\\ArInvoice', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

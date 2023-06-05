@@ -240,25 +240,45 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithCustomer() Adds a RIGHT JOIN clause and with to the query using the Customer relation
  * @method     ChildCustomerShiptoQuery innerJoinWithCustomer() Adds a INNER JOIN clause and with to the query using the Customer relation
  *
- * @method     ChildCustomerShiptoQuery leftJoinCstkItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkItem relation
- * @method     ChildCustomerShiptoQuery rightJoinCstkItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkItem relation
- * @method     ChildCustomerShiptoQuery innerJoinCstkItem($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkItem relation
+ * @method     ChildCustomerShiptoQuery leftJoinArContact($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArContact relation
+ * @method     ChildCustomerShiptoQuery rightJoinArContact($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArContact relation
+ * @method     ChildCustomerShiptoQuery innerJoinArContact($relationAlias = null) Adds a INNER JOIN clause to the query using the ArContact relation
  *
- * @method     ChildCustomerShiptoQuery joinWithCstkItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkItem relation
+ * @method     ChildCustomerShiptoQuery joinWithArContact($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArContact relation
  *
- * @method     ChildCustomerShiptoQuery leftJoinWithCstkItem() Adds a LEFT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildCustomerShiptoQuery rightJoinWithCstkItem() Adds a RIGHT JOIN clause and with to the query using the CstkItem relation
- * @method     ChildCustomerShiptoQuery innerJoinWithCstkItem() Adds a INNER JOIN clause and with to the query using the CstkItem relation
+ * @method     ChildCustomerShiptoQuery leftJoinWithArContact() Adds a LEFT JOIN clause and with to the query using the ArContact relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithArContact() Adds a RIGHT JOIN clause and with to the query using the ArContact relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithArContact() Adds a INNER JOIN clause and with to the query using the ArContact relation
  *
- * @method     ChildCustomerShiptoQuery leftJoinCstkHead($relationAlias = null) Adds a LEFT JOIN clause to the query using the CstkHead relation
- * @method     ChildCustomerShiptoQuery rightJoinCstkHead($relationAlias = null) Adds a RIGHT JOIN clause to the query using the CstkHead relation
- * @method     ChildCustomerShiptoQuery innerJoinCstkHead($relationAlias = null) Adds a INNER JOIN clause to the query using the CstkHead relation
+ * @method     ChildCustomerShiptoQuery leftJoinBookingDayCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDayCustomer relation
+ * @method     ChildCustomerShiptoQuery rightJoinBookingDayCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDayCustomer relation
+ * @method     ChildCustomerShiptoQuery innerJoinBookingDayCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDayCustomer relation
  *
- * @method     ChildCustomerShiptoQuery joinWithCstkHead($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the CstkHead relation
+ * @method     ChildCustomerShiptoQuery joinWithBookingDayCustomer($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the BookingDayCustomer relation
  *
- * @method     ChildCustomerShiptoQuery leftJoinWithCstkHead() Adds a LEFT JOIN clause and with to the query using the CstkHead relation
- * @method     ChildCustomerShiptoQuery rightJoinWithCstkHead() Adds a RIGHT JOIN clause and with to the query using the CstkHead relation
- * @method     ChildCustomerShiptoQuery innerJoinWithCstkHead() Adds a INNER JOIN clause and with to the query using the CstkHead relation
+ * @method     ChildCustomerShiptoQuery leftJoinWithBookingDayCustomer() Adds a LEFT JOIN clause and with to the query using the BookingDayCustomer relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithBookingDayCustomer() Adds a RIGHT JOIN clause and with to the query using the BookingDayCustomer relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithBookingDayCustomer() Adds a INNER JOIN clause and with to the query using the BookingDayCustomer relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinBookingDayDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDayDetail relation
+ * @method     ChildCustomerShiptoQuery rightJoinBookingDayDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDayDetail relation
+ * @method     ChildCustomerShiptoQuery innerJoinBookingDayDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDayDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithBookingDayDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the BookingDayDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithBookingDayDetail() Adds a LEFT JOIN clause and with to the query using the BookingDayDetail relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithBookingDayDetail() Adds a RIGHT JOIN clause and with to the query using the BookingDayDetail relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithBookingDayDetail() Adds a INNER JOIN clause and with to the query using the BookingDayDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinBooking($relationAlias = null) Adds a LEFT JOIN clause to the query using the Booking relation
+ * @method     ChildCustomerShiptoQuery rightJoinBooking($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Booking relation
+ * @method     ChildCustomerShiptoQuery innerJoinBooking($relationAlias = null) Adds a INNER JOIN clause to the query using the Booking relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithBooking($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Booking relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithBooking() Adds a LEFT JOIN clause and with to the query using the Booking relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithBooking() Adds a RIGHT JOIN clause and with to the query using the Booking relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithBooking() Adds a INNER JOIN clause and with to the query using the Booking relation
  *
  * @method     ChildCustomerShiptoQuery leftJoinSalesHistory($relationAlias = null) Adds a LEFT JOIN clause to the query using the SalesHistory relation
  * @method     ChildCustomerShiptoQuery rightJoinSalesHistory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SalesHistory relation
@@ -280,7 +300,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
  * @method     ChildCustomerShiptoQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
  *
- * @method     \CustomerQuery|\CstkItemQuery|\CstkHeadQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerQuery|\ArContactQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
  * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
@@ -4265,36 +4285,36 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query by a related \CstkItem object
+     * Filter the query by a related \ArContact object
      *
-     * @param \CstkItem|ObjectCollection $cstkItem the related object to use as filter
+     * @param \ArContact|ObjectCollection $arContact the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function filterByCstkItem($cstkItem, $comparison = null)
+    public function filterByArContact($arContact, $comparison = null)
     {
-        if ($cstkItem instanceof \CstkItem) {
+        if ($arContact instanceof \ArContact) {
             return $this
-                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $cstkItem->getArcucustid(), $comparison)
-                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $cstkItem->getArstshipid(), $comparison);
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $arContact->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $arContact->getArstshipid(), $comparison);
         } else {
-            throw new PropelException('filterByCstkItem() only accepts arguments of type \CstkItem');
+            throw new PropelException('filterByArContact() only accepts arguments of type \ArContact');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the CstkItem relation
+     * Adds a JOIN clause to the query using the ArContact relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function joinCstkItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinArContact($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('CstkItem');
+        $relationMap = $tableMap->getRelation('ArContact');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -4309,14 +4329,14 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'CstkItem');
+            $this->addJoinObject($join, 'ArContact');
         }
 
         return $this;
     }
 
     /**
-     * Use the CstkItem relation CstkItem object
+     * Use the ArContact relation ArContact object
      *
      * @see useQuery()
      *
@@ -4324,46 +4344,46 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \CstkItemQuery A secondary query class using the current class as primary query
+     * @return \ArContactQuery A secondary query class using the current class as primary query
      */
-    public function useCstkItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useArContactQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinCstkItem($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkItem', '\CstkItemQuery');
+            ->joinArContact($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArContact', '\ArContactQuery');
     }
 
     /**
-     * Filter the query by a related \CstkHead object
+     * Filter the query by a related \BookingDayCustomer object
      *
-     * @param \CstkHead|ObjectCollection $cstkHead the related object to use as filter
+     * @param \BookingDayCustomer|ObjectCollection $bookingDayCustomer the related object to use as filter
      * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function filterByCstkHead($cstkHead, $comparison = null)
+    public function filterByBookingDayCustomer($bookingDayCustomer, $comparison = null)
     {
-        if ($cstkHead instanceof \CstkHead) {
+        if ($bookingDayCustomer instanceof \BookingDayCustomer) {
             return $this
-                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $cstkHead->getArcucustid(), $comparison)
-                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $cstkHead->getArstshipid(), $comparison);
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $bookingDayCustomer->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $bookingDayCustomer->getArstshipid(), $comparison);
         } else {
-            throw new PropelException('filterByCstkHead() only accepts arguments of type \CstkHead');
+            throw new PropelException('filterByBookingDayCustomer() only accepts arguments of type \BookingDayCustomer');
         }
     }
 
     /**
-     * Adds a JOIN clause to the query using the CstkHead relation
+     * Adds a JOIN clause to the query using the BookingDayCustomer relation
      *
      * @param     string $relationAlias optional alias for the relation
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function joinCstkHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function joinBookingDayCustomer($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
-        $relationMap = $tableMap->getRelation('CstkHead');
+        $relationMap = $tableMap->getRelation('BookingDayCustomer');
 
         // create a ModelJoin object for this join
         $join = new ModelJoin();
@@ -4378,14 +4398,14 @@ abstract class CustomerShiptoQuery extends ModelCriteria
             $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
             $this->addJoinObject($join, $relationAlias);
         } else {
-            $this->addJoinObject($join, 'CstkHead');
+            $this->addJoinObject($join, 'BookingDayCustomer');
         }
 
         return $this;
     }
 
     /**
-     * Use the CstkHead relation CstkHead object
+     * Use the BookingDayCustomer relation BookingDayCustomer object
      *
      * @see useQuery()
      *
@@ -4393,13 +4413,151 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *                                   to be used as main alias in the secondary query
      * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
      *
-     * @return \CstkHeadQuery A secondary query class using the current class as primary query
+     * @return \BookingDayCustomerQuery A secondary query class using the current class as primary query
      */
-    public function useCstkHeadQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    public function useBookingDayCustomerQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
-            ->joinCstkHead($relationAlias, $joinType)
-            ->useQuery($relationAlias ? $relationAlias : 'CstkHead', '\CstkHeadQuery');
+            ->joinBookingDayCustomer($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'BookingDayCustomer', '\BookingDayCustomerQuery');
+    }
+
+    /**
+     * Filter the query by a related \BookingDayDetail object
+     *
+     * @param \BookingDayDetail|ObjectCollection $bookingDayDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByBookingDayDetail($bookingDayDetail, $comparison = null)
+    {
+        if ($bookingDayDetail instanceof \BookingDayDetail) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $bookingDayDetail->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $bookingDayDetail->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByBookingDayDetail() only accepts arguments of type \BookingDayDetail');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the BookingDayDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinBookingDayDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('BookingDayDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'BookingDayDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the BookingDayDetail relation BookingDayDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \BookingDayDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useBookingDayDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinBookingDayDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'BookingDayDetail', '\BookingDayDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \Booking object
+     *
+     * @param \Booking|ObjectCollection $booking the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByBooking($booking, $comparison = null)
+    {
+        if ($booking instanceof \Booking) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $booking->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $booking->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByBooking() only accepts arguments of type \Booking');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Booking relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinBooking($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Booking');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Booking');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Booking relation Booking object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \BookingQuery A secondary query class using the current class as primary query
+     */
+    public function useBookingQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinBooking($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Booking', '\BookingQuery');
     }
 
     /**
@@ -4429,7 +4587,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesHistory($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesHistory');
@@ -4464,7 +4622,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return \SalesHistoryQuery A secondary query class using the current class as primary query
      */
-    public function useSalesHistoryQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSalesHistoryQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinSalesHistory($relationAlias, $joinType)
@@ -4498,7 +4656,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function joinSalesOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         $tableMap = $this->getTableMap();
         $relationMap = $tableMap->getRelation('SalesOrder');
@@ -4533,7 +4691,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      *
      * @return \SalesOrderQuery A secondary query class using the current class as primary query
      */
-    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    public function useSalesOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
     {
         return $this
             ->joinSalesOrder($relationAlias, $joinType)

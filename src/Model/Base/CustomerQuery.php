@@ -38,7 +38,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
  * @method     ChildCustomerQuery orderByArspsaleper2($order = Criteria::ASC) Order by the ArspSalePer2 column
  * @method     ChildCustomerQuery orderByArspsaleper3($order = Criteria::ASC) Order by the ArspSalePer3 column
- * @method     ChildCustomerQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
+ * @method     ChildCustomerQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildCustomerQuery orderByArcutaxexemnbr($order = Criteria::ASC) Order by the ArcuTaxExemNbr column
  * @method     ChildCustomerQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
  * @method     ChildCustomerQuery orderByArcupriclvl($order = Criteria::ASC) Order by the ArcuPricLvl column
@@ -172,7 +172,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery groupByArspsaleper1() Group by the ArspSalePer1 column
  * @method     ChildCustomerQuery groupByArspsaleper2() Group by the ArspSalePer2 column
  * @method     ChildCustomerQuery groupByArspsaleper3() Group by the ArspSalePer3 column
- * @method     ChildCustomerQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
+ * @method     ChildCustomerQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildCustomerQuery groupByArcutaxexemnbr() Group by the ArcuTaxExemNbr column
  * @method     ChildCustomerQuery groupByIntbwhse() Group by the IntbWhse column
  * @method     ChildCustomerQuery groupByArcupriclvl() Group by the ArcuPricLvl column
@@ -356,6 +356,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithArCashHead() Adds a RIGHT JOIN clause and with to the query using the ArCashHead relation
  * @method     ChildCustomerQuery innerJoinWithArCashHead() Adds a INNER JOIN clause and with to the query using the ArCashHead relation
  *
+ * @method     ChildCustomerQuery leftJoinArContact($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArContact relation
+ * @method     ChildCustomerQuery rightJoinArContact($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArContact relation
+ * @method     ChildCustomerQuery innerJoinArContact($relationAlias = null) Adds a INNER JOIN clause to the query using the ArContact relation
+ *
+ * @method     ChildCustomerQuery joinWithArContact($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ArContact relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithArContact() Adds a LEFT JOIN clause and with to the query using the ArContact relation
+ * @method     ChildCustomerQuery rightJoinWithArContact() Adds a RIGHT JOIN clause and with to the query using the ArContact relation
+ * @method     ChildCustomerQuery innerJoinWithArContact() Adds a INNER JOIN clause and with to the query using the ArContact relation
+ *
  * @method     ChildCustomerQuery leftJoinArInvoice($relationAlias = null) Adds a LEFT JOIN clause to the query using the ArInvoice relation
  * @method     ChildCustomerQuery rightJoinArInvoice($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ArInvoice relation
  * @method     ChildCustomerQuery innerJoinArInvoice($relationAlias = null) Adds a INNER JOIN clause to the query using the ArInvoice relation
@@ -456,7 +466,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithItemPricingDiscount() Adds a RIGHT JOIN clause and with to the query using the ItemPricingDiscount relation
  * @method     ChildCustomerQuery innerJoinWithItemPricingDiscount() Adds a INNER JOIN clause and with to the query using the ItemPricingDiscount relation
  *
- * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\InvSerialWarrantyQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArContactQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\InvSerialWarrantyQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -479,7 +489,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomer filtered by the ArspSalePer1 column
  * @method     ChildCustomer findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomer filtered by the ArspSalePer2 column
  * @method     ChildCustomer findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomer filtered by the ArspSalePer3 column
- * @method     ChildCustomer findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomer filtered by the ArtbMtaxCode column
+ * @method     ChildCustomer findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomer filtered by the ArtbCtaxCode column
  * @method     ChildCustomer findOneByArcutaxexemnbr(string $ArcuTaxExemNbr) Return the first ChildCustomer filtered by the ArcuTaxExemNbr column
  * @method     ChildCustomer findOneByIntbwhse(string $IntbWhse) Return the first ChildCustomer filtered by the IntbWhse column
  * @method     ChildCustomer findOneByArcupriclvl(string $ArcuPricLvl) Return the first ChildCustomer filtered by the ArcuPricLvl column
@@ -616,7 +626,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomer filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomer filtered by the ArspSalePer2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomer filtered by the ArspSalePer3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomer requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomer filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomer requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomer filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArcutaxexemnbr(string $ArcuTaxExemNbr) Return the first ChildCustomer filtered by the ArcuTaxExemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByIntbwhse(string $IntbWhse) Return the first ChildCustomer filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomer requireOneByArcupriclvl(string $ArcuPricLvl) Return the first ChildCustomer filtered by the ArcuPricLvl column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -751,7 +761,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomer[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildCustomer objects filtered by the ArspSalePer1 column
  * @method     ChildCustomer[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildCustomer objects filtered by the ArspSalePer2 column
  * @method     ChildCustomer[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildCustomer objects filtered by the ArspSalePer3 column
- * @method     ChildCustomer[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildCustomer objects filtered by the ArtbMtaxCode column
+ * @method     ChildCustomer[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildCustomer objects filtered by the ArtbCtaxCode column
  * @method     ChildCustomer[]|ObjectCollection findByArcutaxexemnbr(string $ArcuTaxExemNbr) Return ChildCustomer objects filtered by the ArcuTaxExemNbr column
  * @method     ChildCustomer[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildCustomer objects filtered by the IntbWhse column
  * @method     ChildCustomer[]|ObjectCollection findByArcupriclvl(string $ArcuPricLvl) Return ChildCustomer objects filtered by the ArcuPricLvl column
@@ -964,7 +974,7 @@ abstract class CustomerQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArcuName, ArcuAdr1, ArcuAdr2, ArcuAdr3, ArcuCtry, ArcuCity, ArcuStat, ArcuZipCode, ArcuDeliveryDays, ArcuRemitWhse, ArcuShipBin, ArcuAllowAddOns, ArcuLmEcommCustId, ArcuGsUse2ndBin, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbMtaxCode, ArcuTaxExemNbr, IntbWhse, ArcuPricLvl, ArcuShipComp, ArcuTxbl, ArcuPostal, ArtbShipVia, ArcuBord, ArtbTypeCode, ArtbPricCode, ArtbCommCode, ArtmTermCd, ArcuCredLmt, ArcuStmtCode, ArcuCredHold, ArcuFinChrg, ArcuUserCode, ArcuNewFc, ArcuUnpdFc, ArcuCurBal, ArcuBalOdue1, ArcuBalOdue2, ArcuBalOdue3, ArcuSaleMtd, ArcuInvMtd, ArcuSaleYtd, ArcuInvYtd, ArcuDateOpen, ArcuLastSaleDate, ArcuHighBal, ArcuBigSaleMo, ArcuLastPayDate, ArcuAvgPayDays, ArcuUpsZone, ArcuHighBalDate, ArcuSale24mo1, ArcuInv24mo1, ArcuSale24mo2, ArcuInv24mo2, ArcuSale24mo3, ArcuInv24mo3, ArcuSale24mo4, ArcuInv24mo4, ArcuSale24mo5, ArcuInv24mo5, ArcuSale24mo6, ArcuInv24mo6, ArcuSale24mo7, ArcuInv24mo7, ArcuSale24mo8, ArcuInv24mo8, ArcuSale24mo9, ArcuInv24mo9, ArcuSale24mo10, ArcuInv24mo10, ArcuSale24mo11, ArcuInv24mo11, ArcuSale24mo12, ArcuInv24mo12, ArcuSale24mo13, ArcuInv24mo13, ArcuSale24mo14, ArcuInv24mo14, ArcuSale24mo15, ArcuInv24mo15, ArcuSale24mo16, ArcuInv24mo16, ArcuSale24mo17, ArcuInv24mo17, ArcuSale24mo18, ArcuInv24mo18, ArcuSale24mo19, ArcuInv24mo19, ArcuSale24mo20, ArcuInv24mo20, ArcuSale24mo21, ArcuInv24mo21, ArcuSale24mo22, ArcuInv24mo22, ArcuSale24mo23, ArcuInv24mo23, ArcuSale24mo24, ArcuInv24mo24, ArcuLastPayAmt, ArcuOrdrTot, ArcuUseFrtIn, ArcuMyVendId, ArcuAddlPricDisc, ArcuActiveInactive, ArcuInactiveDate, ArcuChrgFrt, ArcuCoreXDays, ArcuContractNbr, ArcuCoreLF, ArcuCoreBankId, ArcuDunsNbr, ArcuRfmlValu, ArcuCustPoParam, ArcuAgeLevel, ArtbRoute, ArcuWgTaxCode, ArcuAcptSupercede, ArcuMstrCustId, ArcuSurchgPct, ArcuAllowSplit, ArcuLineMin, ArcuOrdrMin, ArcuUpsAcctNbr, ArcuPrtMatCert, ArcuFobInputYn, ArcuFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_mast WHERE ArcuCustId = :p0';
+        $sql = 'SELECT ArcuCustId, ArcuName, ArcuAdr1, ArcuAdr2, ArcuAdr3, ArcuCtry, ArcuCity, ArcuStat, ArcuZipCode, ArcuDeliveryDays, ArcuRemitWhse, ArcuShipBin, ArcuAllowAddOns, ArcuLmEcommCustId, ArcuGsUse2ndBin, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbCtaxCode, ArcuTaxExemNbr, IntbWhse, ArcuPricLvl, ArcuShipComp, ArcuTxbl, ArcuPostal, ArtbShipVia, ArcuBord, ArtbTypeCode, ArtbPricCode, ArtbCommCode, ArtmTermCd, ArcuCredLmt, ArcuStmtCode, ArcuCredHold, ArcuFinChrg, ArcuUserCode, ArcuNewFc, ArcuUnpdFc, ArcuCurBal, ArcuBalOdue1, ArcuBalOdue2, ArcuBalOdue3, ArcuSaleMtd, ArcuInvMtd, ArcuSaleYtd, ArcuInvYtd, ArcuDateOpen, ArcuLastSaleDate, ArcuHighBal, ArcuBigSaleMo, ArcuLastPayDate, ArcuAvgPayDays, ArcuUpsZone, ArcuHighBalDate, ArcuSale24mo1, ArcuInv24mo1, ArcuSale24mo2, ArcuInv24mo2, ArcuSale24mo3, ArcuInv24mo3, ArcuSale24mo4, ArcuInv24mo4, ArcuSale24mo5, ArcuInv24mo5, ArcuSale24mo6, ArcuInv24mo6, ArcuSale24mo7, ArcuInv24mo7, ArcuSale24mo8, ArcuInv24mo8, ArcuSale24mo9, ArcuInv24mo9, ArcuSale24mo10, ArcuInv24mo10, ArcuSale24mo11, ArcuInv24mo11, ArcuSale24mo12, ArcuInv24mo12, ArcuSale24mo13, ArcuInv24mo13, ArcuSale24mo14, ArcuInv24mo14, ArcuSale24mo15, ArcuInv24mo15, ArcuSale24mo16, ArcuInv24mo16, ArcuSale24mo17, ArcuInv24mo17, ArcuSale24mo18, ArcuInv24mo18, ArcuSale24mo19, ArcuInv24mo19, ArcuSale24mo20, ArcuInv24mo20, ArcuSale24mo21, ArcuInv24mo21, ArcuSale24mo22, ArcuInv24mo22, ArcuSale24mo23, ArcuInv24mo23, ArcuSale24mo24, ArcuInv24mo24, ArcuLastPayAmt, ArcuOrdrTot, ArcuUseFrtIn, ArcuMyVendId, ArcuAddlPricDisc, ArcuActiveInactive, ArcuInactiveDate, ArcuChrgFrt, ArcuCoreXDays, ArcuContractNbr, ArcuCoreLF, ArcuCoreBankId, ArcuDunsNbr, ArcuRfmlValu, ArcuCustPoParam, ArcuAgeLevel, ArtbRoute, ArcuWgTaxCode, ArcuAcptSupercede, ArcuMstrCustId, ArcuSurchgPct, ArcuAllowSplit, ArcuLineMin, ArcuOrdrMin, ArcuUpsAcctNbr, ArcuPrtMatCert, ArcuFobInputYn, ArcuFobPerLb, DateUpdtd, TimeUpdtd, dummy FROM ar_cust_mast WHERE ArcuCustId = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -1521,28 +1531,28 @@ abstract class CustomerQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMtaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMtaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(CustomerTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(CustomerTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**
@@ -5995,6 +6005,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinArCashHead($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ArCashHead', '\ArCashHeadQuery');
+    }
+
+    /**
+     * Filter the query by a related \ArContact object
+     *
+     * @param \ArContact|ObjectCollection $arContact the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByArContact($arContact, $comparison = null)
+    {
+        if ($arContact instanceof \ArContact) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $arContact->getArcucustid(), $comparison);
+        } elseif ($arContact instanceof ObjectCollection) {
+            return $this
+                ->useArContactQuery()
+                ->filterByPrimaryKeys($arContact->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByArContact() only accepts arguments of type \ArContact or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ArContact relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinArContact($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ArContact');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ArContact');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ArContact relation ArContact object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ArContactQuery A secondary query class using the current class as primary query
+     */
+    public function useArContactQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinArContact($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ArContact', '\ArContactQuery');
     }
 
     /**

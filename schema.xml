@@ -803,7 +803,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="ar_cont_mast" idMethod="native" phpName="Contact">
+  <table name="ar_cont_mast" idMethod="native" phpName="ArContact">
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true"/>
     <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
     <column name="ArcpContId" phpName="Arcpcontid" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
@@ -816,6 +816,13 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
@@ -3987,13 +3994,13 @@
     <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
       <reference local="ArcuCustId" foreign="ArcuCustId"/>
       <reference local="ArstShipId" foreign="ArstShipId"/>
-   </foreign-key>
-   <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
-     <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
     </foreign-key>
-    <vendor type="mysql">
-      <parameter name="Engine" value="InnoDB"/>
-    </vendor>
+    <foreign-key foreignTable="ar_saleper1" name="salesperson" skipSql="true">
+      <reference local="ArspSalePer1" foreign="ArspSalePer1"/>
+     </foreign-key>
+     <vendor type="mysql">
+       <parameter name="Engine" value="InnoDB"/>
+     </vendor>
   </table>
   <table name="so_book_by_day_det" idMethod="native" phpName="BookingDayDetail">
     <column name="BkgdDate" phpName="Bkgddate" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
