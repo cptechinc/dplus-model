@@ -26,6 +26,7 @@ class Customer extends BaseCustomer {
 
 	const REQUIRE_PO_FORCED = array('F', 'V');
 	const REQUIRE_PO_DUPLICATES_ALLOWED = array('N', 'F');
+	const CREDITHOLD_OPTIONS = ['Y' => 'Yes', 'X' => 'Exclude', 'N' => 'No'];
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -69,6 +70,8 @@ class Customer extends BaseCustomer {
 		'allowFinancecharge' => 'arcufinchrg',
 		'additionaldiscount' => 'arcuaddlpricdisc',
 		'dateentered'    => 'arcudateopen',
+		'linemin'        => 'arculinemin',
+		'ordermin'       => 'arcuordrmin',
 		// AR Codes
 		'taxcode'        => 'artbctaxcode',
 		'type'           => 'artbtypecode',
@@ -135,6 +138,14 @@ class Customer extends BaseCustomer {
 	 */
 	public function hasFreightRateCode() {
 		return empty($this->freightratecode) === false;
+	}
+
+	/**
+	 * Return Credit Hold description
+	 * @return string
+	 */
+	public function credithold() {
+		return self::CREDITHOLD_OPTIONS[strtoupper($this->credithold)];
 	}
 
 
@@ -284,6 +295,79 @@ class Customer extends BaseCustomer {
 		}
 		return $q->findOne();
 	}
+	
+	/**
+	 * Return total amount for Ar Invoices for this customer
+	 * @return float
+	 */
+	public function getArInvoicesTotalAmt() {
+		$col = ArInvoice::aliasproperty('total');
+		$q = ArInvoiceQuery::create();
+		$q->withColumn("SUM($col)", "total");
+		$q->select('total');
+		$q->filterByCustid($this->custid);
+		return $q->findOne();
+	}
+
+	private function getYtdMonthsBack() {
+		$configCi  = ConfigCiQuery::create()->findOne();
+		$thisMonth = date('n');
+		$month = ($thisMonth + 13) - $configCi->ytdstartmonth;
+
+		if ($month > 13) {
+			$month =- 12;
+		}
+		return $month;
+	}
+
+	/**
+	 * Return the Number of Sales for previous Fiscal Year
+	 * @return int
+	 */
+	public function getPrevFiscalYrSalesCount() {
+		$month = $this->getYtdMonthsBack();
+
+		$basecol = 'ArcuInv24mo';
+		$count   = 0;
+
+		for ($i = $month; $i <= ($month + 11); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$count += $this->$col;
+		}
+		return $count;
+	}
+
+	/**
+	 * Return the total Amount of Sales for previous Fiscal Year
+	 * @return float
+	 */
+	public function getPrevFiscalYrSalesAmt() {
+		$month = $this->getYtdMonthsBack();
+
+		$basecol = 'ArcuSale24mo';
+		$count   = 0;
+
+		for ($i = $month; $i <= ($month + 11); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$count += $this->$col;
+		}
+		return $count;
+	}
+
 
 /* =============================================================
 	Legacy Functions
