@@ -51,6 +51,8 @@ class ConfigAr extends BaseConfigAr {
 		'defaultGlCodeCash'       => 'artbconfcashacct',
 		'defaultGlCodeFinance'    => 'artbconffincacct',
 		'defaultGlCodeDiscounts'  => 'artbconfdiscacct',
+		'custlabel'               => 'artbconfcustlabl',
+		'usercodelabel'           => 'artbconfcustlabl',
 	);
 
 	/**

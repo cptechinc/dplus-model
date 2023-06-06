@@ -68,6 +68,7 @@ class Customer extends BaseCustomer {
 		'allowBackorder' => 'arcubord',
 		'allowFinancecharge' => 'arcufinchrg',
 		'additionaldiscount' => 'arcuaddlpricdisc',
+		'dateentered'    => 'arcudateopen',
 		// AR Codes
 		'taxcode'        => 'artbctaxcode',
 		'type'           => 'artbtypecode',
@@ -79,6 +80,7 @@ class Customer extends BaseCustomer {
 		'termscode'    => 'artmtermcd',
 		'stmtcode'     => 'arcustmtcode',
 		'freightratecode'  => 'arcuchrgfrt',
+		'usercode'         => 'arcuusercode',
 		// Datetime
 		'date'         => 'dateupdtd',
 		'time'         => 'timeupdtd'
