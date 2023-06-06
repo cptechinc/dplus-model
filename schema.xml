@@ -5424,6 +5424,58 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_stand_det" idMethod="native" phpName="SoStandingOrderDetail">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OetdSeq" phpName="Oetdseq" type="INTEGER" size="4" primaryKey="true" required="true" defaultValue="1"/>
+    <column name="OetdDesc" phpName="Oetddesc" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="OetdDesc2" phpName="Oetddesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="OetdStat" phpName="Oetdstat" type="VARCHAR" size="1" required="true" defaultValue="A"/>
+    <column name="OetdHoldCnt" phpName="Oetdholdcnt" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="OetdPric" phpName="Oetdpric" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="OetdQty" phpName="Oetdqty" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IntbUomSale" phpName="Intbuomsale" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="OetdCycl" phpName="Oetdcycl" type="VARCHAR" size="1" required="true" defaultValue="M"/>
+    <column name="OetdStrtDate" phpName="Oetdstrtdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OetdEndDate" phpName="Oetdenddate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OetdLastDate" phpName="Oetdlastdate" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="OetdLeadCnt" phpName="Oetdleadcnt" type="INTEGER" size="2" required="true" defaultValue="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="so_stand_head" idMethod="native" phpName="SoStandingOrder">
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="OethCustPo" phpName="Oethcustpo" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="VARCHAR" size="1" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="state_codes" idMethod="native" phpName="StateCode">
     <column name="StatId" phpName="Statid" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="StatName" phpName="Statname" type="VARCHAR" size="40" required="true" defaultValue=""/>

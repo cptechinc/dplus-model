@@ -300,7 +300,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithSalesOrder() Adds a RIGHT JOIN clause and with to the query using the SalesOrder relation
  * @method     ChildCustomerShiptoQuery innerJoinWithSalesOrder() Adds a INNER JOIN clause and with to the query using the SalesOrder relation
  *
- * @method     \CustomerQuery|\ArContactQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildCustomerShiptoQuery leftJoinSoStandingOrderDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoStandingOrderDetail relation
+ * @method     ChildCustomerShiptoQuery rightJoinSoStandingOrderDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoStandingOrderDetail relation
+ * @method     ChildCustomerShiptoQuery innerJoinSoStandingOrderDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the SoStandingOrderDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithSoStandingOrderDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoStandingOrderDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithSoStandingOrderDetail() Adds a LEFT JOIN clause and with to the query using the SoStandingOrderDetail relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithSoStandingOrderDetail() Adds a RIGHT JOIN clause and with to the query using the SoStandingOrderDetail relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithSoStandingOrderDetail() Adds a INNER JOIN clause and with to the query using the SoStandingOrderDetail relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinSoStandingOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the SoStandingOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinSoStandingOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the SoStandingOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinSoStandingOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the SoStandingOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithSoStandingOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the SoStandingOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithSoStandingOrder() Adds a LEFT JOIN clause and with to the query using the SoStandingOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithSoStandingOrder() Adds a RIGHT JOIN clause and with to the query using the SoStandingOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithSoStandingOrder() Adds a INNER JOIN clause and with to the query using the SoStandingOrder relation
+ *
+ * @method     \CustomerQuery|\ArContactQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
  * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
@@ -4696,6 +4716,144 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         return $this
             ->joinSalesOrder($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SalesOrder', '\SalesOrderQuery');
+    }
+
+    /**
+     * Filter the query by a related \SoStandingOrderDetail object
+     *
+     * @param \SoStandingOrderDetail|ObjectCollection $soStandingOrderDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterBySoStandingOrderDetail($soStandingOrderDetail, $comparison = null)
+    {
+        if ($soStandingOrderDetail instanceof \SoStandingOrderDetail) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $soStandingOrderDetail->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $soStandingOrderDetail->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterBySoStandingOrderDetail() only accepts arguments of type \SoStandingOrderDetail');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoStandingOrderDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinSoStandingOrderDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoStandingOrderDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoStandingOrderDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoStandingOrderDetail relation SoStandingOrderDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoStandingOrderDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useSoStandingOrderDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSoStandingOrderDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoStandingOrderDetail', '\SoStandingOrderDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \SoStandingOrder object
+     *
+     * @param \SoStandingOrder|ObjectCollection $soStandingOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterBySoStandingOrder($soStandingOrder, $comparison = null)
+    {
+        if ($soStandingOrder instanceof \SoStandingOrder) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $soStandingOrder->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $soStandingOrder->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterBySoStandingOrder() only accepts arguments of type \SoStandingOrder');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the SoStandingOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinSoStandingOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('SoStandingOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'SoStandingOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the SoStandingOrder relation SoStandingOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \SoStandingOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useSoStandingOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinSoStandingOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'SoStandingOrder', '\SoStandingOrderQuery');
     }
 
     /**

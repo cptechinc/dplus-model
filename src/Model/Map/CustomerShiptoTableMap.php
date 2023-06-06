@@ -807,6 +807,30 @@ class CustomerShiptoTableMap extends TableMap
     1 => ':ArstShipId',
   ),
 ), null, null, 'SalesOrders', false);
+        $this->addRelation('SoStandingOrderDetail', '\\SoStandingOrderDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, 'SoStandingOrderDetails', false);
+        $this->addRelation('SoStandingOrder', '\\SoStandingOrder', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**

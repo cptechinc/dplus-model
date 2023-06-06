@@ -38,6 +38,10 @@ use \Shipvia as ChildShipvia;
 use \ShipviaQuery as ChildShipviaQuery;
 use \SoFreightRate as ChildSoFreightRate;
 use \SoFreightRateQuery as ChildSoFreightRateQuery;
+use \SoStandingOrder as ChildSoStandingOrder;
+use \SoStandingOrderDetail as ChildSoStandingOrderDetail;
+use \SoStandingOrderDetailQuery as ChildSoStandingOrderDetailQuery;
+use \SoStandingOrderQuery as ChildSoStandingOrderQuery;
 use \Exception;
 use \PDO;
 use Map\ArContactTableMap;
@@ -54,6 +58,8 @@ use Map\ItemPricingDiscountTableMap;
 use Map\ItemXrefCustomerNoteTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
+use Map\SoStandingOrderDetailTableMap;
+use Map\SoStandingOrderTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -1139,6 +1145,18 @@ abstract class Customer implements ActiveRecordInterface
     protected $collItemPricingDiscountsPartial;
 
     /**
+     * @var        ObjectCollection|ChildSoStandingOrderDetail[] Collection to store aggregation of ChildSoStandingOrderDetail objects.
+     */
+    protected $collSoStandingOrderDetails;
+    protected $collSoStandingOrderDetailsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildSoStandingOrder[] Collection to store aggregation of ChildSoStandingOrder objects.
+     */
+    protected $collSoStandingOrders;
+    protected $collSoStandingOrdersPartial;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -1223,6 +1241,18 @@ abstract class Customer implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemPricingDiscount[]
      */
     protected $itemPricingDiscountsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSoStandingOrderDetail[]
+     */
+    protected $soStandingOrderDetailsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildSoStandingOrder[]
+     */
+    protected $soStandingOrdersScheduledForDeletion = null;
 
     /**
      * Applies default values to this object.
@@ -6011,6 +6041,10 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->collItemPricingDiscounts = null;
 
+            $this->collSoStandingOrderDetails = null;
+
+            $this->collSoStandingOrders = null;
+
         } // if (deep)
     }
 
@@ -6374,6 +6408,40 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->collItemPricingDiscounts !== null) {
                 foreach ($this->collItemPricingDiscounts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->soStandingOrderDetailsScheduledForDeletion !== null) {
+                if (!$this->soStandingOrderDetailsScheduledForDeletion->isEmpty()) {
+                    \SoStandingOrderDetailQuery::create()
+                        ->filterByPrimaryKeys($this->soStandingOrderDetailsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->soStandingOrderDetailsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSoStandingOrderDetails !== null) {
+                foreach ($this->collSoStandingOrderDetails as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->soStandingOrdersScheduledForDeletion !== null) {
+                if (!$this->soStandingOrdersScheduledForDeletion->isEmpty()) {
+                    \SoStandingOrderQuery::create()
+                        ->filterByPrimaryKeys($this->soStandingOrdersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->soStandingOrdersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collSoStandingOrders !== null) {
+                foreach ($this->collSoStandingOrders as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -8090,6 +8158,36 @@ abstract class Customer implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemPricingDiscounts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collSoStandingOrderDetails) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'soStandingOrderDetails';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_stand_dets';
+                        break;
+                    default:
+                        $key = 'SoStandingOrderDetails';
+                }
+
+                $result[$key] = $this->collSoStandingOrderDetails->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collSoStandingOrders) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'soStandingOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'so_stand_heads';
+                        break;
+                    default:
+                        $key = 'SoStandingOrders';
+                }
+
+                $result[$key] = $this->collSoStandingOrders->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
         }
 
         return $result;
@@ -9696,6 +9794,18 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getSoStandingOrderDetails() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSoStandingOrderDetail($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getSoStandingOrders() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addSoStandingOrder($relObj->copy($deepCopy));
+                }
+            }
+
         } // if ($deepCopy)
 
         if ($makeNew) {
@@ -9939,6 +10049,14 @@ abstract class Customer implements ActiveRecordInterface
         }
         if ('ItemPricingDiscount' == $relationName) {
             $this->initItemPricingDiscounts();
+            return;
+        }
+        if ('SoStandingOrderDetail' == $relationName) {
+            $this->initSoStandingOrderDetails();
+            return;
+        }
+        if ('SoStandingOrder' == $relationName) {
+            $this->initSoStandingOrders();
             return;
         }
     }
@@ -13279,6 +13397,537 @@ abstract class Customer implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collSoStandingOrderDetails collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSoStandingOrderDetails()
+     */
+    public function clearSoStandingOrderDetails()
+    {
+        $this->collSoStandingOrderDetails = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSoStandingOrderDetails collection loaded partially.
+     */
+    public function resetPartialSoStandingOrderDetails($v = true)
+    {
+        $this->collSoStandingOrderDetailsPartial = $v;
+    }
+
+    /**
+     * Initializes the collSoStandingOrderDetails collection.
+     *
+     * By default this just sets the collSoStandingOrderDetails collection to an empty array (like clearcollSoStandingOrderDetails());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSoStandingOrderDetails($overrideExisting = true)
+    {
+        if (null !== $this->collSoStandingOrderDetails && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SoStandingOrderDetailTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSoStandingOrderDetails = new $collectionClassName;
+        $this->collSoStandingOrderDetails->setModel('\SoStandingOrderDetail');
+    }
+
+    /**
+     * Gets an array of ChildSoStandingOrderDetail objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     * @throws PropelException
+     */
+    public function getSoStandingOrderDetails(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSoStandingOrderDetails || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
+                // return empty collection
+                $this->initSoStandingOrderDetails();
+            } else {
+                $collSoStandingOrderDetails = ChildSoStandingOrderDetailQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSoStandingOrderDetailsPartial && count($collSoStandingOrderDetails)) {
+                        $this->initSoStandingOrderDetails(false);
+
+                        foreach ($collSoStandingOrderDetails as $obj) {
+                            if (false == $this->collSoStandingOrderDetails->contains($obj)) {
+                                $this->collSoStandingOrderDetails->append($obj);
+                            }
+                        }
+
+                        $this->collSoStandingOrderDetailsPartial = true;
+                    }
+
+                    return $collSoStandingOrderDetails;
+                }
+
+                if ($partial && $this->collSoStandingOrderDetails) {
+                    foreach ($this->collSoStandingOrderDetails as $obj) {
+                        if ($obj->isNew()) {
+                            $collSoStandingOrderDetails[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSoStandingOrderDetails = $collSoStandingOrderDetails;
+                $this->collSoStandingOrderDetailsPartial = false;
+            }
+        }
+
+        return $this->collSoStandingOrderDetails;
+    }
+
+    /**
+     * Sets a collection of ChildSoStandingOrderDetail objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $soStandingOrderDetails A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setSoStandingOrderDetails(Collection $soStandingOrderDetails, ConnectionInterface $con = null)
+    {
+        /** @var ChildSoStandingOrderDetail[] $soStandingOrderDetailsToDelete */
+        $soStandingOrderDetailsToDelete = $this->getSoStandingOrderDetails(new Criteria(), $con)->diff($soStandingOrderDetails);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->soStandingOrderDetailsScheduledForDeletion = clone $soStandingOrderDetailsToDelete;
+
+        foreach ($soStandingOrderDetailsToDelete as $soStandingOrderDetailRemoved) {
+            $soStandingOrderDetailRemoved->setCustomer(null);
+        }
+
+        $this->collSoStandingOrderDetails = null;
+        foreach ($soStandingOrderDetails as $soStandingOrderDetail) {
+            $this->addSoStandingOrderDetail($soStandingOrderDetail);
+        }
+
+        $this->collSoStandingOrderDetails = $soStandingOrderDetails;
+        $this->collSoStandingOrderDetailsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SoStandingOrderDetail objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SoStandingOrderDetail objects.
+     * @throws PropelException
+     */
+    public function countSoStandingOrderDetails(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoStandingOrderDetailsPartial && !$this->isNew();
+        if (null === $this->collSoStandingOrderDetails || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSoStandingOrderDetails) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSoStandingOrderDetails());
+            }
+
+            $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collSoStandingOrderDetails);
+    }
+
+    /**
+     * Method called to associate a ChildSoStandingOrderDetail object to this object
+     * through the ChildSoStandingOrderDetail foreign key attribute.
+     *
+     * @param  ChildSoStandingOrderDetail $l ChildSoStandingOrderDetail
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addSoStandingOrderDetail(ChildSoStandingOrderDetail $l)
+    {
+        if ($this->collSoStandingOrderDetails === null) {
+            $this->initSoStandingOrderDetails();
+            $this->collSoStandingOrderDetailsPartial = true;
+        }
+
+        if (!$this->collSoStandingOrderDetails->contains($l)) {
+            $this->doAddSoStandingOrderDetail($l);
+
+            if ($this->soStandingOrderDetailsScheduledForDeletion and $this->soStandingOrderDetailsScheduledForDeletion->contains($l)) {
+                $this->soStandingOrderDetailsScheduledForDeletion->remove($this->soStandingOrderDetailsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to add.
+     */
+    protected function doAddSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
+    {
+        $this->collSoStandingOrderDetails[]= $soStandingOrderDetail;
+        $soStandingOrderDetail->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildSoStandingOrderDetail $soStandingOrderDetail The ChildSoStandingOrderDetail object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeSoStandingOrderDetail(ChildSoStandingOrderDetail $soStandingOrderDetail)
+    {
+        if ($this->getSoStandingOrderDetails()->contains($soStandingOrderDetail)) {
+            $pos = $this->collSoStandingOrderDetails->search($soStandingOrderDetail);
+            $this->collSoStandingOrderDetails->remove($pos);
+            if (null === $this->soStandingOrderDetailsScheduledForDeletion) {
+                $this->soStandingOrderDetailsScheduledForDeletion = clone $this->collSoStandingOrderDetails;
+                $this->soStandingOrderDetailsScheduledForDeletion->clear();
+            }
+            $this->soStandingOrderDetailsScheduledForDeletion[]= clone $soStandingOrderDetail;
+            $soStandingOrderDetail->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related SoStandingOrderDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     */
+    public function getSoStandingOrderDetailsJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getSoStandingOrderDetails($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related SoStandingOrderDetails from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoStandingOrderDetail[] List of ChildSoStandingOrderDetail objects
+     */
+    public function getSoStandingOrderDetailsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoStandingOrderDetailQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getSoStandingOrderDetails($query, $con);
+    }
+
+    /**
+     * Clears out the collSoStandingOrders collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addSoStandingOrders()
+     */
+    public function clearSoStandingOrders()
+    {
+        $this->collSoStandingOrders = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collSoStandingOrders collection loaded partially.
+     */
+    public function resetPartialSoStandingOrders($v = true)
+    {
+        $this->collSoStandingOrdersPartial = $v;
+    }
+
+    /**
+     * Initializes the collSoStandingOrders collection.
+     *
+     * By default this just sets the collSoStandingOrders collection to an empty array (like clearcollSoStandingOrders());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initSoStandingOrders($overrideExisting = true)
+    {
+        if (null !== $this->collSoStandingOrders && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = SoStandingOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collSoStandingOrders = new $collectionClassName;
+        $this->collSoStandingOrders->setModel('\SoStandingOrder');
+    }
+
+    /**
+     * Gets an array of ChildSoStandingOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildSoStandingOrder[] List of ChildSoStandingOrder objects
+     * @throws PropelException
+     */
+    public function getSoStandingOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoStandingOrdersPartial && !$this->isNew();
+        if (null === $this->collSoStandingOrders || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collSoStandingOrders) {
+                // return empty collection
+                $this->initSoStandingOrders();
+            } else {
+                $collSoStandingOrders = ChildSoStandingOrderQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collSoStandingOrdersPartial && count($collSoStandingOrders)) {
+                        $this->initSoStandingOrders(false);
+
+                        foreach ($collSoStandingOrders as $obj) {
+                            if (false == $this->collSoStandingOrders->contains($obj)) {
+                                $this->collSoStandingOrders->append($obj);
+                            }
+                        }
+
+                        $this->collSoStandingOrdersPartial = true;
+                    }
+
+                    return $collSoStandingOrders;
+                }
+
+                if ($partial && $this->collSoStandingOrders) {
+                    foreach ($this->collSoStandingOrders as $obj) {
+                        if ($obj->isNew()) {
+                            $collSoStandingOrders[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collSoStandingOrders = $collSoStandingOrders;
+                $this->collSoStandingOrdersPartial = false;
+            }
+        }
+
+        return $this->collSoStandingOrders;
+    }
+
+    /**
+     * Sets a collection of ChildSoStandingOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $soStandingOrders A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setSoStandingOrders(Collection $soStandingOrders, ConnectionInterface $con = null)
+    {
+        /** @var ChildSoStandingOrder[] $soStandingOrdersToDelete */
+        $soStandingOrdersToDelete = $this->getSoStandingOrders(new Criteria(), $con)->diff($soStandingOrders);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->soStandingOrdersScheduledForDeletion = clone $soStandingOrdersToDelete;
+
+        foreach ($soStandingOrdersToDelete as $soStandingOrderRemoved) {
+            $soStandingOrderRemoved->setCustomer(null);
+        }
+
+        $this->collSoStandingOrders = null;
+        foreach ($soStandingOrders as $soStandingOrder) {
+            $this->addSoStandingOrder($soStandingOrder);
+        }
+
+        $this->collSoStandingOrders = $soStandingOrders;
+        $this->collSoStandingOrdersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related SoStandingOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related SoStandingOrder objects.
+     * @throws PropelException
+     */
+    public function countSoStandingOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collSoStandingOrdersPartial && !$this->isNew();
+        if (null === $this->collSoStandingOrders || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collSoStandingOrders) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getSoStandingOrders());
+            }
+
+            $query = ChildSoStandingOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collSoStandingOrders);
+    }
+
+    /**
+     * Method called to associate a ChildSoStandingOrder object to this object
+     * through the ChildSoStandingOrder foreign key attribute.
+     *
+     * @param  ChildSoStandingOrder $l ChildSoStandingOrder
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addSoStandingOrder(ChildSoStandingOrder $l)
+    {
+        if ($this->collSoStandingOrders === null) {
+            $this->initSoStandingOrders();
+            $this->collSoStandingOrdersPartial = true;
+        }
+
+        if (!$this->collSoStandingOrders->contains($l)) {
+            $this->doAddSoStandingOrder($l);
+
+            if ($this->soStandingOrdersScheduledForDeletion and $this->soStandingOrdersScheduledForDeletion->contains($l)) {
+                $this->soStandingOrdersScheduledForDeletion->remove($this->soStandingOrdersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildSoStandingOrder $soStandingOrder The ChildSoStandingOrder object to add.
+     */
+    protected function doAddSoStandingOrder(ChildSoStandingOrder $soStandingOrder)
+    {
+        $this->collSoStandingOrders[]= $soStandingOrder;
+        $soStandingOrder->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildSoStandingOrder $soStandingOrder The ChildSoStandingOrder object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeSoStandingOrder(ChildSoStandingOrder $soStandingOrder)
+    {
+        if ($this->getSoStandingOrders()->contains($soStandingOrder)) {
+            $pos = $this->collSoStandingOrders->search($soStandingOrder);
+            $this->collSoStandingOrders->remove($pos);
+            if (null === $this->soStandingOrdersScheduledForDeletion) {
+                $this->soStandingOrdersScheduledForDeletion = clone $this->collSoStandingOrders;
+                $this->soStandingOrdersScheduledForDeletion->clear();
+            }
+            $this->soStandingOrdersScheduledForDeletion[]= clone $soStandingOrder;
+            $soStandingOrder->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related SoStandingOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildSoStandingOrder[] List of ChildSoStandingOrder objects
+     */
+    public function getSoStandingOrdersJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildSoStandingOrderQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getSoStandingOrders($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -13514,6 +14163,16 @@ abstract class Customer implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collSoStandingOrderDetails) {
+                foreach ($this->collSoStandingOrderDetails as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collSoStandingOrders) {
+                foreach ($this->collSoStandingOrders as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
         } // if ($deep)
 
         $this->collArCust3partyFreights = null;
@@ -13530,6 +14189,8 @@ abstract class Customer implements ActiveRecordInterface
         $this->collSalesHistories = null;
         $this->collSalesOrders = null;
         $this->collItemPricingDiscounts = null;
+        $this->collSoStandingOrderDetails = null;
+        $this->collSoStandingOrders = null;
         $this->aArCommissionCode = null;
         $this->aShipvia = null;
         $this->aSoFreightRate = null;
@@ -13553,7 +14214,7 @@ abstract class Customer implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -13565,7 +14226,7 @@ abstract class Customer implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -13577,7 +14238,7 @@ abstract class Customer implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -13589,7 +14250,7 @@ abstract class Customer implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -13601,7 +14262,7 @@ abstract class Customer implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -13613,7 +14274,7 @@ abstract class Customer implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -13625,7 +14286,7 @@ abstract class Customer implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -13637,7 +14298,7 @@ abstract class Customer implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 
