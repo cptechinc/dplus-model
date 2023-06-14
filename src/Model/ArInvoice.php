@@ -30,6 +30,7 @@ class ArInvoice extends BaseArInvoice {
 		'custid'         => 'arcucustid',
 		'type'           => 'arintype',
 		'invoicedate'    => 'arininvdate',
+		'discount'       => 'arindiscamt',
 		'duedate'        => 'arinduedate',
 		'custpo'         => 'arincustpo',
 		'checknbr'       => 'arinchknbr',

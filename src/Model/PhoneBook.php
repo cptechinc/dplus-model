@@ -31,6 +31,7 @@ class PhoneBook extends BasePhoneBook {
 		'key2'                    => 'phadsubid',
 		'sequence'                => 'phadsubidseq',
 		'contact'                 => 'phadcont',
+		'contactid'               => 'phadcont',
 		'is_international'        => 'phadintl',
 		'phone'                   => 'phadtelenbr',
 		'extension'               => 'phadteleext',

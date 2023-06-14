@@ -23,6 +23,7 @@ class ConfigCi extends BaseConfigCi {
 	 */
 	const COLUMN_ALIASES = array(
 		'show_inactive' => 'citbconfshowinactive',
+		'ytdstartmonth' => 'citbconfytdstrtmo',
 		'date'          => 'dateupdtd',
 		'time'          => 'timeupdtd'
 	);

@@ -23,6 +23,7 @@ class CustomerShipto extends BaseCustomerShipto {
 	 */
 	const COLUMN_ALIASES = array(
 		'id'           => 'arstshipid',
+		'shiptoID'     => 'arstshipid',
 		'shiptoid'     => 'arstshipid',
 		'custID'       => 'arcucustid',
 		'custid'       => 'arcucustid',
@@ -50,6 +51,14 @@ class CustomerShipto extends BaseCustomerShipto {
 		'require_po'   => 'arstcustpopram',
 		'primary'      => 'arstprimshipid'
 	);
+
+	/**
+	 * Return if Ship-to has a credit hold
+	 * @return bool
+	 */
+	public function credithold() {
+		return $this->credithold == 'Y';
+	}
 
 	/**
 	 * Return if PO is required

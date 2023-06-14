@@ -297,7 +297,20 @@ class Customer extends BaseCustomer {
 	}
 	
 	/**
-	 * Return total amount for Ar Invoices for this customer
+	 * Return the number of Distinct AR Invoices for this customer
+	 * @return int
+	 */
+	public function countDistinctArInvoices() {
+		$col = ArInvoice::aliasproperty('invnbr');
+		$q = ArInvoiceQuery::create();
+		$q->withColumn("COUNT(DISTINCT($col))", "n");
+		$q->select('n');
+		$q->filterByCustid($this->custid);
+		return $q->findOne();
+	}
+	
+	/**
+	 * Return total amount for AR Invoices for this customer
 	 * @return float
 	 */
 	public function getArInvoicesTotalAmt() {
@@ -306,6 +319,35 @@ class Customer extends BaseCustomer {
 		$q->withColumn("SUM($col)", "total");
 		$q->select('total');
 		$q->filterByCustid($this->custid);
+		$q->filterByType([ArInvoice::TYPE_INVOICE]);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return Total amount of ArInovice Discounts for Memos and Payments
+	 * @return float
+	 */
+	public function getArInvoicesTotalDiscMemosPayments() {
+		$col = ArInvoice::aliasproperty('discount');
+		$q = ArInvoiceQuery::create();
+		$q->withColumn("SUM($col)", "discount");
+		$q->select('discount');
+		$q->filterByCustid($this->custid);
+		$q->filterByType([ArInvoice::TYPE_MEMO, ArInvoice::TYPE_PAYMENT]);
+		return $q->findOne();
+	}
+
+	/**
+	 * Return total amount for Ar Invoices Type memos and payments for this customer
+	 * @return float
+	 */
+	public function getArInvoicesTotalAmtMemosPayments() {
+		$col = ArInvoice::aliasproperty('total');
+		$q = ArInvoiceQuery::create();
+		$q->withColumn("SUM($col)", "total");
+		$q->select('total');
+		$q->filterByCustid($this->custid);
+		$q->filterByType([ArInvoice::TYPE_MEMO, ArInvoice::TYPE_PAYMENT]);
 		return $q->findOne();
 	}
 
@@ -366,6 +408,46 @@ class Customer extends BaseCustomer {
 			$count += $this->$col;
 		}
 		return $count;
+	}
+
+	public function getYtdSales() {
+		$month = $this->getYtdMonthsBack() - 1;
+
+		$basecol = 'ArcuSale24mo';
+		$amt   = 0;
+
+		for ($i = 1; $i <= ($month); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$amt += $this->$col;
+		}
+		return $amt + $this->mtd_sales;
+	}
+
+	public function getYtdInvoices() {
+		$month = $this->getYtdMonthsBack() - 1;
+
+		$basecol = 'ArcuInv24mo';
+		$amt   = 0;
+
+		for ($i = 1; $i <= ($month); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$amt += $this->$col;
+		}
+		return $amt + $this->mtd_invoices;
 	}
 
 

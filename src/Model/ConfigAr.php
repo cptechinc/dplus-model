@@ -53,6 +53,7 @@ class ConfigAr extends BaseConfigAr {
 		'defaultGlCodeDiscounts'  => 'artbconfdiscacct',
 		'custlabel'               => 'artbconfcustlabl',
 		'usercodelabel'           => 'artbconfcustlabl',
+		'reportGlByInvOrCust'     => 'artbConfInvCustGl ',
 	);
 
 	/**
