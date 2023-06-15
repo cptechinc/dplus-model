@@ -27,6 +27,8 @@ class Customer extends BaseCustomer {
 	const REQUIRE_PO_FORCED = array('F', 'V');
 	const REQUIRE_PO_DUPLICATES_ALLOWED = array('N', 'F');
 	const CREDITHOLD_OPTIONS = ['Y' => 'Yes', 'X' => 'Exclude', 'N' => 'No'];
+	const COLUMN_BASE_24MO_SALECNT = 'ArcuInv24mo';
+	const COLUMN_BASE_24MO_SALEAMT = 'ArcuSale24mo';
 
 	/**
 	 * Column Aliases to lookup / get properties
