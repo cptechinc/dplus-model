@@ -47,7 +47,7 @@ class SoStandingOrderQuery extends BaseSoStandingOrderQuery {
 	 * @param  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
 	 * @return $this|SoStandingOrderQuery The current query, for fluid interface
 	 */
-	public function filterByShiptoidid($shiptoID = null, $comparison = null) {
+	public function filterByShiptoid($shiptoID = null, $comparison = null) {
 		return $this->filterByArstshipid($shiptoID, $comparison);
 	}
 }
