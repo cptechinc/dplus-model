@@ -49,7 +49,13 @@ class CustomerShipto extends BaseCustomerShipto {
 		'ytd_invoices' => 'arstinvytd',
 		'warehouse'    => 'intbwhse',
 		'require_po'   => 'arstcustpopram',
-		'primary'      => 'arstprimshipid'
+		'primary'      => 'arstprimshipid',
+		'taxexemptnbr' => 'arsttaxexemnbr',
+		'credithold'   => 'arstcredhold',
+		'dateentered'  => 'arstdateopen',
+		'taxcode'      => 'artbctaxcode',
+		'backorder'    => 'arstbord',
+		'usercode'     => 'arstusercode',
 	);
 
 	/**
@@ -58,6 +64,14 @@ class CustomerShipto extends BaseCustomerShipto {
 	 */
 	public function credithold() {
 		return $this->credithold == 'Y';
+	}
+
+	/**
+	 * Return of Ship-To allows Back Orders
+	 * @return bool
+	 */
+	public function backorder() {
+		return $this->backorder != 'N';
 	}
 
 	/**
@@ -133,25 +147,117 @@ class CustomerShipto extends BaseCustomerShipto {
 	}
 
 	/**
-	 * Returns the Number of open orders this customer has
-	 * @return int Number of Customer Open Orders
-	 */
-	public function get_orders_count() {
-		$query = new SalesOrderQuery();
-		$query->filterByCustid($this->custid);
-		$query->filterByShiptoid($this->shiptoid);
-		return $query->count();
-	}
-
-	/**
 	 * Returns the Sum of the Sales Orders totals for this Customer ID
 	 * @return float SUM(salesordertotal)
 	 */
-	public function get_orders_amount() {
+	public function getSalesOrdersAmt() {
 		$query = new SalesOrderQuery();
 		$query->filterByCustid($this->custid);
 		$query->filterByShiptoid($this->shiptoid);
 		$query->select_sum_ordertotal();
 		return $query->findOne();
+	}
+
+/* =============================================================
+	Year-to-Date functions
+============================================================= */
+	/**
+	 * Return the Number of Months Back, the YTD start month is
+	 * @return int
+	 */
+	private function getYtdMonthsBack() {
+		$configCi  = ConfigCiQuery::create()->findOne();
+		$thisMonth = date('n');
+		$month = ($thisMonth + 13) - $configCi->ytdstartmonth;
+
+		if ($month > 13) {
+			$month =- 12;
+		}
+		return $month;
+	}
+
+	/**
+	 * Return the Sum of YTD Column
+	 * @param  string $basecol
+	 * @return float|int
+	 */
+	private function sumOfYtdCol($basecol) {
+		$month = $this->getYtdMonthsBack() - 1;
+		$total   = 0;
+
+		for ($i = 1; $i <= ($month); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$total += $this->$col;
+		}
+		return $total;
+	}
+
+	/**
+	 * Return the Total Sales Amt for Year-to-Date
+	 * @return float
+	 */
+	public function getYtdSales() {
+		$basecol = 'ArstSale24mo';
+		return $this->sumOfYtdCol($basecol) + $this->mtd_sales;
+	}
+
+	/**
+	 * Return the number of Invoices Year-to-Date
+	 * @return int
+	 */
+	public function getYtdInvoices() {
+		$basecol = 'ArstInv24mo';
+		return $this->sumOfYtdCol($basecol) + $this->mtd_invoices;
+	}
+
+/* =============================================================
+	Previous Fiscal Year functions
+============================================================= */	
+	/**
+	 * Return Sum of Previous Fiscal Year col
+	 * @param  string $basecol
+	 * @return float|int
+	 */
+	private function sumPrevFiscalYearCol($basecol) {
+		$month = $this->getYtdMonthsBack();
+		$total   = 0;
+
+		for ($i = $month; $i <= ($month + 11); $i++) {
+			if ($i >= 24) {
+				continue;
+			}
+			$col = $basecol . $i;
+
+			if (empty($this->$col) === false) {
+				continue;
+			}
+			$total += $this->$col;
+		}
+		return $total;
+	}
+
+	/**
+	 * Return the Total Sales Amt for Year-to-Date
+	 * @return float
+	 */
+	public function getPrevFiscalYrSalesAmt() {
+		$basecol = 'ArstSale24mo';
+		return $this->sumPrevFiscalYearCol($basecol) + $this->mtd_sales;
+	}
+
+	/**
+	 * Return the number of Invoices Year-to-Date
+	 * @return int
+	 */
+	public function getPrevFiscalYrSalesCount() {
+		$basecol = 'ArstInv24mo';
+		return $this->sumPrevFiscalYearCol($basecol) + $this->mtd_invoices;
 	}
 }
