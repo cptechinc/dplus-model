@@ -719,11 +719,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $arstrfmlvalu;
 
     /**
-     * The value for the arstcustpopram field.
+     * The value for the arstcustpoparam field.
      *
      * @var        string
      */
-    protected $arstcustpopram;
+    protected $arstcustpoparam;
 
     /**
      * The value for the artbroutcode field.
@@ -2030,13 +2030,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * Get the [arstcustpopram] column value.
+     * Get the [arstcustpoparam] column value.
      *
      * @return string
      */
-    public function getArstcustpopram()
+    public function getArstcustpoparam()
     {
-        return $this->arstcustpopram;
+        return $this->arstcustpoparam;
     }
 
     /**
@@ -3934,24 +3934,24 @@ abstract class CustomerShipto implements ActiveRecordInterface
     } // setArstrfmlvalu()
 
     /**
-     * Set the value of [arstcustpopram] column.
+     * Set the value of [arstcustpoparam] column.
      *
      * @param string $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
-    public function setArstcustpopram($v)
+    public function setArstcustpoparam($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->arstcustpopram !== $v) {
-            $this->arstcustpopram = $v;
-            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTCUSTPOPRAM] = true;
+        if ($this->arstcustpoparam !== $v) {
+            $this->arstcustpoparam = $v;
+            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM] = true;
         }
 
         return $this;
-    } // setArstcustpopram()
+    } // setArstcustpoparam()
 
     /**
      * Set the value of [artbroutcode] column.
@@ -4447,8 +4447,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 89 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstrfmlvalu', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstrfmlvalu = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpopram', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->arstcustpopram = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 90 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstcustpoparam', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->arstcustpoparam = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 91 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbroutcode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbroutcode = (null !== $col) ? (string) $col : null;
@@ -5109,8 +5109,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTRFMLVALU)) {
             $modifiedColumns[':p' . $index++]  = 'ArstRfmlValu';
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCUSTPOPRAM)) {
-            $modifiedColumns[':p' . $index++]  = 'ArstCustPOPram';
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM)) {
+            $modifiedColumns[':p' . $index++]  = 'ArstCustPoParam';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBROUTCODE)) {
             $modifiedColumns[':p' . $index++]  = 'ArtbRoutCode';
@@ -5420,8 +5420,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArstRfmlValu':
                         $stmt->bindValue($identifier, $this->arstrfmlvalu, PDO::PARAM_INT);
                         break;
-                    case 'ArstCustPOPram':
-                        $stmt->bindValue($identifier, $this->arstcustpopram, PDO::PARAM_STR);
+                    case 'ArstCustPoParam':
+                        $stmt->bindValue($identifier, $this->arstcustpoparam, PDO::PARAM_STR);
                         break;
                     case 'ArtbRoutCode':
                         $stmt->bindValue($identifier, $this->artbroutcode, PDO::PARAM_STR);
@@ -5776,7 +5776,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 return $this->getArstrfmlvalu();
                 break;
             case 90:
-                return $this->getArstcustpopram();
+                return $this->getArstcustpoparam();
                 break;
             case 91:
                 return $this->getArtbroutcode();
@@ -5925,7 +5925,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[87] => $this->getArstdistcntr(),
             $keys[88] => $this->getArstdunsnbr(),
             $keys[89] => $this->getArstrfmlvalu(),
-            $keys[90] => $this->getArstcustpopram(),
+            $keys[90] => $this->getArstcustpoparam(),
             $keys[91] => $this->getArtbroutcode(),
             $keys[92] => $this->getArstupsacctnbr(),
             $keys[93] => $this->getArstfobinputyn(),
@@ -6382,7 +6382,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->setArstrfmlvalu($value);
                 break;
             case 90:
-                $this->setArstcustpopram($value);
+                $this->setArstcustpoparam($value);
                 break;
             case 91:
                 $this->setArtbroutcode($value);
@@ -6708,7 +6708,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->setArstrfmlvalu($arr[$keys[89]]);
         }
         if (array_key_exists($keys[90], $arr)) {
-            $this->setArstcustpopram($arr[$keys[90]]);
+            $this->setArstcustpoparam($arr[$keys[90]]);
         }
         if (array_key_exists($keys[91], $arr)) {
             $this->setArtbroutcode($arr[$keys[91]]);
@@ -7048,8 +7048,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTRFMLVALU)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTRFMLVALU, $this->arstrfmlvalu);
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCUSTPOPRAM)) {
-            $criteria->add(CustomerShiptoTableMap::COL_ARSTCUSTPOPRAM, $this->arstcustpopram);
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM)) {
+            $criteria->add(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM, $this->arstcustpoparam);
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBROUTCODE)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARTBROUTCODE, $this->artbroutcode);
@@ -7269,7 +7269,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setArstdistcntr($this->getArstdistcntr());
         $copyObj->setArstdunsnbr($this->getArstdunsnbr());
         $copyObj->setArstrfmlvalu($this->getArstrfmlvalu());
-        $copyObj->setArstcustpopram($this->getArstcustpopram());
+        $copyObj->setArstcustpoparam($this->getArstcustpoparam());
         $copyObj->setArtbroutcode($this->getArtbroutcode());
         $copyObj->setArstupsacctnbr($this->getArstupsacctnbr());
         $copyObj->setArstfobinputyn($this->getArstfobinputyn());
@@ -9451,7 +9451,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arstdistcntr = null;
         $this->arstdunsnbr = null;
         $this->arstrfmlvalu = null;
-        $this->arstcustpopram = null;
+        $this->arstcustpoparam = null;
         $this->artbroutcode = null;
         $this->arstupsacctnbr = null;
         $this->arstfobinputyn = null;

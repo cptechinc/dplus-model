@@ -1330,7 +1330,7 @@
     <column name="ArstDistCntr" phpName="Arstdistcntr" type="VARCHAR" size="6"/>
     <column name="ArstDunsNbr" phpName="Arstdunsnbr" type="VARCHAR" size="20"/>
     <column name="ArstRfmlValu" phpName="Arstrfmlvalu" type="INTEGER" size="3"/>
-    <column name="ArstCustPOPram" phpName="Arstcustpopram" type="VARCHAR" size="1"/>
+    <column name="ArstCustPoParam" phpName="Arstcustpoparam" type="VARCHAR" size="1"/>
     <column name="ArtbRoutCode" phpName="Artbroutcode" type="VARCHAR" size="4"/>
     <column name="ArstUpsAcctNbr" phpName="Arstupsacctnbr" type="VARCHAR" size="10"/>
     <column name="ArstFobInputYn" phpName="Arstfobinputyn" type="VARCHAR" size="1"/>
