@@ -50,7 +50,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteQuery orderByQthdrevdate($order = Criteria::ASC) Order by the QthdRevDate column
  * @method     ChildQuoteQuery orderByQthdexpdate($order = Criteria::ASC) Order by the QthdExpDate column
  * @method     ChildQuoteQuery orderByArtbpriccode($order = Criteria::ASC) Order by the ArtbPricCode column
- * @method     ChildQuoteQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
+ * @method     ChildQuoteQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildQuoteQuery orderByArtmtermcd($order = Criteria::ASC) Order by the ArtmTermCd column
  * @method     ChildQuoteQuery orderByArtbshipvia($order = Criteria::ASC) Order by the ArtbShipVia column
  * @method     ChildQuoteQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
@@ -119,7 +119,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteQuery groupByQthdrevdate() Group by the QthdRevDate column
  * @method     ChildQuoteQuery groupByQthdexpdate() Group by the QthdExpDate column
  * @method     ChildQuoteQuery groupByArtbpriccode() Group by the ArtbPricCode column
- * @method     ChildQuoteQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
+ * @method     ChildQuoteQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildQuoteQuery groupByArtmtermcd() Group by the ArtmTermCd column
  * @method     ChildQuoteQuery groupByArtbshipvia() Group by the ArtbShipVia column
  * @method     ChildQuoteQuery groupByArspsaleper1() Group by the ArspSalePer1 column
@@ -211,7 +211,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuote findOneByQthdrevdate(string $QthdRevDate) Return the first ChildQuote filtered by the QthdRevDate column
  * @method     ChildQuote findOneByQthdexpdate(string $QthdExpDate) Return the first ChildQuote filtered by the QthdExpDate column
  * @method     ChildQuote findOneByArtbpriccode(string $ArtbPricCode) Return the first ChildQuote filtered by the ArtbPricCode column
- * @method     ChildQuote findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildQuote filtered by the ArtbMtaxCode column
+ * @method     ChildQuote findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuote filtered by the ArtbCtaxCode column
  * @method     ChildQuote findOneByArtmtermcd(string $ArtmTermCd) Return the first ChildQuote filtered by the ArtmTermCd column
  * @method     ChildQuote findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildQuote filtered by the ArtbShipVia column
  * @method     ChildQuote findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildQuote filtered by the ArspSalePer1 column
@@ -283,7 +283,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuote requireOneByQthdrevdate(string $QthdRevDate) Return the first ChildQuote filtered by the QthdRevDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuote requireOneByQthdexpdate(string $QthdExpDate) Return the first ChildQuote filtered by the QthdExpDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuote requireOneByArtbpriccode(string $ArtbPricCode) Return the first ChildQuote filtered by the ArtbPricCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildQuote requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildQuote filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuote requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuote filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuote requireOneByArtmtermcd(string $ArtmTermCd) Return the first ChildQuote filtered by the ArtmTermCd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuote requireOneByArtbshipvia(string $ArtbShipVia) Return the first ChildQuote filtered by the ArtbShipVia column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuote requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildQuote filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -353,7 +353,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuote[]|ObjectCollection findByQthdrevdate(string $QthdRevDate) Return ChildQuote objects filtered by the QthdRevDate column
  * @method     ChildQuote[]|ObjectCollection findByQthdexpdate(string $QthdExpDate) Return ChildQuote objects filtered by the QthdExpDate column
  * @method     ChildQuote[]|ObjectCollection findByArtbpriccode(string $ArtbPricCode) Return ChildQuote objects filtered by the ArtbPricCode column
- * @method     ChildQuote[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildQuote objects filtered by the ArtbMtaxCode column
+ * @method     ChildQuote[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildQuote objects filtered by the ArtbCtaxCode column
  * @method     ChildQuote[]|ObjectCollection findByArtmtermcd(string $ArtmTermCd) Return ChildQuote objects filtered by the ArtmTermCd column
  * @method     ChildQuote[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildQuote objects filtered by the ArtbShipVia column
  * @method     ChildQuote[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildQuote objects filtered by the ArspSalePer1 column
@@ -489,7 +489,7 @@ abstract class QuoteQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT QthdId, QthdStat, ArcuCustId, QthdBtName, QthdBtAdr1, QthdBtAdr2, QthdBtAdr3, QthdBtCtry, QthdBtCity, QthdBtStat, QthdBtZipCode, ArstShipId, QthdStName, QthdStAdr1, QthdStAdr2, QthdStAdr3, QthdStCtry, QthdStCity, QthdStStat, QthdStZipCode, QthdCont, QthdTeleIntl, QthdTeleNbr, QthdTeleExt, QthdFaxIntl, QthdFaxNbr, QthdQuotDate, QthdRevDate, QthdExpDate, ArtbPricCode, ArtbMtaxCode, ArtmTermCd, ArtbShipVia, ArspSalePer1, QthdSp1Pct, ArspSalePer2, QthdSp2Pct, ArspSalePer3, QthdSp3Pct, QthdExchCtry, QthdExchRate, QthdTaxSub, QthdNonTaxSub, QthdTaxTot, QthdFrtTot, QthdMiscTot, QthdOrdrTot, QthdCostTot, QthdWghtTot, QthdOldSysQtNbr, QthdFob, QthdDeliveryDesc, QthdOrderCnt, QthdLastOrder, IntbWhse, QthdCustPo, QthdEmailAddr, QthdEnteredBy, QthdEnteredDate, QthdEnteredTime, QthdPrintFormat, QthdProjectId, QthdRevTime, QthdRef, QthdCareOf, DateUpdtd, TimeUpdtd, dummy FROM quote_header WHERE QthdId = :p0';
+        $sql = 'SELECT QthdId, QthdStat, ArcuCustId, QthdBtName, QthdBtAdr1, QthdBtAdr2, QthdBtAdr3, QthdBtCtry, QthdBtCity, QthdBtStat, QthdBtZipCode, ArstShipId, QthdStName, QthdStAdr1, QthdStAdr2, QthdStAdr3, QthdStCtry, QthdStCity, QthdStStat, QthdStZipCode, QthdCont, QthdTeleIntl, QthdTeleNbr, QthdTeleExt, QthdFaxIntl, QthdFaxNbr, QthdQuotDate, QthdRevDate, QthdExpDate, ArtbPricCode, ArtbCtaxCode, ArtmTermCd, ArtbShipVia, ArspSalePer1, QthdSp1Pct, ArspSalePer2, QthdSp2Pct, ArspSalePer3, QthdSp3Pct, QthdExchCtry, QthdExchRate, QthdTaxSub, QthdNonTaxSub, QthdTaxTot, QthdFrtTot, QthdMiscTot, QthdOrdrTot, QthdCostTot, QthdWghtTot, QthdOldSysQtNbr, QthdFob, QthdDeliveryDesc, QthdOrderCnt, QthdLastOrder, IntbWhse, QthdCustPo, QthdEmailAddr, QthdEnteredBy, QthdEnteredDate, QthdEnteredTime, QthdPrintFormat, QthdProjectId, QthdRevTime, QthdRef, QthdCareOf, DateUpdtd, TimeUpdtd, dummy FROM quote_header WHERE QthdId = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_STR);
@@ -1330,28 +1330,28 @@ abstract class QuoteQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMtaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMtaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildQuoteQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(QuoteTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(QuoteTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**

@@ -157,12 +157,12 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     protected $oedhspecordr;
 
     /**
-     * The value for the artbmtaxcode field.
+     * The value for the artbctaxcode field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $artbmtaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the oedhqtyord field.
@@ -1293,7 +1293,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $this->oedhcancdate = '';
         $this->oedhshipdate = '';
         $this->oedhspecordr = 'N';
-        $this->artbmtaxcode = '';
+        $this->artbctaxcode = '';
         $this->oedhqtyord = '0.0000000';
         $this->oedhqtyship = '0.0000000';
         $this->oedhqtyshiptot = '0.0000000';
@@ -1769,13 +1769,13 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbmtaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getArtbmtaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->artbmtaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -3357,24 +3357,24 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
     } // setOedhspecordr()
 
     /**
-     * Set the value of [artbmtaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\SalesHistoryDetail The current object (for fluent API support)
      */
-    public function setArtbmtaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->artbmtaxcode !== $v) {
-            $this->artbmtaxcode = $v;
-            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_ARTBMTAXCODE] = true;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
+            $this->modifiedColumns[SalesHistoryDetailTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setArtbmtaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [oedhqtyord] column.
@@ -6130,7 +6130,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->artbmtaxcode !== '') {
+            if ($this->artbctaxcode !== '') {
                 return false;
             }
 
@@ -6733,8 +6733,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : SalesHistoryDetailTableMap::translateFieldName('Oedhqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedhqtyord = (null !== $col) ? (string) $col : null;
@@ -7424,8 +7424,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSPECORDR)) {
             $modifiedColumns[':p' . $index++]  = 'OedhSpecOrdr';
         }
-        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_ARTBMTAXCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_ARTBCTAXCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHQTYORD)) {
             $modifiedColumns[':p' . $index++]  = 'OedhQtyOrd';
@@ -7876,8 +7876,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                     case 'OedhSpecOrdr':
                         $stmt->bindValue($identifier, $this->oedhspecordr, PDO::PARAM_STR);
                         break;
-                    case 'ArtbMtaxCode':
-                        $stmt->bindValue($identifier, $this->artbmtaxcode, PDO::PARAM_STR);
+                    case 'ArtbCtaxCode':
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'OedhQtyOrd':
                         $stmt->bindValue($identifier, $this->oedhqtyord, PDO::PARAM_STR);
@@ -8373,7 +8373,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 return $this->getOedhspecordr();
                 break;
             case 11:
-                return $this->getArtbmtaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 12:
                 return $this->getOedhqtyord();
@@ -8821,7 +8821,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $keys[8] => $this->getOedhcancdate(),
             $keys[9] => $this->getOedhshipdate(),
             $keys[10] => $this->getOedhspecordr(),
-            $keys[11] => $this->getArtbmtaxcode(),
+            $keys[11] => $this->getArtbctaxcode(),
             $keys[12] => $this->getOedhqtyord(),
             $keys[13] => $this->getOedhqtyship(),
             $keys[14] => $this->getOedhqtyshiptot(),
@@ -9077,7 +9077,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
                 $this->setOedhspecordr($value);
                 break;
             case 11:
-                $this->setArtbmtaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 12:
                 $this->setOedhqtyord($value);
@@ -9544,7 +9544,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
             $this->setOedhspecordr($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[11]]);
+            $this->setArtbctaxcode($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
             $this->setOedhqtyord($arr[$keys[12]]);
@@ -10025,8 +10025,8 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHSPECORDR)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_OEDHSPECORDR, $this->oedhspecordr);
         }
-        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(SalesHistoryDetailTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(SalesHistoryDetailTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(SalesHistoryDetailTableMap::COL_OEDHQTYORD)) {
             $criteria->add(SalesHistoryDetailTableMap::COL_OEDHQTYORD, $this->oedhqtyord);
@@ -10545,7 +10545,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $copyObj->setOedhcancdate($this->getOedhcancdate());
         $copyObj->setOedhshipdate($this->getOedhshipdate());
         $copyObj->setOedhspecordr($this->getOedhspecordr());
-        $copyObj->setArtbmtaxcode($this->getArtbmtaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setOedhqtyord($this->getOedhqtyord());
         $copyObj->setOedhqtyship($this->getOedhqtyship());
         $copyObj->setOedhqtyshiptot($this->getOedhqtyshiptot());
@@ -11143,7 +11143,7 @@ abstract class SalesHistoryDetail implements ActiveRecordInterface
         $this->oedhcancdate = null;
         $this->oedhshipdate = null;
         $this->oedhspecordr = null;
-        $this->artbmtaxcode = null;
+        $this->artbctaxcode = null;
         $this->oedhqtyord = null;
         $this->oedhqtyship = null;
         $this->oedhqtyshiptot = null;

@@ -29,7 +29,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetailQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
  * @method     ChildQuoteDetailQuery orderByQtdtrqstdate($order = Criteria::ASC) Order by the QtdtRqstDate column
  * @method     ChildQuoteDetailQuery orderByQtdtspecordr($order = Criteria::ASC) Order by the QtdtSpecOrdr column
- * @method     ChildQuoteDetailQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMTaxCode column
+ * @method     ChildQuoteDetailQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildQuoteDetailQuery orderByQtdtqtyord($order = Criteria::ASC) Order by the QtdtQtyOrd column
  * @method     ChildQuoteDetailQuery orderByQtdtpric($order = Criteria::ASC) Order by the QtdtPric column
  * @method     ChildQuoteDetailQuery orderByQtdtcost($order = Criteria::ASC) Order by the QtdtCost column
@@ -126,7 +126,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetailQuery groupByIntbwhse() Group by the IntbWhse column
  * @method     ChildQuoteDetailQuery groupByQtdtrqstdate() Group by the QtdtRqstDate column
  * @method     ChildQuoteDetailQuery groupByQtdtspecordr() Group by the QtdtSpecOrdr column
- * @method     ChildQuoteDetailQuery groupByArtbmtaxcode() Group by the ArtbMTaxCode column
+ * @method     ChildQuoteDetailQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildQuoteDetailQuery groupByQtdtqtyord() Group by the QtdtQtyOrd column
  * @method     ChildQuoteDetailQuery groupByQtdtpric() Group by the QtdtPric column
  * @method     ChildQuoteDetailQuery groupByQtdtcost() Group by the QtdtCost column
@@ -246,7 +246,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetail findOneByIntbwhse(string $IntbWhse) Return the first ChildQuoteDetail filtered by the IntbWhse column
  * @method     ChildQuoteDetail findOneByQtdtrqstdate(string $QtdtRqstDate) Return the first ChildQuoteDetail filtered by the QtdtRqstDate column
  * @method     ChildQuoteDetail findOneByQtdtspecordr(string $QtdtSpecOrdr) Return the first ChildQuoteDetail filtered by the QtdtSpecOrdr column
- * @method     ChildQuoteDetail findOneByArtbmtaxcode(string $ArtbMTaxCode) Return the first ChildQuoteDetail filtered by the ArtbMTaxCode column
+ * @method     ChildQuoteDetail findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuoteDetail filtered by the ArtbCtaxCode column
  * @method     ChildQuoteDetail findOneByQtdtqtyord(string $QtdtQtyOrd) Return the first ChildQuoteDetail filtered by the QtdtQtyOrd column
  * @method     ChildQuoteDetail findOneByQtdtpric(string $QtdtPric) Return the first ChildQuoteDetail filtered by the QtdtPric column
  * @method     ChildQuoteDetail findOneByQtdtcost(string $QtdtCost) Return the first ChildQuoteDetail filtered by the QtdtCost column
@@ -346,7 +346,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetail requireOneByIntbwhse(string $IntbWhse) Return the first ChildQuoteDetail filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtrqstdate(string $QtdtRqstDate) Return the first ChildQuoteDetail filtered by the QtdtRqstDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtspecordr(string $QtdtSpecOrdr) Return the first ChildQuoteDetail filtered by the QtdtSpecOrdr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildQuoteDetail requireOneByArtbmtaxcode(string $ArtbMTaxCode) Return the first ChildQuoteDetail filtered by the ArtbMTaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildQuoteDetail requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildQuoteDetail filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtqtyord(string $QtdtQtyOrd) Return the first ChildQuoteDetail filtered by the QtdtQtyOrd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtpric(string $QtdtPric) Return the first ChildQuoteDetail filtered by the QtdtPric column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildQuoteDetail requireOneByQtdtcost(string $QtdtCost) Return the first ChildQuoteDetail filtered by the QtdtCost column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -444,7 +444,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildQuoteDetail[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildQuoteDetail objects filtered by the IntbWhse column
  * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtrqstdate(string $QtdtRqstDate) Return ChildQuoteDetail objects filtered by the QtdtRqstDate column
  * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtspecordr(string $QtdtSpecOrdr) Return ChildQuoteDetail objects filtered by the QtdtSpecOrdr column
- * @method     ChildQuoteDetail[]|ObjectCollection findByArtbmtaxcode(string $ArtbMTaxCode) Return ChildQuoteDetail objects filtered by the ArtbMTaxCode column
+ * @method     ChildQuoteDetail[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildQuoteDetail objects filtered by the ArtbCtaxCode column
  * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtqtyord(string $QtdtQtyOrd) Return ChildQuoteDetail objects filtered by the QtdtQtyOrd column
  * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtpric(string $QtdtPric) Return ChildQuoteDetail objects filtered by the QtdtPric column
  * @method     ChildQuoteDetail[]|ObjectCollection findByQtdtcost(string $QtdtCost) Return ChildQuoteDetail objects filtered by the QtdtCost column
@@ -629,7 +629,7 @@ abstract class QuoteDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT QthdId, QtdtLine, InitItemNbr, QtdtDesc, QtdtDesc2, QtdtCustCrssRef, IntbWhse, QtdtRqstDate, QtdtSpecOrdr, ArtbMTaxCode, QtdtQtyOrd, QtdtPric, QtdtCost, QtdtTaxPctTot, QtdtPricTot, QtdtCostTot, QtdtWghtTot, QtdtMstrTaxCode1, QtdtMstrTaxPct1, QtdtMstrTaxCode2, QtdtMstrTaxPct2, QtdtMstrTaxCode3, QtdtMstrTaxPct3, QtdtMstrTaxCode4, QtdtMstrTaxPct4, QtdtMstrTaxCode5, QtdtMstrTaxPct5, QtdtMstrTaxCode6, QtdtMstrTaxPct6, QtdtMstrTaxCode7, QtdtMstrTaxPct7, QtdtMstrTaxCode8, QtdtMstrTaxPct8, QtdtMstrTaxCode9, QtdtMstrTaxPct9, IntbUomSale, IntbUomPur, QtdtQuotInd1, QtdtQuotUnit1, QtdtQuotPric1, QtdtQuotCost1, QtdtQuotMkupMarg1, QtdtQuotInd2, QtdtQuotUnit2, QtdtQuotPric2, QtdtQuotCost2, QtdtQuotMkupMarg2, QtdtQuotInd3, QtdtQuotUnit3, QtdtQuotPric3, QtdtQuotCost3, QtdtQuotMkupMarg3, QtdtQuotInd4, QtdtQuotUnit4, QtdtQuotPric4, QtdtQuotCost4, QtdtQuotMkupMarg4, QtdtQuotInd5, QtdtQuotUnit5, QtdtQuotPric5, QtdtQuotCost5, QtdtQuotMkupMarg5, QtdtQuotInd6, QtdtQuotUnit6, QtdtQuotPric6, QtdtQuotCost6, QtdtQuotMkupMarg6, QtdtAsstCode, QtdtAsstQty, QtdtListPric, QtdtStanCost, QtdtVendItemJob, ApveVendId, QtdtNsItemGrup, QtdtUseCode, QtdtPickFlag, QtdtStatus, OetbLsslCode, QtdtLostDate, QtdtLostPosted, QtdtLeadDays, QtdtOrdrDiscPct, QtdtQuotDiscPct1, QtdtMtrcReqd, QtdtCofcReqd, QtdtMnfrId, QtdtMnfrItemId, QtdtLmOrdrNbr, QtdtLmOrdrDate, QtdtSpecItemCode, QtdtAcSalePgm, QtdtNsVendShipfr, QtdtPrntMnfrNote, DateUpdtd, TimeUpdtd, dummy FROM quote_detail WHERE QthdId = :p0 AND QtdtLine = :p1';
+        $sql = 'SELECT QthdId, QtdtLine, InitItemNbr, QtdtDesc, QtdtDesc2, QtdtCustCrssRef, IntbWhse, QtdtRqstDate, QtdtSpecOrdr, ArtbCtaxCode, QtdtQtyOrd, QtdtPric, QtdtCost, QtdtTaxPctTot, QtdtPricTot, QtdtCostTot, QtdtWghtTot, QtdtMstrTaxCode1, QtdtMstrTaxPct1, QtdtMstrTaxCode2, QtdtMstrTaxPct2, QtdtMstrTaxCode3, QtdtMstrTaxPct3, QtdtMstrTaxCode4, QtdtMstrTaxPct4, QtdtMstrTaxCode5, QtdtMstrTaxPct5, QtdtMstrTaxCode6, QtdtMstrTaxPct6, QtdtMstrTaxCode7, QtdtMstrTaxPct7, QtdtMstrTaxCode8, QtdtMstrTaxPct8, QtdtMstrTaxCode9, QtdtMstrTaxPct9, IntbUomSale, IntbUomPur, QtdtQuotInd1, QtdtQuotUnit1, QtdtQuotPric1, QtdtQuotCost1, QtdtQuotMkupMarg1, QtdtQuotInd2, QtdtQuotUnit2, QtdtQuotPric2, QtdtQuotCost2, QtdtQuotMkupMarg2, QtdtQuotInd3, QtdtQuotUnit3, QtdtQuotPric3, QtdtQuotCost3, QtdtQuotMkupMarg3, QtdtQuotInd4, QtdtQuotUnit4, QtdtQuotPric4, QtdtQuotCost4, QtdtQuotMkupMarg4, QtdtQuotInd5, QtdtQuotUnit5, QtdtQuotPric5, QtdtQuotCost5, QtdtQuotMkupMarg5, QtdtQuotInd6, QtdtQuotUnit6, QtdtQuotPric6, QtdtQuotCost6, QtdtQuotMkupMarg6, QtdtAsstCode, QtdtAsstQty, QtdtListPric, QtdtStanCost, QtdtVendItemJob, ApveVendId, QtdtNsItemGrup, QtdtUseCode, QtdtPickFlag, QtdtStatus, OetbLsslCode, QtdtLostDate, QtdtLostPosted, QtdtLeadDays, QtdtOrdrDiscPct, QtdtQuotDiscPct1, QtdtMtrcReqd, QtdtCofcReqd, QtdtMnfrId, QtdtMnfrItemId, QtdtLmOrdrNbr, QtdtLmOrdrDate, QtdtSpecItemCode, QtdtAcSalePgm, QtdtNsVendShipfr, QtdtPrntMnfrNote, DateUpdtd, TimeUpdtd, dummy FROM quote_detail WHERE QthdId = :p0 AND QtdtLine = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -973,28 +973,28 @@ abstract class QuoteDetailQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMTaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMTaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMTaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildQuoteDetailQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(QuoteDetailTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(QuoteDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**

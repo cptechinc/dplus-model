@@ -222,11 +222,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $arspsaleper3;
 
     /**
-     * The value for the artbmtaxcode field.
+     * The value for the artbctaxcode field.
      *
      * @var        string
      */
-    protected $artbmtaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the arsttaxexemnbr field.
@@ -1320,13 +1320,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbmtaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getArtbmtaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->artbmtaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -2514,24 +2514,24 @@ abstract class CustomerShipto implements ActiveRecordInterface
     } // setArspsaleper3()
 
     /**
-     * Set the value of [artbmtaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\CustomerShipto The current object (for fluent API support)
      */
-    public function setArtbmtaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->artbmtaxcode !== $v) {
-            $this->artbmtaxcode = $v;
-            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARTBMTAXCODE] = true;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
+            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setArtbmtaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [arsttaxexemnbr] column.
@@ -4234,8 +4234,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : CustomerShiptoTableMap::translateFieldName('Arspsaleper3', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arspsaleper3 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : CustomerShiptoTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : CustomerShiptoTableMap::translateFieldName('Arsttaxexemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arsttaxexemnbr = (null !== $col) ? (string) $col : null;
@@ -4896,8 +4896,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSPSALEPER3)) {
             $modifiedColumns[':p' . $index++]  = 'ArspSalePer3';
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBMTAXCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBCTAXCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'ArstTaxExemNbr';
@@ -5207,8 +5207,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     case 'ArspSalePer3':
                         $stmt->bindValue($identifier, $this->arspsaleper3, PDO::PARAM_STR);
                         break;
-                    case 'ArtbMtaxCode':
-                        $stmt->bindValue($identifier, $this->artbmtaxcode, PDO::PARAM_STR);
+                    case 'ArtbCtaxCode':
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'ArstTaxExemNbr':
                         $stmt->bindValue($identifier, $this->arsttaxexemnbr, PDO::PARAM_STR);
@@ -5563,7 +5563,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 return $this->getArspsaleper3();
                 break;
             case 19:
-                return $this->getArtbmtaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 20:
                 return $this->getArsttaxexemnbr();
@@ -5854,7 +5854,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[16] => $this->getArspsaleper1(),
             $keys[17] => $this->getArspsaleper2(),
             $keys[18] => $this->getArspsaleper3(),
-            $keys[19] => $this->getArtbmtaxcode(),
+            $keys[19] => $this->getArtbctaxcode(),
             $keys[20] => $this->getArsttaxexemnbr(),
             $keys[21] => $this->getIntbwhse(),
             $keys[22] => $this->getArtbshipvia(),
@@ -6169,7 +6169,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->setArspsaleper3($value);
                 break;
             case 19:
-                $this->setArtbmtaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 20:
                 $this->setArsttaxexemnbr($value);
@@ -6495,7 +6495,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->setArspsaleper3($arr[$keys[18]]);
         }
         if (array_key_exists($keys[19], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[19]]);
+            $this->setArtbctaxcode($arr[$keys[19]]);
         }
         if (array_key_exists($keys[20], $arr)) {
             $this->setArsttaxexemnbr($arr[$keys[20]]);
@@ -6835,8 +6835,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSPSALEPER3)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSPSALEPER3, $this->arspsaleper3);
         }
-        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(CustomerShiptoTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(CustomerShiptoTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTTAXEXEMNBR, $this->arsttaxexemnbr);
@@ -7198,7 +7198,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setArspsaleper1($this->getArspsaleper1());
         $copyObj->setArspsaleper2($this->getArspsaleper2());
         $copyObj->setArspsaleper3($this->getArspsaleper3());
-        $copyObj->setArtbmtaxcode($this->getArtbmtaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setArsttaxexemnbr($this->getArsttaxexemnbr());
         $copyObj->setIntbwhse($this->getIntbwhse());
         $copyObj->setArtbshipvia($this->getArtbshipvia());
@@ -9380,7 +9380,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arspsaleper1 = null;
         $this->arspsaleper2 = null;
         $this->arspsaleper3 = null;
-        $this->artbmtaxcode = null;
+        $this->artbctaxcode = null;
         $this->arsttaxexemnbr = null;
         $this->intbwhse = null;
         $this->artbshipvia = null;

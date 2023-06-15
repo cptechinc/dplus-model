@@ -155,12 +155,12 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     protected $oedtspecordr;
 
     /**
-     * The value for the artbmtaxcode field.
+     * The value for the artbctaxcode field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $artbmtaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the oedtqtyord field.
@@ -1314,7 +1314,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $this->oedtcancdate = '';
         $this->oedtshipdate = '';
         $this->oedtspecordr = 'N';
-        $this->artbmtaxcode = '';
+        $this->artbctaxcode = '';
         $this->oedtqtyord = '0.0000000';
         $this->oedtqtyship = '0.0000000';
         $this->oedtqtyshiptot = '0.0000000';
@@ -1780,13 +1780,13 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbmtaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getArtbmtaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->artbmtaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -3348,24 +3348,24 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
     } // setOedtspecordr()
 
     /**
-     * Set the value of [artbmtaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\SalesOrderDetail The current object (for fluent API support)
      */
-    public function setArtbmtaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->artbmtaxcode !== $v) {
-            $this->artbmtaxcode = $v;
-            $this->modifiedColumns[SalesOrderDetailTableMap::COL_ARTBMTAXCODE] = true;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
+            $this->modifiedColumns[SalesOrderDetailTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setArtbmtaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [oedtqtyord] column.
@@ -6117,7 +6117,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 return false;
             }
 
-            if ($this->artbmtaxcode !== '') {
+            if ($this->artbctaxcode !== '') {
                 return false;
             }
 
@@ -6717,8 +6717,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderDetailTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : SalesOrderDetailTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : SalesOrderDetailTableMap::translateFieldName('Oedtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->oedtqtyord = (null !== $col) ? (string) $col : null;
@@ -7443,8 +7443,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPECORDR)) {
             $modifiedColumns[':p' . $index++]  = 'OedtSpecOrdr';
         }
-        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBMTAXCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbMtaxCode';
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBCTAXCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYORD)) {
             $modifiedColumns[':p' . $index++]  = 'OedtQtyOrd';
@@ -7892,8 +7892,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                     case 'OedtSpecOrdr':
                         $stmt->bindValue($identifier, $this->oedtspecordr, PDO::PARAM_STR);
                         break;
-                    case 'ArtbMtaxCode':
-                        $stmt->bindValue($identifier, $this->artbmtaxcode, PDO::PARAM_STR);
+                    case 'ArtbCtaxCode':
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'OedtQtyOrd':
                         $stmt->bindValue($identifier, $this->oedtqtyord, PDO::PARAM_STR);
@@ -8386,7 +8386,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 return $this->getOedtspecordr();
                 break;
             case 10:
-                return $this->getArtbmtaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 11:
                 return $this->getOedtqtyord();
@@ -8833,7 +8833,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $keys[7] => $this->getOedtcancdate(),
             $keys[8] => $this->getOedtshipdate(),
             $keys[9] => $this->getOedtspecordr(),
-            $keys[10] => $this->getArtbmtaxcode(),
+            $keys[10] => $this->getArtbctaxcode(),
             $keys[11] => $this->getOedtqtyord(),
             $keys[12] => $this->getOedtqtyship(),
             $keys[13] => $this->getOedtqtyshiptot(),
@@ -9116,7 +9116,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
                 $this->setOedtspecordr($value);
                 break;
             case 10:
-                $this->setArtbmtaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 11:
                 $this->setOedtqtyord($value);
@@ -9580,7 +9580,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
             $this->setOedtspecordr($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[10]]);
+            $this->setArtbctaxcode($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
             $this->setOedtqtyord($arr[$keys[11]]);
@@ -10058,8 +10058,8 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTSPECORDR)) {
             $criteria->add(SalesOrderDetailTableMap::COL_OEDTSPECORDR, $this->oedtspecordr);
         }
-        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(SalesOrderDetailTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(SalesOrderDetailTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(SalesOrderDetailTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(SalesOrderDetailTableMap::COL_OEDTQTYORD)) {
             $criteria->add(SalesOrderDetailTableMap::COL_OEDTQTYORD, $this->oedtqtyord);
@@ -10577,7 +10577,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $copyObj->setOedtcancdate($this->getOedtcancdate());
         $copyObj->setOedtshipdate($this->getOedtshipdate());
         $copyObj->setOedtspecordr($this->getOedtspecordr());
-        $copyObj->setArtbmtaxcode($this->getArtbmtaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setOedtqtyord($this->getOedtqtyord());
         $copyObj->setOedtqtyship($this->getOedtqtyship());
         $copyObj->setOedtqtyshiptot($this->getOedtqtyshiptot());
@@ -11800,7 +11800,7 @@ abstract class SalesOrderDetail implements ActiveRecordInterface
         $this->oedtcancdate = null;
         $this->oedtshipdate = null;
         $this->oedtspecordr = null;
-        $this->artbmtaxcode = null;
+        $this->artbctaxcode = null;
         $this->oedtqtyord = null;
         $this->oedtqtyship = null;
         $this->oedtqtyshiptot = null;

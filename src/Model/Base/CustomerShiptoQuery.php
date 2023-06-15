@@ -39,7 +39,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArspsaleper1($order = Criteria::ASC) Order by the ArspSalePer1 column
  * @method     ChildCustomerShiptoQuery orderByArspsaleper2($order = Criteria::ASC) Order by the ArspSalePer2 column
  * @method     ChildCustomerShiptoQuery orderByArspsaleper3($order = Criteria::ASC) Order by the ArspSalePer3 column
- * @method     ChildCustomerShiptoQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
+ * @method     ChildCustomerShiptoQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildCustomerShiptoQuery orderByArsttaxexemnbr($order = Criteria::ASC) Order by the ArstTaxExemNbr column
  * @method     ChildCustomerShiptoQuery orderByIntbwhse($order = Criteria::ASC) Order by the IntbWhse column
  * @method     ChildCustomerShiptoQuery orderByArtbshipvia($order = Criteria::ASC) Order by the ArtbShipVia column
@@ -140,7 +140,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArspsaleper1() Group by the ArspSalePer1 column
  * @method     ChildCustomerShiptoQuery groupByArspsaleper2() Group by the ArspSalePer2 column
  * @method     ChildCustomerShiptoQuery groupByArspsaleper3() Group by the ArspSalePer3 column
- * @method     ChildCustomerShiptoQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
+ * @method     ChildCustomerShiptoQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildCustomerShiptoQuery groupByArsttaxexemnbr() Group by the ArstTaxExemNbr column
  * @method     ChildCustomerShiptoQuery groupByIntbwhse() Group by the IntbWhse column
  * @method     ChildCustomerShiptoQuery groupByArtbshipvia() Group by the ArtbShipVia column
@@ -344,7 +344,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column
  * @method     ChildCustomerShipto findOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column
  * @method     ChildCustomerShipto findOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column
- * @method     ChildCustomerShipto findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomerShipto filtered by the ArtbMtaxCode column
+ * @method     ChildCustomerShipto findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomerShipto filtered by the ArtbCtaxCode column
  * @method     ChildCustomerShipto findOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column
  * @method     ChildCustomerShipto findOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column
  * @method     ChildCustomerShipto findOneByArtbshipvia(string $ArtbShipVia) Return the first ChildCustomerShipto filtered by the ArtbShipVia column
@@ -448,7 +448,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArspsaleper1(string $ArspSalePer1) Return the first ChildCustomerShipto filtered by the ArspSalePer1 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArspsaleper2(string $ArspSalePer2) Return the first ChildCustomerShipto filtered by the ArspSalePer2 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArspsaleper3(string $ArspSalePer3) Return the first ChildCustomerShipto filtered by the ArspSalePer3 column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildCustomerShipto filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildCustomerShipto filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArsttaxexemnbr(string $ArstTaxExemNbr) Return the first ChildCustomerShipto filtered by the ArstTaxExemNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByIntbwhse(string $IntbWhse) Return the first ChildCustomerShipto filtered by the IntbWhse column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArtbshipvia(string $ArtbShipVia) Return the first ChildCustomerShipto filtered by the ArtbShipVia column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -550,7 +550,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper1(string $ArspSalePer1) Return ChildCustomerShipto objects filtered by the ArspSalePer1 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper2(string $ArspSalePer2) Return ChildCustomerShipto objects filtered by the ArspSalePer2 column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArspsaleper3(string $ArspSalePer3) Return ChildCustomerShipto objects filtered by the ArspSalePer3 column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildCustomerShipto objects filtered by the ArtbMtaxCode column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildCustomerShipto objects filtered by the ArtbCtaxCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArsttaxexemnbr(string $ArstTaxExemNbr) Return ChildCustomerShipto objects filtered by the ArstTaxExemNbr column
  * @method     ChildCustomerShipto[]|ObjectCollection findByIntbwhse(string $IntbWhse) Return ChildCustomerShipto objects filtered by the IntbWhse column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArtbshipvia(string $ArtbShipVia) Return ChildCustomerShipto objects filtered by the ArtbShipVia column
@@ -729,7 +729,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbMtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24mo1, ArstInv24mo1, ArstSale24mo2, ArstInv24mo2, ArstSale24mo3, ArstInv24mo3, ArstSale24mo4, ArstInv24mo4, ArstSale24mo5, ArstInv24mo5, ArstSale24mo6, ArstInv24mo6, ArstSale24mo7, ArstInv24mo7, ArstSale24mo8, ArstInv24mo8, ArstSale24mo9, ArstInv24mo9, ArstSale24mo10, ArstInv24mo10, ArstSale24mo11, ArstInv24mo11, ArstSale24mo12, ArstInv24mo12, ArstSale24mo13, ArstInv24mo13, ArstSale24mo14, ArstInv24mo14, ArstSale24mo15, ArstInv24mo15, ArstSale24mo16, ArstInv24mo16, ArstSale24mo17, ArstInv24mo17, ArstSale24mo18, ArstInv24mo18, ArstSale24mo19, ArstInv24mo19, ArstSale24mo20, ArstInv24mo20, ArstSale24mo21, ArstInv24mo21, ArstSale24mo22, ArstInv24mo22, ArstSale24mo23, ArstInv24mo23, ArstSale24mo24, ArstInv24mo24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYn, ArstFobPerLb, ArstSaleYtd, ArstInvYtd, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
+        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbCtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24mo1, ArstInv24mo1, ArstSale24mo2, ArstInv24mo2, ArstSale24mo3, ArstInv24mo3, ArstSale24mo4, ArstInv24mo4, ArstSale24mo5, ArstInv24mo5, ArstSale24mo6, ArstInv24mo6, ArstSale24mo7, ArstInv24mo7, ArstSale24mo8, ArstInv24mo8, ArstSale24mo9, ArstInv24mo9, ArstSale24mo10, ArstInv24mo10, ArstSale24mo11, ArstInv24mo11, ArstSale24mo12, ArstInv24mo12, ArstSale24mo13, ArstInv24mo13, ArstSale24mo14, ArstInv24mo14, ArstSale24mo15, ArstInv24mo15, ArstSale24mo16, ArstInv24mo16, ArstSale24mo17, ArstInv24mo17, ArstSale24mo18, ArstInv24mo18, ArstSale24mo19, ArstInv24mo19, ArstSale24mo20, ArstInv24mo20, ArstSale24mo21, ArstInv24mo21, ArstSale24mo22, ArstInv24mo22, ArstSale24mo23, ArstInv24mo23, ArstSale24mo24, ArstInv24mo24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYn, ArstFobPerLb, ArstSaleYtd, ArstInvYtd, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -1323,28 +1323,28 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMtaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMtaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**

@@ -31,7 +31,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery orderByOedhcancdate($order = Criteria::ASC) Order by the OedhCancDate column
  * @method     ChildSalesHistoryDetailQuery orderByOedhshipdate($order = Criteria::ASC) Order by the OedhShipDate column
  * @method     ChildSalesHistoryDetailQuery orderByOedhspecordr($order = Criteria::ASC) Order by the OedhSpecOrdr column
- * @method     ChildSalesHistoryDetailQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
+ * @method     ChildSalesHistoryDetailQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildSalesHistoryDetailQuery orderByOedhqtyord($order = Criteria::ASC) Order by the OedhQtyOrd column
  * @method     ChildSalesHistoryDetailQuery orderByOedhqtyship($order = Criteria::ASC) Order by the OedhQtyShip column
  * @method     ChildSalesHistoryDetailQuery orderByOedhqtyshiptot($order = Criteria::ASC) Order by the OedhQtyShipTot column
@@ -179,7 +179,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetailQuery groupByOedhcancdate() Group by the OedhCancDate column
  * @method     ChildSalesHistoryDetailQuery groupByOedhshipdate() Group by the OedhShipDate column
  * @method     ChildSalesHistoryDetailQuery groupByOedhspecordr() Group by the OedhSpecOrdr column
- * @method     ChildSalesHistoryDetailQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
+ * @method     ChildSalesHistoryDetailQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildSalesHistoryDetailQuery groupByOedhqtyord() Group by the OedhQtyOrd column
  * @method     ChildSalesHistoryDetailQuery groupByOedhqtyship() Group by the OedhQtyShip column
  * @method     ChildSalesHistoryDetailQuery groupByOedhqtyshiptot() Group by the OedhQtyShipTot column
@@ -370,7 +370,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail findOneByOedhcancdate(string $OedhCancDate) Return the first ChildSalesHistoryDetail filtered by the OedhCancDate column
  * @method     ChildSalesHistoryDetail findOneByOedhshipdate(string $OedhShipDate) Return the first ChildSalesHistoryDetail filtered by the OedhShipDate column
  * @method     ChildSalesHistoryDetail findOneByOedhspecordr(string $OedhSpecOrdr) Return the first ChildSalesHistoryDetail filtered by the OedhSpecOrdr column
- * @method     ChildSalesHistoryDetail findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildSalesHistoryDetail filtered by the ArtbMtaxCode column
+ * @method     ChildSalesHistoryDetail findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildSalesHistoryDetail filtered by the ArtbCtaxCode column
  * @method     ChildSalesHistoryDetail findOneByOedhqtyord(string $OedhQtyOrd) Return the first ChildSalesHistoryDetail filtered by the OedhQtyOrd column
  * @method     ChildSalesHistoryDetail findOneByOedhqtyship(string $OedhQtyShip) Return the first ChildSalesHistoryDetail filtered by the OedhQtyShip column
  * @method     ChildSalesHistoryDetail findOneByOedhqtyshiptot(string $OedhQtyShipTot) Return the first ChildSalesHistoryDetail filtered by the OedhQtyShipTot column
@@ -521,7 +521,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail requireOneByOedhcancdate(string $OedhCancDate) Return the first ChildSalesHistoryDetail filtered by the OedhCancDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhshipdate(string $OedhShipDate) Return the first ChildSalesHistoryDetail filtered by the OedhShipDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhspecordr(string $OedhSpecOrdr) Return the first ChildSalesHistoryDetail filtered by the OedhSpecOrdr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesHistoryDetail requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildSalesHistoryDetail filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesHistoryDetail requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildSalesHistoryDetail filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhqtyord(string $OedhQtyOrd) Return the first ChildSalesHistoryDetail filtered by the OedhQtyOrd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhqtyship(string $OedhQtyShip) Return the first ChildSalesHistoryDetail filtered by the OedhQtyShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesHistoryDetail requireOneByOedhqtyshiptot(string $OedhQtyShipTot) Return the first ChildSalesHistoryDetail filtered by the OedhQtyShipTot column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -670,7 +670,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhcancdate(string $OedhCancDate) Return ChildSalesHistoryDetail objects filtered by the OedhCancDate column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhshipdate(string $OedhShipDate) Return ChildSalesHistoryDetail objects filtered by the OedhShipDate column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhspecordr(string $OedhSpecOrdr) Return ChildSalesHistoryDetail objects filtered by the OedhSpecOrdr column
- * @method     ChildSalesHistoryDetail[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildSalesHistoryDetail objects filtered by the ArtbMtaxCode column
+ * @method     ChildSalesHistoryDetail[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildSalesHistoryDetail objects filtered by the ArtbCtaxCode column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhqtyord(string $OedhQtyOrd) Return ChildSalesHistoryDetail objects filtered by the OedhQtyOrd column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhqtyship(string $OedhQtyShip) Return ChildSalesHistoryDetail objects filtered by the OedhQtyShip column
  * @method     ChildSalesHistoryDetail[]|ObjectCollection findByOedhqtyshiptot(string $OedhQtyShipTot) Return ChildSalesHistoryDetail objects filtered by the OedhQtyShipTot column
@@ -904,7 +904,7 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehhNbr, OedhLine, OedhYear, InitItemNbr, OedhDesc, OedhDesc2, IntbWhse, OedhRqstDate, OedhCancDate, OedhShipDate, OedhSpecOrdr, ArtbMtaxCode, OedhQtyOrd, OedhQtyShip, OedhQtyShipTot, OedhQtyBord, OedhPric, OedhCost, OedhTaxPctTot, OedhPricTot, OedhCostTot, OedhSpCommPct, OedhBrknCaseQty, OedhBin, OedhPersonalCd, OedhAcDisc1, OedhAcDisc2, OedhAcDisc3, OedhAcDisc4, OedhLmWipNbr, OedhCorePric, OedhAsstCode, OedhAsstQty, OedhListPric, OedhStanCost, OedhVendItemJob, OedhNsVendId, OedhNsItemGrup, OedhUseCode, OedhNsShipFromId, OedhAsstOvrd, OedhPricOvrd, OedhPickFlag, OedhMstrTaxCode1, OedhMstrTaxPct1, OedhMstrTaxCode2, OedhMstrTaxPct2, OedhMstrTaxCode3, OedhMstrTaxPct3, OedhMstrTaxCode4, OedhMstrTaxPct4, OedhMstrTaxCode5, OedhMstrTaxPct5, OedhMstrTaxCode6, OedhMstrTaxPct6, OedhMstrTaxCode7, OedhMstrTaxPct7, OedhMstrTaxCode8, OedhMstrTaxPct8, OedhMstrTaxCode9, OedhMstrTaxPct9, OedhBinArea, OedhSplitLine, OedhLostReas, OedhOrigLine, OedhCustCrssRef, OedhUom, OedhShipFlag, OedhKitFlag, OedhKitItemNbr, OedhBfCost, OedhBfMsgCode, OedhBfCostTot, OedhLmBulkPric, OedhLmMtrxPkgPric, OedhLmMtrxBulkPric, OedhLmContractPric, OedhWghtTot, OedhOrdrAs, OedhPoDetLineNbr, OedhQtyToShip, OedhPoNbr, OedhPoRef, OedhFrtIn, OedhFrtInEntered, OedhProdCmplt, OedhErFlag, OedhOrigItem, OedhSubFlag, OedhEdiIncomingSeq, OedhSpordPoLine, OedhCatlgId, OedhDesignCd, OedhDiscPct, OedhTaxAmt, OedhXUsage, OedhRqtsLock, OedhFreshFrozen, OedhCoreFlag, OedhNsSalesAcct, OedhCertReqd, OedhAddOnSales, OedhBordFlag, OedhTempGrove, OedhGroveDisc, OedhOffInvc, InitItemGrup, ApveVendId, OedhAcct, OedhLoadTot, OedhPickedQty, OedhWiOrigQty, OedhMarginTot, OedhCoreCost, OedhItemRef, OedhSac02ReturnCode, OedhWgTaxCode, OedhWgPrice, OedhWgTot, OedhCntrQty, OedhConfirmCode, OedhPicked, OedhOrigRqstDate, OedhFabLock, OedhLabelPrinted, OedhQuoteId, OedhInvPrinted, OedhStockCheck, OedhShouldWeSplit, OedhCofcReqd, OedhAckCode, OedhWiBordNbr, OedhCertHistOrdr, OedhCertHistLine, OedhOrdrdAsItemId, OedhWiBatch1Nbr, OedhWiBatch1Qty, OedhWiBatch1Stat, OedhRgaNbr, OedhOrigPric, OedhRefLineNbr, OedhBinLocn, OedhAcSuplyWhse, OedhAcPricDate, DateUpdtd, TimeUpdtd, dummy FROM so_det_hist WHERE OehhNbr = :p0 AND OedhLine = :p1';
+        $sql = 'SELECT OehhNbr, OedhLine, OedhYear, InitItemNbr, OedhDesc, OedhDesc2, IntbWhse, OedhRqstDate, OedhCancDate, OedhShipDate, OedhSpecOrdr, ArtbCtaxCode, OedhQtyOrd, OedhQtyShip, OedhQtyShipTot, OedhQtyBord, OedhPric, OedhCost, OedhTaxPctTot, OedhPricTot, OedhCostTot, OedhSpCommPct, OedhBrknCaseQty, OedhBin, OedhPersonalCd, OedhAcDisc1, OedhAcDisc2, OedhAcDisc3, OedhAcDisc4, OedhLmWipNbr, OedhCorePric, OedhAsstCode, OedhAsstQty, OedhListPric, OedhStanCost, OedhVendItemJob, OedhNsVendId, OedhNsItemGrup, OedhUseCode, OedhNsShipFromId, OedhAsstOvrd, OedhPricOvrd, OedhPickFlag, OedhMstrTaxCode1, OedhMstrTaxPct1, OedhMstrTaxCode2, OedhMstrTaxPct2, OedhMstrTaxCode3, OedhMstrTaxPct3, OedhMstrTaxCode4, OedhMstrTaxPct4, OedhMstrTaxCode5, OedhMstrTaxPct5, OedhMstrTaxCode6, OedhMstrTaxPct6, OedhMstrTaxCode7, OedhMstrTaxPct7, OedhMstrTaxCode8, OedhMstrTaxPct8, OedhMstrTaxCode9, OedhMstrTaxPct9, OedhBinArea, OedhSplitLine, OedhLostReas, OedhOrigLine, OedhCustCrssRef, OedhUom, OedhShipFlag, OedhKitFlag, OedhKitItemNbr, OedhBfCost, OedhBfMsgCode, OedhBfCostTot, OedhLmBulkPric, OedhLmMtrxPkgPric, OedhLmMtrxBulkPric, OedhLmContractPric, OedhWghtTot, OedhOrdrAs, OedhPoDetLineNbr, OedhQtyToShip, OedhPoNbr, OedhPoRef, OedhFrtIn, OedhFrtInEntered, OedhProdCmplt, OedhErFlag, OedhOrigItem, OedhSubFlag, OedhEdiIncomingSeq, OedhSpordPoLine, OedhCatlgId, OedhDesignCd, OedhDiscPct, OedhTaxAmt, OedhXUsage, OedhRqtsLock, OedhFreshFrozen, OedhCoreFlag, OedhNsSalesAcct, OedhCertReqd, OedhAddOnSales, OedhBordFlag, OedhTempGrove, OedhGroveDisc, OedhOffInvc, InitItemGrup, ApveVendId, OedhAcct, OedhLoadTot, OedhPickedQty, OedhWiOrigQty, OedhMarginTot, OedhCoreCost, OedhItemRef, OedhSac02ReturnCode, OedhWgTaxCode, OedhWgPrice, OedhWgTot, OedhCntrQty, OedhConfirmCode, OedhPicked, OedhOrigRqstDate, OedhFabLock, OedhLabelPrinted, OedhQuoteId, OedhInvPrinted, OedhStockCheck, OedhShouldWeSplit, OedhCofcReqd, OedhAckCode, OedhWiBordNbr, OedhCertHistOrdr, OedhCertHistLine, OedhOrdrdAsItemId, OedhWiBatch1Nbr, OedhWiBatch1Qty, OedhWiBatch1Stat, OedhRgaNbr, OedhOrigPric, OedhRefLineNbr, OedhBinLocn, OedhAcSuplyWhse, OedhAcPricDate, DateUpdtd, TimeUpdtd, dummy FROM so_det_hist WHERE OehhNbr = :p0 AND OedhLine = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
@@ -1316,28 +1316,28 @@ abstract class SalesHistoryDetailQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMtaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMtaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesHistoryDetailQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(SalesHistoryDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**

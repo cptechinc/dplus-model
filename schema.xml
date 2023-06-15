@@ -1259,7 +1259,7 @@
     <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
     <column name="ArspSalePer2" phpName="Arspsaleper2" type="VARCHAR" size="6"/>
     <column name="ArspSalePer3" phpName="Arspsaleper3" type="VARCHAR" size="6"/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6"/>
     <column name="ArstTaxExemNbr" phpName="Arsttaxexemnbr" type="VARCHAR" size="20"/>
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
     <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
@@ -3812,7 +3812,7 @@
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2"/>
     <column name="QtdtRqstDate" phpName="Qtdtrqstdate" type="VARCHAR" size="8"/>
     <column name="QtdtSpecOrdr" phpName="Qtdtspecordr" type="VARCHAR" size="1"/>
-    <column name="ArtbMTaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6"/>
     <column name="QtdtQtyOrd" phpName="Qtdtqtyord" type="DECIMAL" size="20" scale="7"/>
     <column name="QtdtPric" phpName="Qtdtpric" type="DECIMAL" size="20" scale="7"/>
     <column name="QtdtCost" phpName="Qtdtcost" type="DECIMAL" size="20" scale="7"/>
@@ -3937,7 +3937,7 @@
     <column name="QthdRevDate" phpName="Qthdrevdate" type="VARCHAR" size="8"/>
     <column name="QthdExpDate" phpName="Qthdexpdate" type="VARCHAR" size="8"/>
     <column name="ArtbPricCode" phpName="Artbpriccode" type="VARCHAR" size="4"/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6"/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6"/>
     <column name="ArtmTermCd" phpName="Artmtermcd" type="VARCHAR" size="4"/>
     <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4"/>
     <column name="ArspSalePer1" phpName="Arspsaleper1" type="VARCHAR" size="6"/>
@@ -4417,7 +4417,7 @@
     <column name="OedhCancDate" phpName="Oedhcancdate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="OedhShipDate" phpName="Oedhshipdate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="OedhSpecOrdr" phpName="Oedhspecordr" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="OedhQtyOrd" phpName="Oedhqtyord" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OedhQtyShip" phpName="Oedhqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OedhQtyShipTot" phpName="Oedhqtyshiptot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
@@ -4574,7 +4574,7 @@
     <column name="OedtCancDate" phpName="Oedtcancdate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="OedtShipDate" phpName="Oedtshipdate" type="CHAR" size="8" required="true" defaultValue=""/>
     <column name="OedtSpecOrdr" phpName="Oedtspecordr" type="CHAR" required="true" defaultValue="N"/>
-    <column name="ArtbMtaxCode" phpName="Artbmtaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArtbCtaxCode" phpName="Artbctaxcode" type="VARCHAR" size="6" required="true" defaultValue=""/>
     <column name="OedtQtyOrd" phpName="Oedtqtyord" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OedtQtyShip" phpName="Oedtqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
     <column name="OedtQtyShipTot" phpName="Oedtqtyshiptot" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>

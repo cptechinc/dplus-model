@@ -127,11 +127,11 @@ abstract class QuoteDetail implements ActiveRecordInterface
     protected $qtdtspecordr;
 
     /**
-     * The value for the artbmtaxcode field.
+     * The value for the artbctaxcode field.
      *
      * @var        string
      */
-    protected $artbmtaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the qtdtqtyord field.
@@ -1078,13 +1078,13 @@ abstract class QuoteDetail implements ActiveRecordInterface
     }
 
     /**
-     * Get the [artbmtaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getArtbmtaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->artbmtaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -2132,24 +2132,24 @@ abstract class QuoteDetail implements ActiveRecordInterface
     } // setQtdtspecordr()
 
     /**
-     * Set the value of [artbmtaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\QuoteDetail The current object (for fluent API support)
      */
-    public function setArtbmtaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->artbmtaxcode !== $v) {
-            $this->artbmtaxcode = $v;
-            $this->modifiedColumns[QuoteDetailTableMap::COL_ARTBMTAXCODE] = true;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
+            $this->modifiedColumns[QuoteDetailTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setArtbmtaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [qtdtqtyord] column.
@@ -3942,8 +3942,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtspecordr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtspecordr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : QuoteDetailTableMap::translateFieldName('Artbmtaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->artbmtaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : QuoteDetailTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : QuoteDetailTableMap::translateFieldName('Qtdtqtyord', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qtdtqtyord = (null !== $col) ? (string) $col : null;
@@ -4450,8 +4450,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
         if ($this->isColumnModified(QuoteDetailTableMap::COL_QTDTSPECORDR)) {
             $modifiedColumns[':p' . $index++]  = 'QtdtSpecOrdr';
         }
-        if ($this->isColumnModified(QuoteDetailTableMap::COL_ARTBMTAXCODE)) {
-            $modifiedColumns[':p' . $index++]  = 'ArtbMTaxCode';
+        if ($this->isColumnModified(QuoteDetailTableMap::COL_ARTBCTAXCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArtbCtaxCode';
         }
         if ($this->isColumnModified(QuoteDetailTableMap::COL_QTDTQTYORD)) {
             $modifiedColumns[':p' . $index++]  = 'QtdtQtyOrd';
@@ -4749,8 +4749,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
                     case 'QtdtSpecOrdr':
                         $stmt->bindValue($identifier, $this->qtdtspecordr, PDO::PARAM_STR);
                         break;
-                    case 'ArtbMTaxCode':
-                        $stmt->bindValue($identifier, $this->artbmtaxcode, PDO::PARAM_STR);
+                    case 'ArtbCtaxCode':
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'QtdtQtyOrd':
                         $stmt->bindValue($identifier, $this->qtdtqtyord, PDO::PARAM_STR);
@@ -5093,7 +5093,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
                 return $this->getQtdtspecordr();
                 break;
             case 9:
-                return $this->getArtbmtaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 10:
                 return $this->getQtdtqtyord();
@@ -5392,7 +5392,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $keys[6] => $this->getIntbwhse(),
             $keys[7] => $this->getQtdtrqstdate(),
             $keys[8] => $this->getQtdtspecordr(),
-            $keys[9] => $this->getArtbmtaxcode(),
+            $keys[9] => $this->getArtbctaxcode(),
             $keys[10] => $this->getQtdtqtyord(),
             $keys[11] => $this->getQtdtpric(),
             $keys[12] => $this->getQtdtcost(),
@@ -5563,7 +5563,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
                 $this->setQtdtspecordr($value);
                 break;
             case 9:
-                $this->setArtbmtaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 10:
                 $this->setQtdtqtyord($value);
@@ -5877,7 +5877,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
             $this->setQtdtspecordr($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setArtbmtaxcode($arr[$keys[9]]);
+            $this->setArtbctaxcode($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
             $this->setQtdtqtyord($arr[$keys[10]]);
@@ -6205,8 +6205,8 @@ abstract class QuoteDetail implements ActiveRecordInterface
         if ($this->isColumnModified(QuoteDetailTableMap::COL_QTDTSPECORDR)) {
             $criteria->add(QuoteDetailTableMap::COL_QTDTSPECORDR, $this->qtdtspecordr);
         }
-        if ($this->isColumnModified(QuoteDetailTableMap::COL_ARTBMTAXCODE)) {
-            $criteria->add(QuoteDetailTableMap::COL_ARTBMTAXCODE, $this->artbmtaxcode);
+        if ($this->isColumnModified(QuoteDetailTableMap::COL_ARTBCTAXCODE)) {
+            $criteria->add(QuoteDetailTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(QuoteDetailTableMap::COL_QTDTQTYORD)) {
             $criteria->add(QuoteDetailTableMap::COL_QTDTQTYORD, $this->qtdtqtyord);
@@ -6576,7 +6576,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
         $copyObj->setIntbwhse($this->getIntbwhse());
         $copyObj->setQtdtrqstdate($this->getQtdtrqstdate());
         $copyObj->setQtdtspecordr($this->getQtdtspecordr());
-        $copyObj->setArtbmtaxcode($this->getArtbmtaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setQtdtqtyord($this->getQtdtqtyord());
         $copyObj->setQtdtpric($this->getQtdtpric());
         $copyObj->setQtdtcost($this->getQtdtcost());
@@ -6760,7 +6760,7 @@ abstract class QuoteDetail implements ActiveRecordInterface
         $this->intbwhse = null;
         $this->qtdtrqstdate = null;
         $this->qtdtspecordr = null;
-        $this->artbmtaxcode = null;
+        $this->artbctaxcode = null;
         $this->qtdtqtyord = null;
         $this->qtdtpric = null;
         $this->qtdtcost = null;

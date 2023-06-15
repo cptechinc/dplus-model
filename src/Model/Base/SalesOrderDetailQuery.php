@@ -30,7 +30,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetailQuery orderByOedtcancdate($order = Criteria::ASC) Order by the OedtCancDate column
  * @method     ChildSalesOrderDetailQuery orderByOedtshipdate($order = Criteria::ASC) Order by the OedtShipDate column
  * @method     ChildSalesOrderDetailQuery orderByOedtspecordr($order = Criteria::ASC) Order by the OedtSpecOrdr column
- * @method     ChildSalesOrderDetailQuery orderByArtbmtaxcode($order = Criteria::ASC) Order by the ArtbMtaxCode column
+ * @method     ChildSalesOrderDetailQuery orderByArtbctaxcode($order = Criteria::ASC) Order by the ArtbCtaxCode column
  * @method     ChildSalesOrderDetailQuery orderByOedtqtyord($order = Criteria::ASC) Order by the OedtQtyOrd column
  * @method     ChildSalesOrderDetailQuery orderByOedtqtyship($order = Criteria::ASC) Order by the OedtQtyShip column
  * @method     ChildSalesOrderDetailQuery orderByOedtqtyshiptot($order = Criteria::ASC) Order by the OedtQtyShipTot column
@@ -177,7 +177,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetailQuery groupByOedtcancdate() Group by the OedtCancDate column
  * @method     ChildSalesOrderDetailQuery groupByOedtshipdate() Group by the OedtShipDate column
  * @method     ChildSalesOrderDetailQuery groupByOedtspecordr() Group by the OedtSpecOrdr column
- * @method     ChildSalesOrderDetailQuery groupByArtbmtaxcode() Group by the ArtbMtaxCode column
+ * @method     ChildSalesOrderDetailQuery groupByArtbctaxcode() Group by the ArtbCtaxCode column
  * @method     ChildSalesOrderDetailQuery groupByOedtqtyord() Group by the OedtQtyOrd column
  * @method     ChildSalesOrderDetailQuery groupByOedtqtyship() Group by the OedtQtyShip column
  * @method     ChildSalesOrderDetailQuery groupByOedtqtyshiptot() Group by the OedtQtyShipTot column
@@ -387,7 +387,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetail findOneByOedtcancdate(string $OedtCancDate) Return the first ChildSalesOrderDetail filtered by the OedtCancDate column
  * @method     ChildSalesOrderDetail findOneByOedtshipdate(string $OedtShipDate) Return the first ChildSalesOrderDetail filtered by the OedtShipDate column
  * @method     ChildSalesOrderDetail findOneByOedtspecordr(string $OedtSpecOrdr) Return the first ChildSalesOrderDetail filtered by the OedtSpecOrdr column
- * @method     ChildSalesOrderDetail findOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildSalesOrderDetail filtered by the ArtbMtaxCode column
+ * @method     ChildSalesOrderDetail findOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildSalesOrderDetail filtered by the ArtbCtaxCode column
  * @method     ChildSalesOrderDetail findOneByOedtqtyord(string $OedtQtyOrd) Return the first ChildSalesOrderDetail filtered by the OedtQtyOrd column
  * @method     ChildSalesOrderDetail findOneByOedtqtyship(string $OedtQtyShip) Return the first ChildSalesOrderDetail filtered by the OedtQtyShip column
  * @method     ChildSalesOrderDetail findOneByOedtqtyshiptot(string $OedtQtyShipTot) Return the first ChildSalesOrderDetail filtered by the OedtQtyShipTot column
@@ -537,7 +537,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetail requireOneByOedtcancdate(string $OedtCancDate) Return the first ChildSalesOrderDetail filtered by the OedtCancDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderDetail requireOneByOedtshipdate(string $OedtShipDate) Return the first ChildSalesOrderDetail filtered by the OedtShipDate column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderDetail requireOneByOedtspecordr(string $OedtSpecOrdr) Return the first ChildSalesOrderDetail filtered by the OedtSpecOrdr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildSalesOrderDetail requireOneByArtbmtaxcode(string $ArtbMtaxCode) Return the first ChildSalesOrderDetail filtered by the ArtbMtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildSalesOrderDetail requireOneByArtbctaxcode(string $ArtbCtaxCode) Return the first ChildSalesOrderDetail filtered by the ArtbCtaxCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderDetail requireOneByOedtqtyord(string $OedtQtyOrd) Return the first ChildSalesOrderDetail filtered by the OedtQtyOrd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderDetail requireOneByOedtqtyship(string $OedtQtyShip) Return the first ChildSalesOrderDetail filtered by the OedtQtyShip column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildSalesOrderDetail requireOneByOedtqtyshiptot(string $OedtQtyShipTot) Return the first ChildSalesOrderDetail filtered by the OedtQtyShipTot column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -685,7 +685,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtcancdate(string $OedtCancDate) Return ChildSalesOrderDetail objects filtered by the OedtCancDate column
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtshipdate(string $OedtShipDate) Return ChildSalesOrderDetail objects filtered by the OedtShipDate column
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtspecordr(string $OedtSpecOrdr) Return ChildSalesOrderDetail objects filtered by the OedtSpecOrdr column
- * @method     ChildSalesOrderDetail[]|ObjectCollection findByArtbmtaxcode(string $ArtbMtaxCode) Return ChildSalesOrderDetail objects filtered by the ArtbMtaxCode column
+ * @method     ChildSalesOrderDetail[]|ObjectCollection findByArtbctaxcode(string $ArtbCtaxCode) Return ChildSalesOrderDetail objects filtered by the ArtbCtaxCode column
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtqtyord(string $OedtQtyOrd) Return ChildSalesOrderDetail objects filtered by the OedtQtyOrd column
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtqtyship(string $OedtQtyShip) Return ChildSalesOrderDetail objects filtered by the OedtQtyShip column
  * @method     ChildSalesOrderDetail[]|ObjectCollection findByOedtqtyshiptot(string $OedtQtyShipTot) Return ChildSalesOrderDetail objects filtered by the OedtQtyShipTot column
@@ -919,7 +919,7 @@ abstract class SalesOrderDetailQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT OehdNbr, OedtLine, InitItemNbr, OedtDesc, OedtDesc2, IntbWhse, OedtRqstDate, OedtCancDate, OedtShipDate, OedtSpecOrdr, ArtbMtaxCode, OedtQtyOrd, OedtQtyShip, OedtQtyShipTot, OedtQtyBord, OedtPric, OedtCost, OedtTaxPctTot, OedtPricTot, OedtCostTot, OedtSpCommPct, OedtBrknCaseQty, OedtBin, OedtPersonalCd, OedtAcDisc1, OedtAcDisc2, OedtAcDisc3, OedtAcDisc4, OedtLmWipNbr, OedtCorePric, OedtAsstCode, OedtAsstQty, OedtListPric, OedtStanCost, OedtVendItemJob, OedtNsVendId, OedtNsItemGrup, OedtUseCode, OedtNsShipFromId, OedtAsstOvrd, OedtPricOvrd, OedtPickFlag, OedtMstrTaxCode1, OedtMstrTaxPct1, OedtMstrTaxCode2, OedtMstrTaxPct2, OedtMstrTaxCode3, OedtMstrTaxPct3, OedtMstrTaxCode4, OedtMstrTaxPct4, OedtMstrTaxCode5, OedtMstrTaxPct5, OedtMstrTaxCode6, OedtMstrTaxPct6, OedtMstrTaxCode7, OedtMstrTaxPct7, OedtMstrTaxCode8, OedtMstrTaxPct8, OedtMstrTaxCode9, OedtMstrTaxPct9, OedtBinArea, OedtSplitLine, OedtLostReas, OedtOrigLine, OedtCustCrssRef, OedtUom, OedtShipFlag, OedtKitFlag, OedtKitItemNbr, OedtBfCost, OedtBfMsgCode, OedtBfCostTot, OedtLmBulkPric, OedtLmMtrxPkgPric, OedtLmMtrxBulkPric, OedtLmContractPric, OedtWghtTot, OedtOrdrAs, OedtPoDetLineNbr, OedtQtyToShip, OedtPoNbr, OedtPoRef, OedtFrtIn, OedtFrtInEntered, OedtProdCmplt, OedtErFlag, OedtOrigItem, OedtSubFlag, OedtEdiIncomingSeq, OedtSpordPoLine, OedtCatlgId, OedtDesignCd, OedtDiscPct, OedtTaxAmt, OedtXUsage, OedtRqtsLock, OedtFreshFrozen, OedtCoreFlag, OedtNsSalesAcct, OedtCertReqd, OedtAddOnSales, OedtBordFlag, OedtTempGrove, OedtGroveDisc, OedtOffInvc, InitItemGrup, ApveVendId, OedtAcct, OedtLoadTot, OedtPickedQty, OedtWiOrigQty, OedtMarginTot, OedtCoreCost, OedtItemRef, OedtSac02ReturnCode, OedtWgTaxCode, OedtWgPrice, OedtWgTot, OedtCntrQty, OedtConfirmCode, OedtPicked, OedtOrigRqstDate, OedtFabLock, OedtLabelPrinted, OedtQuoteId, OedtInvPrinted, OedtStockCheck, OedtShouldWeSplit, OedtCofcReqd, OedtAckCode, OedtWiBordNbr, OedtCertHistOrdr, OedtCertHistLine, OedtOrdrdAsItemId, OedtWiBatch1Nbr, OedtWiBatch1Qty, OedtWiBatch1Stat, OedtRgaNbr, OedtOrigPric, OedtRefLineNbr, OedtBinLocn, OedtAcSuplyWhse, OedtAcPricDate, DateUpdtd, TimeUpdtd, dummy FROM so_detail WHERE OehdNbr = :p0 AND OedtLine = :p1';
+        $sql = 'SELECT OehdNbr, OedtLine, InitItemNbr, OedtDesc, OedtDesc2, IntbWhse, OedtRqstDate, OedtCancDate, OedtShipDate, OedtSpecOrdr, ArtbCtaxCode, OedtQtyOrd, OedtQtyShip, OedtQtyShipTot, OedtQtyBord, OedtPric, OedtCost, OedtTaxPctTot, OedtPricTot, OedtCostTot, OedtSpCommPct, OedtBrknCaseQty, OedtBin, OedtPersonalCd, OedtAcDisc1, OedtAcDisc2, OedtAcDisc3, OedtAcDisc4, OedtLmWipNbr, OedtCorePric, OedtAsstCode, OedtAsstQty, OedtListPric, OedtStanCost, OedtVendItemJob, OedtNsVendId, OedtNsItemGrup, OedtUseCode, OedtNsShipFromId, OedtAsstOvrd, OedtPricOvrd, OedtPickFlag, OedtMstrTaxCode1, OedtMstrTaxPct1, OedtMstrTaxCode2, OedtMstrTaxPct2, OedtMstrTaxCode3, OedtMstrTaxPct3, OedtMstrTaxCode4, OedtMstrTaxPct4, OedtMstrTaxCode5, OedtMstrTaxPct5, OedtMstrTaxCode6, OedtMstrTaxPct6, OedtMstrTaxCode7, OedtMstrTaxPct7, OedtMstrTaxCode8, OedtMstrTaxPct8, OedtMstrTaxCode9, OedtMstrTaxPct9, OedtBinArea, OedtSplitLine, OedtLostReas, OedtOrigLine, OedtCustCrssRef, OedtUom, OedtShipFlag, OedtKitFlag, OedtKitItemNbr, OedtBfCost, OedtBfMsgCode, OedtBfCostTot, OedtLmBulkPric, OedtLmMtrxPkgPric, OedtLmMtrxBulkPric, OedtLmContractPric, OedtWghtTot, OedtOrdrAs, OedtPoDetLineNbr, OedtQtyToShip, OedtPoNbr, OedtPoRef, OedtFrtIn, OedtFrtInEntered, OedtProdCmplt, OedtErFlag, OedtOrigItem, OedtSubFlag, OedtEdiIncomingSeq, OedtSpordPoLine, OedtCatlgId, OedtDesignCd, OedtDiscPct, OedtTaxAmt, OedtXUsage, OedtRqtsLock, OedtFreshFrozen, OedtCoreFlag, OedtNsSalesAcct, OedtCertReqd, OedtAddOnSales, OedtBordFlag, OedtTempGrove, OedtGroveDisc, OedtOffInvc, InitItemGrup, ApveVendId, OedtAcct, OedtLoadTot, OedtPickedQty, OedtWiOrigQty, OedtMarginTot, OedtCoreCost, OedtItemRef, OedtSac02ReturnCode, OedtWgTaxCode, OedtWgPrice, OedtWgTot, OedtCntrQty, OedtConfirmCode, OedtPicked, OedtOrigRqstDate, OedtFabLock, OedtLabelPrinted, OedtQuoteId, OedtInvPrinted, OedtStockCheck, OedtShouldWeSplit, OedtCofcReqd, OedtAckCode, OedtWiBordNbr, OedtCertHistOrdr, OedtCertHistLine, OedtOrdrdAsItemId, OedtWiBatch1Nbr, OedtWiBatch1Qty, OedtWiBatch1Stat, OedtRgaNbr, OedtOrigPric, OedtRefLineNbr, OedtBinLocn, OedtAcSuplyWhse, OedtAcPricDate, DateUpdtd, TimeUpdtd, dummy FROM so_detail WHERE OehdNbr = :p0 AND OedtLine = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_INT);
@@ -1306,28 +1306,28 @@ abstract class SalesOrderDetailQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArtbMtaxCode column
+     * Filter the query on the ArtbCtaxCode column
      *
      * Example usage:
      * <code>
-     * $query->filterByArtbmtaxcode('fooValue');   // WHERE ArtbMtaxCode = 'fooValue'
-     * $query->filterByArtbmtaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbMtaxCode LIKE '%fooValue%'
+     * $query->filterByArtbctaxcode('fooValue');   // WHERE ArtbCtaxCode = 'fooValue'
+     * $query->filterByArtbctaxcode('%fooValue%', Criteria::LIKE); // WHERE ArtbCtaxCode LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $artbmtaxcode The value to use as filter.
+     * @param     string $artbctaxcode The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildSalesOrderDetailQuery The current query, for fluid interface
      */
-    public function filterByArtbmtaxcode($artbmtaxcode = null, $comparison = null)
+    public function filterByArtbctaxcode($artbctaxcode = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($artbmtaxcode)) {
+            if (is_array($artbctaxcode)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(SalesOrderDetailTableMap::COL_ARTBMTAXCODE, $artbmtaxcode, $comparison);
+        return $this->addUsingAlias(SalesOrderDetailTableMap::COL_ARTBCTAXCODE, $artbctaxcode, $comparison);
     }
 
     /**
