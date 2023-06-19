@@ -768,6 +768,13 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $arstinvytd;
 
     /**
+     * The value for the arstemailfaxauthcode field.
+     *
+     * @var        string
+     */
+    protected $arstemailfaxauthcode;
+
+    /**
      * The value for the dateupdtd field.
      *
      * @var        string
@@ -2097,6 +2104,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
     public function getArstinvytd()
     {
         return $this->arstinvytd;
+    }
+
+    /**
+     * Get the [arstemailfaxauthcode] column value.
+     *
+     * @return string
+     */
+    public function getArstemailfaxauthcode()
+    {
+        return $this->arstemailfaxauthcode;
     }
 
     /**
@@ -4074,6 +4091,26 @@ abstract class CustomerShipto implements ActiveRecordInterface
     } // setArstinvytd()
 
     /**
+     * Set the value of [arstemailfaxauthcode] column.
+     *
+     * @param string $v new value
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function setArstemailfaxauthcode($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->arstemailfaxauthcode !== $v) {
+            $this->arstemailfaxauthcode = $v;
+            $this->modifiedColumns[CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE] = true;
+        }
+
+        return $this;
+    } // setArstemailfaxauthcode()
+
+    /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
@@ -4468,13 +4505,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 96 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstinvytd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstinvytd = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 97 + $startcol : CustomerShiptoTableMap::translateFieldName('Arstemailfaxauthcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->arstemailfaxauthcode = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 98 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 99 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 100 + $startcol : CustomerShiptoTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -4484,7 +4524,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 100; // 100 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 101; // 101 = CustomerShiptoTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
             throw new PropelException(sprintf('Error populating %s object', '\\CustomerShipto'), 0, $e);
@@ -5130,6 +5170,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINVYTD)) {
             $modifiedColumns[':p' . $index++]  = 'ArstInvYtd';
         }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE)) {
+            $modifiedColumns[':p' . $index++]  = 'ArstEmailFaxAuthCode';
+        }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
@@ -5440,6 +5483,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
                         break;
                     case 'ArstInvYtd':
                         $stmt->bindValue($identifier, $this->arstinvytd, PDO::PARAM_INT);
+                        break;
+                    case 'ArstEmailFaxAuthCode':
+                        $stmt->bindValue($identifier, $this->arstemailfaxauthcode, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -5797,12 +5843,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 return $this->getArstinvytd();
                 break;
             case 97:
-                return $this->getDateupdtd();
+                return $this->getArstemailfaxauthcode();
                 break;
             case 98:
-                return $this->getTimeupdtd();
+                return $this->getDateupdtd();
                 break;
             case 99:
+                return $this->getTimeupdtd();
+                break;
+            case 100:
                 return $this->getDummy();
                 break;
             default:
@@ -5932,9 +5981,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $keys[94] => $this->getArstfobperlb(),
             $keys[95] => $this->getArstsaleytd(),
             $keys[96] => $this->getArstinvytd(),
-            $keys[97] => $this->getDateupdtd(),
-            $keys[98] => $this->getTimeupdtd(),
-            $keys[99] => $this->getDummy(),
+            $keys[97] => $this->getArstemailfaxauthcode(),
+            $keys[98] => $this->getDateupdtd(),
+            $keys[99] => $this->getTimeupdtd(),
+            $keys[100] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -6403,12 +6453,15 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 $this->setArstinvytd($value);
                 break;
             case 97:
-                $this->setDateupdtd($value);
+                $this->setArstemailfaxauthcode($value);
                 break;
             case 98:
-                $this->setTimeupdtd($value);
+                $this->setDateupdtd($value);
                 break;
             case 99:
+                $this->setTimeupdtd($value);
+                break;
+            case 100:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -6729,13 +6782,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->setArstinvytd($arr[$keys[96]]);
         }
         if (array_key_exists($keys[97], $arr)) {
-            $this->setDateupdtd($arr[$keys[97]]);
+            $this->setArstemailfaxauthcode($arr[$keys[97]]);
         }
         if (array_key_exists($keys[98], $arr)) {
-            $this->setTimeupdtd($arr[$keys[98]]);
+            $this->setDateupdtd($arr[$keys[98]]);
         }
         if (array_key_exists($keys[99], $arr)) {
-            $this->setDummy($arr[$keys[99]]);
+            $this->setTimeupdtd($arr[$keys[99]]);
+        }
+        if (array_key_exists($keys[100], $arr)) {
+            $this->setDummy($arr[$keys[100]]);
         }
     }
 
@@ -7069,6 +7125,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTINVYTD)) {
             $criteria->add(CustomerShiptoTableMap::COL_ARSTINVYTD, $this->arstinvytd);
         }
+        if ($this->isColumnModified(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE)) {
+            $criteria->add(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE, $this->arstemailfaxauthcode);
+        }
         if ($this->isColumnModified(CustomerShiptoTableMap::COL_DATEUPDTD)) {
             $criteria->add(CustomerShiptoTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
@@ -7276,6 +7335,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $copyObj->setArstfobperlb($this->getArstfobperlb());
         $copyObj->setArstsaleytd($this->getArstsaleytd());
         $copyObj->setArstinvytd($this->getArstinvytd());
+        $copyObj->setArstemailfaxauthcode($this->getArstemailfaxauthcode());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -9458,6 +9518,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $this->arstfobperlb = null;
         $this->arstsaleytd = null;
         $this->arstinvytd = null;
+        $this->arstemailfaxauthcode = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;

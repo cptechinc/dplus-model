@@ -276,11 +276,11 @@ abstract class Quote implements ActiveRecordInterface
     protected $artbpriccode;
 
     /**
-     * The value for the atbctaxcode field.
+     * The value for the artbctaxcode field.
      *
      * @var        string
      */
-    protected $atbctaxcode;
+    protected $artbctaxcode;
 
     /**
      * The value for the artmtermcd field.
@@ -1100,13 +1100,13 @@ abstract class Quote implements ActiveRecordInterface
     }
 
     /**
-     * Get the [atbctaxcode] column value.
+     * Get the [artbctaxcode] column value.
      *
      * @return string
      */
-    public function getAtbctaxcode()
+    public function getArtbctaxcode()
     {
-        return $this->atbctaxcode;
+        return $this->artbctaxcode;
     }
 
     /**
@@ -2080,24 +2080,24 @@ abstract class Quote implements ActiveRecordInterface
     } // setArtbpriccode()
 
     /**
-     * Set the value of [atbctaxcode] column.
+     * Set the value of [artbctaxcode] column.
      *
      * @param string $v new value
      * @return $this|\Quote The current object (for fluent API support)
      */
-    public function setAtbctaxcode($v)
+    public function setArtbctaxcode($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->atbctaxcode !== $v) {
-            $this->atbctaxcode = $v;
+        if ($this->artbctaxcode !== $v) {
+            $this->artbctaxcode = $v;
             $this->modifiedColumns[QuoteTableMap::COL_ARTBCTAXCODE] = true;
         }
 
         return $this;
-    } // setAtbctaxcode()
+    } // setArtbctaxcode()
 
     /**
      * Set the value of [artmtermcd] column.
@@ -2969,8 +2969,8 @@ abstract class Quote implements ActiveRecordInterface
             $col = $row[TableMap::TYPE_NUM == $indexType ? 29 + $startcol : QuoteTableMap::translateFieldName('Artbpriccode', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artbpriccode = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : QuoteTableMap::translateFieldName('Atbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->atbctaxcode = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 30 + $startcol : QuoteTableMap::translateFieldName('Artbctaxcode', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->artbctaxcode = (null !== $col) ? (string) $col : null;
 
             $col = $row[TableMap::TYPE_NUM == $indexType ? 31 + $startcol : QuoteTableMap::translateFieldName('Artmtermcd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->artmtermcd = (null !== $col) ? (string) $col : null;
@@ -3612,7 +3612,7 @@ abstract class Quote implements ActiveRecordInterface
                         $stmt->bindValue($identifier, $this->artbpriccode, PDO::PARAM_STR);
                         break;
                     case 'ArtbCtaxCode':
-                        $stmt->bindValue($identifier, $this->atbctaxcode, PDO::PARAM_STR);
+                        $stmt->bindValue($identifier, $this->artbctaxcode, PDO::PARAM_STR);
                         break;
                     case 'ArtmTermCd':
                         $stmt->bindValue($identifier, $this->artmtermcd, PDO::PARAM_STR);
@@ -3871,7 +3871,7 @@ abstract class Quote implements ActiveRecordInterface
                 return $this->getArtbpriccode();
                 break;
             case 30:
-                return $this->getAtbctaxcode();
+                return $this->getArtbctaxcode();
                 break;
             case 31:
                 return $this->getArtmtermcd();
@@ -4044,7 +4044,7 @@ abstract class Quote implements ActiveRecordInterface
             $keys[27] => $this->getQthdrevdate(),
             $keys[28] => $this->getQthdexpdate(),
             $keys[29] => $this->getArtbpriccode(),
-            $keys[30] => $this->getAtbctaxcode(),
+            $keys[30] => $this->getArtbctaxcode(),
             $keys[31] => $this->getArtmtermcd(),
             $keys[32] => $this->getArtbshipvia(),
             $keys[33] => $this->getArspsaleper1(),
@@ -4229,7 +4229,7 @@ abstract class Quote implements ActiveRecordInterface
                 $this->setArtbpriccode($value);
                 break;
             case 30:
-                $this->setAtbctaxcode($value);
+                $this->setArtbctaxcode($value);
                 break;
             case 31:
                 $this->setArtmtermcd($value);
@@ -4459,7 +4459,7 @@ abstract class Quote implements ActiveRecordInterface
             $this->setArtbpriccode($arr[$keys[29]]);
         }
         if (array_key_exists($keys[30], $arr)) {
-            $this->setAtbctaxcode($arr[$keys[30]]);
+            $this->setArtbctaxcode($arr[$keys[30]]);
         }
         if (array_key_exists($keys[31], $arr)) {
             $this->setArtmtermcd($arr[$keys[31]]);
@@ -4704,7 +4704,7 @@ abstract class Quote implements ActiveRecordInterface
             $criteria->add(QuoteTableMap::COL_ARTBPRICCODE, $this->artbpriccode);
         }
         if ($this->isColumnModified(QuoteTableMap::COL_ARTBCTAXCODE)) {
-            $criteria->add(QuoteTableMap::COL_ARTBCTAXCODE, $this->atbctaxcode);
+            $criteria->add(QuoteTableMap::COL_ARTBCTAXCODE, $this->artbctaxcode);
         }
         if ($this->isColumnModified(QuoteTableMap::COL_ARTMTERMCD)) {
             $criteria->add(QuoteTableMap::COL_ARTMTERMCD, $this->artmtermcd);
@@ -4933,7 +4933,7 @@ abstract class Quote implements ActiveRecordInterface
         $copyObj->setQthdrevdate($this->getQthdrevdate());
         $copyObj->setQthdexpdate($this->getQthdexpdate());
         $copyObj->setArtbpriccode($this->getArtbpriccode());
-        $copyObj->setAtbctaxcode($this->getAtbctaxcode());
+        $copyObj->setArtbctaxcode($this->getArtbctaxcode());
         $copyObj->setArtmtermcd($this->getArtmtermcd());
         $copyObj->setArtbshipvia($this->getArtbshipvia());
         $copyObj->setArspsaleper1($this->getArspsaleper1());
@@ -5294,7 +5294,7 @@ abstract class Quote implements ActiveRecordInterface
         $this->qthdrevdate = null;
         $this->qthdexpdate = null;
         $this->artbpriccode = null;
-        $this->atbctaxcode = null;
+        $this->artbctaxcode = null;
         $this->artmtermcd = null;
         $this->artbshipvia = null;
         $this->arspsaleper1 = null;
@@ -5379,7 +5379,7 @@ abstract class Quote implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -5403,7 +5403,7 @@ abstract class Quote implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -5427,7 +5427,7 @@ abstract class Quote implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -5451,7 +5451,7 @@ abstract class Quote implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

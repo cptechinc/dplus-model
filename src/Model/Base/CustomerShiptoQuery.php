@@ -110,13 +110,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery orderByArstdistcntr($order = Criteria::ASC) Order by the ArstDistCntr column
  * @method     ChildCustomerShiptoQuery orderByArstdunsnbr($order = Criteria::ASC) Order by the ArstDunsNbr column
  * @method     ChildCustomerShiptoQuery orderByArstrfmlvalu($order = Criteria::ASC) Order by the ArstRfmlValu column
- * @method     ChildCustomerShiptoQuery orderByArstcustpopram($order = Criteria::ASC) Order by the ArstCustPOPram column
+ * @method     ChildCustomerShiptoQuery orderByArstcustpoparam($order = Criteria::ASC) Order by the ArstCustPoParam column
  * @method     ChildCustomerShiptoQuery orderByArtbroutcode($order = Criteria::ASC) Order by the ArtbRoutCode column
  * @method     ChildCustomerShiptoQuery orderByArstupsacctnbr($order = Criteria::ASC) Order by the ArstUpsAcctNbr column
  * @method     ChildCustomerShiptoQuery orderByArstfobinputyn($order = Criteria::ASC) Order by the ArstFobInputYn column
  * @method     ChildCustomerShiptoQuery orderByArstfobperlb($order = Criteria::ASC) Order by the ArstFobPerLb column
  * @method     ChildCustomerShiptoQuery orderByArstsaleytd($order = Criteria::ASC) Order by the ArstSaleYtd column
  * @method     ChildCustomerShiptoQuery orderByArstinvytd($order = Criteria::ASC) Order by the ArstInvYtd column
+ * @method     ChildCustomerShiptoQuery orderByArstemailfaxauthcode($order = Criteria::ASC) Order by the ArstEmailFaxAuthCode column
  * @method     ChildCustomerShiptoQuery orderByDateupdtd($order = Criteria::ASC) Order by the DateUpdtd column
  * @method     ChildCustomerShiptoQuery orderByTimeupdtd($order = Criteria::ASC) Order by the TimeUpdtd column
  * @method     ChildCustomerShiptoQuery orderByDummy($order = Criteria::ASC) Order by the dummy column
@@ -211,13 +212,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery groupByArstdistcntr() Group by the ArstDistCntr column
  * @method     ChildCustomerShiptoQuery groupByArstdunsnbr() Group by the ArstDunsNbr column
  * @method     ChildCustomerShiptoQuery groupByArstrfmlvalu() Group by the ArstRfmlValu column
- * @method     ChildCustomerShiptoQuery groupByArstcustpopram() Group by the ArstCustPOPram column
+ * @method     ChildCustomerShiptoQuery groupByArstcustpoparam() Group by the ArstCustPoParam column
  * @method     ChildCustomerShiptoQuery groupByArtbroutcode() Group by the ArtbRoutCode column
  * @method     ChildCustomerShiptoQuery groupByArstupsacctnbr() Group by the ArstUpsAcctNbr column
  * @method     ChildCustomerShiptoQuery groupByArstfobinputyn() Group by the ArstFobInputYn column
  * @method     ChildCustomerShiptoQuery groupByArstfobperlb() Group by the ArstFobPerLb column
  * @method     ChildCustomerShiptoQuery groupByArstsaleytd() Group by the ArstSaleYtd column
  * @method     ChildCustomerShiptoQuery groupByArstinvytd() Group by the ArstInvYtd column
+ * @method     ChildCustomerShiptoQuery groupByArstemailfaxauthcode() Group by the ArstEmailFaxAuthCode column
  * @method     ChildCustomerShiptoQuery groupByDateupdtd() Group by the DateUpdtd column
  * @method     ChildCustomerShiptoQuery groupByTimeupdtd() Group by the TimeUpdtd column
  * @method     ChildCustomerShiptoQuery groupByDummy() Group by the dummy column
@@ -415,13 +417,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto findOneByArstdistcntr(string $ArstDistCntr) Return the first ChildCustomerShipto filtered by the ArstDistCntr column
  * @method     ChildCustomerShipto findOneByArstdunsnbr(string $ArstDunsNbr) Return the first ChildCustomerShipto filtered by the ArstDunsNbr column
  * @method     ChildCustomerShipto findOneByArstrfmlvalu(int $ArstRfmlValu) Return the first ChildCustomerShipto filtered by the ArstRfmlValu column
- * @method     ChildCustomerShipto findOneByArstcustpopram(string $ArstCustPOPram) Return the first ChildCustomerShipto filtered by the ArstCustPOPram column
+ * @method     ChildCustomerShipto findOneByArstcustpoparam(string $ArstCustPoParam) Return the first ChildCustomerShipto filtered by the ArstCustPoParam column
  * @method     ChildCustomerShipto findOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column
  * @method     ChildCustomerShipto findOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column
  * @method     ChildCustomerShipto findOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column
  * @method     ChildCustomerShipto findOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column
  * @method     ChildCustomerShipto findOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column
  * @method     ChildCustomerShipto findOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto findOneByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return the first ChildCustomerShipto filtered by the ArstEmailFaxAuthCode column
  * @method     ChildCustomerShipto findOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column
  * @method     ChildCustomerShipto findOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column
  * @method     ChildCustomerShipto findOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column *
@@ -519,13 +522,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto requireOneByArstdistcntr(string $ArstDistCntr) Return the first ChildCustomerShipto filtered by the ArstDistCntr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstdunsnbr(string $ArstDunsNbr) Return the first ChildCustomerShipto filtered by the ArstDunsNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstrfmlvalu(int $ArstRfmlValu) Return the first ChildCustomerShipto filtered by the ArstRfmlValu column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
- * @method     ChildCustomerShipto requireOneByArstcustpopram(string $ArstCustPOPram) Return the first ChildCustomerShipto filtered by the ArstCustPOPram column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstcustpoparam(string $ArstCustPoParam) Return the first ChildCustomerShipto filtered by the ArstCustPoParam column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArtbroutcode(string $ArtbRoutCode) Return the first ChildCustomerShipto filtered by the ArtbRoutCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstupsacctnbr(string $ArstUpsAcctNbr) Return the first ChildCustomerShipto filtered by the ArstUpsAcctNbr column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstfobinputyn(string $ArstFobInputYn) Return the first ChildCustomerShipto filtered by the ArstFobInputYn column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstfobperlb(string $ArstFobPerLb) Return the first ChildCustomerShipto filtered by the ArstFobPerLb column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstsaleytd(string $ArstSaleYtd) Return the first ChildCustomerShipto filtered by the ArstSaleYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByArstinvytd(int $ArstInvYtd) Return the first ChildCustomerShipto filtered by the ArstInvYtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
+ * @method     ChildCustomerShipto requireOneByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return the first ChildCustomerShipto filtered by the ArstEmailFaxAuthCode column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByDateupdtd(string $DateUpdtd) Return the first ChildCustomerShipto filtered by the DateUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByTimeupdtd(string $TimeUpdtd) Return the first ChildCustomerShipto filtered by the TimeUpdtd column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
  * @method     ChildCustomerShipto requireOneByDummy(string $dummy) Return the first ChildCustomerShipto filtered by the dummy column and throws \Propel\Runtime\Exception\EntityNotFoundException when not found
@@ -621,13 +625,14 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstdistcntr(string $ArstDistCntr) Return ChildCustomerShipto objects filtered by the ArstDistCntr column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstdunsnbr(string $ArstDunsNbr) Return ChildCustomerShipto objects filtered by the ArstDunsNbr column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstrfmlvalu(int $ArstRfmlValu) Return ChildCustomerShipto objects filtered by the ArstRfmlValu column
- * @method     ChildCustomerShipto[]|ObjectCollection findByArstcustpopram(string $ArstCustPOPram) Return ChildCustomerShipto objects filtered by the ArstCustPOPram column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstcustpoparam(string $ArstCustPoParam) Return ChildCustomerShipto objects filtered by the ArstCustPoParam column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArtbroutcode(string $ArtbRoutCode) Return ChildCustomerShipto objects filtered by the ArtbRoutCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstupsacctnbr(string $ArstUpsAcctNbr) Return ChildCustomerShipto objects filtered by the ArstUpsAcctNbr column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobinputyn(string $ArstFobInputYn) Return ChildCustomerShipto objects filtered by the ArstFobInputYn column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstfobperlb(string $ArstFobPerLb) Return ChildCustomerShipto objects filtered by the ArstFobPerLb column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstsaleytd(string $ArstSaleYtd) Return ChildCustomerShipto objects filtered by the ArstSaleYtd column
  * @method     ChildCustomerShipto[]|ObjectCollection findByArstinvytd(int $ArstInvYtd) Return ChildCustomerShipto objects filtered by the ArstInvYtd column
+ * @method     ChildCustomerShipto[]|ObjectCollection findByArstemailfaxauthcode(string $ArstEmailFaxAuthCode) Return ChildCustomerShipto objects filtered by the ArstEmailFaxAuthCode column
  * @method     ChildCustomerShipto[]|ObjectCollection findByDateupdtd(string $DateUpdtd) Return ChildCustomerShipto objects filtered by the DateUpdtd column
  * @method     ChildCustomerShipto[]|ObjectCollection findByTimeupdtd(string $TimeUpdtd) Return ChildCustomerShipto objects filtered by the TimeUpdtd column
  * @method     ChildCustomerShipto[]|ObjectCollection findByDummy(string $dummy) Return ChildCustomerShipto objects filtered by the dummy column
@@ -729,7 +734,7 @@ abstract class CustomerShiptoQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbCtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24mo1, ArstInv24mo1, ArstSale24mo2, ArstInv24mo2, ArstSale24mo3, ArstInv24mo3, ArstSale24mo4, ArstInv24mo4, ArstSale24mo5, ArstInv24mo5, ArstSale24mo6, ArstInv24mo6, ArstSale24mo7, ArstInv24mo7, ArstSale24mo8, ArstInv24mo8, ArstSale24mo9, ArstInv24mo9, ArstSale24mo10, ArstInv24mo10, ArstSale24mo11, ArstInv24mo11, ArstSale24mo12, ArstInv24mo12, ArstSale24mo13, ArstInv24mo13, ArstSale24mo14, ArstInv24mo14, ArstSale24mo15, ArstInv24mo15, ArstSale24mo16, ArstInv24mo16, ArstSale24mo17, ArstInv24mo17, ArstSale24mo18, ArstInv24mo18, ArstSale24mo19, ArstInv24mo19, ArstSale24mo20, ArstInv24mo20, ArstSale24mo21, ArstInv24mo21, ArstSale24mo22, ArstInv24mo22, ArstSale24mo23, ArstInv24mo23, ArstSale24mo24, ArstInv24mo24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPOPram, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYn, ArstFobPerLb, ArstSaleYtd, ArstInvYtd, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
+        $sql = 'SELECT ArcuCustId, ArstShipId, ArstName, ArstAdr1, ArstAdr2, ArstAdr3, ArstCtry, ArstCity, ArstStat, ArstZipCode, ArstDeliveryDays, ArstCommCode, ArstAllowSplit, ArstLindstSp, ArstLmEcommCustId, ArstCatlgId, ArspSalePer1, ArspSalePer2, ArspSalePer3, ArtbCtaxCode, ArstTaxExemNbr, IntbWhse, ArtbShipVia, ArstBord, ArstCredHold, ArstUserCode, ArstPricLvl, ArstShipComp, ArstTxbl, ArstPostal, ArstSaleMtd, ArstInvMtd, ArstDateOpen, ArstLastSaleDate, ArstSale24mo1, ArstInv24mo1, ArstSale24mo2, ArstInv24mo2, ArstSale24mo3, ArstInv24mo3, ArstSale24mo4, ArstInv24mo4, ArstSale24mo5, ArstInv24mo5, ArstSale24mo6, ArstInv24mo6, ArstSale24mo7, ArstInv24mo7, ArstSale24mo8, ArstInv24mo8, ArstSale24mo9, ArstInv24mo9, ArstSale24mo10, ArstInv24mo10, ArstSale24mo11, ArstInv24mo11, ArstSale24mo12, ArstInv24mo12, ArstSale24mo13, ArstInv24mo13, ArstSale24mo14, ArstInv24mo14, ArstSale24mo15, ArstInv24mo15, ArstSale24mo16, ArstInv24mo16, ArstSale24mo17, ArstInv24mo17, ArstSale24mo18, ArstInv24mo18, ArstSale24mo19, ArstInv24mo19, ArstSale24mo20, ArstInv24mo20, ArstSale24mo21, ArstInv24mo21, ArstSale24mo22, ArstInv24mo22, ArstSale24mo23, ArstInv24mo23, ArstSale24mo24, ArstInv24mo24, ArstPrimShipId, ArstMyVendId, ArstAddlPricDisc, ArstEdiInvc, ArstChrgFrt, ArstDistCntr, ArstDunsNbr, ArstRfmlValu, ArstCustPoParam, ArtbRoutCode, ArstUpsAcctNbr, ArstFobInputYn, ArstFobPerLb, ArstSaleYtd, ArstInvYtd, ArstEmailFaxAuthCode, DateUpdtd, TimeUpdtd, dummy FROM ar_ship_to WHERE ArcuCustId = :p0 AND ArstShipId = :p1';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key[0], PDO::PARAM_STR);
@@ -3930,28 +3935,28 @@ abstract class CustomerShiptoQuery extends ModelCriteria
     }
 
     /**
-     * Filter the query on the ArstCustPOPram column
+     * Filter the query on the ArstCustPoParam column
      *
      * Example usage:
      * <code>
-     * $query->filterByArstcustpopram('fooValue');   // WHERE ArstCustPOPram = 'fooValue'
-     * $query->filterByArstcustpopram('%fooValue%', Criteria::LIKE); // WHERE ArstCustPOPram LIKE '%fooValue%'
+     * $query->filterByArstcustpoparam('fooValue');   // WHERE ArstCustPoParam = 'fooValue'
+     * $query->filterByArstcustpoparam('%fooValue%', Criteria::LIKE); // WHERE ArstCustPoParam LIKE '%fooValue%'
      * </code>
      *
-     * @param     string $arstcustpopram The value to use as filter.
+     * @param     string $arstcustpoparam The value to use as filter.
      * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
      *
      * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
      */
-    public function filterByArstcustpopram($arstcustpopram = null, $comparison = null)
+    public function filterByArstcustpoparam($arstcustpoparam = null, $comparison = null)
     {
         if (null === $comparison) {
-            if (is_array($arstcustpopram)) {
+            if (is_array($arstcustpoparam)) {
                 $comparison = Criteria::IN;
             }
         }
 
-        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCUSTPOPRAM, $arstcustpopram, $comparison);
+        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTCUSTPOPARAM, $arstcustpoparam, $comparison);
     }
 
     /**
@@ -4150,6 +4155,31 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTINVYTD, $arstinvytd, $comparison);
+    }
+
+    /**
+     * Filter the query on the ArstEmailFaxAuthCode column
+     *
+     * Example usage:
+     * <code>
+     * $query->filterByArstemailfaxauthcode('fooValue');   // WHERE ArstEmailFaxAuthCode = 'fooValue'
+     * $query->filterByArstemailfaxauthcode('%fooValue%', Criteria::LIKE); // WHERE ArstEmailFaxAuthCode LIKE '%fooValue%'
+     * </code>
+     *
+     * @param     string $arstemailfaxauthcode The value to use as filter.
+     * @param     string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByArstemailfaxauthcode($arstemailfaxauthcode = null, $comparison = null)
+    {
+        if (null === $comparison) {
+            if (is_array($arstemailfaxauthcode)) {
+                $comparison = Criteria::IN;
+            }
+        }
+
+        return $this->addUsingAlias(CustomerShiptoTableMap::COL_ARSTEMAILFAXAUTHCODE, $arstemailfaxauthcode, $comparison);
     }
 
     /**
