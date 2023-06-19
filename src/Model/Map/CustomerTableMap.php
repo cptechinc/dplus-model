@@ -996,6 +996,13 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, 'InvSerialWarranties', false);
+        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':RkeyCVId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'ItemXrefKeys', false);
         $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

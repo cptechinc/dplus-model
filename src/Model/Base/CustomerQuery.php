@@ -396,6 +396,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithInvSerialWarranty() Adds a RIGHT JOIN clause and with to the query using the InvSerialWarranty relation
  * @method     ChildCustomerQuery innerJoinWithInvSerialWarranty() Adds a INNER JOIN clause and with to the query using the InvSerialWarranty relation
  *
+ * @method     ChildCustomerQuery leftJoinItemXrefKey($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefKey relation
+ * @method     ChildCustomerQuery rightJoinItemXrefKey($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefKey relation
+ * @method     ChildCustomerQuery innerJoinItemXrefKey($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefKey relation
+ *
+ * @method     ChildCustomerQuery joinWithItemXrefKey($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ItemXrefKey relation
+ *
+ * @method     ChildCustomerQuery leftJoinWithItemXrefKey() Adds a LEFT JOIN clause and with to the query using the ItemXrefKey relation
+ * @method     ChildCustomerQuery rightJoinWithItemXrefKey() Adds a RIGHT JOIN clause and with to the query using the ItemXrefKey relation
+ * @method     ChildCustomerQuery innerJoinWithItemXrefKey() Adds a INNER JOIN clause and with to the query using the ItemXrefKey relation
+ *
  * @method     ChildCustomerQuery leftJoinItemXrefCustomerNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefCustomerNote relation
  * @method     ChildCustomerQuery rightJoinItemXrefCustomerNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefCustomerNote relation
  * @method     ChildCustomerQuery innerJoinItemXrefCustomerNote($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemXrefCustomerNote relation
@@ -486,7 +496,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerQuery rightJoinWithSoStandingOrder() Adds a RIGHT JOIN clause and with to the query using the SoStandingOrder relation
  * @method     ChildCustomerQuery innerJoinWithSoStandingOrder() Adds a INNER JOIN clause and with to the query using the SoStandingOrder relation
  *
- * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArContactQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\InvSerialWarrantyQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ArCommissionCodeQuery|\ShipviaQuery|\SoFreightRateQuery|\ArCust3partyFreightQuery|\ArPaymentPendingQuery|\ArCashHeadQuery|\ArContactQuery|\ArInvoiceQuery|\CustomerShiptoQuery|\InvSerialWarrantyQuery|\ItemXrefKeyQuery|\ItemXrefCustomerNoteQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\ItemPricingDiscountQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomer findOne(ConnectionInterface $con = null) Return the first ChildCustomer matching the query
  * @method     ChildCustomer findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomer matching the query, or a new ChildCustomer object populated from the query conditions when no match is found
@@ -6317,6 +6327,79 @@ abstract class CustomerQuery extends ModelCriteria
         return $this
             ->joinInvSerialWarranty($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvSerialWarranty', '\InvSerialWarrantyQuery');
+    }
+
+    /**
+     * Filter the query by a related \ItemXrefKey object
+     *
+     * @param \ItemXrefKey|ObjectCollection $itemXrefKey the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerQuery The current query, for fluid interface
+     */
+    public function filterByItemXrefKey($itemXrefKey, $comparison = null)
+    {
+        if ($itemXrefKey instanceof \ItemXrefKey) {
+            return $this
+                ->addUsingAlias(CustomerTableMap::COL_ARCUCUSTID, $itemXrefKey->getRkeycvid(), $comparison);
+        } elseif ($itemXrefKey instanceof ObjectCollection) {
+            return $this
+                ->useItemXrefKeyQuery()
+                ->filterByPrimaryKeys($itemXrefKey->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByItemXrefKey() only accepts arguments of type \ItemXrefKey or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ItemXrefKey relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerQuery The current query, for fluid interface
+     */
+    public function joinItemXrefKey($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ItemXrefKey');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ItemXrefKey');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ItemXrefKey relation ItemXrefKey object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ItemXrefKeyQuery A secondary query class using the current class as primary query
+     */
+    public function useItemXrefKeyQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinItemXrefKey($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ItemXrefKey', '\ItemXrefKeyQuery');
     }
 
     /**

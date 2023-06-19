@@ -30,6 +30,8 @@ use \ItemPricingDiscount as ChildItemPricingDiscount;
 use \ItemPricingDiscountQuery as ChildItemPricingDiscountQuery;
 use \ItemXrefCustomerNote as ChildItemXrefCustomerNote;
 use \ItemXrefCustomerNoteQuery as ChildItemXrefCustomerNoteQuery;
+use \ItemXrefKey as ChildItemXrefKey;
+use \ItemXrefKeyQuery as ChildItemXrefKeyQuery;
 use \SalesHistory as ChildSalesHistory;
 use \SalesHistoryQuery as ChildSalesHistoryQuery;
 use \SalesOrder as ChildSalesOrder;
@@ -56,6 +58,7 @@ use Map\CustomerTableMap;
 use Map\InvSerialWarrantyTableMap;
 use Map\ItemPricingDiscountTableMap;
 use Map\ItemXrefCustomerNoteTableMap;
+use Map\ItemXrefKeyTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
 use Map\SoStandingOrderDetailTableMap;
@@ -1103,6 +1106,12 @@ abstract class Customer implements ActiveRecordInterface
     protected $collInvSerialWarrantiesPartial;
 
     /**
+     * @var        ObjectCollection|ChildItemXrefKey[] Collection to store aggregation of ChildItemXrefKey objects.
+     */
+    protected $collItemXrefKeys;
+    protected $collItemXrefKeysPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemXrefCustomerNote[] Collection to store aggregation of ChildItemXrefCustomerNote objects.
      */
     protected $collItemXrefCustomerNotes;
@@ -1199,6 +1208,12 @@ abstract class Customer implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvSerialWarranty[]
      */
     protected $invSerialWarrantiesScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildItemXrefKey[]
+     */
+    protected $itemXrefKeysScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -6027,6 +6042,8 @@ abstract class Customer implements ActiveRecordInterface
 
             $this->collInvSerialWarranties = null;
 
+            $this->collItemXrefKeys = null;
+
             $this->collItemXrefCustomerNotes = null;
 
             $this->collBookingDayCustomers = null;
@@ -6287,6 +6304,23 @@ abstract class Customer implements ActiveRecordInterface
 
             if ($this->collInvSerialWarranties !== null) {
                 foreach ($this->collInvSerialWarranties as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->itemXrefKeysScheduledForDeletion !== null) {
+                if (!$this->itemXrefKeysScheduledForDeletion->isEmpty()) {
+                    \ItemXrefKeyQuery::create()
+                        ->filterByPrimaryKeys($this->itemXrefKeysScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->itemXrefKeysScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collItemXrefKeys !== null) {
+                foreach ($this->collItemXrefKeys as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -8053,6 +8087,21 @@ abstract class Customer implements ActiveRecordInterface
 
                 $result[$key] = $this->collInvSerialWarranties->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collItemXrefKeys) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'itemXrefKeys';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'item_xref_keys';
+                        break;
+                    default:
+                        $key = 'ItemXrefKeys';
+                }
+
+                $result[$key] = $this->collItemXrefKeys->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collItemXrefCustomerNotes) {
 
                 switch ($keyType) {
@@ -9752,6 +9801,12 @@ abstract class Customer implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getItemXrefKeys() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addItemXrefKey($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemXrefCustomerNotes() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemXrefCustomerNote($relObj->copy($deepCopy));
@@ -10021,6 +10076,10 @@ abstract class Customer implements ActiveRecordInterface
         }
         if ('InvSerialWarranty' == $relationName) {
             $this->initInvSerialWarranties();
+            return;
+        }
+        if ('ItemXrefKey' == $relationName) {
+            $this->initItemXrefKeys();
             return;
         }
         if ('ItemXrefCustomerNote' == $relationName) {
@@ -11560,6 +11619,284 @@ abstract class Customer implements ActiveRecordInterface
         $query->joinWith('InvSerialMaster', $joinBehavior);
 
         return $this->getInvSerialWarranties($query, $con);
+    }
+
+    /**
+     * Clears out the collItemXrefKeys collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addItemXrefKeys()
+     */
+    public function clearItemXrefKeys()
+    {
+        $this->collItemXrefKeys = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collItemXrefKeys collection loaded partially.
+     */
+    public function resetPartialItemXrefKeys($v = true)
+    {
+        $this->collItemXrefKeysPartial = $v;
+    }
+
+    /**
+     * Initializes the collItemXrefKeys collection.
+     *
+     * By default this just sets the collItemXrefKeys collection to an empty array (like clearcollItemXrefKeys());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initItemXrefKeys($overrideExisting = true)
+    {
+        if (null !== $this->collItemXrefKeys && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ItemXrefKeyTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collItemXrefKeys = new $collectionClassName;
+        $this->collItemXrefKeys->setModel('\ItemXrefKey');
+    }
+
+    /**
+     * Gets an array of ChildItemXrefKey objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomer is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     * @throws PropelException
+     */
+    public function getItemXrefKeys(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefKeysPartial && !$this->isNew();
+        if (null === $this->collItemXrefKeys || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefKeys) {
+                // return empty collection
+                $this->initItemXrefKeys();
+            } else {
+                $collItemXrefKeys = ChildItemXrefKeyQuery::create(null, $criteria)
+                    ->filterByCustomer($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collItemXrefKeysPartial && count($collItemXrefKeys)) {
+                        $this->initItemXrefKeys(false);
+
+                        foreach ($collItemXrefKeys as $obj) {
+                            if (false == $this->collItemXrefKeys->contains($obj)) {
+                                $this->collItemXrefKeys->append($obj);
+                            }
+                        }
+
+                        $this->collItemXrefKeysPartial = true;
+                    }
+
+                    return $collItemXrefKeys;
+                }
+
+                if ($partial && $this->collItemXrefKeys) {
+                    foreach ($this->collItemXrefKeys as $obj) {
+                        if ($obj->isNew()) {
+                            $collItemXrefKeys[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collItemXrefKeys = $collItemXrefKeys;
+                $this->collItemXrefKeysPartial = false;
+            }
+        }
+
+        return $this->collItemXrefKeys;
+    }
+
+    /**
+     * Sets a collection of ChildItemXrefKey objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $itemXrefKeys A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function setItemXrefKeys(Collection $itemXrefKeys, ConnectionInterface $con = null)
+    {
+        /** @var ChildItemXrefKey[] $itemXrefKeysToDelete */
+        $itemXrefKeysToDelete = $this->getItemXrefKeys(new Criteria(), $con)->diff($itemXrefKeys);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->itemXrefKeysScheduledForDeletion = clone $itemXrefKeysToDelete;
+
+        foreach ($itemXrefKeysToDelete as $itemXrefKeyRemoved) {
+            $itemXrefKeyRemoved->setCustomer(null);
+        }
+
+        $this->collItemXrefKeys = null;
+        foreach ($itemXrefKeys as $itemXrefKey) {
+            $this->addItemXrefKey($itemXrefKey);
+        }
+
+        $this->collItemXrefKeys = $itemXrefKeys;
+        $this->collItemXrefKeysPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ItemXrefKey objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ItemXrefKey objects.
+     * @throws PropelException
+     */
+    public function countItemXrefKeys(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collItemXrefKeysPartial && !$this->isNew();
+        if (null === $this->collItemXrefKeys || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collItemXrefKeys) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getItemXrefKeys());
+            }
+
+            $query = ChildItemXrefKeyQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomer($this)
+                ->count($con);
+        }
+
+        return count($this->collItemXrefKeys);
+    }
+
+    /**
+     * Method called to associate a ChildItemXrefKey object to this object
+     * through the ChildItemXrefKey foreign key attribute.
+     *
+     * @param  ChildItemXrefKey $l ChildItemXrefKey
+     * @return $this|\Customer The current object (for fluent API support)
+     */
+    public function addItemXrefKey(ChildItemXrefKey $l)
+    {
+        if ($this->collItemXrefKeys === null) {
+            $this->initItemXrefKeys();
+            $this->collItemXrefKeysPartial = true;
+        }
+
+        if (!$this->collItemXrefKeys->contains($l)) {
+            $this->doAddItemXrefKey($l);
+
+            if ($this->itemXrefKeysScheduledForDeletion and $this->itemXrefKeysScheduledForDeletion->contains($l)) {
+                $this->itemXrefKeysScheduledForDeletion->remove($this->itemXrefKeysScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to add.
+     */
+    protected function doAddItemXrefKey(ChildItemXrefKey $itemXrefKey)
+    {
+        $this->collItemXrefKeys[]= $itemXrefKey;
+        $itemXrefKey->setCustomer($this);
+    }
+
+    /**
+     * @param  ChildItemXrefKey $itemXrefKey The ChildItemXrefKey object to remove.
+     * @return $this|ChildCustomer The current object (for fluent API support)
+     */
+    public function removeItemXrefKey(ChildItemXrefKey $itemXrefKey)
+    {
+        if ($this->getItemXrefKeys()->contains($itemXrefKey)) {
+            $pos = $this->collItemXrefKeys->search($itemXrefKey);
+            $this->collItemXrefKeys->remove($pos);
+            if (null === $this->itemXrefKeysScheduledForDeletion) {
+                $this->itemXrefKeysScheduledForDeletion = clone $this->collItemXrefKeys;
+                $this->itemXrefKeysScheduledForDeletion->clear();
+            }
+            $this->itemXrefKeysScheduledForDeletion[]= clone $itemXrefKey;
+            $itemXrefKey->setCustomer(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related ItemXrefKeys from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     */
+    public function getItemXrefKeysJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefKeyQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getItemXrefKeys($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Customer is new, it will return
+     * an empty collection; or if this Customer has previously
+     * been saved, it will retrieve related ItemXrefKeys from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Customer.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildItemXrefKey[] List of ChildItemXrefKey objects
+     */
+    public function getItemXrefKeysJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildItemXrefKeyQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getItemXrefKeys($query, $con);
     }
 
     /**
@@ -14128,6 +14465,11 @@ abstract class Customer implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collItemXrefKeys) {
+                foreach ($this->collItemXrefKeys as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemXrefCustomerNotes) {
                 foreach ($this->collItemXrefCustomerNotes as $o) {
                     $o->clearAllReferences($deep);
@@ -14182,6 +14524,7 @@ abstract class Customer implements ActiveRecordInterface
         $this->collArInvoices = null;
         $this->collCustomerShiptos = null;
         $this->collInvSerialWarranties = null;
+        $this->collItemXrefKeys = null;
         $this->collItemXrefCustomerNotes = null;
         $this->collBookingDayCustomers = null;
         $this->collBookingDayDetails = null;

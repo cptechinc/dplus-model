@@ -2756,6 +2756,32 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="item_xref_key" idMethod="native" phpName="ItemXrefKey">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InitDesc1" phpName="Initdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="InitDesc2" phpName="Initdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="RkeyTheirItem" phpName="Rkeytheiritem" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="RkeyTheirItemDesc1" phpName="Rkeytheiritemdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="RkeyTheirItemDesc2" phpName="Rkeytheiritemdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="RkeySource" phpName="Rkeysource" type="CHAR" primaryKey="true" required="true" defaultValue=""/>
+    <column name="RkeySourceDesc" phpName="Rkeysourcedesc" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="RkeyCVId" phpName="Rkeycvid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="RkeyCVId" foreign="ApveVendId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="RkeyCVId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="kt_config" idMethod="native" phpName="ConfigKt">
     <column name="KttbConfKey" phpName="Kttbconfkey" type="INTEGER" size="1" primaryKey="true" required="true" defaultValue="0"/>
     <column name="KttbConfEditSo" phpName="Kttbconfeditso" type="VARCHAR" size="1"/>

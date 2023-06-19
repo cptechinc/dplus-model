@@ -1235,6 +1235,13 @@ class VendorTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, 'InvNonstockItems', false);
+        $this->addRelation('ItemXrefKey', '\\ItemXrefKey', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':RkeyCVId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ItemXrefKeys', false);
         $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
