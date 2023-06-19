@@ -4,6 +4,8 @@ namespace Base;
 
 use \ApBuyer as ChildApBuyer;
 use \ApBuyerQuery as ChildApBuyerQuery;
+use \ApContact as ChildApContact;
+use \ApContactQuery as ChildApContactQuery;
 use \ApInvoice as ChildApInvoice;
 use \ApInvoiceDetail as ChildApInvoiceDetail;
 use \ApInvoiceDetailQuery as ChildApInvoiceDetailQuery;
@@ -12,6 +14,8 @@ use \ApTermsCode as ChildApTermsCode;
 use \ApTermsCodeQuery as ChildApTermsCodeQuery;
 use \ApTypeCode as ChildApTypeCode;
 use \ApTypeCodeQuery as ChildApTypeCodeQuery;
+use \InvNonstockItem as ChildInvNonstockItem;
+use \InvNonstockItemQuery as ChildInvNonstockItemQuery;
 use \ItemXrefManufacturer as ChildItemXrefManufacturer;
 use \ItemXrefManufacturerQuery as ChildItemXrefManufacturerQuery;
 use \ItemXrefVendor as ChildItemXrefVendor;
@@ -30,8 +34,10 @@ use \VendorShipfrom as ChildVendorShipfrom;
 use \VendorShipfromQuery as ChildVendorShipfromQuery;
 use \Exception;
 use \PDO;
+use Map\ApContactTableMap;
 use Map\ApInvoiceDetailTableMap;
 use Map\ApInvoiceTableMap;
+use Map\InvNonstockItemTableMap;
 use Map\ItemXrefManufacturerTableMap;
 use Map\ItemXrefVendorNoteDetailTableMap;
 use Map\ItemXrefVendorNoteInternalTableMap;
@@ -1333,6 +1339,12 @@ abstract class Vendor implements ActiveRecordInterface
     protected $aApBuyer;
 
     /**
+     * @var        ObjectCollection|ChildApContact[] Collection to store aggregation of ChildApContact objects.
+     */
+    protected $collApContacts;
+    protected $collApContactsPartial;
+
+    /**
      * @var        ObjectCollection|ChildApInvoiceDetail[] Collection to store aggregation of ChildApInvoiceDetail objects.
      */
     protected $collApInvoiceDetails;
@@ -1349,6 +1361,12 @@ abstract class Vendor implements ActiveRecordInterface
      */
     protected $collVendorShipfroms;
     protected $collVendorShipfromsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildInvNonstockItem[] Collection to store aggregation of ChildInvNonstockItem objects.
+     */
+    protected $collInvNonstockItems;
+    protected $collInvNonstockItemsPartial;
 
     /**
      * @var        ObjectCollection|ChildItemXrefManufacturer[] Collection to store aggregation of ChildItemXrefManufacturer objects.
@@ -1390,6 +1408,12 @@ abstract class Vendor implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildApContact[]
+     */
+    protected $apContactsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildApInvoiceDetail[]
      */
     protected $apInvoiceDetailsScheduledForDeletion = null;
@@ -1405,6 +1429,12 @@ abstract class Vendor implements ActiveRecordInterface
      * @var ObjectCollection|ChildVendorShipfrom[]
      */
     protected $vendorShipfromsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvNonstockItem[]
+     */
+    protected $invNonstockItemsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -7556,11 +7586,15 @@ abstract class Vendor implements ActiveRecordInterface
             $this->aApTermsCode = null;
             $this->aShipvia = null;
             $this->aApBuyer = null;
+            $this->collApContacts = null;
+
             $this->collApInvoiceDetails = null;
 
             $this->collApInvoices = null;
 
             $this->collVendorShipfroms = null;
+
+            $this->collInvNonstockItems = null;
 
             $this->collItemXrefManufacturers = null;
 
@@ -7719,6 +7753,23 @@ abstract class Vendor implements ActiveRecordInterface
                 $this->resetModified();
             }
 
+            if ($this->apContactsScheduledForDeletion !== null) {
+                if (!$this->apContactsScheduledForDeletion->isEmpty()) {
+                    \ApContactQuery::create()
+                        ->filterByPrimaryKeys($this->apContactsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->apContactsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collApContacts !== null) {
+                foreach ($this->collApContacts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
             if ($this->apInvoiceDetailsScheduledForDeletion !== null) {
                 if (!$this->apInvoiceDetailsScheduledForDeletion->isEmpty()) {
                     \ApInvoiceDetailQuery::create()
@@ -7764,6 +7815,23 @@ abstract class Vendor implements ActiveRecordInterface
 
             if ($this->collVendorShipfroms !== null) {
                 foreach ($this->collVendorShipfroms as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invNonstockItemsScheduledForDeletion !== null) {
+                if (!$this->invNonstockItemsScheduledForDeletion->isEmpty()) {
+                    \InvNonstockItemQuery::create()
+                        ->filterByPrimaryKeys($this->invNonstockItemsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invNonstockItemsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvNonstockItems !== null) {
+                foreach ($this->collInvNonstockItems as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -9783,6 +9851,21 @@ abstract class Vendor implements ActiveRecordInterface
 
                 $result[$key] = $this->aApBuyer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->collApContacts) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'apContacts';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ap_contacts';
+                        break;
+                    default:
+                        $key = 'ApContacts';
+                }
+
+                $result[$key] = $this->collApContacts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collApInvoiceDetails) {
 
                 switch ($keyType) {
@@ -9827,6 +9910,21 @@ abstract class Vendor implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collVendorShipfroms->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvNonstockItems) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invNonstockItems';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_nonstock_items';
+                        break;
+                    default:
+                        $key = 'InvNonstockItems';
+                }
+
+                $result[$key] = $this->collInvNonstockItems->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collItemXrefManufacturers) {
 
@@ -11836,6 +11934,12 @@ abstract class Vendor implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getApContacts() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addApContact($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getApInvoiceDetails() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addApInvoiceDetail($relObj->copy($deepCopy));
@@ -11851,6 +11955,12 @@ abstract class Vendor implements ActiveRecordInterface
             foreach ($this->getVendorShipfroms() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addVendorShipfrom($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getInvNonstockItems() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvNonstockItem($relObj->copy($deepCopy));
                 }
             }
 
@@ -12128,6 +12238,10 @@ abstract class Vendor implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('ApContact' == $relationName) {
+            $this->initApContacts();
+            return;
+        }
         if ('ApInvoiceDetail' == $relationName) {
             $this->initApInvoiceDetails();
             return;
@@ -12138,6 +12252,10 @@ abstract class Vendor implements ActiveRecordInterface
         }
         if ('VendorShipfrom' == $relationName) {
             $this->initVendorShipfroms();
+            return;
+        }
+        if ('InvNonstockItem' == $relationName) {
+            $this->initInvNonstockItems();
             return;
         }
         if ('ItemXrefManufacturer' == $relationName) {
@@ -12160,6 +12278,234 @@ abstract class Vendor implements ActiveRecordInterface
             $this->initItemXrefVendors();
             return;
         }
+    }
+
+    /**
+     * Clears out the collApContacts collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addApContacts()
+     */
+    public function clearApContacts()
+    {
+        $this->collApContacts = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collApContacts collection loaded partially.
+     */
+    public function resetPartialApContacts($v = true)
+    {
+        $this->collApContactsPartial = $v;
+    }
+
+    /**
+     * Initializes the collApContacts collection.
+     *
+     * By default this just sets the collApContacts collection to an empty array (like clearcollApContacts());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initApContacts($overrideExisting = true)
+    {
+        if (null !== $this->collApContacts && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = ApContactTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collApContacts = new $collectionClassName;
+        $this->collApContacts->setModel('\ApContact');
+    }
+
+    /**
+     * Gets an array of ChildApContact objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildVendor is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildApContact[] List of ChildApContact objects
+     * @throws PropelException
+     */
+    public function getApContacts(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApContactsPartial && !$this->isNew();
+        if (null === $this->collApContacts || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collApContacts) {
+                // return empty collection
+                $this->initApContacts();
+            } else {
+                $collApContacts = ChildApContactQuery::create(null, $criteria)
+                    ->filterByVendor($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collApContactsPartial && count($collApContacts)) {
+                        $this->initApContacts(false);
+
+                        foreach ($collApContacts as $obj) {
+                            if (false == $this->collApContacts->contains($obj)) {
+                                $this->collApContacts->append($obj);
+                            }
+                        }
+
+                        $this->collApContactsPartial = true;
+                    }
+
+                    return $collApContacts;
+                }
+
+                if ($partial && $this->collApContacts) {
+                    foreach ($this->collApContacts as $obj) {
+                        if ($obj->isNew()) {
+                            $collApContacts[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collApContacts = $collApContacts;
+                $this->collApContactsPartial = false;
+            }
+        }
+
+        return $this->collApContacts;
+    }
+
+    /**
+     * Sets a collection of ChildApContact objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $apContacts A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function setApContacts(Collection $apContacts, ConnectionInterface $con = null)
+    {
+        /** @var ChildApContact[] $apContactsToDelete */
+        $apContactsToDelete = $this->getApContacts(new Criteria(), $con)->diff($apContacts);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->apContactsScheduledForDeletion = clone $apContactsToDelete;
+
+        foreach ($apContactsToDelete as $apContactRemoved) {
+            $apContactRemoved->setVendor(null);
+        }
+
+        $this->collApContacts = null;
+        foreach ($apContacts as $apContact) {
+            $this->addApContact($apContact);
+        }
+
+        $this->collApContacts = $apContacts;
+        $this->collApContactsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related ApContact objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related ApContact objects.
+     * @throws PropelException
+     */
+    public function countApContacts(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collApContactsPartial && !$this->isNew();
+        if (null === $this->collApContacts || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collApContacts) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getApContacts());
+            }
+
+            $query = ChildApContactQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByVendor($this)
+                ->count($con);
+        }
+
+        return count($this->collApContacts);
+    }
+
+    /**
+     * Method called to associate a ChildApContact object to this object
+     * through the ChildApContact foreign key attribute.
+     *
+     * @param  ChildApContact $l ChildApContact
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function addApContact(ChildApContact $l)
+    {
+        if ($this->collApContacts === null) {
+            $this->initApContacts();
+            $this->collApContactsPartial = true;
+        }
+
+        if (!$this->collApContacts->contains($l)) {
+            $this->doAddApContact($l);
+
+            if ($this->apContactsScheduledForDeletion and $this->apContactsScheduledForDeletion->contains($l)) {
+                $this->apContactsScheduledForDeletion->remove($this->apContactsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildApContact $apContact The ChildApContact object to add.
+     */
+    protected function doAddApContact(ChildApContact $apContact)
+    {
+        $this->collApContacts[]= $apContact;
+        $apContact->setVendor($this);
+    }
+
+    /**
+     * @param  ChildApContact $apContact The ChildApContact object to remove.
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function removeApContact(ChildApContact $apContact)
+    {
+        if ($this->getApContacts()->contains($apContact)) {
+            $pos = $this->collApContacts->search($apContact);
+            $this->collApContacts->remove($pos);
+            if (null === $this->apContactsScheduledForDeletion) {
+                $this->apContactsScheduledForDeletion = clone $this->collApContacts;
+                $this->apContactsScheduledForDeletion->clear();
+            }
+            $this->apContactsScheduledForDeletion[]= clone $apContact;
+            $apContact->setVendor(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -12919,6 +13265,234 @@ abstract class Vendor implements ActiveRecordInterface
         $query->joinWith('Shipvia', $joinBehavior);
 
         return $this->getVendorShipfroms($query, $con);
+    }
+
+    /**
+     * Clears out the collInvNonstockItems collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvNonstockItems()
+     */
+    public function clearInvNonstockItems()
+    {
+        $this->collInvNonstockItems = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvNonstockItems collection loaded partially.
+     */
+    public function resetPartialInvNonstockItems($v = true)
+    {
+        $this->collInvNonstockItemsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvNonstockItems collection.
+     *
+     * By default this just sets the collInvNonstockItems collection to an empty array (like clearcollInvNonstockItems());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvNonstockItems($overrideExisting = true)
+    {
+        if (null !== $this->collInvNonstockItems && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvNonstockItemTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvNonstockItems = new $collectionClassName;
+        $this->collInvNonstockItems->setModel('\InvNonstockItem');
+    }
+
+    /**
+     * Gets an array of ChildInvNonstockItem objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildVendor is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvNonstockItem[] List of ChildInvNonstockItem objects
+     * @throws PropelException
+     */
+    public function getInvNonstockItems(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
+        if (null === $this->collInvNonstockItems || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvNonstockItems) {
+                // return empty collection
+                $this->initInvNonstockItems();
+            } else {
+                $collInvNonstockItems = ChildInvNonstockItemQuery::create(null, $criteria)
+                    ->filterByVendor($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvNonstockItemsPartial && count($collInvNonstockItems)) {
+                        $this->initInvNonstockItems(false);
+
+                        foreach ($collInvNonstockItems as $obj) {
+                            if (false == $this->collInvNonstockItems->contains($obj)) {
+                                $this->collInvNonstockItems->append($obj);
+                            }
+                        }
+
+                        $this->collInvNonstockItemsPartial = true;
+                    }
+
+                    return $collInvNonstockItems;
+                }
+
+                if ($partial && $this->collInvNonstockItems) {
+                    foreach ($this->collInvNonstockItems as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvNonstockItems[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvNonstockItems = $collInvNonstockItems;
+                $this->collInvNonstockItemsPartial = false;
+            }
+        }
+
+        return $this->collInvNonstockItems;
+    }
+
+    /**
+     * Sets a collection of ChildInvNonstockItem objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invNonstockItems A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function setInvNonstockItems(Collection $invNonstockItems, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvNonstockItem[] $invNonstockItemsToDelete */
+        $invNonstockItemsToDelete = $this->getInvNonstockItems(new Criteria(), $con)->diff($invNonstockItems);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invNonstockItemsScheduledForDeletion = clone $invNonstockItemsToDelete;
+
+        foreach ($invNonstockItemsToDelete as $invNonstockItemRemoved) {
+            $invNonstockItemRemoved->setVendor(null);
+        }
+
+        $this->collInvNonstockItems = null;
+        foreach ($invNonstockItems as $invNonstockItem) {
+            $this->addInvNonstockItem($invNonstockItem);
+        }
+
+        $this->collInvNonstockItems = $invNonstockItems;
+        $this->collInvNonstockItemsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvNonstockItem objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvNonstockItem objects.
+     * @throws PropelException
+     */
+    public function countInvNonstockItems(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvNonstockItemsPartial && !$this->isNew();
+        if (null === $this->collInvNonstockItems || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvNonstockItems) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvNonstockItems());
+            }
+
+            $query = ChildInvNonstockItemQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByVendor($this)
+                ->count($con);
+        }
+
+        return count($this->collInvNonstockItems);
+    }
+
+    /**
+     * Method called to associate a ChildInvNonstockItem object to this object
+     * through the ChildInvNonstockItem foreign key attribute.
+     *
+     * @param  ChildInvNonstockItem $l ChildInvNonstockItem
+     * @return $this|\Vendor The current object (for fluent API support)
+     */
+    public function addInvNonstockItem(ChildInvNonstockItem $l)
+    {
+        if ($this->collInvNonstockItems === null) {
+            $this->initInvNonstockItems();
+            $this->collInvNonstockItemsPartial = true;
+        }
+
+        if (!$this->collInvNonstockItems->contains($l)) {
+            $this->doAddInvNonstockItem($l);
+
+            if ($this->invNonstockItemsScheduledForDeletion and $this->invNonstockItemsScheduledForDeletion->contains($l)) {
+                $this->invNonstockItemsScheduledForDeletion->remove($this->invNonstockItemsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvNonstockItem $invNonstockItem The ChildInvNonstockItem object to add.
+     */
+    protected function doAddInvNonstockItem(ChildInvNonstockItem $invNonstockItem)
+    {
+        $this->collInvNonstockItems[]= $invNonstockItem;
+        $invNonstockItem->setVendor($this);
+    }
+
+    /**
+     * @param  ChildInvNonstockItem $invNonstockItem The ChildInvNonstockItem object to remove.
+     * @return $this|ChildVendor The current object (for fluent API support)
+     */
+    public function removeInvNonstockItem(ChildInvNonstockItem $invNonstockItem)
+    {
+        if ($this->getInvNonstockItems()->contains($invNonstockItem)) {
+            $pos = $this->collInvNonstockItems->search($invNonstockItem);
+            $this->collInvNonstockItems->remove($pos);
+            if (null === $this->invNonstockItemsScheduledForDeletion) {
+                $this->invNonstockItemsScheduledForDeletion = clone $this->collInvNonstockItems;
+                $this->invNonstockItemsScheduledForDeletion->clear();
+            }
+            $this->invNonstockItemsScheduledForDeletion[]= clone $invNonstockItem;
+            $invNonstockItem->setVendor(null);
+        }
+
+        return $this;
     }
 
     /**
@@ -14439,6 +15013,11 @@ abstract class Vendor implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collApContacts) {
+                foreach ($this->collApContacts as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collApInvoiceDetails) {
                 foreach ($this->collApInvoiceDetails as $o) {
                     $o->clearAllReferences($deep);
@@ -14451,6 +15030,11 @@ abstract class Vendor implements ActiveRecordInterface
             }
             if ($this->collVendorShipfroms) {
                 foreach ($this->collVendorShipfroms as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collInvNonstockItems) {
+                foreach ($this->collInvNonstockItems as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -14481,9 +15065,11 @@ abstract class Vendor implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collApContacts = null;
         $this->collApInvoiceDetails = null;
         $this->collApInvoices = null;
         $this->collVendorShipfroms = null;
+        $this->collInvNonstockItems = null;
         $this->collItemXrefManufacturers = null;
         $this->collItemXrefVendorNoteDetails = null;
         $this->collItemXrefVendorNoteInternals = null;
@@ -14513,7 +15099,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -14537,7 +15123,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -14561,7 +15147,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -14585,7 +15171,7 @@ abstract class Vendor implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

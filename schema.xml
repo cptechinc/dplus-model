@@ -2497,6 +2497,26 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_nonstock_item" idMethod="native" phpName="InvNonstockItem">
+    <column name="NsitItemNbr" phpName="Nsititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="NsitMnfrId" phpName="Nsitmnfrid" type="VARCHAR" size="6" primaryKey="true" required="true" defaultValue=""/>
+    <column name="NsitDesc1" phpName="Nsitdesc1" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="NsitDesc2" phpName="Nsitdesc2" type="VARCHAR" size="35" required="true" defaultValue=""/>
+    <column name="NsitCost" phpName="Nsitcost" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="NsitAvail" phpName="Nsitavail" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="NsitUom" phpName="Nsituom" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="NsitPrice" phpName="Nsitprice" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="NsitChgDate" phpName="Nsitchgdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="NsitMnfrId" foreign="ApveVendId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_opt_code" idMethod="native" phpName="InvOptCode">
     <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="InoptCode" phpName="Inoptcode" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>

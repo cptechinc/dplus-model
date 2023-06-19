@@ -1200,6 +1200,13 @@ class VendorTableMap extends TableMap
     1 => ':AptbBuyrCode',
   ),
 ), null, null, null, false);
+        $this->addRelation('ApContact', '\\ApContact', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ApveVendId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'ApContacts', false);
         $this->addRelation('ApInvoiceDetail', '\\ApInvoiceDetail', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -1221,6 +1228,13 @@ class VendorTableMap extends TableMap
     1 => ':ApveVendId',
   ),
 ), null, null, 'VendorShipfroms', false);
+        $this->addRelation('InvNonstockItem', '\\InvNonstockItem', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':NsitMnfrId',
+    1 => ':ApveVendId',
+  ),
+), null, null, 'InvNonstockItems', false);
         $this->addRelation('ItemXrefManufacturer', '\\ItemXrefManufacturer', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

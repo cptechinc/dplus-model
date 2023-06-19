@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
+class ComposerStaticInit9c2eafaaed39b0187bdc10e4cf018136
 {
     public static $classMap = array (
         'ApBuyer' => __DIR__ . '/../..' . '/src/Model/ApBuyer.php',
@@ -201,6 +201,8 @@ class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
         'Base\\InvKitQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvKitQuery.php',
         'Base\\InvLotMaster' => __DIR__ . '/../..' . '/src/Model/Base/InvLotMaster.php',
         'Base\\InvLotMasterQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvLotMasterQuery.php',
+        'Base\\InvNonstockItem' => __DIR__ . '/../..' . '/src/Model/Base/InvNonstockItem.php',
+        'Base\\InvNonstockItemQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvNonstockItemQuery.php',
         'Base\\InvOptCode' => __DIR__ . '/../..' . '/src/Model/Base/InvOptCode.php',
         'Base\\InvOptCodeNote' => __DIR__ . '/../..' . '/src/Model/Base/InvOptCodeNote.php',
         'Base\\InvOptCodeNoteQuery' => __DIR__ . '/../..' . '/src/Model/Base/InvOptCodeNoteQuery.php',
@@ -499,6 +501,8 @@ class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
         'InvKitQuery' => __DIR__ . '/../..' . '/src/Model/InvKitQuery.php',
         'InvLotMaster' => __DIR__ . '/../..' . '/src/Model/InvLotMaster.php',
         'InvLotMasterQuery' => __DIR__ . '/../..' . '/src/Model/InvLotMasterQuery.php',
+        'InvNonstockItem' => __DIR__ . '/../..' . '/src/Model/InvNonstockItem.php',
+        'InvNonstockItemQuery' => __DIR__ . '/../..' . '/src/Model/InvNonstockItemQuery.php',
         'InvOptCode' => __DIR__ . '/../..' . '/src/Model/InvOptCode.php',
         'InvOptCodeNote' => __DIR__ . '/../..' . '/src/Model/InvOptCodeNote.php',
         'InvOptCodeNoteQuery' => __DIR__ . '/../..' . '/src/Model/InvOptCodeNoteQuery.php',
@@ -628,6 +632,7 @@ class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
         'Map\\InvKitComponentTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvKitComponentTableMap.php',
         'Map\\InvKitTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvKitTableMap.php',
         'Map\\InvLotMasterTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvLotMasterTableMap.php',
+        'Map\\InvNonstockItemTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvNonstockItemTableMap.php',
         'Map\\InvOptCodeNoteTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvOptCodeNoteTableMap.php',
         'Map\\InvOptCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvOptCodeTableMap.php',
         'Map\\InvPriceCodeTableMap' => __DIR__ . '/../..' . '/src/Model/Map/InvPriceCodeTableMap.php',
@@ -866,7 +871,7 @@ class ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->classMap = ComposerStaticInit382068ba4daa2ca3bcdc1f41d7c1ecf5::$classMap;
+            $loader->classMap = ComposerStaticInit9c2eafaaed39b0187bdc10e4cf018136::$classMap;
 
         }, null, ClassLoader::class);
     }

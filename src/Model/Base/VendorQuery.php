@@ -418,6 +418,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWithApBuyer() Adds a RIGHT JOIN clause and with to the query using the ApBuyer relation
  * @method     ChildVendorQuery innerJoinWithApBuyer() Adds a INNER JOIN clause and with to the query using the ApBuyer relation
  *
+ * @method     ChildVendorQuery leftJoinApContact($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApContact relation
+ * @method     ChildVendorQuery rightJoinApContact($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApContact relation
+ * @method     ChildVendorQuery innerJoinApContact($relationAlias = null) Adds a INNER JOIN clause to the query using the ApContact relation
+ *
+ * @method     ChildVendorQuery joinWithApContact($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the ApContact relation
+ *
+ * @method     ChildVendorQuery leftJoinWithApContact() Adds a LEFT JOIN clause and with to the query using the ApContact relation
+ * @method     ChildVendorQuery rightJoinWithApContact() Adds a RIGHT JOIN clause and with to the query using the ApContact relation
+ * @method     ChildVendorQuery innerJoinWithApContact() Adds a INNER JOIN clause and with to the query using the ApContact relation
+ *
  * @method     ChildVendorQuery leftJoinApInvoiceDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the ApInvoiceDetail relation
  * @method     ChildVendorQuery rightJoinApInvoiceDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ApInvoiceDetail relation
  * @method     ChildVendorQuery innerJoinApInvoiceDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the ApInvoiceDetail relation
@@ -447,6 +457,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery leftJoinWithVendorShipfrom() Adds a LEFT JOIN clause and with to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery rightJoinWithVendorShipfrom() Adds a RIGHT JOIN clause and with to the query using the VendorShipfrom relation
  * @method     ChildVendorQuery innerJoinWithVendorShipfrom() Adds a INNER JOIN clause and with to the query using the VendorShipfrom relation
+ *
+ * @method     ChildVendorQuery leftJoinInvNonstockItem($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvNonstockItem relation
+ * @method     ChildVendorQuery rightJoinInvNonstockItem($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvNonstockItem relation
+ * @method     ChildVendorQuery innerJoinInvNonstockItem($relationAlias = null) Adds a INNER JOIN clause to the query using the InvNonstockItem relation
+ *
+ * @method     ChildVendorQuery joinWithInvNonstockItem($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvNonstockItem relation
+ *
+ * @method     ChildVendorQuery leftJoinWithInvNonstockItem() Adds a LEFT JOIN clause and with to the query using the InvNonstockItem relation
+ * @method     ChildVendorQuery rightJoinWithInvNonstockItem() Adds a RIGHT JOIN clause and with to the query using the InvNonstockItem relation
+ * @method     ChildVendorQuery innerJoinWithInvNonstockItem() Adds a INNER JOIN clause and with to the query using the InvNonstockItem relation
  *
  * @method     ChildVendorQuery leftJoinItemXrefManufacturer($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemXrefManufacturer relation
  * @method     ChildVendorQuery rightJoinItemXrefManufacturer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemXrefManufacturer relation
@@ -498,7 +518,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildVendorQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildVendorQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\ApInvoiceDetailQuery|\ApInvoiceQuery|\VendorShipfromQuery|\ItemXrefManufacturerQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ApTypeCodeQuery|\ApTermsCodeQuery|\ShipviaQuery|\ApBuyerQuery|\ApContactQuery|\ApInvoiceDetailQuery|\ApInvoiceQuery|\VendorShipfromQuery|\InvNonstockItemQuery|\ItemXrefManufacturerQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildVendor findOne(ConnectionInterface $con = null) Return the first ChildVendor matching the query
  * @method     ChildVendor findOneOrCreate(ConnectionInterface $con = null) Return the first ChildVendor matching the query, or a new ChildVendor object populated from the query conditions when no match is found
@@ -7702,6 +7722,79 @@ abstract class VendorQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query by a related \ApContact object
+     *
+     * @param \ApContact|ObjectCollection $apContact the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByApContact($apContact, $comparison = null)
+    {
+        if ($apContact instanceof \ApContact) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $apContact->getApvevendid(), $comparison);
+        } elseif ($apContact instanceof ObjectCollection) {
+            return $this
+                ->useApContactQuery()
+                ->filterByPrimaryKeys($apContact->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByApContact() only accepts arguments of type \ApContact or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the ApContact relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinApContact($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('ApContact');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'ApContact');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the ApContact relation ApContact object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \ApContactQuery A secondary query class using the current class as primary query
+     */
+    public function useApContactQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinApContact($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'ApContact', '\ApContactQuery');
+    }
+
+    /**
      * Filter the query by a related \ApInvoiceDetail object
      *
      * @param \ApInvoiceDetail|ObjectCollection $apInvoiceDetail the related object to use as filter
@@ -7918,6 +8011,79 @@ abstract class VendorQuery extends ModelCriteria
         return $this
             ->joinVendorShipfrom($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'VendorShipfrom', '\VendorShipfromQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvNonstockItem object
+     *
+     * @param \InvNonstockItem|ObjectCollection $invNonstockItem the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildVendorQuery The current query, for fluid interface
+     */
+    public function filterByInvNonstockItem($invNonstockItem, $comparison = null)
+    {
+        if ($invNonstockItem instanceof \InvNonstockItem) {
+            return $this
+                ->addUsingAlias(VendorTableMap::COL_APVEVENDID, $invNonstockItem->getNsitmnfrid(), $comparison);
+        } elseif ($invNonstockItem instanceof ObjectCollection) {
+            return $this
+                ->useInvNonstockItemQuery()
+                ->filterByPrimaryKeys($invNonstockItem->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvNonstockItem() only accepts arguments of type \InvNonstockItem or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvNonstockItem relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildVendorQuery The current query, for fluid interface
+     */
+    public function joinInvNonstockItem($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvNonstockItem');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvNonstockItem');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvNonstockItem relation InvNonstockItem object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvNonstockItemQuery A secondary query class using the current class as primary query
+     */
+    public function useInvNonstockItemQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvNonstockItem($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvNonstockItem', '\InvNonstockItemQuery');
     }
 
     /**
