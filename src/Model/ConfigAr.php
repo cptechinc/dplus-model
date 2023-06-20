@@ -54,6 +54,7 @@ class ConfigAr extends BaseConfigAr {
 		'custlabel'               => 'artbconfcustlabl',
 		'usercodelabel'           => 'artbconfcustlabl',
 		'reportGlByInvOrCust'     => 'artbConfInvCustGl ',
+		'usercodelabelshipto'     => 'artbconfshiplabl',
 	);
 
 	/**
