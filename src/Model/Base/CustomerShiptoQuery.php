@@ -252,6 +252,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithArContact() Adds a RIGHT JOIN clause and with to the query using the ArContact relation
  * @method     ChildCustomerShiptoQuery innerJoinWithArContact() Adds a INNER JOIN clause and with to the query using the ArContact relation
  *
+ * @method     ChildCustomerShiptoQuery leftJoinNoteCustInternal($relationAlias = null) Adds a LEFT JOIN clause to the query using the NoteCustInternal relation
+ * @method     ChildCustomerShiptoQuery rightJoinNoteCustInternal($relationAlias = null) Adds a RIGHT JOIN clause to the query using the NoteCustInternal relation
+ * @method     ChildCustomerShiptoQuery innerJoinNoteCustInternal($relationAlias = null) Adds a INNER JOIN clause to the query using the NoteCustInternal relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithNoteCustInternal($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the NoteCustInternal relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithNoteCustInternal() Adds a LEFT JOIN clause and with to the query using the NoteCustInternal relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithNoteCustInternal() Adds a RIGHT JOIN clause and with to the query using the NoteCustInternal relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithNoteCustInternal() Adds a INNER JOIN clause and with to the query using the NoteCustInternal relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinNoteCustOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the NoteCustOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinNoteCustOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the NoteCustOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinNoteCustOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the NoteCustOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithNoteCustOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the NoteCustOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithNoteCustOrder() Adds a LEFT JOIN clause and with to the query using the NoteCustOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithNoteCustOrder() Adds a RIGHT JOIN clause and with to the query using the NoteCustOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithNoteCustOrder() Adds a INNER JOIN clause and with to the query using the NoteCustOrder relation
+ *
  * @method     ChildCustomerShiptoQuery leftJoinBookingDayCustomer($relationAlias = null) Adds a LEFT JOIN clause to the query using the BookingDayCustomer relation
  * @method     ChildCustomerShiptoQuery rightJoinBookingDayCustomer($relationAlias = null) Adds a RIGHT JOIN clause to the query using the BookingDayCustomer relation
  * @method     ChildCustomerShiptoQuery innerJoinBookingDayCustomer($relationAlias = null) Adds a INNER JOIN clause to the query using the BookingDayCustomer relation
@@ -322,7 +342,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithSoStandingOrder() Adds a RIGHT JOIN clause and with to the query using the SoStandingOrder relation
  * @method     ChildCustomerShiptoQuery innerJoinWithSoStandingOrder() Adds a INNER JOIN clause and with to the query using the SoStandingOrder relation
  *
- * @method     \CustomerQuery|\ArContactQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerQuery|\ArContactQuery|\NoteCustInternalQuery|\NoteCustOrderQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
  * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
@@ -4401,6 +4421,144 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         return $this
             ->joinArContact($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ArContact', '\ArContactQuery');
+    }
+
+    /**
+     * Filter the query by a related \NoteCustInternal object
+     *
+     * @param \NoteCustInternal|ObjectCollection $noteCustInternal the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByNoteCustInternal($noteCustInternal, $comparison = null)
+    {
+        if ($noteCustInternal instanceof \NoteCustInternal) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $noteCustInternal->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $noteCustInternal->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByNoteCustInternal() only accepts arguments of type \NoteCustInternal');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the NoteCustInternal relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinNoteCustInternal($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('NoteCustInternal');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'NoteCustInternal');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the NoteCustInternal relation NoteCustInternal object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \NoteCustInternalQuery A secondary query class using the current class as primary query
+     */
+    public function useNoteCustInternalQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinNoteCustInternal($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'NoteCustInternal', '\NoteCustInternalQuery');
+    }
+
+    /**
+     * Filter the query by a related \NoteCustOrder object
+     *
+     * @param \NoteCustOrder|ObjectCollection $noteCustOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByNoteCustOrder($noteCustOrder, $comparison = null)
+    {
+        if ($noteCustOrder instanceof \NoteCustOrder) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $noteCustOrder->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $noteCustOrder->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByNoteCustOrder() only accepts arguments of type \NoteCustOrder');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the NoteCustOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinNoteCustOrder($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('NoteCustOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'NoteCustOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the NoteCustOrder relation NoteCustOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \NoteCustOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useNoteCustOrderQuery($relationAlias = null, $joinType = Criteria::LEFT_JOIN)
+    {
+        return $this
+            ->joinNoteCustOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'NoteCustOrder', '\NoteCustOrderQuery');
     }
 
     /**

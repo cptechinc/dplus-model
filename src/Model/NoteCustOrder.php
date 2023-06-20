@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerShipOrderNotes as BaseCustomerShipOrderNotes;
+use Base\NoteCustOrder as BaseNoteCustOrder;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'notes_cust_ship_order' table.
  */
-class CustomerShipOrderNotes extends BaseCustomerShipOrderNotes {
+class NoteCustOrder extends BaseNoteCustOrder {
     use ThrowErrorTrait;
     use MagicMethodTraits;
 

@@ -14,6 +14,10 @@ use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
+use \NoteCustInternal as ChildNoteCustInternal;
+use \NoteCustInternalQuery as ChildNoteCustInternalQuery;
+use \NoteCustOrder as ChildNoteCustOrder;
+use \NoteCustOrderQuery as ChildNoteCustOrderQuery;
 use \SalesHistory as ChildSalesHistory;
 use \SalesHistoryQuery as ChildSalesHistoryQuery;
 use \SalesOrder as ChildSalesOrder;
@@ -29,6 +33,8 @@ use Map\BookingDayCustomerTableMap;
 use Map\BookingDayDetailTableMap;
 use Map\BookingTableMap;
 use Map\CustomerShiptoTableMap;
+use Map\NoteCustInternalTableMap;
+use Map\NoteCustOrderTableMap;
 use Map\SalesHistoryTableMap;
 use Map\SalesOrderTableMap;
 use Map\SoStandingOrderDetailTableMap;
@@ -807,6 +813,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $collArContactsPartial;
 
     /**
+     * @var        ObjectCollection|ChildNoteCustInternal[] Collection to store aggregation of ChildNoteCustInternal objects.
+     */
+    protected $collNoteCustInternals;
+    protected $collNoteCustInternalsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildNoteCustOrder[] Collection to store aggregation of ChildNoteCustOrder objects.
+     */
+    protected $collNoteCustOrders;
+    protected $collNoteCustOrdersPartial;
+
+    /**
      * @var        ObjectCollection|ChildBookingDayCustomer[] Collection to store aggregation of ChildBookingDayCustomer objects.
      */
     protected $collBookingDayCustomers;
@@ -860,6 +878,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @var ObjectCollection|ChildArContact[]
      */
     protected $arContactsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildNoteCustInternal[]
+     */
+    protected $noteCustInternalsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildNoteCustOrder[]
+     */
+    protected $noteCustOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -4591,6 +4621,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->aCustomer = null;
             $this->collArContacts = null;
 
+            $this->collNoteCustInternals = null;
+
+            $this->collNoteCustOrders = null;
+
             $this->collBookingDayCustomers = null;
 
             $this->collBookingDayDetails = null;
@@ -4742,6 +4776,42 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
             if ($this->collArContacts !== null) {
                 foreach ($this->collArContacts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->noteCustInternalsScheduledForDeletion !== null) {
+                if (!$this->noteCustInternalsScheduledForDeletion->isEmpty()) {
+                    foreach ($this->noteCustInternalsScheduledForDeletion as $noteCustInternal) {
+                        // need to save related object because we set the relation to null
+                        $noteCustInternal->save($con);
+                    }
+                    $this->noteCustInternalsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collNoteCustInternals !== null) {
+                foreach ($this->collNoteCustInternals as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->noteCustOrdersScheduledForDeletion !== null) {
+                if (!$this->noteCustOrdersScheduledForDeletion->isEmpty()) {
+                    foreach ($this->noteCustOrdersScheduledForDeletion as $noteCustOrder) {
+                        // need to save related object because we set the relation to null
+                        $noteCustOrder->save($con);
+                    }
+                    $this->noteCustOrdersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collNoteCustOrders !== null) {
+                foreach ($this->collNoteCustOrders as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -6021,6 +6091,36 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collArContacts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collNoteCustInternals) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'noteCustInternals';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_cust_ship_internals';
+                        break;
+                    default:
+                        $key = 'NoteCustInternals';
+                }
+
+                $result[$key] = $this->collNoteCustInternals->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collNoteCustOrders) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'noteCustOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'notes_cust_ship_orders';
+                        break;
+                    default:
+                        $key = 'NoteCustOrders';
+                }
+
+                $result[$key] = $this->collNoteCustOrders->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collBookingDayCustomers) {
 
@@ -7351,6 +7451,18 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getNoteCustInternals() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addNoteCustInternal($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getNoteCustOrders() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addNoteCustOrder($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getBookingDayCustomers() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addBookingDayCustomer($relObj->copy($deepCopy));
@@ -7485,6 +7597,14 @@ abstract class CustomerShipto implements ActiveRecordInterface
     {
         if ('ArContact' == $relationName) {
             $this->initArContacts();
+            return;
+        }
+        if ('NoteCustInternal' == $relationName) {
+            $this->initNoteCustInternals();
+            return;
+        }
+        if ('NoteCustOrder' == $relationName) {
+            $this->initNoteCustOrders();
             return;
         }
         if ('BookingDayCustomer' == $relationName) {
@@ -7764,6 +7884,506 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $query->joinWith('Customer', $joinBehavior);
 
         return $this->getArContacts($query, $con);
+    }
+
+    /**
+     * Clears out the collNoteCustInternals collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addNoteCustInternals()
+     */
+    public function clearNoteCustInternals()
+    {
+        $this->collNoteCustInternals = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collNoteCustInternals collection loaded partially.
+     */
+    public function resetPartialNoteCustInternals($v = true)
+    {
+        $this->collNoteCustInternalsPartial = $v;
+    }
+
+    /**
+     * Initializes the collNoteCustInternals collection.
+     *
+     * By default this just sets the collNoteCustInternals collection to an empty array (like clearcollNoteCustInternals());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initNoteCustInternals($overrideExisting = true)
+    {
+        if (null !== $this->collNoteCustInternals && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = NoteCustInternalTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collNoteCustInternals = new $collectionClassName;
+        $this->collNoteCustInternals->setModel('\NoteCustInternal');
+    }
+
+    /**
+     * Gets an array of ChildNoteCustInternal objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomerShipto is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildNoteCustInternal[] List of ChildNoteCustInternal objects
+     * @throws PropelException
+     */
+    public function getNoteCustInternals(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
+        if (null === $this->collNoteCustInternals || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collNoteCustInternals) {
+                // return empty collection
+                $this->initNoteCustInternals();
+            } else {
+                $collNoteCustInternals = ChildNoteCustInternalQuery::create(null, $criteria)
+                    ->filterByCustomerShipto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collNoteCustInternalsPartial && count($collNoteCustInternals)) {
+                        $this->initNoteCustInternals(false);
+
+                        foreach ($collNoteCustInternals as $obj) {
+                            if (false == $this->collNoteCustInternals->contains($obj)) {
+                                $this->collNoteCustInternals->append($obj);
+                            }
+                        }
+
+                        $this->collNoteCustInternalsPartial = true;
+                    }
+
+                    return $collNoteCustInternals;
+                }
+
+                if ($partial && $this->collNoteCustInternals) {
+                    foreach ($this->collNoteCustInternals as $obj) {
+                        if ($obj->isNew()) {
+                            $collNoteCustInternals[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collNoteCustInternals = $collNoteCustInternals;
+                $this->collNoteCustInternalsPartial = false;
+            }
+        }
+
+        return $this->collNoteCustInternals;
+    }
+
+    /**
+     * Sets a collection of ChildNoteCustInternal objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $noteCustInternals A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function setNoteCustInternals(Collection $noteCustInternals, ConnectionInterface $con = null)
+    {
+        /** @var ChildNoteCustInternal[] $noteCustInternalsToDelete */
+        $noteCustInternalsToDelete = $this->getNoteCustInternals(new Criteria(), $con)->diff($noteCustInternals);
+
+
+        $this->noteCustInternalsScheduledForDeletion = $noteCustInternalsToDelete;
+
+        foreach ($noteCustInternalsToDelete as $noteCustInternalRemoved) {
+            $noteCustInternalRemoved->setCustomerShipto(null);
+        }
+
+        $this->collNoteCustInternals = null;
+        foreach ($noteCustInternals as $noteCustInternal) {
+            $this->addNoteCustInternal($noteCustInternal);
+        }
+
+        $this->collNoteCustInternals = $noteCustInternals;
+        $this->collNoteCustInternalsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related NoteCustInternal objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related NoteCustInternal objects.
+     * @throws PropelException
+     */
+    public function countNoteCustInternals(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collNoteCustInternalsPartial && !$this->isNew();
+        if (null === $this->collNoteCustInternals || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collNoteCustInternals) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getNoteCustInternals());
+            }
+
+            $query = ChildNoteCustInternalQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomerShipto($this)
+                ->count($con);
+        }
+
+        return count($this->collNoteCustInternals);
+    }
+
+    /**
+     * Method called to associate a ChildNoteCustInternal object to this object
+     * through the ChildNoteCustInternal foreign key attribute.
+     *
+     * @param  ChildNoteCustInternal $l ChildNoteCustInternal
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function addNoteCustInternal(ChildNoteCustInternal $l)
+    {
+        if ($this->collNoteCustInternals === null) {
+            $this->initNoteCustInternals();
+            $this->collNoteCustInternalsPartial = true;
+        }
+
+        if (!$this->collNoteCustInternals->contains($l)) {
+            $this->doAddNoteCustInternal($l);
+
+            if ($this->noteCustInternalsScheduledForDeletion and $this->noteCustInternalsScheduledForDeletion->contains($l)) {
+                $this->noteCustInternalsScheduledForDeletion->remove($this->noteCustInternalsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildNoteCustInternal $noteCustInternal The ChildNoteCustInternal object to add.
+     */
+    protected function doAddNoteCustInternal(ChildNoteCustInternal $noteCustInternal)
+    {
+        $this->collNoteCustInternals[]= $noteCustInternal;
+        $noteCustInternal->setCustomerShipto($this);
+    }
+
+    /**
+     * @param  ChildNoteCustInternal $noteCustInternal The ChildNoteCustInternal object to remove.
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function removeNoteCustInternal(ChildNoteCustInternal $noteCustInternal)
+    {
+        if ($this->getNoteCustInternals()->contains($noteCustInternal)) {
+            $pos = $this->collNoteCustInternals->search($noteCustInternal);
+            $this->collNoteCustInternals->remove($pos);
+            if (null === $this->noteCustInternalsScheduledForDeletion) {
+                $this->noteCustInternalsScheduledForDeletion = clone $this->collNoteCustInternals;
+                $this->noteCustInternalsScheduledForDeletion->clear();
+            }
+            $this->noteCustInternalsScheduledForDeletion[]= clone $noteCustInternal;
+            $noteCustInternal->setCustomerShipto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related NoteCustInternals from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildNoteCustInternal[] List of ChildNoteCustInternal objects
+     */
+    public function getNoteCustInternalsJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildNoteCustInternalQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getNoteCustInternals($query, $con);
+    }
+
+    /**
+     * Clears out the collNoteCustOrders collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addNoteCustOrders()
+     */
+    public function clearNoteCustOrders()
+    {
+        $this->collNoteCustOrders = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collNoteCustOrders collection loaded partially.
+     */
+    public function resetPartialNoteCustOrders($v = true)
+    {
+        $this->collNoteCustOrdersPartial = $v;
+    }
+
+    /**
+     * Initializes the collNoteCustOrders collection.
+     *
+     * By default this just sets the collNoteCustOrders collection to an empty array (like clearcollNoteCustOrders());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initNoteCustOrders($overrideExisting = true)
+    {
+        if (null !== $this->collNoteCustOrders && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = NoteCustOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collNoteCustOrders = new $collectionClassName;
+        $this->collNoteCustOrders->setModel('\NoteCustOrder');
+    }
+
+    /**
+     * Gets an array of ChildNoteCustOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomerShipto is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildNoteCustOrder[] List of ChildNoteCustOrder objects
+     * @throws PropelException
+     */
+    public function getNoteCustOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
+        if (null === $this->collNoteCustOrders || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collNoteCustOrders) {
+                // return empty collection
+                $this->initNoteCustOrders();
+            } else {
+                $collNoteCustOrders = ChildNoteCustOrderQuery::create(null, $criteria)
+                    ->filterByCustomerShipto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collNoteCustOrdersPartial && count($collNoteCustOrders)) {
+                        $this->initNoteCustOrders(false);
+
+                        foreach ($collNoteCustOrders as $obj) {
+                            if (false == $this->collNoteCustOrders->contains($obj)) {
+                                $this->collNoteCustOrders->append($obj);
+                            }
+                        }
+
+                        $this->collNoteCustOrdersPartial = true;
+                    }
+
+                    return $collNoteCustOrders;
+                }
+
+                if ($partial && $this->collNoteCustOrders) {
+                    foreach ($this->collNoteCustOrders as $obj) {
+                        if ($obj->isNew()) {
+                            $collNoteCustOrders[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collNoteCustOrders = $collNoteCustOrders;
+                $this->collNoteCustOrdersPartial = false;
+            }
+        }
+
+        return $this->collNoteCustOrders;
+    }
+
+    /**
+     * Sets a collection of ChildNoteCustOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $noteCustOrders A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function setNoteCustOrders(Collection $noteCustOrders, ConnectionInterface $con = null)
+    {
+        /** @var ChildNoteCustOrder[] $noteCustOrdersToDelete */
+        $noteCustOrdersToDelete = $this->getNoteCustOrders(new Criteria(), $con)->diff($noteCustOrders);
+
+
+        $this->noteCustOrdersScheduledForDeletion = $noteCustOrdersToDelete;
+
+        foreach ($noteCustOrdersToDelete as $noteCustOrderRemoved) {
+            $noteCustOrderRemoved->setCustomerShipto(null);
+        }
+
+        $this->collNoteCustOrders = null;
+        foreach ($noteCustOrders as $noteCustOrder) {
+            $this->addNoteCustOrder($noteCustOrder);
+        }
+
+        $this->collNoteCustOrders = $noteCustOrders;
+        $this->collNoteCustOrdersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related NoteCustOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related NoteCustOrder objects.
+     * @throws PropelException
+     */
+    public function countNoteCustOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collNoteCustOrdersPartial && !$this->isNew();
+        if (null === $this->collNoteCustOrders || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collNoteCustOrders) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getNoteCustOrders());
+            }
+
+            $query = ChildNoteCustOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomerShipto($this)
+                ->count($con);
+        }
+
+        return count($this->collNoteCustOrders);
+    }
+
+    /**
+     * Method called to associate a ChildNoteCustOrder object to this object
+     * through the ChildNoteCustOrder foreign key attribute.
+     *
+     * @param  ChildNoteCustOrder $l ChildNoteCustOrder
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function addNoteCustOrder(ChildNoteCustOrder $l)
+    {
+        if ($this->collNoteCustOrders === null) {
+            $this->initNoteCustOrders();
+            $this->collNoteCustOrdersPartial = true;
+        }
+
+        if (!$this->collNoteCustOrders->contains($l)) {
+            $this->doAddNoteCustOrder($l);
+
+            if ($this->noteCustOrdersScheduledForDeletion and $this->noteCustOrdersScheduledForDeletion->contains($l)) {
+                $this->noteCustOrdersScheduledForDeletion->remove($this->noteCustOrdersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildNoteCustOrder $noteCustOrder The ChildNoteCustOrder object to add.
+     */
+    protected function doAddNoteCustOrder(ChildNoteCustOrder $noteCustOrder)
+    {
+        $this->collNoteCustOrders[]= $noteCustOrder;
+        $noteCustOrder->setCustomerShipto($this);
+    }
+
+    /**
+     * @param  ChildNoteCustOrder $noteCustOrder The ChildNoteCustOrder object to remove.
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function removeNoteCustOrder(ChildNoteCustOrder $noteCustOrder)
+    {
+        if ($this->getNoteCustOrders()->contains($noteCustOrder)) {
+            $pos = $this->collNoteCustOrders->search($noteCustOrder);
+            $this->collNoteCustOrders->remove($pos);
+            if (null === $this->noteCustOrdersScheduledForDeletion) {
+                $this->noteCustOrdersScheduledForDeletion = clone $this->collNoteCustOrders;
+                $this->noteCustOrdersScheduledForDeletion->clear();
+            }
+            $this->noteCustOrdersScheduledForDeletion[]= clone $noteCustOrder;
+            $noteCustOrder->setCustomerShipto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related NoteCustOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildNoteCustOrder[] List of ChildNoteCustOrder objects
+     */
+    public function getNoteCustOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildNoteCustOrderQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getNoteCustOrders($query, $con);
     }
 
     /**
@@ -9546,6 +10166,16 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collNoteCustInternals) {
+                foreach ($this->collNoteCustInternals as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collNoteCustOrders) {
+                foreach ($this->collNoteCustOrders as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collBookingDayCustomers) {
                 foreach ($this->collBookingDayCustomers as $o) {
                     $o->clearAllReferences($deep);
@@ -9582,6 +10212,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collArContacts = null;
+        $this->collNoteCustInternals = null;
+        $this->collNoteCustOrders = null;
         $this->collBookingDayCustomers = null;
         $this->collBookingDayDetails = null;
         $this->collBookings = null;
@@ -9609,9 +10241,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
         return true;
     }
 
@@ -9621,9 +10250,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
+
     }
 
     /**
@@ -9633,9 +10260,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
         return true;
     }
 
@@ -9645,9 +10269,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
+
     }
 
     /**
@@ -9657,9 +10279,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
         return true;
     }
 
@@ -9669,9 +10288,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
     }
 
     /**
@@ -9681,9 +10297,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
         return true;
     }
 
@@ -9693,9 +10306,6 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
     }
 
 

@@ -2835,7 +2835,7 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_cust_ship_internal" idMethod="native" phpName="CustomerShipInternalNotes">
+  <table name="notes_cust_ship_internal" idMethod="native" phpName="NoteCustInternal">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
@@ -2847,11 +2847,18 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
-  <table name="notes_cust_ship_order" idMethod="native" phpName="CustomerShipOrderNotes">
+  <table name="notes_cust_ship_order" idMethod="native" phpName="NoteCustOrder">
     <column name="QnType" phpName="Qntype" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
     <column name="QnTypeDesc" phpName="Qntypedesc" type="VARCHAR" size="40"/>
     <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6"/>
@@ -2867,6 +2874,13 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>
     </vendor>

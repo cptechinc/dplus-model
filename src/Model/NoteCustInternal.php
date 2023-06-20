@@ -1,6 +1,6 @@
 <?php
 
-use Base\CustomerShipInternalNotes as BaseCustomerShipInternalNotes;
+use Base\NoteCustInternal as BaseNoteCustInternal;
 
 use Dplus\Model\ThrowErrorTrait;
 use Dplus\Model\MagicMethodTraits;
@@ -8,7 +8,7 @@ use Dplus\Model\MagicMethodTraits;
 /**
  * Class for representing a row from the 'notes_cust_ship_internal' table.
  */
-class CustomerShipInternalNotes extends BaseCustomerShipInternalNotes {
+class NoteCustInternal extends BaseNoteCustInternal {
     use ThrowErrorTrait;
     use MagicMethodTraits;
 

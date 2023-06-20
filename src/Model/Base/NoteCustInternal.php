@@ -2,10 +2,14 @@
 
 namespace Base;
 
-use \CustomerShipOrderNotesQuery as ChildCustomerShipOrderNotesQuery;
+use \Customer as ChildCustomer;
+use \CustomerQuery as ChildCustomerQuery;
+use \CustomerShipto as ChildCustomerShipto;
+use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
+use \NoteCustInternalQuery as ChildNoteCustInternalQuery;
 use \Exception;
 use \PDO;
-use Map\CustomerShipOrderNotesTableMap;
+use Map\NoteCustInternalTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -19,18 +23,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'notes_cust_ship_order' table.
+ * Base class that represents a row from the 'notes_cust_ship_internal' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class CustomerShipOrderNotes implements ActiveRecordInterface
+abstract class NoteCustInternal implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\CustomerShipOrderNotesTableMap';
+    const TABLE_MAP = '\\Map\\NoteCustInternalTableMap';
 
 
     /**
@@ -89,34 +93,6 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     protected $arstshipid;
 
     /**
-     * The value for the qncustpickticket field.
-     *
-     * @var        string
-     */
-    protected $qncustpickticket;
-
-    /**
-     * The value for the qncustpackticket field.
-     *
-     * @var        string
-     */
-    protected $qncustpackticket;
-
-    /**
-     * The value for the qncustinvoice field.
-     *
-     * @var        string
-     */
-    protected $qncustinvoice;
-
-    /**
-     * The value for the qncustacknow field.
-     *
-     * @var        string
-     */
-    protected $qncustacknow;
-
-    /**
      * The value for the qnseq field.
      *
      * Note: this column has a database default value of: 0
@@ -169,6 +145,16 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ChildCustomer
+     */
+    protected $aCustomer;
+
+    /**
+     * @var        ChildCustomerShipto
+     */
+    protected $aCustomerShipto;
+
+    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
@@ -191,7 +177,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Initializes internal state of Base\CustomerShipOrderNotes object.
+     * Initializes internal state of Base\NoteCustInternal object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -288,9 +274,9 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>CustomerShipOrderNotes</code> instance.  If
-     * <code>obj</code> is an instance of <code>CustomerShipOrderNotes</code>, delegates to
-     * <code>equals(CustomerShipOrderNotes)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>NoteCustInternal</code> instance.  If
+     * <code>obj</code> is an instance of <code>NoteCustInternal</code>, delegates to
+     * <code>equals(NoteCustInternal)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -356,7 +342,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|CustomerShipOrderNotes The current object, for fluid interface
+     * @return $this|NoteCustInternal The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -458,46 +444,6 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     }
 
     /**
-     * Get the [qncustpickticket] column value.
-     *
-     * @return string
-     */
-    public function getQncustpickticket()
-    {
-        return $this->qncustpickticket;
-    }
-
-    /**
-     * Get the [qncustpackticket] column value.
-     *
-     * @return string
-     */
-    public function getQncustpackticket()
-    {
-        return $this->qncustpackticket;
-    }
-
-    /**
-     * Get the [qncustinvoice] column value.
-     *
-     * @return string
-     */
-    public function getQncustinvoice()
-    {
-        return $this->qncustinvoice;
-    }
-
-    /**
-     * Get the [qncustacknow] column value.
-     *
-     * @return string
-     */
-    public function getQncustacknow()
-    {
-        return $this->qncustacknow;
-    }
-
-    /**
      * Get the [qnseq] column value.
      *
      * @return int
@@ -571,7 +517,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [qntype] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQntype($v)
     {
@@ -581,7 +527,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qntype !== $v) {
             $this->qntype = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNTYPE] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNTYPE] = true;
         }
 
         return $this;
@@ -591,7 +537,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [qntypedesc] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQntypedesc($v)
     {
@@ -601,7 +547,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qntypedesc !== $v) {
             $this->qntypedesc = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNTYPEDESC] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNTYPEDESC] = true;
         }
 
         return $this;
@@ -611,7 +557,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [arcucustid] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setArcucustid($v)
     {
@@ -621,7 +567,15 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->arcucustid !== $v) {
             $this->arcucustid = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_ARCUCUSTID] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_ARCUCUSTID] = true;
+        }
+
+        if ($this->aCustomer !== null && $this->aCustomer->getArcucustid() !== $v) {
+            $this->aCustomer = null;
+        }
+
+        if ($this->aCustomerShipto !== null && $this->aCustomerShipto->getArcucustid() !== $v) {
+            $this->aCustomerShipto = null;
         }
 
         return $this;
@@ -631,7 +585,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [arstshipid] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setArstshipid($v)
     {
@@ -641,97 +595,21 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->arstshipid !== $v) {
             $this->arstshipid = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_ARSTSHIPID] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_ARSTSHIPID] = true;
+        }
+
+        if ($this->aCustomerShipto !== null && $this->aCustomerShipto->getArstshipid() !== $v) {
+            $this->aCustomerShipto = null;
         }
 
         return $this;
     } // setArstshipid()
 
     /**
-     * Set the value of [qncustpickticket] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
-     */
-    public function setQncustpickticket($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->qncustpickticket !== $v) {
-            $this->qncustpickticket = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET] = true;
-        }
-
-        return $this;
-    } // setQncustpickticket()
-
-    /**
-     * Set the value of [qncustpackticket] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
-     */
-    public function setQncustpackticket($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->qncustpackticket !== $v) {
-            $this->qncustpackticket = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET] = true;
-        }
-
-        return $this;
-    } // setQncustpackticket()
-
-    /**
-     * Set the value of [qncustinvoice] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
-     */
-    public function setQncustinvoice($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->qncustinvoice !== $v) {
-            $this->qncustinvoice = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE] = true;
-        }
-
-        return $this;
-    } // setQncustinvoice()
-
-    /**
-     * Set the value of [qncustacknow] column.
-     *
-     * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
-     */
-    public function setQncustacknow($v)
-    {
-        if ($v !== null) {
-            $v = (string) $v;
-        }
-
-        if ($this->qncustacknow !== $v) {
-            $this->qncustacknow = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW] = true;
-        }
-
-        return $this;
-    } // setQncustacknow()
-
-    /**
      * Set the value of [qnseq] column.
      *
      * @param int $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQnseq($v)
     {
@@ -741,7 +619,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qnseq !== $v) {
             $this->qnseq = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNSEQ] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNSEQ] = true;
         }
 
         return $this;
@@ -751,7 +629,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [qnnote] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQnnote($v)
     {
@@ -761,7 +639,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qnnote !== $v) {
             $this->qnnote = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNNOTE] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNNOTE] = true;
         }
 
         return $this;
@@ -771,7 +649,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [qnkey2] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQnkey2($v)
     {
@@ -781,7 +659,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qnkey2 !== $v) {
             $this->qnkey2 = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNKEY2] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNKEY2] = true;
         }
 
         return $this;
@@ -791,7 +669,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [qnform] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setQnform($v)
     {
@@ -801,7 +679,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->qnform !== $v) {
             $this->qnform = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_QNFORM] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_QNFORM] = true;
         }
 
         return $this;
@@ -811,7 +689,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -821,7 +699,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -831,7 +709,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -841,7 +719,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -851,7 +729,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\CustomerShipOrderNotes The current object (for fluent API support)
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -861,7 +739,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[CustomerShipOrderNotesTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[NoteCustInternalTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -919,49 +797,37 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : NoteCustInternalTableMap::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntype = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : NoteCustInternalTableMap::translateFieldName('Qntypedesc', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qntypedesc = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : NoteCustInternalTableMap::translateFieldName('Arcucustid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arcucustid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : NoteCustInternalTableMap::translateFieldName('Arstshipid', TableMap::TYPE_PHPNAME, $indexType)];
             $this->arstshipid = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qncustpickticket', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qncustpickticket = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qncustpackticket', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qncustpackticket = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qncustinvoice', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qncustinvoice = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qncustacknow', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->qncustacknow = (null !== $col) ? (string) $col : null;
-
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : NoteCustInternalTableMap::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnseq = (null !== $col) ? (int) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : NoteCustInternalTableMap::translateFieldName('Qnnote', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnnote = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : NoteCustInternalTableMap::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnkey2 = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : NoteCustInternalTableMap::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)];
             $this->qnform = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : NoteCustInternalTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : NoteCustInternalTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : CustomerShipOrderNotesTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : NoteCustInternalTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -971,10 +837,10 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 15; // 15 = CustomerShipOrderNotesTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 11; // 11 = NoteCustInternalTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\CustomerShipOrderNotes'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\NoteCustInternal'), 0, $e);
         }
     }
 
@@ -993,6 +859,15 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aCustomer !== null && $this->arcucustid !== $this->aCustomer->getArcucustid()) {
+            $this->aCustomer = null;
+        }
+        if ($this->aCustomerShipto !== null && $this->arcucustid !== $this->aCustomerShipto->getArcucustid()) {
+            $this->aCustomerShipto = null;
+        }
+        if ($this->aCustomerShipto !== null && $this->arstshipid !== $this->aCustomerShipto->getArstshipid()) {
+            $this->aCustomerShipto = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1016,13 +891,13 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildCustomerShipOrderNotesQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildNoteCustInternalQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1032,6 +907,8 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aCustomer = null;
+            $this->aCustomerShipto = null;
         } // if (deep)
     }
 
@@ -1041,8 +918,8 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see CustomerShipOrderNotes::setDeleted()
-     * @see CustomerShipOrderNotes::isDeleted()
+     * @see NoteCustInternal::setDeleted()
+     * @see NoteCustInternal::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1051,11 +928,11 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildCustomerShipOrderNotesQuery::create()
+            $deleteQuery = ChildNoteCustInternalQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1090,7 +967,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1109,7 +986,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                CustomerShipOrderNotesTableMap::addInstanceToPool($this);
+                NoteCustInternalTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1134,6 +1011,25 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         $affectedRows = 0; // initialize var to track total num of affected rows
         if (!$this->alreadyInSave) {
             $this->alreadyInSave = true;
+
+            // We call the save method on the following object(s) if they
+            // were passed to this object by their corresponding set
+            // method.  This object relates to these object(s) by a
+            // foreign key reference.
+
+            if ($this->aCustomer !== null) {
+                if ($this->aCustomer->isModified() || $this->aCustomer->isNew()) {
+                    $affectedRows += $this->aCustomer->save($con);
+                }
+                $this->setCustomer($this->aCustomer);
+            }
+
+            if ($this->aCustomerShipto !== null) {
+                if ($this->aCustomerShipto->isModified() || $this->aCustomerShipto->isNew()) {
+                    $affectedRows += $this->aCustomerShipto->save($con);
+                }
+                $this->setCustomerShipto($this->aCustomerShipto);
+            }
 
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
@@ -1168,54 +1064,42 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNTYPE)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNTYPE)) {
             $modifiedColumns[':p' . $index++]  = 'QnType';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNTYPEDESC)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNTYPEDESC)) {
             $modifiedColumns[':p' . $index++]  = 'QnTypeDesc';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_ARCUCUSTID)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_ARCUCUSTID)) {
             $modifiedColumns[':p' . $index++]  = 'ArcuCustId';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_ARSTSHIPID)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_ARSTSHIPID)) {
             $modifiedColumns[':p' . $index++]  = 'ArstShipId';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET)) {
-            $modifiedColumns[':p' . $index++]  = 'QnCustPickTicket';
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET)) {
-            $modifiedColumns[':p' . $index++]  = 'QnCustPackTicket';
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE)) {
-            $modifiedColumns[':p' . $index++]  = 'QnCustInvoice';
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW)) {
-            $modifiedColumns[':p' . $index++]  = 'QnCustAcknow';
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNSEQ)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNSEQ)) {
             $modifiedColumns[':p' . $index++]  = 'QnSeq';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNNOTE)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNNOTE)) {
             $modifiedColumns[':p' . $index++]  = 'QnNote';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNKEY2)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNKEY2)) {
             $modifiedColumns[':p' . $index++]  = 'QnKey2';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNFORM)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNFORM)) {
             $modifiedColumns[':p' . $index++]  = 'QnForm';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO notes_cust_ship_order (%s) VALUES (%s)',
+            'INSERT INTO notes_cust_ship_internal (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1235,18 +1119,6 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
                         break;
                     case 'ArstShipId':
                         $stmt->bindValue($identifier, $this->arstshipid, PDO::PARAM_STR);
-                        break;
-                    case 'QnCustPickTicket':
-                        $stmt->bindValue($identifier, $this->qncustpickticket, PDO::PARAM_STR);
-                        break;
-                    case 'QnCustPackTicket':
-                        $stmt->bindValue($identifier, $this->qncustpackticket, PDO::PARAM_STR);
-                        break;
-                    case 'QnCustInvoice':
-                        $stmt->bindValue($identifier, $this->qncustinvoice, PDO::PARAM_STR);
-                        break;
-                    case 'QnCustAcknow':
-                        $stmt->bindValue($identifier, $this->qncustacknow, PDO::PARAM_STR);
                         break;
                     case 'QnSeq':
                         $stmt->bindValue($identifier, $this->qnseq, PDO::PARAM_INT);
@@ -1308,7 +1180,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerShipOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = NoteCustInternalTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1337,36 +1209,24 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
                 return $this->getArstshipid();
                 break;
             case 4:
-                return $this->getQncustpickticket();
-                break;
-            case 5:
-                return $this->getQncustpackticket();
-                break;
-            case 6:
-                return $this->getQncustinvoice();
-                break;
-            case 7:
-                return $this->getQncustacknow();
-                break;
-            case 8:
                 return $this->getQnseq();
                 break;
-            case 9:
+            case 5:
                 return $this->getQnnote();
                 break;
-            case 10:
+            case 6:
                 return $this->getQnkey2();
                 break;
-            case 11:
+            case 7:
                 return $this->getQnform();
                 break;
-            case 12:
+            case 8:
                 return $this->getDateupdtd();
                 break;
-            case 13:
+            case 9:
                 return $this->getTimeupdtd();
                 break;
-            case 14:
+            case 10:
                 return $this->getDummy();
                 break;
             default:
@@ -1386,39 +1246,68 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      *                    Defaults to TableMap::TYPE_PHPNAME.
      * @param     boolean $includeLazyLoadColumns (optional) Whether to include lazy loaded columns. Defaults to TRUE.
      * @param     array $alreadyDumpedObjects List of objects to skip to avoid recursion
+     * @param     boolean $includeForeignObjects (optional) Whether to include hydrated related objects. Default to FALSE.
      *
      * @return array an associative array containing the field names (as keys) and field values
      */
-    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array())
+    public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['CustomerShipOrderNotes'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['NoteCustInternal'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['CustomerShipOrderNotes'][$this->hashCode()] = true;
-        $keys = CustomerShipOrderNotesTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['NoteCustInternal'][$this->hashCode()] = true;
+        $keys = NoteCustInternalTableMap::getFieldNames($keyType);
         $result = array(
             $keys[0] => $this->getQntype(),
             $keys[1] => $this->getQntypedesc(),
             $keys[2] => $this->getArcucustid(),
             $keys[3] => $this->getArstshipid(),
-            $keys[4] => $this->getQncustpickticket(),
-            $keys[5] => $this->getQncustpackticket(),
-            $keys[6] => $this->getQncustinvoice(),
-            $keys[7] => $this->getQncustacknow(),
-            $keys[8] => $this->getQnseq(),
-            $keys[9] => $this->getQnnote(),
-            $keys[10] => $this->getQnkey2(),
-            $keys[11] => $this->getQnform(),
-            $keys[12] => $this->getDateupdtd(),
-            $keys[13] => $this->getTimeupdtd(),
-            $keys[14] => $this->getDummy(),
+            $keys[4] => $this->getQnseq(),
+            $keys[5] => $this->getQnnote(),
+            $keys[6] => $this->getQnkey2(),
+            $keys[7] => $this->getQnform(),
+            $keys[8] => $this->getDateupdtd(),
+            $keys[9] => $this->getTimeupdtd(),
+            $keys[10] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
             $result[$key] = $virtualColumn;
         }
 
+        if ($includeForeignObjects) {
+            if (null !== $this->aCustomer) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customer';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_cust_mast';
+                        break;
+                    default:
+                        $key = 'Customer';
+                }
+
+                $result[$key] = $this->aCustomer->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->aCustomerShipto) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'customerShipto';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'ar_ship_to';
+                        break;
+                    default:
+                        $key = 'CustomerShipto';
+                }
+
+                $result[$key] = $this->aCustomerShipto->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+        }
 
         return $result;
     }
@@ -1432,11 +1321,11 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\CustomerShipOrderNotes
+     * @return $this|\NoteCustInternal
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = CustomerShipOrderNotesTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = NoteCustInternalTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1447,7 +1336,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\CustomerShipOrderNotes
+     * @return $this|\NoteCustInternal
      */
     public function setByPosition($pos, $value)
     {
@@ -1465,36 +1354,24 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
                 $this->setArstshipid($value);
                 break;
             case 4:
-                $this->setQncustpickticket($value);
-                break;
-            case 5:
-                $this->setQncustpackticket($value);
-                break;
-            case 6:
-                $this->setQncustinvoice($value);
-                break;
-            case 7:
-                $this->setQncustacknow($value);
-                break;
-            case 8:
                 $this->setQnseq($value);
                 break;
-            case 9:
+            case 5:
                 $this->setQnnote($value);
                 break;
-            case 10:
+            case 6:
                 $this->setQnkey2($value);
                 break;
-            case 11:
+            case 7:
                 $this->setQnform($value);
                 break;
-            case 12:
+            case 8:
                 $this->setDateupdtd($value);
                 break;
-            case 13:
+            case 9:
                 $this->setTimeupdtd($value);
                 break;
-            case 14:
+            case 10:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1521,7 +1398,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = CustomerShipOrderNotesTableMap::getFieldNames($keyType);
+        $keys = NoteCustInternalTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
             $this->setQntype($arr[$keys[0]]);
@@ -1536,37 +1413,25 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
             $this->setArstshipid($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setQncustpickticket($arr[$keys[4]]);
+            $this->setQnseq($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setQncustpackticket($arr[$keys[5]]);
+            $this->setQnnote($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setQncustinvoice($arr[$keys[6]]);
+            $this->setQnkey2($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setQncustacknow($arr[$keys[7]]);
+            $this->setQnform($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setQnseq($arr[$keys[8]]);
+            $this->setDateupdtd($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setQnnote($arr[$keys[9]]);
+            $this->setTimeupdtd($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setQnkey2($arr[$keys[10]]);
-        }
-        if (array_key_exists($keys[11], $arr)) {
-            $this->setQnform($arr[$keys[11]]);
-        }
-        if (array_key_exists($keys[12], $arr)) {
-            $this->setDateupdtd($arr[$keys[12]]);
-        }
-        if (array_key_exists($keys[13], $arr)) {
-            $this->setTimeupdtd($arr[$keys[13]]);
-        }
-        if (array_key_exists($keys[14], $arr)) {
-            $this->setDummy($arr[$keys[14]]);
+            $this->setDummy($arr[$keys[10]]);
         }
     }
 
@@ -1587,7 +1452,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\CustomerShipOrderNotes The current object, for fluid interface
+     * @return $this|\NoteCustInternal The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1607,52 +1472,40 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+        $criteria = new Criteria(NoteCustInternalTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNTYPE)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNTYPE, $this->qntype);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNTYPE)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNTYPE, $this->qntype);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNTYPEDESC)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNTYPEDESC, $this->qntypedesc);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNTYPEDESC)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNTYPEDESC, $this->qntypedesc);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_ARCUCUSTID)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_ARCUCUSTID, $this->arcucustid);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_ARCUCUSTID)) {
+            $criteria->add(NoteCustInternalTableMap::COL_ARCUCUSTID, $this->arcucustid);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_ARSTSHIPID)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_ARSTSHIPID, $this->arstshipid);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_ARSTSHIPID)) {
+            $criteria->add(NoteCustInternalTableMap::COL_ARSTSHIPID, $this->arstshipid);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET, $this->qncustpickticket);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNSEQ)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNSEQ, $this->qnseq);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET, $this->qncustpackticket);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNNOTE)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNNOTE, $this->qnnote);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE, $this->qncustinvoice);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNKEY2)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNKEY2, $this->qnkey2);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW, $this->qncustacknow);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_QNFORM)) {
+            $criteria->add(NoteCustInternalTableMap::COL_QNFORM, $this->qnform);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNSEQ)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_DATEUPDTD)) {
+            $criteria->add(NoteCustInternalTableMap::COL_DATEUPDTD, $this->dateupdtd);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNNOTE)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNNOTE, $this->qnnote);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(NoteCustInternalTableMap::COL_TIMEUPDTD, $this->timeupdtd);
         }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNKEY2)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_QNFORM)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_QNFORM, $this->qnform);
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_DATEUPDTD)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_DATEUPDTD, $this->dateupdtd);
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_TIMEUPDTD, $this->timeupdtd);
-        }
-        if ($this->isColumnModified(CustomerShipOrderNotesTableMap::COL_DUMMY)) {
-            $criteria->add(CustomerShipOrderNotesTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(NoteCustInternalTableMap::COL_DUMMY)) {
+            $criteria->add(NoteCustInternalTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1670,11 +1523,11 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildCustomerShipOrderNotesQuery::create();
-        $criteria->add(CustomerShipOrderNotesTableMap::COL_QNTYPE, $this->qntype);
-        $criteria->add(CustomerShipOrderNotesTableMap::COL_QNSEQ, $this->qnseq);
-        $criteria->add(CustomerShipOrderNotesTableMap::COL_QNKEY2, $this->qnkey2);
-        $criteria->add(CustomerShipOrderNotesTableMap::COL_QNFORM, $this->qnform);
+        $criteria = ChildNoteCustInternalQuery::create();
+        $criteria->add(NoteCustInternalTableMap::COL_QNTYPE, $this->qntype);
+        $criteria->add(NoteCustInternalTableMap::COL_QNSEQ, $this->qnseq);
+        $criteria->add(NoteCustInternalTableMap::COL_QNKEY2, $this->qnkey2);
+        $criteria->add(NoteCustInternalTableMap::COL_QNFORM, $this->qnform);
 
         return $criteria;
     }
@@ -1749,7 +1602,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \CustomerShipOrderNotes (or compatible) type.
+     * @param      object $copyObj An object of \NoteCustInternal (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
@@ -1760,10 +1613,6 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         $copyObj->setQntypedesc($this->getQntypedesc());
         $copyObj->setArcucustid($this->getArcucustid());
         $copyObj->setArstshipid($this->getArstshipid());
-        $copyObj->setQncustpickticket($this->getQncustpickticket());
-        $copyObj->setQncustpackticket($this->getQncustpackticket());
-        $copyObj->setQncustinvoice($this->getQncustinvoice());
-        $copyObj->setQncustacknow($this->getQncustacknow());
         $copyObj->setQnseq($this->getQnseq());
         $copyObj->setQnnote($this->getQnnote());
         $copyObj->setQnkey2($this->getQnkey2());
@@ -1785,7 +1634,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \CustomerShipOrderNotes Clone of current object.
+     * @return \NoteCustInternal Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1799,20 +1648,130 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildCustomer object.
+     *
+     * @param  ChildCustomer $v
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomer(ChildCustomer $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid(NULL);
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        $this->aCustomer = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomer object, it will not be re-added.
+        if ($v !== null) {
+            $v->addNoteCustInternal($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomer object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomer The associated ChildCustomer object.
+     * @throws PropelException
+     */
+    public function getCustomer(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomer === null && (($this->arcucustid !== "" && $this->arcucustid !== null))) {
+            $this->aCustomer = ChildCustomerQuery::create()->findPk($this->arcucustid, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomer->addNoteCustInternals($this);
+             */
+        }
+
+        return $this->aCustomer;
+    }
+
+    /**
+     * Declares an association between this object and a ChildCustomerShipto object.
+     *
+     * @param  ChildCustomerShipto $v
+     * @return $this|\NoteCustInternal The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setCustomerShipto(ChildCustomerShipto $v = null)
+    {
+        if ($v === null) {
+            $this->setArcucustid(NULL);
+        } else {
+            $this->setArcucustid($v->getArcucustid());
+        }
+
+        if ($v === null) {
+            $this->setArstshipid(NULL);
+        } else {
+            $this->setArstshipid($v->getArstshipid());
+        }
+
+        $this->aCustomerShipto = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildCustomerShipto object, it will not be re-added.
+        if ($v !== null) {
+            $v->addNoteCustInternal($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildCustomerShipto object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildCustomerShipto The associated ChildCustomerShipto object.
+     * @throws PropelException
+     */
+    public function getCustomerShipto(ConnectionInterface $con = null)
+    {
+        if ($this->aCustomerShipto === null && (($this->arcucustid !== "" && $this->arcucustid !== null) && ($this->arstshipid !== "" && $this->arstshipid !== null))) {
+            $this->aCustomerShipto = ChildCustomerShiptoQuery::create()->findPk(array($this->arcucustid, $this->arstshipid), $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aCustomerShipto->addNoteCustInternals($this);
+             */
+        }
+
+        return $this->aCustomerShipto;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
      */
     public function clear()
     {
+        if (null !== $this->aCustomer) {
+            $this->aCustomer->removeNoteCustInternal($this);
+        }
+        if (null !== $this->aCustomerShipto) {
+            $this->aCustomerShipto->removeNoteCustInternal($this);
+        }
         $this->qntype = null;
         $this->qntypedesc = null;
         $this->arcucustid = null;
         $this->arstshipid = null;
-        $this->qncustpickticket = null;
-        $this->qncustpackticket = null;
-        $this->qncustinvoice = null;
-        $this->qncustacknow = null;
         $this->qnseq = null;
         $this->qnnote = null;
         $this->qnkey2 = null;
@@ -1841,6 +1800,8 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aCustomer = null;
+        $this->aCustomerShipto = null;
     }
 
     /**
@@ -1850,7 +1811,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(CustomerShipOrderNotesTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(NoteCustInternalTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
@@ -1861,7 +1822,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            return parent::preSave($con);
         }
         return true;
     }
@@ -1873,7 +1834,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
+            parent::postSave($con);
         }
     }
 
@@ -1885,7 +1846,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            return parent::preInsert($con);
         }
         return true;
     }
@@ -1897,7 +1858,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
+            parent::postInsert($con);
         }
     }
 
@@ -1909,7 +1870,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            return parent::preUpdate($con);
         }
         return true;
     }
@@ -1921,7 +1882,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
+            parent::postUpdate($con);
         }
     }
 
@@ -1933,7 +1894,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            return parent::preDelete($con);
         }
         return true;
     }
@@ -1945,7 +1906,7 @@ abstract class CustomerShipOrderNotes implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
+            parent::postDelete($con);
         }
     }
 

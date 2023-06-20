@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \CustomerShipOrderNotes;
-use \CustomerShipOrderNotesQuery;
+use \NoteCustInternal;
+use \NoteCustInternalQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'notes_cust_ship_order' table.
+ * This class defines the structure of the 'notes_cust_ship_internal' table.
  *
  *
  *
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class CustomerShipOrderNotesTableMap extends TableMap
+class NoteCustInternalTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.CustomerShipOrderNotesTableMap';
+    const CLASS_NAME = '.Map.NoteCustInternalTableMap';
 
     /**
      * The default database name for this class
@@ -44,22 +44,22 @@ class CustomerShipOrderNotesTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'notes_cust_ship_order';
+    const TABLE_NAME = 'notes_cust_ship_internal';
 
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\CustomerShipOrderNotes';
+    const OM_CLASS = '\\NoteCustInternal';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'CustomerShipOrderNotes';
+    const CLASS_DEFAULT = 'NoteCustInternal';
 
     /**
      * The total number of columns
      */
-    const NUM_COLUMNS = 15;
+    const NUM_COLUMNS = 11;
 
     /**
      * The number of lazy-loaded columns
@@ -69,82 +69,62 @@ class CustomerShipOrderNotesTableMap extends TableMap
     /**
      * The number of columns to hydrate (NUM_COLUMNS - NUM_LAZY_LOAD_COLUMNS)
      */
-    const NUM_HYDRATE_COLUMNS = 15;
+    const NUM_HYDRATE_COLUMNS = 11;
 
     /**
      * the column name for the QnType field
      */
-    const COL_QNTYPE = 'notes_cust_ship_order.QnType';
+    const COL_QNTYPE = 'notes_cust_ship_internal.QnType';
 
     /**
      * the column name for the QnTypeDesc field
      */
-    const COL_QNTYPEDESC = 'notes_cust_ship_order.QnTypeDesc';
+    const COL_QNTYPEDESC = 'notes_cust_ship_internal.QnTypeDesc';
 
     /**
      * the column name for the ArcuCustId field
      */
-    const COL_ARCUCUSTID = 'notes_cust_ship_order.ArcuCustId';
+    const COL_ARCUCUSTID = 'notes_cust_ship_internal.ArcuCustId';
 
     /**
      * the column name for the ArstShipId field
      */
-    const COL_ARSTSHIPID = 'notes_cust_ship_order.ArstShipId';
-
-    /**
-     * the column name for the QnCustPickTicket field
-     */
-    const COL_QNCUSTPICKTICKET = 'notes_cust_ship_order.QnCustPickTicket';
-
-    /**
-     * the column name for the QnCustPackTicket field
-     */
-    const COL_QNCUSTPACKTICKET = 'notes_cust_ship_order.QnCustPackTicket';
-
-    /**
-     * the column name for the QnCustInvoice field
-     */
-    const COL_QNCUSTINVOICE = 'notes_cust_ship_order.QnCustInvoice';
-
-    /**
-     * the column name for the QnCustAcknow field
-     */
-    const COL_QNCUSTACKNOW = 'notes_cust_ship_order.QnCustAcknow';
+    const COL_ARSTSHIPID = 'notes_cust_ship_internal.ArstShipId';
 
     /**
      * the column name for the QnSeq field
      */
-    const COL_QNSEQ = 'notes_cust_ship_order.QnSeq';
+    const COL_QNSEQ = 'notes_cust_ship_internal.QnSeq';
 
     /**
      * the column name for the QnNote field
      */
-    const COL_QNNOTE = 'notes_cust_ship_order.QnNote';
+    const COL_QNNOTE = 'notes_cust_ship_internal.QnNote';
 
     /**
      * the column name for the QnKey2 field
      */
-    const COL_QNKEY2 = 'notes_cust_ship_order.QnKey2';
+    const COL_QNKEY2 = 'notes_cust_ship_internal.QnKey2';
 
     /**
      * the column name for the QnForm field
      */
-    const COL_QNFORM = 'notes_cust_ship_order.QnForm';
+    const COL_QNFORM = 'notes_cust_ship_internal.QnForm';
 
     /**
      * the column name for the DateUpdtd field
      */
-    const COL_DATEUPDTD = 'notes_cust_ship_order.DateUpdtd';
+    const COL_DATEUPDTD = 'notes_cust_ship_internal.DateUpdtd';
 
     /**
      * the column name for the TimeUpdtd field
      */
-    const COL_TIMEUPDTD = 'notes_cust_ship_order.TimeUpdtd';
+    const COL_TIMEUPDTD = 'notes_cust_ship_internal.TimeUpdtd';
 
     /**
      * the column name for the dummy field
      */
-    const COL_DUMMY = 'notes_cust_ship_order.dummy';
+    const COL_DUMMY = 'notes_cust_ship_internal.dummy';
 
     /**
      * The default string format for model objects of the related table
@@ -158,11 +138,11 @@ class CustomerShipOrderNotesTableMap extends TableMap
      * e.g. self::$fieldNames[self::TYPE_PHPNAME][0] = 'Id'
      */
     protected static $fieldNames = array (
-        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Arcucustid', 'Arstshipid', 'Qncustpickticket', 'Qncustpackticket', 'Qncustinvoice', 'Qncustacknow', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
-        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'arcucustid', 'arstshipid', 'qncustpickticket', 'qncustpackticket', 'qncustinvoice', 'qncustacknow', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(CustomerShipOrderNotesTableMap::COL_QNTYPE, CustomerShipOrderNotesTableMap::COL_QNTYPEDESC, CustomerShipOrderNotesTableMap::COL_ARCUCUSTID, CustomerShipOrderNotesTableMap::COL_ARSTSHIPID, CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET, CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET, CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE, CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW, CustomerShipOrderNotesTableMap::COL_QNSEQ, CustomerShipOrderNotesTableMap::COL_QNNOTE, CustomerShipOrderNotesTableMap::COL_QNKEY2, CustomerShipOrderNotesTableMap::COL_QNFORM, CustomerShipOrderNotesTableMap::COL_DATEUPDTD, CustomerShipOrderNotesTableMap::COL_TIMEUPDTD, CustomerShipOrderNotesTableMap::COL_DUMMY, ),
-        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'ArcuCustId', 'ArstShipId', 'QnCustPickTicket', 'QnCustPackTicket', 'QnCustInvoice', 'QnCustAcknow', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Arcucustid', 'Arstshipid', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
+        self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'arcucustid', 'arstshipid', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
+        self::TYPE_COLNAME       => array(NoteCustInternalTableMap::COL_QNTYPE, NoteCustInternalTableMap::COL_QNTYPEDESC, NoteCustInternalTableMap::COL_ARCUCUSTID, NoteCustInternalTableMap::COL_ARSTSHIPID, NoteCustInternalTableMap::COL_QNSEQ, NoteCustInternalTableMap::COL_QNNOTE, NoteCustInternalTableMap::COL_QNKEY2, NoteCustInternalTableMap::COL_QNFORM, NoteCustInternalTableMap::COL_DATEUPDTD, NoteCustInternalTableMap::COL_TIMEUPDTD, NoteCustInternalTableMap::COL_DUMMY, ),
+        self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'ArcuCustId', 'ArstShipId', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
     /**
@@ -172,11 +152,11 @@ class CustomerShipOrderNotesTableMap extends TableMap
      * e.g. self::$fieldKeys[self::TYPE_PHPNAME]['Id'] = 0
      */
     protected static $fieldKeys = array (
-        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Arcucustid' => 2, 'Arstshipid' => 3, 'Qncustpickticket' => 4, 'Qncustpackticket' => 5, 'Qncustinvoice' => 6, 'Qncustacknow' => 7, 'Qnseq' => 8, 'Qnnote' => 9, 'Qnkey2' => 10, 'Qnform' => 11, 'Dateupdtd' => 12, 'Timeupdtd' => 13, 'Dummy' => 14, ),
-        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'arcucustid' => 2, 'arstshipid' => 3, 'qncustpickticket' => 4, 'qncustpackticket' => 5, 'qncustinvoice' => 6, 'qncustacknow' => 7, 'qnseq' => 8, 'qnnote' => 9, 'qnkey2' => 10, 'qnform' => 11, 'dateupdtd' => 12, 'timeupdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_COLNAME       => array(CustomerShipOrderNotesTableMap::COL_QNTYPE => 0, CustomerShipOrderNotesTableMap::COL_QNTYPEDESC => 1, CustomerShipOrderNotesTableMap::COL_ARCUCUSTID => 2, CustomerShipOrderNotesTableMap::COL_ARSTSHIPID => 3, CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET => 4, CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET => 5, CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE => 6, CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW => 7, CustomerShipOrderNotesTableMap::COL_QNSEQ => 8, CustomerShipOrderNotesTableMap::COL_QNNOTE => 9, CustomerShipOrderNotesTableMap::COL_QNKEY2 => 10, CustomerShipOrderNotesTableMap::COL_QNFORM => 11, CustomerShipOrderNotesTableMap::COL_DATEUPDTD => 12, CustomerShipOrderNotesTableMap::COL_TIMEUPDTD => 13, CustomerShipOrderNotesTableMap::COL_DUMMY => 14, ),
-        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'ArcuCustId' => 2, 'ArstShipId' => 3, 'QnCustPickTicket' => 4, 'QnCustPackTicket' => 5, 'QnCustInvoice' => 6, 'QnCustAcknow' => 7, 'QnSeq' => 8, 'QnNote' => 9, 'QnKey2' => 10, 'QnForm' => 11, 'DateUpdtd' => 12, 'TimeUpdtd' => 13, 'dummy' => 14, ),
-        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, )
+        self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Arcucustid' => 2, 'Arstshipid' => 3, 'Qnseq' => 4, 'Qnnote' => 5, 'Qnkey2' => 6, 'Qnform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
+        self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'arcucustid' => 2, 'arstshipid' => 3, 'qnseq' => 4, 'qnnote' => 5, 'qnkey2' => 6, 'qnform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_COLNAME       => array(NoteCustInternalTableMap::COL_QNTYPE => 0, NoteCustInternalTableMap::COL_QNTYPEDESC => 1, NoteCustInternalTableMap::COL_ARCUCUSTID => 2, NoteCustInternalTableMap::COL_ARSTSHIPID => 3, NoteCustInternalTableMap::COL_QNSEQ => 4, NoteCustInternalTableMap::COL_QNNOTE => 5, NoteCustInternalTableMap::COL_QNKEY2 => 6, NoteCustInternalTableMap::COL_QNFORM => 7, NoteCustInternalTableMap::COL_DATEUPDTD => 8, NoteCustInternalTableMap::COL_TIMEUPDTD => 9, NoteCustInternalTableMap::COL_DUMMY => 10, ),
+        self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'ArcuCustId' => 2, 'ArstShipId' => 3, 'QnSeq' => 4, 'QnNote' => 5, 'QnKey2' => 6, 'QnForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
+        self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
 
     /**
@@ -189,21 +169,18 @@ class CustomerShipOrderNotesTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('notes_cust_ship_order');
-        $this->setPhpName('CustomerShipOrderNotes');
+        $this->setName('notes_cust_ship_internal');
+        $this->setPhpName('NoteCustInternal');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\CustomerShipOrderNotes');
+        $this->setClassName('\\NoteCustInternal');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
         $this->addPrimaryKey('QnType', 'Qntype', 'VARCHAR', true, 4, '');
         $this->addColumn('QnTypeDesc', 'Qntypedesc', 'VARCHAR', false, 40, null);
-        $this->addColumn('ArcuCustId', 'Arcucustid', 'VARCHAR', false, 6, null);
-        $this->addColumn('ArstShipId', 'Arstshipid', 'VARCHAR', false, 6, null);
-        $this->addColumn('QnCustPickTicket', 'Qncustpickticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnCustPackTicket', 'Qncustpackticket', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnCustInvoice', 'Qncustinvoice', 'VARCHAR', false, 1, null);
-        $this->addColumn('QnCustAcknow', 'Qncustacknow', 'VARCHAR', false, 1, null);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_cust_mast', 'ArcuCustId', false, 6, null);
+        $this->addForeignKey('ArcuCustId', 'Arcucustid', 'VARCHAR', 'ar_ship_to', 'ArcuCustId', false, 6, null);
+        $this->addForeignKey('ArstShipId', 'Arstshipid', 'VARCHAR', 'ar_ship_to', 'ArstShipId', false, 6, null);
         $this->addPrimaryKey('QnSeq', 'Qnseq', 'INTEGER', true, 8, 0);
         $this->addColumn('QnNote', 'Qnnote', 'VARCHAR', false, 150, null);
         $this->addPrimaryKey('QnKey2', 'Qnkey2', 'VARCHAR', true, 50, '');
@@ -218,6 +195,25 @@ class CustomerShipOrderNotesTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Customer', '\\Customer', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, null, false);
+        $this->addRelation('CustomerShipto', '\\CustomerShipto', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, null, false);
     } // buildRelations()
 
     /**
@@ -228,7 +224,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \CustomerShipOrderNotes $obj A \CustomerShipOrderNotes object.
+     * @param \NoteCustInternal $obj A \NoteCustInternal object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -249,12 +245,12 @@ class CustomerShipOrderNotesTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \CustomerShipOrderNotes object or a primary key value.
+     * @param mixed $value A \NoteCustInternal object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \CustomerShipOrderNotes) {
+            if (is_object($value) && $value instanceof \NoteCustInternal) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -265,7 +261,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \CustomerShipOrderNotes object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NoteCustInternal object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -289,11 +285,11 @@ class CustomerShipOrderNotesTableMap extends TableMap
     public static function getPrimaryKeyHashFromRow($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
         // If the PK cannot be derived from the row, return NULL.
-        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
+        if ($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] === null && $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] === null) {
             return null;
         }
 
-        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 8 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 10 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 11 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)])]);
+        return serialize([(null === $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 0 + $offset : static::translateFieldName('Qntype', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 4 + $offset : static::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 6 + $offset : static::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)]), (null === $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] || is_scalar($row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)]) || is_callable([$row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)], '__toString']) ? (string) $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)] : $row[TableMap::TYPE_NUM == $indexType ? 7 + $offset : static::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)])]);
     }
 
     /**
@@ -319,17 +315,17 @@ class CustomerShipOrderNotesTableMap extends TableMap
         ];
         $pks[] = (int) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 8 + $offset
+                ? 4 + $offset
                 : self::translateFieldName('Qnseq', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 10 + $offset
+                ? 6 + $offset
                 : self::translateFieldName('Qnkey2', TableMap::TYPE_PHPNAME, $indexType)
         ];
         $pks[] = (string) $row[
             $indexType == TableMap::TYPE_NUM
-                ? 11 + $offset
+                ? 7 + $offset
                 : self::translateFieldName('Qnform', TableMap::TYPE_PHPNAME, $indexType)
         ];
 
@@ -349,7 +345,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? CustomerShipOrderNotesTableMap::CLASS_DEFAULT : CustomerShipOrderNotesTableMap::OM_CLASS;
+        return $withPrefix ? NoteCustInternalTableMap::CLASS_DEFAULT : NoteCustInternalTableMap::OM_CLASS;
     }
 
     /**
@@ -363,22 +359,22 @@ class CustomerShipOrderNotesTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (CustomerShipOrderNotes object, last column rank)
+     * @return array           (NoteCustInternal object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = CustomerShipOrderNotesTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = CustomerShipOrderNotesTableMap::getInstanceFromPool($key))) {
+        $key = NoteCustInternalTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = NoteCustInternalTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + CustomerShipOrderNotesTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + NoteCustInternalTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = CustomerShipOrderNotesTableMap::OM_CLASS;
-            /** @var CustomerShipOrderNotes $obj */
+            $cls = NoteCustInternalTableMap::OM_CLASS;
+            /** @var NoteCustInternal $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            CustomerShipOrderNotesTableMap::addInstanceToPool($obj, $key);
+            NoteCustInternalTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -401,18 +397,18 @@ class CustomerShipOrderNotesTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = CustomerShipOrderNotesTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = CustomerShipOrderNotesTableMap::getInstanceFromPool($key))) {
+            $key = NoteCustInternalTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = NoteCustInternalTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var CustomerShipOrderNotes $obj */
+                /** @var NoteCustInternal $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                CustomerShipOrderNotesTableMap::addInstanceToPool($obj, $key);
+                NoteCustInternalTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -433,30 +429,22 @@ class CustomerShipOrderNotesTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_ARCUCUSTID);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_ARSTSHIPID);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNCUSTPICKTICKET);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNCUSTPACKTICKET);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNCUSTINVOICE);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNCUSTACKNOW);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(CustomerShipOrderNotesTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_ARCUCUSTID);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_ARSTSHIPID);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(NoteCustInternalTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnType');
             $criteria->addSelectColumn($alias . '.QnTypeDesc');
             $criteria->addSelectColumn($alias . '.ArcuCustId');
             $criteria->addSelectColumn($alias . '.ArstShipId');
-            $criteria->addSelectColumn($alias . '.QnCustPickTicket');
-            $criteria->addSelectColumn($alias . '.QnCustPackTicket');
-            $criteria->addSelectColumn($alias . '.QnCustInvoice');
-            $criteria->addSelectColumn($alias . '.QnCustAcknow');
             $criteria->addSelectColumn($alias . '.QnSeq');
             $criteria->addSelectColumn($alias . '.QnNote');
             $criteria->addSelectColumn($alias . '.QnKey2');
@@ -476,7 +464,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(CustomerShipOrderNotesTableMap::DATABASE_NAME)->getTable(CustomerShipOrderNotesTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(NoteCustInternalTableMap::DATABASE_NAME)->getTable(NoteCustInternalTableMap::TABLE_NAME);
     }
 
     /**
@@ -484,16 +472,16 @@ class CustomerShipOrderNotesTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(CustomerShipOrderNotesTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(CustomerShipOrderNotesTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new CustomerShipOrderNotesTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteCustInternalTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(NoteCustInternalTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new NoteCustInternalTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a CustomerShipOrderNotes or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a NoteCustInternal or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or CustomerShipOrderNotes object or primary key or array of primary keys
+     * @param mixed               $values Criteria or NoteCustInternal object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -504,17 +492,17 @@ class CustomerShipOrderNotesTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \CustomerShipOrderNotes) { // it's a model object
+        } elseif ($values instanceof \NoteCustInternal) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $criteria = new Criteria(NoteCustInternalTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -522,21 +510,21 @@ class CustomerShipOrderNotesTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(CustomerShipOrderNotesTableMap::COL_QNTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(CustomerShipOrderNotesTableMap::COL_QNSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(CustomerShipOrderNotesTableMap::COL_QNKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(CustomerShipOrderNotesTableMap::COL_QNFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(NoteCustInternalTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(NoteCustInternalTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteCustInternalTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteCustInternalTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = CustomerShipOrderNotesQuery::create()->mergeWith($criteria);
+        $query = NoteCustInternalQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            CustomerShipOrderNotesTableMap::clearInstancePool();
+            NoteCustInternalTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                CustomerShipOrderNotesTableMap::removeInstanceFromPool($singleval);
+                NoteCustInternalTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -544,20 +532,20 @@ class CustomerShipOrderNotesTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the notes_cust_ship_order table.
+     * Deletes all rows from the notes_cust_ship_internal table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return CustomerShipOrderNotesQuery::create()->doDeleteAll($con);
+        return NoteCustInternalQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a CustomerShipOrderNotes or Criteria object.
+     * Performs an INSERT on the database, given a NoteCustInternal or Criteria object.
      *
-     * @param mixed               $criteria Criteria or CustomerShipOrderNotes object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or NoteCustInternal object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -566,18 +554,18 @@ class CustomerShipOrderNotesTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(CustomerShipOrderNotesTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteCustInternalTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from CustomerShipOrderNotes object
+            $criteria = $criteria->buildCriteria(); // build Criteria from NoteCustInternal object
         }
 
 
         // Set the correct dbName
-        $query = CustomerShipOrderNotesQuery::create()->mergeWith($criteria);
+        $query = NoteCustInternalQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -586,7 +574,7 @@ class CustomerShipOrderNotesTableMap extends TableMap
         });
     }
 
-} // CustomerShipOrderNotesTableMap
+} // NoteCustInternalTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-CustomerShipOrderNotesTableMap::buildTableMap();
+NoteCustInternalTableMap::buildTableMap();

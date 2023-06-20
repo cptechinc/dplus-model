@@ -1003,6 +1003,20 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, 'ItemXrefKeys', false);
+        $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'NoteCustInternals', false);
+        $this->addRelation('NoteCustOrder', '\\NoteCustOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'NoteCustOrders', false);
         $this->addRelation('ItemXrefCustomerNote', '\\ItemXrefCustomerNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
