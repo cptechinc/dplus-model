@@ -4781,6 +4781,36 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="so_frt_config" idMethod="native" phpName="ConfigSoFreight">
+    <column name="OetbConfKey" phpName="Oetbconfkey" type="INTEGER" size="1" sqlType="int(1) unsigned" primaryKey="true" required="true" defaultValue="1"/>
+    <column name="OetbConfUseFrtCost" phpName="Oetbconfusefrtcost" type="CHAR" required="true" defaultValue="N"/>
+    <column name="OetbCon2FrtRateTabl" phpName="Oetbcon2frtratetabl" type="CHAR" required="true" defaultValue="N"/>
+    <column name="OetbCon2FrtZoneSorZ" phpName="Oetbcon2frtzonesorz" type="CHAR" required="true" defaultValue="Z"/>
+    <column name="OetbCon2ChrgActFrt" phpName="Oetbcon2chrgactfrt" type="CHAR" required="true" defaultValue="Y"/>
+    <column name="OetbCon3UseFrtGrup" phpName="Oetbcon3usefrtgrup" type="CHAR" required="true" defaultValue="N"/>
+    <column name="OetbCon2FrghtOrdrAmtA" phpName="Oetbcon2frghtordramta" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtOrdrAmtB" phpName="Oetbcon2frghtordramtb" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtOrdrAmtC" phpName="Oetbcon2frghtordramtc" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtOrdrAmtD" phpName="Oetbcon2frghtordramtd" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtOrdrAmtE" phpName="Oetbcon2frghtordramte" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2ChrgFrghtBkord" phpName="Oetbcon2chrgfrghtbkord" type="CHAR" required="true" defaultValue="N"/>
+    <column name="OetbCon2FrghtAddMeth" phpName="Oetbcon2frghtaddmeth" type="CHAR" required="true" defaultValue="1"/>
+    <column name="OetbCon2FrghtOrder" phpName="Oetbcon2frghtorder" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtCntnr" phpName="Oetbcon2frghtcntnr" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAdd1" phpName="Oetbcon2frghtadd1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAddAmt1" phpName="Oetbcon2frghtaddamt1" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAddPer" phpName="Oetbcon2frghtaddper" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAddAmtPer" phpName="Oetbcon2frghtaddamtper" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAddAmtMax" phpName="Oetbcon2frghtaddamtmax" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtAddPct" phpName="Oetbcon2frghtaddpct" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="OetbCon2FrghtMinChrg" phpName="Oetbcon2frghtminchrg" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="so_frtrate" idMethod="native" phpName="SoFreightRate">
     <column name="SfrtRateCode" phpName="Sfrtratecode" type="VARCHAR" size="1" primaryKey="true" required="true" defaultValue=""/>
     <column name="SfrtRateDesc" phpName="Sfrtratedesc" type="VARCHAR" size="30" required="true" defaultValue=""/>

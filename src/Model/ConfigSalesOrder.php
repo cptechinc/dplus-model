@@ -71,7 +71,8 @@ class ConfigSalesOrder extends BaseConfigSalesOrder {
 		'showOverPickMsg'          => 'OetbCon3WarnShipMore',
 		'default_ship_whse'        => 'oetbconfdfltshipwhse',
 		'pickingtype'              => 'oetbCon3pickpackcode',
-		'freightAllowAmt'          => 'oetbcon2frtallowamt'
+		'freightAllowAmt'          => 'oetbcon2frtallowamt',
+		'providerouting'           => 'oetbcon2providerouting',
 	);
 
 
