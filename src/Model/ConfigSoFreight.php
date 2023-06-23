@@ -19,7 +19,7 @@ class ConfigSoFreight extends BaseConfigSoFreight {
 	 * @var array
 	 */
 	const COLUMN_ALIASES = [
-		'usetable' => 'oetbCon2FrtRateTable',
+		'usetable' => 'oetbCon2FrtRateTabl',
 		'orderamtA' => 'oetbCon2FrghtOrdrAmtA',
 	];
 }
