@@ -66,6 +66,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvSerialMasterQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildInvSerialMasterQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
+ * @method     ChildInvSerialMasterQuery leftJoinInvLotTag($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildInvSerialMasterQuery rightJoinInvLotTag($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildInvSerialMasterQuery innerJoinInvLotTag($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotTag relation
+ *
+ * @method     ChildInvSerialMasterQuery joinWithInvLotTag($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotTag relation
+ *
+ * @method     ChildInvSerialMasterQuery leftJoinWithInvLotTag() Adds a LEFT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildInvSerialMasterQuery rightJoinWithInvLotTag() Adds a RIGHT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildInvSerialMasterQuery innerJoinWithInvLotTag() Adds a INNER JOIN clause and with to the query using the InvLotTag relation
+ *
  * @method     ChildInvSerialMasterQuery leftJoinInvSerialWarranty($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvSerialWarranty relation
  * @method     ChildInvSerialMasterQuery rightJoinInvSerialWarranty($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvSerialWarranty relation
  * @method     ChildInvSerialMasterQuery innerJoinInvSerialWarranty($relationAlias = null) Adds a INNER JOIN clause to the query using the InvSerialWarranty relation
@@ -76,7 +86,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildInvSerialMasterQuery rightJoinWithInvSerialWarranty() Adds a RIGHT JOIN clause and with to the query using the InvSerialWarranty relation
  * @method     ChildInvSerialMasterQuery innerJoinWithInvSerialWarranty() Adds a INNER JOIN clause and with to the query using the InvSerialWarranty relation
  *
- * @method     \ItemMasterItemQuery|\InvSerialWarrantyQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \ItemMasterItemQuery|\InvLotTagQuery|\InvSerialWarrantyQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildInvSerialMaster findOne(ConnectionInterface $con = null) Return the first ChildInvSerialMaster matching the query
  * @method     ChildInvSerialMaster findOneOrCreate(ConnectionInterface $con = null) Return the first ChildInvSerialMaster matching the query, or a new ChildInvSerialMaster object populated from the query conditions when no match is found
@@ -742,6 +752,75 @@ abstract class InvSerialMasterQuery extends ModelCriteria
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvLotTag object
+     *
+     * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildInvSerialMasterQuery The current query, for fluid interface
+     */
+    public function filterByInvLotTag($invLotTag, $comparison = null)
+    {
+        if ($invLotTag instanceof \InvLotTag) {
+            return $this
+                ->addUsingAlias(InvSerialMasterTableMap::COL_INITITEMNBR, $invLotTag->getInititemnbr(), $comparison)
+                ->addUsingAlias(InvSerialMasterTableMap::COL_SERMSERNBR, $invLotTag->getIntglotser(), $comparison);
+        } else {
+            throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLotTag relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildInvSerialMasterQuery The current query, for fluid interface
+     */
+    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLotTag');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLotTag');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotTagQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotTagQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLotTag($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**

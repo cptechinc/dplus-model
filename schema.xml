@@ -2271,6 +2271,44 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_inv_tag" idMethod="native" phpName="InvLotTag">
+    <column name="IntgWorkId" phpName="Intgworkid" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntgTagNbr" phpName="Intgtagnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IntgLotSer" phpName="Intglotser" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="IntgBin" phpName="Intgbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntgQty" phpName="Intgqty" type="DECIMAL" size="20" scale="5" required="true" defaultValue="0.00000"/>
+    <column name="IntgUnitCost" phpName="Intgunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IntgIssue" phpName="Intgissue" type="CHAR" required="true" defaultValue=""/>
+    <column name="IntgUserId" phpName="Intguserid" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntgEntrDate" phpName="Intgentrdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IntgEntrTime" phpName="Intgentrtime" type="CHAR" size="6" required="true" defaultValue=""/>
+    <column name="IntgPosted" phpName="Intgposted" type="CHAR" required="true" defaultValue="N"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse" skipSql="true">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lot" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="IntgLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_ser_mast" name="serial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="IntgLotSer" foreign="SermSerNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="sys_login" name="user" skipSql="true">
+      <reference local="IntgUserId" foreign="UsrcId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_item_2_item" idMethod="native" phpName="InvItem2Item">
     <column name="I2iMstrItemId" phpName="I2imstritemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
     <column name="I2iChildItemId" phpName="I2ichilditemid" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>

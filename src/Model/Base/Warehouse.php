@@ -2,17 +2,23 @@
 
 namespace Base;
 
+use \InvLotTag as ChildInvLotTag;
+use \InvLotTagQuery as ChildInvLotTagQuery;
+use \InvWhseLot as ChildInvWhseLot;
+use \InvWhseLotQuery as ChildInvWhseLotQuery;
+use \PoReceivingHead as ChildPoReceivingHead;
+use \PoReceivingHeadQuery as ChildPoReceivingHeadQuery;
 use \Warehouse as ChildWarehouse;
 use \WarehouseNote as ChildWarehouseNote;
 use \WarehouseNoteQuery as ChildWarehouseNoteQuery;
 use \WarehouseQuery as ChildWarehouseQuery;
-use \InvWhseLot as ChildInvWhseLot;
-use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \Exception;
 use \PDO;
+use Map\InvLotTagTableMap;
+use Map\InvWhseLotTableMap;
+use Map\PoReceivingHeadTableMap;
 use Map\WarehouseNoteTableMap;
 use Map\WarehouseTableMap;
-use Map\InvWhseLotTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\ModelCriteria;
@@ -312,10 +318,22 @@ abstract class Warehouse implements ActiveRecordInterface
     protected $collInvWhseLotsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     */
+    protected $collInvLotTags;
+    protected $collInvLotTagsPartial;
+
+    /**
      * @var        ObjectCollection|ChildWarehouseNote[] Collection to store aggregation of ChildWarehouseNote objects.
      */
     protected $collWarehouseNotes;
     protected $collWarehouseNotesPartial;
+
+    /**
+     * @var        ObjectCollection|ChildPoReceivingHead[] Collection to store aggregation of ChildPoReceivingHead objects.
+     */
+    protected $collPoReceivingHeads;
+    protected $collPoReceivingHeadsPartial;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -333,9 +351,21 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvLotTag[]
+     */
+    protected $invLotTagsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildWarehouseNote[]
      */
     protected $warehouseNotesScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildPoReceivingHead[]
+     */
+    protected $poReceivingHeadsScheduledForDeletion = null;
 
     /**
      * Initializes internal state of Base\Warehouse object.
@@ -1790,7 +1820,11 @@ abstract class Warehouse implements ActiveRecordInterface
 
             $this->collInvWhseLots = null;
 
+            $this->collInvLotTags = null;
+
             $this->collWarehouseNotes = null;
+
+            $this->collPoReceivingHeads = null;
 
         } // if (deep)
     }
@@ -1923,6 +1957,23 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
+            if ($this->invLotTagsScheduledForDeletion !== null) {
+                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                    \InvLotTagQuery::create()
+                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invLotTagsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvLotTags !== null) {
+                foreach ($this->collInvLotTags as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
             if ($this->warehouseNotesScheduledForDeletion !== null) {
                 if (!$this->warehouseNotesScheduledForDeletion->isEmpty()) {
                     foreach ($this->warehouseNotesScheduledForDeletion as $warehouseNote) {
@@ -1935,6 +1986,23 @@ abstract class Warehouse implements ActiveRecordInterface
 
             if ($this->collWarehouseNotes !== null) {
                 foreach ($this->collWarehouseNotes as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->poReceivingHeadsScheduledForDeletion !== null) {
+                if (!$this->poReceivingHeadsScheduledForDeletion->isEmpty()) {
+                    \PoReceivingHeadQuery::create()
+                        ->filterByPrimaryKeys($this->poReceivingHeadsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->poReceivingHeadsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collPoReceivingHeads !== null) {
+                foreach ($this->collPoReceivingHeads as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -2421,6 +2489,21 @@ abstract class Warehouse implements ActiveRecordInterface
 
                 $result[$key] = $this->collInvWhseLots->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvLotTags) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLotTags';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_tags';
+                        break;
+                    default:
+                        $key = 'InvLotTags';
+                }
+
+                $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collWarehouseNotes) {
 
                 switch ($keyType) {
@@ -2435,6 +2518,21 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collWarehouseNotes->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collPoReceivingHeads) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'poReceivingHeads';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'po_tran_heads';
+                        break;
+                    default:
+                        $key = 'PoReceivingHeads';
+                }
+
+                $result[$key] = $this->collPoReceivingHeads->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
         }
 
@@ -2975,9 +3073,21 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvLotTags() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvLotTag($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getWarehouseNotes() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addWarehouseNote($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getPoReceivingHeads() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addPoReceivingHead($relObj->copy($deepCopy));
                 }
             }
 
@@ -3025,8 +3135,16 @@ abstract class Warehouse implements ActiveRecordInterface
             $this->initInvWhseLots();
             return;
         }
+        if ('InvLotTag' == $relationName) {
+            $this->initInvLotTags();
+            return;
+        }
         if ('WarehouseNote' == $relationName) {
             $this->initWarehouseNotes();
+            return;
+        }
+        if ('PoReceivingHead' == $relationName) {
+            $this->initPoReceivingHeads();
             return;
         }
     }
@@ -3310,6 +3428,334 @@ abstract class Warehouse implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collInvLotTags collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvLotTags()
+     */
+    public function clearInvLotTags()
+    {
+        $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvLotTags collection loaded partially.
+     */
+    public function resetPartialInvLotTags($v = true)
+    {
+        $this->collInvLotTagsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvLotTags collection.
+     *
+     * By default this just sets the collInvLotTags collection to an empty array (like clearcollInvLotTags());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvLotTags($overrideExisting = true)
+    {
+        if (null !== $this->collInvLotTags && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvLotTags = new $collectionClassName;
+        $this->collInvLotTags->setModel('\InvLotTag');
+    }
+
+    /**
+     * Gets an array of ChildInvLotTag objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @throws PropelException
+     */
+    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                // return empty collection
+                $this->initInvLotTags();
+            } else {
+                $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
+                        $this->initInvLotTags(false);
+
+                        foreach ($collInvLotTags as $obj) {
+                            if (false == $this->collInvLotTags->contains($obj)) {
+                                $this->collInvLotTags->append($obj);
+                            }
+                        }
+
+                        $this->collInvLotTagsPartial = true;
+                    }
+
+                    return $collInvLotTags;
+                }
+
+                if ($partial && $this->collInvLotTags) {
+                    foreach ($this->collInvLotTags as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvLotTags[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvLotTags = $collInvLotTags;
+                $this->collInvLotTagsPartial = false;
+            }
+        }
+
+        return $this->collInvLotTags;
+    }
+
+    /**
+     * Sets a collection of ChildInvLotTag objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invLotTags A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvLotTag[] $invLotTagsToDelete */
+        $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invLotTagsScheduledForDeletion = clone $invLotTagsToDelete;
+
+        foreach ($invLotTagsToDelete as $invLotTagRemoved) {
+            $invLotTagRemoved->setWarehouse(null);
+        }
+
+        $this->collInvLotTags = null;
+        foreach ($invLotTags as $invLotTag) {
+            $this->addInvLotTag($invLotTag);
+        }
+
+        $this->collInvLotTags = $invLotTags;
+        $this->collInvLotTagsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvLotTag objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvLotTag objects.
+     * @throws PropelException
+     */
+    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvLotTags());
+            }
+
+            $query = ChildInvLotTagQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collInvLotTags);
+    }
+
+    /**
+     * Method called to associate a ChildInvLotTag object to this object
+     * through the ChildInvLotTag foreign key attribute.
+     *
+     * @param  ChildInvLotTag $l ChildInvLotTag
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addInvLotTag(ChildInvLotTag $l)
+    {
+        if ($this->collInvLotTags === null) {
+            $this->initInvLotTags();
+            $this->collInvLotTagsPartial = true;
+        }
+
+        if (!$this->collInvLotTags->contains($l)) {
+            $this->doAddInvLotTag($l);
+
+            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+                $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
+     */
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        $this->collInvLotTags[]= $invLotTag;
+        $invLotTag->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        if ($this->getInvLotTags()->contains($invLotTag)) {
+            $pos = $this->collInvLotTags->search($invLotTag);
+            $this->collInvLotTags->remove($pos);
+            if (null === $this->invLotTagsScheduledForDeletion) {
+                $this->invLotTagsScheduledForDeletion = clone $this->collInvLotTags;
+                $this->invLotTagsScheduledForDeletion->clear();
+            }
+            $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
+            $invLotTag->setWarehouse(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvLotMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinDplusUser(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('DplusUser', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+    /**
      * Clears out the collWarehouseNotes collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -3535,6 +3981,256 @@ abstract class Warehouse implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collPoReceivingHeads collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addPoReceivingHeads()
+     */
+    public function clearPoReceivingHeads()
+    {
+        $this->collPoReceivingHeads = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collPoReceivingHeads collection loaded partially.
+     */
+    public function resetPartialPoReceivingHeads($v = true)
+    {
+        $this->collPoReceivingHeadsPartial = $v;
+    }
+
+    /**
+     * Initializes the collPoReceivingHeads collection.
+     *
+     * By default this just sets the collPoReceivingHeads collection to an empty array (like clearcollPoReceivingHeads());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initPoReceivingHeads($overrideExisting = true)
+    {
+        if (null !== $this->collPoReceivingHeads && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = PoReceivingHeadTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collPoReceivingHeads = new $collectionClassName;
+        $this->collPoReceivingHeads->setModel('\PoReceivingHead');
+    }
+
+    /**
+     * Gets an array of ChildPoReceivingHead objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildPoReceivingHead[] List of ChildPoReceivingHead objects
+     * @throws PropelException
+     */
+    public function getPoReceivingHeads(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
+        if (null === $this->collPoReceivingHeads || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collPoReceivingHeads) {
+                // return empty collection
+                $this->initPoReceivingHeads();
+            } else {
+                $collPoReceivingHeads = ChildPoReceivingHeadQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collPoReceivingHeadsPartial && count($collPoReceivingHeads)) {
+                        $this->initPoReceivingHeads(false);
+
+                        foreach ($collPoReceivingHeads as $obj) {
+                            if (false == $this->collPoReceivingHeads->contains($obj)) {
+                                $this->collPoReceivingHeads->append($obj);
+                            }
+                        }
+
+                        $this->collPoReceivingHeadsPartial = true;
+                    }
+
+                    return $collPoReceivingHeads;
+                }
+
+                if ($partial && $this->collPoReceivingHeads) {
+                    foreach ($this->collPoReceivingHeads as $obj) {
+                        if ($obj->isNew()) {
+                            $collPoReceivingHeads[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collPoReceivingHeads = $collPoReceivingHeads;
+                $this->collPoReceivingHeadsPartial = false;
+            }
+        }
+
+        return $this->collPoReceivingHeads;
+    }
+
+    /**
+     * Sets a collection of ChildPoReceivingHead objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $poReceivingHeads A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setPoReceivingHeads(Collection $poReceivingHeads, ConnectionInterface $con = null)
+    {
+        /** @var ChildPoReceivingHead[] $poReceivingHeadsToDelete */
+        $poReceivingHeadsToDelete = $this->getPoReceivingHeads(new Criteria(), $con)->diff($poReceivingHeads);
+
+
+        $this->poReceivingHeadsScheduledForDeletion = $poReceivingHeadsToDelete;
+
+        foreach ($poReceivingHeadsToDelete as $poReceivingHeadRemoved) {
+            $poReceivingHeadRemoved->setWarehouse(null);
+        }
+
+        $this->collPoReceivingHeads = null;
+        foreach ($poReceivingHeads as $poReceivingHead) {
+            $this->addPoReceivingHead($poReceivingHead);
+        }
+
+        $this->collPoReceivingHeads = $poReceivingHeads;
+        $this->collPoReceivingHeadsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related PoReceivingHead objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related PoReceivingHead objects.
+     * @throws PropelException
+     */
+    public function countPoReceivingHeads(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collPoReceivingHeadsPartial && !$this->isNew();
+        if (null === $this->collPoReceivingHeads || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collPoReceivingHeads) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getPoReceivingHeads());
+            }
+
+            $query = ChildPoReceivingHeadQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collPoReceivingHeads);
+    }
+
+    /**
+     * Method called to associate a ChildPoReceivingHead object to this object
+     * through the ChildPoReceivingHead foreign key attribute.
+     *
+     * @param  ChildPoReceivingHead $l ChildPoReceivingHead
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addPoReceivingHead(ChildPoReceivingHead $l)
+    {
+        if ($this->collPoReceivingHeads === null) {
+            $this->initPoReceivingHeads();
+            $this->collPoReceivingHeadsPartial = true;
+        }
+
+        if (!$this->collPoReceivingHeads->contains($l)) {
+            $this->doAddPoReceivingHead($l);
+
+            if ($this->poReceivingHeadsScheduledForDeletion and $this->poReceivingHeadsScheduledForDeletion->contains($l)) {
+                $this->poReceivingHeadsScheduledForDeletion->remove($this->poReceivingHeadsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildPoReceivingHead $poReceivingHead The ChildPoReceivingHead object to add.
+     */
+    protected function doAddPoReceivingHead(ChildPoReceivingHead $poReceivingHead)
+    {
+        $this->collPoReceivingHeads[]= $poReceivingHead;
+        $poReceivingHead->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildPoReceivingHead $poReceivingHead The ChildPoReceivingHead object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removePoReceivingHead(ChildPoReceivingHead $poReceivingHead)
+    {
+        if ($this->getPoReceivingHeads()->contains($poReceivingHead)) {
+            $pos = $this->collPoReceivingHeads->search($poReceivingHead);
+            $this->collPoReceivingHeads->remove($pos);
+            if (null === $this->poReceivingHeadsScheduledForDeletion) {
+                $this->poReceivingHeadsScheduledForDeletion = clone $this->collPoReceivingHeads;
+                $this->poReceivingHeadsScheduledForDeletion->clear();
+            }
+            $this->poReceivingHeadsScheduledForDeletion[]= clone $poReceivingHead;
+            $poReceivingHead->setWarehouse(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related PoReceivingHeads from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildPoReceivingHead[] List of ChildPoReceivingHead objects
+     */
+    public function getPoReceivingHeadsJoinPurchaseOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildPoReceivingHeadQuery::create(null, $criteria);
+        $query->joinWith('PurchaseOrder', $joinBehavior);
+
+        return $this->getPoReceivingHeads($query, $con);
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -3598,15 +4294,27 @@ abstract class Warehouse implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvLotTags) {
+                foreach ($this->collInvLotTags as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collWarehouseNotes) {
                 foreach ($this->collWarehouseNotes as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collPoReceivingHeads) {
+                foreach ($this->collPoReceivingHeads as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
         } // if ($deep)
 
         $this->collInvWhseLots = null;
+        $this->collInvLotTags = null;
         $this->collWarehouseNotes = null;
+        $this->collPoReceivingHeads = null;
     }
 
     /**
@@ -3627,7 +4335,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -3651,7 +4359,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -3675,7 +4383,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -3699,7 +4407,7 @@ abstract class Warehouse implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

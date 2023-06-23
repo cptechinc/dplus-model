@@ -108,6 +108,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithInvWhseLot() Adds a RIGHT JOIN clause and with to the query using the InvWhseLot relation
  * @method     ChildWarehouseQuery innerJoinWithInvWhseLot() Adds a INNER JOIN clause and with to the query using the InvWhseLot relation
  *
+ * @method     ChildWarehouseQuery leftJoinInvLotTag($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildWarehouseQuery rightJoinInvLotTag($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildWarehouseQuery innerJoinInvLotTag($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotTag relation
+ *
+ * @method     ChildWarehouseQuery joinWithInvLotTag($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotTag relation
+ *
+ * @method     ChildWarehouseQuery leftJoinWithInvLotTag() Adds a LEFT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildWarehouseQuery rightJoinWithInvLotTag() Adds a RIGHT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildWarehouseQuery innerJoinWithInvLotTag() Adds a INNER JOIN clause and with to the query using the InvLotTag relation
+ *
  * @method     ChildWarehouseQuery leftJoinWarehouseNote($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseNote relation
  * @method     ChildWarehouseQuery rightJoinWarehouseNote($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseNote relation
  * @method     ChildWarehouseQuery innerJoinWarehouseNote($relationAlias = null) Adds a INNER JOIN clause to the query using the WarehouseNote relation
@@ -118,7 +128,17 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithWarehouseNote() Adds a RIGHT JOIN clause and with to the query using the WarehouseNote relation
  * @method     ChildWarehouseQuery innerJoinWithWarehouseNote() Adds a INNER JOIN clause and with to the query using the WarehouseNote relation
  *
- * @method     \InvWhseLotQuery|\WarehouseNoteQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildWarehouseQuery leftJoinPoReceivingHead($relationAlias = null) Adds a LEFT JOIN clause to the query using the PoReceivingHead relation
+ * @method     ChildWarehouseQuery rightJoinPoReceivingHead($relationAlias = null) Adds a RIGHT JOIN clause to the query using the PoReceivingHead relation
+ * @method     ChildWarehouseQuery innerJoinPoReceivingHead($relationAlias = null) Adds a INNER JOIN clause to the query using the PoReceivingHead relation
+ *
+ * @method     ChildWarehouseQuery joinWithPoReceivingHead($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the PoReceivingHead relation
+ *
+ * @method     ChildWarehouseQuery leftJoinWithPoReceivingHead() Adds a LEFT JOIN clause and with to the query using the PoReceivingHead relation
+ * @method     ChildWarehouseQuery rightJoinWithPoReceivingHead() Adds a RIGHT JOIN clause and with to the query using the PoReceivingHead relation
+ * @method     ChildWarehouseQuery innerJoinWithPoReceivingHead() Adds a INNER JOIN clause and with to the query using the PoReceivingHead relation
+ *
+ * @method     \InvWhseLotQuery|\InvLotTagQuery|\WarehouseNoteQuery|\PoReceivingHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouse findOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
  * @method     ChildWarehouse findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
@@ -1343,6 +1363,79 @@ abstract class WarehouseQuery extends ModelCriteria
     }
 
     /**
+     * Filter the query by a related \InvLotTag object
+     *
+     * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByInvLotTag($invLotTag, $comparison = null)
+    {
+        if ($invLotTag instanceof \InvLotTag) {
+            return $this
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invLotTag->getIntbwhse(), $comparison);
+        } elseif ($invLotTag instanceof ObjectCollection) {
+            return $this
+                ->useInvLotTagQuery()
+                ->filterByPrimaryKeys($invLotTag->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLotTag relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLotTag');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLotTag');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotTagQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotTagQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLotTag($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+    }
+
+    /**
      * Filter the query by a related \WarehouseNote object
      *
      * @param \WarehouseNote|ObjectCollection $warehouseNote the related object to use as filter
@@ -1413,6 +1506,79 @@ abstract class WarehouseQuery extends ModelCriteria
         return $this
             ->joinWarehouseNote($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'WarehouseNote', '\WarehouseNoteQuery');
+    }
+
+    /**
+     * Filter the query by a related \PoReceivingHead object
+     *
+     * @param \PoReceivingHead|ObjectCollection $poReceivingHead the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByPoReceivingHead($poReceivingHead, $comparison = null)
+    {
+        if ($poReceivingHead instanceof \PoReceivingHead) {
+            return $this
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $poReceivingHead->getIntbwhse(), $comparison);
+        } elseif ($poReceivingHead instanceof ObjectCollection) {
+            return $this
+                ->usePoReceivingHeadQuery()
+                ->filterByPrimaryKeys($poReceivingHead->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByPoReceivingHead() only accepts arguments of type \PoReceivingHead or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the PoReceivingHead relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function joinPoReceivingHead($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('PoReceivingHead');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'PoReceivingHead');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the PoReceivingHead relation PoReceivingHead object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \PoReceivingHeadQuery A secondary query class using the current class as primary query
+     */
+    public function usePoReceivingHeadQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinPoReceivingHead($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'PoReceivingHead', '\PoReceivingHeadQuery');
     }
 
     /**

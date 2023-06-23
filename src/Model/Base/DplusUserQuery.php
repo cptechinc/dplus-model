@@ -136,6 +136,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUserQuery rightJoinWithSysLoginRole() Adds a RIGHT JOIN clause and with to the query using the SysLoginRole relation
  * @method     ChildDplusUserQuery innerJoinWithSysLoginRole() Adds a INNER JOIN clause and with to the query using the SysLoginRole relation
  *
+ * @method     ChildDplusUserQuery leftJoinInvLotTag($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildDplusUserQuery rightJoinInvLotTag($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvLotTag relation
+ * @method     ChildDplusUserQuery innerJoinInvLotTag($relationAlias = null) Adds a INNER JOIN clause to the query using the InvLotTag relation
+ *
+ * @method     ChildDplusUserQuery joinWithInvLotTag($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvLotTag relation
+ *
+ * @method     ChildDplusUserQuery leftJoinWithInvLotTag() Adds a LEFT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildDplusUserQuery rightJoinWithInvLotTag() Adds a RIGHT JOIN clause and with to the query using the InvLotTag relation
+ * @method     ChildDplusUserQuery innerJoinWithInvLotTag() Adds a INNER JOIN clause and with to the query using the InvLotTag relation
+ *
  * @method     ChildDplusUserQuery leftJoinUserPermissionsItm($relationAlias = null) Adds a LEFT JOIN clause to the query using the UserPermissionsItm relation
  * @method     ChildDplusUserQuery rightJoinUserPermissionsItm($relationAlias = null) Adds a RIGHT JOIN clause to the query using the UserPermissionsItm relation
  * @method     ChildDplusUserQuery innerJoinUserPermissionsItm($relationAlias = null) Adds a INNER JOIN clause to the query using the UserPermissionsItm relation
@@ -156,7 +166,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildDplusUserQuery rightJoinWithUserLastPrintJob() Adds a RIGHT JOIN clause and with to the query using the UserLastPrintJob relation
  * @method     ChildDplusUserQuery innerJoinWithUserLastPrintJob() Adds a INNER JOIN clause and with to the query using the UserLastPrintJob relation
  *
- * @method     \SysLoginGroupQuery|\SysLoginRoleQuery|\UserPermissionsItmQuery|\UserLastPrintJobQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \SysLoginGroupQuery|\SysLoginRoleQuery|\InvLotTagQuery|\UserPermissionsItmQuery|\UserLastPrintJobQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildDplusUser findOne(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query
  * @method     ChildDplusUser findOneOrCreate(ConnectionInterface $con = null) Return the first ChildDplusUser matching the query, or a new ChildDplusUser object populated from the query conditions when no match is found
@@ -1711,6 +1721,79 @@ abstract class DplusUserQuery extends ModelCriteria
         return $this
             ->joinSysLoginRole($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'SysLoginRole', '\SysLoginRoleQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvLotTag object
+     *
+     * @param \InvLotTag|ObjectCollection $invLotTag the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function filterByInvLotTag($invLotTag, $comparison = null)
+    {
+        if ($invLotTag instanceof \InvLotTag) {
+            return $this
+                ->addUsingAlias(DplusUserTableMap::COL_USRCID, $invLotTag->getIntguserid(), $comparison);
+        } elseif ($invLotTag instanceof ObjectCollection) {
+            return $this
+                ->useInvLotTagQuery()
+                ->filterByPrimaryKeys($invLotTag->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvLotTag() only accepts arguments of type \InvLotTag or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvLotTag relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildDplusUserQuery The current query, for fluid interface
+     */
+    public function joinInvLotTag($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvLotTag');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvLotTag');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvLotTag relation InvLotTag object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvLotTagQuery A secondary query class using the current class as primary query
+     */
+    public function useInvLotTagQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvLotTag($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
     }
 
     /**

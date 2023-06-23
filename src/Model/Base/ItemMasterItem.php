@@ -22,6 +22,8 @@ use \InvKitComponentQuery as ChildInvKitComponentQuery;
 use \InvKitQuery as ChildInvKitQuery;
 use \InvLotMaster as ChildInvLotMaster;
 use \InvLotMasterQuery as ChildInvLotMasterQuery;
+use \InvLotTag as ChildInvLotTag;
+use \InvLotTagQuery as ChildInvLotTagQuery;
 use \InvOptCodeNote as ChildInvOptCodeNote;
 use \InvOptCodeNoteQuery as ChildInvOptCodeNoteQuery;
 use \InvPriceCode as ChildInvPriceCode;
@@ -95,6 +97,7 @@ use Map\BookingDetailTableMap;
 use Map\InvItem2ItemTableMap;
 use Map\InvKitComponentTableMap;
 use Map\InvLotMasterTableMap;
+use Map\InvLotTagTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
 use Map\InvSerialWarrantyTableMap;
@@ -710,6 +713,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemSubstitutesRelatedByInsisubitemnbrPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     */
+    protected $collInvLotTags;
+    protected $collInvLotTagsPartial;
+
+    /**
      * @var        ObjectCollection|ChildInvItem2Item[] Collection to store aggregation of ChildInvItem2Item objects.
      */
     protected $collInvItem2ItemsRelatedByI2imstritemid;
@@ -936,6 +945,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemSubstitute[]
      */
     protected $itemSubstitutesRelatedByInsisubitemnbrScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvLotTag[]
+     */
+    protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3666,6 +3681,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
 
+            $this->collInvLotTags = null;
+
             $this->collInvItem2ItemsRelatedByI2imstritemid = null;
 
             $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
@@ -3998,6 +4015,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemSubstitutesRelatedByInsisubitemnbr !== null) {
                 foreach ($this->collItemSubstitutesRelatedByInsisubitemnbr as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invLotTagsScheduledForDeletion !== null) {
+                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                    \InvLotTagQuery::create()
+                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invLotTagsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvLotTags !== null) {
+                foreach ($this->collInvLotTags as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5501,6 +5535,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemSubstitutesRelatedByInsisubitemnbr->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvLotTags) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLotTags';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_tags';
+                        break;
+                    default:
+                        $key = 'InvLotTags';
+                }
+
+                $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collInvItem2ItemsRelatedByI2imstritemid) {
 
                 switch ($keyType) {
@@ -6862,6 +6911,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvLotTags() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvLotTag($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getInvItem2ItemsRelatedByI2imstritemid() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvItem2ItemRelatedByI2imstritemid($relObj->copy($deepCopy));
@@ -7408,6 +7463,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
         if ('ItemSubstituteRelatedByInsisubitemnbr' == $relationName) {
             $this->initItemSubstitutesRelatedByInsisubitemnbr();
+            return;
+        }
+        if ('InvLotTag' == $relationName) {
+            $this->initInvLotTags();
             return;
         }
         if ('InvItem2ItemRelatedByI2imstritemid' == $relationName) {
@@ -9013,6 +9072,331 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+    /**
+     * Clears out the collInvLotTags collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvLotTags()
+     */
+    public function clearInvLotTags()
+    {
+        $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvLotTags collection loaded partially.
+     */
+    public function resetPartialInvLotTags($v = true)
+    {
+        $this->collInvLotTagsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvLotTags collection.
+     *
+     * By default this just sets the collInvLotTags collection to an empty array (like clearcollInvLotTags());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvLotTags($overrideExisting = true)
+    {
+        if (null !== $this->collInvLotTags && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvLotTags = new $collectionClassName;
+        $this->collInvLotTags->setModel('\InvLotTag');
+    }
+
+    /**
+     * Gets an array of ChildInvLotTag objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @throws PropelException
+     */
+    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                // return empty collection
+                $this->initInvLotTags();
+            } else {
+                $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
+                        $this->initInvLotTags(false);
+
+                        foreach ($collInvLotTags as $obj) {
+                            if (false == $this->collInvLotTags->contains($obj)) {
+                                $this->collInvLotTags->append($obj);
+                            }
+                        }
+
+                        $this->collInvLotTagsPartial = true;
+                    }
+
+                    return $collInvLotTags;
+                }
+
+                if ($partial && $this->collInvLotTags) {
+                    foreach ($this->collInvLotTags as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvLotTags[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvLotTags = $collInvLotTags;
+                $this->collInvLotTagsPartial = false;
+            }
+        }
+
+        return $this->collInvLotTags;
+    }
+
+    /**
+     * Sets a collection of ChildInvLotTag objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invLotTags A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvLotTag[] $invLotTagsToDelete */
+        $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
+
+
+        $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
+
+        foreach ($invLotTagsToDelete as $invLotTagRemoved) {
+            $invLotTagRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvLotTags = null;
+        foreach ($invLotTags as $invLotTag) {
+            $this->addInvLotTag($invLotTag);
+        }
+
+        $this->collInvLotTags = $invLotTags;
+        $this->collInvLotTagsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvLotTag objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvLotTag objects.
+     * @throws PropelException
+     */
+    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvLotTags());
+            }
+
+            $query = ChildInvLotTagQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvLotTags);
+    }
+
+    /**
+     * Method called to associate a ChildInvLotTag object to this object
+     * through the ChildInvLotTag foreign key attribute.
+     *
+     * @param  ChildInvLotTag $l ChildInvLotTag
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvLotTag(ChildInvLotTag $l)
+    {
+        if ($this->collInvLotTags === null) {
+            $this->initInvLotTags();
+            $this->collInvLotTagsPartial = true;
+        }
+
+        if (!$this->collInvLotTags->contains($l)) {
+            $this->doAddInvLotTag($l);
+
+            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+                $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
+     */
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        $this->collInvLotTags[]= $invLotTag;
+        $invLotTag->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        if ($this->getInvLotTags()->contains($invLotTag)) {
+            $pos = $this->collInvLotTags->search($invLotTag);
+            $this->collInvLotTags->remove($pos);
+            if (null === $this->invLotTagsScheduledForDeletion) {
+                $this->invLotTagsScheduledForDeletion = clone $this->collInvLotTags;
+                $this->invLotTagsScheduledForDeletion->clear();
+            }
+            $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
+            $invLotTag->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('Warehouse', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvLotMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinDplusUser(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('DplusUser', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
     }
 
     /**
@@ -16742,6 +17126,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvLotTags) {
+                foreach ($this->collInvLotTags as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collInvItem2ItemsRelatedByI2imstritemid) {
                 foreach ($this->collInvItem2ItemsRelatedByI2imstritemid as $o) {
                     $o->clearAllReferences($deep);
@@ -16903,6 +17292,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         $this->collInvWhseLots = null;
         $this->collItemSubstitutesRelatedByInititemnbr = null;
         $this->collItemSubstitutesRelatedByInsisubitemnbr = null;
+        $this->collInvLotTags = null;
         $this->collInvItem2ItemsRelatedByI2imstritemid = null;
         $this->collInvItem2ItemsRelatedByI2ichilditemid = null;
         $this->collInvKitComponents = null;

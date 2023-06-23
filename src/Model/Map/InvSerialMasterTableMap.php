@@ -213,6 +213,18 @@ class InvSerialMasterTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, null, false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+  1 =>
+  array (
+    0 => ':IntgLotSer',
+    1 => ':SermSerNbr',
+  ),
+), null, null, 'InvLotTags', false);
         $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_ONE, array (
   0 =>
   array (

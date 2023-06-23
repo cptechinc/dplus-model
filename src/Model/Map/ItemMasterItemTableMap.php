@@ -616,6 +616,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemSubstitutesRelatedByInsisubitemnbr', false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvLotTags', false);
         $this->addRelation('InvItem2ItemRelatedByI2imstritemid', '\\InvItem2Item', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

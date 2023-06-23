@@ -4,6 +4,8 @@ namespace Base;
 
 use \DplusUser as ChildDplusUser;
 use \DplusUserQuery as ChildDplusUserQuery;
+use \InvLotTag as ChildInvLotTag;
+use \InvLotTagQuery as ChildInvLotTagQuery;
 use \SysLoginGroup as ChildSysLoginGroup;
 use \SysLoginGroupQuery as ChildSysLoginGroupQuery;
 use \SysLoginRole as ChildSysLoginRole;
@@ -15,6 +17,7 @@ use \UserPermissionsItmQuery as ChildUserPermissionsItmQuery;
 use \Exception;
 use \PDO;
 use Map\DplusUserTableMap;
+use Map\InvLotTagTableMap;
 use Map\UserLastPrintJobTableMap;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
@@ -382,6 +385,12 @@ abstract class DplusUser implements ActiveRecordInterface
     protected $aSysLoginRole;
 
     /**
+     * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
+     */
+    protected $collInvLotTags;
+    protected $collInvLotTagsPartial;
+
+    /**
      * @var        ChildUserPermissionsItm one-to-one related ChildUserPermissionsItm object
      */
     protected $singleUserPermissionsItm;
@@ -399,6 +408,12 @@ abstract class DplusUser implements ActiveRecordInterface
      * @var boolean
      */
     protected $alreadyInSave = false;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvLotTag[]
+     */
+    protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -2170,6 +2185,8 @@ abstract class DplusUser implements ActiveRecordInterface
 
             $this->aSysLoginGroup = null;
             $this->aSysLoginRole = null;
+            $this->collInvLotTags = null;
+
             $this->singleUserPermissionsItm = null;
 
             $this->collUserLastPrintJobs = null;
@@ -2305,6 +2322,23 @@ abstract class DplusUser implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->invLotTagsScheduledForDeletion !== null) {
+                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
+                    \InvLotTagQuery::create()
+                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invLotTagsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvLotTags !== null) {
+                foreach ($this->collInvLotTags as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
             }
 
             if ($this->singleUserPermissionsItm !== null) {
@@ -2914,6 +2948,21 @@ abstract class DplusUser implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aSysLoginRole->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->collInvLotTags) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invLotTags';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_inv_tags';
+                        break;
+                    default:
+                        $key = 'InvLotTags';
+                }
+
+                $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->singleUserPermissionsItm) {
 
@@ -3568,6 +3617,12 @@ abstract class DplusUser implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getInvLotTags() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvLotTag($relObj->copy($deepCopy));
+                }
+            }
+
             $relObj = $this->getUserPermissionsItm();
             if ($relObj) {
                 $copyObj->setUserPermissionsItm($relObj->copy($deepCopy));
@@ -3721,10 +3776,339 @@ abstract class DplusUser implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('InvLotTag' == $relationName) {
+            $this->initInvLotTags();
+            return;
+        }
         if ('UserLastPrintJob' == $relationName) {
             $this->initUserLastPrintJobs();
             return;
         }
+    }
+
+    /**
+     * Clears out the collInvLotTags collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvLotTags()
+     */
+    public function clearInvLotTags()
+    {
+        $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvLotTags collection loaded partially.
+     */
+    public function resetPartialInvLotTags($v = true)
+    {
+        $this->collInvLotTagsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvLotTags collection.
+     *
+     * By default this just sets the collInvLotTags collection to an empty array (like clearcollInvLotTags());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvLotTags($overrideExisting = true)
+    {
+        if (null !== $this->collInvLotTags && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvLotTags = new $collectionClassName;
+        $this->collInvLotTags->setModel('\InvLotTag');
+    }
+
+    /**
+     * Gets an array of ChildInvLotTag objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildDplusUser is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     * @throws PropelException
+     */
+    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                // return empty collection
+                $this->initInvLotTags();
+            } else {
+                $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
+                    ->filterByDplusUser($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
+                        $this->initInvLotTags(false);
+
+                        foreach ($collInvLotTags as $obj) {
+                            if (false == $this->collInvLotTags->contains($obj)) {
+                                $this->collInvLotTags->append($obj);
+                            }
+                        }
+
+                        $this->collInvLotTagsPartial = true;
+                    }
+
+                    return $collInvLotTags;
+                }
+
+                if ($partial && $this->collInvLotTags) {
+                    foreach ($this->collInvLotTags as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvLotTags[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvLotTags = $collInvLotTags;
+                $this->collInvLotTagsPartial = false;
+            }
+        }
+
+        return $this->collInvLotTags;
+    }
+
+    /**
+     * Sets a collection of ChildInvLotTag objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invLotTags A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildDplusUser The current object (for fluent API support)
+     */
+    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvLotTag[] $invLotTagsToDelete */
+        $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
+
+
+        $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
+
+        foreach ($invLotTagsToDelete as $invLotTagRemoved) {
+            $invLotTagRemoved->setDplusUser(null);
+        }
+
+        $this->collInvLotTags = null;
+        foreach ($invLotTags as $invLotTag) {
+            $this->addInvLotTag($invLotTag);
+        }
+
+        $this->collInvLotTags = $invLotTags;
+        $this->collInvLotTagsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvLotTag objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvLotTag objects.
+     * @throws PropelException
+     */
+    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvLotTagsPartial && !$this->isNew();
+        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvLotTags) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvLotTags());
+            }
+
+            $query = ChildInvLotTagQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByDplusUser($this)
+                ->count($con);
+        }
+
+        return count($this->collInvLotTags);
+    }
+
+    /**
+     * Method called to associate a ChildInvLotTag object to this object
+     * through the ChildInvLotTag foreign key attribute.
+     *
+     * @param  ChildInvLotTag $l ChildInvLotTag
+     * @return $this|\DplusUser The current object (for fluent API support)
+     */
+    public function addInvLotTag(ChildInvLotTag $l)
+    {
+        if ($this->collInvLotTags === null) {
+            $this->initInvLotTags();
+            $this->collInvLotTagsPartial = true;
+        }
+
+        if (!$this->collInvLotTags->contains($l)) {
+            $this->doAddInvLotTag($l);
+
+            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
+                $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
+     */
+    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        $this->collInvLotTags[]= $invLotTag;
+        $invLotTag->setDplusUser($this);
+    }
+
+    /**
+     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
+     * @return $this|ChildDplusUser The current object (for fluent API support)
+     */
+    public function removeInvLotTag(ChildInvLotTag $invLotTag)
+    {
+        if ($this->getInvLotTags()->contains($invLotTag)) {
+            $pos = $this->collInvLotTags->search($invLotTag);
+            $this->collInvLotTags->remove($pos);
+            if (null === $this->invLotTagsScheduledForDeletion) {
+                $this->invLotTagsScheduledForDeletion = clone $this->collInvLotTags;
+                $this->invLotTagsScheduledForDeletion->clear();
+            }
+            $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
+            $invLotTag->setDplusUser(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this DplusUser is new, it will return
+     * an empty collection; or if this DplusUser has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in DplusUser.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this DplusUser is new, it will return
+     * an empty collection; or if this DplusUser has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in DplusUser.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('Warehouse', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this DplusUser is new, it will return
+     * an empty collection; or if this DplusUser has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in DplusUser.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvLotMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this DplusUser is new, it will return
+     * an empty collection; or if this DplusUser has previously
+     * been saved, it will retrieve related InvLotTags from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in DplusUser.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
+     */
+    public function getInvLotTagsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvLotTagQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvLotTags($query, $con);
     }
 
     /**
@@ -4065,6 +4449,11 @@ abstract class DplusUser implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collInvLotTags) {
+                foreach ($this->collInvLotTags as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->singleUserPermissionsItm) {
                 $this->singleUserPermissionsItm->clearAllReferences($deep);
             }
@@ -4075,6 +4464,7 @@ abstract class DplusUser implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collInvLotTags = null;
         $this->singleUserPermissionsItm = null;
         $this->collUserLastPrintJobs = null;
         $this->aSysLoginGroup = null;
@@ -4099,7 +4489,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -4123,7 +4513,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -4147,7 +4537,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -4171,7 +4561,7 @@ abstract class DplusUser implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

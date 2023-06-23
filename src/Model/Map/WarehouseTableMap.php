@@ -339,6 +339,13 @@ class WarehouseTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, 'InvWhseLots', false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'InvLotTags', false);
         $this->addRelation('WarehouseNote', '\\WarehouseNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -346,6 +353,13 @@ class WarehouseTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, 'WarehouseNotes', false);
+        $this->addRelation('PoReceivingHead', '\\PoReceivingHead', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'PoReceivingHeads', false);
     } // buildRelations()
 
     /**

@@ -400,6 +400,13 @@ class DplusUserTableMap extends TableMap
     1 => ':QtblRoleCode',
   ),
 ), null, null, null, false);
+        $this->addRelation('InvLotTag', '\\InvLotTag', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntgUserId',
+    1 => ':UsrcId',
+  ),
+), null, null, 'InvLotTags', false);
         $this->addRelation('UserPermissionsItm', '\\UserPermissionsItm', RelationMap::ONE_TO_ONE, array (
   0 =>
   array (
