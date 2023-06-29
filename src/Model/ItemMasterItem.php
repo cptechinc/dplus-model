@@ -174,6 +174,38 @@ class ItemMasterItem extends BaseItemMasterItem {
 	Class Property Functions
 ============================================================= */
 	/**
+	 * Return if Item Type is Normal
+	 * @return bool
+	 */
+	public function isNormal() {
+		return strtoupper($this->itemtype) == self::ITEMTYPE_NORMAL;
+	}
+
+	/**
+	 * Return if Item Type is Lotted
+	 * @return bool
+	 */
+	public function isLotted() {
+		return strtoupper($this->itemtype) == self::ITEMTYPE_LOTTED;
+	}
+
+	/**
+	 * Return if Item Type is Serialized
+	 * @return bool
+	 */
+	public function isSerialized() {
+		return strtoupper($this->itemtype) == self::ITEMTYPE_SERIALIZED;
+	}
+
+	/**
+	 * Return if Item Type is Price Only
+	 * @return bool
+	 */
+	public function isPriceonly() {
+		return strtoupper($this->itemtype) == self::ITEMTYPE_PRICEONLY;
+	}
+
+	/**
 	 * Return Description for Item Type
 	 * @return string
 	 */
