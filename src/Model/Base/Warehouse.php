@@ -4,19 +4,28 @@ namespace Base;
 
 use \InvLotTag as ChildInvLotTag;
 use \InvLotTagQuery as ChildInvLotTagQuery;
+use \InvWhseItemBin as ChildInvWhseItemBin;
+use \InvWhseItemBinQuery as ChildInvWhseItemBinQuery;
 use \InvWhseLot as ChildInvWhseLot;
 use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \PoReceivingHead as ChildPoReceivingHead;
 use \PoReceivingHeadQuery as ChildPoReceivingHeadQuery;
 use \Warehouse as ChildWarehouse;
+use \WarehouseBin as ChildWarehouseBin;
+use \WarehouseBinQuery as ChildWarehouseBinQuery;
+use \WarehouseInventory as ChildWarehouseInventory;
+use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
 use \WarehouseNote as ChildWarehouseNote;
 use \WarehouseNoteQuery as ChildWarehouseNoteQuery;
 use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
 use Map\InvLotTagTableMap;
+use Map\InvWhseItemBinTableMap;
 use Map\InvWhseLotTableMap;
 use Map\PoReceivingHeadTableMap;
+use Map\WarehouseBinTableMap;
+use Map\WarehouseInventoryTableMap;
 use Map\WarehouseNoteTableMap;
 use Map\WarehouseTableMap;
 use Propel\Runtime\Propel;
@@ -312,6 +321,18 @@ abstract class Warehouse implements ActiveRecordInterface
     protected $dummy;
 
     /**
+     * @var        ObjectCollection|ChildInvWhseItemBin[] Collection to store aggregation of ChildInvWhseItemBin objects.
+     */
+    protected $collInvWhseItemBins;
+    protected $collInvWhseItemBinsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildWarehouseBin[] Collection to store aggregation of ChildWarehouseBin objects.
+     */
+    protected $collWarehouseBins;
+    protected $collWarehouseBinsPartial;
+
+    /**
      * @var        ObjectCollection|ChildInvWhseLot[] Collection to store aggregation of ChildInvWhseLot objects.
      */
     protected $collInvWhseLots;
@@ -322,6 +343,12 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     protected $collInvLotTags;
     protected $collInvLotTagsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
+     */
+    protected $collWarehouseInventories;
+    protected $collWarehouseInventoriesPartial;
 
     /**
      * @var        ObjectCollection|ChildWarehouseNote[] Collection to store aggregation of ChildWarehouseNote objects.
@@ -345,6 +372,18 @@ abstract class Warehouse implements ActiveRecordInterface
 
     /**
      * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvWhseItemBin[]
+     */
+    protected $invWhseItemBinsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWarehouseBin[]
+     */
+    protected $warehouseBinsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
      * @var ObjectCollection|ChildInvWhseLot[]
      */
     protected $invWhseLotsScheduledForDeletion = null;
@@ -354,6 +393,12 @@ abstract class Warehouse implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLotTag[]
      */
     protected $invLotTagsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildWarehouseInventory[]
+     */
+    protected $warehouseInventoriesScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -1818,9 +1863,15 @@ abstract class Warehouse implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->collInvWhseItemBins = null;
+
+            $this->collWarehouseBins = null;
+
             $this->collInvWhseLots = null;
 
             $this->collInvLotTags = null;
+
+            $this->collWarehouseInventories = null;
 
             $this->collWarehouseNotes = null;
 
@@ -1940,6 +1991,40 @@ abstract class Warehouse implements ActiveRecordInterface
                 $this->resetModified();
             }
 
+            if ($this->invWhseItemBinsScheduledForDeletion !== null) {
+                if (!$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
+                    \InvWhseItemBinQuery::create()
+                        ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invWhseItemBinsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvWhseItemBins !== null) {
+                foreach ($this->collInvWhseItemBins as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->warehouseBinsScheduledForDeletion !== null) {
+                if (!$this->warehouseBinsScheduledForDeletion->isEmpty()) {
+                    \WarehouseBinQuery::create()
+                        ->filterByPrimaryKeys($this->warehouseBinsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->warehouseBinsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWarehouseBins !== null) {
+                foreach ($this->collWarehouseBins as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
             if ($this->invWhseLotsScheduledForDeletion !== null) {
                 if (!$this->invWhseLotsScheduledForDeletion->isEmpty()) {
                     \InvWhseLotQuery::create()
@@ -1968,6 +2053,23 @@ abstract class Warehouse implements ActiveRecordInterface
 
             if ($this->collInvLotTags !== null) {
                 foreach ($this->collInvLotTags as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->warehouseInventoriesScheduledForDeletion !== null) {
+                if (!$this->warehouseInventoriesScheduledForDeletion->isEmpty()) {
+                    \WarehouseInventoryQuery::create()
+                        ->filterByPrimaryKeys($this->warehouseInventoriesScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->warehouseInventoriesScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collWarehouseInventories !== null) {
+                foreach ($this->collWarehouseInventories as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -2474,6 +2576,36 @@ abstract class Warehouse implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->collInvWhseItemBins) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invWhseItemBins';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_bin_areas';
+                        break;
+                    default:
+                        $key = 'InvWhseItemBins';
+                }
+
+                $result[$key] = $this->collInvWhseItemBins->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collWarehouseBins) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouseBins';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_bin_cntrls';
+                        break;
+                    default:
+                        $key = 'WarehouseBins';
+                }
+
+                $result[$key] = $this->collWarehouseBins->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collInvWhseLots) {
 
                 switch ($keyType) {
@@ -2503,6 +2635,21 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collWarehouseInventories) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouseInventories';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_masts';
+                        break;
+                    default:
+                        $key = 'WarehouseInventories';
+                }
+
+                $result[$key] = $this->collWarehouseInventories->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collWarehouseNotes) {
 
@@ -3067,6 +3214,18 @@ abstract class Warehouse implements ActiveRecordInterface
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
 
+            foreach ($this->getInvWhseItemBins() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvWhseItemBin($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getWarehouseBins() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWarehouseBin($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getInvWhseLots() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvWhseLot($relObj->copy($deepCopy));
@@ -3076,6 +3235,12 @@ abstract class Warehouse implements ActiveRecordInterface
             foreach ($this->getInvLotTags() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvLotTag($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getWarehouseInventories() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addWarehouseInventory($relObj->copy($deepCopy));
                 }
             }
 
@@ -3131,12 +3296,24 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
+        if ('InvWhseItemBin' == $relationName) {
+            $this->initInvWhseItemBins();
+            return;
+        }
+        if ('WarehouseBin' == $relationName) {
+            $this->initWarehouseBins();
+            return;
+        }
         if ('InvWhseLot' == $relationName) {
             $this->initInvWhseLots();
             return;
         }
         if ('InvLotTag' == $relationName) {
             $this->initInvLotTags();
+            return;
+        }
+        if ('WarehouseInventory' == $relationName) {
+            $this->initWarehouseInventories();
             return;
         }
         if ('WarehouseNote' == $relationName) {
@@ -3147,6 +3324,537 @@ abstract class Warehouse implements ActiveRecordInterface
             $this->initPoReceivingHeads();
             return;
         }
+    }
+
+    /**
+     * Clears out the collInvWhseItemBins collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvWhseItemBins()
+     */
+    public function clearInvWhseItemBins()
+    {
+        $this->collInvWhseItemBins = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvWhseItemBins collection loaded partially.
+     */
+    public function resetPartialInvWhseItemBins($v = true)
+    {
+        $this->collInvWhseItemBinsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvWhseItemBins collection.
+     *
+     * By default this just sets the collInvWhseItemBins collection to an empty array (like clearcollInvWhseItemBins());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvWhseItemBins($overrideExisting = true)
+    {
+        if (null !== $this->collInvWhseItemBins && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvWhseItemBinTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvWhseItemBins = new $collectionClassName;
+        $this->collInvWhseItemBins->setModel('\InvWhseItemBin');
+    }
+
+    /**
+     * Gets an array of ChildInvWhseItemBin objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @throws PropelException
+     */
+    public function getInvWhseItemBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
+        if (null === $this->collInvWhseItemBins || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+                // return empty collection
+                $this->initInvWhseItemBins();
+            } else {
+                $collInvWhseItemBins = ChildInvWhseItemBinQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvWhseItemBinsPartial && count($collInvWhseItemBins)) {
+                        $this->initInvWhseItemBins(false);
+
+                        foreach ($collInvWhseItemBins as $obj) {
+                            if (false == $this->collInvWhseItemBins->contains($obj)) {
+                                $this->collInvWhseItemBins->append($obj);
+                            }
+                        }
+
+                        $this->collInvWhseItemBinsPartial = true;
+                    }
+
+                    return $collInvWhseItemBins;
+                }
+
+                if ($partial && $this->collInvWhseItemBins) {
+                    foreach ($this->collInvWhseItemBins as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvWhseItemBins[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvWhseItemBins = $collInvWhseItemBins;
+                $this->collInvWhseItemBinsPartial = false;
+            }
+        }
+
+        return $this->collInvWhseItemBins;
+    }
+
+    /**
+     * Sets a collection of ChildInvWhseItemBin objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invWhseItemBins A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setInvWhseItemBins(Collection $invWhseItemBins, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvWhseItemBin[] $invWhseItemBinsToDelete */
+        $invWhseItemBinsToDelete = $this->getInvWhseItemBins(new Criteria(), $con)->diff($invWhseItemBins);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invWhseItemBinsScheduledForDeletion = clone $invWhseItemBinsToDelete;
+
+        foreach ($invWhseItemBinsToDelete as $invWhseItemBinRemoved) {
+            $invWhseItemBinRemoved->setWarehouse(null);
+        }
+
+        $this->collInvWhseItemBins = null;
+        foreach ($invWhseItemBins as $invWhseItemBin) {
+            $this->addInvWhseItemBin($invWhseItemBin);
+        }
+
+        $this->collInvWhseItemBins = $invWhseItemBins;
+        $this->collInvWhseItemBinsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvWhseItemBin objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvWhseItemBin objects.
+     * @throws PropelException
+     */
+    public function countInvWhseItemBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
+        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvWhseItemBins());
+            }
+
+            $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collInvWhseItemBins);
+    }
+
+    /**
+     * Method called to associate a ChildInvWhseItemBin object to this object
+     * through the ChildInvWhseItemBin foreign key attribute.
+     *
+     * @param  ChildInvWhseItemBin $l ChildInvWhseItemBin
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addInvWhseItemBin(ChildInvWhseItemBin $l)
+    {
+        if ($this->collInvWhseItemBins === null) {
+            $this->initInvWhseItemBins();
+            $this->collInvWhseItemBinsPartial = true;
+        }
+
+        if (!$this->collInvWhseItemBins->contains($l)) {
+            $this->doAddInvWhseItemBin($l);
+
+            if ($this->invWhseItemBinsScheduledForDeletion and $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
+                $this->invWhseItemBinsScheduledForDeletion->remove($this->invWhseItemBinsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to add.
+     */
+    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    {
+        $this->collInvWhseItemBins[]= $invWhseItemBin;
+        $invWhseItemBin->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    {
+        if ($this->getInvWhseItemBins()->contains($invWhseItemBin)) {
+            $pos = $this->collInvWhseItemBins->search($invWhseItemBin);
+            $this->collInvWhseItemBins->remove($pos);
+            if (null === $this->invWhseItemBinsScheduledForDeletion) {
+                $this->invWhseItemBinsScheduledForDeletion = clone $this->collInvWhseItemBins;
+                $this->invWhseItemBinsScheduledForDeletion->clear();
+            }
+            $this->invWhseItemBinsScheduledForDeletion[]= clone $invWhseItemBin;
+            $invWhseItemBin->setWarehouse(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvWhseItemBins from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     */
+    public function getInvWhseItemBinsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvWhseItemBins($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvWhseItemBins from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     */
+    public function getInvWhseItemBinsJoinWarehouseInventory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+        $query->joinWith('WarehouseInventory', $joinBehavior);
+
+        return $this->getInvWhseItemBins($query, $con);
+    }
+
+    /**
+     * Clears out the collWarehouseBins collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWarehouseBins()
+     */
+    public function clearWarehouseBins()
+    {
+        $this->collWarehouseBins = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWarehouseBins collection loaded partially.
+     */
+    public function resetPartialWarehouseBins($v = true)
+    {
+        $this->collWarehouseBinsPartial = $v;
+    }
+
+    /**
+     * Initializes the collWarehouseBins collection.
+     *
+     * By default this just sets the collWarehouseBins collection to an empty array (like clearcollWarehouseBins());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWarehouseBins($overrideExisting = true)
+    {
+        if (null !== $this->collWarehouseBins && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WarehouseBinTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWarehouseBins = new $collectionClassName;
+        $this->collWarehouseBins->setModel('\WarehouseBin');
+    }
+
+    /**
+     * Gets an array of ChildWarehouseBin objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWarehouseBin[] List of ChildWarehouseBin objects
+     * @throws PropelException
+     */
+    public function getWarehouseBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseBinsPartial && !$this->isNew();
+        if (null === $this->collWarehouseBins || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseBins) {
+                // return empty collection
+                $this->initWarehouseBins();
+            } else {
+                $collWarehouseBins = ChildWarehouseBinQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWarehouseBinsPartial && count($collWarehouseBins)) {
+                        $this->initWarehouseBins(false);
+
+                        foreach ($collWarehouseBins as $obj) {
+                            if (false == $this->collWarehouseBins->contains($obj)) {
+                                $this->collWarehouseBins->append($obj);
+                            }
+                        }
+
+                        $this->collWarehouseBinsPartial = true;
+                    }
+
+                    return $collWarehouseBins;
+                }
+
+                if ($partial && $this->collWarehouseBins) {
+                    foreach ($this->collWarehouseBins as $obj) {
+                        if ($obj->isNew()) {
+                            $collWarehouseBins[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWarehouseBins = $collWarehouseBins;
+                $this->collWarehouseBinsPartial = false;
+            }
+        }
+
+        return $this->collWarehouseBins;
+    }
+
+    /**
+     * Sets a collection of ChildWarehouseBin objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $warehouseBins A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setWarehouseBins(Collection $warehouseBins, ConnectionInterface $con = null)
+    {
+        /** @var ChildWarehouseBin[] $warehouseBinsToDelete */
+        $warehouseBinsToDelete = $this->getWarehouseBins(new Criteria(), $con)->diff($warehouseBins);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->warehouseBinsScheduledForDeletion = clone $warehouseBinsToDelete;
+
+        foreach ($warehouseBinsToDelete as $warehouseBinRemoved) {
+            $warehouseBinRemoved->setWarehouse(null);
+        }
+
+        $this->collWarehouseBins = null;
+        foreach ($warehouseBins as $warehouseBin) {
+            $this->addWarehouseBin($warehouseBin);
+        }
+
+        $this->collWarehouseBins = $warehouseBins;
+        $this->collWarehouseBinsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related WarehouseBin objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WarehouseBin objects.
+     * @throws PropelException
+     */
+    public function countWarehouseBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseBinsPartial && !$this->isNew();
+        if (null === $this->collWarehouseBins || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseBins) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWarehouseBins());
+            }
+
+            $query = ChildWarehouseBinQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collWarehouseBins);
+    }
+
+    /**
+     * Method called to associate a ChildWarehouseBin object to this object
+     * through the ChildWarehouseBin foreign key attribute.
+     *
+     * @param  ChildWarehouseBin $l ChildWarehouseBin
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addWarehouseBin(ChildWarehouseBin $l)
+    {
+        if ($this->collWarehouseBins === null) {
+            $this->initWarehouseBins();
+            $this->collWarehouseBinsPartial = true;
+        }
+
+        if (!$this->collWarehouseBins->contains($l)) {
+            $this->doAddWarehouseBin($l);
+
+            if ($this->warehouseBinsScheduledForDeletion and $this->warehouseBinsScheduledForDeletion->contains($l)) {
+                $this->warehouseBinsScheduledForDeletion->remove($this->warehouseBinsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to add.
+     */
+    protected function doAddWarehouseBin(ChildWarehouseBin $warehouseBin)
+    {
+        $this->collWarehouseBins[]= $warehouseBin;
+        $warehouseBin->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildWarehouseBin $warehouseBin The ChildWarehouseBin object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeWarehouseBin(ChildWarehouseBin $warehouseBin)
+    {
+        if ($this->getWarehouseBins()->contains($warehouseBin)) {
+            $pos = $this->collWarehouseBins->search($warehouseBin);
+            $this->collWarehouseBins->remove($pos);
+            if (null === $this->warehouseBinsScheduledForDeletion) {
+                $this->warehouseBinsScheduledForDeletion = clone $this->collWarehouseBins;
+                $this->warehouseBinsScheduledForDeletion->clear();
+            }
+            $this->warehouseBinsScheduledForDeletion[]= clone $warehouseBin;
+            $warehouseBin->setWarehouse(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related WarehouseBins from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildWarehouseBin[] List of ChildWarehouseBin objects
+     */
+    public function getWarehouseBinsJoinInvBinAreaCode(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildWarehouseBinQuery::create(null, $criteria);
+        $query->joinWith('InvBinAreaCode', $joinBehavior);
+
+        return $this->getWarehouseBins($query, $con);
     }
 
     /**
@@ -3756,6 +4464,259 @@ abstract class Warehouse implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collWarehouseInventories collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addWarehouseInventories()
+     */
+    public function clearWarehouseInventories()
+    {
+        $this->collWarehouseInventories = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collWarehouseInventories collection loaded partially.
+     */
+    public function resetPartialWarehouseInventories($v = true)
+    {
+        $this->collWarehouseInventoriesPartial = $v;
+    }
+
+    /**
+     * Initializes the collWarehouseInventories collection.
+     *
+     * By default this just sets the collWarehouseInventories collection to an empty array (like clearcollWarehouseInventories());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initWarehouseInventories($overrideExisting = true)
+    {
+        if (null !== $this->collWarehouseInventories && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = WarehouseInventoryTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collWarehouseInventories = new $collectionClassName;
+        $this->collWarehouseInventories->setModel('\WarehouseInventory');
+    }
+
+    /**
+     * Gets an array of ChildWarehouseInventory objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     * @throws PropelException
+     */
+    public function getWarehouseInventories(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
+        if (null === $this->collWarehouseInventories || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseInventories) {
+                // return empty collection
+                $this->initWarehouseInventories();
+            } else {
+                $collWarehouseInventories = ChildWarehouseInventoryQuery::create(null, $criteria)
+                    ->filterByWarehouse($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collWarehouseInventoriesPartial && count($collWarehouseInventories)) {
+                        $this->initWarehouseInventories(false);
+
+                        foreach ($collWarehouseInventories as $obj) {
+                            if (false == $this->collWarehouseInventories->contains($obj)) {
+                                $this->collWarehouseInventories->append($obj);
+                            }
+                        }
+
+                        $this->collWarehouseInventoriesPartial = true;
+                    }
+
+                    return $collWarehouseInventories;
+                }
+
+                if ($partial && $this->collWarehouseInventories) {
+                    foreach ($this->collWarehouseInventories as $obj) {
+                        if ($obj->isNew()) {
+                            $collWarehouseInventories[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collWarehouseInventories = $collWarehouseInventories;
+                $this->collWarehouseInventoriesPartial = false;
+            }
+        }
+
+        return $this->collWarehouseInventories;
+    }
+
+    /**
+     * Sets a collection of ChildWarehouseInventory objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $warehouseInventories A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setWarehouseInventories(Collection $warehouseInventories, ConnectionInterface $con = null)
+    {
+        /** @var ChildWarehouseInventory[] $warehouseInventoriesToDelete */
+        $warehouseInventoriesToDelete = $this->getWarehouseInventories(new Criteria(), $con)->diff($warehouseInventories);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->warehouseInventoriesScheduledForDeletion = clone $warehouseInventoriesToDelete;
+
+        foreach ($warehouseInventoriesToDelete as $warehouseInventoryRemoved) {
+            $warehouseInventoryRemoved->setWarehouse(null);
+        }
+
+        $this->collWarehouseInventories = null;
+        foreach ($warehouseInventories as $warehouseInventory) {
+            $this->addWarehouseInventory($warehouseInventory);
+        }
+
+        $this->collWarehouseInventories = $warehouseInventories;
+        $this->collWarehouseInventoriesPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related WarehouseInventory objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related WarehouseInventory objects.
+     * @throws PropelException
+     */
+    public function countWarehouseInventories(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collWarehouseInventoriesPartial && !$this->isNew();
+        if (null === $this->collWarehouseInventories || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collWarehouseInventories) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getWarehouseInventories());
+            }
+
+            $query = ChildWarehouseInventoryQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouse($this)
+                ->count($con);
+        }
+
+        return count($this->collWarehouseInventories);
+    }
+
+    /**
+     * Method called to associate a ChildWarehouseInventory object to this object
+     * through the ChildWarehouseInventory foreign key attribute.
+     *
+     * @param  ChildWarehouseInventory $l ChildWarehouseInventory
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addWarehouseInventory(ChildWarehouseInventory $l)
+    {
+        if ($this->collWarehouseInventories === null) {
+            $this->initWarehouseInventories();
+            $this->collWarehouseInventoriesPartial = true;
+        }
+
+        if (!$this->collWarehouseInventories->contains($l)) {
+            $this->doAddWarehouseInventory($l);
+
+            if ($this->warehouseInventoriesScheduledForDeletion and $this->warehouseInventoriesScheduledForDeletion->contains($l)) {
+                $this->warehouseInventoriesScheduledForDeletion->remove($this->warehouseInventoriesScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to add.
+     */
+    protected function doAddWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    {
+        $this->collWarehouseInventories[]= $warehouseInventory;
+        $warehouseInventory->setWarehouse($this);
+    }
+
+    /**
+     * @param  ChildWarehouseInventory $warehouseInventory The ChildWarehouseInventory object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeWarehouseInventory(ChildWarehouseInventory $warehouseInventory)
+    {
+        if ($this->getWarehouseInventories()->contains($warehouseInventory)) {
+            $pos = $this->collWarehouseInventories->search($warehouseInventory);
+            $this->collWarehouseInventories->remove($pos);
+            if (null === $this->warehouseInventoriesScheduledForDeletion) {
+                $this->warehouseInventoriesScheduledForDeletion = clone $this->collWarehouseInventories;
+                $this->warehouseInventoriesScheduledForDeletion->clear();
+            }
+            $this->warehouseInventoriesScheduledForDeletion[]= clone $warehouseInventory;
+            $warehouseInventory->setWarehouse(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related WarehouseInventories from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     */
+    public function getWarehouseInventoriesJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildWarehouseInventoryQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getWarehouseInventories($query, $con);
+    }
+
+    /**
      * Clears out the collWarehouseNotes collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -4289,6 +5250,16 @@ abstract class Warehouse implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->collInvWhseItemBins) {
+                foreach ($this->collInvWhseItemBins as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collWarehouseBins) {
+                foreach ($this->collWarehouseBins as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collInvWhseLots) {
                 foreach ($this->collInvWhseLots as $o) {
                     $o->clearAllReferences($deep);
@@ -4296,6 +5267,11 @@ abstract class Warehouse implements ActiveRecordInterface
             }
             if ($this->collInvLotTags) {
                 foreach ($this->collInvLotTags as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collWarehouseInventories) {
+                foreach ($this->collWarehouseInventories as $o) {
                     $o->clearAllReferences($deep);
                 }
             }
@@ -4311,8 +5287,11 @@ abstract class Warehouse implements ActiveRecordInterface
             }
         } // if ($deep)
 
+        $this->collInvWhseItemBins = null;
+        $this->collWarehouseBins = null;
         $this->collInvWhseLots = null;
         $this->collInvLotTags = null;
+        $this->collWarehouseInventories = null;
         $this->collWarehouseNotes = null;
         $this->collPoReceivingHeads = null;
     }

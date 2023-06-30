@@ -2,9 +2,13 @@
 
 namespace Base;
 
+use \InvWhseItemBin as ChildInvWhseItemBin;
+use \InvWhseItemBinQuery as ChildInvWhseItemBinQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
+use \Warehouse as ChildWarehouse;
 use \WarehouseInventoryQuery as ChildWarehouseInventoryQuery;
+use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
 use Map\WarehouseInventoryTableMap;
@@ -235,6 +239,16 @@ abstract class WarehouseInventory implements ActiveRecordInterface
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
+
+    /**
+     * @var        ChildWarehouse
+     */
+    protected $aWarehouse;
+
+    /**
+     * @var        ChildInvWhseItemBin one-to-one related ChildInvWhseItemBin object
+     */
+    protected $singleInvWhseItemBin;
 
     /**
      * Flag to prevent endless save loop, if this object is referenced
@@ -762,6 +776,10 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->intbwhse !== $v) {
             $this->intbwhse = $v;
             $this->modifiedColumns[WarehouseInventoryTableMap::COL_INTBWHSE] = true;
+        }
+
+        if ($this->aWarehouse !== null && $this->aWarehouse->getIntbwhse() !== $v) {
+            $this->aWarehouse = null;
         }
 
         return $this;
@@ -1355,6 +1373,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
+        if ($this->aWarehouse !== null && $this->intbwhse !== $this->aWarehouse->getIntbwhse()) {
+            $this->aWarehouse = null;
+        }
     } // ensureConsistency
 
     /**
@@ -1395,6 +1416,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         if ($deep) {  // also de-associate any related objects?
 
             $this->aItemMasterItem = null;
+            $this->aWarehouse = null;
+            $this->singleInvWhseItemBin = null;
+
         } // if (deep)
     }
 
@@ -1510,6 +1534,13 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                 $this->setItemMasterItem($this->aItemMasterItem);
             }
 
+            if ($this->aWarehouse !== null) {
+                if ($this->aWarehouse->isModified() || $this->aWarehouse->isNew()) {
+                    $affectedRows += $this->aWarehouse->save($con);
+                }
+                $this->setWarehouse($this->aWarehouse);
+            }
+
             if ($this->isNew() || $this->isModified()) {
                 // persist changes
                 if ($this->isNew()) {
@@ -1519,6 +1550,12 @@ abstract class WarehouseInventory implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
+            }
+
+            if ($this->singleInvWhseItemBin !== null) {
+                if (!$this->singleInvWhseItemBin->isDeleted() && ($this->singleInvWhseItemBin->isNew() || $this->singleInvWhseItemBin->isModified())) {
+                    $affectedRows += $this->singleInvWhseItemBin->save($con);
+                }
             }
 
             $this->alreadyInSave = false;
@@ -1901,6 +1938,36 @@ abstract class WarehouseInventory implements ActiveRecordInterface
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
             }
+            if (null !== $this->aWarehouse) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouse';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_code';
+                        break;
+                    default:
+                        $key = 'Warehouse';
+                }
+
+                $result[$key] = $this->aWarehouse->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
+            if (null !== $this->singleInvWhseItemBin) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invWhseItemBin';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_bin_area';
+                        break;
+                    default:
+                        $key = 'InvWhseItemBin';
+                }
+
+                $result[$key] = $this->singleInvWhseItemBin->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
+            }
         }
 
         return $result;
@@ -2252,11 +2319,18 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $validPk = null !== $this->getInititemnbr() &&
             null !== $this->getIntbwhse();
 
-        $validPrimaryKeyFKs = 1;
+        $validPrimaryKeyFKs = 2;
         $primaryKeyFKs = [];
 
         //relation item to table inv_item_mast
         if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
+
+        //relation warehouse to table inv_whse_code
+        if ($this->aWarehouse && $hash = spl_object_hash($this->aWarehouse)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -2343,6 +2417,19 @@ abstract class WarehouseInventory implements ActiveRecordInterface
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
+
+        if ($deepCopy) {
+            // important: temporarily setNew(false) because this affects the behavior of
+            // the getter/setter methods for fkey referrer objects.
+            $copyObj->setNew(false);
+
+            $relObj = $this->getInvWhseItemBin();
+            if ($relObj) {
+                $copyObj->setInvWhseItemBin($relObj->copy($deepCopy));
+            }
+
+        } // if ($deepCopy)
+
         if ($makeNew) {
             $copyObj->setNew(true);
         }
@@ -2422,6 +2509,106 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildWarehouse object.
+     *
+     * @param  ChildWarehouse $v
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setWarehouse(ChildWarehouse $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbwhse('');
+        } else {
+            $this->setIntbwhse($v->getIntbwhse());
+        }
+
+        $this->aWarehouse = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildWarehouse object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWarehouseInventory($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildWarehouse object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildWarehouse The associated ChildWarehouse object.
+     * @throws PropelException
+     */
+    public function getWarehouse(ConnectionInterface $con = null)
+    {
+        if ($this->aWarehouse === null && (($this->intbwhse !== "" && $this->intbwhse !== null))) {
+            $this->aWarehouse = ChildWarehouseQuery::create()->findPk($this->intbwhse, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aWarehouse->addWarehouseInventories($this);
+             */
+        }
+
+        return $this->aWarehouse;
+    }
+
+
+    /**
+     * Initializes a collection based on the name of a relation.
+     * Avoids crafting an 'init[$relationName]s' method name
+     * that wouldn't work when StandardEnglishPluralizer is used.
+     *
+     * @param      string $relationName The name of the relation to initialize
+     * @return void
+     */
+    public function initRelation($relationName)
+    {
+    }
+
+    /**
+     * Gets a single ChildInvWhseItemBin object, which is related to this object by a one-to-one relationship.
+     *
+     * @param  ConnectionInterface $con optional connection object
+     * @return ChildInvWhseItemBin
+     * @throws PropelException
+     */
+    public function getInvWhseItemBin(ConnectionInterface $con = null)
+    {
+
+        if ($this->singleInvWhseItemBin === null && !$this->isNew()) {
+            $this->singleInvWhseItemBin = ChildInvWhseItemBinQuery::create()->findPk($this->getPrimaryKey(), $con);
+        }
+
+        return $this->singleInvWhseItemBin;
+    }
+
+    /**
+     * Sets a single ChildInvWhseItemBin object as related to this object by a one-to-one relationship.
+     *
+     * @param  ChildInvWhseItemBin $v ChildInvWhseItemBin
+     * @return $this|\WarehouseInventory The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvWhseItemBin(ChildInvWhseItemBin $v = null)
+    {
+        $this->singleInvWhseItemBin = $v;
+
+        // Make sure that that the passed-in ChildInvWhseItemBin isn't already associated with this object
+        if ($v !== null && $v->getWarehouseInventory(null, false) === null) {
+            $v->setWarehouseInventory($this);
+        }
+
+        return $this;
+    }
+
+    /**
      * Clears the current object, sets all attributes to their default values and removes
      * outgoing references as well as back-references (from other objects to this one. Results probably in a database
      * change of those foreign objects when you call `save` there).
@@ -2430,6 +2617,9 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     {
         if (null !== $this->aItemMasterItem) {
             $this->aItemMasterItem->removeWarehouseInventory($this);
+        }
+        if (null !== $this->aWarehouse) {
+            $this->aWarehouse->removeWarehouseInventory($this);
         }
         $this->inititemnbr = null;
         $this->intbwhse = null;
@@ -2474,9 +2664,14 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
+            if ($this->singleInvWhseItemBin) {
+                $this->singleInvWhseItemBin->clearAllReferences($deep);
+            }
         } // if ($deep)
 
+        $this->singleInvWhseItemBin = null;
         $this->aItemMasterItem = null;
+        $this->aWarehouse = null;
     }
 
     /**
@@ -2497,7 +2692,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -2521,7 +2716,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -2545,7 +2740,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -2569,7 +2764,7 @@ abstract class WarehouseInventory implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

@@ -332,6 +332,20 @@ class WarehouseTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'InvWhseItemBins', false);
+        $this->addRelation('WarehouseBin', '\\WarehouseBin', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'WarehouseBins', false);
         $this->addRelation('InvWhseLot', '\\InvWhseLot', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (
@@ -346,6 +360,13 @@ class WarehouseTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, 'InvLotTags', false);
+        $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'WarehouseInventories', false);
         $this->addRelation('WarehouseNote', '\\WarehouseNote', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

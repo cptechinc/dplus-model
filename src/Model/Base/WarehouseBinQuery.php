@@ -48,6 +48,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseBinQuery rightJoinWith($relation) Adds a RIGHT JOIN clause and with to the query
  * @method     ChildWarehouseBinQuery innerJoinWith($relation) Adds a INNER JOIN clause and with to the query
  *
+ * @method     ChildWarehouseBinQuery leftJoinWarehouse($relationAlias = null) Adds a LEFT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWarehouseBinQuery rightJoinWarehouse($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWarehouseBinQuery innerJoinWarehouse($relationAlias = null) Adds a INNER JOIN clause to the query using the Warehouse relation
+ *
+ * @method     ChildWarehouseBinQuery joinWithWarehouse($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Warehouse relation
+ *
+ * @method     ChildWarehouseBinQuery leftJoinWithWarehouse() Adds a LEFT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWarehouseBinQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWarehouseBinQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
+ *
  * @method     ChildWarehouseBinQuery leftJoinInvBinAreaCode($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvBinAreaCode relation
  * @method     ChildWarehouseBinQuery rightJoinInvBinAreaCode($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvBinAreaCode relation
  * @method     ChildWarehouseBinQuery innerJoinInvBinAreaCode($relationAlias = null) Adds a INNER JOIN clause to the query using the InvBinAreaCode relation
@@ -58,7 +68,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseBinQuery rightJoinWithInvBinAreaCode() Adds a RIGHT JOIN clause and with to the query using the InvBinAreaCode relation
  * @method     ChildWarehouseBinQuery innerJoinWithInvBinAreaCode() Adds a INNER JOIN clause and with to the query using the InvBinAreaCode relation
  *
- * @method     \InvBinAreaCodeQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \WarehouseQuery|\InvBinAreaCodeQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouseBin findOne(ConnectionInterface $con = null) Return the first ChildWarehouseBin matching the query
  * @method     ChildWarehouseBin findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouseBin matching the query, or a new ChildWarehouseBin object populated from the query conditions when no match is found
@@ -523,6 +533,83 @@ abstract class WarehouseBinQuery extends ModelCriteria
         }
 
         return $this->addUsingAlias(WarehouseBinTableMap::COL_DUMMY, $dummy, $comparison);
+    }
+
+    /**
+     * Filter the query by a related \Warehouse object
+     *
+     * @param \Warehouse|ObjectCollection $warehouse The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildWarehouseBinQuery The current query, for fluid interface
+     */
+    public function filterByWarehouse($warehouse, $comparison = null)
+    {
+        if ($warehouse instanceof \Warehouse) {
+            return $this
+                ->addUsingAlias(WarehouseBinTableMap::COL_INTBWHSE, $warehouse->getIntbwhse(), $comparison);
+        } elseif ($warehouse instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(WarehouseBinTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+        } else {
+            throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Warehouse relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseBinQuery The current query, for fluid interface
+     */
+    public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Warehouse');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Warehouse');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Warehouse relation Warehouse object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WarehouseQuery A secondary query class using the current class as primary query
+     */
+    public function useWarehouseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinWarehouse($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
     }
 
     /**

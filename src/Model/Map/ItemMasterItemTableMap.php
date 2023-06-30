@@ -567,6 +567,13 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'ItemXrefCustomers', false);
+        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvWhseItemBins', false);
         $this->addRelation('ItemAddonItemRelatedByInititemnbr', '\\ItemAddonItem', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

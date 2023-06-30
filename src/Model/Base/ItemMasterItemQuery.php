@@ -230,6 +230,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefCustomer() Adds a RIGHT JOIN clause and with to the query using the ItemXrefCustomer relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefCustomer() Adds a INNER JOIN clause and with to the query using the ItemXrefCustomer relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvWhseItemBin($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvWhseItemBin relation
+ * @method     ChildItemMasterItemQuery rightJoinInvWhseItemBin($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvWhseItemBin relation
+ * @method     ChildItemMasterItemQuery innerJoinInvWhseItemBin($relationAlias = null) Adds a INNER JOIN clause to the query using the InvWhseItemBin relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvWhseItemBin($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvWhseItemBin relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvWhseItemBin() Adds a LEFT JOIN clause and with to the query using the InvWhseItemBin relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvWhseItemBin() Adds a RIGHT JOIN clause and with to the query using the InvWhseItemBin relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvWhseItemBin() Adds a INNER JOIN clause and with to the query using the InvWhseItemBin relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a LEFT JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
  * @method     ChildItemMasterItemQuery rightJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a RIGHT JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
  * @method     ChildItemMasterItemQuery innerJoinItemAddonItemRelatedByInititemnbr($relationAlias = null) Adds a INNER JOIN clause to the query using the ItemAddonItemRelatedByInititemnbr relation
@@ -620,7 +630,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -3460,6 +3470,79 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinItemXrefCustomer($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemXrefCustomer', '\ItemXrefCustomerQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvWhseItemBin object
+     *
+     * @param \InvWhseItemBin|ObjectCollection $invWhseItemBin the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvWhseItemBin($invWhseItemBin, $comparison = null)
+    {
+        if ($invWhseItemBin instanceof \InvWhseItemBin) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invWhseItemBin->getInititemnbr(), $comparison);
+        } elseif ($invWhseItemBin instanceof ObjectCollection) {
+            return $this
+                ->useInvWhseItemBinQuery()
+                ->filterByPrimaryKeys($invWhseItemBin->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvWhseItemBin() only accepts arguments of type \InvWhseItemBin or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvWhseItemBin relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvWhseItemBin($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvWhseItemBin');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvWhseItemBin');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvWhseItemBin relation InvWhseItemBin object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvWhseItemBinQuery A secondary query class using the current class as primary query
+     */
+    public function useInvWhseItemBinQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvWhseItemBin($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvWhseItemBin', '\InvWhseItemBinQuery');
     }
 
     /**

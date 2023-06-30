@@ -32,6 +32,8 @@ use \InvSerialMaster as ChildInvSerialMaster;
 use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
 use \InvSerialWarranty as ChildInvSerialWarranty;
 use \InvSerialWarrantyQuery as ChildInvSerialWarrantyQuery;
+use \InvWhseItemBin as ChildInvWhseItemBin;
+use \InvWhseItemBinQuery as ChildInvWhseItemBinQuery;
 use \InvWhseLot as ChildInvWhseLot;
 use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemAddonItem as ChildItemAddonItem;
@@ -101,6 +103,7 @@ use Map\InvLotTagTableMap;
 use Map\InvOptCodeNoteTableMap;
 use Map\InvSerialMasterTableMap;
 use Map\InvSerialWarrantyTableMap;
+use Map\InvWhseItemBinTableMap;
 use Map\InvWhseLotTableMap;
 use Map\ItemAddonItemTableMap;
 use Map\ItemMasterItemTableMap;
@@ -673,6 +676,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
     protected $collItemXrefCustomersPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvWhseItemBin[] Collection to store aggregation of ChildInvWhseItemBin objects.
+     */
+    protected $collInvWhseItemBins;
+    protected $collInvWhseItemBinsPartial;
+
+    /**
      * @var        ObjectCollection|ChildItemAddonItem[] Collection to store aggregation of ChildItemAddonItem objects.
      */
     protected $collItemAddonItemsRelatedByInititemnbr;
@@ -915,6 +924,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
      * @var ObjectCollection|ChildItemXrefCustomer[]
      */
     protected $itemXrefCustomersScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvWhseItemBin[]
+     */
+    protected $invWhseItemBinsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -3667,6 +3682,8 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->aItemPricing = null;
             $this->collItemXrefCustomers = null;
 
+            $this->collInvWhseItemBins = null;
+
             $this->collItemAddonItemsRelatedByInititemnbr = null;
 
             $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
@@ -3918,6 +3935,23 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
             if ($this->collItemXrefCustomers !== null) {
                 foreach ($this->collItemXrefCustomers as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invWhseItemBinsScheduledForDeletion !== null) {
+                if (!$this->invWhseItemBinsScheduledForDeletion->isEmpty()) {
+                    \InvWhseItemBinQuery::create()
+                        ->filterByPrimaryKeys($this->invWhseItemBinsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invWhseItemBinsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvWhseItemBins !== null) {
+                foreach ($this->collInvWhseItemBins as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -5430,6 +5464,21 @@ abstract class ItemMasterItem implements ActiveRecordInterface
 
                 $result[$key] = $this->collItemXrefCustomers->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
+            if (null !== $this->collInvWhseItemBins) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invWhseItemBins';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_bin_areas';
+                        break;
+                    default:
+                        $key = 'InvWhseItemBins';
+                }
+
+                $result[$key] = $this->collInvWhseItemBins->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
             if (null !== $this->collItemAddonItemsRelatedByInititemnbr) {
 
                 switch ($keyType) {
@@ -6871,6 +6920,12 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvWhseItemBins() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvWhseItemBin($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getItemAddonItemsRelatedByInititemnbr() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addItemAddonItemRelatedByInititemnbr($relObj->copy($deepCopy));
@@ -7445,6 +7500,10 @@ abstract class ItemMasterItem implements ActiveRecordInterface
             $this->initItemXrefCustomers();
             return;
         }
+        if ('InvWhseItemBin' == $relationName) {
+            $this->initInvWhseItemBins();
+            return;
+        }
         if ('ItemAddonItemRelatedByInititemnbr' == $relationName) {
             $this->initItemAddonItemsRelatedByInititemnbr();
             return;
@@ -7810,6 +7869,284 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+    /**
+     * Clears out the collInvWhseItemBins collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvWhseItemBins()
+     */
+    public function clearInvWhseItemBins()
+    {
+        $this->collInvWhseItemBins = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvWhseItemBins collection loaded partially.
+     */
+    public function resetPartialInvWhseItemBins($v = true)
+    {
+        $this->collInvWhseItemBinsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvWhseItemBins collection.
+     *
+     * By default this just sets the collInvWhseItemBins collection to an empty array (like clearcollInvWhseItemBins());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvWhseItemBins($overrideExisting = true)
+    {
+        if (null !== $this->collInvWhseItemBins && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvWhseItemBinTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvWhseItemBins = new $collectionClassName;
+        $this->collInvWhseItemBins->setModel('\InvWhseItemBin');
+    }
+
+    /**
+     * Gets an array of ChildInvWhseItemBin objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildItemMasterItem is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     * @throws PropelException
+     */
+    public function getInvWhseItemBins(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
+        if (null === $this->collInvWhseItemBins || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+                // return empty collection
+                $this->initInvWhseItemBins();
+            } else {
+                $collInvWhseItemBins = ChildInvWhseItemBinQuery::create(null, $criteria)
+                    ->filterByItemMasterItem($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvWhseItemBinsPartial && count($collInvWhseItemBins)) {
+                        $this->initInvWhseItemBins(false);
+
+                        foreach ($collInvWhseItemBins as $obj) {
+                            if (false == $this->collInvWhseItemBins->contains($obj)) {
+                                $this->collInvWhseItemBins->append($obj);
+                            }
+                        }
+
+                        $this->collInvWhseItemBinsPartial = true;
+                    }
+
+                    return $collInvWhseItemBins;
+                }
+
+                if ($partial && $this->collInvWhseItemBins) {
+                    foreach ($this->collInvWhseItemBins as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvWhseItemBins[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvWhseItemBins = $collInvWhseItemBins;
+                $this->collInvWhseItemBinsPartial = false;
+            }
+        }
+
+        return $this->collInvWhseItemBins;
+    }
+
+    /**
+     * Sets a collection of ChildInvWhseItemBin objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invWhseItemBins A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function setInvWhseItemBins(Collection $invWhseItemBins, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvWhseItemBin[] $invWhseItemBinsToDelete */
+        $invWhseItemBinsToDelete = $this->getInvWhseItemBins(new Criteria(), $con)->diff($invWhseItemBins);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invWhseItemBinsScheduledForDeletion = clone $invWhseItemBinsToDelete;
+
+        foreach ($invWhseItemBinsToDelete as $invWhseItemBinRemoved) {
+            $invWhseItemBinRemoved->setItemMasterItem(null);
+        }
+
+        $this->collInvWhseItemBins = null;
+        foreach ($invWhseItemBins as $invWhseItemBin) {
+            $this->addInvWhseItemBin($invWhseItemBin);
+        }
+
+        $this->collInvWhseItemBins = $invWhseItemBins;
+        $this->collInvWhseItemBinsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvWhseItemBin objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvWhseItemBin objects.
+     * @throws PropelException
+     */
+    public function countInvWhseItemBins(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvWhseItemBinsPartial && !$this->isNew();
+        if (null === $this->collInvWhseItemBins || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvWhseItemBins) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvWhseItemBins());
+            }
+
+            $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByItemMasterItem($this)
+                ->count($con);
+        }
+
+        return count($this->collInvWhseItemBins);
+    }
+
+    /**
+     * Method called to associate a ChildInvWhseItemBin object to this object
+     * through the ChildInvWhseItemBin foreign key attribute.
+     *
+     * @param  ChildInvWhseItemBin $l ChildInvWhseItemBin
+     * @return $this|\ItemMasterItem The current object (for fluent API support)
+     */
+    public function addInvWhseItemBin(ChildInvWhseItemBin $l)
+    {
+        if ($this->collInvWhseItemBins === null) {
+            $this->initInvWhseItemBins();
+            $this->collInvWhseItemBinsPartial = true;
+        }
+
+        if (!$this->collInvWhseItemBins->contains($l)) {
+            $this->doAddInvWhseItemBin($l);
+
+            if ($this->invWhseItemBinsScheduledForDeletion and $this->invWhseItemBinsScheduledForDeletion->contains($l)) {
+                $this->invWhseItemBinsScheduledForDeletion->remove($this->invWhseItemBinsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to add.
+     */
+    protected function doAddInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    {
+        $this->collInvWhseItemBins[]= $invWhseItemBin;
+        $invWhseItemBin->setItemMasterItem($this);
+    }
+
+    /**
+     * @param  ChildInvWhseItemBin $invWhseItemBin The ChildInvWhseItemBin object to remove.
+     * @return $this|ChildItemMasterItem The current object (for fluent API support)
+     */
+    public function removeInvWhseItemBin(ChildInvWhseItemBin $invWhseItemBin)
+    {
+        if ($this->getInvWhseItemBins()->contains($invWhseItemBin)) {
+            $pos = $this->collInvWhseItemBins->search($invWhseItemBin);
+            $this->collInvWhseItemBins->remove($pos);
+            if (null === $this->invWhseItemBinsScheduledForDeletion) {
+                $this->invWhseItemBinsScheduledForDeletion = clone $this->collInvWhseItemBins;
+                $this->invWhseItemBinsScheduledForDeletion->clear();
+            }
+            $this->invWhseItemBinsScheduledForDeletion[]= clone $invWhseItemBin;
+            $invWhseItemBin->setItemMasterItem(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvWhseItemBins from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     */
+    public function getInvWhseItemBinsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+        $query->joinWith('Warehouse', $joinBehavior);
+
+        return $this->getInvWhseItemBins($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related InvWhseItemBins from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvWhseItemBin[] List of ChildInvWhseItemBin objects
+     */
+    public function getInvWhseItemBinsJoinWarehouseInventory(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvWhseItemBinQuery::create(null, $criteria);
+        $query->joinWith('WarehouseInventory', $joinBehavior);
+
+        return $this->getInvWhseItemBins($query, $con);
     }
 
     /**
@@ -11104,6 +11441,31 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         }
 
         return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this ItemMasterItem is new, it will return
+     * an empty collection; or if this ItemMasterItem has previously
+     * been saved, it will retrieve related WarehouseInventories from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in ItemMasterItem.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildWarehouseInventory[] List of ChildWarehouseInventory objects
+     */
+    public function getWarehouseInventoriesJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildWarehouseInventoryQuery::create(null, $criteria);
+        $query->joinWith('Warehouse', $joinBehavior);
+
+        return $this->getWarehouseInventories($query, $con);
     }
 
     /**
@@ -17095,6 +17457,11 @@ abstract class ItemMasterItem implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvWhseItemBins) {
+                foreach ($this->collInvWhseItemBins as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collItemAddonItemsRelatedByInititemnbr) {
                 foreach ($this->collItemAddonItemsRelatedByInititemnbr as $o) {
                     $o->clearAllReferences($deep);
@@ -17285,6 +17652,7 @@ abstract class ItemMasterItem implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collItemXrefCustomers = null;
+        $this->collInvWhseItemBins = null;
         $this->collItemAddonItemsRelatedByInititemnbr = null;
         $this->collItemAddonItemsRelatedByAdonadditemnbr = null;
         $this->singleItmDimension = null;

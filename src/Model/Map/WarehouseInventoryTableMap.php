@@ -242,7 +242,7 @@ class WarehouseInventoryTableMap extends TableMap
         $this->setUseIdGenerator(false);
         // columns
         $this->addForeignPrimaryKey('InitItemNbr', 'Inititemnbr', 'VARCHAR' , 'inv_item_mast', 'InitItemNbr', true, 30, '');
-        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
+        $this->addForeignPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR' , 'inv_whse_code', 'IntbWhse', true, 2, '');
         $this->addColumn('InwhBin', 'Inwhbin', 'VARCHAR', false, 8, null);
         $this->addColumn('InwhCycl', 'Inwhcycl', 'VARCHAR', false, 2, null);
         $this->addColumn('InwhCntDate', 'Inwhcntdate', 'VARCHAR', false, 8, null);
@@ -277,6 +277,25 @@ class WarehouseInventoryTableMap extends TableMap
   array (
     0 => ':InitItemNbr',
     1 => ':InitItemNbr',
+  ),
+), null, null, null, false);
+        $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, null, false);
+        $this->addRelation('InvWhseItemBin', '\\InvWhseItemBin', RelationMap::ONE_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+  1 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
   ),
 ), null, null, null, false);
     } // buildRelations()

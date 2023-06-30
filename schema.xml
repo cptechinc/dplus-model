@@ -2048,6 +2048,53 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_bin_area" idMethod="native" phpName="InvWhseItemBin">
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
+    <column name="BinaBin1" phpName="Binabin1" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin1" phpName="Binamin1" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax1" phpName="Binamax1" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin2" phpName="Binabin2" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin2" phpName="Binamin2" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax2" phpName="Binamax2" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin3" phpName="Binabin3" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin3" phpName="Binamin3" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax3" phpName="Binamax3" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin4" phpName="Binabin4" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin4" phpName="Binamin4" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax4" phpName="Binamax4" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin5" phpName="Binabin5" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin5" phpName="Binamin5" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax5" phpName="Binamax5" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin6" phpName="Binabin6" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin6" phpName="Binamin6" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax6" phpName="Binamax6" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin7" phpName="Binabin7" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin7" phpName="Binamin7" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax7" phpName="Binamax7" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin8" phpName="Binabin8" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin8" phpName="Binamin8" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax8" phpName="Binamax8" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaBin9" phpName="Binabin9" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="BinaMin9" phpName="Binamin9" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="BinaMax9" phpName="Binamax9" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_mast" name="warehouseitem">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_bin_cntrl" idMethod="native" phpName="WarehouseBin">
     <column name="IntbWhse" phpName="Intbwhse" type="VARCHAR" size="2" primaryKey="true" required="true" defaultValue=""/>
     <column name="BnctBinFrom" phpName="Bnctbinfrom" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
@@ -2058,6 +2105,9 @@
     <column name="DateUpdtd" phpName="Dateupdtd" type="VARCHAR" size="8"/>
     <column name="TimeUpdtd" phpName="Timeupdtd" type="VARCHAR" size="8"/>
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
+    </foreign-key>
     <foreign-key foreignTable="inv_bina_code" name="binarea">
       <reference local="BnctBinArea" foreign="IntbBinaCode"/>
     </foreign-key>
@@ -2789,6 +2839,9 @@
     <column name="dummy" phpName="Dummy" type="VARCHAR" size="1"/>
     <foreign-key foreignTable="inv_item_mast" name="item">
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouse">
+      <reference local="IntbWhse" foreign="IntbWhse"/>
     </foreign-key>
     <vendor type="mysql">
       <parameter name="Engine" value="InnoDB"/>

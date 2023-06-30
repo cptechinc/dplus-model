@@ -4,7 +4,9 @@ namespace Base;
 
 use \InvBinAreaCode as ChildInvBinAreaCode;
 use \InvBinAreaCodeQuery as ChildInvBinAreaCodeQuery;
+use \Warehouse as ChildWarehouse;
 use \WarehouseBinQuery as ChildWarehouseBinQuery;
+use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
 use Map\WarehouseBinTableMap;
@@ -126,6 +128,11 @@ abstract class WarehouseBin implements ActiveRecordInterface
      * @var        string
      */
     protected $dummy;
+
+    /**
+     * @var        ChildWarehouse
+     */
+    protected $aWarehouse;
 
     /**
      * @var        ChildInvBinAreaCode
@@ -487,6 +494,10 @@ abstract class WarehouseBin implements ActiveRecordInterface
             $this->modifiedColumns[WarehouseBinTableMap::COL_INTBWHSE] = true;
         }
 
+        if ($this->aWarehouse !== null && $this->aWarehouse->getIntbwhse() !== $v) {
+            $this->aWarehouse = null;
+        }
+
         return $this;
     } // setIntbwhse()
 
@@ -758,6 +769,9 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aWarehouse !== null && $this->intbwhse !== $this->aWarehouse->getIntbwhse()) {
+            $this->aWarehouse = null;
+        }
         if ($this->aInvBinAreaCode !== null && $this->bnctbinarea !== $this->aInvBinAreaCode->getIntbbinacode()) {
             $this->aInvBinAreaCode = null;
         }
@@ -800,6 +814,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aWarehouse = null;
             $this->aInvBinAreaCode = null;
         } // if (deep)
     }
@@ -908,6 +923,13 @@ abstract class WarehouseBin implements ActiveRecordInterface
             // were passed to this object by their corresponding set
             // method.  This object relates to these object(s) by a
             // foreign key reference.
+
+            if ($this->aWarehouse !== null) {
+                if ($this->aWarehouse->isModified() || $this->aWarehouse->isNew()) {
+                    $affectedRows += $this->aWarehouse->save($con);
+                }
+                $this->setWarehouse($this->aWarehouse);
+            }
 
             if ($this->aInvBinAreaCode !== null) {
                 if ($this->aInvBinAreaCode->isModified() || $this->aInvBinAreaCode->isNew()) {
@@ -1142,6 +1164,21 @@ abstract class WarehouseBin implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aWarehouse) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'warehouse';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_whse_code';
+                        break;
+                    default:
+                        $key = 'Warehouse';
+                }
+
+                $result[$key] = $this->aWarehouse->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->aInvBinAreaCode) {
 
                 switch ($keyType) {
@@ -1375,8 +1412,15 @@ abstract class WarehouseBin implements ActiveRecordInterface
             null !== $this->getBnctbinfrom() &&
             null !== $this->getBnctbinthru();
 
-        $validPrimaryKeyFKs = 0;
+        $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
+
+        //relation warehouse to table inv_whse_code
+        if ($this->aWarehouse && $hash = spl_object_hash($this->aWarehouse)) {
+            $primaryKeyFKs[] = $hash;
+        } else {
+            $validPrimaryKeyFKs = false;
+        }
 
         if ($validPk) {
             return crc32(json_encode($this->getPrimaryKey(), JSON_UNESCAPED_UNICODE));
@@ -1474,6 +1518,57 @@ abstract class WarehouseBin implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildWarehouse object.
+     *
+     * @param  ChildWarehouse $v
+     * @return $this|\WarehouseBin The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setWarehouse(ChildWarehouse $v = null)
+    {
+        if ($v === null) {
+            $this->setIntbwhse('');
+        } else {
+            $this->setIntbwhse($v->getIntbwhse());
+        }
+
+        $this->aWarehouse = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildWarehouse object, it will not be re-added.
+        if ($v !== null) {
+            $v->addWarehouseBin($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildWarehouse object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildWarehouse The associated ChildWarehouse object.
+     * @throws PropelException
+     */
+    public function getWarehouse(ConnectionInterface $con = null)
+    {
+        if ($this->aWarehouse === null && (($this->intbwhse !== "" && $this->intbwhse !== null))) {
+            $this->aWarehouse = ChildWarehouseQuery::create()->findPk($this->intbwhse, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aWarehouse->addWarehouseBins($this);
+             */
+        }
+
+        return $this->aWarehouse;
+    }
+
+    /**
      * Declares an association between this object and a ChildInvBinAreaCode object.
      *
      * @param  ChildInvBinAreaCode $v
@@ -1531,6 +1626,9 @@ abstract class WarehouseBin implements ActiveRecordInterface
      */
     public function clear()
     {
+        if (null !== $this->aWarehouse) {
+            $this->aWarehouse->removeWarehouseBin($this);
+        }
         if (null !== $this->aInvBinAreaCode) {
             $this->aInvBinAreaCode->removeWarehouseBin($this);
         }
@@ -1564,6 +1662,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
         if ($deep) {
         } // if ($deep)
 
+        $this->aWarehouse = null;
         $this->aInvBinAreaCode = null;
     }
 
@@ -1585,7 +1684,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preSave')) {
-            // parent::preSave($con);
+            // return parent::preSave($con);
         }
         return true;
     }
@@ -1609,7 +1708,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preInsert')) {
-            // parent::preInsert($con);
+            // return parent::preInsert($con);
         }
         return true;
     }
@@ -1633,7 +1732,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preUpdate')) {
-            // parent::preUpdate($con);
+            // return parent::preUpdate($con);
         }
         return true;
     }
@@ -1657,7 +1756,7 @@ abstract class WarehouseBin implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         if (is_callable('parent::preDelete')) {
-            // parent::preDelete($con);
+            // return parent::preDelete($con);
         }
         return true;
     }

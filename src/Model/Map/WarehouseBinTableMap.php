@@ -166,7 +166,7 @@ class WarehouseBinTableMap extends TableMap
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
-        $this->addPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR', true, 2, '');
+        $this->addForeignPrimaryKey('IntbWhse', 'Intbwhse', 'VARCHAR' , 'inv_whse_code', 'IntbWhse', true, 2, '');
         $this->addPrimaryKey('BnctBinFrom', 'Bnctbinfrom', 'VARCHAR', true, 8, '');
         $this->addPrimaryKey('BnctBinThru', 'Bnctbinthru', 'VARCHAR', true, 8, '');
         $this->addColumn('BnctTypeDesc', 'Bncttypedesc', 'VARCHAR', false, 1, null);
@@ -182,6 +182,13 @@ class WarehouseBinTableMap extends TableMap
      */
     public function buildRelations()
     {
+        $this->addRelation('Warehouse', '\\Warehouse', RelationMap::MANY_TO_ONE, array (
+  0 =>
+  array (
+    0 => ':IntbWhse',
+    1 => ':IntbWhse',
+  ),
+), null, null, null, false);
         $this->addRelation('InvBinAreaCode', '\\InvBinAreaCode', RelationMap::MANY_TO_ONE, array (
   0 =>
   array (

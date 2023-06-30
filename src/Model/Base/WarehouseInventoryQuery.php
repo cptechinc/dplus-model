@@ -88,7 +88,27 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseInventoryQuery rightJoinWithItemMasterItem() Adds a RIGHT JOIN clause and with to the query using the ItemMasterItem relation
  * @method     ChildWarehouseInventoryQuery innerJoinWithItemMasterItem() Adds a INNER JOIN clause and with to the query using the ItemMasterItem relation
  *
- * @method     \ItemMasterItemQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     ChildWarehouseInventoryQuery leftJoinWarehouse($relationAlias = null) Adds a LEFT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWarehouseInventoryQuery rightJoinWarehouse($relationAlias = null) Adds a RIGHT JOIN clause to the query using the Warehouse relation
+ * @method     ChildWarehouseInventoryQuery innerJoinWarehouse($relationAlias = null) Adds a INNER JOIN clause to the query using the Warehouse relation
+ *
+ * @method     ChildWarehouseInventoryQuery joinWithWarehouse($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the Warehouse relation
+ *
+ * @method     ChildWarehouseInventoryQuery leftJoinWithWarehouse() Adds a LEFT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWarehouseInventoryQuery rightJoinWithWarehouse() Adds a RIGHT JOIN clause and with to the query using the Warehouse relation
+ * @method     ChildWarehouseInventoryQuery innerJoinWithWarehouse() Adds a INNER JOIN clause and with to the query using the Warehouse relation
+ *
+ * @method     ChildWarehouseInventoryQuery leftJoinInvWhseItemBin($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvWhseItemBin relation
+ * @method     ChildWarehouseInventoryQuery rightJoinInvWhseItemBin($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvWhseItemBin relation
+ * @method     ChildWarehouseInventoryQuery innerJoinInvWhseItemBin($relationAlias = null) Adds a INNER JOIN clause to the query using the InvWhseItemBin relation
+ *
+ * @method     ChildWarehouseInventoryQuery joinWithInvWhseItemBin($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvWhseItemBin relation
+ *
+ * @method     ChildWarehouseInventoryQuery leftJoinWithInvWhseItemBin() Adds a LEFT JOIN clause and with to the query using the InvWhseItemBin relation
+ * @method     ChildWarehouseInventoryQuery rightJoinWithInvWhseItemBin() Adds a RIGHT JOIN clause and with to the query using the InvWhseItemBin relation
+ * @method     ChildWarehouseInventoryQuery innerJoinWithInvWhseItemBin() Adds a INNER JOIN clause and with to the query using the InvWhseItemBin relation
+ *
+ * @method     \ItemMasterItemQuery|\WarehouseQuery|\InvWhseItemBinQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouseInventory findOne(ConnectionInterface $con = null) Return the first ChildWarehouseInventory matching the query
  * @method     ChildWarehouseInventory findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouseInventory matching the query, or a new ChildWarehouseInventory object populated from the query conditions when no match is found
@@ -1158,6 +1178,152 @@ abstract class WarehouseInventoryQuery extends ModelCriteria
         return $this
             ->joinItemMasterItem($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ItemMasterItem', '\ItemMasterItemQuery');
+    }
+
+    /**
+     * Filter the query by a related \Warehouse object
+     *
+     * @param \Warehouse|ObjectCollection $warehouse The related object(s) to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @throws \Propel\Runtime\Exception\PropelException
+     *
+     * @return ChildWarehouseInventoryQuery The current query, for fluid interface
+     */
+    public function filterByWarehouse($warehouse, $comparison = null)
+    {
+        if ($warehouse instanceof \Warehouse) {
+            return $this
+                ->addUsingAlias(WarehouseInventoryTableMap::COL_INTBWHSE, $warehouse->getIntbwhse(), $comparison);
+        } elseif ($warehouse instanceof ObjectCollection) {
+            if (null === $comparison) {
+                $comparison = Criteria::IN;
+            }
+
+            return $this
+                ->addUsingAlias(WarehouseInventoryTableMap::COL_INTBWHSE, $warehouse->toKeyValue('PrimaryKey', 'Intbwhse'), $comparison);
+        } else {
+            throw new PropelException('filterByWarehouse() only accepts arguments of type \Warehouse or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the Warehouse relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
+     */
+    public function joinWarehouse($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('Warehouse');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'Warehouse');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the Warehouse relation Warehouse object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \WarehouseQuery A secondary query class using the current class as primary query
+     */
+    public function useWarehouseQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinWarehouse($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'Warehouse', '\WarehouseQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvWhseItemBin object
+     *
+     * @param \InvWhseItemBin|ObjectCollection $invWhseItemBin the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseInventoryQuery The current query, for fluid interface
+     */
+    public function filterByInvWhseItemBin($invWhseItemBin, $comparison = null)
+    {
+        if ($invWhseItemBin instanceof \InvWhseItemBin) {
+            return $this
+                ->addUsingAlias(WarehouseInventoryTableMap::COL_INITITEMNBR, $invWhseItemBin->getInititemnbr(), $comparison)
+                ->addUsingAlias(WarehouseInventoryTableMap::COL_INTBWHSE, $invWhseItemBin->getIntbwhse(), $comparison);
+        } else {
+            throw new PropelException('filterByInvWhseItemBin() only accepts arguments of type \InvWhseItemBin');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvWhseItemBin relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseInventoryQuery The current query, for fluid interface
+     */
+    public function joinInvWhseItemBin($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvWhseItemBin');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvWhseItemBin');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvWhseItemBin relation InvWhseItemBin object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvWhseItemBinQuery A secondary query class using the current class as primary query
+     */
+    public function useInvWhseItemBinQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvWhseItemBin($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvWhseItemBin', '\InvWhseItemBinQuery');
     }
 
     /**
