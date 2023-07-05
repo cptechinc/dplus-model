@@ -94,12 +94,4 @@ class WarehouseInventory extends BaseWarehouseInventory {
 	public function is_specialorder() {
 		return $this->specialorder == self::SPECIALORDER_SPECIAL;
 	}
-
-	/**
-	 * Returns Warehouse
-	 * @return Warehouse
-	 */
-	public function getWarehouse() {
-		return WarehouseQuery::create()->findOneById($this->warehouseid);
-	}
 }
