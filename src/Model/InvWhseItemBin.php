@@ -12,6 +12,8 @@ use Dplus\Model\MagicMethodTraits;
 class InvWhseItemBin extends BaseInvWhseItemBin {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
+	const PREFIX_BINID_FROM = 'binamin';
+	const NBR_OF_BINS = 9;
 
 	/**
 	 * Column Aliases to lookup / get properties
@@ -26,4 +28,17 @@ class InvWhseItemBin extends BaseInvWhseItemBin {
 		// FOREIGN KEY GETS
 		'item'          => 'itemMasterItem'
 	];
+
+	/**
+	 * Return Bin ID at Index
+	 * @param  int $index
+	 * @return false|string
+	 */
+	public function bin($index = 1) {
+		if ($index < 1 || $index > self::NBR_OF_BINS) {
+			return false;
+		}
+		$col = self::PREFIX_BINID_FROM . $index;
+		return $this->$col;
+	}
 }
