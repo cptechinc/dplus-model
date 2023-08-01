@@ -14,6 +14,8 @@ use \Customer as ChildCustomer;
 use \CustomerQuery as ChildCustomerQuery;
 use \CustomerShipto as ChildCustomerShipto;
 use \CustomerShiptoQuery as ChildCustomerShiptoQuery;
+use \InvTransferOrder as ChildInvTransferOrder;
+use \InvTransferOrderQuery as ChildInvTransferOrderQuery;
 use \NoteCustInternal as ChildNoteCustInternal;
 use \NoteCustInternalQuery as ChildNoteCustInternalQuery;
 use \NoteCustOrder as ChildNoteCustOrder;
@@ -33,6 +35,7 @@ use Map\BookingDayCustomerTableMap;
 use Map\BookingDayDetailTableMap;
 use Map\BookingTableMap;
 use Map\CustomerShiptoTableMap;
+use Map\InvTransferOrderTableMap;
 use Map\NoteCustInternalTableMap;
 use Map\NoteCustOrderTableMap;
 use Map\SalesHistoryTableMap;
@@ -813,6 +816,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
     protected $collArContactsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     */
+    protected $collInvTransferOrders;
+    protected $collInvTransferOrdersPartial;
+
+    /**
      * @var        ObjectCollection|ChildNoteCustInternal[] Collection to store aggregation of ChildNoteCustInternal objects.
      */
     protected $collNoteCustInternals;
@@ -878,6 +887,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
      * @var ObjectCollection|ChildArContact[]
      */
     protected $arContactsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvTransferOrder[]
+     */
+    protected $invTransferOrdersScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -4621,6 +4636,8 @@ abstract class CustomerShipto implements ActiveRecordInterface
             $this->aCustomer = null;
             $this->collArContacts = null;
 
+            $this->collInvTransferOrders = null;
+
             $this->collNoteCustInternals = null;
 
             $this->collNoteCustOrders = null;
@@ -4776,6 +4793,23 @@ abstract class CustomerShipto implements ActiveRecordInterface
 
             if ($this->collArContacts !== null) {
                 foreach ($this->collArContacts as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invTransferOrdersScheduledForDeletion !== null) {
+                if (!$this->invTransferOrdersScheduledForDeletion->isEmpty()) {
+                    \InvTransferOrderQuery::create()
+                        ->filterByPrimaryKeys($this->invTransferOrdersScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invTransferOrdersScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvTransferOrders !== null) {
+                foreach ($this->collInvTransferOrders as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -6091,6 +6125,21 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collArContacts->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvTransferOrders) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_heads';
+                        break;
+                    default:
+                        $key = 'InvTransferOrders';
+                }
+
+                $result[$key] = $this->collInvTransferOrders->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collNoteCustInternals) {
 
@@ -7451,6 +7500,12 @@ abstract class CustomerShipto implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvTransferOrders() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvTransferOrder($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getNoteCustInternals() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addNoteCustInternal($relObj->copy($deepCopy));
@@ -7597,6 +7652,10 @@ abstract class CustomerShipto implements ActiveRecordInterface
     {
         if ('ArContact' == $relationName) {
             $this->initArContacts();
+            return;
+        }
+        if ('InvTransferOrder' == $relationName) {
+            $this->initInvTransferOrders();
             return;
         }
         if ('NoteCustInternal' == $relationName) {
@@ -7884,6 +7943,331 @@ abstract class CustomerShipto implements ActiveRecordInterface
         $query->joinWith('Customer', $joinBehavior);
 
         return $this->getArContacts($query, $con);
+    }
+
+    /**
+     * Clears out the collInvTransferOrders collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvTransferOrders()
+     */
+    public function clearInvTransferOrders()
+    {
+        $this->collInvTransferOrders = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvTransferOrders collection loaded partially.
+     */
+    public function resetPartialInvTransferOrders($v = true)
+    {
+        $this->collInvTransferOrdersPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvTransferOrders collection.
+     *
+     * By default this just sets the collInvTransferOrders collection to an empty array (like clearcollInvTransferOrders());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvTransferOrders($overrideExisting = true)
+    {
+        if (null !== $this->collInvTransferOrders && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvTransferOrders = new $collectionClassName;
+        $this->collInvTransferOrders->setModel('\InvTransferOrder');
+    }
+
+    /**
+     * Gets an array of ChildInvTransferOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildCustomerShipto is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @throws PropelException
+     */
+    public function getInvTransferOrders(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrders || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrders) {
+                // return empty collection
+                $this->initInvTransferOrders();
+            } else {
+                $collInvTransferOrders = ChildInvTransferOrderQuery::create(null, $criteria)
+                    ->filterByCustomerShipto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvTransferOrdersPartial && count($collInvTransferOrders)) {
+                        $this->initInvTransferOrders(false);
+
+                        foreach ($collInvTransferOrders as $obj) {
+                            if (false == $this->collInvTransferOrders->contains($obj)) {
+                                $this->collInvTransferOrders->append($obj);
+                            }
+                        }
+
+                        $this->collInvTransferOrdersPartial = true;
+                    }
+
+                    return $collInvTransferOrders;
+                }
+
+                if ($partial && $this->collInvTransferOrders) {
+                    foreach ($this->collInvTransferOrders as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvTransferOrders[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvTransferOrders = $collInvTransferOrders;
+                $this->collInvTransferOrdersPartial = false;
+            }
+        }
+
+        return $this->collInvTransferOrders;
+    }
+
+    /**
+     * Sets a collection of ChildInvTransferOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invTransferOrders A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function setInvTransferOrders(Collection $invTransferOrders, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvTransferOrder[] $invTransferOrdersToDelete */
+        $invTransferOrdersToDelete = $this->getInvTransferOrders(new Criteria(), $con)->diff($invTransferOrders);
+
+
+        $this->invTransferOrdersScheduledForDeletion = $invTransferOrdersToDelete;
+
+        foreach ($invTransferOrdersToDelete as $invTransferOrderRemoved) {
+            $invTransferOrderRemoved->setCustomerShipto(null);
+        }
+
+        $this->collInvTransferOrders = null;
+        foreach ($invTransferOrders as $invTransferOrder) {
+            $this->addInvTransferOrder($invTransferOrder);
+        }
+
+        $this->collInvTransferOrders = $invTransferOrders;
+        $this->collInvTransferOrdersPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvTransferOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvTransferOrder objects.
+     * @throws PropelException
+     */
+    public function countInvTransferOrders(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrders || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrders) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvTransferOrders());
+            }
+
+            $query = ChildInvTransferOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByCustomerShipto($this)
+                ->count($con);
+        }
+
+        return count($this->collInvTransferOrders);
+    }
+
+    /**
+     * Method called to associate a ChildInvTransferOrder object to this object
+     * through the ChildInvTransferOrder foreign key attribute.
+     *
+     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this|\CustomerShipto The current object (for fluent API support)
+     */
+    public function addInvTransferOrder(ChildInvTransferOrder $l)
+    {
+        if ($this->collInvTransferOrders === null) {
+            $this->initInvTransferOrders();
+            $this->collInvTransferOrdersPartial = true;
+        }
+
+        if (!$this->collInvTransferOrders->contains($l)) {
+            $this->doAddInvTransferOrder($l);
+
+            if ($this->invTransferOrdersScheduledForDeletion and $this->invTransferOrdersScheduledForDeletion->contains($l)) {
+                $this->invTransferOrdersScheduledForDeletion->remove($this->invTransferOrdersScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to add.
+     */
+    protected function doAddInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
+    {
+        $this->collInvTransferOrders[]= $invTransferOrder;
+        $invTransferOrder->setCustomerShipto($this);
+    }
+
+    /**
+     * @param  ChildInvTransferOrder $invTransferOrder The ChildInvTransferOrder object to remove.
+     * @return $this|ChildCustomerShipto The current object (for fluent API support)
+     */
+    public function removeInvTransferOrder(ChildInvTransferOrder $invTransferOrder)
+    {
+        if ($this->getInvTransferOrders()->contains($invTransferOrder)) {
+            $pos = $this->collInvTransferOrders->search($invTransferOrder);
+            $this->collInvTransferOrders->remove($pos);
+            if (null === $this->invTransferOrdersScheduledForDeletion) {
+                $this->invTransferOrdersScheduledForDeletion = clone $this->collInvTransferOrders;
+                $this->invTransferOrdersScheduledForDeletion->clear();
+            }
+            $this->invTransferOrdersScheduledForDeletion[]= clone $invTransferOrder;
+            $invTransferOrder->setCustomerShipto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related InvTransferOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhsefrom(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('WarehouseRelatedByIntbwhsefrom', $joinBehavior);
+
+        return $this->getInvTransferOrders($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related InvTransferOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersJoinWarehouseRelatedByIntbwhseto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('WarehouseRelatedByIntbwhseto', $joinBehavior);
+
+        return $this->getInvTransferOrders($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related InvTransferOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getInvTransferOrders($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this CustomerShipto is new, it will return
+     * an empty collection; or if this CustomerShipto has previously
+     * been saved, it will retrieve related InvTransferOrders from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in CustomerShipto.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getInvTransferOrders($query, $con);
     }
 
     /**
@@ -10166,6 +10550,11 @@ abstract class CustomerShipto implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvTransferOrders) {
+                foreach ($this->collInvTransferOrders as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collNoteCustInternals) {
                 foreach ($this->collNoteCustInternals as $o) {
                     $o->clearAllReferences($deep);
@@ -10212,6 +10601,7 @@ abstract class CustomerShipto implements ActiveRecordInterface
         } // if ($deep)
 
         $this->collArContacts = null;
+        $this->collInvTransferOrders = null;
         $this->collNoteCustInternals = null;
         $this->collNoteCustOrders = null;
         $this->collBookingDayCustomers = null;
@@ -10241,6 +10631,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::preSave')) {
+        //     return parent::preSave($con);
+        // }
         return true;
     }
 
@@ -10250,7 +10643,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-
+        // if (is_callable('parent::postSave')) {
+        //     parent::postSave($con);
+        // }
     }
 
     /**
@@ -10260,6 +10655,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::preInsert')) {
+        //     return parent::preInsert($con);
+        // }
         return true;
     }
 
@@ -10269,7 +10667,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-
+        // if (is_callable('parent::postInsert')) {
+        //     parent::postInsert($con);
+        // }
     }
 
     /**
@@ -10279,6 +10679,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::preUpdate')) {
+        //     return parent::preUpdate($con);
+        // }
         return true;
     }
 
@@ -10288,6 +10691,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::postUpdate')) {
+        //     parent::postUpdate($con);
+        // }
     }
 
     /**
@@ -10297,6 +10703,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::preDelete')) {
+        //     return parent::preDelete($con);
+        // }
         return true;
     }
 
@@ -10306,6 +10715,9 @@ abstract class CustomerShipto implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
+        // if (is_callable('parent::postDelete')) {
+        //     parent::postDelete($con);
+        // }
     }
 
 

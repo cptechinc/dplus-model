@@ -6,6 +6,10 @@ use \InvLotMaster as ChildInvLotMaster;
 use \InvLotMasterQuery as ChildInvLotMasterQuery;
 use \InvLotTag as ChildInvLotTag;
 use \InvLotTagQuery as ChildInvLotTagQuery;
+use \InvTransferLotserial as ChildInvTransferLotserial;
+use \InvTransferLotserialQuery as ChildInvTransferLotserialQuery;
+use \InvTransferPickedLotserial as ChildInvTransferPickedLotserial;
+use \InvTransferPickedLotserialQuery as ChildInvTransferPickedLotserialQuery;
 use \InvWhseLot as ChildInvWhseLot;
 use \InvWhseLotQuery as ChildInvWhseLotQuery;
 use \ItemMasterItem as ChildItemMasterItem;
@@ -18,6 +22,8 @@ use \Exception;
 use \PDO;
 use Map\InvLotMasterTableMap;
 use Map\InvLotTagTableMap;
+use Map\InvTransferLotserialTableMap;
+use Map\InvTransferPickedLotserialTableMap;
 use Map\InvWhseLotTableMap;
 use Map\SoAllocatedLotserialTableMap;
 use Map\SoPickedLotserialTableMap;
@@ -228,6 +234,18 @@ abstract class InvLotMaster implements ActiveRecordInterface
     protected $collInvLotTagsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvTransferLotserial[] Collection to store aggregation of ChildInvTransferLotserial objects.
+     */
+    protected $collInvTransferLotserials;
+    protected $collInvTransferLotserialsPartial;
+
+    /**
+     * @var        ObjectCollection|ChildInvTransferPickedLotserial[] Collection to store aggregation of ChildInvTransferPickedLotserial objects.
+     */
+    protected $collInvTransferPickedLotserials;
+    protected $collInvTransferPickedLotserialsPartial;
+
+    /**
      * @var        ObjectCollection|ChildSoAllocatedLotserial[] Collection to store aggregation of ChildSoAllocatedLotserial objects.
      */
     protected $collSoAllocatedLotserials;
@@ -258,6 +276,18 @@ abstract class InvLotMaster implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLotTag[]
      */
     protected $invLotTagsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvTransferLotserial[]
+     */
+    protected $invTransferLotserialsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvTransferPickedLotserial[]
+     */
+    protected $invTransferPickedLotserialsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -1261,6 +1291,10 @@ abstract class InvLotMaster implements ActiveRecordInterface
 
             $this->collInvLotTags = null;
 
+            $this->collInvTransferLotserials = null;
+
+            $this->collInvTransferPickedLotserials = null;
+
             $this->collSoAllocatedLotserials = null;
 
             $this->collSoPickedLotserials = null;
@@ -1419,6 +1453,40 @@ abstract class InvLotMaster implements ActiveRecordInterface
 
             if ($this->collInvLotTags !== null) {
                 foreach ($this->collInvLotTags as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invTransferLotserialsScheduledForDeletion !== null) {
+                if (!$this->invTransferLotserialsScheduledForDeletion->isEmpty()) {
+                    \InvTransferLotserialQuery::create()
+                        ->filterByPrimaryKeys($this->invTransferLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invTransferLotserialsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvTransferLotserials !== null) {
+                foreach ($this->collInvTransferLotserials as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invTransferPickedLotserialsScheduledForDeletion !== null) {
+                if (!$this->invTransferPickedLotserialsScheduledForDeletion->isEmpty()) {
+                    \InvTransferPickedLotserialQuery::create()
+                        ->filterByPrimaryKeys($this->invTransferPickedLotserialsScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invTransferPickedLotserialsScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvTransferPickedLotserials !== null) {
+                foreach ($this->collInvTransferPickedLotserials as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -1818,6 +1886,36 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvTransferLotserials) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferLotserials';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_lotsers';
+                        break;
+                    default:
+                        $key = 'InvTransferLotserials';
+                }
+
+                $result[$key] = $this->collInvTransferLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvTransferPickedLotserials) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferPickedLotserials';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_pulleds';
+                        break;
+                    default:
+                        $key = 'InvTransferPickedLotserials';
+                }
+
+                $result[$key] = $this->collInvTransferPickedLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collSoAllocatedLotserials) {
 
@@ -2259,6 +2357,18 @@ abstract class InvLotMaster implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvTransferLotserials() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvTransferLotserial($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getInvTransferPickedLotserials() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvTransferPickedLotserial($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getSoAllocatedLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addSoAllocatedLotserial($relObj->copy($deepCopy));
@@ -2368,6 +2478,14 @@ abstract class InvLotMaster implements ActiveRecordInterface
         }
         if ('InvLotTag' == $relationName) {
             $this->initInvLotTags();
+            return;
+        }
+        if ('InvTransferLotserial' == $relationName) {
+            $this->initInvTransferLotserials();
+            return;
+        }
+        if ('InvTransferPickedLotserial' == $relationName) {
+            $this->initInvTransferPickedLotserials();
             return;
         }
         if ('SoAllocatedLotserial' == $relationName) {
@@ -2981,6 +3099,612 @@ abstract class InvLotMaster implements ActiveRecordInterface
         $query->joinWith('DplusUser', $joinBehavior);
 
         return $this->getInvLotTags($query, $con);
+    }
+
+    /**
+     * Clears out the collInvTransferLotserials collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvTransferLotserials()
+     */
+    public function clearInvTransferLotserials()
+    {
+        $this->collInvTransferLotserials = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvTransferLotserials collection loaded partially.
+     */
+    public function resetPartialInvTransferLotserials($v = true)
+    {
+        $this->collInvTransferLotserialsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvTransferLotserials collection.
+     *
+     * By default this just sets the collInvTransferLotserials collection to an empty array (like clearcollInvTransferLotserials());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvTransferLotserials($overrideExisting = true)
+    {
+        if (null !== $this->collInvTransferLotserials && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvTransferLotserialTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvTransferLotserials = new $collectionClassName;
+        $this->collInvTransferLotserials->setModel('\InvTransferLotserial');
+    }
+
+    /**
+     * Gets an array of ChildInvTransferLotserial objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvLotMaster is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     * @throws PropelException
+     */
+    public function getInvTransferLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
+        if (null === $this->collInvTransferLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferLotserials) {
+                // return empty collection
+                $this->initInvTransferLotserials();
+            } else {
+                $collInvTransferLotserials = ChildInvTransferLotserialQuery::create(null, $criteria)
+                    ->filterByInvLotMaster($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvTransferLotserialsPartial && count($collInvTransferLotserials)) {
+                        $this->initInvTransferLotserials(false);
+
+                        foreach ($collInvTransferLotserials as $obj) {
+                            if (false == $this->collInvTransferLotserials->contains($obj)) {
+                                $this->collInvTransferLotserials->append($obj);
+                            }
+                        }
+
+                        $this->collInvTransferLotserialsPartial = true;
+                    }
+
+                    return $collInvTransferLotserials;
+                }
+
+                if ($partial && $this->collInvTransferLotserials) {
+                    foreach ($this->collInvTransferLotserials as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvTransferLotserials[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvTransferLotserials = $collInvTransferLotserials;
+                $this->collInvTransferLotserialsPartial = false;
+            }
+        }
+
+        return $this->collInvTransferLotserials;
+    }
+
+    /**
+     * Sets a collection of ChildInvTransferLotserial objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invTransferLotserials A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
+     */
+    public function setInvTransferLotserials(Collection $invTransferLotserials, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvTransferLotserial[] $invTransferLotserialsToDelete */
+        $invTransferLotserialsToDelete = $this->getInvTransferLotserials(new Criteria(), $con)->diff($invTransferLotserials);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invTransferLotserialsScheduledForDeletion = clone $invTransferLotserialsToDelete;
+
+        foreach ($invTransferLotserialsToDelete as $invTransferLotserialRemoved) {
+            $invTransferLotserialRemoved->setInvLotMaster(null);
+        }
+
+        $this->collInvTransferLotserials = null;
+        foreach ($invTransferLotserials as $invTransferLotserial) {
+            $this->addInvTransferLotserial($invTransferLotserial);
+        }
+
+        $this->collInvTransferLotserials = $invTransferLotserials;
+        $this->collInvTransferLotserialsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvTransferLotserial objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvTransferLotserial objects.
+     * @throws PropelException
+     */
+    public function countInvTransferLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferLotserialsPartial && !$this->isNew();
+        if (null === $this->collInvTransferLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferLotserials) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvTransferLotserials());
+            }
+
+            $query = ChildInvTransferLotserialQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvLotMaster($this)
+                ->count($con);
+        }
+
+        return count($this->collInvTransferLotserials);
+    }
+
+    /**
+     * Method called to associate a ChildInvTransferLotserial object to this object
+     * through the ChildInvTransferLotserial foreign key attribute.
+     *
+     * @param  ChildInvTransferLotserial $l ChildInvTransferLotserial
+     * @return $this|\InvLotMaster The current object (for fluent API support)
+     */
+    public function addInvTransferLotserial(ChildInvTransferLotserial $l)
+    {
+        if ($this->collInvTransferLotserials === null) {
+            $this->initInvTransferLotserials();
+            $this->collInvTransferLotserialsPartial = true;
+        }
+
+        if (!$this->collInvTransferLotserials->contains($l)) {
+            $this->doAddInvTransferLotserial($l);
+
+            if ($this->invTransferLotserialsScheduledForDeletion and $this->invTransferLotserialsScheduledForDeletion->contains($l)) {
+                $this->invTransferLotserialsScheduledForDeletion->remove($this->invTransferLotserialsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to add.
+     */
+    protected function doAddInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
+    {
+        $this->collInvTransferLotserials[]= $invTransferLotserial;
+        $invTransferLotserial->setInvLotMaster($this);
+    }
+
+    /**
+     * @param  ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to remove.
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
+     */
+    public function removeInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
+    {
+        if ($this->getInvTransferLotserials()->contains($invTransferLotserial)) {
+            $pos = $this->collInvTransferLotserials->search($invTransferLotserial);
+            $this->collInvTransferLotserials->remove($pos);
+            if (null === $this->invTransferLotserialsScheduledForDeletion) {
+                $this->invTransferLotserialsScheduledForDeletion = clone $this->collInvTransferLotserials;
+                $this->invTransferLotserialsScheduledForDeletion->clear();
+            }
+            $this->invTransferLotserialsScheduledForDeletion[]= clone $invTransferLotserial;
+            $invTransferLotserial->setInvLotMaster(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     */
+    public function getInvTransferLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferLotserialQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvTransferLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     */
+    public function getInvTransferLotserialsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvTransferOrder', $joinBehavior);
+
+        return $this->getInvTransferLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     */
+    public function getInvTransferLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvTransferLotserials($query, $con);
+    }
+
+    /**
+     * Clears out the collInvTransferPickedLotserials collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvTransferPickedLotserials()
+     */
+    public function clearInvTransferPickedLotserials()
+    {
+        $this->collInvTransferPickedLotserials = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvTransferPickedLotserials collection loaded partially.
+     */
+    public function resetPartialInvTransferPickedLotserials($v = true)
+    {
+        $this->collInvTransferPickedLotserialsPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvTransferPickedLotserials collection.
+     *
+     * By default this just sets the collInvTransferPickedLotserials collection to an empty array (like clearcollInvTransferPickedLotserials());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvTransferPickedLotserials($overrideExisting = true)
+    {
+        if (null !== $this->collInvTransferPickedLotserials && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvTransferPickedLotserialTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvTransferPickedLotserials = new $collectionClassName;
+        $this->collInvTransferPickedLotserials->setModel('\InvTransferPickedLotserial');
+    }
+
+    /**
+     * Gets an array of ChildInvTransferPickedLotserial objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildInvLotMaster is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     * @throws PropelException
+     */
+    public function getInvTransferPickedLotserials(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
+        if (null === $this->collInvTransferPickedLotserials || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
+                // return empty collection
+                $this->initInvTransferPickedLotserials();
+            } else {
+                $collInvTransferPickedLotserials = ChildInvTransferPickedLotserialQuery::create(null, $criteria)
+                    ->filterByInvLotMaster($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvTransferPickedLotserialsPartial && count($collInvTransferPickedLotserials)) {
+                        $this->initInvTransferPickedLotserials(false);
+
+                        foreach ($collInvTransferPickedLotserials as $obj) {
+                            if (false == $this->collInvTransferPickedLotserials->contains($obj)) {
+                                $this->collInvTransferPickedLotserials->append($obj);
+                            }
+                        }
+
+                        $this->collInvTransferPickedLotserialsPartial = true;
+                    }
+
+                    return $collInvTransferPickedLotserials;
+                }
+
+                if ($partial && $this->collInvTransferPickedLotserials) {
+                    foreach ($this->collInvTransferPickedLotserials as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvTransferPickedLotserials[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvTransferPickedLotserials = $collInvTransferPickedLotserials;
+                $this->collInvTransferPickedLotserialsPartial = false;
+            }
+        }
+
+        return $this->collInvTransferPickedLotserials;
+    }
+
+    /**
+     * Sets a collection of ChildInvTransferPickedLotserial objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invTransferPickedLotserials A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
+     */
+    public function setInvTransferPickedLotserials(Collection $invTransferPickedLotserials, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvTransferPickedLotserial[] $invTransferPickedLotserialsToDelete */
+        $invTransferPickedLotserialsToDelete = $this->getInvTransferPickedLotserials(new Criteria(), $con)->diff($invTransferPickedLotserials);
+
+
+        //since at least one column in the foreign key is at the same time a PK
+        //we can not just set a PK to NULL in the lines below. We have to store
+        //a backup of all values, so we are able to manipulate these items based on the onDelete value later.
+        $this->invTransferPickedLotserialsScheduledForDeletion = clone $invTransferPickedLotserialsToDelete;
+
+        foreach ($invTransferPickedLotserialsToDelete as $invTransferPickedLotserialRemoved) {
+            $invTransferPickedLotserialRemoved->setInvLotMaster(null);
+        }
+
+        $this->collInvTransferPickedLotserials = null;
+        foreach ($invTransferPickedLotserials as $invTransferPickedLotserial) {
+            $this->addInvTransferPickedLotserial($invTransferPickedLotserial);
+        }
+
+        $this->collInvTransferPickedLotserials = $invTransferPickedLotserials;
+        $this->collInvTransferPickedLotserialsPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvTransferPickedLotserial objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvTransferPickedLotserial objects.
+     * @throws PropelException
+     */
+    public function countInvTransferPickedLotserials(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferPickedLotserialsPartial && !$this->isNew();
+        if (null === $this->collInvTransferPickedLotserials || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferPickedLotserials) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvTransferPickedLotserials());
+            }
+
+            $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByInvLotMaster($this)
+                ->count($con);
+        }
+
+        return count($this->collInvTransferPickedLotserials);
+    }
+
+    /**
+     * Method called to associate a ChildInvTransferPickedLotserial object to this object
+     * through the ChildInvTransferPickedLotserial foreign key attribute.
+     *
+     * @param  ChildInvTransferPickedLotserial $l ChildInvTransferPickedLotserial
+     * @return $this|\InvLotMaster The current object (for fluent API support)
+     */
+    public function addInvTransferPickedLotserial(ChildInvTransferPickedLotserial $l)
+    {
+        if ($this->collInvTransferPickedLotserials === null) {
+            $this->initInvTransferPickedLotserials();
+            $this->collInvTransferPickedLotserialsPartial = true;
+        }
+
+        if (!$this->collInvTransferPickedLotserials->contains($l)) {
+            $this->doAddInvTransferPickedLotserial($l);
+
+            if ($this->invTransferPickedLotserialsScheduledForDeletion and $this->invTransferPickedLotserialsScheduledForDeletion->contains($l)) {
+                $this->invTransferPickedLotserialsScheduledForDeletion->remove($this->invTransferPickedLotserialsScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to add.
+     */
+    protected function doAddInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
+    {
+        $this->collInvTransferPickedLotserials[]= $invTransferPickedLotserial;
+        $invTransferPickedLotserial->setInvLotMaster($this);
+    }
+
+    /**
+     * @param  ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to remove.
+     * @return $this|ChildInvLotMaster The current object (for fluent API support)
+     */
+    public function removeInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
+    {
+        if ($this->getInvTransferPickedLotserials()->contains($invTransferPickedLotserial)) {
+            $pos = $this->collInvTransferPickedLotserials->search($invTransferPickedLotserial);
+            $this->collInvTransferPickedLotserials->remove($pos);
+            if (null === $this->invTransferPickedLotserialsScheduledForDeletion) {
+                $this->invTransferPickedLotserialsScheduledForDeletion = clone $this->collInvTransferPickedLotserials;
+                $this->invTransferPickedLotserialsScheduledForDeletion->clear();
+            }
+            $this->invTransferPickedLotserialsScheduledForDeletion[]= clone $invTransferPickedLotserial;
+            $invTransferPickedLotserial->setInvLotMaster(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     */
+    public function getInvTransferPickedLotserialsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('ItemMasterItem', $joinBehavior);
+
+        return $this->getInvTransferPickedLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     */
+    public function getInvTransferPickedLotserialsJoinInvTransferOrder(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvTransferOrder', $joinBehavior);
+
+        return $this->getInvTransferPickedLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvLotMaster is new, it will return
+     * an empty collection; or if this InvLotMaster has previously
+     * been saved, it will retrieve related InvTransferPickedLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvLotMaster.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
+     */
+    public function getInvTransferPickedLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
+
+        return $this->getInvTransferPickedLotserials($query, $con);
     }
 
     /**
@@ -3647,6 +4371,16 @@ abstract class InvLotMaster implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvTransferLotserials) {
+                foreach ($this->collInvTransferLotserials as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collInvTransferPickedLotserials) {
+                foreach ($this->collInvTransferPickedLotserials as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collSoAllocatedLotserials) {
                 foreach ($this->collSoAllocatedLotserials as $o) {
                     $o->clearAllReferences($deep);
@@ -3661,6 +4395,8 @@ abstract class InvLotMaster implements ActiveRecordInterface
 
         $this->collInvWhseLots = null;
         $this->collInvLotTags = null;
+        $this->collInvTransferLotserials = null;
+        $this->collInvTransferPickedLotserials = null;
         $this->collSoAllocatedLotserials = null;
         $this->collSoPickedLotserials = null;
         $this->aItemMasterItem = null;
@@ -3683,9 +4419,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
+        // if (is_callable('parent::preSave')) {
+        //     return parent::preSave($con);
+        // }
         return true;
     }
 
@@ -3695,9 +4431,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
+        // if (is_callable('parent::postSave')) {
+        //     parent::postSave($con);
+        // }
     }
 
     /**
@@ -3707,9 +4443,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
+        // if (is_callable('parent::preInsert')) {
+        //     return parent::preInsert($con);
+        // }
         return true;
     }
 
@@ -3719,9 +4455,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
+        // if (is_callable('parent::postInsert')) {
+        //     parent::postInsert($con);
+        // }
     }
 
     /**
@@ -3731,9 +4467,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
+        // if (is_callable('parent::preUpdate')) {
+        //     return parent::preUpdate($con);
+        // }
         return true;
     }
 
@@ -3743,9 +4479,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
+        // if (is_callable('parent::postUpdate')) {
+        //     parent::postUpdate($con);
+        // }
     }
 
     /**
@@ -3755,9 +4491,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
+        // if (is_callable('parent::preDelete')) {
+        //     return parent::preDelete($con);
+        // }
         return true;
     }
 
@@ -3767,9 +4503,9 @@ abstract class InvLotMaster implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
+        // if (is_callable('parent::postDelete')) {
+        //     parent::postDelete($con);
+        // }
     }
 
 

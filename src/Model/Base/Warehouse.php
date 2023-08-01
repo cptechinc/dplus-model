@@ -4,6 +4,8 @@ namespace Base;
 
 use \InvLotTag as ChildInvLotTag;
 use \InvLotTagQuery as ChildInvLotTagQuery;
+use \InvTransferOrder as ChildInvTransferOrder;
+use \InvTransferOrderQuery as ChildInvTransferOrderQuery;
 use \InvWhseItemBin as ChildInvWhseItemBin;
 use \InvWhseItemBinQuery as ChildInvWhseItemBinQuery;
 use \InvWhseLot as ChildInvWhseLot;
@@ -21,6 +23,7 @@ use \WarehouseQuery as ChildWarehouseQuery;
 use \Exception;
 use \PDO;
 use Map\InvLotTagTableMap;
+use Map\InvTransferOrderTableMap;
 use Map\InvWhseItemBinTableMap;
 use Map\InvWhseLotTableMap;
 use Map\PoReceivingHeadTableMap;
@@ -345,6 +348,18 @@ abstract class Warehouse implements ActiveRecordInterface
     protected $collInvLotTagsPartial;
 
     /**
+     * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     */
+    protected $collInvTransferOrdersRelatedByIntbwhsefrom;
+    protected $collInvTransferOrdersRelatedByIntbwhsefromPartial;
+
+    /**
+     * @var        ObjectCollection|ChildInvTransferOrder[] Collection to store aggregation of ChildInvTransferOrder objects.
+     */
+    protected $collInvTransferOrdersRelatedByIntbwhseto;
+    protected $collInvTransferOrdersRelatedByIntbwhsetoPartial;
+
+    /**
      * @var        ObjectCollection|ChildWarehouseInventory[] Collection to store aggregation of ChildWarehouseInventory objects.
      */
     protected $collWarehouseInventories;
@@ -393,6 +408,18 @@ abstract class Warehouse implements ActiveRecordInterface
      * @var ObjectCollection|ChildInvLotTag[]
      */
     protected $invLotTagsScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvTransferOrder[]
+     */
+    protected $invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
+
+    /**
+     * An array of objects scheduled for deletion.
+     * @var ObjectCollection|ChildInvTransferOrder[]
+     */
+    protected $invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -1871,6 +1898,10 @@ abstract class Warehouse implements ActiveRecordInterface
 
             $this->collInvLotTags = null;
 
+            $this->collInvTransferOrdersRelatedByIntbwhsefrom = null;
+
+            $this->collInvTransferOrdersRelatedByIntbwhseto = null;
+
             $this->collWarehouseInventories = null;
 
             $this->collWarehouseNotes = null;
@@ -2053,6 +2084,40 @@ abstract class Warehouse implements ActiveRecordInterface
 
             if ($this->collInvLotTags !== null) {
                 foreach ($this->collInvLotTags as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion !== null) {
+                if (!$this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->isEmpty()) {
+                    \InvTransferOrderQuery::create()
+                        ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvTransferOrdersRelatedByIntbwhsefrom !== null) {
+                foreach ($this->collInvTransferOrdersRelatedByIntbwhsefrom as $referrerFK) {
+                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
+                        $affectedRows += $referrerFK->save($con);
+                    }
+                }
+            }
+
+            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion !== null) {
+                if (!$this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->isEmpty()) {
+                    \InvTransferOrderQuery::create()
+                        ->filterByPrimaryKeys($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->getPrimaryKeys(false))
+                        ->delete($con);
+                    $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = null;
+                }
+            }
+
+            if ($this->collInvTransferOrdersRelatedByIntbwhseto !== null) {
+                foreach ($this->collInvTransferOrdersRelatedByIntbwhseto as $referrerFK) {
                     if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
                         $affectedRows += $referrerFK->save($con);
                     }
@@ -2635,6 +2700,36 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_heads';
+                        break;
+                    default:
+                        $key = 'InvTransferOrders';
+                }
+
+                $result[$key] = $this->collInvTransferOrdersRelatedByIntbwhsefrom->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
+            }
+            if (null !== $this->collInvTransferOrdersRelatedByIntbwhseto) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferOrders';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_heads';
+                        break;
+                    default:
+                        $key = 'InvTransferOrders';
+                }
+
+                $result[$key] = $this->collInvTransferOrdersRelatedByIntbwhseto->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collWarehouseInventories) {
 
@@ -3238,6 +3333,18 @@ abstract class Warehouse implements ActiveRecordInterface
                 }
             }
 
+            foreach ($this->getInvTransferOrdersRelatedByIntbwhsefrom() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvTransferOrderRelatedByIntbwhsefrom($relObj->copy($deepCopy));
+                }
+            }
+
+            foreach ($this->getInvTransferOrdersRelatedByIntbwhseto() as $relObj) {
+                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
+                    $copyObj->addInvTransferOrderRelatedByIntbwhseto($relObj->copy($deepCopy));
+                }
+            }
+
             foreach ($this->getWarehouseInventories() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addWarehouseInventory($relObj->copy($deepCopy));
@@ -3310,6 +3417,14 @@ abstract class Warehouse implements ActiveRecordInterface
         }
         if ('InvLotTag' == $relationName) {
             $this->initInvLotTags();
+            return;
+        }
+        if ('InvTransferOrderRelatedByIntbwhsefrom' == $relationName) {
+            $this->initInvTransferOrdersRelatedByIntbwhsefrom();
+            return;
+        }
+        if ('InvTransferOrderRelatedByIntbwhseto' == $relationName) {
+            $this->initInvTransferOrdersRelatedByIntbwhseto();
             return;
         }
         if ('WarehouseInventory' == $relationName) {
@@ -4464,6 +4579,606 @@ abstract class Warehouse implements ActiveRecordInterface
     }
 
     /**
+     * Clears out the collInvTransferOrdersRelatedByIntbwhsefrom collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvTransferOrdersRelatedByIntbwhsefrom()
+     */
+    public function clearInvTransferOrdersRelatedByIntbwhsefrom()
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvTransferOrdersRelatedByIntbwhsefrom collection loaded partially.
+     */
+    public function resetPartialInvTransferOrdersRelatedByIntbwhsefrom($v = true)
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvTransferOrdersRelatedByIntbwhsefrom collection.
+     *
+     * By default this just sets the collInvTransferOrdersRelatedByIntbwhsefrom collection to an empty array (like clearcollInvTransferOrdersRelatedByIntbwhsefrom());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvTransferOrdersRelatedByIntbwhsefrom($overrideExisting = true)
+    {
+        if (null !== $this->collInvTransferOrdersRelatedByIntbwhsefrom && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom = new $collectionClassName;
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom->setModel('\InvTransferOrder');
+    }
+
+    /**
+     * Gets an array of ChildInvTransferOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @throws PropelException
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsefrom(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+                // return empty collection
+                $this->initInvTransferOrdersRelatedByIntbwhsefrom();
+            } else {
+                $collInvTransferOrdersRelatedByIntbwhsefrom = ChildInvTransferOrderQuery::create(null, $criteria)
+                    ->filterByWarehouseRelatedByIntbwhsefrom($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && count($collInvTransferOrdersRelatedByIntbwhsefrom)) {
+                        $this->initInvTransferOrdersRelatedByIntbwhsefrom(false);
+
+                        foreach ($collInvTransferOrdersRelatedByIntbwhsefrom as $obj) {
+                            if (false == $this->collInvTransferOrdersRelatedByIntbwhsefrom->contains($obj)) {
+                                $this->collInvTransferOrdersRelatedByIntbwhsefrom->append($obj);
+                            }
+                        }
+
+                        $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = true;
+                    }
+
+                    return $collInvTransferOrdersRelatedByIntbwhsefrom;
+                }
+
+                if ($partial && $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+                    foreach ($this->collInvTransferOrdersRelatedByIntbwhsefrom as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvTransferOrdersRelatedByIntbwhsefrom[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvTransferOrdersRelatedByIntbwhsefrom = $collInvTransferOrdersRelatedByIntbwhsefrom;
+                $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = false;
+            }
+        }
+
+        return $this->collInvTransferOrdersRelatedByIntbwhsefrom;
+    }
+
+    /**
+     * Sets a collection of ChildInvTransferOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invTransferOrdersRelatedByIntbwhsefrom A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setInvTransferOrdersRelatedByIntbwhsefrom(Collection $invTransferOrdersRelatedByIntbwhsefrom, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvTransferOrder[] $invTransferOrdersRelatedByIntbwhsefromToDelete */
+        $invTransferOrdersRelatedByIntbwhsefromToDelete = $this->getInvTransferOrdersRelatedByIntbwhsefrom(new Criteria(), $con)->diff($invTransferOrdersRelatedByIntbwhsefrom);
+
+
+        $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = $invTransferOrdersRelatedByIntbwhsefromToDelete;
+
+        foreach ($invTransferOrdersRelatedByIntbwhsefromToDelete as $invTransferOrderRelatedByIntbwhsefromRemoved) {
+            $invTransferOrderRelatedByIntbwhsefromRemoved->setWarehouseRelatedByIntbwhsefrom(null);
+        }
+
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom = null;
+        foreach ($invTransferOrdersRelatedByIntbwhsefrom as $invTransferOrderRelatedByIntbwhsefrom) {
+            $this->addInvTransferOrderRelatedByIntbwhsefrom($invTransferOrderRelatedByIntbwhsefrom);
+        }
+
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom = $invTransferOrdersRelatedByIntbwhsefrom;
+        $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvTransferOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvTransferOrder objects.
+     * @throws PropelException
+     */
+    public function countInvTransferOrdersRelatedByIntbwhsefrom(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersRelatedByIntbwhsefromPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhsefrom || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvTransferOrdersRelatedByIntbwhsefrom());
+            }
+
+            $query = ChildInvTransferOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouseRelatedByIntbwhsefrom($this)
+                ->count($con);
+        }
+
+        return count($this->collInvTransferOrdersRelatedByIntbwhsefrom);
+    }
+
+    /**
+     * Method called to associate a ChildInvTransferOrder object to this object
+     * through the ChildInvTransferOrder foreign key attribute.
+     *
+     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $l)
+    {
+        if ($this->collInvTransferOrdersRelatedByIntbwhsefrom === null) {
+            $this->initInvTransferOrdersRelatedByIntbwhsefrom();
+            $this->collInvTransferOrdersRelatedByIntbwhsefromPartial = true;
+        }
+
+        if (!$this->collInvTransferOrdersRelatedByIntbwhsefrom->contains($l)) {
+            $this->doAddInvTransferOrderRelatedByIntbwhsefrom($l);
+
+            if ($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion and $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->contains($l)) {
+                $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->remove($this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom The ChildInvTransferOrder object to add.
+     */
+    protected function doAddInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom)
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom[]= $invTransferOrderRelatedByIntbwhsefrom;
+        $invTransferOrderRelatedByIntbwhsefrom->setWarehouseRelatedByIntbwhsefrom($this);
+    }
+
+    /**
+     * @param  ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom The ChildInvTransferOrder object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeInvTransferOrderRelatedByIntbwhsefrom(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhsefrom)
+    {
+        if ($this->getInvTransferOrdersRelatedByIntbwhsefrom()->contains($invTransferOrderRelatedByIntbwhsefrom)) {
+            $pos = $this->collInvTransferOrdersRelatedByIntbwhsefrom->search($invTransferOrderRelatedByIntbwhsefrom);
+            $this->collInvTransferOrdersRelatedByIntbwhsefrom->remove($pos);
+            if (null === $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion) {
+                $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion = clone $this->collInvTransferOrdersRelatedByIntbwhsefrom;
+                $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion->clear();
+            }
+            $this->invTransferOrdersRelatedByIntbwhsefromScheduledForDeletion[]= clone $invTransferOrderRelatedByIntbwhsefrom;
+            $invTransferOrderRelatedByIntbwhsefrom->setWarehouseRelatedByIntbwhsefrom(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhsefrom from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhsefrom($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhsefrom from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhsefrom($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhsefrom from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsefromJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhsefrom($query, $con);
+    }
+
+    /**
+     * Clears out the collInvTransferOrdersRelatedByIntbwhseto collection
+     *
+     * This does not modify the database; however, it will remove any associated objects, causing
+     * them to be refetched by subsequent calls to accessor method.
+     *
+     * @return void
+     * @see        addInvTransferOrdersRelatedByIntbwhseto()
+     */
+    public function clearInvTransferOrdersRelatedByIntbwhseto()
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhseto = null; // important to set this to NULL since that means it is uninitialized
+    }
+
+    /**
+     * Reset is the collInvTransferOrdersRelatedByIntbwhseto collection loaded partially.
+     */
+    public function resetPartialInvTransferOrdersRelatedByIntbwhseto($v = true)
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = $v;
+    }
+
+    /**
+     * Initializes the collInvTransferOrdersRelatedByIntbwhseto collection.
+     *
+     * By default this just sets the collInvTransferOrdersRelatedByIntbwhseto collection to an empty array (like clearcollInvTransferOrdersRelatedByIntbwhseto());
+     * however, you may wish to override this method in your stub class to provide setting appropriate
+     * to your application -- for example, setting the initial array to the values stored in database.
+     *
+     * @param      boolean $overrideExisting If set to true, the method call initializes
+     *                                        the collection even if it is not empty
+     *
+     * @return void
+     */
+    public function initInvTransferOrdersRelatedByIntbwhseto($overrideExisting = true)
+    {
+        if (null !== $this->collInvTransferOrdersRelatedByIntbwhseto && !$overrideExisting) {
+            return;
+        }
+
+        $collectionClassName = InvTransferOrderTableMap::getTableMap()->getCollectionClassName();
+
+        $this->collInvTransferOrdersRelatedByIntbwhseto = new $collectionClassName;
+        $this->collInvTransferOrdersRelatedByIntbwhseto->setModel('\InvTransferOrder');
+    }
+
+    /**
+     * Gets an array of ChildInvTransferOrder objects which contain a foreign key that references this object.
+     *
+     * If the $criteria is not null, it is used to always fetch the results from the database.
+     * Otherwise the results are fetched from the database the first time, then cached.
+     * Next time the same method is called without $criteria, the cached collection is returned.
+     * If this ChildWarehouse is new, it will return
+     * an empty collection or the current collection; the criteria is ignored on a new object.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     * @throws PropelException
+     */
+    public function getInvTransferOrdersRelatedByIntbwhseto(Criteria $criteria = null, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria  || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
+                // return empty collection
+                $this->initInvTransferOrdersRelatedByIntbwhseto();
+            } else {
+                $collInvTransferOrdersRelatedByIntbwhseto = ChildInvTransferOrderQuery::create(null, $criteria)
+                    ->filterByWarehouseRelatedByIntbwhseto($this)
+                    ->find($con);
+
+                if (null !== $criteria) {
+                    if (false !== $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && count($collInvTransferOrdersRelatedByIntbwhseto)) {
+                        $this->initInvTransferOrdersRelatedByIntbwhseto(false);
+
+                        foreach ($collInvTransferOrdersRelatedByIntbwhseto as $obj) {
+                            if (false == $this->collInvTransferOrdersRelatedByIntbwhseto->contains($obj)) {
+                                $this->collInvTransferOrdersRelatedByIntbwhseto->append($obj);
+                            }
+                        }
+
+                        $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = true;
+                    }
+
+                    return $collInvTransferOrdersRelatedByIntbwhseto;
+                }
+
+                if ($partial && $this->collInvTransferOrdersRelatedByIntbwhseto) {
+                    foreach ($this->collInvTransferOrdersRelatedByIntbwhseto as $obj) {
+                        if ($obj->isNew()) {
+                            $collInvTransferOrdersRelatedByIntbwhseto[] = $obj;
+                        }
+                    }
+                }
+
+                $this->collInvTransferOrdersRelatedByIntbwhseto = $collInvTransferOrdersRelatedByIntbwhseto;
+                $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = false;
+            }
+        }
+
+        return $this->collInvTransferOrdersRelatedByIntbwhseto;
+    }
+
+    /**
+     * Sets a collection of ChildInvTransferOrder objects related by a one-to-many relationship
+     * to the current object.
+     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
+     * and new objects from the given Propel collection.
+     *
+     * @param      Collection $invTransferOrdersRelatedByIntbwhseto A Propel collection.
+     * @param      ConnectionInterface $con Optional connection object
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function setInvTransferOrdersRelatedByIntbwhseto(Collection $invTransferOrdersRelatedByIntbwhseto, ConnectionInterface $con = null)
+    {
+        /** @var ChildInvTransferOrder[] $invTransferOrdersRelatedByIntbwhsetoToDelete */
+        $invTransferOrdersRelatedByIntbwhsetoToDelete = $this->getInvTransferOrdersRelatedByIntbwhseto(new Criteria(), $con)->diff($invTransferOrdersRelatedByIntbwhseto);
+
+
+        $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = $invTransferOrdersRelatedByIntbwhsetoToDelete;
+
+        foreach ($invTransferOrdersRelatedByIntbwhsetoToDelete as $invTransferOrderRelatedByIntbwhsetoRemoved) {
+            $invTransferOrderRelatedByIntbwhsetoRemoved->setWarehouseRelatedByIntbwhseto(null);
+        }
+
+        $this->collInvTransferOrdersRelatedByIntbwhseto = null;
+        foreach ($invTransferOrdersRelatedByIntbwhseto as $invTransferOrderRelatedByIntbwhseto) {
+            $this->addInvTransferOrderRelatedByIntbwhseto($invTransferOrderRelatedByIntbwhseto);
+        }
+
+        $this->collInvTransferOrdersRelatedByIntbwhseto = $invTransferOrdersRelatedByIntbwhseto;
+        $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = false;
+
+        return $this;
+    }
+
+    /**
+     * Returns the number of related InvTransferOrder objects.
+     *
+     * @param      Criteria $criteria
+     * @param      boolean $distinct
+     * @param      ConnectionInterface $con
+     * @return int             Count of related InvTransferOrder objects.
+     * @throws PropelException
+     */
+    public function countInvTransferOrdersRelatedByIntbwhseto(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
+    {
+        $partial = $this->collInvTransferOrdersRelatedByIntbwhsetoPartial && !$this->isNew();
+        if (null === $this->collInvTransferOrdersRelatedByIntbwhseto || null !== $criteria || $partial) {
+            if ($this->isNew() && null === $this->collInvTransferOrdersRelatedByIntbwhseto) {
+                return 0;
+            }
+
+            if ($partial && !$criteria) {
+                return count($this->getInvTransferOrdersRelatedByIntbwhseto());
+            }
+
+            $query = ChildInvTransferOrderQuery::create(null, $criteria);
+            if ($distinct) {
+                $query->distinct();
+            }
+
+            return $query
+                ->filterByWarehouseRelatedByIntbwhseto($this)
+                ->count($con);
+        }
+
+        return count($this->collInvTransferOrdersRelatedByIntbwhseto);
+    }
+
+    /**
+     * Method called to associate a ChildInvTransferOrder object to this object
+     * through the ChildInvTransferOrder foreign key attribute.
+     *
+     * @param  ChildInvTransferOrder $l ChildInvTransferOrder
+     * @return $this|\Warehouse The current object (for fluent API support)
+     */
+    public function addInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $l)
+    {
+        if ($this->collInvTransferOrdersRelatedByIntbwhseto === null) {
+            $this->initInvTransferOrdersRelatedByIntbwhseto();
+            $this->collInvTransferOrdersRelatedByIntbwhsetoPartial = true;
+        }
+
+        if (!$this->collInvTransferOrdersRelatedByIntbwhseto->contains($l)) {
+            $this->doAddInvTransferOrderRelatedByIntbwhseto($l);
+
+            if ($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion and $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->contains($l)) {
+                $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->remove($this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->search($l));
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @param ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto The ChildInvTransferOrder object to add.
+     */
+    protected function doAddInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto)
+    {
+        $this->collInvTransferOrdersRelatedByIntbwhseto[]= $invTransferOrderRelatedByIntbwhseto;
+        $invTransferOrderRelatedByIntbwhseto->setWarehouseRelatedByIntbwhseto($this);
+    }
+
+    /**
+     * @param  ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto The ChildInvTransferOrder object to remove.
+     * @return $this|ChildWarehouse The current object (for fluent API support)
+     */
+    public function removeInvTransferOrderRelatedByIntbwhseto(ChildInvTransferOrder $invTransferOrderRelatedByIntbwhseto)
+    {
+        if ($this->getInvTransferOrdersRelatedByIntbwhseto()->contains($invTransferOrderRelatedByIntbwhseto)) {
+            $pos = $this->collInvTransferOrdersRelatedByIntbwhseto->search($invTransferOrderRelatedByIntbwhseto);
+            $this->collInvTransferOrdersRelatedByIntbwhseto->remove($pos);
+            if (null === $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion) {
+                $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion = clone $this->collInvTransferOrdersRelatedByIntbwhseto;
+                $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion->clear();
+            }
+            $this->invTransferOrdersRelatedByIntbwhsetoScheduledForDeletion[]= clone $invTransferOrderRelatedByIntbwhseto;
+            $invTransferOrderRelatedByIntbwhseto->setWarehouseRelatedByIntbwhseto(null);
+        }
+
+        return $this;
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhseto from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomer(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Customer', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhseto($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhseto from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinCustomerShipto(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('CustomerShipto', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhseto($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this Warehouse is new, it will return
+     * an empty collection; or if this Warehouse has previously
+     * been saved, it will retrieve related InvTransferOrdersRelatedByIntbwhseto from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in Warehouse.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferOrder[] List of ChildInvTransferOrder objects
+     */
+    public function getInvTransferOrdersRelatedByIntbwhsetoJoinVendor(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferOrderQuery::create(null, $criteria);
+        $query->joinWith('Vendor', $joinBehavior);
+
+        return $this->getInvTransferOrdersRelatedByIntbwhseto($query, $con);
+    }
+
+    /**
      * Clears out the collWarehouseInventories collection
      *
      * This does not modify the database; however, it will remove any associated objects, causing
@@ -5270,6 +5985,16 @@ abstract class Warehouse implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
+            if ($this->collInvTransferOrdersRelatedByIntbwhsefrom) {
+                foreach ($this->collInvTransferOrdersRelatedByIntbwhsefrom as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
+            if ($this->collInvTransferOrdersRelatedByIntbwhseto) {
+                foreach ($this->collInvTransferOrdersRelatedByIntbwhseto as $o) {
+                    $o->clearAllReferences($deep);
+                }
+            }
             if ($this->collWarehouseInventories) {
                 foreach ($this->collWarehouseInventories as $o) {
                     $o->clearAllReferences($deep);
@@ -5291,6 +6016,8 @@ abstract class Warehouse implements ActiveRecordInterface
         $this->collWarehouseBins = null;
         $this->collInvWhseLots = null;
         $this->collInvLotTags = null;
+        $this->collInvTransferOrdersRelatedByIntbwhsefrom = null;
+        $this->collInvTransferOrdersRelatedByIntbwhseto = null;
         $this->collWarehouseInventories = null;
         $this->collWarehouseNotes = null;
         $this->collPoReceivingHeads = null;
@@ -5313,9 +6040,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function preSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preSave')) {
-            // return parent::preSave($con);
-        }
+        // if (is_callable('parent::preSave')) {
+        //     return parent::preSave($con);
+        // }
         return true;
     }
 
@@ -5325,9 +6052,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function postSave(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postSave')) {
-            // parent::postSave($con);
-        }
+        // if (is_callable('parent::postSave')) {
+        //     parent::postSave($con);
+        // }
     }
 
     /**
@@ -5337,9 +6064,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function preInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preInsert')) {
-            // return parent::preInsert($con);
-        }
+        // if (is_callable('parent::preInsert')) {
+        //     return parent::preInsert($con);
+        // }
         return true;
     }
 
@@ -5349,9 +6076,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function postInsert(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postInsert')) {
-            // parent::postInsert($con);
-        }
+        // if (is_callable('parent::postInsert')) {
+        //     parent::postInsert($con);
+        // }
     }
 
     /**
@@ -5361,9 +6088,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function preUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preUpdate')) {
-            // return parent::preUpdate($con);
-        }
+        // if (is_callable('parent::preUpdate')) {
+        //     return parent::preUpdate($con);
+        // }
         return true;
     }
 
@@ -5373,9 +6100,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function postUpdate(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postUpdate')) {
-            // parent::postUpdate($con);
-        }
+        // if (is_callable('parent::postUpdate')) {
+        //     parent::postUpdate($con);
+        // }
     }
 
     /**
@@ -5385,9 +6112,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function preDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::preDelete')) {
-            // return parent::preDelete($con);
-        }
+        // if (is_callable('parent::preDelete')) {
+        //     return parent::preDelete($con);
+        // }
         return true;
     }
 
@@ -5397,9 +6124,9 @@ abstract class Warehouse implements ActiveRecordInterface
      */
     public function postDelete(ConnectionInterface $con = null)
     {
-        if (is_callable('parent::postDelete')) {
-            // parent::postDelete($con);
-        }
+        // if (is_callable('parent::postDelete')) {
+        //     parent::postDelete($con);
+        // }
     }
 
 

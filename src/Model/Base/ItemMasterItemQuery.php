@@ -380,6 +380,36 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithInvSerialMaster() Adds a RIGHT JOIN clause and with to the query using the InvSerialMaster relation
  * @method     ChildItemMasterItemQuery innerJoinWithInvSerialMaster() Adds a INNER JOIN clause and with to the query using the InvSerialMaster relation
  *
+ * @method     ChildItemMasterItemQuery leftJoinInvTransferDetail($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinInvTransferDetail($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinInvTransferDetail($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferDetail relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvTransferDetail($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferDetail relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvTransferDetail() Adds a LEFT JOIN clause and with to the query using the InvTransferDetail relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvTransferDetail() Adds a RIGHT JOIN clause and with to the query using the InvTransferDetail relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvTransferDetail() Adds a INNER JOIN clause and with to the query using the InvTransferDetail relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvTransferLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinInvTransferLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinInvTransferLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvTransferLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvTransferLotserial() Adds a LEFT JOIN clause and with to the query using the InvTransferLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvTransferLotserial() Adds a RIGHT JOIN clause and with to the query using the InvTransferLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvTransferLotserial() Adds a INNER JOIN clause and with to the query using the InvTransferLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinInvTransferPickedLotserial($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferPickedLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinInvTransferPickedLotserial($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferPickedLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinInvTransferPickedLotserial($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferPickedLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery joinWithInvTransferPickedLotserial($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferPickedLotserial relation
+ *
+ * @method     ChildItemMasterItemQuery leftJoinWithInvTransferPickedLotserial() Adds a LEFT JOIN clause and with to the query using the InvTransferPickedLotserial relation
+ * @method     ChildItemMasterItemQuery rightJoinWithInvTransferPickedLotserial() Adds a RIGHT JOIN clause and with to the query using the InvTransferPickedLotserial relation
+ * @method     ChildItemMasterItemQuery innerJoinWithInvTransferPickedLotserial() Adds a INNER JOIN clause and with to the query using the InvTransferPickedLotserial relation
+ *
  * @method     ChildItemMasterItemQuery leftJoinInvSerialWarranty($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvSerialWarranty relation
  * @method     ChildItemMasterItemQuery rightJoinInvSerialWarranty($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvSerialWarranty relation
  * @method     ChildItemMasterItemQuery innerJoinInvSerialWarranty($relationAlias = null) Adds a INNER JOIN clause to the query using the InvSerialWarranty relation
@@ -630,7 +660,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildItemMasterItemQuery rightJoinWithItemXrefVendor() Adds a RIGHT JOIN clause and with to the query using the ItemXrefVendor relation
  * @method     ChildItemMasterItemQuery innerJoinWithItemXrefVendor() Adds a INNER JOIN clause and with to the query using the ItemXrefVendor relation
  *
- * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \UnitofMeasureSaleQuery|\UnitofMeasurePurchaseQuery|\InvGroupCodeQuery|\InvPriceCodeQuery|\InvCommissionCodeQuery|\ItemPricingQuery|\ItemXrefCustomerQuery|\InvWhseItemBinQuery|\ItemAddonItemQuery|\ItmDimensionQuery|\InvHazmatItemQuery|\InvWhseLotQuery|\ItemSubstituteQuery|\InvLotTagQuery|\InvItem2ItemQuery|\InvKitComponentQuery|\InvKitQuery|\InvLotMasterQuery|\InvSerialMasterQuery|\InvTransferDetailQuery|\InvTransferLotserialQuery|\InvTransferPickedLotserialQuery|\InvSerialWarrantyQuery|\WarehouseInventoryQuery|\ItemXrefKeyQuery|\ItemXrefManufacturerQuery|\ItemXrefCustomerNoteQuery|\InvOptCodeNoteQuery|\ItemXrefVendorNoteDetailQuery|\ItemXrefVendorNoteInternalQuery|\PurchaseOrderDetailQuery|\PurchaseOrderDetailReceiptQuery|\PurchaseOrderDetailReceivingQuery|\PurchaseOrderDetailLotReceivingQuery|\BomComponentQuery|\BomItemQuery|\BookingDetailQuery|\SalesHistoryDetailQuery|\SalesOrderDetailQuery|\SalesOrderLotserialQuery|\SalesHistoryLotserialQuery|\SoAllocatedLotserialQuery|\ItemPricingDiscountQuery|\SoPickedLotserialQuery|\SoStandingOrderDetailQuery|\ItemXrefUpcQuery|\ItemXrefVendorQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildItemMasterItem findOne(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query
  * @method     ChildItemMasterItem findOneOrCreate(ConnectionInterface $con = null) Return the first ChildItemMasterItem matching the query, or a new ChildItemMasterItem object populated from the query conditions when no match is found
@@ -4565,6 +4595,225 @@ abstract class ItemMasterItemQuery extends ModelCriteria
         return $this
             ->joinInvSerialMaster($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvSerialMaster', '\InvSerialMasterQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferDetail object
+     *
+     * @param \InvTransferDetail|ObjectCollection $invTransferDetail the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferDetail($invTransferDetail, $comparison = null)
+    {
+        if ($invTransferDetail instanceof \InvTransferDetail) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferDetail->getInititemnbr(), $comparison);
+        } elseif ($invTransferDetail instanceof ObjectCollection) {
+            return $this
+                ->useInvTransferDetailQuery()
+                ->filterByPrimaryKeys($invTransferDetail->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvTransferDetail() only accepts arguments of type \InvTransferDetail or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferDetail relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvTransferDetail($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferDetail');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferDetail');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferDetail relation InvTransferDetail object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferDetailQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferDetailQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferDetail($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferDetail', '\InvTransferDetailQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferLotserial object
+     *
+     * @param \InvTransferLotserial|ObjectCollection $invTransferLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferLotserial($invTransferLotserial, $comparison = null)
+    {
+        if ($invTransferLotserial instanceof \InvTransferLotserial) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferLotserial->getInititemnbr(), $comparison);
+        } elseif ($invTransferLotserial instanceof ObjectCollection) {
+            return $this
+                ->useInvTransferLotserialQuery()
+                ->filterByPrimaryKeys($invTransferLotserial->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvTransferLotserial() only accepts arguments of type \InvTransferLotserial or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvTransferLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferLotserial relation InvTransferLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferLotserial', '\InvTransferLotserialQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferPickedLotserial object
+     *
+     * @param \InvTransferPickedLotserial|ObjectCollection $invTransferPickedLotserial the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferPickedLotserial($invTransferPickedLotserial, $comparison = null)
+    {
+        if ($invTransferPickedLotserial instanceof \InvTransferPickedLotserial) {
+            return $this
+                ->addUsingAlias(ItemMasterItemTableMap::COL_INITITEMNBR, $invTransferPickedLotserial->getInititemnbr(), $comparison);
+        } elseif ($invTransferPickedLotserial instanceof ObjectCollection) {
+            return $this
+                ->useInvTransferPickedLotserialQuery()
+                ->filterByPrimaryKeys($invTransferPickedLotserial->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvTransferPickedLotserial() only accepts arguments of type \InvTransferPickedLotserial or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferPickedLotserial relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildItemMasterItemQuery The current query, for fluid interface
+     */
+    public function joinInvTransferPickedLotserial($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferPickedLotserial');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferPickedLotserial');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferPickedLotserial relation InvTransferPickedLotserial object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferPickedLotserialQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferPickedLotserialQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferPickedLotserial($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferPickedLotserial', '\InvTransferPickedLotserialQuery');
     }
 
     /**

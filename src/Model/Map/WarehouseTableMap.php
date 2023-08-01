@@ -360,6 +360,20 @@ class WarehouseTableMap extends TableMap
     1 => ':IntbWhse',
   ),
 ), null, null, 'InvLotTags', false);
+        $this->addRelation('InvTransferOrderRelatedByIntbwhsefrom', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhseFrom',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'InvTransferOrdersRelatedByIntbwhsefrom', false);
+        $this->addRelation('InvTransferOrderRelatedByIntbwhseto', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':IntbWhseTo',
+    1 => ':IntbWhse',
+  ),
+), null, null, 'InvTransferOrdersRelatedByIntbwhseto', false);
         $this->addRelation('WarehouseInventory', '\\WarehouseInventory', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

@@ -753,6 +753,18 @@ class CustomerShiptoTableMap extends TableMap
     1 => ':ArstShipId',
   ),
 ), null, null, 'ArContacts', false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+  1 =>
+  array (
+    0 => ':ArstShipId',
+    1 => ':ArstShipId',
+  ),
+), null, null, 'InvTransferOrders', false);
         $this->addRelation('NoteCustInternal', '\\NoteCustInternal', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

@@ -2694,6 +2694,196 @@
       <parameter name="Engine" value="InnoDB"/>
     </vendor>
   </table>
+  <table name="inv_trans_det" idMethod="native" phpName="InvTransferDetail">
+    <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IndtLine" phpName="Indtline" type="INTEGER" size="5" sqlType="int(5) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IndtQtyRqst" phpName="Indtqtyrqst" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IndtQtyShip" phpName="Indtqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IndtRqstDate" phpName="Indtrqstdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IndtShipDate" phpName="Indtshipdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IndtPickFlag" phpName="Indtpickflag" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IndtBordFlag" phpName="Indtbordflag" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IndtQtyPrev" phpName="Indtqtyprev" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IndtQtyRcvd" phpName="Indtqtyrcvd" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IndtToBeRcvd" phpName="Indttobercvd" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="IndtRcptDate" phpName="Indtrcptdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IndtSoNbr" phpName="Indtsonbr" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="IndtKitFlag" phpName="Indtkitflag" type="CHAR" required="true" defaultValue="N"/>
+    <column name="IndtUseItemNbr" phpName="Indtuseitemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IndtCustItemNbr" phpName="Indtcustitemnbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="IndtCntrQty" phpName="Indtcntrqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="IndtCases" phpName="Indtcases" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="IndtOrigRqstDate" phpName="Indtorigrqstdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="IndtOrdrAs" phpName="Indtordras" type="CHAR" required="true" defaultValue=""/>
+    <column name="IndtFreshFrozen" phpName="Indtfreshfrozen" type="CHAR" required="true" defaultValue=""/>
+    <column name="IndtPrimBin" phpName="Indtprimbin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_trans_head" name="transferOrder">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_trans_head" idMethod="native" phpName="InvTransferOrder">
+    <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InhdStat" phpName="Inhdstat" type="CHAR" required="true" defaultValue="S"/>
+    <column name="IntbWhseFrom" phpName="Intbwhsefrom" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="IntbWhseTo" phpName="Intbwhseto" type="VARCHAR" size="2" required="true" defaultValue=""/>
+    <column name="ArtbShipVia" phpName="Artbshipvia" type="VARCHAR" size="4" required="true" defaultValue=""/>
+    <column name="InhdEntDate" phpName="Inhdentdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdRef" phpName="Inhdref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InhdPickDate" phpName="Inhdpickdate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdPickTime" phpName="Inhdpicktime" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdTimesPick" phpName="Inhdtimespick" type="INTEGER" size="4" sqlType="int(4) unsigned" required="true" defaultValue="0"/>
+    <column name="InhdCrntUser" phpName="Inhdcrntuser" type="VARCHAR" size="12" required="true" defaultValue=""/>
+    <column name="ArcuCustId" phpName="Arcucustid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="ArstShipId" phpName="Arstshipid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InhdDept" phpName="Inhddept" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdPllt" phpName="Inhdpllt" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InhdCntrQty" phpName="Inhdcntrqty" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InhdWghtTot" phpName="Inhdwghttot" type="INTEGER" size="8" sqlType="int(8) unsigned" required="true" defaultValue="0"/>
+    <column name="InhdTrackNbr" phpName="Inhdtracknbr" type="VARCHAR" size="30" required="true" defaultValue=""/>
+    <column name="InhdPickQueue" phpName="Inhdpickqueue" type="CHAR" required="true" defaultValue="N"/>
+    <column name="InhdShipQueue" phpName="Inhdshipqueue" type="CHAR" required="true" defaultValue="N"/>
+    <column name="ApveVendId" phpName="Apvevendid" type="VARCHAR" size="6" required="true" defaultValue=""/>
+    <column name="InhdFTVend" phpName="Inhdftvend" type="CHAR" required="true" defaultValue=""/>
+    <column name="InhdTranType" phpName="Inhdtrantype" type="CHAR" required="true" defaultValue="S"/>
+    <column name="InhdFrtCost" phpName="Inhdfrtcost" type="DECIMAL" size="20" scale="2" required="true" defaultValue="0.00"/>
+    <column name="InhdPickCode" phpName="Inhdpickcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdPackCode" phpName="Inhdpackcode" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdHold" phpName="Inhdhold" type="CHAR" required="true" defaultValue="N"/>
+    <column name="InhdLabel1PrtFmt" phpName="Inhdlabel1prtfmt" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdEnteredBy" phpName="Inhdenteredby" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdEnteredDate" phpName="Inhdentereddate" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InhdEnteredTime" phpName="Inhdenteredtime" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_whse_code" name="warehouseFrom">
+      <reference local="IntbWhseFrom" foreign="IntbWhse"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_whse_code" name="warehouseTo">
+      <reference local="IntbWhseTo" foreign="IntbWhse"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ar_ship_to" name="shipto" skipSql="true">
+      <reference local="ArcuCustId" foreign="ArcuCustId"/>
+      <reference local="ArstShipId" foreign="ArstShipId"/>
+    </foreign-key>
+    <foreign-key foreignTable="ap_vend_mast" name="vendor" skipSql="true">
+      <reference local="ApveVendId" foreign="ApveVendId"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_trans_lotser" idMethod="native" phpName="InvTransferLotserial">
+    <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IndtLine" phpName="Indtline" type="INTEGER" size="5" sqlType="int(5) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InsdLotSer" phpName="Insdlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InsdBin" phpName="Insdbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InsdPlltNbr" phpName="Insdplltnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InsdCrtnNbr" phpName="Insdcrtnnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InsdQtyResv" phpName="Insdqtyresv" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InsdQtyShip" phpName="Insdqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InsdQtyNotPost" phpName="Insdqtynotpost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InsdUnitCost" phpName="Insdunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InsdLotSerFrom" phpName="Insdlotserfrom" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InsdBinFrom" phpName="Insdbinfrom" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InsdCases" phpName="Insdcases" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InsdTag" phpName="Insdtag" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InsdInspctLvl" phpName="Insdinspctlvl" type="CHAR" required="true" defaultValue=""/>
+    <column name="InsdLotRef" phpName="Insdlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InsdCrtnQty" phpName="Insdcrtnqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="InsdDateShipped" phpName="Insddateshipped" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="InsdToWhseBin" phpName="Insdtowhsebin" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InsdLblPrtd" phpName="Insdlblprtd" type="CHAR" required="true" defaultValue=""/>
+    <column name="InsdBatch" phpName="Insdbatch" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="InsdCureDate" phpName="Insdcuredate" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="InsdBinTo" phpName="Insdbinto" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_head" name="transferOrder">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_det" name="transferDetail">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+      <reference local="IndtLine" foreign="IndtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lot" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InsdLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_ser_mast" name="serial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InsdLotSer" foreign="SermSerNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
+  <table name="inv_trans_pulled" idMethod="native" phpName="InvTransferPickedLotserial">
+    <column name="InhdNbr" phpName="Inhdnbr" type="INTEGER" size="8" sqlType="int(8) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="IndtLine" phpName="Indtline" type="INTEGER" size="5" sqlType="int(5) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InitItemNbr" phpName="Inititemnbr" type="VARCHAR" size="30" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InpdLotSer" phpName="Inpdlotser" type="VARCHAR" size="20" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InpdBin" phpName="Inpdbin" type="VARCHAR" size="8" primaryKey="true" required="true" defaultValue=""/>
+    <column name="InpdPlltNbr" phpName="Inpdplltnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InpdCrtnNbr" phpName="Inpdcrtnnbr" type="INTEGER" size="4" sqlType="int(4) unsigned" primaryKey="true" required="true" defaultValue="0"/>
+    <column name="InpdQtyResv" phpName="Inpdqtyresv" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InpdQtyShip" phpName="Inpdqtyship" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InpdQtyNotPost" phpName="Inpdqtynotpost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InpdUnitCost" phpName="Inpdunitcost" type="DECIMAL" size="20" scale="7" required="true" defaultValue="0.0000000"/>
+    <column name="InpdLotSerFrom" phpName="Inpdlotserfrom" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InpdBinFrom" phpName="Inpdbinfrom" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="InpdCases" phpName="Inpdcases" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InpdTag" phpName="Inpdtag" type="INTEGER" size="5" sqlType="int(5) unsigned" required="true" defaultValue="0"/>
+    <column name="InpdInspctLvl" phpName="Inpdinspctlvl" type="CHAR" required="true" defaultValue=""/>
+    <column name="InpdLotRef" phpName="Inpdlotref" type="VARCHAR" size="20" required="true" defaultValue=""/>
+    <column name="InpdCrtnQty" phpName="Inpdcrtnqty" type="DECIMAL" size="20" scale="0" required="true" defaultValue="0"/>
+    <column name="InpdLblPrtd" phpName="Inpdlblprtd" type="CHAR" required="true" defaultValue=""/>
+    <column name="InpdBatch" phpName="Inpdbatch" type="VARCHAR" size="15" required="true" defaultValue=""/>
+    <column name="InpdCureDate" phpName="Inpdcuredate" type="VARCHAR" size="10" required="true" defaultValue=""/>
+    <column name="InpdBinTo" phpName="Inpdbinto" type="VARCHAR" size="8" required="true" defaultValue=""/>
+    <column name="DateUpdtd" phpName="Dateupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="TimeUpdtd" phpName="Timeupdtd" type="CHAR" size="8" required="true" defaultValue=""/>
+    <column name="dummy" phpName="Dummy" type="CHAR" required="true" defaultValue="P"/>
+    <foreign-key foreignTable="inv_item_mast" name="item" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_head" name="transferOrder">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_trans_det" name="transferDetail">
+      <reference local="InhdNbr" foreign="InhdNbr"/>
+      <reference local="IndtLine" foreign="IndtLine"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_lot_mast" name="lot" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InpdLotSer" foreign="LotmLotNbr"/>
+    </foreign-key>
+    <foreign-key foreignTable="inv_ser_mast" name="serial" skipSql="true">
+      <reference local="InitItemNbr" foreign="InitItemNbr"/>
+      <reference local="InpdLotSer" foreign="SermSerNbr"/>
+    </foreign-key>
+    <vendor type="mysql">
+      <parameter name="Engine" value="InnoDB"/>
+    </vendor>
+  </table>
   <table name="inv_trco_code" idMethod="native" phpName="TariffCodeCountry">
     <column name="IntbTariCode" phpName="Intbtaricode" type="VARCHAR" size="8" primaryKey="true" required="true"/>
     <column name="IntbTrcoCtry" phpName="Intbtrcoctry" type="VARCHAR" size="4" primaryKey="true" required="true" defaultValue=""/>
@@ -2766,7 +2956,7 @@
       <reference local="InitItemNbr" foreign="InitItemNbr"/>
       <reference local="SermSerNbr" foreign="SermSerNbr"/>
     </foreign-key>
-     <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
+    <foreign-key foreignTable="ar_cust_mast" name="customer" skipSql="true">
       <reference local="ArcuCustId" foreign="ArcuCustId"/>
     </foreign-key>
     <vendor type="mysql">

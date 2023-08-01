@@ -672,6 +672,27 @@ class ItemMasterItemTableMap extends TableMap
     1 => ':InitItemNbr',
   ),
 ), null, null, 'InvSerialMasters', false);
+        $this->addRelation('InvTransferDetail', '\\InvTransferDetail', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvTransferDetails', false);
+        $this->addRelation('InvTransferLotserial', '\\InvTransferLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvTransferLotserials', false);
+        $this->addRelation('InvTransferPickedLotserial', '\\InvTransferPickedLotserial', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':InitItemNbr',
+    1 => ':InitItemNbr',
+  ),
+), null, null, 'InvTransferPickedLotserials', false);
         $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

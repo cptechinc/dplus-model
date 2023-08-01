@@ -2,22 +2,19 @@
 
 namespace Base;
 
-use \InvLotTag as ChildInvLotTag;
-use \InvLotTagQuery as ChildInvLotTagQuery;
-use \InvSerialMaster as ChildInvSerialMaster;
-use \InvSerialMasterQuery as ChildInvSerialMasterQuery;
-use \InvSerialWarranty as ChildInvSerialWarranty;
-use \InvSerialWarrantyQuery as ChildInvSerialWarrantyQuery;
+use \InvTransferDetail as ChildInvTransferDetail;
+use \InvTransferDetailQuery as ChildInvTransferDetailQuery;
 use \InvTransferLotserial as ChildInvTransferLotserial;
 use \InvTransferLotserialQuery as ChildInvTransferLotserialQuery;
+use \InvTransferOrder as ChildInvTransferOrder;
+use \InvTransferOrderQuery as ChildInvTransferOrderQuery;
 use \InvTransferPickedLotserial as ChildInvTransferPickedLotserial;
 use \InvTransferPickedLotserialQuery as ChildInvTransferPickedLotserialQuery;
 use \ItemMasterItem as ChildItemMasterItem;
 use \ItemMasterItemQuery as ChildItemMasterItemQuery;
 use \Exception;
 use \PDO;
-use Map\InvLotTagTableMap;
-use Map\InvSerialMasterTableMap;
+use Map\InvTransferDetailTableMap;
 use Map\InvTransferLotserialTableMap;
 use Map\InvTransferPickedLotserialTableMap;
 use Propel\Runtime\Propel;
@@ -34,18 +31,18 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'inv_ser_mast' table.
+ * Base class that represents a row from the 'inv_trans_det' table.
  *
  *
  *
  * @package    propel.generator..Base
  */
-abstract class InvSerialMaster implements ActiveRecordInterface
+abstract class InvTransferDetail implements ActiveRecordInterface
 {
     /**
      * TableMap class name
      */
-    const TABLE_MAP = '\\Map\\InvSerialMasterTableMap';
+    const TABLE_MAP = '\\Map\\InvTransferDetailTableMap';
 
 
     /**
@@ -75,6 +72,22 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     protected $virtualColumns = array();
 
     /**
+     * The value for the inhdnbr field.
+     *
+     * Note: this column has a database default value of: 0
+     * @var        int
+     */
+    protected $inhdnbr;
+
+    /**
+     * The value for the indtline field.
+     *
+     * Note: this column has a database default value of: 0
+     * @var        int
+     */
+    protected $indtline;
+
+    /**
      * The value for the inititemnbr field.
      *
      * Note: this column has a database default value of: ''
@@ -83,72 +96,169 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     protected $inititemnbr;
 
     /**
-     * The value for the sermsernbr field.
+     * The value for the indtqtyrqst field.
+     *
+     * Note: this column has a database default value of: '0.0000000'
+     * @var        string
+     */
+    protected $indtqtyrqst;
+
+    /**
+     * The value for the indtqtyship field.
+     *
+     * Note: this column has a database default value of: '0.0000000'
+     * @var        string
+     */
+    protected $indtqtyship;
+
+    /**
+     * The value for the indtrqstdate field.
      *
      * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $sermsernbr;
+    protected $indtrqstdate;
 
     /**
-     * The value for the sermproddate field.
+     * The value for the indtshipdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $sermproddate;
+    protected $indtshipdate;
 
     /**
-     * The value for the sermprntcnt field.
+     * The value for the indtpickflag field.
      *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $indtpickflag;
+
+    /**
+     * The value for the indtbordflag field.
+     *
+     * Note: this column has a database default value of: 'N'
+     * @var        string
+     */
+    protected $indtbordflag;
+
+    /**
+     * The value for the indtqtyprev field.
+     *
+     * Note: this column has a database default value of: '0.0000000'
+     * @var        string
+     */
+    protected $indtqtyprev;
+
+    /**
+     * The value for the indtqtyrcvd field.
+     *
+     * Note: this column has a database default value of: '0.0000000'
+     * @var        string
+     */
+    protected $indtqtyrcvd;
+
+    /**
+     * The value for the indttobercvd field.
+     *
+     * Note: this column has a database default value of: '0.0000000'
+     * @var        string
+     */
+    protected $indttobercvd;
+
+    /**
+     * The value for the indtrcptdate field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $indtrcptdate;
+
+    /**
+     * The value for the indtsonbr field.
+     *
+     * Note: this column has a database default value of: 0
      * @var        int
      */
-    protected $sermprntcnt;
+    protected $indtsonbr;
 
     /**
-     * The value for the sermsordnbr field.
+     * The value for the indtkitflag field.
      *
+     * Note: this column has a database default value of: 'N'
      * @var        string
      */
-    protected $sermsordnbr;
+    protected $indtkitflag;
 
     /**
-     * The value for the serminvcdate field.
+     * The value for the indtuseitemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $serminvcdate;
+    protected $indtuseitemnbr;
 
     /**
-     * The value for the sermrevision field.
+     * The value for the indtcustitemnbr field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $sermrevision;
+    protected $indtcustitemnbr;
 
     /**
-     * The value for the sermctry field.
+     * The value for the indtcntrqty field.
      *
+     * Note: this column has a database default value of: '0'
      * @var        string
      */
-    protected $sermctry;
+    protected $indtcntrqty;
 
     /**
-     * The value for the sermacallocordr field.
+     * The value for the indtcases field.
      *
+     * Note: this column has a database default value of: '0.00'
      * @var        string
      */
-    protected $sermacallocordr;
+    protected $indtcases;
 
     /**
-     * The value for the sermrefsernbr field.
+     * The value for the indtorigrqstdate field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
-    protected $sermrefsernbr;
+    protected $indtorigrqstdate;
+
+    /**
+     * The value for the indtordras field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $indtordras;
+
+    /**
+     * The value for the indtfreshfrozen field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $indtfreshfrozen;
+
+    /**
+     * The value for the indtprimbin field.
+     *
+     * Note: this column has a database default value of: ''
+     * @var        string
+     */
+    protected $indtprimbin;
 
     /**
      * The value for the dateupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $dateupdtd;
@@ -156,6 +266,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * The value for the timeupdtd field.
      *
+     * Note: this column has a database default value of: ''
      * @var        string
      */
     protected $timeupdtd;
@@ -163,20 +274,20 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * The value for the dummy field.
      *
+     * Note: this column has a database default value of: 'P'
      * @var        string
      */
     protected $dummy;
 
     /**
+     * @var        ChildInvTransferOrder
+     */
+    protected $aInvTransferOrder;
+
+    /**
      * @var        ChildItemMasterItem
      */
     protected $aItemMasterItem;
-
-    /**
-     * @var        ObjectCollection|ChildInvLotTag[] Collection to store aggregation of ChildInvLotTag objects.
-     */
-    protected $collInvLotTags;
-    protected $collInvLotTagsPartial;
 
     /**
      * @var        ObjectCollection|ChildInvTransferLotserial[] Collection to store aggregation of ChildInvTransferLotserial objects.
@@ -191,23 +302,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     protected $collInvTransferPickedLotserialsPartial;
 
     /**
-     * @var        ChildInvSerialWarranty one-to-one related ChildInvSerialWarranty object
-     */
-    protected $singleInvSerialWarranty;
-
-    /**
      * Flag to prevent endless save loop, if this object is referenced
      * by another object which falls in this transaction.
      *
      * @var boolean
      */
     protected $alreadyInSave = false;
-
-    /**
-     * An array of objects scheduled for deletion.
-     * @var ObjectCollection|ChildInvLotTag[]
-     */
-    protected $invLotTagsScheduledForDeletion = null;
 
     /**
      * An array of objects scheduled for deletion.
@@ -229,12 +329,36 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function applyDefaultValues()
     {
+        $this->inhdnbr = 0;
+        $this->indtline = 0;
         $this->inititemnbr = '';
-        $this->sermsernbr = '';
+        $this->indtqtyrqst = '0.0000000';
+        $this->indtqtyship = '0.0000000';
+        $this->indtrqstdate = '';
+        $this->indtshipdate = '';
+        $this->indtpickflag = 'N';
+        $this->indtbordflag = 'N';
+        $this->indtqtyprev = '0.0000000';
+        $this->indtqtyrcvd = '0.0000000';
+        $this->indttobercvd = '0.0000000';
+        $this->indtrcptdate = '';
+        $this->indtsonbr = 0;
+        $this->indtkitflag = 'N';
+        $this->indtuseitemnbr = '';
+        $this->indtcustitemnbr = '';
+        $this->indtcntrqty = '0';
+        $this->indtcases = '0.00';
+        $this->indtorigrqstdate = '';
+        $this->indtordras = '';
+        $this->indtfreshfrozen = '';
+        $this->indtprimbin = '';
+        $this->dateupdtd = '';
+        $this->timeupdtd = '';
+        $this->dummy = 'P';
     }
 
     /**
-     * Initializes internal state of Base\InvSerialMaster object.
+     * Initializes internal state of Base\InvTransferDetail object.
      * @see applyDefaults()
      */
     public function __construct()
@@ -331,9 +455,9 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     }
 
     /**
-     * Compares this with another <code>InvSerialMaster</code> instance.  If
-     * <code>obj</code> is an instance of <code>InvSerialMaster</code>, delegates to
-     * <code>equals(InvSerialMaster)</code>.  Otherwise, returns <code>false</code>.
+     * Compares this with another <code>InvTransferDetail</code> instance.  If
+     * <code>obj</code> is an instance of <code>InvTransferDetail</code>, delegates to
+     * <code>equals(InvTransferDetail)</code>.  Otherwise, returns <code>false</code>.
      *
      * @param  mixed   $obj The object to compare to.
      * @return boolean Whether equal to the object specified.
@@ -399,7 +523,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @param string $name  The virtual column name
      * @param mixed  $value The value to give to the virtual column
      *
-     * @return $this|InvSerialMaster The current object, for fluid interface
+     * @return $this|InvTransferDetail The current object, for fluid interface
      */
     public function setVirtualColumn($name, $value)
     {
@@ -461,6 +585,26 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     }
 
     /**
+     * Get the [inhdnbr] column value.
+     *
+     * @return int
+     */
+    public function getInhdnbr()
+    {
+        return $this->inhdnbr;
+    }
+
+    /**
+     * Get the [indtline] column value.
+     *
+     * @return int
+     */
+    public function getIndtline()
+    {
+        return $this->indtline;
+    }
+
+    /**
      * Get the [inititemnbr] column value.
      *
      * @return string
@@ -471,93 +615,203 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     }
 
     /**
-     * Get the [sermsernbr] column value.
+     * Get the [indtqtyrqst] column value.
      *
      * @return string
      */
-    public function getSermsernbr()
+    public function getIndtqtyrqst()
     {
-        return $this->sermsernbr;
+        return $this->indtqtyrqst;
     }
 
     /**
-     * Get the [sermproddate] column value.
+     * Get the [indtqtyship] column value.
      *
      * @return string
      */
-    public function getSermproddate()
+    public function getIndtqtyship()
     {
-        return $this->sermproddate;
+        return $this->indtqtyship;
     }
 
     /**
-     * Get the [sermprntcnt] column value.
+     * Get the [indtrqstdate] column value.
+     *
+     * @return string
+     */
+    public function getIndtrqstdate()
+    {
+        return $this->indtrqstdate;
+    }
+
+    /**
+     * Get the [indtshipdate] column value.
+     *
+     * @return string
+     */
+    public function getIndtshipdate()
+    {
+        return $this->indtshipdate;
+    }
+
+    /**
+     * Get the [indtpickflag] column value.
+     *
+     * @return string
+     */
+    public function getIndtpickflag()
+    {
+        return $this->indtpickflag;
+    }
+
+    /**
+     * Get the [indtbordflag] column value.
+     *
+     * @return string
+     */
+    public function getIndtbordflag()
+    {
+        return $this->indtbordflag;
+    }
+
+    /**
+     * Get the [indtqtyprev] column value.
+     *
+     * @return string
+     */
+    public function getIndtqtyprev()
+    {
+        return $this->indtqtyprev;
+    }
+
+    /**
+     * Get the [indtqtyrcvd] column value.
+     *
+     * @return string
+     */
+    public function getIndtqtyrcvd()
+    {
+        return $this->indtqtyrcvd;
+    }
+
+    /**
+     * Get the [indttobercvd] column value.
+     *
+     * @return string
+     */
+    public function getIndttobercvd()
+    {
+        return $this->indttobercvd;
+    }
+
+    /**
+     * Get the [indtrcptdate] column value.
+     *
+     * @return string
+     */
+    public function getIndtrcptdate()
+    {
+        return $this->indtrcptdate;
+    }
+
+    /**
+     * Get the [indtsonbr] column value.
      *
      * @return int
      */
-    public function getSermprntcnt()
+    public function getIndtsonbr()
     {
-        return $this->sermprntcnt;
+        return $this->indtsonbr;
     }
 
     /**
-     * Get the [sermsordnbr] column value.
+     * Get the [indtkitflag] column value.
      *
      * @return string
      */
-    public function getSermsordnbr()
+    public function getIndtkitflag()
     {
-        return $this->sermsordnbr;
+        return $this->indtkitflag;
     }
 
     /**
-     * Get the [serminvcdate] column value.
+     * Get the [indtuseitemnbr] column value.
      *
      * @return string
      */
-    public function getSerminvcdate()
+    public function getIndtuseitemnbr()
     {
-        return $this->serminvcdate;
+        return $this->indtuseitemnbr;
     }
 
     /**
-     * Get the [sermrevision] column value.
+     * Get the [indtcustitemnbr] column value.
      *
      * @return string
      */
-    public function getSermrevision()
+    public function getIndtcustitemnbr()
     {
-        return $this->sermrevision;
+        return $this->indtcustitemnbr;
     }
 
     /**
-     * Get the [sermctry] column value.
+     * Get the [indtcntrqty] column value.
      *
      * @return string
      */
-    public function getSermctry()
+    public function getIndtcntrqty()
     {
-        return $this->sermctry;
+        return $this->indtcntrqty;
     }
 
     /**
-     * Get the [sermacallocordr] column value.
+     * Get the [indtcases] column value.
      *
      * @return string
      */
-    public function getSermacallocordr()
+    public function getIndtcases()
     {
-        return $this->sermacallocordr;
+        return $this->indtcases;
     }
 
     /**
-     * Get the [sermrefsernbr] column value.
+     * Get the [indtorigrqstdate] column value.
      *
      * @return string
      */
-    public function getSermrefsernbr()
+    public function getIndtorigrqstdate()
     {
-        return $this->sermrefsernbr;
+        return $this->indtorigrqstdate;
+    }
+
+    /**
+     * Get the [indtordras] column value.
+     *
+     * @return string
+     */
+    public function getIndtordras()
+    {
+        return $this->indtordras;
+    }
+
+    /**
+     * Get the [indtfreshfrozen] column value.
+     *
+     * @return string
+     */
+    public function getIndtfreshfrozen()
+    {
+        return $this->indtfreshfrozen;
+    }
+
+    /**
+     * Get the [indtprimbin] column value.
+     *
+     * @return string
+     */
+    public function getIndtprimbin()
+    {
+        return $this->indtprimbin;
     }
 
     /**
@@ -591,10 +845,54 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     }
 
     /**
+     * Set the value of [inhdnbr] column.
+     *
+     * @param int $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setInhdnbr($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->inhdnbr !== $v) {
+            $this->inhdnbr = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INHDNBR] = true;
+        }
+
+        if ($this->aInvTransferOrder !== null && $this->aInvTransferOrder->getInhdnbr() !== $v) {
+            $this->aInvTransferOrder = null;
+        }
+
+        return $this;
+    } // setInhdnbr()
+
+    /**
+     * Set the value of [indtline] column.
+     *
+     * @param int $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtline($v)
+    {
+        if ($v !== null) {
+            $v = (int) $v;
+        }
+
+        if ($this->indtline !== $v) {
+            $this->indtline = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTLINE] = true;
+        }
+
+        return $this;
+    } // setIndtline()
+
+    /**
      * Set the value of [inititemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function setInititemnbr($v)
     {
@@ -604,7 +902,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         if ($this->inititemnbr !== $v) {
             $this->inititemnbr = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_INITITEMNBR] = true;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INITITEMNBR] = true;
         }
 
         if ($this->aItemMasterItem !== null && $this->aItemMasterItem->getInititemnbr() !== $v) {
@@ -615,190 +913,410 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     } // setInititemnbr()
 
     /**
-     * Set the value of [sermsernbr] column.
+     * Set the value of [indtqtyrqst] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermsernbr($v)
+    public function setIndtqtyrqst($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermsernbr !== $v) {
-            $this->sermsernbr = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMSERNBR] = true;
+        if ($this->indtqtyrqst !== $v) {
+            $this->indtqtyrqst = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTQTYRQST] = true;
         }
 
         return $this;
-    } // setSermsernbr()
+    } // setIndtqtyrqst()
 
     /**
-     * Set the value of [sermproddate] column.
+     * Set the value of [indtqtyship] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermproddate($v)
+    public function setIndtqtyship($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermproddate !== $v) {
-            $this->sermproddate = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMPRODDATE] = true;
+        if ($this->indtqtyship !== $v) {
+            $this->indtqtyship = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTQTYSHIP] = true;
         }
 
         return $this;
-    } // setSermproddate()
+    } // setIndtqtyship()
 
     /**
-     * Set the value of [sermprntcnt] column.
+     * Set the value of [indtrqstdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtrqstdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtrqstdate !== $v) {
+            $this->indtrqstdate = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTRQSTDATE] = true;
+        }
+
+        return $this;
+    } // setIndtrqstdate()
+
+    /**
+     * Set the value of [indtshipdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtshipdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtshipdate !== $v) {
+            $this->indtshipdate = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTSHIPDATE] = true;
+        }
+
+        return $this;
+    } // setIndtshipdate()
+
+    /**
+     * Set the value of [indtpickflag] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtpickflag($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtpickflag !== $v) {
+            $this->indtpickflag = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTPICKFLAG] = true;
+        }
+
+        return $this;
+    } // setIndtpickflag()
+
+    /**
+     * Set the value of [indtbordflag] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtbordflag($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtbordflag !== $v) {
+            $this->indtbordflag = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTBORDFLAG] = true;
+        }
+
+        return $this;
+    } // setIndtbordflag()
+
+    /**
+     * Set the value of [indtqtyprev] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtqtyprev($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtqtyprev !== $v) {
+            $this->indtqtyprev = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTQTYPREV] = true;
+        }
+
+        return $this;
+    } // setIndtqtyprev()
+
+    /**
+     * Set the value of [indtqtyrcvd] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtqtyrcvd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtqtyrcvd !== $v) {
+            $this->indtqtyrcvd = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTQTYRCVD] = true;
+        }
+
+        return $this;
+    } // setIndtqtyrcvd()
+
+    /**
+     * Set the value of [indttobercvd] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndttobercvd($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indttobercvd !== $v) {
+            $this->indttobercvd = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTTOBERCVD] = true;
+        }
+
+        return $this;
+    } // setIndttobercvd()
+
+    /**
+     * Set the value of [indtrcptdate] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtrcptdate($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtrcptdate !== $v) {
+            $this->indtrcptdate = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTRCPTDATE] = true;
+        }
+
+        return $this;
+    } // setIndtrcptdate()
+
+    /**
+     * Set the value of [indtsonbr] column.
      *
      * @param int $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermprntcnt($v)
+    public function setIndtsonbr($v)
     {
         if ($v !== null) {
             $v = (int) $v;
         }
 
-        if ($this->sermprntcnt !== $v) {
-            $this->sermprntcnt = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMPRNTCNT] = true;
+        if ($this->indtsonbr !== $v) {
+            $this->indtsonbr = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTSONBR] = true;
         }
 
         return $this;
-    } // setSermprntcnt()
+    } // setIndtsonbr()
 
     /**
-     * Set the value of [sermsordnbr] column.
+     * Set the value of [indtkitflag] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermsordnbr($v)
+    public function setIndtkitflag($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermsordnbr !== $v) {
-            $this->sermsordnbr = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMSORDNBR] = true;
+        if ($this->indtkitflag !== $v) {
+            $this->indtkitflag = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTKITFLAG] = true;
         }
 
         return $this;
-    } // setSermsordnbr()
+    } // setIndtkitflag()
 
     /**
-     * Set the value of [serminvcdate] column.
+     * Set the value of [indtuseitemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSerminvcdate($v)
+    public function setIndtuseitemnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->serminvcdate !== $v) {
-            $this->serminvcdate = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMINVCDATE] = true;
+        if ($this->indtuseitemnbr !== $v) {
+            $this->indtuseitemnbr = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTUSEITEMNBR] = true;
         }
 
         return $this;
-    } // setSerminvcdate()
+    } // setIndtuseitemnbr()
 
     /**
-     * Set the value of [sermrevision] column.
+     * Set the value of [indtcustitemnbr] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermrevision($v)
+    public function setIndtcustitemnbr($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermrevision !== $v) {
-            $this->sermrevision = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMREVISION] = true;
+        if ($this->indtcustitemnbr !== $v) {
+            $this->indtcustitemnbr = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTCUSTITEMNBR] = true;
         }
 
         return $this;
-    } // setSermrevision()
+    } // setIndtcustitemnbr()
 
     /**
-     * Set the value of [sermctry] column.
+     * Set the value of [indtcntrqty] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermctry($v)
+    public function setIndtcntrqty($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermctry !== $v) {
-            $this->sermctry = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMCTRY] = true;
+        if ($this->indtcntrqty !== $v) {
+            $this->indtcntrqty = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTCNTRQTY] = true;
         }
 
         return $this;
-    } // setSermctry()
+    } // setIndtcntrqty()
 
     /**
-     * Set the value of [sermacallocordr] column.
+     * Set the value of [indtcases] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermacallocordr($v)
+    public function setIndtcases($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermacallocordr !== $v) {
-            $this->sermacallocordr = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMACALLOCORDR] = true;
+        if ($this->indtcases !== $v) {
+            $this->indtcases = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTCASES] = true;
         }
 
         return $this;
-    } // setSermacallocordr()
+    } // setIndtcases()
 
     /**
-     * Set the value of [sermrefsernbr] column.
+     * Set the value of [indtorigrqstdate] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
-    public function setSermrefsernbr($v)
+    public function setIndtorigrqstdate($v)
     {
         if ($v !== null) {
             $v = (string) $v;
         }
 
-        if ($this->sermrefsernbr !== $v) {
-            $this->sermrefsernbr = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_SERMREFSERNBR] = true;
+        if ($this->indtorigrqstdate !== $v) {
+            $this->indtorigrqstdate = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTORIGRQSTDATE] = true;
         }
 
         return $this;
-    } // setSermrefsernbr()
+    } // setIndtorigrqstdate()
+
+    /**
+     * Set the value of [indtordras] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtordras($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtordras !== $v) {
+            $this->indtordras = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTORDRAS] = true;
+        }
+
+        return $this;
+    } // setIndtordras()
+
+    /**
+     * Set the value of [indtfreshfrozen] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtfreshfrozen($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtfreshfrozen !== $v) {
+            $this->indtfreshfrozen = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTFRESHFROZEN] = true;
+        }
+
+        return $this;
+    } // setIndtfreshfrozen()
+
+    /**
+     * Set the value of [indtprimbin] column.
+     *
+     * @param string $v new value
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     */
+    public function setIndtprimbin($v)
+    {
+        if ($v !== null) {
+            $v = (string) $v;
+        }
+
+        if ($this->indtprimbin !== $v) {
+            $this->indtprimbin = $v;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_INDTPRIMBIN] = true;
+        }
+
+        return $this;
+    } // setIndtprimbin()
 
     /**
      * Set the value of [dateupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function setDateupdtd($v)
     {
@@ -808,7 +1326,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         if ($this->dateupdtd !== $v) {
             $this->dateupdtd = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_DATEUPDTD] = true;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_DATEUPDTD] = true;
         }
 
         return $this;
@@ -818,7 +1336,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Set the value of [timeupdtd] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function setTimeupdtd($v)
     {
@@ -828,7 +1346,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         if ($this->timeupdtd !== $v) {
             $this->timeupdtd = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_TIMEUPDTD] = true;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_TIMEUPDTD] = true;
         }
 
         return $this;
@@ -838,7 +1356,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * Set the value of [dummy] column.
      *
      * @param string $v new value
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function setDummy($v)
     {
@@ -848,7 +1366,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         if ($this->dummy !== $v) {
             $this->dummy = $v;
-            $this->modifiedColumns[InvSerialMasterTableMap::COL_DUMMY] = true;
+            $this->modifiedColumns[InvTransferDetailTableMap::COL_DUMMY] = true;
         }
 
         return $this;
@@ -864,11 +1382,107 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function hasOnlyDefaultValues()
     {
+            if ($this->inhdnbr !== 0) {
+                return false;
+            }
+
+            if ($this->indtline !== 0) {
+                return false;
+            }
+
             if ($this->inititemnbr !== '') {
                 return false;
             }
 
-            if ($this->sermsernbr !== '') {
+            if ($this->indtqtyrqst !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->indtqtyship !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->indtrqstdate !== '') {
+                return false;
+            }
+
+            if ($this->indtshipdate !== '') {
+                return false;
+            }
+
+            if ($this->indtpickflag !== 'N') {
+                return false;
+            }
+
+            if ($this->indtbordflag !== 'N') {
+                return false;
+            }
+
+            if ($this->indtqtyprev !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->indtqtyrcvd !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->indttobercvd !== '0.0000000') {
+                return false;
+            }
+
+            if ($this->indtrcptdate !== '') {
+                return false;
+            }
+
+            if ($this->indtsonbr !== 0) {
+                return false;
+            }
+
+            if ($this->indtkitflag !== 'N') {
+                return false;
+            }
+
+            if ($this->indtuseitemnbr !== '') {
+                return false;
+            }
+
+            if ($this->indtcustitemnbr !== '') {
+                return false;
+            }
+
+            if ($this->indtcntrqty !== '0') {
+                return false;
+            }
+
+            if ($this->indtcases !== '0.00') {
+                return false;
+            }
+
+            if ($this->indtorigrqstdate !== '') {
+                return false;
+            }
+
+            if ($this->indtordras !== '') {
+                return false;
+            }
+
+            if ($this->indtfreshfrozen !== '') {
+                return false;
+            }
+
+            if ($this->indtprimbin !== '') {
+                return false;
+            }
+
+            if ($this->dateupdtd !== '') {
+                return false;
+            }
+
+            if ($this->timeupdtd !== '') {
+                return false;
+            }
+
+            if ($this->dummy !== 'P') {
                 return false;
             }
 
@@ -898,43 +1512,82 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     {
         try {
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvSerialMasterTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 0 + $startcol : InvTransferDetailTableMap::translateFieldName('Inhdnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->inhdnbr = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtline', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtline = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvTransferDetailTableMap::translateFieldName('Inititemnbr', TableMap::TYPE_PHPNAME, $indexType)];
             $this->inititemnbr = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 1 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsernbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermsernbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtqtyrqst', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtqtyrqst = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 2 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermproddate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermproddate = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtqtyship', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtqtyship = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 3 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermprntcnt', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermprntcnt = (null !== $col) ? (int) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtrqstdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 4 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermsordnbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermsordnbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtshipdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtshipdate = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 5 + $startcol : InvSerialMasterTableMap::translateFieldName('Serminvcdate', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->serminvcdate = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtpickflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtpickflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 6 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrevision', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermrevision = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtbordflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtbordflag = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 7 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermctry', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermctry = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtqtyprev', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtqtyprev = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 8 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermacallocordr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermacallocordr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtqtyrcvd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtqtyrcvd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 9 + $startcol : InvSerialMasterTableMap::translateFieldName('Sermrefsernbr', TableMap::TYPE_PHPNAME, $indexType)];
-            $this->sermrefsernbr = (null !== $col) ? (string) $col : null;
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvTransferDetailTableMap::translateFieldName('Indttobercvd', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indttobercvd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 10 + $startcol : InvSerialMasterTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtrcptdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtrcptdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 13 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtsonbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtsonbr = (null !== $col) ? (int) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 14 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtkitflag', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtkitflag = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 15 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtuseitemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtuseitemnbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 16 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtcustitemnbr', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtcustitemnbr = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 17 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtcntrqty', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtcntrqty = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 18 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtcases', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtcases = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 19 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtorigrqstdate', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtorigrqstdate = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 20 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtordras', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtordras = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 21 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtfreshfrozen', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtfreshfrozen = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 22 + $startcol : InvTransferDetailTableMap::translateFieldName('Indtprimbin', TableMap::TYPE_PHPNAME, $indexType)];
+            $this->indtprimbin = (null !== $col) ? (string) $col : null;
+
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 23 + $startcol : InvTransferDetailTableMap::translateFieldName('Dateupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dateupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 11 + $startcol : InvSerialMasterTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 24 + $startcol : InvTransferDetailTableMap::translateFieldName('Timeupdtd', TableMap::TYPE_PHPNAME, $indexType)];
             $this->timeupdtd = (null !== $col) ? (string) $col : null;
 
-            $col = $row[TableMap::TYPE_NUM == $indexType ? 12 + $startcol : InvSerialMasterTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
+            $col = $row[TableMap::TYPE_NUM == $indexType ? 25 + $startcol : InvTransferDetailTableMap::translateFieldName('Dummy', TableMap::TYPE_PHPNAME, $indexType)];
             $this->dummy = (null !== $col) ? (string) $col : null;
             $this->resetModified();
 
@@ -944,10 +1597,10 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->ensureConsistency();
             }
 
-            return $startcol + 13; // 13 = InvSerialMasterTableMap::NUM_HYDRATE_COLUMNS.
+            return $startcol + 26; // 26 = InvTransferDetailTableMap::NUM_HYDRATE_COLUMNS.
 
         } catch (Exception $e) {
-            throw new PropelException(sprintf('Error populating %s object', '\\InvSerialMaster'), 0, $e);
+            throw new PropelException(sprintf('Error populating %s object', '\\InvTransferDetail'), 0, $e);
         }
     }
 
@@ -966,6 +1619,9 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function ensureConsistency()
     {
+        if ($this->aInvTransferOrder !== null && $this->inhdnbr !== $this->aInvTransferOrder->getInhdnbr()) {
+            $this->aInvTransferOrder = null;
+        }
         if ($this->aItemMasterItem !== null && $this->inititemnbr !== $this->aItemMasterItem->getInititemnbr()) {
             $this->aItemMasterItem = null;
         }
@@ -992,13 +1648,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getReadConnection(InvSerialMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getReadConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 
         // We don't need to alter the object instance pool; we're just modifying this instance
         // already in the pool.
 
-        $dataFetcher = ChildInvSerialMasterQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
+        $dataFetcher = ChildInvTransferDetailQuery::create(null, $this->buildPkeyCriteria())->setFormatter(ModelCriteria::FORMAT_STATEMENT)->find($con);
         $row = $dataFetcher->fetch();
         $dataFetcher->close();
         if (!$row) {
@@ -1008,14 +1664,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
         if ($deep) {  // also de-associate any related objects?
 
+            $this->aInvTransferOrder = null;
             $this->aItemMasterItem = null;
-            $this->collInvLotTags = null;
-
             $this->collInvTransferLotserials = null;
 
             $this->collInvTransferPickedLotserials = null;
-
-            $this->singleInvSerialWarranty = null;
 
         } // if (deep)
     }
@@ -1026,8 +1679,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @param      ConnectionInterface $con
      * @return void
      * @throws PropelException
-     * @see InvSerialMaster::setDeleted()
-     * @see InvSerialMaster::isDeleted()
+     * @see InvTransferDetail::setDeleted()
+     * @see InvTransferDetail::isDeleted()
      */
     public function delete(ConnectionInterface $con = null)
     {
@@ -1036,11 +1689,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 
         $con->transaction(function () use ($con) {
-            $deleteQuery = ChildInvSerialMasterQuery::create()
+            $deleteQuery = ChildInvTransferDetailQuery::create()
                 ->filterByPrimaryKey($this->getPrimaryKey());
             $ret = $this->preDelete($con);
             if ($ret) {
@@ -1075,7 +1728,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         }
 
         if ($con === null) {
-            $con = Propel::getServiceContainer()->getWriteConnection(InvSerialMasterTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(InvTransferDetailTableMap::DATABASE_NAME);
         }
 
         return $con->transaction(function () use ($con) {
@@ -1094,7 +1747,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     $this->postUpdate($con);
                 }
                 $this->postSave($con);
-                InvSerialMasterTableMap::addInstanceToPool($this);
+                InvTransferDetailTableMap::addInstanceToPool($this);
             } else {
                 $affectedRows = 0;
             }
@@ -1125,6 +1778,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             // method.  This object relates to these object(s) by a
             // foreign key reference.
 
+            if ($this->aInvTransferOrder !== null) {
+                if ($this->aInvTransferOrder->isModified() || $this->aInvTransferOrder->isNew()) {
+                    $affectedRows += $this->aInvTransferOrder->save($con);
+                }
+                $this->setInvTransferOrder($this->aInvTransferOrder);
+            }
+
             if ($this->aItemMasterItem !== null) {
                 if ($this->aItemMasterItem->isModified() || $this->aItemMasterItem->isNew()) {
                     $affectedRows += $this->aItemMasterItem->save($con);
@@ -1141,23 +1801,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     $affectedRows += $this->doUpdate($con);
                 }
                 $this->resetModified();
-            }
-
-            if ($this->invLotTagsScheduledForDeletion !== null) {
-                if (!$this->invLotTagsScheduledForDeletion->isEmpty()) {
-                    \InvLotTagQuery::create()
-                        ->filterByPrimaryKeys($this->invLotTagsScheduledForDeletion->getPrimaryKeys(false))
-                        ->delete($con);
-                    $this->invLotTagsScheduledForDeletion = null;
-                }
-            }
-
-            if ($this->collInvLotTags !== null) {
-                foreach ($this->collInvLotTags as $referrerFK) {
-                    if (!$referrerFK->isDeleted() && ($referrerFK->isNew() || $referrerFK->isModified())) {
-                        $affectedRows += $referrerFK->save($con);
-                    }
-                }
             }
 
             if ($this->invTransferLotserialsScheduledForDeletion !== null) {
@@ -1194,12 +1837,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
             }
 
-            if ($this->singleInvSerialWarranty !== null) {
-                if (!$this->singleInvSerialWarranty->isDeleted() && ($this->singleInvSerialWarranty->isNew() || $this->singleInvSerialWarranty->isModified())) {
-                    $affectedRows += $this->singleInvSerialWarranty->save($con);
-                }
-            }
-
             $this->alreadyInSave = false;
 
         }
@@ -1222,48 +1859,87 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
 
          // check the columns in natural order for more readable SQL queries
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_INITITEMNBR)) {
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INHDNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'InhdNbr';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTLINE)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtLine';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INITITEMNBR)) {
             $modifiedColumns[':p' . $index++]  = 'InitItemNbr';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMSERNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'SermSerNbr';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYRQST)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtQtyRqst';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMPRODDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'SermProdDate';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYSHIP)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtQtyShip';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMPRNTCNT)) {
-            $modifiedColumns[':p' . $index++]  = 'SermPrntCnt';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTRQSTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtRqstDate';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMSORDNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'SermSordNbr';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTSHIPDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtShipDate';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMINVCDATE)) {
-            $modifiedColumns[':p' . $index++]  = 'SermInvcDate';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTPICKFLAG)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtPickFlag';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMREVISION)) {
-            $modifiedColumns[':p' . $index++]  = 'SermRevision';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTBORDFLAG)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtBordFlag';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMCTRY)) {
-            $modifiedColumns[':p' . $index++]  = 'SermCtry';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYPREV)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtQtyPrev';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMACALLOCORDR)) {
-            $modifiedColumns[':p' . $index++]  = 'SermAcAllocOrdr';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYRCVD)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtQtyRcvd';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMREFSERNBR)) {
-            $modifiedColumns[':p' . $index++]  = 'SermRefSerNbr';
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTTOBERCVD)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtToBeRcvd';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_DATEUPDTD)) {
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTRCPTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtRcptDate';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTSONBR)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtSoNbr';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTKITFLAG)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtKitFlag';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTUSEITEMNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtUseItemNbr';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtCustItemNbr';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCNTRQTY)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtCntrQty';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCASES)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtCases';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtOrigRqstDate';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTORDRAS)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtOrdrAs';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTFRESHFROZEN)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtFreshFrozen';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTPRIMBIN)) {
+            $modifiedColumns[':p' . $index++]  = 'IndtPrimBin';
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_DATEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'DateUpdtd';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_TIMEUPDTD)) {
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_TIMEUPDTD)) {
             $modifiedColumns[':p' . $index++]  = 'TimeUpdtd';
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_DUMMY)) {
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_DUMMY)) {
             $modifiedColumns[':p' . $index++]  = 'dummy';
         }
 
         $sql = sprintf(
-            'INSERT INTO inv_ser_mast (%s) VALUES (%s)',
+            'INSERT INTO inv_trans_det (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -1272,35 +1948,74 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             $stmt = $con->prepare($sql);
             foreach ($modifiedColumns as $identifier => $columnName) {
                 switch ($columnName) {
+                    case 'InhdNbr':
+                        $stmt->bindValue($identifier, $this->inhdnbr, PDO::PARAM_INT);
+                        break;
+                    case 'IndtLine':
+                        $stmt->bindValue($identifier, $this->indtline, PDO::PARAM_INT);
+                        break;
                     case 'InitItemNbr':
                         $stmt->bindValue($identifier, $this->inititemnbr, PDO::PARAM_STR);
                         break;
-                    case 'SermSerNbr':
-                        $stmt->bindValue($identifier, $this->sermsernbr, PDO::PARAM_STR);
+                    case 'IndtQtyRqst':
+                        $stmt->bindValue($identifier, $this->indtqtyrqst, PDO::PARAM_STR);
                         break;
-                    case 'SermProdDate':
-                        $stmt->bindValue($identifier, $this->sermproddate, PDO::PARAM_STR);
+                    case 'IndtQtyShip':
+                        $stmt->bindValue($identifier, $this->indtqtyship, PDO::PARAM_STR);
                         break;
-                    case 'SermPrntCnt':
-                        $stmt->bindValue($identifier, $this->sermprntcnt, PDO::PARAM_INT);
+                    case 'IndtRqstDate':
+                        $stmt->bindValue($identifier, $this->indtrqstdate, PDO::PARAM_STR);
                         break;
-                    case 'SermSordNbr':
-                        $stmt->bindValue($identifier, $this->sermsordnbr, PDO::PARAM_STR);
+                    case 'IndtShipDate':
+                        $stmt->bindValue($identifier, $this->indtshipdate, PDO::PARAM_STR);
                         break;
-                    case 'SermInvcDate':
-                        $stmt->bindValue($identifier, $this->serminvcdate, PDO::PARAM_STR);
+                    case 'IndtPickFlag':
+                        $stmt->bindValue($identifier, $this->indtpickflag, PDO::PARAM_STR);
                         break;
-                    case 'SermRevision':
-                        $stmt->bindValue($identifier, $this->sermrevision, PDO::PARAM_STR);
+                    case 'IndtBordFlag':
+                        $stmt->bindValue($identifier, $this->indtbordflag, PDO::PARAM_STR);
                         break;
-                    case 'SermCtry':
-                        $stmt->bindValue($identifier, $this->sermctry, PDO::PARAM_STR);
+                    case 'IndtQtyPrev':
+                        $stmt->bindValue($identifier, $this->indtqtyprev, PDO::PARAM_STR);
                         break;
-                    case 'SermAcAllocOrdr':
-                        $stmt->bindValue($identifier, $this->sermacallocordr, PDO::PARAM_STR);
+                    case 'IndtQtyRcvd':
+                        $stmt->bindValue($identifier, $this->indtqtyrcvd, PDO::PARAM_STR);
                         break;
-                    case 'SermRefSerNbr':
-                        $stmt->bindValue($identifier, $this->sermrefsernbr, PDO::PARAM_STR);
+                    case 'IndtToBeRcvd':
+                        $stmt->bindValue($identifier, $this->indttobercvd, PDO::PARAM_STR);
+                        break;
+                    case 'IndtRcptDate':
+                        $stmt->bindValue($identifier, $this->indtrcptdate, PDO::PARAM_STR);
+                        break;
+                    case 'IndtSoNbr':
+                        $stmt->bindValue($identifier, $this->indtsonbr, PDO::PARAM_INT);
+                        break;
+                    case 'IndtKitFlag':
+                        $stmt->bindValue($identifier, $this->indtkitflag, PDO::PARAM_STR);
+                        break;
+                    case 'IndtUseItemNbr':
+                        $stmt->bindValue($identifier, $this->indtuseitemnbr, PDO::PARAM_STR);
+                        break;
+                    case 'IndtCustItemNbr':
+                        $stmt->bindValue($identifier, $this->indtcustitemnbr, PDO::PARAM_STR);
+                        break;
+                    case 'IndtCntrQty':
+                        $stmt->bindValue($identifier, $this->indtcntrqty, PDO::PARAM_STR);
+                        break;
+                    case 'IndtCases':
+                        $stmt->bindValue($identifier, $this->indtcases, PDO::PARAM_STR);
+                        break;
+                    case 'IndtOrigRqstDate':
+                        $stmt->bindValue($identifier, $this->indtorigrqstdate, PDO::PARAM_STR);
+                        break;
+                    case 'IndtOrdrAs':
+                        $stmt->bindValue($identifier, $this->indtordras, PDO::PARAM_STR);
+                        break;
+                    case 'IndtFreshFrozen':
+                        $stmt->bindValue($identifier, $this->indtfreshfrozen, PDO::PARAM_STR);
+                        break;
+                    case 'IndtPrimBin':
+                        $stmt->bindValue($identifier, $this->indtprimbin, PDO::PARAM_STR);
                         break;
                     case 'DateUpdtd':
                         $stmt->bindValue($identifier, $this->dateupdtd, PDO::PARAM_STR);
@@ -1350,7 +2065,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function getByName($name, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InvSerialMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvTransferDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
         $field = $this->getByPosition($pos);
 
         return $field;
@@ -1367,42 +2082,81 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     {
         switch ($pos) {
             case 0:
-                return $this->getInititemnbr();
+                return $this->getInhdnbr();
                 break;
             case 1:
-                return $this->getSermsernbr();
+                return $this->getIndtline();
                 break;
             case 2:
-                return $this->getSermproddate();
+                return $this->getInititemnbr();
                 break;
             case 3:
-                return $this->getSermprntcnt();
+                return $this->getIndtqtyrqst();
                 break;
             case 4:
-                return $this->getSermsordnbr();
+                return $this->getIndtqtyship();
                 break;
             case 5:
-                return $this->getSerminvcdate();
+                return $this->getIndtrqstdate();
                 break;
             case 6:
-                return $this->getSermrevision();
+                return $this->getIndtshipdate();
                 break;
             case 7:
-                return $this->getSermctry();
+                return $this->getIndtpickflag();
                 break;
             case 8:
-                return $this->getSermacallocordr();
+                return $this->getIndtbordflag();
                 break;
             case 9:
-                return $this->getSermrefsernbr();
+                return $this->getIndtqtyprev();
                 break;
             case 10:
-                return $this->getDateupdtd();
+                return $this->getIndtqtyrcvd();
                 break;
             case 11:
-                return $this->getTimeupdtd();
+                return $this->getIndttobercvd();
                 break;
             case 12:
+                return $this->getIndtrcptdate();
+                break;
+            case 13:
+                return $this->getIndtsonbr();
+                break;
+            case 14:
+                return $this->getIndtkitflag();
+                break;
+            case 15:
+                return $this->getIndtuseitemnbr();
+                break;
+            case 16:
+                return $this->getIndtcustitemnbr();
+                break;
+            case 17:
+                return $this->getIndtcntrqty();
+                break;
+            case 18:
+                return $this->getIndtcases();
+                break;
+            case 19:
+                return $this->getIndtorigrqstdate();
+                break;
+            case 20:
+                return $this->getIndtordras();
+                break;
+            case 21:
+                return $this->getIndtfreshfrozen();
+                break;
+            case 22:
+                return $this->getIndtprimbin();
+                break;
+            case 23:
+                return $this->getDateupdtd();
+                break;
+            case 24:
+                return $this->getTimeupdtd();
+                break;
+            case 25:
                 return $this->getDummy();
                 break;
             default:
@@ -1429,25 +2183,38 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function toArray($keyType = TableMap::TYPE_PHPNAME, $includeLazyLoadColumns = true, $alreadyDumpedObjects = array(), $includeForeignObjects = false)
     {
 
-        if (isset($alreadyDumpedObjects['InvSerialMaster'][$this->hashCode()])) {
+        if (isset($alreadyDumpedObjects['InvTransferDetail'][$this->hashCode()])) {
             return '*RECURSION*';
         }
-        $alreadyDumpedObjects['InvSerialMaster'][$this->hashCode()] = true;
-        $keys = InvSerialMasterTableMap::getFieldNames($keyType);
+        $alreadyDumpedObjects['InvTransferDetail'][$this->hashCode()] = true;
+        $keys = InvTransferDetailTableMap::getFieldNames($keyType);
         $result = array(
-            $keys[0] => $this->getInititemnbr(),
-            $keys[1] => $this->getSermsernbr(),
-            $keys[2] => $this->getSermproddate(),
-            $keys[3] => $this->getSermprntcnt(),
-            $keys[4] => $this->getSermsordnbr(),
-            $keys[5] => $this->getSerminvcdate(),
-            $keys[6] => $this->getSermrevision(),
-            $keys[7] => $this->getSermctry(),
-            $keys[8] => $this->getSermacallocordr(),
-            $keys[9] => $this->getSermrefsernbr(),
-            $keys[10] => $this->getDateupdtd(),
-            $keys[11] => $this->getTimeupdtd(),
-            $keys[12] => $this->getDummy(),
+            $keys[0] => $this->getInhdnbr(),
+            $keys[1] => $this->getIndtline(),
+            $keys[2] => $this->getInititemnbr(),
+            $keys[3] => $this->getIndtqtyrqst(),
+            $keys[4] => $this->getIndtqtyship(),
+            $keys[5] => $this->getIndtrqstdate(),
+            $keys[6] => $this->getIndtshipdate(),
+            $keys[7] => $this->getIndtpickflag(),
+            $keys[8] => $this->getIndtbordflag(),
+            $keys[9] => $this->getIndtqtyprev(),
+            $keys[10] => $this->getIndtqtyrcvd(),
+            $keys[11] => $this->getIndttobercvd(),
+            $keys[12] => $this->getIndtrcptdate(),
+            $keys[13] => $this->getIndtsonbr(),
+            $keys[14] => $this->getIndtkitflag(),
+            $keys[15] => $this->getIndtuseitemnbr(),
+            $keys[16] => $this->getIndtcustitemnbr(),
+            $keys[17] => $this->getIndtcntrqty(),
+            $keys[18] => $this->getIndtcases(),
+            $keys[19] => $this->getIndtorigrqstdate(),
+            $keys[20] => $this->getIndtordras(),
+            $keys[21] => $this->getIndtfreshfrozen(),
+            $keys[22] => $this->getIndtprimbin(),
+            $keys[23] => $this->getDateupdtd(),
+            $keys[24] => $this->getTimeupdtd(),
+            $keys[25] => $this->getDummy(),
         );
         $virtualColumns = $this->virtualColumns;
         foreach ($virtualColumns as $key => $virtualColumn) {
@@ -1455,6 +2222,21 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         }
 
         if ($includeForeignObjects) {
+            if (null !== $this->aInvTransferOrder) {
+
+                switch ($keyType) {
+                    case TableMap::TYPE_CAMELNAME:
+                        $key = 'invTransferOrder';
+                        break;
+                    case TableMap::TYPE_FIELDNAME:
+                        $key = 'inv_trans_head';
+                        break;
+                    default:
+                        $key = 'InvTransferOrder';
+                }
+
+                $result[$key] = $this->aInvTransferOrder->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
+            }
             if (null !== $this->aItemMasterItem) {
 
                 switch ($keyType) {
@@ -1469,21 +2251,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 }
 
                 $result[$key] = $this->aItemMasterItem->toArray($keyType, $includeLazyLoadColumns,  $alreadyDumpedObjects, true);
-            }
-            if (null !== $this->collInvLotTags) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'invLotTags';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'inv_inv_tags';
-                        break;
-                    default:
-                        $key = 'InvLotTags';
-                }
-
-                $result[$key] = $this->collInvLotTags->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
             if (null !== $this->collInvTransferLotserials) {
 
@@ -1515,21 +2282,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
 
                 $result[$key] = $this->collInvTransferPickedLotserials->toArray(null, false, $keyType, $includeLazyLoadColumns, $alreadyDumpedObjects);
             }
-            if (null !== $this->singleInvSerialWarranty) {
-
-                switch ($keyType) {
-                    case TableMap::TYPE_CAMELNAME:
-                        $key = 'invSerialWarranty';
-                        break;
-                    case TableMap::TYPE_FIELDNAME:
-                        $key = 'inv_war_mast';
-                        break;
-                    default:
-                        $key = 'InvSerialWarranty';
-                }
-
-                $result[$key] = $this->singleInvSerialWarranty->toArray($keyType, $includeLazyLoadColumns, $alreadyDumpedObjects, true);
-            }
         }
 
         return $result;
@@ -1544,11 +2296,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *                one of the class type constants TableMap::TYPE_PHPNAME, TableMap::TYPE_CAMELNAME
      *                TableMap::TYPE_COLNAME, TableMap::TYPE_FIELDNAME, TableMap::TYPE_NUM.
      *                Defaults to TableMap::TYPE_PHPNAME.
-     * @return $this|\InvSerialMaster
+     * @return $this|\InvTransferDetail
      */
     public function setByName($name, $value, $type = TableMap::TYPE_PHPNAME)
     {
-        $pos = InvSerialMasterTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
+        $pos = InvTransferDetailTableMap::translateFieldName($name, $type, TableMap::TYPE_NUM);
 
         return $this->setByPosition($pos, $value);
     }
@@ -1559,48 +2311,87 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param  int $pos position in xml schema
      * @param  mixed $value field value
-     * @return $this|\InvSerialMaster
+     * @return $this|\InvTransferDetail
      */
     public function setByPosition($pos, $value)
     {
         switch ($pos) {
             case 0:
-                $this->setInititemnbr($value);
+                $this->setInhdnbr($value);
                 break;
             case 1:
-                $this->setSermsernbr($value);
+                $this->setIndtline($value);
                 break;
             case 2:
-                $this->setSermproddate($value);
+                $this->setInititemnbr($value);
                 break;
             case 3:
-                $this->setSermprntcnt($value);
+                $this->setIndtqtyrqst($value);
                 break;
             case 4:
-                $this->setSermsordnbr($value);
+                $this->setIndtqtyship($value);
                 break;
             case 5:
-                $this->setSerminvcdate($value);
+                $this->setIndtrqstdate($value);
                 break;
             case 6:
-                $this->setSermrevision($value);
+                $this->setIndtshipdate($value);
                 break;
             case 7:
-                $this->setSermctry($value);
+                $this->setIndtpickflag($value);
                 break;
             case 8:
-                $this->setSermacallocordr($value);
+                $this->setIndtbordflag($value);
                 break;
             case 9:
-                $this->setSermrefsernbr($value);
+                $this->setIndtqtyprev($value);
                 break;
             case 10:
-                $this->setDateupdtd($value);
+                $this->setIndtqtyrcvd($value);
                 break;
             case 11:
-                $this->setTimeupdtd($value);
+                $this->setIndttobercvd($value);
                 break;
             case 12:
+                $this->setIndtrcptdate($value);
+                break;
+            case 13:
+                $this->setIndtsonbr($value);
+                break;
+            case 14:
+                $this->setIndtkitflag($value);
+                break;
+            case 15:
+                $this->setIndtuseitemnbr($value);
+                break;
+            case 16:
+                $this->setIndtcustitemnbr($value);
+                break;
+            case 17:
+                $this->setIndtcntrqty($value);
+                break;
+            case 18:
+                $this->setIndtcases($value);
+                break;
+            case 19:
+                $this->setIndtorigrqstdate($value);
+                break;
+            case 20:
+                $this->setIndtordras($value);
+                break;
+            case 21:
+                $this->setIndtfreshfrozen($value);
+                break;
+            case 22:
+                $this->setIndtprimbin($value);
+                break;
+            case 23:
+                $this->setDateupdtd($value);
+                break;
+            case 24:
+                $this->setTimeupdtd($value);
+                break;
+            case 25:
                 $this->setDummy($value);
                 break;
         } // switch()
@@ -1627,46 +2418,85 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function fromArray($arr, $keyType = TableMap::TYPE_PHPNAME)
     {
-        $keys = InvSerialMasterTableMap::getFieldNames($keyType);
+        $keys = InvTransferDetailTableMap::getFieldNames($keyType);
 
         if (array_key_exists($keys[0], $arr)) {
-            $this->setInititemnbr($arr[$keys[0]]);
+            $this->setInhdnbr($arr[$keys[0]]);
         }
         if (array_key_exists($keys[1], $arr)) {
-            $this->setSermsernbr($arr[$keys[1]]);
+            $this->setIndtline($arr[$keys[1]]);
         }
         if (array_key_exists($keys[2], $arr)) {
-            $this->setSermproddate($arr[$keys[2]]);
+            $this->setInititemnbr($arr[$keys[2]]);
         }
         if (array_key_exists($keys[3], $arr)) {
-            $this->setSermprntcnt($arr[$keys[3]]);
+            $this->setIndtqtyrqst($arr[$keys[3]]);
         }
         if (array_key_exists($keys[4], $arr)) {
-            $this->setSermsordnbr($arr[$keys[4]]);
+            $this->setIndtqtyship($arr[$keys[4]]);
         }
         if (array_key_exists($keys[5], $arr)) {
-            $this->setSerminvcdate($arr[$keys[5]]);
+            $this->setIndtrqstdate($arr[$keys[5]]);
         }
         if (array_key_exists($keys[6], $arr)) {
-            $this->setSermrevision($arr[$keys[6]]);
+            $this->setIndtshipdate($arr[$keys[6]]);
         }
         if (array_key_exists($keys[7], $arr)) {
-            $this->setSermctry($arr[$keys[7]]);
+            $this->setIndtpickflag($arr[$keys[7]]);
         }
         if (array_key_exists($keys[8], $arr)) {
-            $this->setSermacallocordr($arr[$keys[8]]);
+            $this->setIndtbordflag($arr[$keys[8]]);
         }
         if (array_key_exists($keys[9], $arr)) {
-            $this->setSermrefsernbr($arr[$keys[9]]);
+            $this->setIndtqtyprev($arr[$keys[9]]);
         }
         if (array_key_exists($keys[10], $arr)) {
-            $this->setDateupdtd($arr[$keys[10]]);
+            $this->setIndtqtyrcvd($arr[$keys[10]]);
         }
         if (array_key_exists($keys[11], $arr)) {
-            $this->setTimeupdtd($arr[$keys[11]]);
+            $this->setIndttobercvd($arr[$keys[11]]);
         }
         if (array_key_exists($keys[12], $arr)) {
-            $this->setDummy($arr[$keys[12]]);
+            $this->setIndtrcptdate($arr[$keys[12]]);
+        }
+        if (array_key_exists($keys[13], $arr)) {
+            $this->setIndtsonbr($arr[$keys[13]]);
+        }
+        if (array_key_exists($keys[14], $arr)) {
+            $this->setIndtkitflag($arr[$keys[14]]);
+        }
+        if (array_key_exists($keys[15], $arr)) {
+            $this->setIndtuseitemnbr($arr[$keys[15]]);
+        }
+        if (array_key_exists($keys[16], $arr)) {
+            $this->setIndtcustitemnbr($arr[$keys[16]]);
+        }
+        if (array_key_exists($keys[17], $arr)) {
+            $this->setIndtcntrqty($arr[$keys[17]]);
+        }
+        if (array_key_exists($keys[18], $arr)) {
+            $this->setIndtcases($arr[$keys[18]]);
+        }
+        if (array_key_exists($keys[19], $arr)) {
+            $this->setIndtorigrqstdate($arr[$keys[19]]);
+        }
+        if (array_key_exists($keys[20], $arr)) {
+            $this->setIndtordras($arr[$keys[20]]);
+        }
+        if (array_key_exists($keys[21], $arr)) {
+            $this->setIndtfreshfrozen($arr[$keys[21]]);
+        }
+        if (array_key_exists($keys[22], $arr)) {
+            $this->setIndtprimbin($arr[$keys[22]]);
+        }
+        if (array_key_exists($keys[23], $arr)) {
+            $this->setDateupdtd($arr[$keys[23]]);
+        }
+        if (array_key_exists($keys[24], $arr)) {
+            $this->setTimeupdtd($arr[$keys[24]]);
+        }
+        if (array_key_exists($keys[25], $arr)) {
+            $this->setDummy($arr[$keys[25]]);
         }
     }
 
@@ -1687,7 +2517,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * @param string $data The source data to import from
      * @param string $keyType The type of keys the array uses.
      *
-     * @return $this|\InvSerialMaster The current object, for fluid interface
+     * @return $this|\InvTransferDetail The current object, for fluid interface
      */
     public function importFrom($parser, $data, $keyType = TableMap::TYPE_PHPNAME)
     {
@@ -1707,46 +2537,85 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function buildCriteria()
     {
-        $criteria = new Criteria(InvSerialMasterTableMap::DATABASE_NAME);
+        $criteria = new Criteria(InvTransferDetailTableMap::DATABASE_NAME);
 
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_INITITEMNBR)) {
-            $criteria->add(InvSerialMasterTableMap::COL_INITITEMNBR, $this->inititemnbr);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INHDNBR)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INHDNBR, $this->inhdnbr);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMSERNBR)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMSERNBR, $this->sermsernbr);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTLINE)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTLINE, $this->indtline);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMPRODDATE)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMPRODDATE, $this->sermproddate);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INITITEMNBR)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INITITEMNBR, $this->inititemnbr);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMPRNTCNT)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMPRNTCNT, $this->sermprntcnt);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYRQST)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTQTYRQST, $this->indtqtyrqst);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMSORDNBR)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMSORDNBR, $this->sermsordnbr);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYSHIP)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTQTYSHIP, $this->indtqtyship);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMINVCDATE)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMINVCDATE, $this->serminvcdate);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTRQSTDATE)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTRQSTDATE, $this->indtrqstdate);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMREVISION)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMREVISION, $this->sermrevision);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTSHIPDATE)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTSHIPDATE, $this->indtshipdate);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMCTRY)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMCTRY, $this->sermctry);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTPICKFLAG)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTPICKFLAG, $this->indtpickflag);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMACALLOCORDR)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMACALLOCORDR, $this->sermacallocordr);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTBORDFLAG)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTBORDFLAG, $this->indtbordflag);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_SERMREFSERNBR)) {
-            $criteria->add(InvSerialMasterTableMap::COL_SERMREFSERNBR, $this->sermrefsernbr);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYPREV)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTQTYPREV, $this->indtqtyprev);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_DATEUPDTD)) {
-            $criteria->add(InvSerialMasterTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTQTYRCVD)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTQTYRCVD, $this->indtqtyrcvd);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_TIMEUPDTD)) {
-            $criteria->add(InvSerialMasterTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTTOBERCVD)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTTOBERCVD, $this->indttobercvd);
         }
-        if ($this->isColumnModified(InvSerialMasterTableMap::COL_DUMMY)) {
-            $criteria->add(InvSerialMasterTableMap::COL_DUMMY, $this->dummy);
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTRCPTDATE)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTRCPTDATE, $this->indtrcptdate);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTSONBR)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTSONBR, $this->indtsonbr);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTKITFLAG)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTKITFLAG, $this->indtkitflag);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTUSEITEMNBR)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTUSEITEMNBR, $this->indtuseitemnbr);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTCUSTITEMNBR, $this->indtcustitemnbr);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCNTRQTY)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTCNTRQTY, $this->indtcntrqty);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTCASES)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTCASES, $this->indtcases);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTORIGRQSTDATE, $this->indtorigrqstdate);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTORDRAS)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTORDRAS, $this->indtordras);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTFRESHFROZEN)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTFRESHFROZEN, $this->indtfreshfrozen);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_INDTPRIMBIN)) {
+            $criteria->add(InvTransferDetailTableMap::COL_INDTPRIMBIN, $this->indtprimbin);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_DATEUPDTD)) {
+            $criteria->add(InvTransferDetailTableMap::COL_DATEUPDTD, $this->dateupdtd);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_TIMEUPDTD)) {
+            $criteria->add(InvTransferDetailTableMap::COL_TIMEUPDTD, $this->timeupdtd);
+        }
+        if ($this->isColumnModified(InvTransferDetailTableMap::COL_DUMMY)) {
+            $criteria->add(InvTransferDetailTableMap::COL_DUMMY, $this->dummy);
         }
 
         return $criteria;
@@ -1764,9 +2633,9 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function buildPkeyCriteria()
     {
-        $criteria = ChildInvSerialMasterQuery::create();
-        $criteria->add(InvSerialMasterTableMap::COL_INITITEMNBR, $this->inititemnbr);
-        $criteria->add(InvSerialMasterTableMap::COL_SERMSERNBR, $this->sermsernbr);
+        $criteria = ChildInvTransferDetailQuery::create();
+        $criteria->add(InvTransferDetailTableMap::COL_INHDNBR, $this->inhdnbr);
+        $criteria->add(InvTransferDetailTableMap::COL_INDTLINE, $this->indtline);
 
         return $criteria;
     }
@@ -1779,14 +2648,14 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function hashCode()
     {
-        $validPk = null !== $this->getInititemnbr() &&
-            null !== $this->getSermsernbr();
+        $validPk = null !== $this->getInhdnbr() &&
+            null !== $this->getIndtline();
 
         $validPrimaryKeyFKs = 1;
         $primaryKeyFKs = [];
 
-        //relation item to table inv_item_mast
-        if ($this->aItemMasterItem && $hash = spl_object_hash($this->aItemMasterItem)) {
+        //relation transferOrder to table inv_trans_head
+        if ($this->aInvTransferOrder && $hash = spl_object_hash($this->aInvTransferOrder)) {
             $primaryKeyFKs[] = $hash;
         } else {
             $validPrimaryKeyFKs = false;
@@ -1809,8 +2678,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function getPrimaryKey()
     {
         $pks = array();
-        $pks[0] = $this->getInititemnbr();
-        $pks[1] = $this->getSermsernbr();
+        $pks[0] = $this->getInhdnbr();
+        $pks[1] = $this->getIndtline();
 
         return $pks;
     }
@@ -1823,8 +2692,8 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function setPrimaryKey($keys)
     {
-        $this->setInititemnbr($keys[0]);
-        $this->setSermsernbr($keys[1]);
+        $this->setInhdnbr($keys[0]);
+        $this->setIndtline($keys[1]);
     }
 
     /**
@@ -1833,7 +2702,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function isPrimaryKeyNull()
     {
-        return (null === $this->getInititemnbr()) && (null === $this->getSermsernbr());
+        return (null === $this->getInhdnbr()) && (null === $this->getIndtline());
     }
 
     /**
@@ -1842,23 +2711,36 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * If desired, this method can also make copies of all associated (fkey referrers)
      * objects.
      *
-     * @param      object $copyObj An object of \InvSerialMaster (or compatible) type.
+     * @param      object $copyObj An object of \InvTransferDetail (or compatible) type.
      * @param      boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
      * @param      boolean $makeNew Whether to reset autoincrement PKs and make the object new.
      * @throws PropelException
      */
     public function copyInto($copyObj, $deepCopy = false, $makeNew = true)
     {
+        $copyObj->setInhdnbr($this->getInhdnbr());
+        $copyObj->setIndtline($this->getIndtline());
         $copyObj->setInititemnbr($this->getInititemnbr());
-        $copyObj->setSermsernbr($this->getSermsernbr());
-        $copyObj->setSermproddate($this->getSermproddate());
-        $copyObj->setSermprntcnt($this->getSermprntcnt());
-        $copyObj->setSermsordnbr($this->getSermsordnbr());
-        $copyObj->setSerminvcdate($this->getSerminvcdate());
-        $copyObj->setSermrevision($this->getSermrevision());
-        $copyObj->setSermctry($this->getSermctry());
-        $copyObj->setSermacallocordr($this->getSermacallocordr());
-        $copyObj->setSermrefsernbr($this->getSermrefsernbr());
+        $copyObj->setIndtqtyrqst($this->getIndtqtyrqst());
+        $copyObj->setIndtqtyship($this->getIndtqtyship());
+        $copyObj->setIndtrqstdate($this->getIndtrqstdate());
+        $copyObj->setIndtshipdate($this->getIndtshipdate());
+        $copyObj->setIndtpickflag($this->getIndtpickflag());
+        $copyObj->setIndtbordflag($this->getIndtbordflag());
+        $copyObj->setIndtqtyprev($this->getIndtqtyprev());
+        $copyObj->setIndtqtyrcvd($this->getIndtqtyrcvd());
+        $copyObj->setIndttobercvd($this->getIndttobercvd());
+        $copyObj->setIndtrcptdate($this->getIndtrcptdate());
+        $copyObj->setIndtsonbr($this->getIndtsonbr());
+        $copyObj->setIndtkitflag($this->getIndtkitflag());
+        $copyObj->setIndtuseitemnbr($this->getIndtuseitemnbr());
+        $copyObj->setIndtcustitemnbr($this->getIndtcustitemnbr());
+        $copyObj->setIndtcntrqty($this->getIndtcntrqty());
+        $copyObj->setIndtcases($this->getIndtcases());
+        $copyObj->setIndtorigrqstdate($this->getIndtorigrqstdate());
+        $copyObj->setIndtordras($this->getIndtordras());
+        $copyObj->setIndtfreshfrozen($this->getIndtfreshfrozen());
+        $copyObj->setIndtprimbin($this->getIndtprimbin());
         $copyObj->setDateupdtd($this->getDateupdtd());
         $copyObj->setTimeupdtd($this->getTimeupdtd());
         $copyObj->setDummy($this->getDummy());
@@ -1867,12 +2749,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             // important: temporarily setNew(false) because this affects the behavior of
             // the getter/setter methods for fkey referrer objects.
             $copyObj->setNew(false);
-
-            foreach ($this->getInvLotTags() as $relObj) {
-                if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
-                    $copyObj->addInvLotTag($relObj->copy($deepCopy));
-                }
-            }
 
             foreach ($this->getInvTransferLotserials() as $relObj) {
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
@@ -1884,11 +2760,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 if ($relObj !== $this) {  // ensure that we don't try to copy a reference to ourselves
                     $copyObj->addInvTransferPickedLotserial($relObj->copy($deepCopy));
                 }
-            }
-
-            $relObj = $this->getInvSerialWarranty();
-            if ($relObj) {
-                $copyObj->setInvSerialWarranty($relObj->copy($deepCopy));
             }
 
         } // if ($deepCopy)
@@ -1907,7 +2778,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * objects.
      *
      * @param  boolean $deepCopy Whether to also copy all rows that refer (by fkey) to the current row.
-     * @return \InvSerialMaster Clone of current object.
+     * @return \InvTransferDetail Clone of current object.
      * @throws PropelException
      */
     public function copy($deepCopy = false)
@@ -1921,10 +2792,61 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     }
 
     /**
+     * Declares an association between this object and a ChildInvTransferOrder object.
+     *
+     * @param  ChildInvTransferOrder $v
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
+     * @throws PropelException
+     */
+    public function setInvTransferOrder(ChildInvTransferOrder $v = null)
+    {
+        if ($v === null) {
+            $this->setInhdnbr(0);
+        } else {
+            $this->setInhdnbr($v->getInhdnbr());
+        }
+
+        $this->aInvTransferOrder = $v;
+
+        // Add binding for other direction of this n:n relationship.
+        // If this object has already been added to the ChildInvTransferOrder object, it will not be re-added.
+        if ($v !== null) {
+            $v->addInvTransferDetail($this);
+        }
+
+
+        return $this;
+    }
+
+
+    /**
+     * Get the associated ChildInvTransferOrder object
+     *
+     * @param  ConnectionInterface $con Optional Connection object.
+     * @return ChildInvTransferOrder The associated ChildInvTransferOrder object.
+     * @throws PropelException
+     */
+    public function getInvTransferOrder(ConnectionInterface $con = null)
+    {
+        if ($this->aInvTransferOrder === null && ($this->inhdnbr != 0)) {
+            $this->aInvTransferOrder = ChildInvTransferOrderQuery::create()->findPk($this->inhdnbr, $con);
+            /* The following can be used additionally to
+                guarantee the related object contains a reference
+                to this object.  This level of coupling may, however, be
+                undesirable since it could result in an only partially populated collection
+                in the referenced object.
+                $this->aInvTransferOrder->addInvTransferDetails($this);
+             */
+        }
+
+        return $this->aInvTransferOrder;
+    }
+
+    /**
      * Declares an association between this object and a ChildItemMasterItem object.
      *
      * @param  ChildItemMasterItem $v
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      * @throws PropelException
      */
     public function setItemMasterItem(ChildItemMasterItem $v = null)
@@ -1940,7 +2862,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         // Add binding for other direction of this n:n relationship.
         // If this object has already been added to the ChildItemMasterItem object, it will not be re-added.
         if ($v !== null) {
-            $v->addInvSerialMaster($this);
+            $v->addInvTransferDetail($this);
         }
 
 
@@ -1964,7 +2886,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 to this object.  This level of coupling may, however, be
                 undesirable since it could result in an only partially populated collection
                 in the referenced object.
-                $this->aItemMasterItem->addInvSerialMasters($this);
+                $this->aItemMasterItem->addInvTransferDetails($this);
              */
         }
 
@@ -1982,10 +2904,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function initRelation($relationName)
     {
-        if ('InvLotTag' == $relationName) {
-            $this->initInvLotTags();
-            return;
-        }
         if ('InvTransferLotserial' == $relationName) {
             $this->initInvTransferLotserials();
             return;
@@ -1994,331 +2912,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             $this->initInvTransferPickedLotserials();
             return;
         }
-    }
-
-    /**
-     * Clears out the collInvLotTags collection
-     *
-     * This does not modify the database; however, it will remove any associated objects, causing
-     * them to be refetched by subsequent calls to accessor method.
-     *
-     * @return void
-     * @see        addInvLotTags()
-     */
-    public function clearInvLotTags()
-    {
-        $this->collInvLotTags = null; // important to set this to NULL since that means it is uninitialized
-    }
-
-    /**
-     * Reset is the collInvLotTags collection loaded partially.
-     */
-    public function resetPartialInvLotTags($v = true)
-    {
-        $this->collInvLotTagsPartial = $v;
-    }
-
-    /**
-     * Initializes the collInvLotTags collection.
-     *
-     * By default this just sets the collInvLotTags collection to an empty array (like clearcollInvLotTags());
-     * however, you may wish to override this method in your stub class to provide setting appropriate
-     * to your application -- for example, setting the initial array to the values stored in database.
-     *
-     * @param      boolean $overrideExisting If set to true, the method call initializes
-     *                                        the collection even if it is not empty
-     *
-     * @return void
-     */
-    public function initInvLotTags($overrideExisting = true)
-    {
-        if (null !== $this->collInvLotTags && !$overrideExisting) {
-            return;
-        }
-
-        $collectionClassName = InvLotTagTableMap::getTableMap()->getCollectionClassName();
-
-        $this->collInvLotTags = new $collectionClassName;
-        $this->collInvLotTags->setModel('\InvLotTag');
-    }
-
-    /**
-     * Gets an array of ChildInvLotTag objects which contain a foreign key that references this object.
-     *
-     * If the $criteria is not null, it is used to always fetch the results from the database.
-     * Otherwise the results are fetched from the database the first time, then cached.
-     * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildInvSerialMaster is new, it will return
-     * an empty collection or the current collection; the criteria is ignored on a new object.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     * @throws PropelException
-     */
-    public function getInvLotTags(Criteria $criteria = null, ConnectionInterface $con = null)
-    {
-        $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria  || $partial) {
-            if ($this->isNew() && null === $this->collInvLotTags) {
-                // return empty collection
-                $this->initInvLotTags();
-            } else {
-                $collInvLotTags = ChildInvLotTagQuery::create(null, $criteria)
-                    ->filterByInvSerialMaster($this)
-                    ->find($con);
-
-                if (null !== $criteria) {
-                    if (false !== $this->collInvLotTagsPartial && count($collInvLotTags)) {
-                        $this->initInvLotTags(false);
-
-                        foreach ($collInvLotTags as $obj) {
-                            if (false == $this->collInvLotTags->contains($obj)) {
-                                $this->collInvLotTags->append($obj);
-                            }
-                        }
-
-                        $this->collInvLotTagsPartial = true;
-                    }
-
-                    return $collInvLotTags;
-                }
-
-                if ($partial && $this->collInvLotTags) {
-                    foreach ($this->collInvLotTags as $obj) {
-                        if ($obj->isNew()) {
-                            $collInvLotTags[] = $obj;
-                        }
-                    }
-                }
-
-                $this->collInvLotTags = $collInvLotTags;
-                $this->collInvLotTagsPartial = false;
-            }
-        }
-
-        return $this->collInvLotTags;
-    }
-
-    /**
-     * Sets a collection of ChildInvLotTag objects related by a one-to-many relationship
-     * to the current object.
-     * It will also schedule objects for deletion based on a diff between old objects (aka persisted)
-     * and new objects from the given Propel collection.
-     *
-     * @param      Collection $invLotTags A Propel collection.
-     * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
-     */
-    public function setInvLotTags(Collection $invLotTags, ConnectionInterface $con = null)
-    {
-        /** @var ChildInvLotTag[] $invLotTagsToDelete */
-        $invLotTagsToDelete = $this->getInvLotTags(new Criteria(), $con)->diff($invLotTags);
-
-
-        $this->invLotTagsScheduledForDeletion = $invLotTagsToDelete;
-
-        foreach ($invLotTagsToDelete as $invLotTagRemoved) {
-            $invLotTagRemoved->setInvSerialMaster(null);
-        }
-
-        $this->collInvLotTags = null;
-        foreach ($invLotTags as $invLotTag) {
-            $this->addInvLotTag($invLotTag);
-        }
-
-        $this->collInvLotTags = $invLotTags;
-        $this->collInvLotTagsPartial = false;
-
-        return $this;
-    }
-
-    /**
-     * Returns the number of related InvLotTag objects.
-     *
-     * @param      Criteria $criteria
-     * @param      boolean $distinct
-     * @param      ConnectionInterface $con
-     * @return int             Count of related InvLotTag objects.
-     * @throws PropelException
-     */
-    public function countInvLotTags(Criteria $criteria = null, $distinct = false, ConnectionInterface $con = null)
-    {
-        $partial = $this->collInvLotTagsPartial && !$this->isNew();
-        if (null === $this->collInvLotTags || null !== $criteria || $partial) {
-            if ($this->isNew() && null === $this->collInvLotTags) {
-                return 0;
-            }
-
-            if ($partial && !$criteria) {
-                return count($this->getInvLotTags());
-            }
-
-            $query = ChildInvLotTagQuery::create(null, $criteria);
-            if ($distinct) {
-                $query->distinct();
-            }
-
-            return $query
-                ->filterByInvSerialMaster($this)
-                ->count($con);
-        }
-
-        return count($this->collInvLotTags);
-    }
-
-    /**
-     * Method called to associate a ChildInvLotTag object to this object
-     * through the ChildInvLotTag foreign key attribute.
-     *
-     * @param  ChildInvLotTag $l ChildInvLotTag
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
-     */
-    public function addInvLotTag(ChildInvLotTag $l)
-    {
-        if ($this->collInvLotTags === null) {
-            $this->initInvLotTags();
-            $this->collInvLotTagsPartial = true;
-        }
-
-        if (!$this->collInvLotTags->contains($l)) {
-            $this->doAddInvLotTag($l);
-
-            if ($this->invLotTagsScheduledForDeletion and $this->invLotTagsScheduledForDeletion->contains($l)) {
-                $this->invLotTagsScheduledForDeletion->remove($this->invLotTagsScheduledForDeletion->search($l));
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @param ChildInvLotTag $invLotTag The ChildInvLotTag object to add.
-     */
-    protected function doAddInvLotTag(ChildInvLotTag $invLotTag)
-    {
-        $this->collInvLotTags[]= $invLotTag;
-        $invLotTag->setInvSerialMaster($this);
-    }
-
-    /**
-     * @param  ChildInvLotTag $invLotTag The ChildInvLotTag object to remove.
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
-     */
-    public function removeInvLotTag(ChildInvLotTag $invLotTag)
-    {
-        if ($this->getInvLotTags()->contains($invLotTag)) {
-            $pos = $this->collInvLotTags->search($invLotTag);
-            $this->collInvLotTags->remove($pos);
-            if (null === $this->invLotTagsScheduledForDeletion) {
-                $this->invLotTagsScheduledForDeletion = clone $this->collInvLotTags;
-                $this->invLotTagsScheduledForDeletion->clear();
-            }
-            $this->invLotTagsScheduledForDeletion[]= clone $invLotTag;
-            $invLotTag->setInvSerialMaster(null);
-        }
-
-        return $this;
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
-     * been saved, it will retrieve related InvLotTags from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     */
-    public function getInvLotTagsJoinItemMasterItem(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildInvLotTagQuery::create(null, $criteria);
-        $query->joinWith('ItemMasterItem', $joinBehavior);
-
-        return $this->getInvLotTags($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
-     * been saved, it will retrieve related InvLotTags from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     */
-    public function getInvLotTagsJoinWarehouse(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildInvLotTagQuery::create(null, $criteria);
-        $query->joinWith('Warehouse', $joinBehavior);
-
-        return $this->getInvLotTags($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
-     * been saved, it will retrieve related InvLotTags from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     */
-    public function getInvLotTagsJoinInvLotMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildInvLotTagQuery::create(null, $criteria);
-        $query->joinWith('InvLotMaster', $joinBehavior);
-
-        return $this->getInvLotTags($query, $con);
-    }
-
-
-    /**
-     * If this collection has already been initialized with
-     * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
-     * been saved, it will retrieve related InvLotTags from storage.
-     *
-     * This method is protected by default in order to keep the public
-     * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
-     *
-     * @param      Criteria $criteria optional Criteria object to narrow the query
-     * @param      ConnectionInterface $con optional connection object
-     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
-     * @return ObjectCollection|ChildInvLotTag[] List of ChildInvLotTag objects
-     */
-    public function getInvLotTagsJoinDplusUser(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
-    {
-        $query = ChildInvLotTagQuery::create(null, $criteria);
-        $query->joinWith('DplusUser', $joinBehavior);
-
-        return $this->getInvLotTags($query, $con);
     }
 
     /**
@@ -2373,7 +2966,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
      * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildInvSerialMaster is new, it will return
+     * If this ChildInvTransferDetail is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
@@ -2390,7 +2983,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->initInvTransferLotserials();
             } else {
                 $collInvTransferLotserials = ChildInvTransferLotserialQuery::create(null, $criteria)
-                    ->filterByInvSerialMaster($this)
+                    ->filterByInvTransferDetail($this)
                     ->find($con);
 
                 if (null !== $criteria) {
@@ -2433,7 +3026,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param      Collection $invTransferLotserials A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
+     * @return $this|ChildInvTransferDetail The current object (for fluent API support)
      */
     public function setInvTransferLotserials(Collection $invTransferLotserials, ConnectionInterface $con = null)
     {
@@ -2447,7 +3040,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invTransferLotserialsScheduledForDeletion = clone $invTransferLotserialsToDelete;
 
         foreach ($invTransferLotserialsToDelete as $invTransferLotserialRemoved) {
-            $invTransferLotserialRemoved->setInvSerialMaster(null);
+            $invTransferLotserialRemoved->setInvTransferDetail(null);
         }
 
         $this->collInvTransferLotserials = null;
@@ -2488,7 +3081,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             }
 
             return $query
-                ->filterByInvSerialMaster($this)
+                ->filterByInvTransferDetail($this)
                 ->count($con);
         }
 
@@ -2500,7 +3093,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * through the ChildInvTransferLotserial foreign key attribute.
      *
      * @param  ChildInvTransferLotserial $l ChildInvTransferLotserial
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function addInvTransferLotserial(ChildInvTransferLotserial $l)
     {
@@ -2526,12 +3119,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     protected function doAddInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
     {
         $this->collInvTransferLotserials[]= $invTransferLotserial;
-        $invTransferLotserial->setInvSerialMaster($this);
+        $invTransferLotserial->setInvTransferDetail($this);
     }
 
     /**
      * @param  ChildInvTransferLotserial $invTransferLotserial The ChildInvTransferLotserial object to remove.
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
+     * @return $this|ChildInvTransferDetail The current object (for fluent API support)
      */
     public function removeInvTransferLotserial(ChildInvTransferLotserial $invTransferLotserial)
     {
@@ -2543,7 +3136,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invTransferLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferLotserialsScheduledForDeletion[]= clone $invTransferLotserial;
-            $invTransferLotserial->setInvSerialMaster(null);
+            $invTransferLotserial->setInvTransferDetail(null);
         }
 
         return $this;
@@ -2553,13 +3146,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2578,13 +3171,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2603,13 +3196,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2620,6 +3213,31 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     {
         $query = ChildInvTransferLotserialQuery::create(null, $criteria);
         $query->joinWith('InvLotMaster', $joinBehavior);
+
+        return $this->getInvTransferLotserials($query, $con);
+    }
+
+
+    /**
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
+     * been saved, it will retrieve related InvTransferLotserials from storage.
+     *
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvTransferDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferLotserial[] List of ChildInvTransferLotserial objects
+     */
+    public function getInvTransferLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
+    {
+        $query = ChildInvTransferLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
 
         return $this->getInvTransferLotserials($query, $con);
     }
@@ -2676,7 +3294,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * If the $criteria is not null, it is used to always fetch the results from the database.
      * Otherwise the results are fetched from the database the first time, then cached.
      * Next time the same method is called without $criteria, the cached collection is returned.
-     * If this ChildInvSerialMaster is new, it will return
+     * If this ChildInvTransferDetail is new, it will return
      * an empty collection or the current collection; the criteria is ignored on a new object.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
@@ -2693,7 +3311,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->initInvTransferPickedLotserials();
             } else {
                 $collInvTransferPickedLotserials = ChildInvTransferPickedLotserialQuery::create(null, $criteria)
-                    ->filterByInvSerialMaster($this)
+                    ->filterByInvTransferDetail($this)
                     ->find($con);
 
                 if (null !== $criteria) {
@@ -2736,7 +3354,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      *
      * @param      Collection $invTransferPickedLotserials A Propel collection.
      * @param      ConnectionInterface $con Optional connection object
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
+     * @return $this|ChildInvTransferDetail The current object (for fluent API support)
      */
     public function setInvTransferPickedLotserials(Collection $invTransferPickedLotserials, ConnectionInterface $con = null)
     {
@@ -2750,7 +3368,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         $this->invTransferPickedLotserialsScheduledForDeletion = clone $invTransferPickedLotserialsToDelete;
 
         foreach ($invTransferPickedLotserialsToDelete as $invTransferPickedLotserialRemoved) {
-            $invTransferPickedLotserialRemoved->setInvSerialMaster(null);
+            $invTransferPickedLotserialRemoved->setInvTransferDetail(null);
         }
 
         $this->collInvTransferPickedLotserials = null;
@@ -2791,7 +3409,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
             }
 
             return $query
-                ->filterByInvSerialMaster($this)
+                ->filterByInvTransferDetail($this)
                 ->count($con);
         }
 
@@ -2803,7 +3421,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      * through the ChildInvTransferPickedLotserial foreign key attribute.
      *
      * @param  ChildInvTransferPickedLotserial $l ChildInvTransferPickedLotserial
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
+     * @return $this|\InvTransferDetail The current object (for fluent API support)
      */
     public function addInvTransferPickedLotserial(ChildInvTransferPickedLotserial $l)
     {
@@ -2829,12 +3447,12 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     protected function doAddInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
     {
         $this->collInvTransferPickedLotserials[]= $invTransferPickedLotserial;
-        $invTransferPickedLotserial->setInvSerialMaster($this);
+        $invTransferPickedLotserial->setInvTransferDetail($this);
     }
 
     /**
      * @param  ChildInvTransferPickedLotserial $invTransferPickedLotserial The ChildInvTransferPickedLotserial object to remove.
-     * @return $this|ChildInvSerialMaster The current object (for fluent API support)
+     * @return $this|ChildInvTransferDetail The current object (for fluent API support)
      */
     public function removeInvTransferPickedLotserial(ChildInvTransferPickedLotserial $invTransferPickedLotserial)
     {
@@ -2846,7 +3464,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                 $this->invTransferPickedLotserialsScheduledForDeletion->clear();
             }
             $this->invTransferPickedLotserialsScheduledForDeletion[]= clone $invTransferPickedLotserial;
-            $invTransferPickedLotserial->setInvSerialMaster(null);
+            $invTransferPickedLotserial->setInvTransferDetail(null);
         }
 
         return $this;
@@ -2856,13 +3474,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferPickedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2881,13 +3499,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferPickedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2906,13 +3524,13 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     /**
      * If this collection has already been initialized with
      * an identical criteria, it returns the collection.
-     * Otherwise if this InvSerialMaster is new, it will return
-     * an empty collection; or if this InvSerialMaster has previously
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
      * been saved, it will retrieve related InvTransferPickedLotserials from storage.
      *
      * This method is protected by default in order to keep the public
      * api reasonable.  You can provide public methods for those you
-     * actually need in InvSerialMaster.
+     * actually need in InvTransferDetail.
      *
      * @param      Criteria $criteria optional Criteria object to narrow the query
      * @param      ConnectionInterface $con optional connection object
@@ -2927,40 +3545,29 @@ abstract class InvSerialMaster implements ActiveRecordInterface
         return $this->getInvTransferPickedLotserials($query, $con);
     }
 
-    /**
-     * Gets a single ChildInvSerialWarranty object, which is related to this object by a one-to-one relationship.
-     *
-     * @param  ConnectionInterface $con optional connection object
-     * @return ChildInvSerialWarranty
-     * @throws PropelException
-     */
-    public function getInvSerialWarranty(ConnectionInterface $con = null)
-    {
-
-        if ($this->singleInvSerialWarranty === null && !$this->isNew()) {
-            $this->singleInvSerialWarranty = ChildInvSerialWarrantyQuery::create()->findPk($this->getPrimaryKey(), $con);
-        }
-
-        return $this->singleInvSerialWarranty;
-    }
 
     /**
-     * Sets a single ChildInvSerialWarranty object as related to this object by a one-to-one relationship.
+     * If this collection has already been initialized with
+     * an identical criteria, it returns the collection.
+     * Otherwise if this InvTransferDetail is new, it will return
+     * an empty collection; or if this InvTransferDetail has previously
+     * been saved, it will retrieve related InvTransferPickedLotserials from storage.
      *
-     * @param  ChildInvSerialWarranty $v ChildInvSerialWarranty
-     * @return $this|\InvSerialMaster The current object (for fluent API support)
-     * @throws PropelException
+     * This method is protected by default in order to keep the public
+     * api reasonable.  You can provide public methods for those you
+     * actually need in InvTransferDetail.
+     *
+     * @param      Criteria $criteria optional Criteria object to narrow the query
+     * @param      ConnectionInterface $con optional connection object
+     * @param      string $joinBehavior optional join type to use (defaults to Criteria::LEFT_JOIN)
+     * @return ObjectCollection|ChildInvTransferPickedLotserial[] List of ChildInvTransferPickedLotserial objects
      */
-    public function setInvSerialWarranty(ChildInvSerialWarranty $v = null)
+    public function getInvTransferPickedLotserialsJoinInvSerialMaster(Criteria $criteria = null, ConnectionInterface $con = null, $joinBehavior = Criteria::LEFT_JOIN)
     {
-        $this->singleInvSerialWarranty = $v;
+        $query = ChildInvTransferPickedLotserialQuery::create(null, $criteria);
+        $query->joinWith('InvSerialMaster', $joinBehavior);
 
-        // Make sure that that the passed-in ChildInvSerialWarranty isn't already associated with this object
-        if ($v !== null && $v->getInvSerialMaster(null, false) === null) {
-            $v->setInvSerialMaster($this);
-        }
-
-        return $this;
+        return $this->getInvTransferPickedLotserials($query, $con);
     }
 
     /**
@@ -2970,19 +3577,35 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function clear()
     {
-        if (null !== $this->aItemMasterItem) {
-            $this->aItemMasterItem->removeInvSerialMaster($this);
+        if (null !== $this->aInvTransferOrder) {
+            $this->aInvTransferOrder->removeInvTransferDetail($this);
         }
+        if (null !== $this->aItemMasterItem) {
+            $this->aItemMasterItem->removeInvTransferDetail($this);
+        }
+        $this->inhdnbr = null;
+        $this->indtline = null;
         $this->inititemnbr = null;
-        $this->sermsernbr = null;
-        $this->sermproddate = null;
-        $this->sermprntcnt = null;
-        $this->sermsordnbr = null;
-        $this->serminvcdate = null;
-        $this->sermrevision = null;
-        $this->sermctry = null;
-        $this->sermacallocordr = null;
-        $this->sermrefsernbr = null;
+        $this->indtqtyrqst = null;
+        $this->indtqtyship = null;
+        $this->indtrqstdate = null;
+        $this->indtshipdate = null;
+        $this->indtpickflag = null;
+        $this->indtbordflag = null;
+        $this->indtqtyprev = null;
+        $this->indtqtyrcvd = null;
+        $this->indttobercvd = null;
+        $this->indtrcptdate = null;
+        $this->indtsonbr = null;
+        $this->indtkitflag = null;
+        $this->indtuseitemnbr = null;
+        $this->indtcustitemnbr = null;
+        $this->indtcntrqty = null;
+        $this->indtcases = null;
+        $this->indtorigrqstdate = null;
+        $this->indtordras = null;
+        $this->indtfreshfrozen = null;
+        $this->indtprimbin = null;
         $this->dateupdtd = null;
         $this->timeupdtd = null;
         $this->dummy = null;
@@ -3005,11 +3628,6 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function clearAllReferences($deep = false)
     {
         if ($deep) {
-            if ($this->collInvLotTags) {
-                foreach ($this->collInvLotTags as $o) {
-                    $o->clearAllReferences($deep);
-                }
-            }
             if ($this->collInvTransferLotserials) {
                 foreach ($this->collInvTransferLotserials as $o) {
                     $o->clearAllReferences($deep);
@@ -3020,15 +3638,11 @@ abstract class InvSerialMaster implements ActiveRecordInterface
                     $o->clearAllReferences($deep);
                 }
             }
-            if ($this->singleInvSerialWarranty) {
-                $this->singleInvSerialWarranty->clearAllReferences($deep);
-            }
         } // if ($deep)
 
-        $this->collInvLotTags = null;
         $this->collInvTransferLotserials = null;
         $this->collInvTransferPickedLotserials = null;
-        $this->singleInvSerialWarranty = null;
+        $this->aInvTransferOrder = null;
         $this->aItemMasterItem = null;
     }
 
@@ -3039,7 +3653,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
      */
     public function __toString()
     {
-        return (string) $this->exportTo(InvSerialMasterTableMap::DEFAULT_STRING_FORMAT);
+        return (string) $this->exportTo(InvTransferDetailTableMap::DEFAULT_STRING_FORMAT);
     }
 
     /**
@@ -3050,7 +3664,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preSave(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::preSave')) {
-        //     return parent::preSave($con);
+        //     // return parent::preSave($con);
         // }
         return true;
     }
@@ -3062,7 +3676,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postSave(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::postSave')) {
-        //     parent::postSave($con);
+        //     // parent::postSave($con);
         // }
     }
 
@@ -3074,7 +3688,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preInsert(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::preInsert')) {
-        //     return parent::preInsert($con);
+        //     // return parent::preInsert($con);
         // }
         return true;
     }
@@ -3086,7 +3700,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postInsert(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::postInsert')) {
-        //     parent::postInsert($con);
+        //     // parent::postInsert($con);
         // }
     }
 
@@ -3098,7 +3712,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preUpdate(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::preUpdate')) {
-        //     return parent::preUpdate($con);
+        //     // return parent::preUpdate($con);
         // }
         return true;
     }
@@ -3110,7 +3724,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postUpdate(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::postUpdate')) {
-        //     parent::postUpdate($con);
+        //     // parent::postUpdate($con);
         // }
     }
 
@@ -3122,7 +3736,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function preDelete(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::preDelete')) {
-        //     return parent::preDelete($con);
+        //     // return parent::preDelete($con);
         // }
         return true;
     }
@@ -3134,7 +3748,7 @@ abstract class InvSerialMaster implements ActiveRecordInterface
     public function postDelete(ConnectionInterface $con = null)
     {
         // if (is_callable('parent::postDelete')) {
-        //     parent::postDelete($con);
+        //     // parent::postDelete($con);
         // }
     }
 

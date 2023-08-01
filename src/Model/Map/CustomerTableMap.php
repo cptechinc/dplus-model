@@ -989,6 +989,13 @@ class CustomerTableMap extends TableMap
     1 => ':ArcuCustId',
   ),
 ), null, null, 'CustomerShiptos', false);
+        $this->addRelation('InvTransferOrder', '\\InvTransferOrder', RelationMap::ONE_TO_MANY, array (
+  0 =>
+  array (
+    0 => ':ArcuCustId',
+    1 => ':ArcuCustId',
+  ),
+), null, null, 'InvTransferOrders', false);
         $this->addRelation('InvSerialWarranty', '\\InvSerialWarranty', RelationMap::ONE_TO_MANY, array (
   0 =>
   array (

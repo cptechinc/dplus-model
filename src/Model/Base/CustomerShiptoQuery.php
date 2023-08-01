@@ -252,6 +252,16 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithArContact() Adds a RIGHT JOIN clause and with to the query using the ArContact relation
  * @method     ChildCustomerShiptoQuery innerJoinWithArContact() Adds a INNER JOIN clause and with to the query using the ArContact relation
  *
+ * @method     ChildCustomerShiptoQuery leftJoinInvTransferOrder($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinInvTransferOrder($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinInvTransferOrder($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery joinWithInvTransferOrder($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferOrder relation
+ *
+ * @method     ChildCustomerShiptoQuery leftJoinWithInvTransferOrder() Adds a LEFT JOIN clause and with to the query using the InvTransferOrder relation
+ * @method     ChildCustomerShiptoQuery rightJoinWithInvTransferOrder() Adds a RIGHT JOIN clause and with to the query using the InvTransferOrder relation
+ * @method     ChildCustomerShiptoQuery innerJoinWithInvTransferOrder() Adds a INNER JOIN clause and with to the query using the InvTransferOrder relation
+ *
  * @method     ChildCustomerShiptoQuery leftJoinNoteCustInternal($relationAlias = null) Adds a LEFT JOIN clause to the query using the NoteCustInternal relation
  * @method     ChildCustomerShiptoQuery rightJoinNoteCustInternal($relationAlias = null) Adds a RIGHT JOIN clause to the query using the NoteCustInternal relation
  * @method     ChildCustomerShiptoQuery innerJoinNoteCustInternal($relationAlias = null) Adds a INNER JOIN clause to the query using the NoteCustInternal relation
@@ -342,7 +352,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildCustomerShiptoQuery rightJoinWithSoStandingOrder() Adds a RIGHT JOIN clause and with to the query using the SoStandingOrder relation
  * @method     ChildCustomerShiptoQuery innerJoinWithSoStandingOrder() Adds a INNER JOIN clause and with to the query using the SoStandingOrder relation
  *
- * @method     \CustomerQuery|\ArContactQuery|\NoteCustInternalQuery|\NoteCustOrderQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \CustomerQuery|\ArContactQuery|\InvTransferOrderQuery|\NoteCustInternalQuery|\NoteCustOrderQuery|\BookingDayCustomerQuery|\BookingDayDetailQuery|\BookingQuery|\SalesHistoryQuery|\SalesOrderQuery|\SoStandingOrderDetailQuery|\SoStandingOrderQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildCustomerShipto findOne(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query
  * @method     ChildCustomerShipto findOneOrCreate(ConnectionInterface $con = null) Return the first ChildCustomerShipto matching the query, or a new ChildCustomerShipto object populated from the query conditions when no match is found
@@ -4421,6 +4431,75 @@ abstract class CustomerShiptoQuery extends ModelCriteria
         return $this
             ->joinArContact($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'ArContact', '\ArContactQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferOrder object
+     *
+     * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferOrder($invTransferOrder, $comparison = null)
+    {
+        if ($invTransferOrder instanceof \InvTransferOrder) {
+            return $this
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARCUCUSTID, $invTransferOrder->getArcucustid(), $comparison)
+                ->addUsingAlias(CustomerShiptoTableMap::COL_ARSTSHIPID, $invTransferOrder->getArstshipid(), $comparison);
+        } else {
+            throw new PropelException('filterByInvTransferOrder() only accepts arguments of type \InvTransferOrder');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferOrder relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildCustomerShiptoQuery The current query, for fluid interface
+     */
+    public function joinInvTransferOrder($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferOrder');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferOrder');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferOrder relation InvTransferOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferOrderQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferOrder($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrder', '\InvTransferOrderQuery');
     }
 
     /**

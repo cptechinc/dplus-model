@@ -138,6 +138,26 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithInvLotTag() Adds a RIGHT JOIN clause and with to the query using the InvLotTag relation
  * @method     ChildWarehouseQuery innerJoinWithInvLotTag() Adds a INNER JOIN clause and with to the query using the InvLotTag relation
  *
+ * @method     ChildWarehouseQuery leftJoinInvTransferOrderRelatedByIntbwhsefrom($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ * @method     ChildWarehouseQuery rightJoinInvTransferOrderRelatedByIntbwhsefrom($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ * @method     ChildWarehouseQuery innerJoinInvTransferOrderRelatedByIntbwhsefrom($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ *
+ * @method     ChildWarehouseQuery joinWithInvTransferOrderRelatedByIntbwhsefrom($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ *
+ * @method     ChildWarehouseQuery leftJoinWithInvTransferOrderRelatedByIntbwhsefrom() Adds a LEFT JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ * @method     ChildWarehouseQuery rightJoinWithInvTransferOrderRelatedByIntbwhsefrom() Adds a RIGHT JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ * @method     ChildWarehouseQuery innerJoinWithInvTransferOrderRelatedByIntbwhsefrom() Adds a INNER JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+ *
+ * @method     ChildWarehouseQuery leftJoinInvTransferOrderRelatedByIntbwhseto($relationAlias = null) Adds a LEFT JOIN clause to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ * @method     ChildWarehouseQuery rightJoinInvTransferOrderRelatedByIntbwhseto($relationAlias = null) Adds a RIGHT JOIN clause to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ * @method     ChildWarehouseQuery innerJoinInvTransferOrderRelatedByIntbwhseto($relationAlias = null) Adds a INNER JOIN clause to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ *
+ * @method     ChildWarehouseQuery joinWithInvTransferOrderRelatedByIntbwhseto($joinType = Criteria::INNER_JOIN) Adds a join clause and with to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ *
+ * @method     ChildWarehouseQuery leftJoinWithInvTransferOrderRelatedByIntbwhseto() Adds a LEFT JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ * @method     ChildWarehouseQuery rightJoinWithInvTransferOrderRelatedByIntbwhseto() Adds a RIGHT JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ * @method     ChildWarehouseQuery innerJoinWithInvTransferOrderRelatedByIntbwhseto() Adds a INNER JOIN clause and with to the query using the InvTransferOrderRelatedByIntbwhseto relation
+ *
  * @method     ChildWarehouseQuery leftJoinWarehouseInventory($relationAlias = null) Adds a LEFT JOIN clause to the query using the WarehouseInventory relation
  * @method     ChildWarehouseQuery rightJoinWarehouseInventory($relationAlias = null) Adds a RIGHT JOIN clause to the query using the WarehouseInventory relation
  * @method     ChildWarehouseQuery innerJoinWarehouseInventory($relationAlias = null) Adds a INNER JOIN clause to the query using the WarehouseInventory relation
@@ -168,7 +188,7 @@ use Propel\Runtime\Exception\PropelException;
  * @method     ChildWarehouseQuery rightJoinWithPoReceivingHead() Adds a RIGHT JOIN clause and with to the query using the PoReceivingHead relation
  * @method     ChildWarehouseQuery innerJoinWithPoReceivingHead() Adds a INNER JOIN clause and with to the query using the PoReceivingHead relation
  *
- * @method     \InvWhseItemBinQuery|\WarehouseBinQuery|\InvWhseLotQuery|\InvLotTagQuery|\WarehouseInventoryQuery|\WarehouseNoteQuery|\PoReceivingHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
+ * @method     \InvWhseItemBinQuery|\WarehouseBinQuery|\InvWhseLotQuery|\InvLotTagQuery|\InvTransferOrderQuery|\WarehouseInventoryQuery|\WarehouseNoteQuery|\PoReceivingHeadQuery endUse() Finalizes a secondary criteria and merges it with its primary Criteria
  *
  * @method     ChildWarehouse findOne(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query
  * @method     ChildWarehouse findOneOrCreate(ConnectionInterface $con = null) Return the first ChildWarehouse matching the query, or a new ChildWarehouse object populated from the query conditions when no match is found
@@ -1609,6 +1629,152 @@ abstract class WarehouseQuery extends ModelCriteria
         return $this
             ->joinInvLotTag($relationAlias, $joinType)
             ->useQuery($relationAlias ? $relationAlias : 'InvLotTag', '\InvLotTagQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferOrder object
+     *
+     * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferOrderRelatedByIntbwhsefrom($invTransferOrder, $comparison = null)
+    {
+        if ($invTransferOrder instanceof \InvTransferOrder) {
+            return $this
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invTransferOrder->getIntbwhsefrom(), $comparison);
+        } elseif ($invTransferOrder instanceof ObjectCollection) {
+            return $this
+                ->useInvTransferOrderRelatedByIntbwhsefromQuery()
+                ->filterByPrimaryKeys($invTransferOrder->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvTransferOrderRelatedByIntbwhsefrom() only accepts arguments of type \InvTransferOrder or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferOrderRelatedByIntbwhsefrom relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function joinInvTransferOrderRelatedByIntbwhsefrom($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferOrderRelatedByIntbwhsefrom');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferOrderRelatedByIntbwhsefrom');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhsefrom relation InvTransferOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferOrderRelatedByIntbwhsefromQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferOrderRelatedByIntbwhsefrom($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrderRelatedByIntbwhsefrom', '\InvTransferOrderQuery');
+    }
+
+    /**
+     * Filter the query by a related \InvTransferOrder object
+     *
+     * @param \InvTransferOrder|ObjectCollection $invTransferOrder the related object to use as filter
+     * @param string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+     *
+     * @return ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function filterByInvTransferOrderRelatedByIntbwhseto($invTransferOrder, $comparison = null)
+    {
+        if ($invTransferOrder instanceof \InvTransferOrder) {
+            return $this
+                ->addUsingAlias(WarehouseTableMap::COL_INTBWHSE, $invTransferOrder->getIntbwhseto(), $comparison);
+        } elseif ($invTransferOrder instanceof ObjectCollection) {
+            return $this
+                ->useInvTransferOrderRelatedByIntbwhsetoQuery()
+                ->filterByPrimaryKeys($invTransferOrder->getPrimaryKeys())
+                ->endUse();
+        } else {
+            throw new PropelException('filterByInvTransferOrderRelatedByIntbwhseto() only accepts arguments of type \InvTransferOrder or Collection');
+        }
+    }
+
+    /**
+     * Adds a JOIN clause to the query using the InvTransferOrderRelatedByIntbwhseto relation
+     *
+     * @param     string $relationAlias optional alias for the relation
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return $this|ChildWarehouseQuery The current query, for fluid interface
+     */
+    public function joinInvTransferOrderRelatedByIntbwhseto($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        $tableMap = $this->getTableMap();
+        $relationMap = $tableMap->getRelation('InvTransferOrderRelatedByIntbwhseto');
+
+        // create a ModelJoin object for this join
+        $join = new ModelJoin();
+        $join->setJoinType($joinType);
+        $join->setRelationMap($relationMap, $this->useAliasInSQL ? $this->getModelAlias() : null, $relationAlias);
+        if ($previousJoin = $this->getPreviousJoin()) {
+            $join->setPreviousJoin($previousJoin);
+        }
+
+        // add the ModelJoin to the current object
+        if ($relationAlias) {
+            $this->addAlias($relationAlias, $relationMap->getRightTable()->getName());
+            $this->addJoinObject($join, $relationAlias);
+        } else {
+            $this->addJoinObject($join, 'InvTransferOrderRelatedByIntbwhseto');
+        }
+
+        return $this;
+    }
+
+    /**
+     * Use the InvTransferOrderRelatedByIntbwhseto relation InvTransferOrder object
+     *
+     * @see useQuery()
+     *
+     * @param     string $relationAlias optional alias for the relation,
+     *                                   to be used as main alias in the secondary query
+     * @param     string $joinType Accepted values are null, 'left join', 'right join', 'inner join'
+     *
+     * @return \InvTransferOrderQuery A secondary query class using the current class as primary query
+     */
+    public function useInvTransferOrderRelatedByIntbwhsetoQuery($relationAlias = null, $joinType = Criteria::INNER_JOIN)
+    {
+        return $this
+            ->joinInvTransferOrderRelatedByIntbwhseto($relationAlias, $joinType)
+            ->useQuery($relationAlias ? $relationAlias : 'InvTransferOrderRelatedByIntbwhseto', '\InvTransferOrderQuery');
     }
 
     /**
