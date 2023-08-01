@@ -23,4 +23,14 @@ use Dplus\Model\QueryTraits;
  */
 class PrinterQuery extends BasePrinterQuery {
 	use QueryTraits;
+
+	/**
+	 * Filter the Query by Printer Type
+	 * @param  mixed $type
+	 * @param  string|null $comparison
+	 * @return PrinterQuery
+	 */
+	public function filterByType($type = null, $comparison = null) {
+		return $this->filterByPrctprtrtype($type, $comparison);
+	}
 }

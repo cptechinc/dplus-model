@@ -12,7 +12,7 @@ use Dplus\Model\MagicMethodTraits;
 class InvWhseItemBin extends BaseInvWhseItemBin {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
-	const PREFIX_BINID_FROM = 'binamin';
+	const PREFIX_BINID_FROM = 'binabin';
 	const NBR_OF_BINS = 9;
 
 	/**
@@ -40,5 +40,20 @@ class InvWhseItemBin extends BaseInvWhseItemBin {
 		}
 		$col = self::PREFIX_BINID_FROM . $index;
 		return $this->$col;
+	}
+
+	/**
+	 * Set Bin ID at index
+	 * @param  int $index
+	 * @param  string  $val
+	 * @return bool
+	 */
+	public function setBin($index = 1, $val = '') {
+		if ($index < 1 || $index > self::NBR_OF_BINS) {
+			return false;
+		}
+		$col = self::PREFIX_BINID_FROM . $index;
+		$setCol = 'set' . ucfirst($col);
+		$this->$setCol($val);
 	}
 }

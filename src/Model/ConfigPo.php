@@ -56,6 +56,7 @@ class ConfigPo extends BaseConfigPo {
 		'controlbuyer'              => 'potbconfbuyercontrol',
 		'usefabrication'            => 'potbconfusefab',
 		'warnReceivedMoreThanOrdered' => 'potbconfwarnrcptqty',
+		'provideLabelPrinting'        => 'potbconfprovidelpo',
 	);
 
 	/**

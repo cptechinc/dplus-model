@@ -51,7 +51,7 @@ class PurchaseOrderNote extends BasePurchaseOrderNote {
 	public function generateKey2() {
 		$ponbr = PurchaseOrder::get_paddedponumber($this->ponbr);
 		$linenbr = str_pad($this->linenbr , 4 , "0", STR_PAD_LEFT);
-		$key2 = $ponbr.self::CONTROL_NBR.$linenbr.$this->editable;
+		$key2 = self::CONTROL_NBR . $this->line . $this->editable;
 		$this->setKey2($key2);
 	}
 

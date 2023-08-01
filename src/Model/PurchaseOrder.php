@@ -27,12 +27,12 @@ class PurchaseOrder extends BasePurchaseOrder {
 	const FORMAT_DATE = 'Ymd';
 
 	const STATUS_DESCRIPTIONS = array(
-		'N' => 'not printed',
-		'C' => 'closed',
-		'O' => 'open',
-		'P' => 'printed'
+		'N' => 'New',
+		'C' => 'Closed',
+		'O' => 'Printed',
 	);
 
+	const STATUS_NOTPRINTED   = 'N';
 	const STATUS_OPEN   = 'O';
 	const STATUS_CLOSED = 'C';
 
