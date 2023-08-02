@@ -2,8 +2,8 @@
 
 namespace Map;
 
-use \NotesIntr;
-use \NotesIntrQuery;
+use \NoteIntr;
+use \NoteIntrQuery;
 use Propel\Runtime\Propel;
 use Propel\Runtime\ActiveQuery\Criteria;
 use Propel\Runtime\ActiveQuery\InstancePoolTrait;
@@ -26,7 +26,7 @@ use Propel\Runtime\Map\TableMapTrait;
  * (i.e. if it's a text column type).
  *
  */
-class NotesIntrTableMap extends TableMap
+class NoteIntrTableMap extends TableMap
 {
     use InstancePoolTrait;
     use TableMapTrait;
@@ -34,7 +34,7 @@ class NotesIntrTableMap extends TableMap
     /**
      * The (dot-path) name of this class
      */
-    const CLASS_NAME = '.Map.NotesIntrTableMap';
+    const CLASS_NAME = '.Map.NoteIntrTableMap';
 
     /**
      * The default database name for this class
@@ -49,12 +49,12 @@ class NotesIntrTableMap extends TableMap
     /**
      * The related Propel class for this table
      */
-    const OM_CLASS = '\\NotesIntr';
+    const OM_CLASS = '\\NoteIntr';
 
     /**
      * A class that can be returned by this tableMap
      */
-    const CLASS_DEFAULT = 'NotesIntr';
+    const CLASS_DEFAULT = 'NoteIntr';
 
     /**
      * The total number of columns
@@ -140,7 +140,7 @@ class NotesIntrTableMap extends TableMap
     protected static $fieldNames = array (
         self::TYPE_PHPNAME       => array('Qntype', 'Qntypedesc', 'Inhdnbr', 'Indtline', 'Qnseq', 'Qnnote', 'Qnkey2', 'Qnform', 'Dateupdtd', 'Timeupdtd', 'Dummy', ),
         self::TYPE_CAMELNAME     => array('qntype', 'qntypedesc', 'inhdnbr', 'indtline', 'qnseq', 'qnnote', 'qnkey2', 'qnform', 'dateupdtd', 'timeupdtd', 'dummy', ),
-        self::TYPE_COLNAME       => array(NotesIntrTableMap::COL_QNTYPE, NotesIntrTableMap::COL_QNTYPEDESC, NotesIntrTableMap::COL_INHDNBR, NotesIntrTableMap::COL_INDTLINE, NotesIntrTableMap::COL_QNSEQ, NotesIntrTableMap::COL_QNNOTE, NotesIntrTableMap::COL_QNKEY2, NotesIntrTableMap::COL_QNFORM, NotesIntrTableMap::COL_DATEUPDTD, NotesIntrTableMap::COL_TIMEUPDTD, NotesIntrTableMap::COL_DUMMY, ),
+        self::TYPE_COLNAME       => array(NoteIntrTableMap::COL_QNTYPE, NoteIntrTableMap::COL_QNTYPEDESC, NoteIntrTableMap::COL_INHDNBR, NoteIntrTableMap::COL_INDTLINE, NoteIntrTableMap::COL_QNSEQ, NoteIntrTableMap::COL_QNNOTE, NoteIntrTableMap::COL_QNKEY2, NoteIntrTableMap::COL_QNFORM, NoteIntrTableMap::COL_DATEUPDTD, NoteIntrTableMap::COL_TIMEUPDTD, NoteIntrTableMap::COL_DUMMY, ),
         self::TYPE_FIELDNAME     => array('QnType', 'QnTypeDesc', 'InhdNbr', 'IndtLine', 'QnSeq', 'QnNote', 'QnKey2', 'QnForm', 'DateUpdtd', 'TimeUpdtd', 'dummy', ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -154,7 +154,7 @@ class NotesIntrTableMap extends TableMap
     protected static $fieldKeys = array (
         self::TYPE_PHPNAME       => array('Qntype' => 0, 'Qntypedesc' => 1, 'Inhdnbr' => 2, 'Indtline' => 3, 'Qnseq' => 4, 'Qnnote' => 5, 'Qnkey2' => 6, 'Qnform' => 7, 'Dateupdtd' => 8, 'Timeupdtd' => 9, 'Dummy' => 10, ),
         self::TYPE_CAMELNAME     => array('qntype' => 0, 'qntypedesc' => 1, 'inhdnbr' => 2, 'indtline' => 3, 'qnseq' => 4, 'qnnote' => 5, 'qnkey2' => 6, 'qnform' => 7, 'dateupdtd' => 8, 'timeupdtd' => 9, 'dummy' => 10, ),
-        self::TYPE_COLNAME       => array(NotesIntrTableMap::COL_QNTYPE => 0, NotesIntrTableMap::COL_QNTYPEDESC => 1, NotesIntrTableMap::COL_INHDNBR => 2, NotesIntrTableMap::COL_INDTLINE => 3, NotesIntrTableMap::COL_QNSEQ => 4, NotesIntrTableMap::COL_QNNOTE => 5, NotesIntrTableMap::COL_QNKEY2 => 6, NotesIntrTableMap::COL_QNFORM => 7, NotesIntrTableMap::COL_DATEUPDTD => 8, NotesIntrTableMap::COL_TIMEUPDTD => 9, NotesIntrTableMap::COL_DUMMY => 10, ),
+        self::TYPE_COLNAME       => array(NoteIntrTableMap::COL_QNTYPE => 0, NoteIntrTableMap::COL_QNTYPEDESC => 1, NoteIntrTableMap::COL_INHDNBR => 2, NoteIntrTableMap::COL_INDTLINE => 3, NoteIntrTableMap::COL_QNSEQ => 4, NoteIntrTableMap::COL_QNNOTE => 5, NoteIntrTableMap::COL_QNKEY2 => 6, NoteIntrTableMap::COL_QNFORM => 7, NoteIntrTableMap::COL_DATEUPDTD => 8, NoteIntrTableMap::COL_TIMEUPDTD => 9, NoteIntrTableMap::COL_DUMMY => 10, ),
         self::TYPE_FIELDNAME     => array('QnType' => 0, 'QnTypeDesc' => 1, 'InhdNbr' => 2, 'IndtLine' => 3, 'QnSeq' => 4, 'QnNote' => 5, 'QnKey2' => 6, 'QnForm' => 7, 'DateUpdtd' => 8, 'TimeUpdtd' => 9, 'dummy' => 10, ),
         self::TYPE_NUM           => array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, )
     );
@@ -170,9 +170,9 @@ class NotesIntrTableMap extends TableMap
     {
         // attributes
         $this->setName('notes_tran_head_det');
-        $this->setPhpName('NotesIntr');
+        $this->setPhpName('NoteIntr');
         $this->setIdentifierQuoting(false);
-        $this->setClassName('\\NotesIntr');
+        $this->setClassName('\\NoteIntr');
         $this->setPackage('');
         $this->setUseIdGenerator(false);
         // columns
@@ -204,7 +204,7 @@ class NotesIntrTableMap extends TableMap
      * to the cache in order to ensure that the same objects are always returned by find*()
      * and findPk*() calls.
      *
-     * @param \NotesIntr $obj A \NotesIntr object.
+     * @param \NoteIntr $obj A \NoteIntr object.
      * @param string $key             (optional) key to use for instance map (for performance boost if key was already calculated externally).
      */
     public static function addInstanceToPool($obj, $key = null)
@@ -225,12 +225,12 @@ class NotesIntrTableMap extends TableMap
      * methods in your stub classes -- you may need to explicitly remove objects
      * from the cache in order to prevent returning objects that no longer exist.
      *
-     * @param mixed $value A \NotesIntr object or a primary key value.
+     * @param mixed $value A \NoteIntr object or a primary key value.
      */
     public static function removeInstanceFromPool($value)
     {
         if (Propel::isInstancePoolingEnabled() && null !== $value) {
-            if (is_object($value) && $value instanceof \NotesIntr) {
+            if (is_object($value) && $value instanceof \NoteIntr) {
                 $key = serialize([(null === $value->getQntype() || is_scalar($value->getQntype()) || is_callable([$value->getQntype(), '__toString']) ? (string) $value->getQntype() : $value->getQntype()), (null === $value->getQnseq() || is_scalar($value->getQnseq()) || is_callable([$value->getQnseq(), '__toString']) ? (string) $value->getQnseq() : $value->getQnseq()), (null === $value->getQnkey2() || is_scalar($value->getQnkey2()) || is_callable([$value->getQnkey2(), '__toString']) ? (string) $value->getQnkey2() : $value->getQnkey2()), (null === $value->getQnform() || is_scalar($value->getQnform()) || is_callable([$value->getQnform(), '__toString']) ? (string) $value->getQnform() : $value->getQnform())]);
 
             } elseif (is_array($value) && count($value) === 4) {
@@ -241,7 +241,7 @@ class NotesIntrTableMap extends TableMap
 
                 return;
             } else {
-                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NotesIntr object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
+                $e = new PropelException("Invalid value passed to removeInstanceFromPool().  Expected primary key or \NoteIntr object; got " . (is_object($value) ? get_class($value) . ' object.' : var_export($value, true)));
                 throw $e;
             }
 
@@ -325,7 +325,7 @@ class NotesIntrTableMap extends TableMap
      */
     public static function getOMClass($withPrefix = true)
     {
-        return $withPrefix ? NotesIntrTableMap::CLASS_DEFAULT : NotesIntrTableMap::OM_CLASS;
+        return $withPrefix ? NoteIntrTableMap::CLASS_DEFAULT : NoteIntrTableMap::OM_CLASS;
     }
 
     /**
@@ -339,22 +339,22 @@ class NotesIntrTableMap extends TableMap
      *
      * @throws PropelException Any exceptions caught during processing will be
      *                         rethrown wrapped into a PropelException.
-     * @return array           (NotesIntr object, last column rank)
+     * @return array           (NoteIntr object, last column rank)
      */
     public static function populateObject($row, $offset = 0, $indexType = TableMap::TYPE_NUM)
     {
-        $key = NotesIntrTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
-        if (null !== ($obj = NotesIntrTableMap::getInstanceFromPool($key))) {
+        $key = NoteIntrTableMap::getPrimaryKeyHashFromRow($row, $offset, $indexType);
+        if (null !== ($obj = NoteIntrTableMap::getInstanceFromPool($key))) {
             // We no longer rehydrate the object, since this can cause data loss.
             // See http://www.propelorm.org/ticket/509
             // $obj->hydrate($row, $offset, true); // rehydrate
-            $col = $offset + NotesIntrTableMap::NUM_HYDRATE_COLUMNS;
+            $col = $offset + NoteIntrTableMap::NUM_HYDRATE_COLUMNS;
         } else {
-            $cls = NotesIntrTableMap::OM_CLASS;
-            /** @var NotesIntr $obj */
+            $cls = NoteIntrTableMap::OM_CLASS;
+            /** @var NoteIntr $obj */
             $obj = new $cls();
             $col = $obj->hydrate($row, $offset, false, $indexType);
-            NotesIntrTableMap::addInstanceToPool($obj, $key);
+            NoteIntrTableMap::addInstanceToPool($obj, $key);
         }
 
         return array($obj, $col);
@@ -377,18 +377,18 @@ class NotesIntrTableMap extends TableMap
         $cls = static::getOMClass(false);
         // populate the object(s)
         while ($row = $dataFetcher->fetch()) {
-            $key = NotesIntrTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
-            if (null !== ($obj = NotesIntrTableMap::getInstanceFromPool($key))) {
+            $key = NoteIntrTableMap::getPrimaryKeyHashFromRow($row, 0, $dataFetcher->getIndexType());
+            if (null !== ($obj = NoteIntrTableMap::getInstanceFromPool($key))) {
                 // We no longer rehydrate the object, since this can cause data loss.
                 // See http://www.propelorm.org/ticket/509
                 // $obj->hydrate($row, 0, true); // rehydrate
                 $results[] = $obj;
             } else {
-                /** @var NotesIntr $obj */
+                /** @var NoteIntr $obj */
                 $obj = new $cls();
                 $obj->hydrate($row);
                 $results[] = $obj;
-                NotesIntrTableMap::addInstanceToPool($obj, $key);
+                NoteIntrTableMap::addInstanceToPool($obj, $key);
             } // if key exists
         }
 
@@ -409,17 +409,17 @@ class NotesIntrTableMap extends TableMap
     public static function addSelectColumns(Criteria $criteria, $alias = null)
     {
         if (null === $alias) {
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNTYPE);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNTYPEDESC);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_INHDNBR);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_INDTLINE);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNSEQ);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNNOTE);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNKEY2);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_QNFORM);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_DATEUPDTD);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_TIMEUPDTD);
-            $criteria->addSelectColumn(NotesIntrTableMap::COL_DUMMY);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNTYPE);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNTYPEDESC);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_INHDNBR);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_INDTLINE);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNSEQ);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNNOTE);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNKEY2);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_QNFORM);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_DATEUPDTD);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_TIMEUPDTD);
+            $criteria->addSelectColumn(NoteIntrTableMap::COL_DUMMY);
         } else {
             $criteria->addSelectColumn($alias . '.QnType');
             $criteria->addSelectColumn($alias . '.QnTypeDesc');
@@ -444,7 +444,7 @@ class NotesIntrTableMap extends TableMap
      */
     public static function getTableMap()
     {
-        return Propel::getServiceContainer()->getDatabaseMap(NotesIntrTableMap::DATABASE_NAME)->getTable(NotesIntrTableMap::TABLE_NAME);
+        return Propel::getServiceContainer()->getDatabaseMap(NoteIntrTableMap::DATABASE_NAME)->getTable(NoteIntrTableMap::TABLE_NAME);
     }
 
     /**
@@ -452,16 +452,16 @@ class NotesIntrTableMap extends TableMap
      */
     public static function buildTableMap()
     {
-        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NotesIntrTableMap::DATABASE_NAME);
-        if (!$dbMap->hasTable(NotesIntrTableMap::TABLE_NAME)) {
-            $dbMap->addTableObject(new NotesIntrTableMap());
+        $dbMap = Propel::getServiceContainer()->getDatabaseMap(NoteIntrTableMap::DATABASE_NAME);
+        if (!$dbMap->hasTable(NoteIntrTableMap::TABLE_NAME)) {
+            $dbMap->addTableObject(new NoteIntrTableMap());
         }
     }
 
     /**
-     * Performs a DELETE on the database, given a NotesIntr or Criteria object OR a primary key value.
+     * Performs a DELETE on the database, given a NoteIntr or Criteria object OR a primary key value.
      *
-     * @param mixed               $values Criteria or NotesIntr object or primary key or array of primary keys
+     * @param mixed               $values Criteria or NoteIntr object or primary key or array of primary keys
      *              which is used to create the DELETE statement
      * @param  ConnectionInterface $con the connection to use
      * @return int             The number of affected rows (if supported by underlying database driver).  This includes CASCADE-related rows
@@ -472,17 +472,17 @@ class NotesIntrTableMap extends TableMap
      public static function doDelete($values, ConnectionInterface $con = null)
      {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NotesIntrTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteIntrTableMap::DATABASE_NAME);
         }
 
         if ($values instanceof Criteria) {
             // rename for clarity
             $criteria = $values;
-        } elseif ($values instanceof \NotesIntr) { // it's a model object
+        } elseif ($values instanceof \NoteIntr) { // it's a model object
             // create criteria based on pk values
             $criteria = $values->buildPkeyCriteria();
         } else { // it's a primary key, or an array of pks
-            $criteria = new Criteria(NotesIntrTableMap::DATABASE_NAME);
+            $criteria = new Criteria(NoteIntrTableMap::DATABASE_NAME);
             // primary key is composite; we therefore, expect
             // the primary key passed to be an array of pkey values
             if (count($values) == count($values, COUNT_RECURSIVE)) {
@@ -490,21 +490,21 @@ class NotesIntrTableMap extends TableMap
                 $values = array($values);
             }
             foreach ($values as $value) {
-                $criterion = $criteria->getNewCriterion(NotesIntrTableMap::COL_QNTYPE, $value[0]);
-                $criterion->addAnd($criteria->getNewCriterion(NotesIntrTableMap::COL_QNSEQ, $value[1]));
-                $criterion->addAnd($criteria->getNewCriterion(NotesIntrTableMap::COL_QNKEY2, $value[2]));
-                $criterion->addAnd($criteria->getNewCriterion(NotesIntrTableMap::COL_QNFORM, $value[3]));
+                $criterion = $criteria->getNewCriterion(NoteIntrTableMap::COL_QNTYPE, $value[0]);
+                $criterion->addAnd($criteria->getNewCriterion(NoteIntrTableMap::COL_QNSEQ, $value[1]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteIntrTableMap::COL_QNKEY2, $value[2]));
+                $criterion->addAnd($criteria->getNewCriterion(NoteIntrTableMap::COL_QNFORM, $value[3]));
                 $criteria->addOr($criterion);
             }
         }
 
-        $query = NotesIntrQuery::create()->mergeWith($criteria);
+        $query = NoteIntrQuery::create()->mergeWith($criteria);
 
         if ($values instanceof Criteria) {
-            NotesIntrTableMap::clearInstancePool();
+            NoteIntrTableMap::clearInstancePool();
         } elseif (!is_object($values)) { // it's a primary key, or an array of pks
             foreach ((array) $values as $singleval) {
-                NotesIntrTableMap::removeInstanceFromPool($singleval);
+                NoteIntrTableMap::removeInstanceFromPool($singleval);
             }
         }
 
@@ -519,13 +519,13 @@ class NotesIntrTableMap extends TableMap
      */
     public static function doDeleteAll(ConnectionInterface $con = null)
     {
-        return NotesIntrQuery::create()->doDeleteAll($con);
+        return NoteIntrQuery::create()->doDeleteAll($con);
     }
 
     /**
-     * Performs an INSERT on the database, given a NotesIntr or Criteria object.
+     * Performs an INSERT on the database, given a NoteIntr or Criteria object.
      *
-     * @param mixed               $criteria Criteria or NotesIntr object containing data that is used to create the INSERT statement.
+     * @param mixed               $criteria Criteria or NoteIntr object containing data that is used to create the INSERT statement.
      * @param ConnectionInterface $con the ConnectionInterface connection to use
      * @return mixed           The new primary key.
      * @throws PropelException Any exceptions caught during processing will be
@@ -534,18 +534,18 @@ class NotesIntrTableMap extends TableMap
     public static function doInsert($criteria, ConnectionInterface $con = null)
     {
         if (null === $con) {
-            $con = Propel::getServiceContainer()->getWriteConnection(NotesIntrTableMap::DATABASE_NAME);
+            $con = Propel::getServiceContainer()->getWriteConnection(NoteIntrTableMap::DATABASE_NAME);
         }
 
         if ($criteria instanceof Criteria) {
             $criteria = clone $criteria; // rename for clarity
         } else {
-            $criteria = $criteria->buildCriteria(); // build Criteria from NotesIntr object
+            $criteria = $criteria->buildCriteria(); // build Criteria from NoteIntr object
         }
 
 
         // Set the correct dbName
-        $query = NotesIntrQuery::create()->mergeWith($criteria);
+        $query = NoteIntrQuery::create()->mergeWith($criteria);
 
         // use transaction because $criteria could contain info
         // for more than one table (I guess, conceivably)
@@ -554,7 +554,7 @@ class NotesIntrTableMap extends TableMap
         });
     }
 
-} // NotesIntrTableMap
+} // NoteIntrTableMap
 // This is the static code needed to register the TableMap for this table with the main Propel class.
 //
-NotesIntrTableMap::buildTableMap();
+NoteIntrTableMap::buildTableMap();
