@@ -25,6 +25,7 @@ class InvTransferLotserial extends BaseInvTransferLotserial {
 		'linenbr'	=> 'indtline',
 		'itemid'    => 'inititemnbr',
 		'qtyReserved'   => 'insdqtyresv',
+		'qtyReceived'   => 'insdqtyresv',
 		'qtyShipped'  => 'insdqtyship',
 		'qtyNotPosted' => 'insdQtyNotPost',
 		'lotserial'  => 'insdlotser',
@@ -32,6 +33,7 @@ class InvTransferLotserial extends BaseInvTransferLotserial {
 		'binid'      => 'insdbin',
 		'binidFrom'      => 'insdbinfrom',
 		'binidTo'      => 'insdbinto',
+		'binidToWhse'  => 'insdtowhsebin',
 		'date'			=> 'dateupdtd',
 		'time'			=> 'timeupdtd',
 		// FOREIGN KEY GETS

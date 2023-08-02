@@ -33,4 +33,14 @@ class InvTransferDetailQuery extends BaseInvTransferDetailQuery {
 	public function filterByOrdn($ordn, $comparison = null) {
 		return $this->filterByInhdnbr($ordn, $comparison);
 	}
+
+	/**
+	 * Filter the query on the indttobereceived column
+	 * @param	  string $qty 	 The value to use as filter.
+	 * @param	  string $comparison Operator to use for the column comparison, defaults to Criteria::EQUAL
+	 * @return $this|ChildInvLotMasterQuery The current query, for fluid interface
+	 */
+	public function filterByQtyReceived($qty, $comparison = null) {
+		return $this->filterByIndttobercvd($qty, $comparison);
+	}
 }
