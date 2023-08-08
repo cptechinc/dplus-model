@@ -23,7 +23,8 @@ class NoteIntr extends BaseNoteIntr {
 	const COLUMN_ALIASES = array(
 		'type'        => 'ponttype',
 		'description' => 'ponttypedesc',
-		'mordn'       => 'inhdnbr',
+		'ordn'        => 'inhdnbr',
+		'line'        => 'indtline',
 		'linenbr'     => 'indtline',
 		'sequence'    => 'qnseq',
 		'note'        => 'qnnote',
