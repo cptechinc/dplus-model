@@ -43,6 +43,26 @@ class WarehouseBinQuery extends BaseWarehouseBinQuery {
 	}
 
 	/**
+	 * Filter Query on the Bnctbinfrom column
+	 * @param  mixed $binID
+	 * @param  string|null $comparison
+	 * @return self
+	 */
+	public function filterByFrom($binID = null, $comparison = null) {
+		return $this->filterByBnctbinfrom($binID, $comparison);
+	}
+
+	/**
+	 * Filter Query on the Bnctbinthru column
+	 * @param  mixed $binID
+	 * @param  string|null $comparison
+	 * @return self
+	 */
+	public function filterByThru($binID = null, $comparison = null) {
+		return $this->filterByBnctbinthru($binID, $comparison);
+	}
+
+	/**
 	 * Returns if bin is a valid bin at the warehouse according to warehouse bin rules
 	 * @param  string $whseID Warehouse ID
 	 * @param  string $binID  Bin ID
