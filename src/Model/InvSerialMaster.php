@@ -20,9 +20,11 @@ class InvSerialMaster extends BaseInvSerialMaster {
 		'itemid'       => 'inititemnbr',
 		'serialnbr'    => 'sermsernbr',
 		'lotserial'    => 'sermsernbr',
+		'reference'    => 'sermrefsernbr',
 		'ordn'         => 'sermsordnbr',
 		'ordernumber'  => 'sermsordnbr',
 		'date'         => 'dateupdtd',
-		'time'         => 'timeupdtd'
+		'time'         => 'timeupdtd',
+		'item'         => 'itemMasterItem',
 	);
 }

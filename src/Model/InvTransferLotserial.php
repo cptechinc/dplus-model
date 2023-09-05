@@ -15,6 +15,8 @@ class InvTransferLotserial extends BaseInvTransferLotserial {
 	use ThrowErrorTrait;
 	use MagicMethodTraits;
 
+	public $datecode = '';
+
 	/**
 	 * Column Aliases to lookup / get properties
 	 * @var array
