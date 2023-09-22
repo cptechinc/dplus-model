@@ -92,6 +92,7 @@ class PurchaseOrder extends BasePurchaseOrder {
 		'payto_zip'       => 'pohdptzipcode',
 		'fob'                => 'pohdfob',
 		'tax_exempt'         => 'pohdtaxexem',
+		'taxexempt'          => 'pohdtaxexem',
 		'releasenbr'         => 'pohdreleasenbr',
 		'freightpaidby'      => 'pohdcolppd',
 		'termscode'          => 'aptmtermcode',
@@ -176,6 +177,22 @@ class PurchaseOrder extends BasePurchaseOrder {
 	}
 
 	/**
+	 * Return PurchaseOrderDetail objects for this PO Number
+	 * @return PurchaseOrderDetail[]|ObjectCollection
+	 */
+	public function getItems() {
+		return PurchaseOrderDetailQuery::create()->findByPonbr($this->pohdnbr);
+	}
+
+	/**
+	 * Return Number of PurchaseOrderDetail records
+	 * @return int
+	 */
+	public function countItems() {
+		return PurchaseOrderDetailQuery::create()->filterByPonbr($this->pohdnbr)->count();
+	}
+
+	/**
 	 * Return PurchaseOrderDetailReceiving objects for this PO Number
 	 *
 	 * @return PurchaseOrderDetailReceiving[]|ObjectCollection
@@ -218,6 +235,17 @@ class PurchaseOrder extends BasePurchaseOrder {
 	 * @return float
 	 */
 	public function get_total() {
+		$q = PurchaseOrderDetailQuery::create()->filterByPonbr($this->pohdnbr);
+		$q->withColumn('sum(podtcosttot)', 'totalcost');
+		$q->select('totalcost');
+		return $q->findOne();
+	}
+
+	/**
+	 * Return The total for the Purchase Order based off the detail lines
+	 * @return float
+	 */
+	public function getTotalCost() {
 		$q = PurchaseOrderDetailQuery::create()->filterByPonbr($this->pohdnbr);
 		$q->withColumn('sum(podtcosttot)', 'totalcost');
 		$q->select('totalcost');

@@ -42,8 +42,10 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'date_expected' => 'podtexptdate',
 		'uom'           => 'intbuompur',
 		'qty_ordered'   => 'podtqtyord',
+		'qtyOrdered'    => 'podtqtyord',
 		'cost'          => 'podtcost',
 		'cost_total'    => 'podtcosttot',
+		'totalcost'     => 'podtcosttot',
 		'specialorder'  => 'podtspecordr',
 		'glaccount'     => 'podtglacct',
 		'weight'        => 'podtwghttot',
@@ -52,6 +54,7 @@ class PurchaseOrderDetail extends BasePurchaseOrderDetail {
 		'qtyduein'         => 'podtqtyduein',
 		'ordn'             => 'podtsonbr',
 		// FK
+		'item'              => 'Itmitem',
 		'itm'              => 'Itmitem',
 		'glcode'           => 'GlCode',
 	);
